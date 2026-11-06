@@ -16,3 +16,6 @@ my-list/
 
 # Local editor/assistant settings
 .claude/settings.local.json
+
+# Local Netlify folder
+.netlify
