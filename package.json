@@ -1,0 +1,35 @@
+{
+  "name": "aparna-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Aparna website - milestone M1 home-page experience",
+  "scripts": {
+    "content": "node scripts/prepare-content.mjs",
+    "cutouts": "node scripts/make-cutouts.mjs",
+    "dev": "vite",
+    "build": "npm run content && npm run cutouts && npm run rotors && vite build && node scripts/check-build.mjs",
+    "preview": "vite preview",
+    "still": "node scripts/render-fan-still.mjs",
+    "shots": "node scripts/screenshots.mjs",
+    "rotors": "node scripts/make-rotors.mjs"
+  },
+  "dependencies": {
+    "@fontsource/mukta": "^5.1.1",
+    "@fontsource/oswald": "^5.1.1",
+    "gsap": "^3.12.5",
+    "motion": "^12.23.12",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@imgly/background-removal-node": "^1.4.5",
+    "puppeteer-core": "^23.11.1",
+    "sharp": "^0.33.5",
+    "vite": "^6.0.7"
+  },
+  "overrides": {
+    "@imgly/background-removal-node": {
+      "sharp": "$sharp"
+    }
+  }
+}

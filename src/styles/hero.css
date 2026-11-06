@@ -1,0 +1,287 @@
+/* Scene 1 (hero) and Scene 2 (BLDC story).
+   One sticky stage holds the fan; the hero copy and the BLDC steps scroll over it.
+   Heights use svh, never 100vh, so iOS Safari's moving toolbar can't break the layout (brief §8). */
+
+.fan-journey { position: relative; }
+
+.fan-stage {
+  position: sticky; top: 0; z-index: 0;
+  height: 100svh; overflow: hidden;
+}
+
+/* A bright, warm room: a soft ceiling, daylight from the side, a faint flame-red warmth behind the fan. */
+.fan-stage__room {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 45% at 50% 28%, rgba(241, 90, 95, 0.09), transparent 70%),
+    radial-gradient(40% 60% at 88% 40%, rgba(255, 236, 205, 0.9), transparent 70%),
+    linear-gradient(180deg, #f3e4cf 0%, #f8ecdc 16%, var(--ivory) 42%, #fbf1e4 100%);
+}
+.fan-stage__room::before { /* the ceiling line */
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 14px;
+  background: linear-gradient(180deg, rgba(120, 80, 40, 0.12), transparent);
+}
+
+/* The premium dark of the BLDC pages. Scroll fades it in (src/scenes/fan-journey.js). */
+.fan-stage__dark {
+  position: absolute; inset: 0; opacity: var(--dark, 0);
+  background:
+    radial-gradient(55% 50% at 62% 40%, rgba(170, 100, 60, 0.28), transparent 70%),
+    var(--charcoal);
+}
+
+.fan-stage__canvas, .fan-stage__still { position: absolute; }
+.fan-stage__canvas { inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.6s ease; touch-action: pan-y; -webkit-touch-callout: none; user-select: none; }
+.is-3d .fan-stage__canvas { opacity: 1; }
+
+/* The static image of the fan: the LCP element, and what shows with no 3D. Framed to match the 3D hero. */
+/* Width and hub height mirror frameCamera() in fan-scene.js and the hero poses in fan-journey.js. */
+.fan-stage__still {
+  left: 50%; top: 30%; width: 93.5vw; height: auto; /* fan fills 92% of the image */
+  transform: translate(-50%, -62%);
+  transition: opacity 0.6s ease;
+}
+@media (min-aspect-ratio: 4/5) { .fan-stage__still { width: 67.4vw; } }
+@media (min-aspect-ratio: 13/10) { .fan-stage__still { width: 54.3vw; } }
+.is-3d .fan-stage__still { opacity: 0; }
+
+/* ---------- hero copy and controls */
+
+.hero {
+  position: relative; z-index: 2;
+  margin-top: -100svh; min-height: 100svh;
+  display: grid; align-content: end; gap: 20px;
+  padding: 0 var(--gutter) max(28px, env(safe-area-inset-bottom));
+  pointer-events: none; /* the fan underneath stays hoverable; real controls opt back in */
+}
+.hero a, .hero button, .hero label, .hero input { pointer-events: auto; }
+
+.hero__copy { display: grid; justify-items: center; text-align: center; gap: 12px; }
+.hero__title {
+  font: 600 clamp(2.4rem, min(10.5vw, 8.5svh), 5.4rem)/0.92 var(--font-display);
+  text-transform: uppercase; letter-spacing: -0.015em;
+  max-width: 13ch; text-wrap: balance;
+}
+.hero__sub { font-size: clamp(1.0625rem, 2.2vw, 1.3rem); color: var(--ink-soft); }
+.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px; }
+.hero__hint { font-size: 0.875rem; color: var(--ink-soft); }
+.hero__hint-touch { display: none; }
+@media (hover: none) { .hero__hint-mouse { display: none; } .hero__hint-touch { display: inline; } }
+
+/* Controls only make sense with the 3D fan running. */
+html:not(.js) [data-needs-3d], .no-3d [data-needs-3d] { display: none !important; }
+
+.fan-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; }
+.fan-controls legend { font: 600 0.75rem/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; padding: 0; }
+.fan-controls input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+
+/* Regulator: a dial like a real fan regulator, with steps 1 to 5. */
+.regulator { display: grid; grid-template-columns: auto auto; align-items: center; column-gap: 12px; }
+.regulator legend { grid-column: 1 / -1; }
+.regulator__dial {
+  --level: 2;
+  position: relative; width: 52px; height: 52px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #ece4d8 60%, #d8ccbc);
+  box-shadow: 0 4px 10px -4px rgba(60, 30, 10, 0.45), inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+}
+.regulator__knob {
+  position: absolute; left: 50%; top: 50%; width: 4px; height: 18px; margin: -18px 0 0 -2px; border-radius: 2px;
+  background: var(--aparna-red-deep); transform-origin: 50% 100%;
+  transform: rotate(calc(-120deg + (var(--level) - 1) * 60deg));
+  transition: transform 0.35s var(--ease-out);
+}
+.regulator__steps { display: flex; gap: 4px; }
+.regulator__step span {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  font: 600 1rem var(--font-display); cursor: pointer;
+  border: 1.5px solid var(--line); background: rgba(255, 255, 255, 0.6);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.regulator__step span:hover { border-color: var(--ink); }
+.regulator__step input:checked + span { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+.regulator__step input:focus-visible + span { outline: 3px solid var(--aparna-red-deep); outline-offset: 2px; }
+
+/* Finish switcher: the Aeroflow's four real finishes, always with their names. */
+.finishes__list { display: flex; gap: 6px; }
+.finish { display: grid; justify-items: center; gap: 4px; cursor: pointer; min-width: 56px; }
+.finish__swatch {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(28, 25, 23, 0.2);
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.12), inset 0 3px 5px rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+}
+.finish__swatch--white { background: #f5f4f1; }
+.finish__swatch--grey { background: linear-gradient(135deg, #a9acb0, #7d8084); }
+.finish__swatch--golden { background: linear-gradient(135deg, #ecc995, #c9975c); }
+.finish__swatch--wood { background: repeating-linear-gradient(100deg, #8a4e2b 0 3px, #a8673b 3px 7px, #95582f 7px 9px, #b0733f 9px 13px); }
+.finish__name { font-size: 0.75rem; font-weight: 600; color: var(--ink-soft); }
+.finish input:checked + .finish__swatch { box-shadow: 0 0 0 3px var(--ivory), 0 0 0 5px var(--ink); transform: scale(1.06); }
+.finish input:checked ~ .finish__name { color: var(--ink); }
+.finish input:focus-visible + .finish__swatch { outline: 3px solid var(--aparna-red-deep); outline-offset: 5px; }
+
+@media (min-width: 1100px) {
+  .hero { grid-template-columns: 1fr auto 1fr; align-items: end; padding-bottom: 36px; }
+  .hero__copy { grid-column: 2; }
+  .fan-controls { grid-column: 3; justify-self: end; flex-direction: column; align-items: flex-end; }
+}
+/* Phones: everything above the fold. Buttons sit side by side, the dial gives way to the 1-5 steps. */
+@media (max-width: 640px) {
+  .hero { gap: 14px; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+  .hero__copy { gap: 8px; }
+  .hero__sub { font-size: 1rem; }
+  .hero__actions { flex-wrap: nowrap; gap: 8px; width: 100%; }
+  .hero__actions .btn { flex: 1 1 0; min-height: 46px; padding: 10px 12px; font-size: 0.9375rem; text-align: center; line-height: 1.15; }
+  .hero__hint { display: none; }
+  .fan-controls { display: grid; grid-template-columns: 1fr; gap: 10px; justify-items: center; }
+  .fan-controls fieldset { display: flex; align-items: center; gap: 10px; }
+  .fan-controls legend { float: left; margin: 0; width: 52px; text-align: right; }
+  .regulator legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .regulator__dial { width: 40px; height: 40px; }
+  .regulator__knob { height: 14px; margin-top: -14px; }
+  .regulator__step span { width: 38px; height: 38px; }
+  .finishes__list { gap: 2px; }
+  .finish { min-width: 58px; }
+  .finish__swatch { width: 28px; height: 28px; }
+}
+
+/* ---------- Scene 2: the BLDC story */
+
+.bldc { position: relative; z-index: 2; color: var(--cream-ink); padding: 0 var(--gutter); }
+html:not(.js) .bldc, .no-3d .bldc { background: var(--charcoal); padding-top: 64px; padding-bottom: 32px; }
+
+.bldc__intro { min-height: 80svh; display: grid; align-content: end; gap: 10px; padding-bottom: 8svh; }
+.bldc__title { font: 600 clamp(2.4rem, 7vw, 5rem)/0.95 var(--font-display); text-transform: uppercase; max-width: 12ch; }
+.bldc__hindi { font-size: clamp(1.125rem, 2.4vw, 1.5rem); color: var(--ultra-gold); }
+
+.bldc-step { min-height: 88svh; display: flex; align-items: flex-end; padding-bottom: 10svh; }
+@media (min-width: 900px) { .bldc-step { align-items: center; padding-bottom: 0; } }
+html:not(.js) .bldc-step, .no-3d .bldc-step { min-height: 0; padding: 8px 0; }
+html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom: 24px; }
+
+.bldc-step__card {
+  width: min(100%, 420px); padding: 22px 24px; border-radius: var(--radius);
+  background: rgba(28, 25, 23, 0.72); border: 1px solid rgba(241, 200, 144, 0.22);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  display: grid; gap: 6px;
+}
+.bldc-step__num { font: 600 0.875rem/1 var(--font-display); color: var(--ultra-gold); letter-spacing: 0.1em; }
+.bldc-step__title { font: 600 clamp(1.75rem, 4.4vw, 2.75rem)/1 var(--font-display); text-transform: uppercase; }
+.bldc-step__body { color: var(--cream-soft); }
+
+/* ---------- the three BLDC models */
+
+.bldc-models {
+  position: relative; background: var(--charcoal); color: var(--cream-ink);
+  padding: clamp(64px, 10vw, 128px) var(--gutter) clamp(88px, 12vw, 150px);
+  display: grid; gap: clamp(28px, 4vw, 44px);
+  /* the last glow of the BLDC stage carries on behind the cards */
+  background-image: radial-gradient(60% 50% at 70% 0%, rgba(170, 100, 60, 0.22), transparent 70%);
+}
+.bldc-models__head { display: grid; gap: 12px; }
+.bldc-models .fine-print { color: var(--cream-soft); }
+.bldc-models__list { display: grid; gap: clamp(16px, 2vw, 24px); grid-template-columns: 1fr; }
+@media (min-width: 760px) { .bldc-models__list { grid-template-columns: repeat(3, 1fr); } }
+
+/* Product card: floats gently, tilts towards the pointer (src/scenes/products.js), opens a quick view. */
+.model-card { perspective: 1000px; cursor: pointer; animation: card-float 6s ease-in-out calc(var(--i) * -2s) infinite; }
+.model-card:hover, .model-card:focus-within { animation-play-state: paused; }
+@keyframes card-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+
+.model-card__inner {
+  height: 100%; display: grid; grid-template-rows: auto 1fr;
+  border-radius: var(--radius); overflow: hidden; transform-style: preserve-3d;
+  background: linear-gradient(180deg, #3a3532, #2f2b28);
+  border: 1px solid rgba(241, 200, 144, 0.14);
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.model-card:hover .model-card__inner { border-color: rgba(241, 200, 144, 0.4); box-shadow: 0 34px 60px -28px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(241, 200, 144, 0.08); }
+
+.model-card__media { position: relative; aspect-ratio: 4 / 3; background: #1f1c1a; overflow: hidden; }
+.model-card__img { width: 100%; height: 100%; object-fit: cover; transition: scale 0.9s var(--ease-out), filter 0.6s; }
+.model-card:hover .model-card__img { scale: 1.08; filter: saturate(1.08) brightness(1.04); }
+/* the light that follows the pointer across the card */
+.model-card__glare {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s;
+  background: radial-gradient(40% 50% at var(--gx, 50%) var(--gy, 30%), rgba(255, 240, 220, 0.28), transparent 70%);
+  mix-blend-mode: soft-light;
+}
+.model-card:hover .model-card__glare { opacity: 1; }
+.model-card__360 {
+  position: absolute; right: 12px; top: 12px; padding: 6px 12px; border-radius: 999px;
+  font: 600 0.8125rem/1 var(--font-display); letter-spacing: 0.08em;
+  background: rgba(28, 25, 23, 0.78); color: var(--ultra-gold); border: 1px solid rgba(241, 200, 144, 0.45);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.model-card__body { padding: 22px; display: grid; gap: 14px; align-content: start; }
+.model-card__name { font: 600 2.125rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; }
+.model-card__specs { display: grid; gap: 8px; font-size: 0.9375rem; }
+.model-card__specs div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 8px; }
+.model-card__specs dt { color: var(--cream-soft); }
+.model-card__specs dd { text-align: right; font-weight: 600; }
+.model-card__open { justify-self: start; margin-top: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .model-card { animation: none; }
+  .model-card__img { transition: none; }
+}
+
+/* ---------- quick view (a native <dialog>: focus is trapped and returned, Esc closes) */
+
+.preview {
+  width: min(1080px, calc(100vw - 24px)); max-height: calc(100svh - 24px);
+  padding: 0; border: 0; border-radius: calc(var(--radius) + 4px);
+  background: #2f2b28; color: var(--cream-ink);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
+  overflow: auto; overscroll-behavior: contain;
+}
+.preview::backdrop { background: rgba(20, 16, 14, 0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: backdrop-in 0.3s ease; }
+@keyframes backdrop-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .preview::backdrop { animation: none; } }
+.preview__panel { position: relative; display: grid; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .preview__panel { grid-template-columns: 1.15fr 1fr; } }
+.preview__close {
+  position: absolute; right: 12px; top: 12px; z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(28, 25, 23, 0.7); color: var(--white); font: 400 1.75rem/1 var(--font-body); cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s var(--ease-out);
+}
+.preview__close:hover { background: var(--aparna-red-deep); transform: rotate(90deg); }
+
+.preview__media { position: relative; background: radial-gradient(70% 60% at 50% 40%, #fbf1e4, #ead9c3); color: var(--ink); display: grid; align-content: start; }
+.preview__body { padding: clamp(22px, 3vw, 36px); display: grid; gap: 14px; align-content: start; }
+.preview__name { font: 600 clamp(2.25rem, 4vw, 3rem)/1 var(--font-display); text-transform: uppercase; }
+.preview__subhead { font: 600 0.8125rem/1 var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ultra-gold); margin: 4px 0 0; }
+.preview__features { display: grid; gap: 6px; }
+.preview__features li { position: relative; padding-left: 20px; color: var(--cream-soft); }
+.preview__features li::before { content: ''; position: absolute; left: 2px; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--aparna-red); }
+.preview__where { padding: 14px 16px; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+.preview__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.preview .fine-print { color: var(--cream-soft); }
+
+/* 360° viewer */
+.viewer { position: relative; aspect-ratio: 1 / 1; cursor: grab; touch-action: none; outline-offset: -4px; }
+.viewer:active { cursor: grabbing; }
+.viewer__canvas { width: 100%; height: 100%; }
+.viewer__badge {
+  position: absolute; left: 14px; top: 14px; padding: 6px 12px; border-radius: 999px;
+  font: 600 0.8125rem/1 var(--font-display); letter-spacing: 0.08em; background: var(--ink); color: var(--ultra-gold);
+}
+.viewer__hint { padding: 10px 16px 14px; text-align: center; font-size: 0.875rem; color: var(--ink-soft); }
+.viewer .viewer__hint { position: absolute; inset: auto 0 0 0; transition: opacity 0.4s; }
+.viewer.is-used .viewer__hint { opacity: 0; }
+.viewer__fallback, .preview__media--3d .viewer { display: none; }
+.preview__media--3d.has-viewer .viewer { display: block; }
+.preview__media--3d.no-viewer .viewer__fallback { display: block; }
+.preview__media--3d:not(.has-viewer):not(.no-viewer) .viewer { display: block; } /* loading */
+.viewer__fallback img { width: 100%; height: auto; }
+.finishes--viewer { padding: 0 16px 16px; justify-self: center; }
+.finishes--viewer legend { font: 600 0.75rem/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin: 0 auto 8px; }
+.finishes--viewer input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+
+/* Close-up lens for posters */
+.lens { overflow: hidden; cursor: zoom-in; }
+.lens__img { width: 100%; height: auto; transition: scale 0.45s var(--ease-out); }
+.lens.is-zoomed { cursor: zoom-out; }
+.lens.is-zoomed .lens__img { scale: 2.1; }
+@media (hover: none) { [data-needs-hover] { display: none; } }

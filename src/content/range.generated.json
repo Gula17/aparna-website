@@ -1,0 +1,358 @@
+{
+  "_generated": "From aparna-products.json by scripts/prepare-content.mjs. Do not edit by hand.",
+  "categories": [
+    {
+      "name": "Ceiling Fans",
+      "slug": "ceiling-fans",
+      "count": 86,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Table, Wall & Pedestal Fans",
+      "slug": "table-wall-and-pedestal-fans",
+      "count": 19,
+      "onlyLaunch": false
+    },
+    {
+      "name": "All-Purpose & Cabin Fans",
+      "slug": "all-purpose-and-cabin-fans",
+      "count": 8,
+      "onlyLaunch": false
+    },
+    {
+      "name": "High-Speed Fans",
+      "slug": "high-speed-fans",
+      "count": 13,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Ventilation & Fresh-Air Fans",
+      "slug": "ventilation-and-fresh-air-fans",
+      "count": 5,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Air Coolers",
+      "slug": "air-coolers",
+      "count": 15,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Washing Machines",
+      "slug": "washing-machines",
+      "count": 1,
+      "onlyLaunch": true
+    },
+    {
+      "name": "Kitchen Appliances",
+      "slug": "kitchen-appliances",
+      "count": 25,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Heating & Water",
+      "slug": "heating-and-water",
+      "count": 18,
+      "onlyLaunch": false
+    },
+    {
+      "name": "Electric Irons",
+      "slug": "electric-irons",
+      "count": 11,
+      "onlyLaunch": false
+    }
+  ],
+  "bldc": [
+    {
+      "id": "ceiling-fans-aeroflow-48",
+      "name": "Aeroflow",
+      "sizeMm": 1200,
+      "sizeInch": 48,
+      "power": "35 W",
+      "warranty": "3 years",
+      "colours": [
+        "White",
+        "Grey",
+        "Golden",
+        "Wood Craft"
+      ],
+      "badges": [
+        "BLDC",
+        "Remote control",
+        "5-star (BEE Energy Savings Guide)"
+      ],
+      "features": [
+        "Brushless DC (BLDC) inverter-technology motor",
+        "Remote control",
+        "3X less power consumption",
+        "Double ball bearing",
+        "Anti-dust",
+        "3 years warranty"
+      ],
+      "image": "bldc-ceiling-fans-aeroflow-48"
+    },
+    {
+      "id": "ceiling-fans-aerosleek-48",
+      "name": "Aerosleek",
+      "sizeMm": 1200,
+      "sizeInch": 48,
+      "power": "35 W",
+      "warranty": "3 years",
+      "colours": [],
+      "badges": [
+        "BLDC",
+        "Remote control",
+        "5-star (BEE Energy Savings Guide)"
+      ],
+      "features": [
+        "Brushless DC (BLDC) inverter-technology motor",
+        "Remote control",
+        "3X less power consumption",
+        "Double ball bearing",
+        "Anti-dust",
+        "3 years warranty"
+      ],
+      "image": "bldc-ceiling-fans-aerosleek-48"
+    },
+    {
+      "id": "ceiling-fans-ikon-bldc-48",
+      "name": "Ikon BLDC",
+      "sizeMm": 1200,
+      "sizeInch": 48,
+      "power": "35 W",
+      "warranty": "3 years",
+      "colours": [],
+      "badges": [
+        "BLDC",
+        "Remote control",
+        "5-star (BEE Energy Savings Guide)"
+      ],
+      "features": [
+        "Brushless DC (BLDC) inverter-technology motor",
+        "Remote control",
+        "3X less power consumption",
+        "Double ball bearing",
+        "Anti-dust",
+        "3 years warranty"
+      ],
+      "image": "bldc-ceiling-fans-ikon-bldc-48"
+    }
+  ],
+  "bldcSharedPower": "35 W",
+  "media": {
+    "station-ceiling": {
+      "alt": "A row of Aparna ceiling fan motors and blades in black, copper, cream and white",
+      "position": "50% 60%",
+      "variants": [
+        {
+          "file": "/media/station-ceiling-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-ceiling-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-table": {
+      "alt": "Two Aparna table fans, one teal and one white",
+      "position": "50% 45%",
+      "variants": [
+        {
+          "file": "/media/station-table-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-table-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-highspeed": {
+      "alt": "Aparna farratta, bullet, wall and table fans in front of the Cool Comfort backdrop",
+      "position": "50% 40%",
+      "variants": [
+        {
+          "file": "/media/station-highspeed-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-highspeed-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-ventilation": {
+      "alt": "Aparna ventilation fans in white and black",
+      "position": "55% 55%",
+      "variants": [
+        {
+          "file": "/media/station-ventilation-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-ventilation-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-coolers": {
+      "alt": "Four Aparna air coolers in orange, white, grey and teal",
+      "position": "50% 60%",
+      "variants": [
+        {
+          "file": "/media/station-coolers-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-coolers-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-washing": {
+      "alt": "A row of new Aparna semi-automatic washing machines at their launch",
+      "position": "50% 55%",
+      "variants": [
+        {
+          "file": "/media/station-washing-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-washing-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-kitchen": {
+      "alt": "Aparna infrared cooktops and G-coil hot plates on a display table",
+      "position": "50% 80%",
+      "variants": [
+        {
+          "file": "/media/station-kitchen-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-kitchen-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-heating": {
+      "alt": "An Aparna room heater and immersion rods on a display table",
+      "position": "60% 70%",
+      "variants": [
+        {
+          "file": "/media/station-heating-800.webp",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "file": "/media/station-heating-1600.webp",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    "station-irons": {
+      "alt": "Catalogue page showing the Aparna range of light-weight electric irons",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "file": "/media/station-irons-800.webp",
+          "width": 800,
+          "height": 842
+        },
+        {
+          "file": "/media/station-irons-1600.webp",
+          "width": 864,
+          "height": 909
+        }
+      ]
+    },
+    "logo-tile": {
+      "alt": "Aparna",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "file": "/media/logo-tile-240.png",
+          "width": 240,
+          "height": 180
+        },
+        {
+          "file": "/media/logo-tile-480.png",
+          "width": 480,
+          "height": 360
+        }
+      ]
+    },
+    "bldc-ceiling-fans-aeroflow-48": {
+      "alt": "Aparna Aeroflow BLDC ceiling fan poster",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "file": "/media/bldc-ceiling-fans-aeroflow-48-640.webp",
+          "width": 640,
+          "height": 479
+        },
+        {
+          "file": "/media/bldc-ceiling-fans-aeroflow-48-1200.webp",
+          "width": 1200,
+          "height": 899
+        }
+      ]
+    },
+    "bldc-ceiling-fans-aerosleek-48": {
+      "alt": "Aparna Aerosleek BLDC ceiling fan poster",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "file": "/media/bldc-ceiling-fans-aerosleek-48-640.webp",
+          "width": 640,
+          "height": 479
+        },
+        {
+          "file": "/media/bldc-ceiling-fans-aerosleek-48-1200.webp",
+          "width": 1200,
+          "height": 899
+        }
+      ]
+    },
+    "bldc-ceiling-fans-ikon-bldc-48": {
+      "alt": "Aparna Ikon BLDC BLDC ceiling fan poster",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "file": "/media/bldc-ceiling-fans-ikon-bldc-48-640.webp",
+          "width": 640,
+          "height": 479
+        },
+        {
+          "file": "/media/bldc-ceiling-fans-ikon-bldc-48-1200.webp",
+          "width": 1200,
+          "height": 899
+        }
+      ]
+    }
+  },
+  "downloads": {
+    "catalogue": {
+      "file": "/downloads/aparna-catalogue.pdf",
+      "sizeMb": 16
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "_read_me": "Every visible string on the home page. Hindi (hi) and Marathi (mr) files will sit beside this one with the same keys. Lines in [brackets] are placeholders still to confirm (see PLACEHOLDERS.md).",
+  "lang": "en",
+  "meta": {
+    "title": "Aparna | Fans and home appliances since 1991",
+    "description": "Aparna ceiling fans, BLDC fans, table, wall and pedestal fans, air coolers, washing machines, kitchen appliances, heaters and irons. Ask for Aparna at your nearest electrical shop."
+  },
+  "skipLink": "Skip to content",
+  "nav": {
+    "label": "Main",
+    "home": "Aparna home",
+    "range": "The range",
+    "bldc": "BLDC fans",
+    "catalogue": "Catalogue",
+    "products": "Products",
+    "allProducts": "All products",
+    "myList": "My list"
+  },
+  "loader": {
+    "label": "Loading Aparna",
+    "skip": "Skip intro"
+  },
+  "preview": {
+    "quickView": "Quick view",
+    "quickViewLabel": "Quick view: {name}",
+    "view360": "360° view",
+    "viewerLabel": "360° view of the {name}. Drag, or use the arrow keys, to turn it.",
+    "dragHint": "Drag to turn it all the way round",
+    "photoHint": "Move over the poster to look closer",
+    "noViewer": "The 3D view isn't available on this device, so here is the poster.",
+    "features": "Features",
+    "share": "Share on WhatsApp",
+    "shareText": "Aparna {name} BLDC ceiling fan. Ask for Aparna at your nearest electrical shop:",
+    "close": "Close",
+    "fullDetails": "View full details"
+  },
+  "hero": {
+    "eyebrow": "Aeroflow BLDC · Wood Craft",
+    "title": "Powerful Breeze, Peaceful Life.",
+    "subtitle": "Fans and home appliances. Aparna, since 1991.",
+    "ctaRange": "Explore the range",
+    "ctaCatalogue": "Download the catalogue",
+    "fanAlt": "The Aparna Aeroflow BLDC ceiling fan, turning slowly",
+    "hint": "Hover or drag the fan to feel the breeze",
+    "hintTouch": "Press and hold the fan to feel the breeze",
+    "regulator": "Speed",
+    "regulatorLabel": "Fan speed, 1 to 5",
+    "finish": "Finish",
+    "finishes": {
+      "white": "White",
+      "grey": "Grey",
+      "golden": "Golden",
+      "wood": "Wood Craft"
+    }
+  },
+  "bldc": {
+    "eyebrow": "BLDC fans",
+    "title": "Smart living starts at home.",
+    "hindi": "बिजली की बचत लाने वाला क्रांतिकारी बदलाव",
+    "steps": [
+      {
+        "key": "motor",
+        "title": "BLDC",
+        "body": "Brushless DC, inverter-technology motor."
+      },
+      {
+        "key": "power",
+        "title": "{power}",
+        "body": "Power consumption of the Aeroflow, Aerosleek and Ikon BLDC, as per the spec sheet."
+      },
+      {
+        "key": "saving",
+        "title": "3X less power consumption",
+        "body": "The catalogue's figure for Aparna BLDC fans."
+      },
+      {
+        "key": "remote",
+        "title": "Remote control",
+        "body": "Change speed from your bed or sofa."
+      },
+      {
+        "key": "bearing",
+        "title": "Double ball bearing · Anti-dust",
+        "body": "Smooth, quiet running that stays clean."
+      },
+      {
+        "key": "warranty",
+        "title": "3 years warranty",
+        "body": "With the 5-star Energy Savings Guide mark."
+      }
+    ],
+    "modelsTitle": "Three BLDC models",
+    "sweep": "Sweep",
+    "power": "Power",
+    "warranty": "Warranty",
+    "colours": "Colours",
+    "seeModel": "See {name}"
+  },
+  "range": {
+    "eyebrow": "Ek naam, poori range",
+    "title": "One name, the whole range.",
+    "intro": "From ceiling fans to coolers, cooktops to irons.",
+    "models": "{count} models",
+    "newLaunch": "New launch",
+    "modelsToCome": "Models coming soon",
+    "seeAll": "See all",
+    "seeAllLabel": "See all {name}",
+    "endTitle": "Ek naam, poori range.",
+    "endSub": "Pankhe se lekar cooler tak. From fans to coolers.",
+    "progress": "Station {n} of {total}"
+  },
+  "stations": [
+    {
+      "id": "ceiling",
+      "category": "Ceiling Fans",
+      "name": "Ceiling fans",
+      "line": "BLDC, Signature, Silver and Ultra Gold Series, and a new premium range.",
+      "image": "station-ceiling",
+      "moment": "blades"
+    },
+    {
+      "id": "table",
+      "category": "Table, Wall & Pedestal Fans",
+      "name": "Table, wall & pedestal",
+      "line": "Cool comfort, wherever you stand.",
+      "image": "station-table",
+      "moment": "oscillate"
+    },
+    {
+      "id": "highspeed",
+      "category": "High-Speed Fans",
+      "name": "High-speed fans",
+      "line": "Bullet and farratta fans. It's not just fast, it's super fast.",
+      "image": "station-highspeed",
+      "moment": "gust"
+    },
+    {
+      "id": "ventilation",
+      "category": "Ventilation & Fresh-Air Fans",
+      "name": "Ventilation & fresh-air",
+      "line": "Strong air suction for clean and fresh air.",
+      "image": "station-ventilation",
+      "moment": "louvres"
+    },
+    {
+      "id": "coolers",
+      "category": "Air Coolers",
+      "name": "Air coolers",
+      "line": "Cool air, cool vibes: har kona banaye paradise!",
+      "image": "station-coolers",
+      "moment": "mist"
+    },
+    {
+      "id": "washing",
+      "category": "Washing Machines",
+      "name": "Washing machines",
+      "line": "Semi-automatic washing machines, launched at Utsav '26.",
+      "image": "station-washing",
+      "moment": "drum"
+    },
+    {
+      "id": "kitchen",
+      "category": "Kitchen Appliances",
+      "name": "Kitchen",
+      "line": "Infrared cooktops and G-coil hot plates.",
+      "image": "station-kitchen",
+      "moment": "coil"
+    },
+    {
+      "id": "heating",
+      "category": "Heating & Water",
+      "name": "Heating & water",
+      "line": "हर पल गर्माहट का एहसास! Room heaters, instant water heaters and immersion rods.",
+      "image": "station-heating",
+      "moment": "glow"
+    },
+    {
+      "id": "irons",
+      "category": "Electric Irons",
+      "name": "Electric irons",
+      "line": "Tension-free ironing for wrinkle-free clothes.",
+      "image": "station-irons",
+      "moment": "steam"
+    }
+  ],
+  "whereToBuy": {
+    "title": "Where to buy",
+    "body": "Aparna is sold through its dealers across India. Ask for Aparna at your nearest electrical shop."
+  },
+  "catalogue": {
+    "title": "Catalogue 2026",
+    "body": "Every model in one place. PDF, {size} MB.",
+    "cta": "Download the catalogue"
+  },
+  "footer": {
+    "categories": "The range",
+    "follow": "Follow Aparna",
+    "copyright": "© [Company name]",
+    "madeIn": "Made in India [to confirm]",
+    "tolerance": "Specifications are subject to a ±10% tolerance.",
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "youtube": "YouTube",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "noscript": "This page works without JavaScript. Turn it on to see the fan turn in 3D.",
+  "products": {
+    "title": "All products",
+    "lead": "The whole Aparna range: {count} models in {categories} categories.",
+    "search": "Search products",
+    "searchPlaceholder": "Search by name, series or type",
+    "filters": "Filters",
+    "category": "Category",
+    "series": "Series",
+    "type": "Type",
+    "size": "Size",
+    "colour": "Colour",
+    "show": "Show",
+    "newOnly": "New launches and new models",
+    "clear": "Clear all",
+    "sort": "Sort by",
+    "sortFeatured": "Featured",
+    "sortName": "Name A–Z",
+    "sortNameDesc": "Name Z–A",
+    "sortSizeAsc": "Size: small to large",
+    "sortSizeDesc": "Size: large to small",
+    "sortNew": "Newest first",
+    "results": "{count} products",
+    "result1": "1 product",
+    "none": "No products match. Try removing a filter.",
+    "viewDetails": "View details",
+    "save": "Save to my list",
+    "saved": "Saved",
+    "saveLabel": "Save {name} to my list",
+    "newLaunch": "New launch",
+    "newModel": "New",
+    "photoSoon": "Photo coming soon",
+    "morePhotos": "More photos coming soon",
+    "showFilters": "Filters",
+    "done": "Show {count} products",
+    "where": "Aparna is sold through its dealers. Ask for Aparna at your nearest electrical or electronics shop."
+  },
+  "product": {
+    "home": "Home",
+    "products": "Products",
+    "series": "Series",
+    "category": "Category",
+    "type": "Type",
+    "size": "Size",
+    "model": "Model number",
+    "toConfirm": "To be confirmed",
+    "colours": "Colours",
+    "selectedColour": "Selected: {colour}",
+    "colourNote": "Screen colours are approximate. Photos of each colour are coming soon.",
+    "specs": "Specifications",
+    "noSpecs": "Specifications for this model are coming soon.",
+    "features": "Features",
+    "description": "About this model",
+    "catalogueRef": "In Catalogue 2026 on pages {pages}",
+    "related": "More from the same series",
+    "relatedCategory": "More {category}",
+    "gallery": "Product images",
+    "imageN": "Image {n} of {total}",
+    "prev": "Previous image",
+    "next": "Next image",
+    "kind": {
+      "photo": "Photo",
+      "poster": "Poster",
+      "catalogue": "Catalogue page"
+    },
+    "detailsSoon": "This is a new model. Photos and full details are on their way from Aparna.",
+    "view360": "360° view"
+  },
+  "list": {
+    "title": "My list",
+    "lead": "Models you have saved. Show this list at your nearest electrical shop, or send it on WhatsApp.",
+    "empty": "Your list is empty. Tap the heart on any product to save it here.",
+    "browse": "Browse all products",
+    "share": "Share my list on WhatsApp",
+    "shareIntro": "My Aparna list:",
+    "remove": "Remove",
+    "removeLabel": "Remove {name} from my list",
+    "clear": "Clear my list",
+    "colour": "Colour"
+  },
+  "categoryLines": {
+    "Ceiling Fans": "BLDC, Signature, Silver and Ultra Gold Series, and a new premium range.",
+    "Table, Wall & Pedestal Fans": "Cool comfort, wherever you stand.",
+    "All-Purpose & Cabin Fans": "All-purpose, cabin and AC-DC table fans.",
+    "High-Speed Fans": "Bullet and farratta fans. It's not just fast, it's super fast.",
+    "Ventilation & Fresh-Air Fans": "Strong air suction for clean and fresh air.",
+    "Air Coolers": "Cool air, cool vibes: har kona banaye paradise!",
+    "Washing Machines": "Semi-automatic washing machines, launched at Utsav '26.",
+    "Kitchen Appliances": "Infrared cooktops and G-coil hot plates.",
+    "Heating & Water": "Room heaters, instant water heaters, immersion rods and elements.",
+    "Electric Irons": "Tension-free ironing for wrinkle-free clothes."
+  },
+  "showroom": {
+    "eyebrow": "The Aparna showroom",
+    "byCategory": "Browse by category",
+    "models": "{count} models",
+    "model": "model",
+    "modelsWord": "models",
+    "spotlight": "In the spotlight:",
+    "newOnly": "New launches",
+    "closeFilters": "Close filters",
+    "browseAll": "Browse all {count} products",
+    "showcaseEyebrow": "Featured in the showroom",
+    "showcaseTitle": "Meet the range",
+    "showcaseLead": "A closer look at four Aparna favourites, from the ceiling to the kitchen.",
+    "real3d": "Real-time 3D: drag to turn it",
+    "keyNumbers": "Key numbers",
+    "cutoutCaption": "{source}, background removed",
+    "sizeLabel": "Sweep / size",
+    "whereTitle": "Where to find it"
+  }
+}

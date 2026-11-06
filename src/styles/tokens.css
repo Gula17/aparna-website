@@ -1,0 +1,43 @@
+/* Brand tokens: copied from the pack's 01_Brand/brand-tokens.css. Change brand colours here only. */
+:root {
+  --aparna-red: #EC3237;      /* Primary. Large text and shapes only when white sits on it. */
+  --aparna-red-deep: #B61F26; /* Hover, deep sections, small red text. */
+  --aparna-red-dark: #8A161C; /* Footer. */
+  --flame-tint: #F15A5F;      /* Large soft shapes only, never text. */
+  --emblem-silver: #E4E5E7;
+  --ink: #1C1917;
+  --charcoal: #2A2624;        /* BLDC (premium) sections. */
+  --ivory: #FFF8EF;           /* Default page background. */
+  --catalogue-beige: #EBDAC2;
+  --ultra-gold: #F1C890;
+  --marigold: #FF9F1C;        /* Festive accent: Utsav '26 only. */
+  --white: #FFFFFF;
+}
+
+/* Site tokens built on the brand tokens. */
+:root {
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif-condensed, sans-serif;
+  --font-body: 'Mukta', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ink-soft: #57504b;
+  --line: rgba(28, 25, 23, 0.12);
+  --cream-ink: #f6eee4;
+  --cream-soft: rgba(246, 238, 228, 0.74);
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 18px 50px -24px rgba(60, 30, 10, 0.35);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Showroom (catalogue pages): neutral studio light instead of beige, a dark stage for the showcase. */
+  --studio: #F3F2F0;
+  --studio-deep: #E7E5E1;
+  --stage-light: #FFFFFF;
+  --stage-dark: #131110;
+  --glass: rgba(255, 255, 255, 0.68);
+  --glass-line: rgba(255, 255, 255, 0.7);
+  --glass-dark: rgba(255, 255, 255, 0.07);
+  --glass-dark-line: rgba(255, 255, 255, 0.12);
+}

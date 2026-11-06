@@ -1,0 +1,53 @@
+{
+  "_read_me": "Every image the site uses, keyed by a short name. 'src' is relative to the build pack. Swap a file here (e.g. when studio photos arrive) and run `npm run content`; no code changes needed. 'crop' is an optional [left, top, width, height] box in source pixels. 'position' is the CSS object-position used when the image is cropped to fit its frame.",
+  "station-ceiling": {
+    "src": "05_Product_Photos_Real/Ceiling fans/full display row of blades and motors (hero) - AVNI4501.jpg",
+    "alt": "A row of Aparna ceiling fan motors and blades in black, copper, cream and white",
+    "position": "50% 60%"
+  },
+  "station-table": {
+    "src": "05_Product_Photos_Real/Table wall pedestal fans/teal and white table fans (hero) - AVNI4506.jpg",
+    "alt": "Two Aparna table fans, one teal and one white",
+    "position": "50% 45%"
+  },
+  "station-highspeed": {
+    "src": "05_Product_Photos_Real/High speed fans/farratta, bullet, wall and table fans, Cool Comfort backdrop - AVNI4537.jpg",
+    "alt": "Aparna farratta, bullet, wall and table fans in front of the Cool Comfort backdrop",
+    "position": "50% 40%"
+  },
+  "station-ventilation": {
+    "src": "05_Product_Photos_Real/Ventilation fans/white and black exhaust fans - AVNI4471.jpg",
+    "alt": "Aparna ventilation fans in white and black",
+    "position": "55% 55%"
+  },
+  "station-coolers": {
+    "src": "05_Product_Photos_Real/Air coolers/four coolers in orange, white and teal (hero) - AVNI4398.jpg",
+    "alt": "Four Aparna air coolers in orange, white, grey and teal",
+    "position": "50% 60%"
+  },
+  "station-washing": {
+    "src": "05_Product_Photos_Real/Washing machines/semi-automatic new launch row (hero) - AVNI4401.jpg",
+    "alt": "A row of new Aparna semi-automatic washing machines at their launch",
+    "position": "50% 55%"
+  },
+  "station-kitchen": {
+    "src": "05_Product_Photos_Real/Kitchen/infra cooktops and G-coil hot plates - AVNI4514.jpg",
+    "alt": "Aparna infrared cooktops and G-coil hot plates on a display table",
+    "position": "50% 80%"
+  },
+  "station-heating": {
+    "src": "05_Product_Photos_Real/Heating and irons/room heater, dry irons and a cooktop - AVNI4508.jpg",
+    "alt": "An Aparna room heater and immersion rods on a display table",
+    "position": "60% 70%"
+  },
+  "station-irons": {
+    "src": "02_Catalogue_2026/pages/page-57.jpg",
+    "alt": "Catalogue page showing the Aparna range of light-weight electric irons",
+    "position": "50% 50%"
+  },
+  "logo-tile": {
+    "src": "01_Brand/logo/aparna-logo-on-red-2400x1800.png",
+    "alt": "Aparna",
+    "widths": [240, 480]
+  }
+}

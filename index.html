@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="%LANG%">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>%TITLE%</title>
+    <meta name="description" content="%DESCRIPTION%">
+    <!-- Preview only: stays out of search until Gage Labs approves launch (brief §3.10). -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#EC3237">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:title" content="%TITLE%">
+    <meta property="og:description" content="%DESCRIPTION%">
+    <meta property="og:image" content="/media/logo-tile-480.png">
+    <script>
+      // Runs before first paint: mark JS as on, and decide whether to play the intro
+      // (first visit in this tab only, and never with reduced motion).
+      (function () {
+        var html = document.documentElement;
+        html.classList.add('js');
+        var seen = false;
+        try { seen = sessionStorage.getItem('aparna-intro-seen') === '1'; } catch (e) {}
+        var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!seen && !calm) html.classList.add('intro');
+      })();
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <!--app-->
+  </body>
+</html>

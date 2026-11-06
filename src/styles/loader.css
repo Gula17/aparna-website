@@ -1,0 +1,83 @@
+/* Scene 0: the 3D loading screen. It is see-through: the hero's warm room and, once three.js arrives,
+   the real spinning 3D fan show behind the emblem. Only shown when the head script adds .intro
+   (first visit in a tab, motion allowed). */
+
+.loader { display: none; }
+
+.intro .loader {
+  position: fixed; inset: 0; z-index: 50;
+  display: grid; place-items: center;
+  /* Safety net: even if every script fails, the page is never held longer than 3 s (brief §5, Scene 0). */
+  animation: loader-safety 0.3s 3s forwards;
+}
+@keyframes loader-safety { to { opacity: 0; visibility: hidden; } }
+
+/* Before the 3D fan is ready the still image stays hidden, so the emblem is the only thing on stage. */
+.intro .fan-stage__still { opacity: 0; }
+
+.loader__mark {
+  width: min(36vw, 150px);
+  transform: translate(var(--tx, 0), var(--ty, 0)) scale(var(--s, 1));
+  transition: transform 0.6s var(--ease-out), opacity 0.35s ease 0.25s;
+}
+.loader__emblem { width: 100%; height: auto; overflow: visible; }
+
+/* the silver ring draws round the disc */
+.loader__ring-path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ring-draw 0.8s 0.2s var(--ease-out) forwards; }
+@keyframes ring-draw { to { stroke-dashoffset: 0; } }
+
+/* the red disc settles in */
+.loader__disc { transform-box: fill-box; transform-origin: center; animation: disc-in 0.5s var(--ease-out) both; }
+@keyframes disc-in { from { transform: scale(0.6); opacity: 0; } }
+
+/* the flame lights, then flickers softly */
+.loader__flame {
+  transform-box: fill-box; transform-origin: 50% 70%;
+  animation: flame-light 0.45s 0.15s ease-out both, flame-flicker 1.6s 0.6s ease-in-out infinite;
+}
+@keyframes flame-light { from { opacity: 0; transform: scale(0.4); } }
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1, 1) skewX(0deg); }
+  30% { transform: scale(0.97, 1.04) skewX(-1.5deg); }
+  60% { transform: scale(1.02, 0.97) skewX(1deg); }
+}
+
+/* The wordmark (the emblem is already on screen, so the wordmark stands alone: brief §4.1),
+   the percentage and a thin progress line. */
+.loader__foot {
+  position: absolute; left: 50%; bottom: max(9svh, 56px); translate: -50% 0;
+  display: grid; justify-items: center; gap: 10px;
+  animation: foot-in 0.6s 0.25s var(--ease-out) both;
+  transition: opacity 0.45s ease, translate 0.6s var(--ease-out);
+}
+@keyframes foot-in { from { opacity: 0; translate: -50% 14px; } }
+.loader__wordmark { display: block; width: 132px; aspect-ratio: 835 / 270; overflow: hidden; }
+.loader__wordmark img { width: 100%; height: auto; margin-top: calc(-330 / 835 * 100%); } /* show the wordmark half of the shared box */
+.loader__pct {
+  font: 600 1.5rem/1 var(--font-display); letter-spacing: 0.04em; color: var(--ink);
+  font-variant-numeric: tabular-nums; min-width: 4ch; text-align: center;
+}
+.loader__bar { width: 132px; height: 2px; border-radius: 2px; background: rgba(28, 25, 23, 0.12); overflow: hidden; }
+.loader__fill { display: block; height: 100%; width: calc(var(--progress, 0) * 100%); background: var(--aparna-red); }
+
+.loader__skip {
+  position: absolute; right: 16px; bottom: max(16px, env(safe-area-inset-bottom));
+  min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--ink-soft); font: 600 0.9375rem var(--font-body); cursor: pointer;
+  transition: opacity 0.3s;
+}
+.loader__skip:hover { color: var(--ink); background: rgba(28, 25, 23, 0.06); }
+
+/* Hand-off: the emblem shrinks onto the 3D hub and fades as the blades unfold out of it. */
+.loader.is-handoff .loader__mark { opacity: 0; }
+/* Exit: the wordmark and percentage drop away while the camera pulls back into the hero. */
+.loader.is-exiting { pointer-events: none; }
+.loader.is-exiting .loader__mark { opacity: 0; }
+.loader.is-exiting .loader__foot { opacity: 0; translate: -50% 24px; }
+.loader.is-exiting .loader__skip { opacity: 0; }
+.loader.is-done { display: none !important; }
+
+/* While the intro plays, keep the page back so the fan is the whole stage. */
+.intro .hero__copy, .intro .fan-controls, .intro .site-header { opacity: 0; animation: reveal-safety 0.3s 3s forwards; }
+@keyframes reveal-safety { to { opacity: 1; } }
+.hero__copy, .fan-controls, .site-header { transition: opacity 0.6s ease 0.2s; }

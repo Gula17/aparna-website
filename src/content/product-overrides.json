@@ -1,0 +1,3 @@
+{
+  "_read_me": "Per-product additions that are not in aparna-products.json yet. Keyed by product id. Supported fields: description, modelNumber."
+}

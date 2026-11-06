@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- Dev tool, not part of the site: renders the 3D fan once on a transparent background.
+     scripts/render-fan-still.mjs screenshots it into public/media/fan-still.png. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>Fan still</title>
+    <style>
+      html, body { margin: 0; background: transparent; }
+      canvas { width: 1200px; height: 900px; display: block; }
+    </style>
+  </head>
+  <body>
+    <canvas id="still"></canvas>
+    <script type="module">
+      import { createFanScene } from '/src/three/fan-scene.js';
+      const params = new URLSearchParams(location.search);
+      const fan = createFanScene(document.getElementById('still'), { still: true });
+      // Same framing the stylesheet assumes: hub at 62% height, fan across 92% of the width.
+      Object.assign(fan.pose, { elevation: -0.42, zoom: 1, screenX: 0.5, screenY: 0.62, fill: 0.92, air: 0 });
+      // Optional overrides for checking the model, e.g. ?elevation=-1.3&zoom=2&screenY=0.5
+      for (const key of ['elevation', 'zoom', 'screenY', 'roll']) {
+        if (params.has(key)) fan.pose[key] = Number(params.get(key));
+      }
+      fan.setFinish(params.get('finish') || 'wood');
+      fan.render();
+      document.body.dataset.ready = '1';
+    </script>
+  </body>
+</html>

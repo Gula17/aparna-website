@@ -1,0 +1,1843 @@
+{
+    "_read_me": "Where each product appears in Catalogue 2026: page file (02_Catalogue_2026/pages) and crop box [left, top, width, height]. Made by locating every model on its printed page and checking each crop by eye. Low-confidence matches were left out. Replace an entry with real studio photos when they arrive.",
+    "ceiling-fans-coral-48": {
+        "page": "page-09.jpg",
+        "crop": [
+            125,
+            235,
+            580,
+            390
+        ],
+        "label": "CORAL Ceiling Fan 1200mm 48\"",
+        "confidence": "high",
+        "note": "Full-page hero; crop includes the CORAL title"
+    },
+    "ceiling-fans-rosa-48": {
+        "page": "page-08.jpg",
+        "crop": [
+            255,
+            470,
+            360,
+            390
+        ],
+        "label": "ROSA Ceiling Fan 1200mm (48\")",
+        "confidence": "high",
+        "note": "Excludes the large motor close-up on the left and the IKON fan on the top half"
+    },
+    "ceiling-fans-croma-pro-48": {
+        "page": "page-24.jpg",
+        "crop": [
+            138,
+            60,
+            702,
+            375
+        ],
+        "label": "CROMA PRO",
+        "confidence": "high",
+        "note": "Partial 'GOLD SERIES' heading text visible top-left (text only, no other product)"
+    },
+    "ceiling-fans-aspire-48": {
+        "page": "page-24.jpg",
+        "crop": [
+            75,
+            450,
+            290,
+            290
+        ],
+        "label": "ASPIRE",
+        "confidence": "medium",
+        "note": "Fans on this row overlap; tip of Aspire's right blade slightly cut"
+    },
+    "ceiling-fans-lotus-deco-48": {
+        "page": "page-24.jpg",
+        "crop": [
+            345,
+            452,
+            262,
+            293
+        ],
+        "label": "LOTUS DECO",
+        "confidence": "medium",
+        "note": "Blades interleave with neighbours: a fragment of Aspire's blade shows top-left and Lotus's right blade tip is cut"
+    },
+    "ceiling-fans-smart-deco-48": {
+        "page": "page-24.jpg",
+        "crop": [
+            603,
+            470,
+            229,
+            275
+        ],
+        "label": "SMART DECO",
+        "confidence": "medium",
+        "note": "Small fragment of Lotus Deco's blade tip visible top-left (unavoidable overlap)"
+    },
+    "ceiling-fans-fortune-pro-48": {
+        "page": "page-25.jpg",
+        "crop": [
+            50,
+            45,
+            600,
+            350
+        ],
+        "label": "FORTUNE PRO",
+        "confidence": "high"
+    },
+    "ceiling-fans-runner-48": {
+        "page": "page-25.jpg",
+        "crop": [
+            410,
+            345,
+            310,
+            255
+        ],
+        "label": "RUNNER",
+        "confidence": "high"
+    },
+    "ceiling-fans-orina-48": {
+        "page": "page-25.jpg",
+        "crop": [
+            35,
+            515,
+            340,
+            240
+        ],
+        "label": "ORINA",
+        "confidence": "high"
+    },
+    "ceiling-fans-aroma-deco-48": {
+        "page": "page-25.jpg",
+        "crop": [
+            425,
+            605,
+            295,
+            210
+        ],
+        "label": "AROMA DECO",
+        "confidence": "high"
+    },
+    "high-speed-fans-bullet-oscillating-12": {
+        "page": "page-44.jpg",
+        "crop": [
+            195,
+            295,
+            225,
+            614
+        ],
+        "label": "12\" MINI BULLET / 12\" MINI BULLET (OSC)",
+        "confidence": "medium",
+        "note": "One photo labelled for both the 12\" Mini Bullet and its oscillating variant (same look); printed as 'Mini Bullet' Crop widened (bottom) so the product is not cut off: was [195,295,225,505]."
+    },
+    "high-speed-fans-bullet-16": {
+        "page": "page-44.jpg",
+        "crop": [
+            440,
+            140,
+            240,
+            680
+        ],
+        "label": "16\" BULLET / 16\" BULLET (OSC)",
+        "confidence": "medium",
+        "note": "One photo labelled for both 16\" Bullet and 16\" Bullet (OSC); a sliver of the same fan's oscillating close-up inset shows at the right edge"
+    },
+    "high-speed-fans-bullet-oscillating-16": {
+        "page": "page-45.jpg",
+        "crop": [
+            120,
+            140,
+            240,
+            680
+        ],
+        "label": "BULLET (OSC) FAN 400MM (16\")",
+        "confidence": "high",
+        "note": "Separate photo with its own exact label (silver blades, chrome pole). Page-44 photo is also labelled 16\" Bullet (OSC) if preferred"
+    },
+    "ceiling-fans-ikon-48": {
+        "page": "page-12.jpg",
+        "crop": [
+            45,
+            85,
+            818,
+            545
+        ],
+        "label": "IKON",
+        "confidence": "high",
+        "note": "Full-page hero; crop also includes series header and feature icons strip at left edge."
+    },
+    "ceiling-fans-prince-48": {
+        "page": "page-13.jpg",
+        "crop": [
+            55,
+            220,
+            297,
+            250
+        ],
+        "label": "PRINCE",
+        "confidence": "high"
+    },
+    "ceiling-fans-sparsh-48": {
+        "page": "page-13.jpg",
+        "crop": [
+            358,
+            185,
+            315,
+            285
+        ],
+        "label": "SPARSH",
+        "confidence": "high"
+    },
+    "ceiling-fans-sonet-deco-48": {
+        "page": "page-13.jpg",
+        "crop": [
+            85,
+            510,
+            265,
+            225
+        ],
+        "label": "SONET DECO",
+        "confidence": "high"
+    },
+    "ceiling-fans-crystal-pro-48": {
+        "page": "page-13.jpg",
+        "crop": [
+            395,
+            505,
+            280,
+            225
+        ],
+        "label": "CRYSTAL PRO",
+        "confidence": "high"
+    },
+    "ceiling-fans-rolex-48": {
+        "page": "page-26.jpg",
+        "crop": [
+            148,
+            58,
+            620,
+            437
+        ],
+        "label": "ROLEX",
+        "confidence": "high",
+        "note": "Small fragment of GOLD SERIES header at top-left edge."
+    },
+    "ceiling-fans-sayonara-48": {
+        "page": "page-26.jpg",
+        "crop": [
+            122,
+            495,
+            515,
+            315
+        ],
+        "label": "SAYONARA",
+        "confidence": "high",
+        "note": "Edge of feature-icon strip visible at bottom right."
+    },
+    "ceiling-fans-orchid-deco-48": {
+        "page": "page-27.jpg",
+        "crop": [
+            20,
+            165,
+            250,
+            220
+        ],
+        "label": "Orchid Deco",
+        "confidence": "medium",
+        "note": "Fans on this page overlap; upper-right blade tip trimmed to avoid Femina."
+    },
+    "ceiling-fans-porsche-48": {
+        "page": "page-27.jpg",
+        "crop": [
+            580,
+            105,
+            180,
+            250
+        ],
+        "label": "Porsche",
+        "confidence": "medium",
+        "note": "Fan only, clean of other fans; part of its own label text cut at bottom-left."
+    },
+    "ceiling-fans-lumero-48": {
+        "page": "page-27.jpg",
+        "crop": [
+            115,
+            405,
+            590,
+            455
+        ],
+        "label": "LUMERO",
+        "confidence": "high",
+        "note": "Includes Lumero box and 100% copper badge."
+    },
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9": {
+        "page": "page-48.jpg",
+        "crop": [
+            425,
+            195,
+            330,
+            370
+        ],
+        "label": "9\" FRESH AIR FAN HIGH SPEED / HIGH SPEED (RF)",
+        "confidence": "high"
+    },
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": {
+        "page": "page-48.jpg",
+        "crop": [
+            130,
+            515,
+            520,
+            345
+        ],
+        "label": "12\" FRESH AIR FAN HIGH SPEED / HIGH SPEED (RF)",
+        "confidence": "high",
+        "note": "Crop widened (bottom) so the product is not cut off: was [130,515,520,265]."
+    },
+    "kitchen-appliances-jhn-1250": {
+        "page": "page-54.jpg",
+        "crop": [
+            100,
+            160,
+            180,
+            185
+        ],
+        "label": "JHN 1250/2000W",
+        "confidence": "medium",
+        "note": "Single picture labelled JHN 1250/2000W (same model, two wattages); same crop used for jhn-2000."
+    },
+    "kitchen-appliances-hudsun": {
+        "page": "page-54.jpg",
+        "crop": [
+            285,
+            160,
+            170,
+            185
+        ],
+        "label": "HUDSUN",
+        "confidence": "high"
+    },
+    "kitchen-appliances-ultima": {
+        "page": "page-54.jpg",
+        "crop": [
+            460,
+            160,
+            180,
+            185
+        ],
+        "label": "ULTIMA",
+        "confidence": "high"
+    },
+    "kitchen-appliances-comfort": {
+        "page": "page-54.jpg",
+        "crop": [
+            645,
+            160,
+            165,
+            185
+        ],
+        "label": "COMFORT",
+        "confidence": "high"
+    },
+    "kitchen-appliances-nelson": {
+        "page": "page-54.jpg",
+        "crop": [
+            100,
+            400,
+            180,
+            175
+        ],
+        "label": "NELSON",
+        "confidence": "high"
+    },
+    "kitchen-appliances-ss-2000": {
+        "page": "page-54.jpg",
+        "crop": [
+            285,
+            400,
+            170,
+            175
+        ],
+        "label": "SS-2000",
+        "confidence": "high"
+    },
+    "kitchen-appliances-calvin": {
+        "page": "page-54.jpg",
+        "crop": [
+            460,
+            400,
+            180,
+            175
+        ],
+        "label": "CALVIN",
+        "confidence": "high"
+    },
+    "kitchen-appliances-bng": {
+        "page": "page-54.jpg",
+        "crop": [
+            595,
+            400,
+            215,
+            175
+        ],
+        "label": "BNG",
+        "confidence": "high",
+        "note": "Crop widened (left) so the product is not cut off: was [645,400,165,175]."
+    },
+    "kitchen-appliances-regent": {
+        "page": "page-54.jpg",
+        "crop": [
+            100,
+            625,
+            180,
+            183
+        ],
+        "label": "REGENT",
+        "confidence": "high"
+    },
+    "kitchen-appliances-excel": {
+        "page": "page-54.jpg",
+        "crop": [
+            234,
+            625,
+            221,
+            183
+        ],
+        "label": "EXCEL",
+        "confidence": "high",
+        "note": "Crop widened (left) so the product is not cut off: was [285,625,170,183]."
+    },
+    "kitchen-appliances-simson": {
+        "page": "page-54.jpg",
+        "crop": [
+            460,
+            625,
+            180,
+            183
+        ],
+        "label": "SIMSON",
+        "confidence": "high"
+    },
+    "kitchen-appliances-ss-jumbo": {
+        "page": "page-54.jpg",
+        "crop": [
+            640,
+            625,
+            170,
+            183
+        ],
+        "label": "SS JUMBO",
+        "confidence": "high"
+    },
+    "kitchen-appliances-crescent": {
+        "page": "page-55.jpg",
+        "crop": [
+            55,
+            180,
+            170,
+            165
+        ],
+        "label": "CRESCENT",
+        "confidence": "high"
+    },
+    "kitchen-appliances-phantom": {
+        "page": "page-55.jpg",
+        "crop": [
+            187,
+            180,
+            208,
+            165
+        ],
+        "label": "PHANTOM",
+        "confidence": "high",
+        "note": "Crop widened (left) so the product is not cut off: was [235,180,160,165]."
+    },
+    "kitchen-appliances-smart": {
+        "page": "page-55.jpg",
+        "crop": [
+            405,
+            180,
+            160,
+            165
+        ],
+        "label": "SMART",
+        "confidence": "high"
+    },
+    "kitchen-appliances-magnum": {
+        "page": "page-55.jpg",
+        "crop": [
+            580,
+            180,
+            160,
+            165
+        ],
+        "label": "MAGNUM",
+        "confidence": "high"
+    },
+    "kitchen-appliances-rustam": {
+        "page": "page-55.jpg",
+        "crop": [
+            60,
+            410,
+            600,
+            400
+        ],
+        "label": "RUSTAM",
+        "confidence": "high",
+        "note": "Hero shot with pan; includes the RUSTAM side label panel."
+    },
+    "kitchen-appliances-jhn-2000": {
+        "page": "page-54.jpg",
+        "crop": [
+            100,
+            160,
+            180,
+            185
+        ],
+        "label": "JHN 1250/2000W",
+        "confidence": "medium",
+        "note": "Single picture labelled JHN 1250/2000W (same model, two wattages); same crop used for jhn-1250."
+    },
+    "ceiling-fans-croma-48": {
+        "page": "page-14.jpg",
+        "crop": [
+            118,
+            44,
+            700,
+            346
+        ],
+        "label": "CROMA",
+        "confidence": "high",
+        "note": "Includes some room background on the right"
+    },
+    "ceiling-fans-apsara-48": {
+        "page": "page-14.jpg",
+        "crop": [
+            128,
+            418,
+            326,
+            260
+        ],
+        "label": "APSARA",
+        "confidence": "high"
+    },
+    "ceiling-fans-florence-48": {
+        "page": "page-14.jpg",
+        "crop": [
+            452,
+            492,
+            340,
+            304
+        ],
+        "label": "FLORENCE",
+        "confidence": "high"
+    },
+    "ceiling-fans-unicorn-48": {
+        "page": "page-15.jpg",
+        "crop": [
+            18,
+            60,
+            620,
+            290
+        ],
+        "label": "UNICORN",
+        "confidence": "high",
+        "note": "Colour text below cut off to avoid Stunner canopy"
+    },
+    "ceiling-fans-stunner-48": {
+        "page": "page-15.jpg",
+        "crop": [
+            385,
+            358,
+            310,
+            184
+        ],
+        "label": "STUNNER",
+        "confidence": "medium",
+        "note": "Top blade tip clipped to keep Unicorn blade out; sweep/colour text not included"
+    },
+    "ceiling-fans-electra-48": {
+        "page": "page-15.jpg",
+        "crop": [
+            92,
+            442,
+            280,
+            270
+        ],
+        "label": "ELECTRA",
+        "confidence": "high"
+    },
+    "ceiling-fans-glaze-48": {
+        "page": "page-15.jpg",
+        "crop": [
+            398,
+            542,
+            296,
+            280
+        ],
+        "label": "GLAZE",
+        "confidence": "high",
+        "note": "Top edge includes Stunner's generic sweep/colour text (no picture)"
+    },
+    "all-purpose-cabin-fans-piano-black-12": {
+        "page": "page-32.jpg",
+        "crop": [
+            255,
+            190,
+            380,
+            585
+        ],
+        "label": "PIANO BLACK Size: 12\" AP FAN",
+        "confidence": "high",
+        "note": "Crop widened (top) so the product is not cut off: was [255,325,380,450]."
+    },
+    "all-purpose-cabin-fans-piano-white-12": {
+        "page": "page-33.jpg",
+        "crop": [
+            12,
+            255,
+            352,
+            540
+        ],
+        "label": "PIANO WHITE Size: 12\" AP FAN",
+        "confidence": "high"
+    },
+    "all-purpose-cabin-fans-safari-9": {
+        "page": "page-33.jpg",
+        "crop": [
+            543,
+            270,
+            186,
+            182
+        ],
+        "label": "9\" AP fAN SAFARI",
+        "confidence": "high",
+        "note": "Crop widened (top) so the product is not cut off: was [543,312,186,140]."
+    },
+    "all-purpose-cabin-fans-regal-12": {
+        "page": "page-33.jpg",
+        "crop": [
+            543,
+            632,
+            200,
+            155
+        ],
+        "label": "12\" AP FAN REGAL",
+        "confidence": "high",
+        "note": "Page also has a separate 9\" Table Fan REGAL; this is the 12\" one"
+    },
+    "kitchen-appliances-prime": {
+        "page": "page-53.jpg",
+        "crop": [
+            100,
+            150,
+            520,
+            205
+        ],
+        "label": "PRIME 2400W",
+        "confidence": "high"
+    },
+    "kitchen-appliances-prince": {
+        "page": "page-53.jpg",
+        "crop": [
+            115,
+            395,
+            500,
+            160
+        ],
+        "label": "PRINCE 2000W",
+        "confidence": "high"
+    },
+    "kitchen-appliances-presto": {
+        "page": "page-53.jpg",
+        "crop": [
+            125,
+            610,
+            490,
+            170
+        ],
+        "label": "PRESTO 2000W",
+        "confidence": "high"
+    },
+    "heating-water-croma2": {
+        "page": "page-60.jpg",
+        "crop": [
+            158,
+            252,
+            153,
+            192
+        ],
+        "label": "Model : CROMA2",
+        "confidence": "high",
+        "note": "Crop widened (right) so the product is not cut off: was [158,252,118,192]."
+    },
+    "heating-water-croma": {
+        "page": "page-60.jpg",
+        "crop": [
+            592,
+            224,
+            112,
+            236
+        ],
+        "label": "Model : CROMA",
+        "confidence": "high"
+    },
+    "heating-water-pearl-immersion-rod-1000-w": {
+        "page": "page-60.jpg",
+        "crop": [
+            125,
+            492,
+            310,
+            312
+        ],
+        "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
+        "confidence": "high",
+        "note": "One picture covers all three wattages; same crop used for 1000/1500/2000 W. Text slightly cut on right to exclude second rod"
+    },
+    "heating-water-kettle-element": {
+        "page": "page-60.jpg",
+        "crop": [
+            612,
+            662,
+            78,
+            136
+        ],
+        "label": "KETTLE ELEMENT 2000W",
+        "confidence": "medium",
+        "note": "Two pictures both labelled KETTLE ELEMENT 2000W; left one used"
+    },
+    "heating-water-pearl-immersion-rod-1500-w": {
+        "page": "page-60.jpg",
+        "crop": [
+            125,
+            492,
+            310,
+            312
+        ],
+        "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
+        "confidence": "high",
+        "note": "One picture covers all three wattages; same crop used for 1000/1500/2000 W. Text slightly cut on right to exclude second rod"
+    },
+    "heating-water-pearl-immersion-rod-2000-w": {
+        "page": "page-60.jpg",
+        "crop": [
+            125,
+            492,
+            310,
+            312
+        ],
+        "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
+        "confidence": "high",
+        "note": "One picture covers all three wattages; same crop used for 1000/1500/2000 W. Text slightly cut on right to exclude second rod"
+    },
+    "ceiling-fans-flora-48": {
+        "page": "page-16.jpg",
+        "crop": [
+            85,
+            200,
+            293,
+            222
+        ],
+        "label": "FLORA",
+        "confidence": "medium",
+        "note": "Right blade tip trimmed to keep Senorita blade out"
+    },
+    "ceiling-fans-senorita-48": {
+        "page": "page-16.jpg",
+        "crop": [
+            432,
+            85,
+            348,
+            377
+        ],
+        "label": "SENORITA",
+        "confidence": "medium",
+        "note": "Left blade tip trimmed to keep Flora blade out; colour text cut"
+    },
+    "ceiling-fans-areta-48": {
+        "page": "page-16.jpg",
+        "crop": [
+            120,
+            495,
+            315,
+            240
+        ],
+        "label": "ARETA",
+        "confidence": "medium",
+        "note": "Top of right blade trimmed to keep Festiva out"
+    },
+    "ceiling-fans-festiva-48": {
+        "page": "page-16.jpg",
+        "crop": [
+            500,
+            480,
+            278,
+            198
+        ],
+        "label": "FESTIVA",
+        "confidence": "medium",
+        "note": "Left blade and bottom blade tip trimmed to exclude Areta blade; printed label excluded (it sits under Areta blade region)"
+    },
+    "ceiling-fans-phantom-48": {
+        "page": "page-17.jpg",
+        "crop": [
+            245,
+            85,
+            575,
+            402
+        ],
+        "label": "PHANTOM",
+        "confidence": "high"
+    },
+    "ceiling-fans-luster-48": {
+        "page": "page-17.jpg",
+        "crop": [
+            298,
+            485,
+            522,
+            330
+        ],
+        "label": "LUSTER",
+        "confidence": "high"
+    },
+    "ceiling-fans-virat-36": {
+        "page": "page-28.jpg",
+        "crop": [
+            170,
+            145,
+            590,
+            355
+        ],
+        "label": "VIRAT",
+        "confidence": "high",
+        "note": "Crop widened (bottom) so the product is not cut off: was [170,145,590,273]."
+    },
+    "ceiling-fans-saphire-36": {
+        "page": "page-28.jpg",
+        "crop": [
+            125,
+            420,
+            295,
+            212
+        ],
+        "label": "SAPHIRE",
+        "confidence": "high"
+    },
+    "ceiling-fans-nova-dlx-36": {
+        "page": "page-28.jpg",
+        "crop": [
+            140,
+            636,
+            255,
+            196
+        ],
+        "label": "NOVA DLX",
+        "confidence": "high"
+    },
+    "ceiling-fans-little-star-24": {
+        "page": "page-29.jpg",
+        "crop": [
+            68,
+            355,
+            205,
+            215
+        ],
+        "label": "LITTLE STAR",
+        "confidence": "high"
+    },
+    "ceiling-fans-tejas-24": {
+        "page": "page-29.jpg",
+        "crop": [
+            275,
+            352,
+            250,
+            215
+        ],
+        "label": "TEJAS",
+        "confidence": "high"
+    },
+    "ceiling-fans-mini-copper-24": {
+        "page": "page-29.jpg",
+        "crop": [
+            70,
+            595,
+            200,
+            230
+        ],
+        "label": "MINI COPPER",
+        "confidence": "high"
+    },
+    "ceiling-fans-new-josh-copper-24": {
+        "page": "page-29.jpg",
+        "crop": [
+            278,
+            595,
+            245,
+            230
+        ],
+        "label": "NEW JOSH",
+        "confidence": "high",
+        "note": "Printed as NEW JOSH (no Copper)"
+    },
+    "heating-water-silky": {
+        "page": "page-56.jpg",
+        "crop": [
+            150,
+            255,
+            125,
+            130
+        ],
+        "label": "SILKY : 2000W",
+        "confidence": "medium",
+        "note": "Page shows two Silky heaters: SILKY 2000W (this crop, rod heater) and SILKY 400/800W fan heater at [165,605,110,165] on page-56.jpg; pick whichever matches the product data"
+    },
+    "heating-water-pearl": {
+        "page": "page-56.jpg",
+        "crop": [
+            330,
+            262,
+            120,
+            123
+        ],
+        "label": "PEARL : 400/800W",
+        "confidence": "high"
+    },
+    "heating-water-pox": {
+        "page": "page-56.jpg",
+        "crop": [
+            495,
+            240,
+            115,
+            145
+        ],
+        "label": "POX : 400/800W",
+        "confidence": "high"
+    },
+    "heating-water-rozer": {
+        "page": "page-56.jpg",
+        "crop": [
+            155,
+            415,
+            110,
+            160
+        ],
+        "label": "ROZER : 400/800W",
+        "confidence": "high"
+    },
+    "heating-water-roxx": {
+        "page": "page-56.jpg",
+        "crop": [
+            335,
+            410,
+            110,
+            165
+        ],
+        "label": "ROXX : 400/800W",
+        "confidence": "high"
+    },
+    "heating-water-alineo": {
+        "page": "page-56.jpg",
+        "crop": [
+            488,
+            425,
+            130,
+            150
+        ],
+        "label": "ALINEO : 400/800W",
+        "confidence": "high"
+    },
+    "heating-water-alexa": {
+        "page": "page-56.jpg",
+        "crop": [
+            315,
+            588,
+            145,
+            182
+        ],
+        "label": "ALEXA : 400/800W",
+        "confidence": "high",
+        "note": "Crop widened (top) so the product is not cut off: was [315,630,145,140]."
+    },
+    "heating-water-sun-heater-sunshine-14": {
+        "page": "page-56.jpg",
+        "crop": [
+            495,
+            575,
+            120,
+            195
+        ],
+        "label": "14\" SUN HEATER",
+        "confidence": "high",
+        "note": "Printed as 14\" SUN HEATER (no \"Sunshine\")"
+    },
+    "electric-irons-regular": {
+        "page": "page-57.jpg",
+        "crop": [
+            115,
+            195,
+            115,
+            180
+        ],
+        "label": "REGULAR",
+        "confidence": "high"
+    },
+    "electric-irons-bmw": {
+        "page": "page-57.jpg",
+        "crop": [
+            555,
+            195,
+            105,
+            180
+        ],
+        "label": "BMW",
+        "confidence": "high"
+    },
+    "electric-irons-grand": {
+        "page": "page-57.jpg",
+        "crop": [
+            128,
+            620,
+            112,
+            210
+        ],
+        "label": "GRAND (side Switch)",
+        "confidence": "high"
+    },
+    "electric-irons-plancha": {
+        "page": "page-57.jpg",
+        "crop": [
+            405,
+            610,
+            115,
+            192
+        ],
+        "label": "PLANCHA",
+        "confidence": "medium",
+        "note": "PLANCHA label spans two iron photos (white/silver and cream); crop is the left white one, label excluded. Cream variant at approx [522,612,125,195]"
+    },
+    "ceiling-fans-mini-dlx-24": {
+        "page": "page-19.jpg",
+        "crop": [
+            72,
+            592,
+            200,
+            232
+        ],
+        "label": "MINI DLX.",
+        "confidence": "high"
+    },
+    "ceiling-fans-mini-smart-24": {
+        "page": "page-19.jpg",
+        "crop": [
+            280,
+            298,
+            262,
+            238
+        ],
+        "label": "MINI SMART",
+        "confidence": "high"
+    },
+    "ceiling-fans-mini-star-24": {
+        "page": "page-19.jpg",
+        "crop": [
+            72,
+            308,
+            205,
+            225
+        ],
+        "label": "MINI STAR",
+        "confidence": "high"
+    },
+    "ceiling-fans-new-josh-24": {
+        "page": "page-19.jpg",
+        "crop": [
+            280,
+            590,
+            255,
+            232
+        ],
+        "label": "NEW JOSH",
+        "confidence": "high"
+    },
+    "ceiling-fans-diplomat-36": {
+        "page": "page-18.jpg",
+        "crop": [
+            198,
+            647,
+            292,
+            188
+        ],
+        "label": "DIPLOMAT",
+        "confidence": "high",
+        "note": "Top ~13px of upper blade tip trimmed to exclude Orbit's colour text above."
+    },
+    "ceiling-fans-major-36": {
+        "page": "page-18.jpg",
+        "crop": [
+            225,
+            165,
+            600,
+            254
+        ],
+        "label": "MAJOR",
+        "confidence": "medium",
+        "note": "Lower blade tip (~40px) trimmed because Orbit's blade sits in the bottom-left corner of Major's bounding box."
+    },
+    "ceiling-fans-orbit-36": {
+        "page": "page-18.jpg",
+        "crop": [
+            195,
+            415,
+            300,
+            218
+        ],
+        "label": "ORBIT",
+        "confidence": "high",
+        "note": "Last colour line cut to keep Diplomat's blade tip out."
+    },
+    "all-purpose-cabin-fans-goair-ac-dc-12": {
+        "page": "page-35.jpg",
+        "crop": [
+            562,
+            230,
+            150,
+            225
+        ],
+        "label": "12\" GOAIR 1200",
+        "confidence": "high"
+    },
+    "all-purpose-cabin-fans-goair-ac-dc-16": {
+        "page": "page-35.jpg",
+        "crop": [
+            335,
+            215,
+            220,
+            245
+        ],
+        "label": "16\" GOAIR 1600",
+        "confidence": "high",
+        "note": "Left edge includes a sliver of the 'AC DC TABLE FAN' heading text."
+    },
+    "all-purpose-cabin-fans-cabin-fan-12": {
+        "page": "page-35.jpg",
+        "crop": [
+            428,
+            538,
+            178,
+            280
+        ],
+        "label": "CABIN FAN",
+        "confidence": "high"
+    },
+    "all-purpose-cabin-fans-jawa-osc-12": {
+        "page": "page-35.jpg",
+        "crop": [
+            245,
+            443,
+            170,
+            377
+        ],
+        "label": "JAWA (OSC)",
+        "confidence": "high",
+        "note": "Page 35 shows the 12\" Jawa (OSC); page 34 has a 9\" Jawa (osc) which was not used. Crop widened (top) so the product is not cut off: was [245,530,170,290]."
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-6": {
+        "page": "page-35.jpg",
+        "crop": [
+            55,
+            210,
+            215,
+            255
+        ],
+        "label": "Ventilation Fan (Size: 6\"/8\"/10\")",
+        "confidence": "high",
+        "note": "One picture labelled for all three sizes; same crop used for 6/8/10."
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-8": {
+        "page": "page-35.jpg",
+        "crop": [
+            55,
+            210,
+            215,
+            255
+        ],
+        "label": "Ventilation Fan (Size: 6\"/8\"/10\")",
+        "confidence": "high",
+        "note": "Shared crop with 6\" and 10\"."
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-10": {
+        "page": "page-35.jpg",
+        "crop": [
+            55,
+            210,
+            215,
+            255
+        ],
+        "label": "Ventilation Fan (Size: 6\"/8\"/10\")",
+        "confidence": "high",
+        "note": "Shared crop with 6\" and 8\"."
+    },
+    "ceiling-fans-rafale-48": {
+        "page": "page-22.jpg",
+        "crop": [
+            155,
+            55,
+            640,
+            390
+        ],
+        "label": "Rafale",
+        "confidence": "high",
+        "note": "Hero image; crop also catches the edge of the GOLD SERIES page title (no other product)."
+    },
+    "ceiling-fans-kiara-48": {
+        "page": "page-22.jpg",
+        "crop": [
+            72,
+            525,
+            235,
+            165
+        ],
+        "label": "KIARA",
+        "confidence": "high"
+    },
+    "ceiling-fans-viraz-48": {
+        "page": "page-22.jpg",
+        "crop": [
+            308,
+            530,
+            238,
+            160
+        ],
+        "label": "VIRAZ",
+        "confidence": "high"
+    },
+    "ceiling-fans-raftaar-48": {
+        "page": "page-22.jpg",
+        "crop": [
+            550,
+            518,
+            280,
+            172
+        ],
+        "label": "RAFTAAR",
+        "confidence": "high"
+    },
+    "ceiling-fans-viraj-deco-48": {
+        "page": "page-23.jpg",
+        "crop": [
+            62,
+            245,
+            312,
+            240
+        ],
+        "label": "VIRAJ DECO",
+        "confidence": "high"
+    },
+    "ceiling-fans-venus-deco-48": {
+        "page": "page-23.jpg",
+        "crop": [
+            396,
+            240,
+            288,
+            222
+        ],
+        "label": "VENUS DECO",
+        "confidence": "high"
+    },
+    "ceiling-fans-vista-deco-48": {
+        "page": "page-23.jpg",
+        "crop": [
+            58,
+            545,
+            316,
+            232
+        ],
+        "label": "VISTA DECO",
+        "confidence": "high"
+    },
+    "ceiling-fans-platinium-48": {
+        "page": "page-23.jpg",
+        "crop": [
+            384,
+            560,
+            300,
+            195
+        ],
+        "label": "PLATINIUM",
+        "confidence": "high"
+    },
+    "high-speed-fans-ornet-12": {
+        "page": "page-43.jpg",
+        "crop": [
+            128,
+            278,
+            270,
+            505
+        ],
+        "label": "ORNET 12\" BULLET",
+        "confidence": "high"
+    },
+    "high-speed-fans-shine-16": {
+        "page": "page-43.jpg",
+        "crop": [
+            410,
+            22,
+            262,
+            887
+        ],
+        "label": "SHINE 16\" BULLET",
+        "confidence": "high",
+        "note": "Crop widened (top, bottom) so the product is not cut off: was [410,195,262,575]."
+    },
+    "high-speed-fans-hexa-20": {
+        "page": "page-46.jpg",
+        "crop": [
+            135,
+            238,
+            242,
+            508
+        ],
+        "label": "HEXA 20\" FARRATTA FAN",
+        "confidence": "high"
+    },
+    "high-speed-fans-nexa-20": {
+        "page": "page-46.jpg",
+        "crop": [
+            416,
+            238,
+            270,
+            505
+        ],
+        "label": "NEXA 20\" FARRATTA FAN",
+        "confidence": "high"
+    },
+    "high-speed-fans-sultan-20": {
+        "page": "page-47.jpg",
+        "crop": [
+            58,
+            248,
+            226,
+            560
+        ],
+        "label": "SULTAN 20\" FARRATTA FAN",
+        "confidence": "high"
+    },
+    "high-speed-fans-indus-high-speed-20": {
+        "page": "page-47.jpg",
+        "crop": [
+            300,
+            262,
+            196,
+            546
+        ],
+        "label": "INDUS 20\" FARRATTA FAN",
+        "confidence": "high",
+        "note": "Printed as INDUS (20in Farratta fan) on page 47."
+    },
+    "high-speed-fans-champion-22": {
+        "page": "page-47.jpg",
+        "crop": [
+            508,
+            246,
+            276,
+            556
+        ],
+        "label": "CHAMPION 22\" FARRATTA FAN",
+        "confidence": "high",
+        "note": "Crop widened (right) so the product is not cut off: was [508,246,212,556]."
+    },
+    "table-wall-pedestal-fans-tornado-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/11 Economy Series wall fans - TORNADO, VENTO.jpg",
+                "crop": [
+                    287,
+                    366,
+                    849,
+                    1222
+                ],
+                "kind": "poster",
+                "label": "TORNADO",
+                "confidence": "high",
+                "note": "Top of the grille is clipped slightly to avoid the Aparna logo"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-vento-12": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/11 Economy Series wall fans - TORNADO, VENTO.jpg",
+                "crop": [
+                    1169,
+                    353,
+                    772,
+                    1235
+                ],
+                "kind": "poster",
+                "label": "VENTO",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-spider-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/10 Economy Series table fans - SPIDER, GLIDER.jpg",
+                "crop": [
+                    331,
+                    368,
+                    761,
+                    1231
+                ],
+                "kind": "poster",
+                "label": "SPIDER",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-glider-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/10 Economy Series table fans - SPIDER, GLIDER.jpg",
+                "crop": [
+                    1107,
+                    353,
+                    768,
+                    1246
+                ],
+                "kind": "poster",
+                "label": "GLIDER",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-spectra-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/14 Smart Series wall fans - SPECTRA, WENDY.jpg",
+                "crop": [
+                    255,
+                    234,
+                    496,
+                    813
+                ],
+                "kind": "poster",
+                "label": "SPECTRA",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-wendy-12": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/14 Smart Series wall fans - SPECTRA, WENDY.jpg",
+                "crop": [
+                    757,
+                    160,
+                    407,
+                    888
+                ],
+                "kind": "poster",
+                "label": "WENDY",
+                "confidence": "high",
+                "note": "A few letters of the poster heading \"WALL FAN\" show in the top-right corner"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-fiona-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/13 Smart Series - FIONA pedestal, VECTRA and VISTARA table.jpg",
+                "crop": [
+                    87,
+                    160,
+                    400,
+                    888
+                ],
+                "kind": "poster",
+                "label": "FIONA",
+                "confidence": "high",
+                "note": "Includes the vertical \"PEDESTAL FAN\" text"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-vectra-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/13 Smart Series - FIONA pedestal, VECTRA and VISTARA table.jpg",
+                "crop": [
+                    531,
+                    291,
+                    371,
+                    757
+                ],
+                "kind": "poster",
+                "label": "VECTRA",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-vistara-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/13 Smart Series - FIONA pedestal, VECTRA and VISTARA table.jpg",
+                "crop": [
+                    908,
+                    291,
+                    445,
+                    757
+                ],
+                "kind": "poster",
+                "label": "VISTARA",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-velora-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/16 Premium Series wall fans - VELORA, JAZZ.jpg",
+                "crop": [
+                    44,
+                    335,
+                    713,
+                    611
+                ],
+                "kind": "poster",
+                "label": "VELORA",
+                "confidence": "high",
+                "note": "Two colour variants of Velora kept together"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-jazz-12": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/16 Premium Series wall fans - VELORA, JAZZ.jpg",
+                "crop": [
+                    829,
+                    349,
+                    582,
+                    597
+                ],
+                "kind": "poster",
+                "label": "JAZZ",
+                "confidence": "high",
+                "note": "Two colour variants of Jazz kept together"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-blazo-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/17 Premium Series table fans - BLAZO, BLITZ.jpg",
+                "crop": [
+                    58,
+                    320,
+                    742,
+                    698
+                ],
+                "kind": "poster",
+                "label": "BLAZO",
+                "confidence": "high",
+                "note": "Two colour variants of Blazo kept together"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-blitz-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/17 Premium Series table fans - BLAZO, BLITZ.jpg",
+                "crop": [
+                    829,
+                    320,
+                    567,
+                    698
+                ],
+                "kind": "poster",
+                "label": "BLITZ",
+                "confidence": "high"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-stallion-16": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/15 Premium Series pedestal fans - ICONIC, STALLION.jpg",
+                "crop": [
+                    771,
+                    233,
+                    611,
+                    822
+                ],
+                "kind": "poster",
+                "label": "STALLION",
+                "confidence": "high",
+                "note": "Two colour variants of Stallion kept together"
+            }
+        ]
+    },
+    "air-coolers-discovery-1201": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/20 Air coolers - DISCOVERY 1201, 1202.jpg",
+                "crop": [
+                    294,
+                    189,
+                    419,
+                    626
+                ],
+                "kind": "poster",
+                "label": "DISCOVERY 1201",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-discovery-1202": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/20 Air coolers - DISCOVERY 1201, 1202.jpg",
+                "crop": [
+                    735,
+                    189,
+                    466,
+                    640
+                ],
+                "kind": "poster",
+                "label": "DISCOVERY 1202",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-discovery-1203-dlx": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/21 Air coolers - DISCOVERY 1203 DLX, 1204 DLX.jpg",
+                "crop": [
+                    167,
+                    256,
+                    572,
+                    588
+                ],
+                "kind": "poster",
+                "label": "DISCOVERY 1203 DLX",
+                "confidence": "medium",
+                "note": "Includes the \"GLASS TOP\" inset printed to the right of this cooler; the inset is assumed to belong to 1203 DLX"
+            }
+        ]
+    },
+    "air-coolers-discovery-1204-dlx": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/21 Air coolers - DISCOVERY 1203 DLX, 1204 DLX.jpg",
+                "crop": [
+                    739,
+                    233,
+                    498,
+                    611
+                ],
+                "kind": "poster",
+                "label": "DISCOVERY 1204 DLX",
+                "confidence": "high",
+                "note": "Includes the \"GLASS TOP\" inset printed to the right of this cooler"
+            }
+        ]
+    },
+    "air-coolers-pearl-009": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/18 Air coolers - PEARL 009, PEARL 1201.jpg",
+                "crop": [
+                    204,
+                    218,
+                    378,
+                    626
+                ],
+                "kind": "poster",
+                "label": "PEARL 009",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-pearl-1201": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/18 Air coolers - PEARL 009, PEARL 1201.jpg",
+                "crop": [
+                    684,
+                    218,
+                    466,
+                    626
+                ],
+                "kind": "poster",
+                "label": "PEARL 1201",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-pearl-1202": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/19 Air coolers - PEARL 1202, PEARL 1203 DLX.jpg",
+                "crop": [
+                    131,
+                    218,
+                    407,
+                    626
+                ],
+                "kind": "poster",
+                "label": "PEARL 1202",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-pearl-1203-dlx": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/19 Air coolers - PEARL 1202, PEARL 1203 DLX.jpg",
+                "crop": [
+                    626,
+                    260,
+                    662,
+                    583
+                ],
+                "kind": "poster",
+                "label": "PEARL 1203 DLX",
+                "confidence": "high",
+                "note": "Includes the \"GLASS TOP\" inset"
+            }
+        ]
+    },
+    "air-coolers-ultima-1401": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/22 Air coolers - ULTIMA 1401, 1402.jpg",
+                "crop": [
+                    448,
+                    243,
+                    677,
+                    971
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 1401",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-ultima-1402": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/22 Air coolers - ULTIMA 1401, 1402.jpg",
+                "crop": [
+                    1169,
+                    221,
+                    662,
+                    993
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 1402",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-ultima-1601": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/23 Air coolers - ULTIMA 1601, 1801.jpg",
+                "crop": [
+                    462,
+                    242,
+                    615,
+                    989
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 1601",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-ultima-1801": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/23 Air coolers - ULTIMA 1601, 1801.jpg",
+                "crop": [
+                    1110,
+                    220,
+                    648,
+                    1011
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 1801",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-ultima-2201": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/24 Air coolers - ULTIMA 2201, 2601.jpg",
+                "crop": [
+                    88,
+                    380,
+                    703,
+                    939
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 2201",
+                "confidence": "high"
+            }
+        ]
+    },
+    "air-coolers-ultima-2601": {
+        "crops": [
+            {
+                "src": "04_Product_Posters/24 Air coolers - ULTIMA 2201, 2601.jpg",
+                "crop": [
+                    835,
+                    374,
+                    637,
+                    945
+                ],
+                "kind": "poster",
+                "label": "ULTIMA 2601",
+                "confidence": "high",
+                "note": "Front view only; the poster also has an angled view to its right, left out because it sits close to the edge"
+            }
+        ]
+    },
+    "ceiling-fans-heritage-48": {
+        "crops": [
+            {
+                "src": "05_Product_Photos_Real/Ceiling fans/New Launch standee, Pazero and Heritage - AVNI4463.jpg",
+                "crop": [
+                    819,
+                    384,
+                    481,
+                    806
+                ],
+                "kind": "photo",
+                "label": "HERITAGE",
+                "confidence": "high",
+                "note": "The photo is stored sideways (no EXIF orientation). Crop is in stored pixels; then rotate the cropped image 90 degrees counter-clockwise so the text reads normally. With sharp, do this as a second pass (extract to a buffer, then sharp(buffer).rotate(270)), because chaining .extract().rotate() in one pipeline rotates first. The fan is printed on a standee in a photo"
+            }
+        ]
+    },
+    "ceiling-fans-pazero-48": {
+        "crops": [
+            {
+                "src": "05_Product_Photos_Real/Ceiling fans/New Launch standee, Pazero and Heritage - AVNI4463.jpg",
+                "crop": [
+                    1311,
+                    333,
+                    494,
+                    858
+                ],
+                "kind": "photo",
+                "label": "PAZERO",
+                "confidence": "high",
+                "note": "The photo is stored sideways (no EXIF orientation). Crop is in stored pixels; then rotate the cropped image 90 degrees counter-clockwise so the text reads normally. With sharp, do this as a second pass (extract to a buffer, then sharp(buffer).rotate(270)), because chaining .extract().rotate() in one pipeline rotates first. The fan is printed on a standee in a photo"
+            }
+        ]
+    },
+    "table-wall-pedestal-fans-iconic-16": {
+        "noPoster": true,
+        "reason": "The poster listed for Iconic labels its pedestal fan VISTARA and never names Iconic, so it is not shown on the Iconic page."
+    }
+}

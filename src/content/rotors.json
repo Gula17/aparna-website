@@ -1,0 +1,296 @@
+{
+  "_read_me": "Fans whose blades turn on the page, marked by eye on their cutout (positions are fractions of the cutout's width and height). See scripts/make-rotors.mjs for what each field means. Run npm run rotors after a change. Ceiling fans in close-up catalogue shots were tried and left out: their steep perspective tears the blades apart when turned (only IKON BLDC works cleanly; the Aeroflow turns as the real 3D model).",
+  "table-wall-pedestal-fans-vento-12": {
+    "rotors": [
+      {
+        "hub": [0.5, 0.37],
+        "r": 0.386,
+        "hubR": 0.52,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.36, 0.66, 0.28, 0.34]
+    ]
+  },
+  "all-purpose-cabin-fans-goair-ac-dc-12": {
+    "rotors": [
+      {
+        "hub": [0.5, 0.36],
+        "r": 0.39,
+        "hubR": 0.27,
+        "blades": 5
+      }
+    ],
+    "keep": [
+      [0.455, 0.5, 0.09, 0.5]
+    ]
+  },
+  "ceiling-fans-ikon-bldc-48": {
+    "rotors": [
+      {
+        "hub": [0.57, 0.665],
+        "tips": [
+          [0.005, 0.52],
+          [0.96, 0.025],
+          [0.76, 0.97]
+        ],
+        "reach": 1.3,
+        "hubR": 0.13
+      }
+    ],
+    "keep": [
+      [0.51, 0.3, 0.1, 0.29]
+    ]
+  },
+  "table-wall-pedestal-fans-wendy-12": {
+    "rotors": [
+      {
+        "hub": [0.4984, 0.3009],
+        "axes": [0.4327, 0.4382, 85],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": []
+  },
+  "table-wall-pedestal-fans-fiona-16": {
+    "rotors": [
+      {
+        "hub": [0.4999, 0.1906],
+        "axes": [0.4391, 0.4492, 175],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4599, 0.241, 0.08, 1]
+    ]
+  },
+  "table-wall-pedestal-fans-spectra-16": {
+    "rotors": [
+      {
+        "hub": [0.499, 0.3127],
+        "axes": [0.4392, 0.4418, 2.3],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": []
+  },
+  "table-wall-pedestal-fans-vistara-16": {
+    "rotors": [
+      {
+        "hub": [0.4989, 0.4118],
+        "axes": [0.4382, 0.4394, 17.5],
+        "hubR": 0.33,
+        "blades": 5
+      }
+    ],
+    "keep": []
+  },
+  "table-wall-pedestal-fans-velora-16": {
+    "rotors": [
+      {
+        "hub": [0.2337, 0.3527],
+        "axes": [0.2047, 0.2078, 24.8],
+        "hubR": 0.3,
+        "blades": 3
+      },
+      {
+        "hub": [0.7907, 0.3359],
+        "axes": [0.1815, 0.2034, 13.3],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": []
+  },
+  "table-wall-pedestal-fans-jazz-12": {
+    "rotors": [
+      {
+        "hub": [0.2286, 0.32],
+        "axes": [0.2006, 0.203, 177.1],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": []
+  },
+  "table-wall-pedestal-fans-stallion-16": {
+    "rotors": [
+      {
+        "hub": [0.2294, 0.1842],
+        "axes": [0.2011, 0.205, 70.3],
+        "hubR": 0.3,
+        "blades": 3
+      },
+      {
+        "hub": [0.7597, 0.1986],
+        "axes": [0.2109, 0.2156, 2.9],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.1944, 0.234, 0.07, 1],
+      [0.7247, 0.251, 0.07, 1]
+    ]
+  },
+  "all-purpose-cabin-fans-goair-ac-dc-16": {
+    "rotors": [
+      {
+        "hub": [0.4945, 0.3464],
+        "axes": [0.4058, 0.4364, 93.5],
+        "hubR": 0.28,
+        "blades": 5
+      }
+    ],
+    "keep": [
+      [0.4345, 0.4368, 0.12, 1]
+    ]
+  },
+  "all-purpose-cabin-fans-jawa-osc-12": {
+    "rotors": [
+      {
+        "hub": [0.5002, 0.3727],
+        "axes": [0.4356, 0.4378, 73.5],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4402, 0.4708, 0.12, 1]
+    ]
+  },
+  "all-purpose-cabin-fans-regal-12": {
+    "rotors": [
+      {
+        "hub": [0.4912, 0.3787],
+        "axes": [0.4359, 0.449, 21.3],
+        "hubR": 0.32,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4312, 0.4843, 0.12, 1]
+    ]
+  },
+  "high-speed-fans-bullet-oscillating-12": {
+    "rotors": [
+      {
+        "hub": [0.4991, 0.2638],
+        "axes": [0.4393, 0.4514, 177.7],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4641, 0.3333, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-ornet-12": {
+    "rotors": [
+      {
+        "hub": [0.4971, 0.2197],
+        "axes": [0.4387, 0.4511, 175.4],
+        "hubR": 0.3,
+        "blades": 4
+      }
+    ],
+    "keep": [
+      [0.4621, 0.2775, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-bullet-16": {
+    "rotors": [
+      {
+        "hub": [0.5004, 0.1963],
+        "axes": [0.4382, 0.4482, 169],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4654, 0.2484, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-bullet-oscillating-16": {
+    "rotors": [
+      {
+        "hub": [0.4959, 0.1916],
+        "axes": [0.4379, 0.4433, 13.1],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4609, 0.242, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-champion-22": {
+    "rotors": [
+      {
+        "hub": [0.5, 0.2436],
+        "axes": [0.4373, 0.4451, 4.4],
+        "hubR": 0.34,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.465, 0.3169, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-hexa-20": {
+    "rotors": [
+      {
+        "hub": [0.4997, 0.2285],
+        "axes": [0.4367, 0.4512, 169.8],
+        "hubR": 0.3,
+        "blades": 5
+      }
+    ],
+    "keep": [
+      [0.4647, 0.2882, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-indus-high-speed-20": {
+    "rotors": [
+      {
+        "hub": [0.4975, 0.2047],
+        "axes": [0.4364, 0.4407, 146.4],
+        "hubR": 0.3,
+        "blades": 2
+      }
+    ],
+    "keep": [
+      [0.4625, 0.2588, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-nexa-20": {
+    "rotors": [
+      {
+        "hub": [0.4977, 0.222],
+        "axes": [0.4323, 0.4394, 93.6],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4627, 0.2817, 0.07, 1]
+    ]
+  },
+  "high-speed-fans-sultan-20": {
+    "rotors": [
+      {
+        "hub": [0.4974, 0.2473],
+        "axes": [0.4368, 0.4514, 5.1],
+        "hubR": 0.3,
+        "blades": 3
+      }
+    ],
+    "keep": [
+      [0.4624, 0.3124, 0.07, 1]
+    ]
+  }
+}

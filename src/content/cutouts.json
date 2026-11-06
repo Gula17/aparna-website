@@ -1,0 +1,76 @@
+{
+  "_read_me": "Checked by eye. reject: the automatic cutout was wrong (see-through blades, missing parts, leftover printed names), so the product keeps its normal photo. erase: printed extras (logo tile, energy-label badge, caption) cleared from the cutout, as [left, top, width, height] fractions of the cutout. Run npm run cutouts after a change.",
+  "reject": [
+    "ceiling-fans-coras-48",
+    "ceiling-fans-irus-48",
+    "ceiling-fans-mini-dlx-24",
+    "ceiling-fans-mini-star-24",
+    "ceiling-fans-orbit-36",
+    "ceiling-fans-apsara-48",
+    "ceiling-fans-areta-48",
+    "ceiling-fans-croma-48",
+    "ceiling-fans-electra-48",
+    "ceiling-fans-festiva-48",
+    "ceiling-fans-flora-48",
+    "ceiling-fans-florence-48",
+    "ceiling-fans-ikon-48",
+    "ceiling-fans-prince-48",
+    "ceiling-fans-rosa-48",
+    "ceiling-fans-senorita-48",
+    "ceiling-fans-sonet-deco-48",
+    "ceiling-fans-sparsh-48",
+    "ceiling-fans-unicorn-48",
+    "ceiling-fans-little-star-24",
+    "ceiling-fans-mini-copper-24",
+    "ceiling-fans-nova-dlx-36",
+    "ceiling-fans-aroma-deco-48",
+    "ceiling-fans-aspire-48",
+    "ceiling-fans-croma-pro-48",
+    "ceiling-fans-fortune-pro-48",
+    "ceiling-fans-kiara-48",
+    "ceiling-fans-lotus-deco-48",
+    "ceiling-fans-lumero-48",
+    "ceiling-fans-orchid-deco-48",
+    "ceiling-fans-orina-48",
+    "ceiling-fans-platinium-48",
+    "ceiling-fans-rafale-48",
+    "ceiling-fans-raftaar-48",
+    "ceiling-fans-sayonara-48",
+    "ceiling-fans-smart-deco-48",
+    "ceiling-fans-viraj-deco-48",
+    "ceiling-fans-viraz-48",
+    "ceiling-fans-vista-deco-48",
+    "kitchen-appliances-presto",
+    "ceiling-fans-virat-36"
+  ],
+  "erase": {
+    "ceiling-fans-aeroflow-48": [
+      [0, 0, 0.2, 0.3]
+    ],
+    "ceiling-fans-aerosleek-48": [
+      [0.84, 0.82, 0.16, 0.18]
+    ],
+    "ceiling-fans-ikon-bldc-48": [
+      [0, 0, 0.21, 0.3],
+      [0.72, 0.77, 0.28, 0.23]
+    ],
+    "ceiling-fans-air-max-48": [
+      [0.16, 0.8, 0.18, 0.2]
+    ],
+    "air-coolers-pearl-1203-dlx": [
+      [0.58, 0.45, 0.42, 0.4]
+    ],
+    "kitchen-appliances-comfort": [
+      [0, 0.82, 1, 0.18]
+    ],
+    "kitchen-appliances-ss-2000": [
+      [0, 0.82, 1, 0.18]
+    ],
+    "kitchen-appliances-prime": [
+      [0.75, 0, 0.25, 0.7]
+    ],
+    "heating-water-kettle-element": [
+      [0, 0.84, 1, 0.16]
+    ]
+  }
+}

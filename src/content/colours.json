@@ -1,0 +1,19 @@
+{
+  "_read_me": "Swatch colours for the colour names in the product data (brief Appendix C: approximate, to be matched to real samples). The name is always shown next to the swatch.",
+  "White": "#FFFFFF",
+  "Ivory": "#F2EADB",
+  "Smoke Brown": "#5E4B43",
+  "Metallic Brown": "linear-gradient(135deg, #8a5f47, #6E4A36 55%, #4f3426)",
+  "Glossy Brown": "#4A2B20",
+  "Metallic Blue": "linear-gradient(135deg, #5a78a6, #3D5A86 55%, #2b4266)",
+  "Grey": "#8A8D91",
+  "Golden": "linear-gradient(135deg, #e2c071, #C9A24A 55%, #a8832f)",
+  "Wood Craft": "repeating-linear-gradient(100deg, #8a4e2b 0 3px, #a8673b 3px 7px, #95582f 7px 9px, #b0733f 9px 13px)",
+  "Black": "#1E1E1E",
+  "Pearl White": "linear-gradient(135deg, #ffffff, #F4F1EA 60%, #e3ded2)",
+  "Titanium Silver": "linear-gradient(135deg, #d6d9dd, #B9BDC2 55%, #9a9ea3)",
+  "Honey Gold": "linear-gradient(135deg, #e8c070, #D3A44A 55%, #b0852f)",
+  "Rose Gold": "linear-gradient(135deg, #e0aa9b, #C98E7E 55%, #a8705f)",
+  "Coffee Brown": "#5A3B2E",
+  "Bricken Gold": "linear-gradient(135deg, #cc8c56, #B0703C 55%, #8c5528)"
+}
