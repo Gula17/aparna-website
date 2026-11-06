@@ -123,67 +123,6 @@
         }
       ]
     },
-    "ceiling-fans-ikon-bldc-48": {
-      "width": 716,
-      "height": 472,
-      "base": [
-        {
-          "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-base-480.webp",
-          "width": 480,
-          "height": 316
-        },
-        {
-          "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-base-960.webp",
-          "width": 716,
-          "height": 472
-        }
-      ],
-      "top": [
-        {
-          "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-top-480.webp",
-          "width": 480,
-          "height": 316
-        },
-        {
-          "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-top-960.webp",
-          "width": 716,
-          "height": 472
-        }
-      ],
-      "rotors": [
-        {
-          "image": [
-            {
-              "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-rotor0-480.webp",
-              "width": 480,
-              "height": 316
-            },
-            {
-              "file": "/media/rotors/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-rotor0-960.webp",
-              "width": 716,
-              "height": 472
-            }
-          ],
-          "origin": [
-            57,
-            66.5
-          ],
-          "L": [
-            -1.26241,
-            0.0219,
-            0.25574,
-            -0.79657
-          ],
-          "Li": [
-            -0.79657,
-            -0.0219,
-            -0.25574,
-            -1.26241
-          ],
-          "turn": 1.1
-        }
-      ]
-    },
     "table-wall-pedestal-fans-wendy-12": {
       "width": 380,
       "height": 619,

@@ -1,5 +1,5 @@
 {
-  "_read_me": "Fans whose blades turn on the page, marked by eye on their cutout (positions are fractions of the cutout's width and height). See scripts/make-rotors.mjs for what each field means. Run npm run rotors after a change. Ceiling fans in close-up catalogue shots were tried and left out: their steep perspective tears the blades apart when turned (only IKON BLDC works cleanly; the Aeroflow turns as the real 3D model).",
+  "_read_me": "Fans whose blades turn on the page, marked by eye on their cutout (positions are fractions of the cutout's width and height). See scripts/make-rotors.mjs for what each field means. Run npm run rotors after a change. Ceiling fans in close-up catalogue shots were tried and left out: their steep perspective tears the blades apart when turned. Ceiling fans photographed at an angle (IKON BLDC included) stretch and tear when turned this way, so none use it: they show their photo still, and turn properly in their real 3D model.",
   "table-wall-pedestal-fans-vento-12": {
     "rotors": [
       {
@@ -24,23 +24,6 @@
     ],
     "keep": [
       [0.455, 0.5, 0.09, 0.5]
-    ]
-  },
-  "ceiling-fans-ikon-bldc-48": {
-    "rotors": [
-      {
-        "hub": [0.57, 0.665],
-        "tips": [
-          [0.005, 0.52],
-          [0.96, 0.025],
-          [0.76, 0.97]
-        ],
-        "reach": 1.3,
-        "hubR": 0.13
-      }
-    ],
-    "keep": [
-      [0.51, 0.3, 0.1, 0.29]
     ]
   },
   "table-wall-pedestal-fans-wendy-12": {
