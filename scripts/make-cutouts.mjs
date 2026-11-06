@@ -17,6 +17,9 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { removeBackground } from '@imgly/background-removal-node';
 
+// sharp keeps files it has read open (on Windows that blocks overwriting them): read into memory instead.
+sharp.cache(false);
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 const OUT_DIR = path.join(PUBLIC, 'media', 'cutouts');
@@ -97,6 +100,18 @@ async function cutout(src, erase) {
   return { image: await eraseAreas(trimmed, erase), coverage };
 }
 
+// OneDrive (and antivirus) can hold a file for a moment while it syncs: wait and try again.
+async function writeWithRetry(file, data, tries = 25) {
+  for (let i = 0; ; i++) {
+    try { await fs.writeFile(file, data); return; } catch (e) {
+      if (i >= tries) throw e;
+      // a OneDrive cloud placeholder cannot be overwritten in place: remove it and write a fresh file
+      await fs.unlink(file).catch(() => {});
+      await new Promise((r) => setTimeout(r, Math.min(4000, 400 * (i + 1))));
+    }
+  }
+}
+
 const result = {};
 const previous = JSON.parse(await fs.readFile(path.join(CONTENT, 'cutouts.generated.json'), 'utf8').catch(() => '{"products":{}}')).products;
 const erase = settings.erase ?? {};
@@ -123,6 +138,20 @@ for (const [i, p] of todo.entries()) {
     made++;
     console.log(`  ${i + 1}/${todo.length} ${p.id} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   } else reused++;
+
+  // Cutouts of small catalogue crops: enlarged at most 2x (Lanczos) and lightly sharpened, once.
+  // Standard resampling only, no detail is invented. Skipped when the cutout is already large enough.
+  const big = await fs.readFile(path.join(PUBLIC, files[1].file));
+  const meta0 = await sharp(big).metadata();
+  if (Math.max(meta0.width, meta0.height) < 640) {
+    const scale = Math.min(2, 960 / Math.max(meta0.width, meta0.height));
+    const enlarged = await sharp(big).resize({ width: Math.round(meta0.width * scale), kernel: 'lanczos3' })
+      .sharpen({ sigma: 0.8, m1: 0.6, m2: 1.6 }).webp({ quality: 86, alphaQuality: 92 }).toBuffer();
+    for (const { w, file } of files) {
+      const out = await sharp(enlarged).resize({ width: w, height: w, fit: 'inside', withoutEnlargement: true }).webp({ quality: 84, alphaQuality: 92 }).toBuffer();
+      await writeWithRetry(path.join(PUBLIC, file), out);
+    }
+  }
 
   const variants = [];
   for (const { file } of files) {

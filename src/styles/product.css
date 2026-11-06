@@ -165,3 +165,9 @@
 .feature .number-tile__unit { color: var(--ultra-gold); }
 .feature__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .feature__actions .save-btn.is-saved { background: var(--aparna-red-deep); color: var(--white); border-color: transparent; }
+
+/* ---------- category spotlight in real-time 3D (src/scenes/showcase.js); the photo stage stays as the fallback */
+.spotlight__3d { position: absolute; inset: 0 0 12% 0; opacity: 0; transition: opacity 0.8s var(--ease-out); pointer-events: none; }
+.spotlight__viewer { width: 100%; height: 100%; aspect-ratio: auto; cursor: pointer; }
+.spotlight.has-3d .spotlight__3d { opacity: 1; }
+.spotlight.has-3d .stage__product, .spotlight.has-3d .stage__fx { opacity: 0; transition: opacity 0.8s var(--ease-out); }

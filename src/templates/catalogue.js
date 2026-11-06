@@ -221,7 +221,7 @@ function showcase(t, catalogue, cutouts) {
       const modelKey = PRODUCT_MODELS[p.id];
       return `
     <article class="feature ${i % 2 ? 'feature--flip' : ''}" data-feature data-accent="${ACCENT_RGB[motion]}" aria-labelledby="feature-${i}">
-      <div class="feature__visual">
+      <div class="feature__visual" data-3d-visual>
         ${modelKey ? `
         <div class="feature__3d" data-feature-3d>
           <div class="viewer feature__viewer" data-viewer="${esc(modelKey)}" tabindex="0" role="img" aria-label="${esc(fmt(t.preview.viewerLabel, { name: p.name }))}">
@@ -290,8 +290,12 @@ function showroom(t, catalogue, cutouts, category, title, lead) {
         <p class="showroom__lead" data-reveal>${esc(lead)}</p>
         <p class="showroom__stat" data-reveal><strong>${category.count}</strong> ${esc(category.count === 1 ? s.model : s.modelsWord)}</p>
       </div>
-      <a class="spotlight" href="${esc(hero.url)}" data-stage-card data-spotlight>
+      <a class="spotlight" href="${esc(hero.url)}" data-stage-card data-spotlight data-3d-visual>
         ${stage(t, hero, cutouts[hero.id], { sizes: '(min-width: 900px) 46vw, 92vw', eager: true, extraClass: 'spotlight__stage' })}
+        ${PRODUCT_MODELS[hero.id] ? `
+        <span class="spotlight__3d" data-feature-3d aria-hidden="true">
+          <span class="viewer spotlight__viewer" data-viewer="${esc(PRODUCT_MODELS[hero.id])}"><canvas class="viewer__canvas"></canvas></span>
+        </span>` : ''}
         <span class="spotlight__label"><span class="spotlight__kicker">${esc(s.spotlight)}</span> <span class="spotlight__name">${esc(hero.name)}</span> <span aria-hidden="true">→</span></span>
       </a>
     </section>`;

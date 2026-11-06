@@ -52,7 +52,7 @@ export async function mountViewer(host, { quality }) {
   const ready = (async () => {
     const { createFanScene } = await import('../three/fan-scene.js'); // already cached if the hero has 3D
     const viewer = createFanScene(host.querySelector('canvas'), { viewer: true, quality, observe: host, model: host.dataset.viewer });
-    Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.6, fill: 0.66 }, viewer.viewerPose ?? {});
+    Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.56, fill: 0.8 }, viewer.viewerPose ?? {});
     viewer.setLevel(2);
     // Keyboard: arrows turn and tilt it.
     host.addEventListener('keydown', (e) => {

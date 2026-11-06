@@ -92,7 +92,11 @@ class ImageWriter {
         img = sharp(await img.toBuffer()).rotate(270);
         sourceWidth = crop ? crop[3] : meta.height;
       }
-      img = img.resize({ width: Math.min(width, sourceWidth), withoutEnlargement: true });
+      // Small catalogue crops are enlarged (at most 2x, high-quality Lanczos filter) and lightly sharpened, so
+      // they don't look soft on large screens. Standard resampling only: no detail is invented.
+      const target = Math.min(width, Math.round(sourceWidth * 2));
+      img = img.resize({ width: target, kernel: 'lanczos3' });
+      if (target > sourceWidth) img = img.sharpen({ sigma: 0.8, m1: 0.6, m2: 1.6 });
       const file = `media/products/${key}-${width}.webp`;
       const info = await img.webp({ quality: 74 }).toFile(path.join(this.publicDir, file));
       variants.push({ file: `/${file}`, width: info.width, height: info.height });

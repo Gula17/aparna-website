@@ -87,7 +87,8 @@ export function setupShowroom({ reducedMotion, lite }) {
   }
   const spotlight = document.querySelector('[data-spotlight]');
   if (spotlight) {
-    gsap.from(spotlight, { autoAlpha: 0, scale: 0.86, y: 40, duration: 1.2, ease: 'power3.out', delay: 0.1, clearProps: 'all' });
+    // drops in from above the screen and settles into its place
+    gsap.from(spotlight, { y: () => -(spotlight.getBoundingClientRect().bottom + 40), rotate: -4, duration: 1.35, ease: 'back.out(1.15)', delay: 0.1, clearProps: 'transform' });
     // the spotlight product lifts away and the showroom darkens as you scroll past it
     // (moves the whole stage: the product inside keeps its own pointer and idle motion)
     gsap.to(spotlight.querySelector('.stage'), {

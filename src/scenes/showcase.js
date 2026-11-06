@@ -1,5 +1,6 @@
 // The featured showcase on /products/ and the product page hero (styles: src/styles/product.css).
-//   - fans with a 3D model appear as the real-time model (three.js loads only when it comes near the screen);
+//   - products with a 3D model appear as the real-time model, in the showcase and in each category's spotlight
+//     (sharp at any size, where the photo is small) (three.js loads only when it comes near the screen);
 //     without 3D on this device its photo stage stays
 //   - each featured product rises in, turns towards you and settles as you scroll, then lifts away
 //   - the light behind the showcase takes on the colour of the product on screen
@@ -12,10 +13,8 @@ import { mountViewer } from './products.js';
 gsap.registerPlugin(ScrollTrigger);
 
 function mount3D(box, { quality }) {
-  const visual = box.closest('.feature__visual');
-  const io = new IntersectionObserver(async ([entry]) => {
-    if (!entry.isIntersecting) return;
-    io.disconnect();
+  const visual = box.closest('[data-3d-visual]'); // a showcase feature, or a category page's spotlight
+  const start = async () => {
     try {
       const viewer = await mountViewer(box.querySelector('[data-viewer]'), { quality });
       if (!viewer) throw new Error('no viewer');
@@ -23,9 +22,18 @@ function mount3D(box, { quality }) {
       if (!viewer.viewerPose) Object.assign(viewer.pose, { elevation: -0.5, fill: 0.84, screenY: 0.5 });
       viewer.setLevel(3); // blades turning at a steady speed
       visual.classList.add('has-3d');
-    } catch {
+    } catch (error) {
+      console.warn('3D view not shown, keeping the photo:', error);
       box.remove(); // keep the photo stage
     }
+  };
+  // A category page's spotlight is at the top of the page: start once its drop-in has landed (while it falls from
+  // above the screen an on-screen check can miss it). Showcase products start when they come near the screen.
+  if (box.closest('[data-spotlight]')) { setTimeout(start, 1500); return; }
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    io.disconnect();
+    start();
   }, { rootMargin: '400px 0px' });
   io.observe(box);
 }
@@ -59,7 +67,9 @@ export function setupShowcase({ reducedMotion, can3D, quality }) {
   // ---- product page: the hero settles in
   const hero = document.querySelector('.product-hero');
   if (hero) {
-    gsap.from(hero.querySelector('.gallery'), { autoAlpha: 0, scale: 0.94, y: 30, duration: 1, ease: 'power3.out', clearProps: 'all' });
+    // the product drops in from above the screen and settles into its place
+    const gallery = hero.querySelector('.gallery');
+    gsap.from(gallery, { y: () => -(gallery.getBoundingClientRect().bottom + 40), rotate: -3, duration: 1.3, ease: 'back.out(1.1)', clearProps: 'transform' });
     gsap.from(hero.querySelectorAll('.product__info > *'), { autoAlpha: 0, y: 24, duration: 0.8, ease: 'power3.out', stagger: 0.05, delay: 0.15, clearProps: 'all' });
   }
 
