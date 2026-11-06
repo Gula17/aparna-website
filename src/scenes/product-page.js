@@ -73,6 +73,10 @@ export function setupProductPage({ can3D, quality }) {
   }
   picker?.addEventListener('change', applyColour);
 
+  // Finishes seen on the poster but not yet named in the data (Air Max): they only repaint the 3D model.
+  const posterFinishes = page.querySelector('[data-poster-finishes]');
+  posterFinishes?.addEventListener('change', (e) => { if (viewer) viewer.setFinish(e.target.value); });
+
   // WhatsApp: share this page's link.
   const share = page.querySelector('[data-share]');
   if (share) share.href = `https://wa.me/?text=${encodeURIComponent(`${share.dataset.shareText} ${location.origin}${location.pathname}`)}`;

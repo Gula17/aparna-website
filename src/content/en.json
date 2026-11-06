@@ -314,6 +314,8 @@
     "keyNumbers": "Key numbers",
     "cutoutCaption": "{source}, background removed",
     "sizeLabel": "Sweep / size",
-    "whereTitle": "Where to find it"
+    "whereTitle": "Where to find it",
+    "posterFinishes": "Finishes on the poster",
+    "posterFinishesNote": "Both finishes as shown on the poster. The colour names are still being confirmed by Aparna."
   }
 }

@@ -82,7 +82,7 @@ function bladeShape(kind, root, w) {
 
 // The decorative trim where the blade meets the motor.
 function trimGeometry(kind, root, w, pitch) {
-  const y = 0.014;
+  const y = -0.026; // on the underside of the blade: ceiling fans are seen from below
   const x0 = root + 0.02;
   if (kind === 'loop' || kind === 'teardrop' || kind === 'window') {
     const s = new THREE.Shape();
@@ -294,3 +294,145 @@ export const CEILING = {
 export const CEILING_MODELS = Object.fromEntries(Object.entries(CEILING).map(([key, cfg]) => [
   key, ({ shadows = false } = {}) => { const fan = createCeiling(key, cfg); fan.shadows(shadows); return fan; },
 ]));
+
+// ---------------------------------------------------------------- AIR MAX (Signature Series), its own model
+// From poster 07 AIRMAX, which shows it in two finishes (gold tone and copper tone; the colour names are still
+// being confirmed by Aparna): an inverted-cone canopy with a glossy maroon rim, a cone shank cover over the
+// motor ("designer shank cover"), a low wide motor whose base carries a curved three-armed plate edged in
+// maroon, a maroon-framed cover with a wavy-line insert on each blade root, and broad satin blades that widen
+// slightly to a rounded tip.
+
+const AIRMAX_FINISHES = {
+  gold: { body: '#d8b57f', blade: '#dcbb88', insert: '#e3c99a', lines: '#7a4a2a', metal: 0.45 },
+  copper: { body: '#9c5236', blade: '#a65a3b', insert: '#e9e4de', lines: '#a8573a', metal: 0.5 },
+};
+
+function wavyTexture(base, line) {
+  const c = document.createElement('canvas');
+  c.width = 256; c.height = 128;
+  const g = c.getContext('2d');
+  g.fillStyle = base;
+  g.fillRect(0, 0, 256, 128);
+  g.strokeStyle = line;
+  g.lineWidth = 2.2;
+  for (let i = -6; i < 16; i++) { // flowing wavy lines, as on the blade-root inserts
+    g.beginPath();
+    for (let x = 0; x <= 256; x += 4) {
+      const y = i * 11 + 18 * Math.sin(x / 34 + i * 0.4) + x * 0.12;
+      if (x === 0) g.moveTo(x, y); else g.lineTo(x, y);
+    }
+    g.stroke();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+function createAirMax({ shadows = false } = {}) {
+  const m = {
+    body: physical({ roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.2 }),
+    blade: physical({ roughness: 0.36, clearcoat: 0.45, clearcoatRoughness: 0.25 }),
+    maroon: physical({ color: '#7d1f26', roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04, metalness: 0.3 }),
+    insert: new THREE.MeshPhysicalMaterial({ roughness: 0.35, clearcoat: 0.6, side: THREE.DoubleSide }),
+  };
+  const fan = new THREE.Group();
+  fan.name = 'air-max';
+
+  // still: inverted-cone canopy with a maroon rim, the downrod and the cone shank cover
+  const canopy = new THREE.Mesh(lathe([[0, TOP], [0.11, TOP], [0.112, TOP - 0.012], [0.07, TOP - 0.08], [0.03, TOP - 0.15], [0.022, TOP - 0.165]]), m.body);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.009, 10, 64), m.maroon);
+  rim.rotation.x = Math.PI / 2;
+  rim.position.y = TOP - 0.008;
+  const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.019, 0.019, TOP - 0.165 - 0.13, 20), m.body);
+  rod.position.y = (TOP - 0.165 + 0.13) / 2;
+  const shank = new THREE.Mesh(lathe([[0.019, 0.14], [0.03, 0.11], [0.05, 0.085], [0.075, 0.068]], 40), m.body);
+  const stator = new THREE.Group();
+  stator.add(canopy, rim, rod, shank);
+
+  // turning: a low wide motor with a maroon line at the waist and the three-armed plate on its base
+  const r = 0.2;
+  const upper = new THREE.Mesh(lathe([[0.07, 0.068], [0.14, 0.058], [0.19, 0.03], [r, 0.004]]), m.body);
+  const lower = new THREE.Mesh(lathe([[r, 0.004], [0.202, -0.018], [0.19, -0.034], [0.17, -0.04]]), m.body);
+  const base = new THREE.Mesh(new THREE.CircleGeometry(0.17, 64), m.body);
+  base.rotation.x = Math.PI / 2;
+  base.position.y = -0.04;
+  const waist = new THREE.Mesh(new THREE.TorusGeometry(r * 1.004, 0.0045, 8, 96), m.maroon);
+  waist.rotation.x = Math.PI / 2;
+  waist.position.y = 0.006;
+  const triLobe = (R, y, material) => { // the curved "Y": three arms swirling towards the blades
+    const s = new THREE.Shape();
+    for (let i = 0; i <= 180; i++) {
+      const p = (i / 180) * Math.PI * 2;
+      const rr = R * (0.36 + 0.64 * Math.pow(0.5 + 0.5 * Math.cos(3 * p - 0.5 * Math.sin(3 * p)), 1.6)); // three swept arms
+      const x = Math.cos(p) * rr, z = Math.sin(p) * rr;
+      if (i === 0) s.moveTo(x, z); else s.lineTo(x, z);
+    }
+    const g = new THREE.ExtrudeGeometry(s, { depth: 0.006, bevelEnabled: true, bevelThickness: 0.003, bevelSize: 0.003, bevelSegments: 2 });
+    g.rotateX(Math.PI / 2);
+    g.translate(0, y, 0);
+    return new THREE.Mesh(g, material);
+  };
+  const plateEdge = triLobe(0.172, -0.041, m.maroon);
+  const plate = triLobe(0.15, -0.049, m.body);
+  const rotor = new THREE.Group();
+  rotor.name = 'rotor';
+  rotor.add(upper, lower, base, waist, plateEdge, plate);
+
+  // blades: broad, slightly wider at the tip, rounded tip; a maroon-framed cover with a wavy insert at the root
+  const pitch = -0.1;
+  const s = new THREE.Shape();
+  s.moveTo(0.22, -0.075);
+  s.bezierCurveTo(0.5, -0.082, 0.8, -0.09, 0.95, -0.092);
+  s.quadraticCurveTo(1.01, -0.09, 1.0, -0.02);
+  s.quadraticCurveTo(0.995, 0.09, 0.93, 0.1);
+  s.bezierCurveTo(0.75, 0.098, 0.45, 0.085, 0.22, 0.075);
+  s.closePath();
+  const bladeGeo = plate_(s, pitch, -0.006, 0.012);
+  // (both on the underside of the blade, where the poster shows them)
+  const frameGeo = plate_([[0.17, -0.1], [0.42, -0.108], [0.47, -0.07], [0.47, 0.07], [0.42, 0.108], [0.17, 0.1]], pitch, -0.024, 0.014);
+  const insertGeo = plate_([[0.2, -0.078], [0.4, -0.084], [0.44, -0.052], [0.44, 0.052], [0.4, 0.084], [0.2, 0.078]], pitch, -0.033, 0.004);
+  // texture coordinates across the insert so the wavy lines show
+  const uv = insertGeo.getAttribute('uv');
+  const pos = insertGeo.getAttribute('position');
+  for (let i = 0; i < pos.count; i++) uv.setXY(i, (pos.getX(i) - 0.2) / 0.24, (pos.getZ(i) + 0.09) / 0.18);
+  const blades = [];
+  for (let i = 0; i < 3; i++) {
+    const pivot = new THREE.Group();
+    pivot.add(new THREE.Mesh(bladeGeo, m.blade), new THREE.Mesh(frameGeo, m.maroon), new THREE.Mesh(insertGeo, m.insert));
+    pivot.userData.restAngle = (i * Math.PI * 2) / 3;
+    pivot.rotation.y = pivot.userData.restAngle;
+    rotor.add(pivot);
+    blades.push(pivot);
+  }
+  const blurDisc = new THREE.Mesh(new THREE.RingGeometry(r, 1.02, 96),
+    new THREE.MeshBasicMaterial({ map: makeBlurTexture(), transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide }));
+  blurDisc.rotation.x = -Math.PI / 2;
+  blurDisc.position.y = -0.01;
+  const hitArea = new THREE.Mesh(new THREE.CircleGeometry(1.05, 32), new THREE.MeshBasicMaterial({ visible: false }));
+  hitArea.rotation.x = -Math.PI / 2;
+  fan.add(stator, rotor, blurDisc, hitArea);
+  fan.traverse((o) => { if (o.isMesh && o !== blurDisc && o !== hitArea) { o.castShadow = shadows; o.receiveShadow = shadows; } });
+
+  const textures = {};
+  function setFinish(key) {
+    const f = AIRMAX_FINISHES[key] ?? AIRMAX_FINISHES.gold;
+    for (const [mat, color] of [[m.body, f.body], [m.blade, f.blade]]) {
+      mat.color.set(color);
+      mat.metalness = f.metal;
+      mat.envMapIntensity = 1 + f.metal * 1.2;
+      mat.needsUpdate = true;
+    }
+    textures[key] ??= wavyTexture(f.insert, f.lines);
+    m.insert.map = textures[key];
+    m.insert.needsUpdate = true;
+  }
+  setFinish('gold');
+  // a little closer than the other ceiling fans, so the motor plate and blade covers read
+  return { fan, rotor, stator, blades, blurDisc, hitArea, setFinish, viewerPose: { elevation: -0.55, azimuth: 0.6, screenX: 0.5, screenY: 0.52, fill: 0.86, zoom: 1.15 } };
+}
+
+function plate_(outline, pitch, y, thickness) {
+  return plate(outline, { pitch, y, thickness, curve: 24 });
+}
+
+CEILING_MODELS['air-max-48'] = createAirMax;

@@ -6,7 +6,7 @@
 
 import { esc, fmt } from './helpers.js';
 import { siteHeader, siteFooter, heartIcon } from './layout.js';
-import { PRODUCT_MODELS, FINISH_KEYS, PICTURED_COLOUR } from '../three/models.js';
+import { PRODUCT_MODELS, FINISH_KEYS, PICTURED_COLOUR, POSTER_FINISHES } from '../three/models.js';
 
 const DATA_COLOUR_TO_FINISH = FINISH_KEYS; // colour name -> 3D finish (src/three/models.js)
 
@@ -507,6 +507,19 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
               </label>`).join('')}
           </div>
           <p class="fine-print">${esc(modelKey ? t.product.colourNote.replace(/ Photos.*/, '') : t.product.colourNote)}</p>
+        </fieldset>` : ''}
+
+        ${modelKey && !p.colours.length && POSTER_FINISHES[p.id] ? `
+        <fieldset class="colour-picker" data-poster-finishes>
+          <legend>${esc(t.showroom.posterFinishes)}</legend>
+          <div class="colour-picker__list">
+            ${POSTER_FINISHES[p.id].map((f, i) => `
+              <label class="colour-option">
+                <input type="radio" name="poster-finish" value="${esc(f.key)}" ${i === 0 ? 'checked' : ''}>
+                <span class="swatch" style="--swatch:${esc(f.swatch)}" aria-hidden="true"></span><span class="colour-option__name">${esc(f.label)}</span>
+              </label>`).join('')}
+          </div>
+          <p class="fine-print">${esc(t.showroom.posterFinishesNote)}</p>
         </fieldset>` : ''}
 
         <div class="product__actions">

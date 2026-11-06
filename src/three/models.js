@@ -229,3 +229,12 @@ export const PICTURED_COLOUR = {
   'ceiling-fans-viraz-48': 'Smoke Brown',
   'ceiling-fans-vista-deco-48': 'Smoke Brown',
 };
+
+// Finishes a 3D model can show that are visible on the product's poster but not yet named in the product data
+// (Aparna is still confirming the colour list). Offered as a finish switch on the 3D view only.
+export const POSTER_FINISHES = {
+  'ceiling-fans-air-max-48': [
+    { key: 'gold', label: 'Gold tone', swatch: '#d8b57f' },
+    { key: 'copper', label: 'Copper tone', swatch: '#a65a3b' },
+  ],
+};
