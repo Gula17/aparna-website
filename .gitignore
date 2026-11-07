@@ -19,3 +19,6 @@ my-list/
 
 # Local Netlify folder
 .netlify
+
+# AI-upscaled photos (scripts/ai-upscale.mjs), rebuilt on demand
+.cache/

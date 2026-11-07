@@ -127,7 +127,7 @@ for (const [id, mark] of Object.entries(marks)) {
   const key = path.basename(cut.variants.at(-1).file).replace(/-\d+\.webp$/, '');
   const write = async (buf, name) => {
     const variants = [];
-    for (const w of [480, 960]) {
+    for (const w of cut.variants.length >= 3 ? [480, 960, 1440] : [480, 960]) { // matches the cutout sizes
       const out = `media/rotors/${key}-${name}-${w}.webp`;
       const res = await sharp(buf, { raw: info }).resize({ width: Math.min(w, W) }).webp({ quality: 82, alphaQuality: 90 }).toFile(path.join(PUBLIC, out));
       variants.push({ file: `/${out}`, width: res.width, height: res.height });

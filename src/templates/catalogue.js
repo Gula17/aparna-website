@@ -460,7 +460,6 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
     slides.push(`
       <figure class="gallery__slide gallery__slide--stage" data-slide>
         <div class="gallery__showcase" data-stage-card>${stage(t, p, cut, { sizes: '(min-width: 900px) 50vw, 94vw', eager: !modelKey, extraClass: 'gallery__stagebox' })}</div>
-        <figcaption>${esc(fmt(t.showroom.cutoutCaption, { source: t.product.kind[p.images[0].kind] }))}</figcaption>
       </figure>`);
     thumbs.push({ html: `<img src="${esc(cut.variants[0].file)}" alt="" width="${cut.variants[0].width}" height="${cut.variants[0].height}" loading="lazy">` });
   }

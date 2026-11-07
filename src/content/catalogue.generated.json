@@ -66,12 +66,17 @@
             {
               "file": "/media/products/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Aeroflow",
@@ -88,6 +93,11 @@
               "file": "/media/products/photo-aeroflow-bldc-standee-avni4458-960.webp",
               "width": 960,
               "height": 1440
+            },
+            {
+              "file": "/media/products/photo-aeroflow-bldc-standee-avni4458-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "Aeroflow: photo 1",
@@ -152,12 +162,17 @@
             {
               "file": "/media/products/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Aerosleek",
@@ -174,6 +189,11 @@
               "file": "/media/products/photo-aerosleek-bldc-standee-avni4456-960.webp",
               "width": 960,
               "height": 1440
+            },
+            {
+              "file": "/media/products/photo-aerosleek-bldc-standee-avni4456-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "Aerosleek: photo 1",
@@ -238,12 +258,17 @@
             {
               "file": "/media/products/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ikon BLDC",
@@ -318,6 +343,11 @@
               "file": "/media/products/poster-07-airmax-signature-series-ceiling-fan-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-07-airmax-signature-series-ceiling-fan-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Air Max",
@@ -392,6 +422,11 @@
               "file": "/media/products/poster-08-artpro-signature-series-ceiling-fan-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-08-artpro-signature-series-ceiling-fan-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Art Pro",
@@ -466,6 +501,11 @@
               "file": "/media/products/crop-ceiling-fans-coral-48-960.webp",
               "width": 960,
               "height": 646
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-coral-48-1440.webp",
+              "width": 1440,
+              "height": 968
             }
           ],
           "alt": "The Coral in Aparna Catalogue 2026",
@@ -539,6 +579,11 @@
               "file": "/media/products/poster-05-coras-signature-series-ceiling-fan-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-05-coras-signature-series-ceiling-fan-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Coras",
@@ -612,6 +657,11 @@
               "file": "/media/products/poster-06-irus-signature-series-ceiling-fan-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-06-irus-signature-series-ceiling-fan-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Irus",
@@ -691,6 +741,11 @@
               "file": "/media/products/own-ceiling-fans-heritage-48-0-960.webp",
               "width": 960,
               "height": 573
+            },
+            {
+              "file": "/media/products/own-ceiling-fans-heritage-48-0-1440.webp",
+              "width": 1440,
+              "height": 859
             }
           ],
           "alt": "The Aparna Heritage",
@@ -707,6 +762,11 @@
               "file": "/media/products/photo-new-launch-standee-pazero-and-heritage-avni4463-960.webp",
               "width": 960,
               "height": 1440
+            },
+            {
+              "file": "/media/products/photo-new-launch-standee-pazero-and-heritage-avni4463-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "Heritage: photo 1",
@@ -786,6 +846,11 @@
               "file": "/media/products/own-ceiling-fans-pazero-48-0-960.webp",
               "width": 960,
               "height": 553
+            },
+            {
+              "file": "/media/products/own-ceiling-fans-pazero-48-0-1440.webp",
+              "width": 1440,
+              "height": 829
             }
           ],
           "alt": "The Aparna Pazero",
@@ -802,6 +867,11 @@
               "file": "/media/products/photo-new-launch-standee-pazero-and-heritage-avni4463-960.webp",
               "width": 960,
               "height": 1440
+            },
+            {
+              "file": "/media/products/photo-new-launch-standee-pazero-and-heritage-avni4463-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "Pazero: photo 1",
@@ -906,13 +976,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-mini-dlx-24-480.webp",
-              "width": 400,
-              "height": 464
+              "width": 480,
+              "height": 557
             },
             {
               "file": "/media/products/crop-ceiling-fans-mini-dlx-24-960.webp",
-              "width": 400,
-              "height": 464
+              "width": 960,
+              "height": 1114
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-mini-dlx-24-1440.webp",
+              "width": 1440,
+              "height": 1670
             }
           ],
           "alt": "The Mini DLX in Aparna Catalogue 2026",
@@ -987,8 +1062,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-mini-smart-24-960.webp",
-              "width": 524,
-              "height": 476
+              "width": 960,
+              "height": 872
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-mini-smart-24-1440.webp",
+              "width": 1440,
+              "height": 1308
             }
           ],
           "alt": "The Mini Smart in Aparna Catalogue 2026",
@@ -1058,13 +1138,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-mini-star-24-480.webp",
-              "width": 410,
-              "height": 450
+              "width": 480,
+              "height": 527
             },
             {
               "file": "/media/products/crop-ceiling-fans-mini-star-24-960.webp",
-              "width": 410,
-              "height": 450
+              "width": 960,
+              "height": 1054
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-mini-star-24-1440.webp",
+              "width": 1440,
+              "height": 1580
             }
           ],
           "alt": "The Mini Star in Aparna Catalogue 2026",
@@ -1153,8 +1238,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-new-josh-24-960.webp",
-              "width": 510,
-              "height": 464
+              "width": 960,
+              "height": 873
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-new-josh-24-1440.webp",
+              "width": 1440,
+              "height": 1310
             }
           ],
           "alt": "The New Josh in Aparna Catalogue 2026",
@@ -1229,8 +1319,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-diplomat-36-960.webp",
-              "width": 584,
-              "height": 376
+              "width": 960,
+              "height": 618
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-diplomat-36-1440.webp",
+              "width": 1440,
+              "height": 927
             }
           ],
           "alt": "The Diplomat in Aparna Catalogue 2026",
@@ -1307,6 +1402,11 @@
               "file": "/media/products/crop-ceiling-fans-major-36-960.webp",
               "width": 960,
               "height": 406
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-major-36-1440.webp",
+              "width": 1440,
+              "height": 610
             }
           ],
           "alt": "The Major in Aparna Catalogue 2026",
@@ -1381,8 +1481,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-orbit-36-960.webp",
-              "width": 600,
-              "height": 436
+              "width": 960,
+              "height": 698
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-orbit-36-1440.webp",
+              "width": 1440,
+              "height": 1046
             }
           ],
           "alt": "The Orbit in Aparna Catalogue 2026",
@@ -1527,8 +1632,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-apsara-48-960.webp",
-              "width": 652,
-              "height": 520
+              "width": 960,
+              "height": 766
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-apsara-48-1440.webp",
+              "width": 1440,
+              "height": 1148
             }
           ],
           "alt": "The Apsara in Aparna Catalogue 2026",
@@ -1603,8 +1713,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-areta-48-960.webp",
-              "width": 630,
-              "height": 480
+              "width": 960,
+              "height": 731
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-areta-48-1440.webp",
+              "width": 1440,
+              "height": 1097
             }
           ],
           "alt": "The Areta in Aparna Catalogue 2026",
@@ -1681,6 +1796,11 @@
               "file": "/media/products/crop-ceiling-fans-croma-48-960.webp",
               "width": 960,
               "height": 475
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-croma-48-1440.webp",
+              "width": 1440,
+              "height": 712
             }
           ],
           "alt": "The Croma in Aparna Catalogue 2026",
@@ -1790,8 +1910,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-crystal-pro-48-960.webp",
-              "width": 560,
-              "height": 450
+              "width": 960,
+              "height": 771
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-crystal-pro-48-1440.webp",
+              "width": 1440,
+              "height": 1157
             }
           ],
           "alt": "The Crystal Pro in Aparna Catalogue 2026",
@@ -1866,8 +1991,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-electra-48-960.webp",
-              "width": 560,
-              "height": 540
+              "width": 960,
+              "height": 926
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-electra-48-1440.webp",
+              "width": 1440,
+              "height": 1389
             }
           ],
           "alt": "The Electra in Aparna Catalogue 2026",
@@ -1942,8 +2072,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-festiva-48-960.webp",
-              "width": 556,
-              "height": 396
+              "width": 960,
+              "height": 684
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-festiva-48-1440.webp",
+              "width": 1440,
+              "height": 1026
             }
           ],
           "alt": "The Festiva in Aparna Catalogue 2026",
@@ -2018,8 +2153,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-flora-48-960.webp",
-              "width": 586,
-              "height": 444
+              "width": 960,
+              "height": 727
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-flora-48-1440.webp",
+              "width": 1440,
+              "height": 1091
             }
           ],
           "alt": "The Flora in Aparna Catalogue 2026",
@@ -2094,8 +2234,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-florence-48-960.webp",
-              "width": 680,
-              "height": 608
+              "width": 960,
+              "height": 858
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-florence-48-1440.webp",
+              "width": 1440,
+              "height": 1288
             }
           ],
           "alt": "The Florence in Aparna Catalogue 2026",
@@ -2170,8 +2315,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-glaze-48-960.webp",
-              "width": 592,
-              "height": 560
+              "width": 960,
+              "height": 908
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-glaze-48-1440.webp",
+              "width": 1440,
+              "height": 1362
             }
           ],
           "alt": "The Glaze in Aparna Catalogue 2026",
@@ -2281,6 +2431,11 @@
               "file": "/media/products/crop-ceiling-fans-ikon-48-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-ikon-48-1440.webp",
+              "width": 1440,
+              "height": 959
             }
           ],
           "alt": "The Ikon in Aparna Catalogue 2026",
@@ -2393,6 +2548,11 @@
               "file": "/media/products/crop-ceiling-fans-luster-48-960.webp",
               "width": 960,
               "height": 607
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-luster-48-1440.webp",
+              "width": 1440,
+              "height": 910
             }
           ],
           "alt": "The Luster in Aparna Catalogue 2026",
@@ -2560,6 +2720,11 @@
               "file": "/media/products/crop-ceiling-fans-phantom-48-960.webp",
               "width": 960,
               "height": 671
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-phantom-48-1440.webp",
+              "width": 1440,
+              "height": 1007
             }
           ],
           "alt": "The Phantom in Aparna Catalogue 2026",
@@ -2634,8 +2799,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-prince-48-960.webp",
-              "width": 594,
-              "height": 500
+              "width": 960,
+              "height": 808
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-prince-48-1440.webp",
+              "width": 1440,
+              "height": 1212
             }
           ],
           "alt": "The Prince in Aparna Catalogue 2026",
@@ -2780,8 +2950,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-rosa-48-960.webp",
-              "width": 720,
-              "height": 780
+              "width": 960,
+              "height": 1040
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-rosa-48-1440.webp",
+              "width": 1440,
+              "height": 1560
             }
           ],
           "alt": "The Rosa in Aparna Catalogue 2026",
@@ -2856,8 +3031,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-senorita-48-960.webp",
-              "width": 696,
-              "height": 754
+              "width": 960,
+              "height": 1040
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-senorita-48-1440.webp",
+              "width": 1392,
+              "height": 1508
             }
           ],
           "alt": "The Senorita in Aparna Catalogue 2026",
@@ -2932,8 +3112,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-sonet-deco-48-960.webp",
-              "width": 530,
-              "height": 450
+              "width": 960,
+              "height": 815
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-sonet-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1223
             }
           ],
           "alt": "The Sonet Deco in Aparna Catalogue 2026",
@@ -3008,8 +3193,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-sparsh-48-960.webp",
-              "width": 630,
-              "height": 570
+              "width": 960,
+              "height": 869
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-sparsh-48-1440.webp",
+              "width": 1440,
+              "height": 1303
             }
           ],
           "alt": "The Sparsh in Aparna Catalogue 2026",
@@ -3084,8 +3274,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-stunner-48-960.webp",
-              "width": 620,
-              "height": 368
+              "width": 960,
+              "height": 570
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-stunner-48-1440.webp",
+              "width": 1440,
+              "height": 855
             }
           ],
           "alt": "The Stunner in Aparna Catalogue 2026",
@@ -3197,6 +3392,11 @@
               "file": "/media/products/crop-ceiling-fans-unicorn-48-960.webp",
               "width": 960,
               "height": 449
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-unicorn-48-1440.webp",
+              "width": 1440,
+              "height": 674
             }
           ],
           "alt": "The Unicorn in Aparna Catalogue 2026",
@@ -3298,13 +3498,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-little-star-24-480.webp",
-              "width": 410,
-              "height": 430
+              "width": 480,
+              "height": 503
             },
             {
               "file": "/media/products/crop-ceiling-fans-little-star-24-960.webp",
-              "width": 410,
-              "height": 430
+              "width": 960,
+              "height": 1007
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-little-star-24-1440.webp",
+              "width": 1440,
+              "height": 1510
             }
           ],
           "alt": "The Little Star in Aparna Catalogue 2026",
@@ -3376,13 +3581,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-mini-copper-24-480.webp",
-              "width": 400,
-              "height": 460
+              "width": 480,
+              "height": 552
             },
             {
               "file": "/media/products/crop-ceiling-fans-mini-copper-24-960.webp",
-              "width": 400,
-              "height": 460
+              "width": 960,
+              "height": 1104
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-mini-copper-24-1440.webp",
+              "width": 1440,
+              "height": 1656
             }
           ],
           "alt": "The Mini Copper in Aparna Catalogue 2026",
@@ -3459,8 +3669,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-new-josh-copper-24-960.webp",
-              "width": 490,
-              "height": 460
+              "width": 960,
+              "height": 901
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-new-josh-copper-24-1440.webp",
+              "width": 1440,
+              "height": 1352
             }
           ],
           "alt": "The New Josh Copper in Aparna Catalogue 2026",
@@ -3574,8 +3789,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-tejas-24-960.webp",
-              "width": 500,
-              "height": 430
+              "width": 960,
+              "height": 826
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-tejas-24-1440.webp",
+              "width": 1440,
+              "height": 1238
             }
           ],
           "alt": "The Tejas in Aparna Catalogue 2026",
@@ -3652,8 +3872,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-nova-dlx-36-960.webp",
-              "width": 510,
-              "height": 392
+              "width": 960,
+              "height": 738
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-nova-dlx-36-1440.webp",
+              "width": 1440,
+              "height": 1107
             }
           ],
           "alt": "The Nova DLX in Aparna Catalogue 2026",
@@ -3730,8 +3955,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-saphire-36-960.webp",
-              "width": 590,
-              "height": 424
+              "width": 960,
+              "height": 690
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-saphire-36-1440.webp",
+              "width": 1440,
+              "height": 1035
             }
           ],
           "alt": "The Saphire in Aparna Catalogue 2026",
@@ -3810,6 +4040,11 @@
               "file": "/media/products/crop-ceiling-fans-virat-36-960.webp",
               "width": 960,
               "height": 578
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-virat-36-1440.webp",
+              "width": 1440,
+              "height": 866
             }
           ],
           "alt": "The Virat in Aparna Catalogue 2026",
@@ -3886,8 +4121,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-aroma-deco-48-960.webp",
-              "width": 590,
-              "height": 420
+              "width": 960,
+              "height": 683
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-aroma-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1025
             }
           ],
           "alt": "The Aroma Deco in Aparna Catalogue 2026",
@@ -3964,8 +4204,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-aspire-48-960.webp",
-              "width": 580,
-              "height": 580
+              "width": 960,
+              "height": 960
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-aspire-48-1440.webp",
+              "width": 1440,
+              "height": 1440
             }
           ],
           "alt": "The Aspire in Aparna Catalogue 2026",
@@ -4044,6 +4289,11 @@
               "file": "/media/products/crop-ceiling-fans-croma-pro-48-960.webp",
               "width": 960,
               "height": 513
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-croma-pro-48-1440.webp",
+              "width": 1440,
+              "height": 769
             }
           ],
           "alt": "The Croma Pro in Aparna Catalogue 2026",
@@ -4183,6 +4433,11 @@
               "file": "/media/products/crop-ceiling-fans-fortune-pro-48-960.webp",
               "width": 960,
               "height": 560
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-fortune-pro-48-1440.webp",
+              "width": 1440,
+              "height": 840
             }
           ],
           "alt": "The Fortune Pro in Aparna Catalogue 2026",
@@ -4291,13 +4546,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-kiara-48-480.webp",
-              "width": 470,
-              "height": 330
+              "width": 480,
+              "height": 337
             },
             {
               "file": "/media/products/crop-ceiling-fans-kiara-48-960.webp",
-              "width": 470,
-              "height": 330
+              "width": 960,
+              "height": 674
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-kiara-48-1440.webp",
+              "width": 1440,
+              "height": 1011
             }
           ],
           "alt": "The Kiara in Aparna Catalogue 2026",
@@ -4374,8 +4634,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-lotus-deco-48-960.webp",
-              "width": 524,
-              "height": 586
+              "width": 960,
+              "height": 1074
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-lotus-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1610
             }
           ],
           "alt": "The Lotus Deco in Aparna Catalogue 2026",
@@ -4455,6 +4720,11 @@
               "file": "/media/products/crop-ceiling-fans-lumero-48-960.webp",
               "width": 960,
               "height": 740
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-lumero-48-1440.webp",
+              "width": 1440,
+              "height": 1111
             }
           ],
           "alt": "The Lumero in Aparna Catalogue 2026",
@@ -4567,8 +4837,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-orchid-deco-48-960.webp",
-              "width": 500,
-              "height": 440
+              "width": 960,
+              "height": 845
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-orchid-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1267
             }
           ],
           "alt": "The Orchid Deco in Aparna Catalogue 2026",
@@ -4645,8 +4920,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-orina-48-960.webp",
-              "width": 680,
-              "height": 480
+              "width": 960,
+              "height": 678
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-orina-48-1440.webp",
+              "width": 1440,
+              "height": 1016
             }
           ],
           "alt": "The Orina in Aparna Catalogue 2026",
@@ -4723,8 +5003,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-platinium-48-960.webp",
-              "width": 600,
-              "height": 390
+              "width": 960,
+              "height": 624
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-platinium-48-1440.webp",
+              "width": 1440,
+              "height": 936
             }
           ],
           "alt": "The Platinium in Aparna Catalogue 2026",
@@ -4796,13 +5081,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-porsche-48-480.webp",
-              "width": 360,
-              "height": 500
+              "width": 480,
+              "height": 667
             },
             {
               "file": "/media/products/crop-ceiling-fans-porsche-48-960.webp",
-              "width": 360,
-              "height": 500
+              "width": 960,
+              "height": 1333
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-porsche-48-1440.webp",
+              "width": 1440,
+              "height": 2000
             }
           ],
           "alt": "The Porsche in Aparna Catalogue 2026",
@@ -4875,12 +5165,17 @@
             {
               "file": "/media/products/crop-ceiling-fans-rafale-48-480.webp",
               "width": 480,
-              "height": 293
+              "height": 292
             },
             {
               "file": "/media/products/crop-ceiling-fans-rafale-48-960.webp",
               "width": 960,
               "height": 585
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-rafale-48-1440.webp",
+              "width": 1440,
+              "height": 878
             }
           ],
           "alt": "The Rafale in Aparna Catalogue 2026",
@@ -4957,8 +5252,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-raftaar-48-960.webp",
-              "width": 560,
-              "height": 344
+              "width": 960,
+              "height": 590
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-raftaar-48-1440.webp",
+              "width": 1440,
+              "height": 885
             }
           ],
           "alt": "The Raftaar in Aparna Catalogue 2026",
@@ -5074,6 +5374,11 @@
               "file": "/media/products/crop-ceiling-fans-rolex-48-960.webp",
               "width": 960,
               "height": 677
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-rolex-48-1440.webp",
+              "width": 1440,
+              "height": 1015
             }
           ],
           "alt": "The Rolex in Aparna Catalogue 2026",
@@ -5187,8 +5492,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-runner-48-960.webp",
-              "width": 620,
-              "height": 510
+              "width": 960,
+              "height": 790
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-runner-48-1440.webp",
+              "width": 1440,
+              "height": 1185
             }
           ],
           "alt": "The Runner in Aparna Catalogue 2026",
@@ -5267,6 +5577,11 @@
               "file": "/media/products/crop-ceiling-fans-sayonara-48-960.webp",
               "width": 960,
               "height": 587
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-sayonara-48-1440.webp",
+              "width": 1440,
+              "height": 881
             }
           ],
           "alt": "The Sayonara in Aparna Catalogue 2026",
@@ -5338,13 +5653,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-smart-deco-48-480.webp",
-              "width": 458,
-              "height": 550
+              "width": 480,
+              "height": 576
             },
             {
               "file": "/media/products/crop-ceiling-fans-smart-deco-48-960.webp",
-              "width": 458,
-              "height": 550
+              "width": 960,
+              "height": 1153
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-smart-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1729
             }
           ],
           "alt": "The Smart Deco in Aparna Catalogue 2026",
@@ -5421,8 +5741,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-venus-deco-48-960.webp",
-              "width": 576,
-              "height": 444
+              "width": 960,
+              "height": 740
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-venus-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1110
             }
           ],
           "alt": "The Venus Deco in Aparna Catalogue 2026",
@@ -5499,8 +5824,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-viraj-deco-48-960.webp",
-              "width": 624,
-              "height": 480
+              "width": 960,
+              "height": 738
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-viraj-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1108
             }
           ],
           "alt": "The Viraj Deco in Aparna Catalogue 2026",
@@ -5572,13 +5902,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ceiling-fans-viraz-48-480.webp",
-              "width": 476,
-              "height": 320
+              "width": 480,
+              "height": 323
             },
             {
               "file": "/media/products/crop-ceiling-fans-viraz-48-960.webp",
-              "width": 476,
-              "height": 320
+              "width": 960,
+              "height": 645
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-viraz-48-1440.webp",
+              "width": 1440,
+              "height": 968
             }
           ],
           "alt": "The Viraz in Aparna Catalogue 2026",
@@ -5655,8 +5990,13 @@
             },
             {
               "file": "/media/products/crop-ceiling-fans-vista-deco-48-960.webp",
-              "width": 632,
-              "height": 464
+              "width": 960,
+              "height": 705
+            },
+            {
+              "file": "/media/products/crop-ceiling-fans-vista-deco-48-1440.webp",
+              "width": 1440,
+              "height": 1057
             }
           ],
           "alt": "The Vista Deco in Aparna Catalogue 2026",
@@ -5703,13 +6043,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vento-12-0-480.webp",
-              "width": 480,
-              "height": 768
+              "width": 450,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vento-12-0-960.webp",
-              "width": 960,
-              "height": 1536
+              "width": 900,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-vento-12-0-1440.webp",
+              "width": 1350,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Vento",
@@ -5720,12 +6065,17 @@
             {
               "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Vento",
@@ -5772,13 +6122,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-glider-16-0-480.webp",
-              "width": 480,
-              "height": 779
+              "width": 444,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-glider-16-0-960.webp",
-              "width": 960,
-              "height": 1558
+              "width": 888,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-glider-16-0-1440.webp",
+              "width": 1331,
+              "height": 2159
             }
           ],
           "alt": "The Aparna Glider",
@@ -5789,12 +6144,17 @@
             {
               "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Glider",
@@ -5841,13 +6201,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-spider-16-0-480.webp",
-              "width": 480,
-              "height": 776
+              "width": 445,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-spider-16-0-960.webp",
-              "width": 960,
-              "height": 1553
+              "width": 890,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-spider-16-0-1440.webp",
+              "width": 1335,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Spider",
@@ -5858,12 +6223,17 @@
             {
               "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-10-economy-series-table-fans-spider-glider-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Spider",
@@ -5919,6 +6289,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-tornado-16-0-960.webp",
               "width": 960,
               "height": 1382
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-tornado-16-0-1440.webp",
+              "width": 1440,
+              "height": 2073
             }
           ],
           "alt": "The Aparna Tornado",
@@ -5929,12 +6304,17 @@
             {
               "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-11-economy-series-wall-fans-tornado-vento-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Tornado",
@@ -5981,13 +6361,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-wendy-12-0-480.webp",
-              "width": 480,
-              "height": 1047
+              "width": 330,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-wendy-12-0-960.webp",
-              "width": 814,
-              "height": 1776
+              "width": 660,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-wendy-12-0-1440.webp",
+              "width": 990,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Wendy",
@@ -6004,6 +6389,11 @@
               "file": "/media/products/poster-14-smart-series-wall-fans-spectra-wendy-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-14-smart-series-wall-fans-spectra-wendy-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Wendy",
@@ -6050,13 +6440,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-fiona-16-0-480.webp",
-              "width": 480,
-              "height": 1066
+              "width": 324,
+              "height": 719
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-fiona-16-0-960.webp",
-              "width": 800,
-              "height": 1776
+              "width": 649,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-fiona-16-0-1440.webp",
+              "width": 973,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Fiona",
@@ -6073,6 +6468,11 @@
               "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Fiona",
@@ -6119,13 +6519,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-spectra-16-0-480.webp",
-              "width": 480,
-              "height": 787
+              "width": 439,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-spectra-16-0-960.webp",
-              "width": 960,
-              "height": 1574
+              "width": 879,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-spectra-16-0-1440.webp",
+              "width": 1318,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Spectra",
@@ -6142,6 +6547,11 @@
               "file": "/media/products/poster-14-smart-series-wall-fans-spectra-wendy-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-14-smart-series-wall-fans-spectra-wendy-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Spectra",
@@ -6188,13 +6598,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vectra-16-0-480.webp",
-              "width": 480,
-              "height": 979
+              "width": 353,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vectra-16-0-960.webp",
-              "width": 742,
-              "height": 1514
+              "width": 706,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-vectra-16-0-1440.webp",
+              "width": 1059,
+              "height": 2161
             }
           ],
           "alt": "The Aparna Vectra",
@@ -6211,6 +6626,11 @@
               "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Vectra",
@@ -6257,13 +6677,18 @@
           "variants": [
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vistara-16-0-480.webp",
-              "width": 480,
-              "height": 817
+              "width": 423,
+              "height": 720
             },
             {
               "file": "/media/products/own-table-wall-pedestal-fans-vistara-16-0-960.webp",
-              "width": 890,
-              "height": 1514
+              "width": 846,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-vistara-16-0-1440.webp",
+              "width": 1270,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Vistara",
@@ -6280,6 +6705,11 @@
               "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-13-smart-series-fiona-pedestal-vectra-and-vistara-table-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Vistara",
@@ -6333,6 +6763,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-jazz-12-0-960.webp",
               "width": 960,
               "height": 985
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-jazz-12-0-1440.webp",
+              "width": 1440,
+              "height": 1477
             }
           ],
           "alt": "The Aparna Jazz",
@@ -6349,6 +6784,11 @@
               "file": "/media/products/poster-16-premium-series-wall-fans-velora-jazz-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-16-premium-series-wall-fans-velora-jazz-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Jazz",
@@ -6402,6 +6842,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-blazo-16-0-960.webp",
               "width": 960,
               "height": 903
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-blazo-16-0-1440.webp",
+              "width": 1440,
+              "height": 1355
             }
           ],
           "alt": "The Aparna Blazo",
@@ -6418,6 +6863,11 @@
               "file": "/media/products/poster-17-premium-series-table-fans-blazo-blitz-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-17-premium-series-table-fans-blazo-blitz-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Blazo",
@@ -6471,6 +6921,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-blitz-16-0-960.webp",
               "width": 960,
               "height": 1182
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-blitz-16-0-1440.webp",
+              "width": 1440,
+              "height": 1773
             }
           ],
           "alt": "The Aparna Blitz",
@@ -6487,6 +6942,11 @@
               "file": "/media/products/poster-17-premium-series-table-fans-blazo-blitz-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-17-premium-series-table-fans-blazo-blitz-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Blitz",
@@ -6576,6 +7036,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-stallion-16-0-960.webp",
               "width": 960,
               "height": 1292
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-stallion-16-0-1440.webp",
+              "width": 1440,
+              "height": 1937
             }
           ],
           "alt": "The Aparna Stallion",
@@ -6592,6 +7057,11 @@
               "file": "/media/products/poster-15-premium-series-pedestal-fans-iconic-stallion-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-15-premium-series-pedestal-fans-iconic-stallion-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Stallion",
@@ -6645,6 +7115,11 @@
               "file": "/media/products/own-table-wall-pedestal-fans-velora-16-0-960.webp",
               "width": 960,
               "height": 823
+            },
+            {
+              "file": "/media/products/own-table-wall-pedestal-fans-velora-16-0-1440.webp",
+              "width": 1440,
+              "height": 1234
             }
           ],
           "alt": "The Aparna Velora",
@@ -6661,6 +7136,11 @@
               "file": "/media/products/poster-16-premium-series-wall-fans-velora-jazz-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-16-premium-series-wall-fans-velora-jazz-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Velora",
@@ -6818,13 +7298,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-12-480.webp",
-              "width": 300,
-              "height": 450
+              "width": 480,
+              "height": 720
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-12-960.webp",
-              "width": 300,
-              "height": 450
+              "width": 960,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-12-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "The GoAir AC-DC in Aparna Catalogue 2026",
@@ -6868,13 +7353,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-16-480.webp",
-              "width": 440,
-              "height": 490
+              "width": 480,
+              "height": 535
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-16-960.webp",
-              "width": 440,
-              "height": 490
+              "width": 960,
+              "height": 1069
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-goair-ac-dc-16-1440.webp",
+              "width": 1440,
+              "height": 1604
             }
           ],
           "alt": "The GoAir AC-DC in Aparna Catalogue 2026",
@@ -6921,13 +7411,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-safari-9-480.webp",
-              "width": 372,
-              "height": 364
+              "width": 480,
+              "height": 470
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-safari-9-960.webp",
-              "width": 372,
-              "height": 364
+              "width": 960,
+              "height": 939
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-safari-9-1440.webp",
+              "width": 1440,
+              "height": 1409
             }
           ],
           "alt": "The Safari in Aparna Catalogue 2026",
@@ -6974,13 +7469,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-cabin-fan-12-480.webp",
-              "width": 356,
-              "height": 560
+              "width": 458,
+              "height": 720
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-cabin-fan-12-960.webp",
-              "width": 356,
-              "height": 560
+              "width": 915,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-cabin-fan-12-1440.webp",
+              "width": 1373,
+              "height": 2160
             }
           ],
           "alt": "The Cabin Fan in Aparna Catalogue 2026",
@@ -7027,13 +7527,13 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-jawa-osc-12-480.webp",
-              "width": 340,
-              "height": 754
+              "width": 325,
+              "height": 721
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-jawa-osc-12-960.webp",
-              "width": 340,
-              "height": 754
+              "width": 649,
+              "height": 1439
             }
           ],
           "alt": "The Jawa (OSC) in Aparna Catalogue 2026",
@@ -7080,13 +7580,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-piano-black-12-480.webp",
-              "width": 480,
-              "height": 739
+              "width": 468,
+              "height": 720
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-piano-black-12-960.webp",
-              "width": 760,
-              "height": 1170
+              "width": 935,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-piano-black-12-1440.webp",
+              "width": 1403,
+              "height": 2160
             }
           ],
           "alt": "The Piano Black in Aparna Catalogue 2026",
@@ -7133,13 +7638,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-piano-white-12-480.webp",
-              "width": 480,
-              "height": 736
+              "width": 469,
+              "height": 719
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-piano-white-12-960.webp",
-              "width": 704,
-              "height": 1080
+              "width": 939,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-piano-white-12-1440.webp",
+              "width": 1408,
+              "height": 2160
             }
           ],
           "alt": "The Piano White in Aparna Catalogue 2026",
@@ -7186,13 +7696,18 @@
           "variants": [
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-regal-12-480.webp",
-              "width": 400,
-              "height": 310
+              "width": 480,
+              "height": 372
             },
             {
               "file": "/media/products/crop-all-purpose-cabin-fans-regal-12-960.webp",
-              "width": 400,
-              "height": 310
+              "width": 960,
+              "height": 744
+            },
+            {
+              "file": "/media/products/crop-all-purpose-cabin-fans-regal-12-1440.webp",
+              "width": 1440,
+              "height": 1116
             }
           ],
           "alt": "The Regal in Aparna Catalogue 2026",
@@ -7228,13 +7743,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-bullet-oscillating-12-480.webp",
-              "width": 450,
-              "height": 1228
+              "width": 264,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-bullet-oscillating-12-960.webp",
-              "width": 450,
-              "height": 1228
+              "width": 528,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-bullet-oscillating-12-1440.webp",
+              "width": 792,
+              "height": 2161
             }
           ],
           "alt": "The Bullet (oscillating) in Aparna Catalogue 2026",
@@ -7278,13 +7798,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-ornet-12-480.webp",
-              "width": 480,
-              "height": 898
+              "width": 385,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-ornet-12-960.webp",
-              "width": 540,
-              "height": 1010
+              "width": 770,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-ornet-12-1440.webp",
+              "width": 1080,
+              "height": 2020
             }
           ],
           "alt": "The Ornet in Aparna Catalogue 2026",
@@ -7328,13 +7853,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-bullet-16-480.webp",
-              "width": 480,
-              "height": 1360
+              "width": 254,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-bullet-16-960.webp",
-              "width": 480,
-              "height": 1360
+              "width": 508,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-bullet-16-1440.webp",
+              "width": 762,
+              "height": 2159
             }
           ],
           "alt": "The Bullet in Aparna Catalogue 2026",
@@ -7378,13 +7908,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-bullet-oscillating-16-480.webp",
-              "width": 480,
-              "height": 1360
+              "width": 254,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-bullet-oscillating-16-960.webp",
-              "width": 480,
-              "height": 1360
+              "width": 508,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-bullet-oscillating-16-1440.webp",
+              "width": 762,
+              "height": 2159
             }
           ],
           "alt": "The Bullet (oscillating) in Aparna Catalogue 2026",
@@ -7486,13 +8021,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-shine-16-480.webp",
-              "width": 480,
-              "height": 1625
+              "width": 213,
+              "height": 721
             },
             {
               "file": "/media/products/crop-high-speed-fans-shine-16-960.webp",
-              "width": 524,
-              "height": 1774
+              "width": 425,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-shine-16-1440.webp",
+              "width": 638,
+              "height": 2160
             }
           ],
           "alt": "The Shine in Aparna Catalogue 2026",
@@ -7540,13 +8080,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-champion-22-480.webp",
-              "width": 480,
-              "height": 967
+              "width": 357,
+              "height": 719
             },
             {
               "file": "/media/products/crop-high-speed-fans-champion-22-960.webp",
-              "width": 552,
-              "height": 1112
+              "width": 715,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-champion-22-1440.webp",
+              "width": 1072,
+              "height": 2160
             }
           ],
           "alt": "The Champion in Aparna Catalogue 2026",
@@ -7595,13 +8140,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-hexa-20-480.webp",
-              "width": 480,
-              "height": 1008
+              "width": 343,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-hexa-20-960.webp",
-              "width": 484,
-              "height": 1016
+              "width": 686,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-hexa-20-1440.webp",
+              "width": 968,
+              "height": 2032
             }
           ],
           "alt": "The Hexa in Aparna Catalogue 2026",
@@ -7649,13 +8199,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-indus-high-speed-20-480.webp",
-              "width": 392,
-              "height": 1092
+              "width": 258,
+              "height": 719
             },
             {
               "file": "/media/products/crop-high-speed-fans-indus-high-speed-20-960.webp",
-              "width": 392,
-              "height": 1092
+              "width": 517,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-indus-high-speed-20-1440.webp",
+              "width": 775,
+              "height": 2159
             }
           ],
           "alt": "The Indus (high speed) in Aparna Catalogue 2026",
@@ -7704,13 +8259,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-nexa-20-480.webp",
-              "width": 480,
-              "height": 898
+              "width": 385,
+              "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-nexa-20-960.webp",
-              "width": 540,
-              "height": 1010
+              "width": 770,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-nexa-20-1440.webp",
+              "width": 1080,
+              "height": 2020
             }
           ],
           "alt": "The Nexa in Aparna Catalogue 2026",
@@ -7758,13 +8318,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-sultan-20-480.webp",
-              "width": 452,
-              "height": 1120
+              "width": 291,
+              "height": 721
             },
             {
               "file": "/media/products/crop-high-speed-fans-sultan-20-960.webp",
-              "width": 452,
-              "height": 1120
+              "width": 581,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-high-speed-fans-sultan-20-1440.webp",
+              "width": 872,
+              "height": 2161
             }
           ],
           "alt": "The Sultan in Aparna Catalogue 2026",
@@ -7843,8 +8408,13 @@
             },
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-960.webp",
-              "width": 660,
-              "height": 740
+              "width": 960,
+              "height": 1076
+            },
+            {
+              "file": "/media/products/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-1440.webp",
+              "width": 1320,
+              "height": 1480
             }
           ],
           "alt": "The Fresh Air Fan (high speed) in Aparna Catalogue 2026",
@@ -7897,6 +8467,11 @@
               "file": "/media/products/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-960.webp",
               "width": 960,
               "height": 637
+            },
+            {
+              "file": "/media/products/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-1440.webp",
+              "width": 1440,
+              "height": 955
             }
           ],
           "alt": "The Fresh Air Fan (high speed) in Aparna Catalogue 2026",
@@ -7943,13 +8518,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-6-480.webp",
-              "width": 430,
-              "height": 510
+              "width": 480,
+              "height": 569
             },
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-6-960.webp",
-              "width": 430,
-              "height": 510
+              "width": 960,
+              "height": 1139
+            },
+            {
+              "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-6-1440.webp",
+              "width": 1440,
+              "height": 1708
             }
           ],
           "alt": "The Ventilation Fan in Aparna Catalogue 2026",
@@ -7996,13 +8576,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-8-480.webp",
-              "width": 430,
-              "height": 510
+              "width": 480,
+              "height": 569
             },
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-8-960.webp",
-              "width": 430,
-              "height": 510
+              "width": 960,
+              "height": 1139
+            },
+            {
+              "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-8-1440.webp",
+              "width": 1440,
+              "height": 1708
             }
           ],
           "alt": "The Ventilation Fan in Aparna Catalogue 2026",
@@ -8049,13 +8634,18 @@
           "variants": [
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-10-480.webp",
-              "width": 430,
-              "height": 510
+              "width": 480,
+              "height": 569
             },
             {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-10-960.webp",
-              "width": 430,
-              "height": 510
+              "width": 960,
+              "height": 1139
+            },
+            {
+              "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-10-1440.webp",
+              "width": 1440,
+              "height": 1708
             }
           ],
           "alt": "The Ventilation Fan in Aparna Catalogue 2026",
@@ -8095,6 +8685,11 @@
               "file": "/media/products/photo-commercial-range-hall-avni4394-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/photo-commercial-range-hall-avni4394-1440.webp",
+              "width": 1440,
+              "height": 960
             }
           ],
           "alt": "Commercial coolers: photo 1",
@@ -8111,6 +8706,11 @@
               "file": "/media/products/photo-cooler-row-in-front-of-the-commercial-banner-avni4397-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/photo-cooler-row-in-front-of-the-commercial-banner-avni4397-1440.webp",
+              "width": 1440,
+              "height": 960
             }
           ],
           "alt": "Commercial coolers: photo 2",
@@ -8167,8 +8767,13 @@
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1201-0-960.webp",
-              "width": 838,
-              "height": 1252
+              "width": 960,
+              "height": 1434
+            },
+            {
+              "file": "/media/products/own-air-coolers-discovery-1201-0-1440.webp",
+              "width": 1440,
+              "height": 2151
             }
           ],
           "alt": "The Aparna Discovery 1201",
@@ -8185,6 +8790,11 @@
               "file": "/media/products/poster-20-air-coolers-discovery-1201-1202-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-20-air-coolers-discovery-1201-1202-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Discovery 1201",
@@ -8241,8 +8851,13 @@
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1202-0-960.webp",
-              "width": 932,
-              "height": 1280
+              "width": 960,
+              "height": 1318
+            },
+            {
+              "file": "/media/products/own-air-coolers-discovery-1202-0-1440.webp",
+              "width": 1440,
+              "height": 1978
             }
           ],
           "alt": "The Aparna Discovery 1202",
@@ -8259,6 +8874,11 @@
               "file": "/media/products/poster-20-air-coolers-discovery-1201-1202-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-20-air-coolers-discovery-1201-1202-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Discovery 1202",
@@ -8317,6 +8937,11 @@
               "file": "/media/products/own-air-coolers-discovery-1203-dlx-0-960.webp",
               "width": 960,
               "height": 987
+            },
+            {
+              "file": "/media/products/own-air-coolers-discovery-1203-dlx-0-1440.webp",
+              "width": 1440,
+              "height": 1480
             }
           ],
           "alt": "The Aparna Discovery 1203 DLX",
@@ -8333,6 +8958,11 @@
               "file": "/media/products/poster-21-air-coolers-discovery-1203-dlx-1204-dlx-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-21-air-coolers-discovery-1203-dlx-1204-dlx-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Discovery 1203 DLX",
@@ -8391,6 +9021,11 @@
               "file": "/media/products/own-air-coolers-discovery-1204-dlx-0-960.webp",
               "width": 960,
               "height": 1178
+            },
+            {
+              "file": "/media/products/own-air-coolers-discovery-1204-dlx-0-1440.webp",
+              "width": 1440,
+              "height": 1767
             }
           ],
           "alt": "The Aparna Discovery 1204 DLX",
@@ -8407,6 +9042,11 @@
               "file": "/media/products/poster-21-air-coolers-discovery-1203-dlx-1204-dlx-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-21-air-coolers-discovery-1203-dlx-1204-dlx-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Discovery 1204 DLX",
@@ -8458,13 +9098,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-pearl-009-0-480.webp",
-              "width": 480,
-              "height": 795
+              "width": 435,
+              "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-pearl-009-0-960.webp",
-              "width": 756,
-              "height": 1252
+              "width": 870,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/own-air-coolers-pearl-009-0-1440.webp",
+              "width": 1304,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Pearl 009",
@@ -8481,6 +9126,11 @@
               "file": "/media/products/poster-18-air-coolers-pearl-009-pearl-1201-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-18-air-coolers-pearl-009-pearl-1201-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Pearl 009",
@@ -8537,8 +9187,13 @@
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1201-0-960.webp",
-              "width": 932,
-              "height": 1252
+              "width": 960,
+              "height": 1290
+            },
+            {
+              "file": "/media/products/own-air-coolers-pearl-1201-0-1440.webp",
+              "width": 1440,
+              "height": 1934
             }
           ],
           "alt": "The Aparna Pearl 1201",
@@ -8555,6 +9210,11 @@
               "file": "/media/products/poster-18-air-coolers-pearl-009-pearl-1201-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-18-air-coolers-pearl-009-pearl-1201-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Pearl 1201",
@@ -8606,13 +9266,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-pearl-1202-0-480.webp",
-              "width": 480,
-              "height": 738
+              "width": 468,
+              "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1202-0-960.webp",
-              "width": 814,
-              "height": 1252
+              "width": 936,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/own-air-coolers-pearl-1202-0-1440.webp",
+              "width": 1404,
+              "height": 2159
             }
           ],
           "alt": "The Aparna Pearl 1202",
@@ -8629,6 +9294,11 @@
               "file": "/media/products/poster-19-air-coolers-pearl-1202-pearl-1203-dlx-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-19-air-coolers-pearl-1202-pearl-1203-dlx-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Pearl 1202",
@@ -8687,6 +9357,11 @@
               "file": "/media/products/own-air-coolers-pearl-1203-dlx-0-960.webp",
               "width": 960,
               "height": 845
+            },
+            {
+              "file": "/media/products/own-air-coolers-pearl-1203-dlx-0-1440.webp",
+              "width": 1440,
+              "height": 1268
             }
           ],
           "alt": "The Aparna Pearl 1203 DLX",
@@ -8703,6 +9378,11 @@
               "file": "/media/products/poster-19-air-coolers-pearl-1202-pearl-1203-dlx-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-19-air-coolers-pearl-1202-pearl-1203-dlx-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Pearl 1203 DLX",
@@ -8761,6 +9441,11 @@
               "file": "/media/products/own-air-coolers-ultima-1401-0-960.webp",
               "width": 960,
               "height": 1377
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-1401-0-1440.webp",
+              "width": 1440,
+              "height": 2065
             }
           ],
           "alt": "The Aparna Ultima 1401",
@@ -8771,12 +9456,17 @@
             {
               "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 1401",
@@ -8835,6 +9525,11 @@
               "file": "/media/products/own-air-coolers-ultima-1402-0-960.webp",
               "width": 960,
               "height": 1440
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-1402-0-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Ultima 1402",
@@ -8845,12 +9540,17 @@
             {
               "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-22-air-coolers-ultima-1401-1402-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 1402",
@@ -8903,13 +9603,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-ultima-1601-0-480.webp",
-              "width": 480,
-              "height": 772
+              "width": 448,
+              "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1601-0-960.webp",
-              "width": 960,
-              "height": 1544
+              "width": 895,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-1601-0-1440.webp",
+              "width": 1343,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Ultima 1601",
@@ -8920,12 +9625,17 @@
             {
               "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 1601",
@@ -8978,13 +9688,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-ultima-1801-0-480.webp",
-              "width": 480,
-              "height": 749
+              "width": 461,
+              "height": 719
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1801-0-960.webp",
-              "width": 960,
-              "height": 1498
+              "width": 923,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-1801-0-1440.webp",
+              "width": 1384,
+              "height": 2159
             }
           ],
           "alt": "The Aparna Ultima 1801",
@@ -8995,12 +9710,17 @@
             {
               "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-23-air-coolers-ultima-1601-1801-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 1801",
@@ -9060,6 +9780,11 @@
               "file": "/media/products/own-air-coolers-ultima-2201-0-960.webp",
               "width": 960,
               "height": 1282
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-2201-0-1440.webp",
+              "width": 1440,
+              "height": 1923
             }
           ],
           "alt": "The Aparna Ultima 2201",
@@ -9070,12 +9795,17 @@
             {
               "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 2201",
@@ -9135,6 +9865,11 @@
               "file": "/media/products/own-air-coolers-ultima-2601-0-960.webp",
               "width": 960,
               "height": 1424
+            },
+            {
+              "file": "/media/products/own-air-coolers-ultima-2601-0-1440.webp",
+              "width": 1440,
+              "height": 2136
             }
           ],
           "alt": "The Aparna Ultima 2601",
@@ -9145,12 +9880,17 @@
             {
               "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-480.webp",
               "width": 480,
-              "height": 359
+              "height": 360
             },
             {
               "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-960.webp",
               "width": 960,
               "height": 719
+            },
+            {
+              "file": "/media/products/poster-24-air-coolers-ultima-2201-2601-1440.webp",
+              "width": 1440,
+              "height": 1079
             }
           ],
           "alt": "Aparna poster for the Ultima 2601",
@@ -9192,6 +9932,11 @@
               "file": "/media/products/photo-semi-automatic-new-launch-row-hero-avni4401-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/photo-semi-automatic-new-launch-row-hero-avni4401-1440.webp",
+              "width": 1440,
+              "height": 960
             }
           ],
           "alt": "Semi-automatic washing machines: photo 1",
@@ -9208,6 +9953,11 @@
               "file": "/media/products/photo-black-machine-with-the-red-aparna-label-avni4429-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/photo-black-machine-with-the-red-aparna-label-avni4429-1440.webp",
+              "width": 1440,
+              "height": 960
             }
           ],
           "alt": "Semi-automatic washing machines: photo 2",
@@ -9256,13 +10006,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-bng-480.webp",
-              "width": 430,
-              "height": 350
+              "width": 480,
+              "height": 391
             },
             {
               "file": "/media/products/crop-kitchen-appliances-bng-960.webp",
-              "width": 430,
-              "height": 350
+              "width": 960,
+              "height": 781
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-bng-1440.webp",
+              "width": 1440,
+              "height": 1172
             }
           ],
           "alt": "The BNG in Aparna Catalogue 2026",
@@ -9311,13 +10066,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-calvin-480.webp",
-              "width": 360,
-              "height": 350
+              "width": 480,
+              "height": 467
             },
             {
               "file": "/media/products/crop-kitchen-appliances-calvin-960.webp",
-              "width": 360,
-              "height": 350
+              "width": 960,
+              "height": 933
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-calvin-1440.webp",
+              "width": 1440,
+              "height": 1400
             }
           ],
           "alt": "The Calvin in Aparna Catalogue 2026",
@@ -9366,13 +10126,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-comfort-480.webp",
-              "width": 330,
-              "height": 370
+              "width": 480,
+              "height": 538
             },
             {
               "file": "/media/products/crop-kitchen-appliances-comfort-960.webp",
-              "width": 330,
-              "height": 370
+              "width": 960,
+              "height": 1076
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-comfort-1440.webp",
+              "width": 1440,
+              "height": 1615
             }
           ],
           "alt": "The Comfort in Aparna Catalogue 2026",
@@ -9421,13 +10186,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-crescent-480.webp",
-              "width": 340,
-              "height": 330
+              "width": 480,
+              "height": 466
             },
             {
               "file": "/media/products/crop-kitchen-appliances-crescent-960.webp",
-              "width": 340,
-              "height": 330
+              "width": 960,
+              "height": 932
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-crescent-1440.webp",
+              "width": 1440,
+              "height": 1398
             }
           ],
           "alt": "The Crescent in Aparna Catalogue 2026",
@@ -9476,13 +10246,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-excel-480.webp",
-              "width": 442,
-              "height": 366
+              "width": 480,
+              "height": 397
             },
             {
               "file": "/media/products/crop-kitchen-appliances-excel-960.webp",
-              "width": 442,
-              "height": 366
+              "width": 960,
+              "height": 795
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-excel-1440.webp",
+              "width": 1440,
+              "height": 1192
             }
           ],
           "alt": "The Excel in Aparna Catalogue 2026",
@@ -9531,13 +10306,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-hudsun-480.webp",
-              "width": 340,
-              "height": 370
+              "width": 480,
+              "height": 522
             },
             {
               "file": "/media/products/crop-kitchen-appliances-hudsun-960.webp",
-              "width": 340,
-              "height": 370
+              "width": 960,
+              "height": 1045
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-hudsun-1440.webp",
+              "width": 1440,
+              "height": 1567
             }
           ],
           "alt": "The Hudsun in Aparna Catalogue 2026",
@@ -9586,13 +10366,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-jhn-1250-480.webp",
-              "width": 360,
-              "height": 370
+              "width": 480,
+              "height": 493
             },
             {
               "file": "/media/products/crop-kitchen-appliances-jhn-1250-960.webp",
-              "width": 360,
-              "height": 370
+              "width": 960,
+              "height": 987
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-jhn-1250-1440.webp",
+              "width": 1440,
+              "height": 1480
             }
           ],
           "alt": "The JHN 1250 in Aparna Catalogue 2026",
@@ -9641,13 +10426,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-jhn-2000-480.webp",
-              "width": 360,
-              "height": 370
+              "width": 480,
+              "height": 493
             },
             {
               "file": "/media/products/crop-kitchen-appliances-jhn-2000-960.webp",
-              "width": 360,
-              "height": 370
+              "width": 960,
+              "height": 987
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-jhn-2000-1440.webp",
+              "width": 1440,
+              "height": 1480
             }
           ],
           "alt": "The JHN 2000 in Aparna Catalogue 2026",
@@ -9696,13 +10486,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-magnum-480.webp",
-              "width": 320,
-              "height": 330
+              "width": 480,
+              "height": 495
             },
             {
               "file": "/media/products/crop-kitchen-appliances-magnum-960.webp",
-              "width": 320,
-              "height": 330
+              "width": 960,
+              "height": 990
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-magnum-1440.webp",
+              "width": 1440,
+              "height": 1485
             }
           ],
           "alt": "The Magnum in Aparna Catalogue 2026",
@@ -9751,13 +10546,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-nelson-480.webp",
-              "width": 360,
-              "height": 350
+              "width": 480,
+              "height": 467
             },
             {
               "file": "/media/products/crop-kitchen-appliances-nelson-960.webp",
-              "width": 360,
-              "height": 350
+              "width": 960,
+              "height": 933
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-nelson-1440.webp",
+              "width": 1440,
+              "height": 1400
             }
           ],
           "alt": "The Nelson in Aparna Catalogue 2026",
@@ -9806,13 +10606,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-phantom-480.webp",
-              "width": 416,
-              "height": 330
+              "width": 480,
+              "height": 381
             },
             {
               "file": "/media/products/crop-kitchen-appliances-phantom-960.webp",
-              "width": 416,
-              "height": 330
+              "width": 960,
+              "height": 762
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-phantom-1440.webp",
+              "width": 1440,
+              "height": 1142
             }
           ],
           "alt": "The Phantom in Aparna Catalogue 2026",
@@ -9861,13 +10666,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-regent-480.webp",
-              "width": 360,
-              "height": 366
+              "width": 480,
+              "height": 488
             },
             {
               "file": "/media/products/crop-kitchen-appliances-regent-960.webp",
-              "width": 360,
-              "height": 366
+              "width": 960,
+              "height": 976
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-regent-1440.webp",
+              "width": 1440,
+              "height": 1464
             }
           ],
           "alt": "The Regent in Aparna Catalogue 2026",
@@ -9923,6 +10733,11 @@
               "file": "/media/products/crop-kitchen-appliances-rustam-960.webp",
               "width": 960,
               "height": 640
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-rustam-1440.webp",
+              "width": 1440,
+              "height": 960
             }
           ],
           "alt": "The Rustam in Aparna Catalogue 2026",
@@ -9971,13 +10786,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-ss-jumbo-480.webp",
-              "width": 340,
-              "height": 366
+              "width": 480,
+              "height": 517
             },
             {
               "file": "/media/products/crop-kitchen-appliances-ss-jumbo-960.webp",
-              "width": 340,
-              "height": 366
+              "width": 960,
+              "height": 1033
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-ss-jumbo-1440.webp",
+              "width": 1440,
+              "height": 1550
             }
           ],
           "alt": "The SS Jumbo in Aparna Catalogue 2026",
@@ -10026,13 +10846,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-ss-2000-480.webp",
-              "width": 340,
-              "height": 350
+              "width": 480,
+              "height": 494
             },
             {
               "file": "/media/products/crop-kitchen-appliances-ss-2000-960.webp",
-              "width": 340,
-              "height": 350
+              "width": 960,
+              "height": 988
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-ss-2000-1440.webp",
+              "width": 1440,
+              "height": 1482
             }
           ],
           "alt": "The SS-2000 in Aparna Catalogue 2026",
@@ -10081,13 +10906,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-simson-480.webp",
-              "width": 360,
-              "height": 366
+              "width": 480,
+              "height": 488
             },
             {
               "file": "/media/products/crop-kitchen-appliances-simson-960.webp",
-              "width": 360,
-              "height": 366
+              "width": 960,
+              "height": 976
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-simson-1440.webp",
+              "width": 1440,
+              "height": 1464
             }
           ],
           "alt": "The Simson in Aparna Catalogue 2026",
@@ -10136,13 +10966,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-smart-480.webp",
-              "width": 320,
-              "height": 330
+              "width": 480,
+              "height": 495
             },
             {
               "file": "/media/products/crop-kitchen-appliances-smart-960.webp",
-              "width": 320,
-              "height": 330
+              "width": 960,
+              "height": 990
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-smart-1440.webp",
+              "width": 1440,
+              "height": 1485
             }
           ],
           "alt": "The Smart in Aparna Catalogue 2026",
@@ -10226,13 +11061,18 @@
           "variants": [
             {
               "file": "/media/products/crop-kitchen-appliances-ultima-480.webp",
-              "width": 360,
-              "height": 370
+              "width": 480,
+              "height": 493
             },
             {
               "file": "/media/products/crop-kitchen-appliances-ultima-960.webp",
-              "width": 360,
-              "height": 370
+              "width": 960,
+              "height": 987
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-ultima-1440.webp",
+              "width": 1440,
+              "height": 1480
             }
           ],
           "alt": "The Ultima in Aparna Catalogue 2026",
@@ -10383,6 +11223,11 @@
               "file": "/media/products/crop-kitchen-appliances-presto-960.webp",
               "width": 960,
               "height": 333
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-presto-1440.webp",
+              "width": 1440,
+              "height": 500
             }
           ],
           "alt": "The Presto in Aparna Catalogue 2026",
@@ -10493,6 +11338,11 @@
               "file": "/media/products/crop-kitchen-appliances-prime-960.webp",
               "width": 960,
               "height": 378
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-prime-1440.webp",
+              "width": 1440,
+              "height": 568
             }
           ],
           "alt": "The Prime in Aparna Catalogue 2026",
@@ -10563,6 +11413,11 @@
               "file": "/media/products/crop-kitchen-appliances-prince-960.webp",
               "width": 960,
               "height": 307
+            },
+            {
+              "file": "/media/products/crop-kitchen-appliances-prince-1440.webp",
+              "width": 1440,
+              "height": 461
             }
           ],
           "alt": "The Prince in Aparna Catalogue 2026",
@@ -10623,8 +11478,13 @@
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1000-w-960.webp",
-              "width": 620,
-              "height": 624
+              "width": 960,
+              "height": 966
+            },
+            {
+              "file": "/media/products/crop-heating-water-pearl-immersion-rod-1000-w-1440.webp",
+              "width": 1440,
+              "height": 1449
             }
           ],
           "alt": "The Pearl immersion rod 1000 W in Aparna Catalogue 2026",
@@ -10685,8 +11545,13 @@
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-960.webp",
-              "width": 620,
-              "height": 624
+              "width": 960,
+              "height": 966
+            },
+            {
+              "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-1440.webp",
+              "width": 1440,
+              "height": 1449
             }
           ],
           "alt": "The Pearl immersion rod 1500 W in Aparna Catalogue 2026",
@@ -10747,8 +11612,13 @@
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-960.webp",
-              "width": 620,
-              "height": 624
+              "width": 960,
+              "height": 966
+            },
+            {
+              "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-1440.webp",
+              "width": 1440,
+              "height": 1449
             }
           ],
           "alt": "The Pearl immersion rod 2000 W in Aparna Catalogue 2026",
@@ -10795,13 +11665,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-croma-480.webp",
-              "width": 224,
-              "height": 472
+              "width": 342,
+              "height": 721
             },
             {
               "file": "/media/products/crop-heating-water-croma-960.webp",
-              "width": 224,
-              "height": 472
+              "width": 683,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/crop-heating-water-croma-1440.webp",
+              "width": 1025,
+              "height": 2160
             }
           ],
           "alt": "The Croma in Aparna Catalogue 2026",
@@ -10848,13 +11723,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-croma2-480.webp",
-              "width": 306,
-              "height": 384
+              "width": 480,
+              "height": 602
             },
             {
               "file": "/media/products/crop-heating-water-croma2-960.webp",
-              "width": 306,
-              "height": 384
+              "width": 960,
+              "height": 1205
+            },
+            {
+              "file": "/media/products/crop-heating-water-croma2-1440.webp",
+              "width": 1440,
+              "height": 1807
             }
           ],
           "alt": "The Croma2 in Aparna Catalogue 2026",
@@ -10927,13 +11807,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-kettle-element-480.webp",
-              "width": 156,
-              "height": 272
+              "width": 413,
+              "height": 720
             },
             {
               "file": "/media/products/crop-heating-water-kettle-element-960.webp",
-              "width": 156,
-              "height": 272
+              "width": 826,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-heating-water-kettle-element-1440.webp",
+              "width": 1239,
+              "height": 2160
             }
           ],
           "alt": "The Kettle element in Aparna Catalogue 2026",
@@ -11036,13 +11921,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-alexa-480.webp",
-              "width": 290,
-              "height": 364
+              "width": 480,
+              "height": 602
             },
             {
               "file": "/media/products/crop-heating-water-alexa-960.webp",
-              "width": 290,
-              "height": 364
+              "width": 960,
+              "height": 1205
+            },
+            {
+              "file": "/media/products/crop-heating-water-alexa-1440.webp",
+              "width": 1440,
+              "height": 1807
             }
           ],
           "alt": "The Alexa in Aparna Catalogue 2026",
@@ -11089,13 +11979,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-alineo-480.webp",
-              "width": 260,
-              "height": 300
+              "width": 480,
+              "height": 554
             },
             {
               "file": "/media/products/crop-heating-water-alineo-960.webp",
-              "width": 260,
-              "height": 300
+              "width": 960,
+              "height": 1108
+            },
+            {
+              "file": "/media/products/crop-heating-water-alineo-1440.webp",
+              "width": 1440,
+              "height": 1662
             }
           ],
           "alt": "The Alineo in Aparna Catalogue 2026",
@@ -11142,13 +12037,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-pearl-480.webp",
-              "width": 240,
-              "height": 246
+              "width": 480,
+              "height": 492
             },
             {
               "file": "/media/products/crop-heating-water-pearl-960.webp",
-              "width": 240,
-              "height": 246
+              "width": 960,
+              "height": 984
+            },
+            {
+              "file": "/media/products/crop-heating-water-pearl-1440.webp",
+              "width": 1440,
+              "height": 1476
             }
           ],
           "alt": "The Pearl in Aparna Catalogue 2026",
@@ -11195,13 +12095,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-pox-480.webp",
-              "width": 230,
-              "height": 290
+              "width": 480,
+              "height": 605
             },
             {
               "file": "/media/products/crop-heating-water-pox-960.webp",
-              "width": 230,
-              "height": 290
+              "width": 960,
+              "height": 1210
+            },
+            {
+              "file": "/media/products/crop-heating-water-pox-1440.webp",
+              "width": 1440,
+              "height": 1816
             }
           ],
           "alt": "The Pox in Aparna Catalogue 2026",
@@ -11248,13 +12153,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-roxx-480.webp",
-              "width": 220,
-              "height": 330
+              "width": 480,
+              "height": 720
             },
             {
               "file": "/media/products/crop-heating-water-roxx-960.webp",
-              "width": 220,
-              "height": 330
+              "width": 960,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-heating-water-roxx-1440.webp",
+              "width": 1440,
+              "height": 2160
             }
           ],
           "alt": "The Roxx in Aparna Catalogue 2026",
@@ -11301,13 +12211,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-rozer-480.webp",
-              "width": 220,
-              "height": 320
+              "width": 480,
+              "height": 698
             },
             {
               "file": "/media/products/crop-heating-water-rozer-960.webp",
-              "width": 220,
-              "height": 320
+              "width": 960,
+              "height": 1396
+            },
+            {
+              "file": "/media/products/crop-heating-water-rozer-1440.webp",
+              "width": 1440,
+              "height": 2095
             }
           ],
           "alt": "The Rozer in Aparna Catalogue 2026",
@@ -11382,13 +12297,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-silky-480.webp",
-              "width": 250,
-              "height": 260
+              "width": 480,
+              "height": 499
             },
             {
               "file": "/media/products/crop-heating-water-silky-960.webp",
-              "width": 250,
-              "height": 260
+              "width": 960,
+              "height": 998
+            },
+            {
+              "file": "/media/products/crop-heating-water-silky-1440.webp",
+              "width": 1440,
+              "height": 1498
             }
           ],
           "alt": "The Silky in Aparna Catalogue 2026",
@@ -11430,13 +12350,18 @@
           "variants": [
             {
               "file": "/media/products/crop-heating-water-sun-heater-sunshine-14-480.webp",
-              "width": 240,
-              "height": 390
+              "width": 443,
+              "height": 720
             },
             {
               "file": "/media/products/crop-heating-water-sun-heater-sunshine-14-960.webp",
-              "width": 240,
-              "height": 390
+              "width": 886,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-heating-water-sun-heater-sunshine-14-1440.webp",
+              "width": 1329,
+              "height": 2160
             }
           ],
           "alt": "The Sun Heater Sunshine in Aparna Catalogue 2026",
@@ -11490,13 +12415,18 @@
           "variants": [
             {
               "file": "/media/products/crop-electric-irons-bmw-480.webp",
-              "width": 210,
-              "height": 360
+              "width": 420,
+              "height": 720
             },
             {
               "file": "/media/products/crop-electric-irons-bmw-960.webp",
-              "width": 210,
-              "height": 360
+              "width": 840,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-electric-irons-bmw-1440.webp",
+              "width": 1260,
+              "height": 2160
             }
           ],
           "alt": "The BMW in Aparna Catalogue 2026",
@@ -11611,13 +12541,18 @@
           "variants": [
             {
               "file": "/media/products/crop-electric-irons-grand-480.webp",
-              "width": 224,
-              "height": 420
+              "width": 384,
+              "height": 720
             },
             {
               "file": "/media/products/crop-electric-irons-grand-960.webp",
-              "width": 224,
-              "height": 420
+              "width": 768,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-electric-irons-grand-1440.webp",
+              "width": 1152,
+              "height": 2160
             }
           ],
           "alt": "The Grand in Aparna Catalogue 2026",
@@ -11731,13 +12666,18 @@
           "variants": [
             {
               "file": "/media/products/crop-electric-irons-plancha-480.webp",
-              "width": 230,
-              "height": 384
+              "width": 431,
+              "height": 720
             },
             {
               "file": "/media/products/crop-electric-irons-plancha-960.webp",
-              "width": 230,
-              "height": 384
+              "width": 863,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/crop-electric-irons-plancha-1440.webp",
+              "width": 1294,
+              "height": 2160
             }
           ],
           "alt": "The Plancha in Aparna Catalogue 2026",
@@ -11851,13 +12791,18 @@
           "variants": [
             {
               "file": "/media/products/crop-electric-irons-regular-480.webp",
-              "width": 230,
-              "height": 360
+              "width": 460,
+              "height": 720
             },
             {
               "file": "/media/products/crop-electric-irons-regular-960.webp",
-              "width": 230,
-              "height": 360
+              "width": 920,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/crop-electric-irons-regular-1440.webp",
+              "width": 1380,
+              "height": 2160
             }
           ],
           "alt": "The Regular in Aparna Catalogue 2026",

@@ -61,8 +61,11 @@ function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wi
 const BLADE_SHAPES = {
   // swept "scimitar": widest a third of the way out, narrowing to a curved tip
   scimitar: { width: (t) => 0.075 + 0.11 * Math.sin(Math.PI * Math.min(1, t * 1.15)) * (1 - 0.35 * t), sweep: (t) => 0.16 * t * t },
-  // wide classic table-fan blade
-  broad: { width: (t) => 0.08 + 0.17 * Math.sin(Math.PI * Math.min(1, 0.25 + t * 0.85)), sweep: (t) => 0.12 * t * t },
+  // wide classic table/wall-fan blade, as on the posters: it widens well out from the hub and ends in a
+  // broad rounded tip, so three blades fill most of the guard (round: how far the tip bulges past its corners)
+  broad: { width: (t) => 0.18 + 0.26 * Math.sin(Math.PI * Math.min(1, 0.1 + t * 0.75)), sweep: (t) => 0.13 * t * t, round: 0.16 },
+  // the same rounded blade for five-blade fans (Vistara, GoAir): narrower so five fit, and more swept
+  broad5: { width: (t) => 0.12 + 0.17 * Math.sin(Math.PI * Math.min(1, 0.1 + t * 0.75)), sweep: (t) => 0.17 * t * t, round: 0.1 },
   // exhaust: very wide, filling the opening, with a broad rounded tip (fresh-air fans)
   exhaust: { width: (t) => 0.1 + 0.3 * Math.sin(Math.PI * Math.min(1, 0.18 + t * 0.78)), sweep: (t) => 0.1 * t * t },
   // paddle: narrow at the root, widening to a broad rounded tip
@@ -70,12 +73,14 @@ const BLADE_SHAPES = {
 };
 
 function bladeGeometry({ shape, tip, root, pitch }) {
-  const { width, sweep } = BLADE_SHAPES[shape];
+  const { width, sweep, round: roundTip } = BLADE_SHAPES[shape];
+  const round = roundTip ?? (shape === 'paddle' ? 0.06 : 0.03); // paddle blades end in a broad round tip
+  const reach = tip - 0.75 * Math.max(0, round - 0.03); // a big rounded tip still ends at 'tip', inside the guard
   const lead = [], trail = [];
   const steps = 24;
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
-    const x = root + (tip - root) * t;
+    const x = root + (reach - root) * t;
     lead.push(new THREE.Vector2(x, sweep(t) - width(t) * 0.45));
     trail.push(new THREE.Vector2(x, sweep(t) + width(t) * 0.55));
   }
@@ -83,7 +88,6 @@ function bladeGeometry({ shape, tip, root, pitch }) {
   s.moveTo(lead[0].x, lead[0].y);
   s.splineThru(lead.slice(1));
   const a = lead[steps], b = trail[steps];
-  const round = shape === 'paddle' ? 0.06 : 0.03; // paddle blades end in a broad round tip
   s.bezierCurveTo(a.x + round, a.y + 0.02, b.x + round, b.y - 0.02, b.x, b.y);
   s.splineThru(trail.slice(0, -1).reverse());
   s.closePath();
@@ -300,7 +304,8 @@ function createFrontFan(name, cfg) {
   motorBack.rotation.x = -Math.PI / 2;
   motorBack.position.z = -0.27;
   head.add(
-    guard(m.wire, m.rim, { side: 1, depth: 0.1, offset: 0.07, ...cfg.guard }),
+    // the posters show close-set wires: about 1.4 times the listed count, so the guard reads as a fine grille
+    guard(m.wire, m.rim, { side: 1, depth: 0.1, offset: 0.07, ...cfg.guard, wires: Math.round((cfg.guard.wires ?? 60) * 1.4) }),
     guard(m.wire, m.rim, { side: -1, depth: 0.05, offset: 0.05, wires: 48, rings: [0.45, 0.75], inner: 0.15 }),
     motor, motorBack,
   );
@@ -383,7 +388,7 @@ export const createVistara = ({ shadows = false } = {}) => withShadows(createFro
   stand: 'table', headY: 0.2, floorY: -0.72, motor: 0.12, zoom: 1.05,
   guard: { rings: [0.35, 0.62, 0.86], wires: 64 },
   hub: { radius: 0.165, flat: true },
-  blades: { count: 5, shape: 'scimitar', tip: 0.44, pitch: 0.36 },
+  blades: { count: 5, shape: 'broad5', tip: 0.45, pitch: 0.36 },
   colours: {
     wire: { color: '#d9d2bf', metalness: 0.5, roughness: 0.35 },
     rim: { color: '#2bb3b1', metalness: 0.2, roughness: 0.35, clearcoat: 0.6 },
@@ -396,12 +401,12 @@ export const createVistara = ({ shadows = false } = {}) => withShadows(createFro
 
 export const createVento = ({ shadows = false } = {}) => withShadows(createFrontFan('vento', {
   stand: 'wall', headY: 0.35, floorY: -0.55, motor: 0.13, zoom: 1.05,
-  guard: { rings: [0.82], wires: 56 },
-  hub: { radius: 0.2 },
-  blades: { count: 3, shape: 'broad', tip: 0.44, pitch: 0.34 },
+  guard: { rings: [0.3], wires: 70 }, // fine, close radial wires with one ring round the badge
+  hub: { radius: 0.15, flat: true }, // a flat black disc, as on the poster
+  blades: { count: 3, shape: 'broad', tip: 0.45, pitch: 0.34 },
   colours: {
     wire: { color: '#2f3033', metalness: 0.6, roughness: 0.35 },
-    blade: { color: '#8693a4', roughness: 0.34, clearcoat: 0.6, transparent: true, opacity: 0.95 }, // grey-blue, as in its photo
+    blade: { color: '#7b889a', roughness: 0.34, clearcoat: 0.6, transparent: true, opacity: 0.93 }, // grey-blue, as in its photo
     hub: { color: '#1c1d1f', metalness: 0.3, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.08 },
     body: { color: '#1f2022', metalness: 0.3, roughness: 0.3, clearcoat: 0.9, clearcoatRoughness: 0.1 },
     base: { color: '#3a3b3e', metalness: 0.3, roughness: 0.3, clearcoat: 0.9 },
@@ -576,7 +581,7 @@ const GOAIR = {
   ...TABLE,
   guard: { rings: [0.3, 0.6, 0.86], wires: 80 },
   hub: { radius: 0.15 },
-  blades: { count: 5, shape: 'scimitar', tip: 0.44, pitch: 0.34 },
+  blades: { count: 5, shape: 'broad5', tip: 0.45, pitch: 0.34 },
   colours: {
     wire: { color: '#e7e8ea', metalness: 0.4, roughness: 0.35 },
     blade: BLADE('#eef0f2', 0.9), hub: { color: '#55585d', metalness: 0.3, roughness: 0.3, clearcoat: 0.6 },

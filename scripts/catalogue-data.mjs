@@ -12,6 +12,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { aiUpscale } from './ai-upscale.mjs';
 
 const SHOWABLE = new Set(['current', 'new', 'launch']);
 
@@ -80,25 +81,34 @@ class ImageWriter {
   async write(key, src, { crop, alt, kind }) {
     if (this.done.has(key)) return { ...this.done.get(key), alt, kind };
     const input = path.join(this.pack, src);
-    const meta = await sharp(input).metadata();
+    // The master picture: the crop, turned upright where needed. The event standees were photographed lying
+    // on their side (turned after cropping, so crop boxes stay in the original photo's coordinates).
+    let img = sharp(input).rotate();
+    if (crop) img = img.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] });
+    let master = await img.png().toBuffer();
+    if (SIDEWAYS.test(src)) master = await sharp(master).rotate(270).png().toBuffer();
+    const { width: mw, height: mh } = await sharp(master).metadata();
+    // Small catalogue crops are upscaled 4x with AI (scripts/ai-upscale.mjs: the product's own photo, sharpened,
+    // nothing new drawn), so they stay crisp up to full-HD size. Without the upscaler: Lanczos, at most 2x.
+    let upscaled = Math.max(mw, mh) < 1100 ? await aiUpscale(master) : null;
+    if (upscaled) {
+      // the smallest catalogue crops (under ~360 px) are still short of full-HD after one pass: a second pass
+      const once = await sharp(upscaled).metadata();
+      if (Math.max(once.width, once.height) < 1440) upscaled = (await aiUpscale(upscaled)) ?? upscaled;
+      master = upscaled;
+    }
+    const limit = upscaled ? Infinity : 2; // how far a picture may be enlarged
     const variants = [];
-    for (const width of [480, 960]) {
-      let img = sharp(input).rotate();
-      if (crop) img = img.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] });
-      let sourceWidth = crop ? crop[2] : meta.width;
-      // The event standees were photographed lying on their side: turn them upright (after cropping, so
-      // crop boxes stay in the original photo's coordinates).
-      if (SIDEWAYS.test(src)) {
-        img = sharp(await img.toBuffer()).rotate(270);
-        sourceWidth = crop ? crop[3] : meta.height;
-      }
-      // Small catalogue crops are enlarged (at most 2x, high-quality Lanczos filter) and lightly sharpened, so
-      // they don't look soft on large screens. Standard resampling only: no detail is invented.
-      const target = Math.min(width, Math.round(sourceWidth * 2));
-      img = img.resize({ width: target, kernel: 'lanczos3' });
-      if (target > sourceWidth) img = img.sharpen({ sigma: 0.8, m1: 0.6, m2: 1.6 });
+    // sizes: 480, 960 and (when there are the pixels for it) a 1440 version for full-HD and high-DPI screens
+    for (const [width, maxH] of [[480, 720], [960, 1440], [1440, 2160]]) {
+      const meta = await sharp(master).metadata();
+      const scale = Math.min(width / meta.width, maxH / meta.height, upscaled ? 1 : limit);
+      const tw = Math.round(meta.width * scale);
+      if (width === 1440 && tw <= (variants.at(-1)?.width ?? 0) * 1.15) break; // no real gain over the 960 one
+      let out = sharp(master).resize({ width: tw, kernel: 'lanczos3' });
+      if (scale > 1) out = out.sharpen({ sigma: 0.8, m1: 0.6, m2: 1.6 });
       const file = `media/products/${key}-${width}.webp`;
-      const info = await img.webp({ quality: 74 }).toFile(path.join(this.publicDir, file));
+      const info = await out.webp({ quality: width === 1440 ? 78 : 76 }).toFile(path.join(this.publicDir, file));
       variants.push({ file: `/${file}`, width: info.width, height: info.height });
     }
     const entry = { variants };

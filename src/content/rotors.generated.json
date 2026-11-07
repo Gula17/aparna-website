@@ -2,30 +2,40 @@
   "_generated": "Made by scripts/make-rotors.mjs from src/content/rotors.json. Do not edit by hand.",
   "products": {
     "table-wall-pedestal-fans-vento-12": {
-      "width": 621,
-      "height": 857,
+      "width": 1045,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-base-480.webp",
           "width": 480,
-          "height": 662
+          "height": 661
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-base-960.webp",
-          "width": 621,
-          "height": 857
+          "width": 960,
+          "height": 1323
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-base-1440.webp",
+          "width": 1045,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-top-480.webp",
           "width": 480,
-          "height": 662
+          "height": 661
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-top-960.webp",
-          "width": 621,
-          "height": 857
+          "width": 960,
+          "height": 1323
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-top-1440.webp",
+          "width": 1045,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -34,12 +44,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-rotor0-480.webp",
               "width": 480,
-              "height": 662
+              "height": 661
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-rotor0-960.webp",
-              "width": 621,
-              "height": 857
+              "width": 960,
+              "height": 1323
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-vento-12-0-rotor0-1440.webp",
+              "width": 1045,
+              "height": 1440
             }
           ],
           "origin": [
@@ -63,30 +78,40 @@
       ]
     },
     "all-purpose-cabin-fans-goair-ac-dc-12": {
-      "width": 560,
-      "height": 744,
+      "width": 1094,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-base-480.webp",
           "width": 480,
-          "height": 638
+          "height": 632
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-base-960.webp",
-          "width": 560,
-          "height": 744
+          "width": 960,
+          "height": 1264
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-base-1440.webp",
+          "width": 1094,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-top-480.webp",
           "width": 480,
-          "height": 638
+          "height": 632
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-top-960.webp",
-          "width": 560,
-          "height": 744
+          "width": 960,
+          "height": 1264
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-top-1440.webp",
+          "width": 1094,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -95,12 +120,17 @@
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-rotor0-480.webp",
               "width": 480,
-              "height": 638
+              "height": 632
             },
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-rotor0-960.webp",
-              "width": 560,
-              "height": 744
+              "width": 960,
+              "height": 1264
+            },
+            {
+              "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-12-rotor0-1440.webp",
+              "width": 1094,
+              "height": 1440
             }
           ],
           "origin": [
@@ -124,30 +154,40 @@
       ]
     },
     "table-wall-pedestal-fans-wendy-12": {
-      "width": 589,
-      "height": 959,
+      "width": 882,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-base-480.webp",
           "width": 480,
-          "height": 782
+          "height": 784
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-base-960.webp",
-          "width": 589,
-          "height": 959
+          "width": 882,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-base-1440.webp",
+          "width": 882,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-top-480.webp",
           "width": 480,
-          "height": 782
+          "height": 784
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-top-960.webp",
-          "width": 589,
-          "height": 959
+          "width": 882,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-top-1440.webp",
+          "width": 882,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -156,12 +196,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-rotor0-480.webp",
               "width": 480,
-              "height": 782
+              "height": 784
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-rotor0-960.webp",
-              "width": 589,
-              "height": 959
+              "width": 882,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-wendy-12-0-rotor0-1440.webp",
+              "width": 882,
+              "height": 1440
             }
           ],
           "origin": [
@@ -185,30 +230,40 @@
       ]
     },
     "table-wall-pedestal-fans-fiona-16": {
-      "width": 272,
-      "height": 727,
+      "width": 538,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-base-480.webp",
-          "width": 272,
-          "height": 727
+          "width": 480,
+          "height": 1285
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-base-960.webp",
-          "width": 272,
-          "height": 727
+          "width": 538,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-base-1440.webp",
+          "width": 538,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-top-480.webp",
-          "width": 272,
-          "height": 727
+          "width": 480,
+          "height": 1285
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-top-960.webp",
-          "width": 272,
-          "height": 727
+          "width": 538,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-top-1440.webp",
+          "width": 538,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -216,13 +271,18 @@
           "image": [
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-rotor0-480.webp",
-              "width": 272,
-              "height": 727
+              "width": 480,
+              "height": 1285
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-rotor0-960.webp",
-              "width": 272,
-              "height": 727
+              "width": 538,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-fiona-16-0-rotor0-1440.webp",
+              "width": 538,
+              "height": 1440
             }
           ],
           "origin": [
@@ -246,8 +306,8 @@
       ]
     },
     "table-wall-pedestal-fans-spectra-16": {
-      "width": 714,
-      "height": 960,
+      "width": 1072,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-base-480.webp",
@@ -256,8 +316,13 @@
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-base-960.webp",
-          "width": 714,
-          "height": 960
+          "width": 960,
+          "height": 1290
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-base-1440.webp",
+          "width": 1072,
+          "height": 1440
         }
       ],
       "top": [
@@ -268,8 +333,13 @@
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-top-960.webp",
-          "width": 714,
-          "height": 960
+          "width": 960,
+          "height": 1290
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-top-1440.webp",
+          "width": 1072,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -282,8 +352,13 @@
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-rotor0-960.webp",
-              "width": 714,
-              "height": 960
+              "width": 960,
+              "height": 1290
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-spectra-16-0-rotor0-1440.webp",
+              "width": 1072,
+              "height": 1440
             }
           ],
           "origin": [
@@ -307,30 +382,40 @@
       ]
     },
     "table-wall-pedestal-fans-vistara-16": {
-      "width": 778,
-      "height": 940,
+      "width": 1076,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-base-480.webp",
           "width": 480,
-          "height": 580
+          "height": 642
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-base-960.webp",
-          "width": 778,
-          "height": 940
+          "width": 960,
+          "height": 1285
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-base-1440.webp",
+          "width": 1076,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-top-480.webp",
           "width": 480,
-          "height": 580
+          "height": 642
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-top-960.webp",
-          "width": 778,
-          "height": 940
+          "width": 960,
+          "height": 1285
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-top-1440.webp",
+          "width": 1076,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -339,12 +424,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-rotor0-480.webp",
               "width": 480,
-              "height": 580
+              "height": 642
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-rotor0-960.webp",
-              "width": 778,
-              "height": 940
+              "width": 960,
+              "height": 1285
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-vistara-16-0-rotor0-1440.webp",
+              "width": 1076,
+              "height": 1440
             }
           ],
           "origin": [
@@ -368,30 +458,40 @@
       ]
     },
     "table-wall-pedestal-fans-velora-16": {
-      "width": 672,
-      "height": 457,
+      "width": 1373,
+      "height": 923,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-base-480.webp",
           "width": 480,
-          "height": 326
+          "height": 323
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-base-960.webp",
-          "width": 672,
-          "height": 457
+          "width": 960,
+          "height": 645
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-base-1440.webp",
+          "width": 1373,
+          "height": 923
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-top-480.webp",
           "width": 480,
-          "height": 326
+          "height": 323
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-top-960.webp",
-          "width": 672,
-          "height": 457
+          "width": 960,
+          "height": 645
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-top-1440.webp",
+          "width": 1373,
+          "height": 923
         }
       ],
       "rotors": [
@@ -400,12 +500,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor0-480.webp",
               "width": 480,
-              "height": 326
+              "height": 323
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor0-960.webp",
-              "width": 672,
-              "height": 457
+              "width": 960,
+              "height": 645
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor0-1440.webp",
+              "width": 1373,
+              "height": 923
             }
           ],
           "origin": [
@@ -431,12 +536,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor1-480.webp",
               "width": 480,
-              "height": 326
+              "height": 323
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor1-960.webp",
-              "width": 672,
-              "height": 457
+              "width": 960,
+              "height": 645
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-velora-16-0-rotor1-1440.webp",
+              "width": 1373,
+              "height": 923
             }
           ],
           "origin": [
@@ -460,30 +570,40 @@
       ]
     },
     "table-wall-pedestal-fans-jazz-12": {
-      "width": 960,
-      "height": 696,
+      "width": 1238,
+      "height": 896,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-base-480.webp",
           "width": 480,
-          "height": 348
+          "height": 347
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-base-960.webp",
           "width": 960,
-          "height": 696
+          "height": 695
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-base-1440.webp",
+          "width": 1238,
+          "height": 896
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-top-480.webp",
           "width": 480,
-          "height": 348
+          "height": 347
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-top-960.webp",
           "width": 960,
-          "height": 696
+          "height": 695
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-top-1440.webp",
+          "width": 1238,
+          "height": 896
         }
       ],
       "rotors": [
@@ -492,12 +612,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-rotor0-480.webp",
               "width": 480,
-              "height": 348
+              "height": 347
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-rotor0-960.webp",
               "width": 960,
-              "height": 696
+              "height": 695
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-jazz-12-0-rotor0-1440.webp",
+              "width": 1238,
+              "height": 896
             }
           ],
           "origin": [
@@ -521,30 +646,40 @@
       ]
     },
     "table-wall-pedestal-fans-stallion-16": {
-      "width": 532,
-      "height": 657,
+      "width": 1172,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-base-480.webp",
           "width": 480,
-          "height": 593
+          "height": 590
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-base-960.webp",
-          "width": 532,
-          "height": 657
+          "width": 960,
+          "height": 1180
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-base-1440.webp",
+          "width": 1172,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-top-480.webp",
           "width": 480,
-          "height": 593
+          "height": 590
         },
         {
           "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-top-960.webp",
-          "width": 532,
-          "height": 657
+          "width": 960,
+          "height": 1180
+        },
+        {
+          "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-top-1440.webp",
+          "width": 1172,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -553,12 +688,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor0-480.webp",
               "width": 480,
-              "height": 593
+              "height": 590
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor0-960.webp",
-              "width": 532,
-              "height": 657
+              "width": 960,
+              "height": 1180
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor0-1440.webp",
+              "width": 1172,
+              "height": 1440
             }
           ],
           "origin": [
@@ -584,12 +724,17 @@
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor1-480.webp",
               "width": 480,
-              "height": 593
+              "height": 590
             },
             {
               "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor1-960.webp",
-              "width": 532,
-              "height": 657
+              "width": 960,
+              "height": 1180
+            },
+            {
+              "file": "/media/rotors/own-table-wall-pedestal-fans-stallion-16-0-rotor1-1440.webp",
+              "width": 1172,
+              "height": 1440
             }
           ],
           "origin": [
@@ -613,30 +758,40 @@
       ]
     },
     "all-purpose-cabin-fans-goair-ac-dc-16": {
-      "width": 660,
-      "height": 892,
+      "width": 1072,
+      "height": 1437,
       "base": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-base-480.webp",
           "width": 480,
-          "height": 649
+          "height": 643
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-base-960.webp",
-          "width": 660,
-          "height": 892
+          "width": 960,
+          "height": 1287
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-base-1440.webp",
+          "width": 1072,
+          "height": 1437
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-top-480.webp",
           "width": 480,
-          "height": 649
+          "height": 643
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-top-960.webp",
-          "width": 660,
-          "height": 892
+          "width": 960,
+          "height": 1287
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-top-1440.webp",
+          "width": 1072,
+          "height": 1437
         }
       ],
       "rotors": [
@@ -645,12 +800,17 @@
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-rotor0-480.webp",
               "width": 480,
-              "height": 649
+              "height": 643
             },
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-rotor0-960.webp",
-              "width": 660,
-              "height": 892
+              "width": 960,
+              "height": 1287
+            },
+            {
+              "file": "/media/rotors/crop-all-purpose-cabin-fans-goair-ac-dc-16-rotor0-1440.webp",
+              "width": 1072,
+              "height": 1437
             }
           ],
           "origin": [
@@ -674,30 +834,30 @@
       ]
     },
     "all-purpose-cabin-fans-jawa-osc-12": {
-      "width": 648,
-      "height": 868,
+      "width": 615,
+      "height": 819,
       "base": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-base-480.webp",
           "width": 480,
-          "height": 643
+          "height": 639
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-base-960.webp",
-          "width": 648,
-          "height": 868
+          "width": 615,
+          "height": 819
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-top-480.webp",
           "width": 480,
-          "height": 643
+          "height": 639
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-top-960.webp",
-          "width": 648,
-          "height": 868
+          "width": 615,
+          "height": 819
         }
       ],
       "rotors": [
@@ -706,12 +866,12 @@
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-rotor0-480.webp",
               "width": 480,
-              "height": 643
+              "height": 639
             },
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-jawa-osc-12-rotor0-960.webp",
-              "width": 648,
-              "height": 868
+              "width": 615,
+              "height": 819
             }
           ],
           "origin": [
@@ -735,30 +895,40 @@
       ]
     },
     "all-purpose-cabin-fans-regal-12": {
-      "width": 444,
-      "height": 604,
+      "width": 788,
+      "height": 1069,
       "base": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-base-480.webp",
-          "width": 444,
-          "height": 604
+          "width": 480,
+          "height": 651
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-base-960.webp",
-          "width": 444,
-          "height": 604
+          "width": 788,
+          "height": 1069
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-base-1440.webp",
+          "width": 788,
+          "height": 1069
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-top-480.webp",
-          "width": 444,
-          "height": 604
+          "width": 480,
+          "height": 651
         },
         {
           "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-top-960.webp",
-          "width": 444,
-          "height": 604
+          "width": 788,
+          "height": 1069
+        },
+        {
+          "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-top-1440.webp",
+          "width": 788,
+          "height": 1069
         }
       ],
       "rotors": [
@@ -766,13 +936,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-rotor0-480.webp",
-              "width": 444,
-              "height": 604
+              "width": 480,
+              "height": 651
             },
             {
               "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-rotor0-960.webp",
-              "width": 444,
-              "height": 604
+              "width": 788,
+              "height": 1069
+            },
+            {
+              "file": "/media/rotors/crop-all-purpose-cabin-fans-regal-12-rotor0-1440.webp",
+              "width": 788,
+              "height": 1069
             }
           ],
           "origin": [
@@ -796,30 +971,40 @@
       ]
     },
     "high-speed-fans-bullet-oscillating-12": {
-      "width": 430,
-      "height": 838,
+      "width": 743,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-base-480.webp",
-          "width": 430,
-          "height": 838
+          "width": 480,
+          "height": 930
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-base-960.webp",
-          "width": 430,
-          "height": 838
+          "width": 743,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-base-1440.webp",
+          "width": 743,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-top-480.webp",
-          "width": 430,
-          "height": 838
+          "width": 480,
+          "height": 930
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-top-960.webp",
-          "width": 430,
-          "height": 838
+          "width": 743,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-top-1440.webp",
+          "width": 743,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -827,13 +1012,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-rotor0-480.webp",
-              "width": 430,
-              "height": 838
+              "width": 480,
+              "height": 930
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-rotor0-960.webp",
-              "width": 430,
-              "height": 838
+              "width": 743,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-12-rotor0-1440.webp",
+              "width": 743,
+              "height": 1440
             }
           ],
           "origin": [
@@ -857,30 +1047,40 @@
       ]
     },
     "high-speed-fans-ornet-12": {
-      "width": 410,
-      "height": 960,
+      "width": 614,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-ornet-12-base-480.webp",
-          "width": 410,
-          "height": 960
+          "width": 480,
+          "height": 1126
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-ornet-12-base-960.webp",
-          "width": 410,
-          "height": 960
+          "width": 614,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-ornet-12-base-1440.webp",
+          "width": 614,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-ornet-12-top-480.webp",
-          "width": 410,
-          "height": 960
+          "width": 480,
+          "height": 1126
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-ornet-12-top-960.webp",
-          "width": 410,
-          "height": 960
+          "width": 614,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-ornet-12-top-1440.webp",
+          "width": 614,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -888,13 +1088,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-ornet-12-rotor0-480.webp",
-              "width": 410,
-              "height": 960
+              "width": 480,
+              "height": 1126
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-ornet-12-rotor0-960.webp",
-              "width": 410,
-              "height": 960
+              "width": 614,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-ornet-12-rotor0-1440.webp",
+              "width": 614,
+              "height": 1440
             }
           ],
           "origin": [
@@ -918,30 +1123,40 @@
       ]
     },
     "high-speed-fans-bullet-16": {
-      "width": 372,
-      "height": 960,
+      "width": 556,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-16-base-480.webp",
-          "width": 372,
-          "height": 960
+          "width": 480,
+          "height": 1243
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-16-base-960.webp",
-          "width": 372,
-          "height": 960
+          "width": 556,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-16-base-1440.webp",
+          "width": 556,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-16-top-480.webp",
-          "width": 372,
-          "height": 960
+          "width": 480,
+          "height": 1243
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-16-top-960.webp",
-          "width": 372,
-          "height": 960
+          "width": 556,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-16-top-1440.webp",
+          "width": 556,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -949,13 +1164,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-16-rotor0-480.webp",
-              "width": 372,
-              "height": 960
+              "width": 480,
+              "height": 1243
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-16-rotor0-960.webp",
-              "width": 372,
-              "height": 960
+              "width": 556,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-bullet-16-rotor0-1440.webp",
+              "width": 556,
+              "height": 1440
             }
           ],
           "origin": [
@@ -979,30 +1199,40 @@
       ]
     },
     "high-speed-fans-bullet-oscillating-16": {
-      "width": 364,
-      "height": 960,
+      "width": 546,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-base-480.webp",
-          "width": 364,
-          "height": 960
+          "width": 480,
+          "height": 1266
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-base-960.webp",
-          "width": 364,
-          "height": 960
+          "width": 546,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-base-1440.webp",
+          "width": 546,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-top-480.webp",
-          "width": 364,
-          "height": 960
+          "width": 480,
+          "height": 1266
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-top-960.webp",
-          "width": 364,
-          "height": 960
+          "width": 546,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-top-1440.webp",
+          "width": 546,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1010,13 +1240,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-rotor0-480.webp",
-              "width": 364,
-              "height": 960
+              "width": 480,
+              "height": 1266
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-rotor0-960.webp",
-              "width": 364,
-              "height": 960
+              "width": 546,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-bullet-oscillating-16-rotor0-1440.webp",
+              "width": 546,
+              "height": 1440
             }
           ],
           "origin": [
@@ -1040,30 +1275,40 @@
       ]
     },
     "high-speed-fans-champion-22": {
-      "width": 465,
-      "height": 960,
+      "width": 695,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-champion-22-base-480.webp",
-          "width": 465,
-          "height": 960
+          "width": 480,
+          "height": 995
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-champion-22-base-960.webp",
-          "width": 465,
-          "height": 960
+          "width": 695,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-champion-22-base-1440.webp",
+          "width": 695,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-champion-22-top-480.webp",
-          "width": 465,
-          "height": 960
+          "width": 480,
+          "height": 995
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-champion-22-top-960.webp",
-          "width": 465,
-          "height": 960
+          "width": 695,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-champion-22-top-1440.webp",
+          "width": 695,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1071,13 +1316,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-champion-22-rotor0-480.webp",
-              "width": 465,
-              "height": 960
+              "width": 480,
+              "height": 995
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-champion-22-rotor0-960.webp",
-              "width": 465,
-              "height": 960
+              "width": 695,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-champion-22-rotor0-1440.webp",
+              "width": 695,
+              "height": 1440
             }
           ],
           "origin": [
@@ -1101,30 +1351,40 @@
       ]
     },
     "high-speed-fans-hexa-20": {
-      "width": 423,
-      "height": 960,
+      "width": 636,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-hexa-20-base-480.webp",
-          "width": 423,
-          "height": 960
+          "width": 480,
+          "height": 1087
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-hexa-20-base-960.webp",
-          "width": 423,
-          "height": 960
+          "width": 636,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-hexa-20-base-1440.webp",
+          "width": 636,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-hexa-20-top-480.webp",
-          "width": 423,
-          "height": 960
+          "width": 480,
+          "height": 1087
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-hexa-20-top-960.webp",
-          "width": 423,
-          "height": 960
+          "width": 636,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-hexa-20-top-1440.webp",
+          "width": 636,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1132,13 +1392,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-hexa-20-rotor0-480.webp",
-              "width": 423,
-              "height": 960
+              "width": 480,
+              "height": 1087
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-hexa-20-rotor0-960.webp",
-              "width": 423,
-              "height": 960
+              "width": 636,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-hexa-20-rotor0-1440.webp",
+              "width": 636,
+              "height": 1440
             }
           ],
           "origin": [
@@ -1162,30 +1427,40 @@
       ]
     },
     "high-speed-fans-indus-high-speed-20": {
-      "width": 380,
-      "height": 928,
+      "width": 591,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-base-480.webp",
-          "width": 380,
-          "height": 928
+          "width": 480,
+          "height": 1170
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-base-960.webp",
-          "width": 380,
-          "height": 928
+          "width": 591,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-base-1440.webp",
+          "width": 591,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-top-480.webp",
-          "width": 380,
-          "height": 928
+          "width": 480,
+          "height": 1170
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-top-960.webp",
-          "width": 380,
-          "height": 928
+          "width": 591,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-top-1440.webp",
+          "width": 591,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1193,13 +1468,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-rotor0-480.webp",
-              "width": 380,
-              "height": 928
+              "width": 480,
+              "height": 1170
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-rotor0-960.webp",
-              "width": 380,
-              "height": 928
+              "width": 591,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-indus-high-speed-20-rotor0-1440.webp",
+              "width": 591,
+              "height": 1440
             }
           ],
           "origin": [
@@ -1223,30 +1503,40 @@
       ]
     },
     "high-speed-fans-nexa-20": {
-      "width": 435,
-      "height": 960,
+      "width": 654,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-nexa-20-base-480.webp",
-          "width": 435,
-          "height": 960
+          "width": 480,
+          "height": 1057
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-nexa-20-base-960.webp",
-          "width": 435,
-          "height": 960
+          "width": 654,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-nexa-20-base-1440.webp",
+          "width": 654,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-nexa-20-top-480.webp",
-          "width": 435,
-          "height": 960
+          "width": 480,
+          "height": 1057
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-nexa-20-top-960.webp",
-          "width": 435,
-          "height": 960
+          "width": 654,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-nexa-20-top-1440.webp",
+          "width": 654,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1254,13 +1544,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-nexa-20-rotor0-480.webp",
-              "width": 435,
-              "height": 960
+              "width": 480,
+              "height": 1057
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-nexa-20-rotor0-960.webp",
-              "width": 435,
-              "height": 960
+              "width": 654,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-nexa-20-rotor0-1440.webp",
+              "width": 654,
+              "height": 1440
             }
           ],
           "origin": [
@@ -1284,30 +1579,40 @@
       ]
     },
     "high-speed-fans-sultan-20": {
-      "width": 442,
-      "height": 920,
+      "width": 692,
+      "height": 1440,
       "base": [
         {
           "file": "/media/rotors/crop-high-speed-fans-sultan-20-base-480.webp",
-          "width": 442,
-          "height": 920
+          "width": 480,
+          "height": 999
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-sultan-20-base-960.webp",
-          "width": 442,
-          "height": 920
+          "width": 692,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-sultan-20-base-1440.webp",
+          "width": 692,
+          "height": 1440
         }
       ],
       "top": [
         {
           "file": "/media/rotors/crop-high-speed-fans-sultan-20-top-480.webp",
-          "width": 442,
-          "height": 920
+          "width": 480,
+          "height": 999
         },
         {
           "file": "/media/rotors/crop-high-speed-fans-sultan-20-top-960.webp",
-          "width": 442,
-          "height": 920
+          "width": 692,
+          "height": 1440
+        },
+        {
+          "file": "/media/rotors/crop-high-speed-fans-sultan-20-top-1440.webp",
+          "width": 692,
+          "height": 1440
         }
       ],
       "rotors": [
@@ -1315,13 +1620,18 @@
           "image": [
             {
               "file": "/media/rotors/crop-high-speed-fans-sultan-20-rotor0-480.webp",
-              "width": 442,
-              "height": 920
+              "width": 480,
+              "height": 999
             },
             {
               "file": "/media/rotors/crop-high-speed-fans-sultan-20-rotor0-960.webp",
-              "width": 442,
-              "height": 920
+              "width": 692,
+              "height": 1440
+            },
+            {
+              "file": "/media/rotors/crop-high-speed-fans-sultan-20-rotor0-1440.webp",
+              "width": 692,
+              "height": 1440
             }
           ],
           "origin": [

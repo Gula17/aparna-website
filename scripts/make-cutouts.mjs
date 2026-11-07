@@ -124,7 +124,9 @@ const t0 = Date.now();
 for (const [i, p] of todo.entries()) {
   const source = p.images[0].variants.at(-1).file;
   const key = keyOf(source);
-  const files = [480, 960].map((w) => ({ w, file: `media/cutouts/${key}-${w}.webp` }));
+  // a 1440 cutout too when the photo has one (the AI-upscaled catalogue crops), for full-HD screens
+  const sizes = p.images[0].variants.length >= 3 ? [480, 960, 1440] : [480, 960];
+  const files = sizes.map((w) => ({ w, file: `media/cutouts/${key}-${w}.webp` }));
   const exists = (await Promise.all(files.map((f) => fs.stat(path.join(PUBLIC, f.file)).catch(() => null)))).every(Boolean);
   const erased = JSON.stringify(erase[p.id] ?? []);
   const eraseChanged = erased !== (previous[p.id]?.erased ?? '[]');
@@ -141,7 +143,7 @@ for (const [i, p] of todo.entries()) {
 
   // Cutouts of small catalogue crops: enlarged at most 2x (Lanczos) and lightly sharpened, once.
   // Standard resampling only, no detail is invented. Skipped when the cutout is already large enough.
-  const big = await fs.readFile(path.join(PUBLIC, files[1].file));
+  const big = await fs.readFile(path.join(PUBLIC, files.at(-1).file));
   const meta0 = await sharp(big).metadata();
   if (Math.max(meta0.width, meta0.height) < 640) {
     const scale = Math.min(2, 960 / Math.max(meta0.width, meta0.height));

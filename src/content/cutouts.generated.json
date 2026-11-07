@@ -7,12 +7,17 @@
         {
           "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-480.webp",
           "width": 480,
-          "height": 144
+          "height": 143
         },
         {
           "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-960.webp",
-          "width": 883,
-          "height": 265
+          "width": 960,
+          "height": 285
+        },
+        {
+          "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-1440.webp",
+          "width": 1325,
+          "height": 394
         }
       ],
       "erased": "[[0,0,0.2,0.3]]"
@@ -27,8 +32,13 @@
         },
         {
           "file": "/media/cutouts/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-960.webp",
-          "width": 759,
-          "height": 465
+          "width": 960,
+          "height": 588
+        },
+        {
+          "file": "/media/cutouts/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-1440.webp",
+          "width": 1137,
+          "height": 697
         }
       ],
       "erased": "[[0.84,0.82,0.16,0.18]]"
@@ -43,8 +53,13 @@
         },
         {
           "file": "/media/cutouts/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-960.webp",
-          "width": 716,
-          "height": 472
+          "width": 960,
+          "height": 632
+        },
+        {
+          "file": "/media/cutouts/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-1440.webp",
+          "width": 1074,
+          "height": 707
         }
       ],
       "erased": "[[0,0,0.21,0.3],[0.72,0.77,0.28,0.23]]"
@@ -59,8 +74,13 @@
         },
         {
           "file": "/media/cutouts/poster-07-airmax-signature-series-ceiling-fan-960.webp",
-          "width": 907,
-          "height": 511
+          "width": 960,
+          "height": 540
+        },
+        {
+          "file": "/media/cutouts/poster-07-airmax-signature-series-ceiling-fan-1440.webp",
+          "width": 1361,
+          "height": 765
         }
       ],
       "erased": "[[0.16,0.8,0.18,0.2]]"
@@ -71,12 +91,17 @@
         {
           "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-480.webp",
           "width": 480,
-          "height": 276
+          "height": 343
         },
         {
           "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-960.webp",
-          "width": 934,
-          "height": 538
+          "width": 960,
+          "height": 686
+        },
+        {
+          "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-1440.webp",
+          "width": 1402,
+          "height": 1002
         }
       ]
     },
@@ -86,12 +111,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-coral-48-480.webp",
           "width": 480,
-          "height": 285
+          "height": 284
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-coral-48-960.webp",
-          "width": 925,
-          "height": 549
+          "width": 960,
+          "height": 568
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-coral-48-1440.webp",
+          "width": 1387,
+          "height": 821
         }
       ]
     },
@@ -101,12 +131,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-480.webp",
           "width": 480,
-          "height": 344
+          "height": 342
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-960.webp",
-          "width": 836,
-          "height": 600
+          "width": 960,
+          "height": 684
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-1440.webp",
+          "width": 1141,
+          "height": 813
         }
       ]
     },
@@ -116,12 +151,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-480.webp",
           "width": 480,
-          "height": 339
+          "height": 338
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-960.webp",
-          "width": 748,
-          "height": 528
+          "width": 960,
+          "height": 675
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-1440.webp",
+          "width": 1055,
+          "height": 742
         }
       ]
     },
@@ -130,13 +170,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-480.webp",
-          "width": 377,
-          "height": 480
+          "width": 480,
+          "height": 284
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-960.webp",
-          "width": 380,
-          "height": 484
+          "width": 960,
+          "height": 568
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-1440.webp",
+          "width": 1297,
+          "height": 768
         }
       ]
     },
@@ -145,13 +190,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ceiling-fans-major-36-480.webp",
-          "width": 443,
+          "width": 406,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-major-36-960.webp",
-          "width": 772,
-          "height": 836
+          "width": 812,
+          "height": 959
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-major-36-1440.webp",
+          "width": 812,
+          "height": 959
         }
       ]
     },
@@ -161,12 +211,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-480.webp",
           "width": 480,
-          "height": 329
+          "height": 342
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-960.webp",
           "width": 960,
-          "height": 658
+          "height": 684
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-1440.webp",
+          "width": 1393,
+          "height": 992
         }
       ]
     },
@@ -176,12 +231,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-glaze-48-480.webp",
           "width": 480,
-          "height": 357
+          "height": 355
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-glaze-48-960.webp",
           "width": 960,
-          "height": 714
+          "height": 710
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-glaze-48-1440.webp",
+          "width": 1430,
+          "height": 1058
         }
       ]
     },
@@ -190,13 +250,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ceiling-fans-luster-48-480.webp",
-          "width": 472,
-          "height": 480
+          "width": 480,
+          "height": 285
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-luster-48-960.webp",
-          "width": 944,
-          "height": 960
+          "width": 960,
+          "height": 571
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-luster-48-1440.webp",
+          "width": 1440,
+          "height": 856
         }
       ]
     },
@@ -206,12 +271,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-phantom-48-480.webp",
           "width": 480,
-          "height": 265
+          "height": 335
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-phantom-48-960.webp",
           "width": 960,
-          "height": 530
+          "height": 670
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-phantom-48-1440.webp",
+          "width": 1432,
+          "height": 999
         }
       ]
     },
@@ -221,12 +291,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-stunner-48-480.webp",
           "width": 480,
-          "height": 279
+          "height": 278
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-stunner-48-960.webp",
           "width": 960,
-          "height": 558
+          "height": 556
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-stunner-48-1440.webp",
+          "width": 1403,
+          "height": 813
         }
       ]
     },
@@ -236,12 +311,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-480.webp",
           "width": 480,
-          "height": 331
+          "height": 330
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-960.webp",
-          "width": 784,
-          "height": 540
+          "width": 960,
+          "height": 660
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-1440.webp",
+          "width": 1146,
+          "height": 788
         }
       ]
     },
@@ -251,12 +331,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-tejas-24-480.webp",
           "width": 480,
-          "height": 337
+          "height": 332
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-tejas-24-960.webp",
-          "width": 764,
-          "height": 536
+          "width": 960,
+          "height": 664
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-tejas-24-1440.webp",
+          "width": 1103,
+          "height": 763
         }
       ]
     },
@@ -266,12 +351,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-saphire-36-480.webp",
           "width": 480,
-          "height": 322
+          "height": 320
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-saphire-36-960.webp",
           "width": 960,
-          "height": 644
+          "height": 640
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-saphire-36-1440.webp",
+          "width": 1286,
+          "height": 857
         }
       ]
     },
@@ -280,13 +370,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ceiling-fans-porsche-48-480.webp",
-          "width": 356,
+          "width": 359,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-porsche-48-960.webp",
-          "width": 704,
-          "height": 948
+          "width": 717,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-porsche-48-1440.webp",
+          "width": 1076,
+          "height": 1440
         }
       ]
     },
@@ -296,12 +391,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-rolex-48-480.webp",
           "width": 480,
-          "height": 225
+          "height": 287
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-rolex-48-960.webp",
-          "width": 906,
-          "height": 424
+          "width": 960,
+          "height": 573
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-rolex-48-1440.webp",
+          "width": 1424,
+          "height": 850
         }
       ]
     },
@@ -311,12 +411,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-runner-48-480.webp",
           "width": 480,
-          "height": 356
+          "height": 363
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-runner-48-960.webp",
           "width": 960,
-          "height": 712
+          "height": 726
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-runner-48-1440.webp",
+          "width": 1400,
+          "height": 1059
         }
       ]
     },
@@ -326,12 +431,17 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-480.webp",
           "width": 480,
-          "height": 296
+          "height": 371
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-960.webp",
           "width": 960,
-          "height": 593
+          "height": 741
+        },
+        {
+          "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-1440.webp",
+          "width": 1401,
+          "height": 1082
         }
       ]
     },
@@ -345,8 +455,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-vento-12-0-960.webp",
-          "width": 621,
-          "height": 857
+          "width": 697,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-vento-12-0-1440.webp",
+          "width": 1045,
+          "height": 1440
         }
       ]
     },
@@ -360,8 +475,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-glider-16-0-960.webp",
-          "width": 672,
-          "height": 953
+          "width": 676,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-glider-16-0-1440.webp",
+          "width": 1014,
+          "height": 1440
         }
       ]
     },
@@ -375,8 +495,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-spider-16-0-960.webp",
-          "width": 641,
+          "width": 640,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-spider-16-0-1440.webp",
+          "width": 960,
+          "height": 1440
         }
       ]
     },
@@ -390,8 +515,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-tornado-16-0-960.webp",
-          "width": 633,
+          "width": 632,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-tornado-16-0-1440.webp",
+          "width": 948,
+          "height": 1440
         }
       ]
     },
@@ -400,13 +530,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-480.webp",
-          "width": 295,
+          "width": 294,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-960.webp",
-          "width": 589,
-          "height": 959
+          "width": 588,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-1440.webp",
+          "width": 882,
+          "height": 1440
         }
       ]
     },
@@ -415,13 +550,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-480.webp",
-          "width": 180,
+          "width": 179,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-960.webp",
-          "width": 272,
-          "height": 727
+          "width": 359,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-1440.webp",
+          "width": 538,
+          "height": 1440
         }
       ]
     },
@@ -437,6 +577,11 @@
           "file": "/media/cutouts/own-table-wall-pedestal-fans-spectra-16-0-960.webp",
           "width": 714,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-spectra-16-0-1440.webp",
+          "width": 1072,
+          "height": 1440
         }
       ]
     },
@@ -450,8 +595,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-vectra-16-0-960.webp",
-          "width": 594,
+          "width": 595,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-vectra-16-0-1440.webp",
+          "width": 892,
+          "height": 1440
         }
       ]
     },
@@ -460,13 +610,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-480.webp",
-          "width": 397,
+          "width": 359,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-960.webp",
-          "width": 778,
-          "height": 940
+          "width": 717,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-1440.webp",
+          "width": 1076,
+          "height": 1440
         }
       ]
     },
@@ -476,12 +631,17 @@
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-480.webp",
           "width": 480,
-          "height": 348
+          "height": 347
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-960.webp",
           "width": 960,
-          "height": 696
+          "height": 695
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-1440.webp",
+          "width": 1238,
+          "height": 896
         }
       ]
     },
@@ -495,8 +655,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-blazo-16-0-960.webp",
-          "width": 674,
-          "height": 505
+          "width": 960,
+          "height": 720
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-blazo-16-0-1440.webp",
+          "width": 1306,
+          "height": 980
         }
       ]
     },
@@ -510,8 +675,13 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-blitz-16-0-960.webp",
-          "width": 581,
+          "width": 580,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-blitz-16-0-1440.webp",
+          "width": 810,
+          "height": 1340
         }
       ]
     },
@@ -520,13 +690,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-480.webp",
-          "width": 389,
+          "width": 391,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-960.webp",
-          "width": 532,
-          "height": 657
+          "width": 781,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-1440.webp",
+          "width": 1172,
+          "height": 1440
         }
       ]
     },
@@ -536,12 +711,17 @@
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-480.webp",
           "width": 480,
-          "height": 326
+          "height": 323
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-960.webp",
-          "width": 672,
-          "height": 457
+          "width": 960,
+          "height": 645
+        },
+        {
+          "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-1440.webp",
+          "width": 1373,
+          "height": 923
         }
       ]
     },
@@ -550,13 +730,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-480.webp",
-          "width": 361,
+          "width": 365,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-960.webp",
-          "width": 560,
-          "height": 744
+          "width": 729,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-1440.webp",
+          "width": 1094,
+          "height": 1440
         }
       ]
     },
@@ -565,13 +750,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-480.webp",
-          "width": 355,
+          "width": 358,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-960.webp",
-          "width": 660,
-          "height": 892
+          "width": 716,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-1440.webp",
+          "width": 1072,
+          "height": 1437
         }
       ]
     },
@@ -580,13 +770,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-480.webp",
-          "width": 309,
+          "width": 307,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-960.webp",
-          "width": 376,
-          "height": 584
+          "width": 613,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-1440.webp",
+          "width": 725,
+          "height": 1135
         }
       ]
     },
@@ -595,13 +790,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-480.webp",
-          "width": 418,
+          "width": 416,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-960.webp",
-          "width": 672,
-          "height": 772
+          "width": 832,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-1440.webp",
+          "width": 1249,
+          "height": 1440
         }
       ]
     },
@@ -610,13 +810,13 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-jawa-osc-12-480.webp",
-          "width": 358,
+          "width": 360,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-jawa-osc-12-960.webp",
-          "width": 648,
-          "height": 868
+          "width": 615,
+          "height": 819
         }
       ]
     },
@@ -625,13 +825,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-480.webp",
-          "width": 374,
+          "width": 373,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-960.webp",
-          "width": 648,
-          "height": 832
+          "width": 746,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-1440.webp",
+          "width": 1119,
+          "height": 1440
         }
       ]
     },
@@ -640,13 +845,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-480.webp",
-          "width": 380,
+          "width": 378,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-960.webp",
-          "width": 682,
-          "height": 862
+          "width": 756,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-1440.webp",
+          "width": 1135,
+          "height": 1440
         }
       ]
     },
@@ -655,13 +865,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-480.webp",
-          "width": 353,
+          "width": 354,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-960.webp",
-          "width": 444,
-          "height": 604
+          "width": 708,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-1440.webp",
+          "width": 788,
+          "height": 1069
         }
       ]
     },
@@ -670,13 +885,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-480.webp",
-          "width": 246,
+          "width": 248,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-960.webp",
-          "width": 430,
-          "height": 838
+          "width": 496,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-1440.webp",
+          "width": 743,
+          "height": 1440
         }
       ]
     },
@@ -690,8 +910,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-ornet-12-960.webp",
-          "width": 410,
+          "width": 409,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-ornet-12-1440.webp",
+          "width": 614,
+          "height": 1440
         }
       ]
     },
@@ -700,13 +925,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-16-480.webp",
-          "width": 186,
+          "width": 185,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-16-960.webp",
-          "width": 372,
+          "width": 371,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-bullet-16-1440.webp",
+          "width": 556,
+          "height": 1440
         }
       ]
     },
@@ -722,6 +952,11 @@
           "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-16-960.webp",
           "width": 364,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-16-1440.webp",
+          "width": 546,
+          "height": 1440
         }
       ]
     },
@@ -735,8 +970,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-shine-16-960.webp",
-          "width": 353,
+          "width": 352,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-shine-16-1440.webp",
+          "width": 527,
+          "height": 1440
         }
       ]
     },
@@ -750,8 +990,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-champion-22-960.webp",
-          "width": 465,
+          "width": 463,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-champion-22-1440.webp",
+          "width": 695,
+          "height": 1440
         }
       ]
     },
@@ -765,8 +1010,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-hexa-20-960.webp",
-          "width": 423,
+          "width": 424,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-hexa-20-1440.webp",
+          "width": 636,
+          "height": 1440
         }
       ]
     },
@@ -780,8 +1030,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-indus-high-speed-20-960.webp",
-          "width": 380,
-          "height": 928
+          "width": 394,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-indus-high-speed-20-1440.webp",
+          "width": 591,
+          "height": 1440
         }
       ]
     },
@@ -795,8 +1050,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-nexa-20-960.webp",
-          "width": 435,
+          "width": 436,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-nexa-20-1440.webp",
+          "width": 654,
+          "height": 1440
         }
       ]
     },
@@ -810,8 +1070,13 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-sultan-20-960.webp",
-          "width": 442,
-          "height": 920
+          "width": 461,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-high-speed-fans-sultan-20-1440.webp",
+          "width": 692,
+          "height": 1440
         }
       ]
     },
@@ -820,13 +1085,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-480.webp",
-          "width": 440,
+          "width": 438,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-960.webp",
-          "width": 844,
-          "height": 920
+          "width": 841,
+          "height": 922
+        },
+        {
+          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-1440.webp",
+          "width": 841,
+          "height": 922
         }
       ]
     },
@@ -836,12 +1106,17 @@
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-480.webp",
           "width": 480,
-          "height": 480
+          "height": 479
         },
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-960.webp",
-          "width": 960,
-          "height": 960
+          "width": 745,
+          "height": 744
+        },
+        {
+          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-1440.webp",
+          "width": 745,
+          "height": 744
         }
       ]
     },
@@ -850,13 +1125,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1201-0-480.webp",
-          "width": 295,
+          "width": 294,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1201-0-960.webp",
-          "width": 590,
+          "width": 588,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-discovery-1201-0-1440.webp",
+          "width": 882,
+          "height": 1440
         }
       ]
     },
@@ -865,13 +1145,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1202-0-480.webp",
-          "width": 301,
+          "width": 300,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1202-0-960.webp",
           "width": 601,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-discovery-1202-0-1440.webp",
+          "width": 901,
+          "height": 1440
         }
       ]
     },
@@ -887,6 +1172,11 @@
           "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-960.webp",
           "width": 546,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-1440.webp",
+          "width": 785,
+          "height": 1379
         }
       ]
     },
@@ -902,6 +1192,11 @@
           "file": "/media/cutouts/own-air-coolers-discovery-1204-dlx-0-960.webp",
           "width": 457,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-discovery-1204-dlx-0-1440.webp",
+          "width": 685,
+          "height": 1440
         }
       ]
     },
@@ -917,6 +1212,11 @@
           "file": "/media/cutouts/own-air-coolers-pearl-009-0-960.webp",
           "width": 435,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-pearl-009-0-1440.webp",
+          "width": 652,
+          "height": 1440
         }
       ]
     },
@@ -925,13 +1225,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1201-0-480.webp",
-          "width": 301,
+          "width": 300,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1201-0-960.webp",
-          "width": 602,
-          "height": 959
+          "width": 601,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-pearl-1201-0-1440.webp",
+          "width": 901,
+          "height": 1440
         }
       ]
     },
@@ -945,8 +1250,13 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1202-0-960.webp",
-          "width": 533,
+          "width": 532,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-pearl-1202-0-1440.webp",
+          "width": 797,
+          "height": 1440
         }
       ]
     },
@@ -955,13 +1265,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-480.webp",
-          "width": 296,
+          "width": 297,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-960.webp",
-          "width": 591,
+          "width": 594,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-1440.webp",
+          "width": 743,
+          "height": 1200
         }
       ],
       "erased": "[[0.58,0.45,0.42,0.4]]"
@@ -971,13 +1286,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1401-0-480.webp",
-          "width": 305,
+          "width": 442,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1401-0-960.webp",
-          "width": 527,
-          "height": 830
+          "width": 884,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-1401-0-1440.webp",
+          "width": 1111,
+          "height": 1206
         }
       ]
     },
@@ -986,13 +1306,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1402-0-480.webp",
-          "width": 271,
+          "width": 443,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1402-0-960.webp",
-          "width": 501,
-          "height": 888
+          "width": 886,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-1402-0-1440.webp",
+          "width": 1089,
+          "height": 1180
         }
       ]
     },
@@ -1001,13 +1326,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1601-0-480.webp",
-          "width": 253,
+          "width": 254,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1601-0-960.webp",
-          "width": 451,
-          "height": 854
+          "width": 507,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-1601-0-1440.webp",
+          "width": 761,
+          "height": 1440
         }
       ]
     },
@@ -1021,8 +1351,13 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1801-0-960.webp",
-          "width": 474,
-          "height": 893
+          "width": 510,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-1801-0-1440.webp",
+          "width": 765,
+          "height": 1440
         }
       ]
     },
@@ -1031,13 +1366,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2201-0-480.webp",
-          "width": 314,
+          "width": 313,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2201-0-960.webp",
-          "width": 547,
-          "height": 837
+          "width": 626,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-2201-0-1440.webp",
+          "width": 938,
+          "height": 1440
         }
       ]
     },
@@ -1046,13 +1386,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2601-0-480.webp",
-          "width": 303,
+          "width": 316,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2601-0-960.webp",
-          "width": 565,
-          "height": 894
+          "width": 632,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/own-air-coolers-ultima-2601-0-1440.webp",
+          "width": 947,
+          "height": 1440
         }
       ]
     },
@@ -1062,12 +1407,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-bng-480.webp",
           "width": 480,
-          "height": 320
+          "height": 316
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-bng-960.webp",
-          "width": 612,
-          "height": 408
+          "width": 960,
+          "height": 632
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-bng-1440.webp",
+          "width": 1020,
+          "height": 671
         }
       ]
     },
@@ -1077,12 +1427,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-calvin-480.webp",
           "width": 480,
-          "height": 293
+          "height": 291
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-calvin-960.webp",
-          "width": 668,
-          "height": 408
+          "width": 960,
+          "height": 581
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-calvin-1440.webp",
+          "width": 1321,
+          "height": 800
         }
       ]
     },
@@ -1092,12 +1447,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-comfort-480.webp",
           "width": 480,
-          "height": 316
+          "height": 254
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-comfort-960.webp",
-          "width": 584,
-          "height": 384
+          "width": 960,
+          "height": 509
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-comfort-1440.webp",
+          "width": 1270,
+          "height": 673
         }
       ],
       "erased": "[[0,0.82,1,0.18]]"
@@ -1108,12 +1468,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-crescent-480.webp",
           "width": 480,
-          "height": 271
+          "height": 312
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-crescent-960.webp",
-          "width": 616,
-          "height": 348
+          "width": 960,
+          "height": 625
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-crescent-1440.webp",
+          "width": 1116,
+          "height": 726
         }
       ]
     },
@@ -1123,12 +1488,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-excel-480.webp",
           "width": 480,
-          "height": 299
+          "height": 302
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-excel-960.webp",
-          "width": 648,
-          "height": 404
+          "width": 960,
+          "height": 605
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-excel-1440.webp",
+          "width": 1041,
+          "height": 656
         }
       ]
     },
@@ -1138,12 +1508,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-hudsun-480.webp",
           "width": 480,
-          "height": 327
+          "height": 325
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-hudsun-960.webp",
-          "width": 604,
-          "height": 412
+          "width": 960,
+          "height": 649
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-hudsun-1440.webp",
+          "width": 1273,
+          "height": 861
         }
       ]
     },
@@ -1153,12 +1528,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-480.webp",
           "width": 480,
-          "height": 294
+          "height": 291
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-960.webp",
-          "width": 660,
-          "height": 404
+          "width": 960,
+          "height": 583
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-1440.webp",
+          "width": 1311,
+          "height": 796
         }
       ]
     },
@@ -1168,12 +1548,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-480.webp",
           "width": 480,
-          "height": 294
+          "height": 291
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-960.webp",
-          "width": 660,
-          "height": 404
+          "width": 960,
+          "height": 583
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-1440.webp",
+          "width": 1311,
+          "height": 796
         }
       ]
     },
@@ -1187,8 +1572,13 @@
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-magnum-960.webp",
-          "width": 548,
-          "height": 340
+          "width": 960,
+          "height": 596
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-magnum-1440.webp",
+          "width": 1235,
+          "height": 767
         }
       ]
     },
@@ -1198,12 +1588,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-nelson-480.webp",
           "width": 480,
-          "height": 349
+          "height": 348
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-nelson-960.webp",
-          "width": 572,
-          "height": 416
+          "width": 960,
+          "height": 696
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-nelson-1440.webp",
+          "width": 1127,
+          "height": 817
         }
       ]
     },
@@ -1213,12 +1608,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-phantom-480.webp",
           "width": 480,
-          "height": 294
+          "height": 292
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-phantom-960.webp",
-          "width": 568,
-          "height": 348
+          "width": 960,
+          "height": 583
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-phantom-1440.webp",
+          "width": 973,
+          "height": 591
         }
       ]
     },
@@ -1228,12 +1628,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-regent-480.webp",
           "width": 480,
-          "height": 304
+          "height": 302
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-regent-960.webp",
-          "width": 600,
-          "height": 380
+          "width": 960,
+          "height": 604
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-regent-1440.webp",
+          "width": 1193,
+          "height": 750
         }
       ]
     },
@@ -1243,12 +1648,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-rustam-480.webp",
           "width": 480,
-          "height": 431
+          "height": 432
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-rustam-960.webp",
-          "width": 810,
-          "height": 728
+          "width": 960,
+          "height": 863
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-rustam-1440.webp",
+          "width": 971,
+          "height": 873
         }
       ]
     },
@@ -1262,8 +1672,13 @@
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-ss-jumbo-960.webp",
-          "width": 620,
-          "height": 428
+          "width": 960,
+          "height": 661
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-ss-jumbo-1440.webp",
+          "width": 1298,
+          "height": 894
         }
       ]
     },
@@ -1273,12 +1688,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-480.webp",
           "width": 480,
-          "height": 350
+          "height": 283
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-960.webp",
-          "width": 576,
-          "height": 420
+          "width": 960,
+          "height": 566
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-1440.webp",
+          "width": 1213,
+          "height": 715
         }
       ],
       "erased": "[[0,0.82,1,0.18]]"
@@ -1289,12 +1709,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-simson-480.webp",
           "width": 480,
-          "height": 357
+          "height": 351
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-simson-960.webp",
-          "width": 592,
-          "height": 440
+          "width": 960,
+          "height": 701
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-simson-1440.webp",
+          "width": 1179,
+          "height": 861
         }
       ]
     },
@@ -1304,12 +1729,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-smart-480.webp",
           "width": 480,
-          "height": 287
+          "height": 283
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-smart-960.webp",
-          "width": 588,
-          "height": 352
+          "width": 960,
+          "height": 566
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-smart-1440.webp",
+          "width": 1316,
+          "height": 776
         }
       ]
     },
@@ -1319,12 +1749,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-ultima-480.webp",
           "width": 480,
-          "height": 294
+          "height": 292
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-ultima-960.webp",
-          "width": 660,
-          "height": 404
+          "width": 960,
+          "height": 585
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-ultima-1440.webp",
+          "width": 1315,
+          "height": 801
         }
       ]
     },
@@ -1334,12 +1769,17 @@
         {
           "file": "/media/cutouts/crop-kitchen-appliances-prime-480.webp",
           "width": 480,
-          "height": 277
+          "height": 303
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-prime-960.webp",
-          "width": 666,
-          "height": 384
+          "width": 830,
+          "height": 524
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-prime-1440.webp",
+          "width": 830,
+          "height": 524
         }
       ],
       "erased": "[[0.75,0,0.25,0.7]]"
@@ -1354,8 +1794,13 @@
         },
         {
           "file": "/media/cutouts/crop-kitchen-appliances-prince-960.webp",
-          "width": 960,
-          "height": 448
+          "width": 909,
+          "height": 424
+        },
+        {
+          "file": "/media/cutouts/crop-kitchen-appliances-prince-1440.webp",
+          "width": 909,
+          "height": 424
         }
       ]
     },
@@ -1364,13 +1809,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-480.webp",
-          "width": 250,
+          "width": 363,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-960.webp",
-          "width": 499,
+          "width": 725,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-1440.webp",
+          "width": 1058,
+          "height": 1400
         }
       ]
     },
@@ -1379,13 +1829,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-480.webp",
-          "width": 250,
+          "width": 363,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-960.webp",
-          "width": 499,
+          "width": 725,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-1440.webp",
+          "width": 1058,
+          "height": 1400
         }
       ]
     },
@@ -1394,13 +1849,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-480.webp",
-          "width": 250,
+          "width": 363,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-960.webp",
-          "width": 499,
+          "width": 725,
           "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-1440.webp",
+          "width": 1058,
+          "height": 1400
         }
       ]
     },
@@ -1409,13 +1869,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-croma-480.webp",
-          "width": 321,
+          "width": 313,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-croma-960.webp",
-          "width": 412,
-          "height": 616
+          "width": 627,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-croma-1440.webp",
+          "width": 913,
+          "height": 1398
         }
       ]
     },
@@ -1424,13 +1889,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-croma2-480.webp",
-          "width": 322,
+          "width": 326,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-croma2-960.webp",
-          "width": 368,
-          "height": 548
+          "width": 653,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-croma2-1440.webp",
+          "width": 860,
+          "height": 1265
         }
       ]
     },
@@ -1439,13 +1909,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-kettle-element-480.webp",
-          "width": 280,
-          "height": 416
+          "width": 386,
+          "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-kettle-element-960.webp",
-          "width": 280,
-          "height": 416
+          "width": 772,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-kettle-element-1440.webp",
+          "width": 1083,
+          "height": 1347
         }
       ],
       "erased": "[[0,0.84,1,0.16]]"
@@ -1456,12 +1931,17 @@
         {
           "file": "/media/cutouts/crop-heating-water-alexa-480.webp",
           "width": 480,
-          "height": 263
+          "height": 290
         },
         {
           "file": "/media/cutouts/crop-heating-water-alexa-960.webp",
-          "width": 540,
-          "height": 296
+          "width": 960,
+          "height": 580
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-alexa-1440.webp",
+          "width": 1323,
+          "height": 800
         }
       ]
     },
@@ -1471,12 +1951,17 @@
         {
           "file": "/media/cutouts/crop-heating-water-alineo-480.webp",
           "width": 480,
-          "height": 211
+          "height": 340
         },
         {
           "file": "/media/cutouts/crop-heating-water-alineo-960.webp",
-          "width": 500,
-          "height": 220
+          "width": 960,
+          "height": 681
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-alineo-1440.webp",
+          "width": 1390,
+          "height": 986
         }
       ]
     },
@@ -1485,13 +1970,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-pearl-480.webp",
-          "width": 412,
-          "height": 296
+          "width": 480,
+          "height": 346
         },
         {
           "file": "/media/cutouts/crop-heating-water-pearl-960.webp",
-          "width": 412,
-          "height": 296
+          "width": 960,
+          "height": 692
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-pearl-1440.webp",
+          "width": 1217,
+          "height": 877
         }
       ]
     },
@@ -1500,13 +1990,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-pox-480.webp",
-          "width": 336,
-          "height": 452
+          "width": 352,
+          "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-pox-960.webp",
-          "width": 336,
-          "height": 452
+          "width": 703,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-pox-1440.webp",
+          "width": 1028,
+          "height": 1403
         }
       ]
     },
@@ -1515,13 +2010,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-roxx-480.webp",
-          "width": 352,
-          "height": 456
+          "width": 369,
+          "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-roxx-960.webp",
-          "width": 352,
-          "height": 456
+          "width": 738,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-roxx-1440.webp",
+          "width": 1107,
+          "height": 1440
         }
       ]
     },
@@ -1530,13 +2030,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-rozer-480.webp",
-          "width": 140,
-          "height": 408
+          "width": 317,
+          "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-rozer-960.webp",
-          "width": 140,
-          "height": 408
+          "width": 633,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-rozer-1440.webp",
+          "width": 950,
+          "height": 1440
         }
       ]
     },
@@ -1545,13 +2050,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-silky-480.webp",
-          "width": 424,
-          "height": 304
+          "width": 480,
+          "height": 398
         },
         {
           "file": "/media/cutouts/crop-heating-water-silky-960.webp",
-          "width": 424,
-          "height": 304
+          "width": 960,
+          "height": 797
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-silky-1440.webp",
+          "width": 1293,
+          "height": 1073
         }
       ]
     },
@@ -1560,13 +2070,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-480.webp",
-          "width": 386,
+          "width": 362,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-960.webp",
-          "width": 444,
-          "height": 552
+          "width": 725,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-1440.webp",
+          "width": 1087,
+          "height": 1440
         }
       ]
     },
@@ -1575,13 +2090,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-electric-irons-bmw-480.webp",
-          "width": 295,
+          "width": 296,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-electric-irons-bmw-960.webp",
-          "width": 364,
-          "height": 592
+          "width": 593,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-electric-irons-bmw-1440.webp",
+          "width": 889,
+          "height": 1440
         }
       ]
     },
@@ -1590,13 +2110,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-electric-irons-grand-480.webp",
-          "width": 311,
+          "width": 308,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-electric-irons-grand-960.webp",
-          "width": 412,
-          "height": 636
+          "width": 616,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-electric-irons-grand-1440.webp",
+          "width": 924,
+          "height": 1440
         }
       ]
     },
@@ -1605,13 +2130,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-electric-irons-plancha-480.webp",
-          "width": 268,
+          "width": 261,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-electric-irons-plancha-960.webp",
-          "width": 420,
-          "height": 752
+          "width": 522,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-electric-irons-plancha-1440.webp",
+          "width": 782,
+          "height": 1440
         }
       ]
     },
@@ -1620,13 +2150,18 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-electric-irons-regular-480.webp",
-          "width": 283,
+          "width": 282,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-electric-irons-regular-960.webp",
-          "width": 340,
-          "height": 576
+          "width": 564,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/crop-electric-irons-regular-1440.webp",
+          "width": 846,
+          "height": 1440
         }
       ]
     }
