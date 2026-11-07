@@ -17,7 +17,7 @@ const TOP = 0.5; // canopy top; these fans hang on a short drop, as in their pic
 export const CEILING_FINISHES = {
   'white': { body: '#f2f1ee', blade: '#f4f3f0', metal: 0 },
   'ivory': { body: '#efe5cc', blade: '#f1e8d2', metal: 0 },
-  'smoke-brown': { body: '#4b4442', blade: '#514a47', metal: 0.35 },
+  'smoke-brown': { body: '#625e5e', blade: '#6a6563', metal: 0.35 }, // the slate grey-brown the catalogue prints
   'metallic-brown': { body: '#5e3a2a', blade: '#673f2c', metal: 0.55 },
   'glossy-brown': { body: '#4f2f20', blade: '#553324', metal: 0.2, gloss: true },
   'metallic-blue': { body: '#3d5876', blade: '#45617f', metal: 0.55 },
@@ -93,6 +93,14 @@ function trimGeometry(kind, root, w, pitch) {
     hole.absellipse(x0 + len * (kind === 'teardrop' ? 0.48 : 0.5), 0, len * (kind === 'window' ? 0.32 : 0.36), hw * (kind === 'window' ? 0.55 : 0.62), 0, Math.PI * 2, true);
     s.holes.push(hole);
     return plate(s, { thickness: 0.008, pitch, y, curve: 20 });
+  }
+  if (kind === 'ring') { // New Josh: a small round ring on each blade, a little way out from the root
+    const s = new THREE.Shape();
+    s.absarc(x0 + 0.11, 0, w * 0.3, 0, Math.PI * 2, false);
+    const hole = new THREE.Path();
+    hole.absarc(x0 + 0.11, 0, w * 0.21, 0, Math.PI * 2, true);
+    s.holes.push(hole);
+    return plate(s, { thickness: 0.008, pitch, y, curve: 24 });
   }
   if (kind === 'stripes') { // three thin parallel bars across the blade root (Rolex)
     const g = new THREE.BufferGeometry();
@@ -235,10 +243,10 @@ export const CEILING = {
   'mini-dlx-24': { ...MINI, trim: 'none' },
   'mini-smart-24': { ...MINI, colour: 'metallic-brown', trim: 'window' },
   'mini-star-24': { ...MINI, band: false },
-  'new-josh-24': { ...MINI, colour: 'ivory', trim: 'loop', trimColour: 'body', capRing: true },
-  'diplomat-36': { size: 36, colour: 'ivory', accent: 'body', trim: 'window', trimColour: 'body', band: false },
+  'new-josh-24': { ...MINI, colour: 'ivory', trim: 'ring', capRing: true },
+  'diplomat-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'window', band: false },
   'major-36': { size: 36, colour: 'metallic-brown', accent: 'copper', trim: 'none', doubleBand: true },
-  'orbit-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'teardrop', trimColour: 'body' },
+  'orbit-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'teardrop' },
   // Silver Series, 48"
   'apsara-48': { ...SILVER, trim: 'teardrop', accent: 'rose' },
   'areta-48': { ...SILVER, colour: 'white', trim: 'window', accent: 'chrome' },
@@ -253,19 +261,19 @@ export const CEILING = {
   'luster-48': { ...SILVER, trim: 'loop', doubleBand: true },
   'phantom-48': { ...SILVER, trim: 'window', band: 'low' },
   'prince-48': { ...SILVER, colour: 'metallic-brown', trim: 'none', doubleBand: true },
-  'rosa-48': { ...SILVER, colour: 'ivory', trim: 'window', trimColour: 'body', accent: 'chrome' },
+  'rosa-48': { ...SILVER, colour: 'ivory', trim: 'stripes', accent: 'copper' },
   'senorita-48': { ...SILVER, trim: 'stripes' },
   'sonet-deco-48': { ...SILVER, trim: 'teardrop' },
   'sparsh-48': { ...SILVER, colour: 'metallic-blue', trim: 'none', band: false, accent: 'chrome' },
   'stunner-48': { ...SILVER, colour: 'metallic-brown', trim: 'window' },
-  'unicorn-48': { ...SILVER, colour: 'white', trim: 'window', trimColour: 'body', accent: 'copper' },
+  'unicorn-48': { ...SILVER, colour: 'white', trim: 'window', accent: 'copper' },
   // Ultra Gold Series, 24" and 36"
   'little-star-24': { ...MINI, colour: 'smoke-brown', band: false },
   'mini-copper-24': { ...MINI, trim: 'none' },
-  'new-josh-copper-24': { ...MINI, colour: 'ivory', trim: 'loop', trimColour: 'body' },
+  'new-josh-copper-24': { ...MINI, colour: 'ivory', trim: 'ring', capRing: true },
   'tejas-24': { ...MINI, colour: 'glossy-brown', trim: 'window' },
-  'nova-dlx-36': { size: 36, colour: 'ivory', accent: 'body', trim: 'window', trimColour: 'body', band: false },
-  'saphire-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'window', trimColour: 'body' },
+  'nova-dlx-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'loop', band: false },
+  'saphire-36': { size: 36, colour: 'ivory', accent: 'copper', trim: 'window' },
   'virat-36': { size: 36, colour: 'metallic-brown', accent: 'copper', trim: 'none', doubleBand: true },
   // Ultra Gold Series, 48"
   'aroma-deco-48': { ...SILVER, trim: 'teardrop' },
@@ -285,7 +293,7 @@ export const CEILING = {
   'runner-48': { ...SILVER, trim: 'window', doubleBand: true },
   'sayonara-48': { ...SILVER, trim: 'loop' },
   'smart-deco-48': { ...SILVER, trim: 'teardrop', accent: 'rose' },
-  'venus-deco-48': { ...SILVER, colour: 'metallic-brown', trim: 'loop', accent: 'rose', doubleBand: true },
+  'venus-deco-48': { ...SILVER, trim: 'loop', accent: 'rose', doubleBand: true },
   'viraj-deco-48': { ...SILVER, trim: 'teardrop', accent: 'rose', doubleBand: true },
   'viraz-48': { ...SILVER, trim: 'none', band: false },
   'vista-deco-48': { ...SILVER, trim: 'teardrop', accent: 'rose' },

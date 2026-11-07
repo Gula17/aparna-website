@@ -16,6 +16,7 @@ import { setupReveal } from './scenes/reveal.js';
 import { setupCatalogue } from './scenes/catalogue.js';
 import { setupShowroom } from './scenes/showroom.js';
 import { setupShowcase } from './scenes/showcase.js';
+import { setupQuickView } from './scenes/quick-view.js';
 import { setupProductPage, chosenColourFor } from './scenes/product-page.js';
 import { setupSaveButtons, setupListPage } from './scenes/my-list.js';
 
@@ -42,4 +43,5 @@ setupShowroom({ reducedMotion, lite: quality === 'low' && ((navigator.deviceMemo
 const can3D = canRun3D();
 setupShowcase({ reducedMotion, can3D, quality });
 setupProductPage({ can3D, quality });
+setupQuickView({ can3D, quality });
 setupListPage();

@@ -67,7 +67,7 @@ function cooler(name, cfg) {
     dark: physical({ color: '#16171a', roughness: 0.45 }),
     knob: physical({ color: cfg.knob ?? '#c9ccd1', metalness: 0.5, roughness: 0.3 }),
     glass: physical({ color: '#101114', roughness: 0.05, clearcoat: 1, clearcoatRoughness: 0.03, metalness: 0.2 }),
-    wheel: physical({ color: '#1b1c1e', roughness: 0.55 }),
+    wheel: physical({ color: '#34353a', roughness: 0.35, clearcoat: 0.8 }),
     leg: physical({ color: cfg.legs ?? cfg.lowerColour ?? '#e9e9e6', roughness: 0.3, clearcoat: 0.6 }),
     pad: new THREE.MeshStandardMaterial({ map: honeycombTexture(), roughness: 0.8 }),
     blade: physical({ color: '#2a2b2e', roughness: 0.4 }),
@@ -185,10 +185,16 @@ function cooler(name, cfg) {
       leg.position.set(x * w * 0.44, floor + 0.02, zz * d * 0.44);
       stator.add(leg);
     }
-    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.03, 16), m.wheel);
+    // a swivel castor: mount plate, fork and a wheel that shows below the body
+    const cx = x * w * 0.4, cz = zz * d * 0.38;
+    const mount = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.036, 0.03, 20), m.wheel);
+    mount.position.set(cx, floor - 0.012, cz);
+    const fork = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.06, 0.026), m.wheel);
+    fork.position.set(cx, floor - 0.05, cz - 0.012);
+    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.034, 24), m.wheel);
     wheel.rotation.z = Math.PI / 2;
-    wheel.position.set(x * w * 0.42, floor - 0.03, zz * d * 0.4);
-    stator.add(wheel);
+    wheel.position.set(cx, floor - 0.082, cz + 0.008);
+    stator.add(mount, fork, wheel);
   }
 
   // the inner fan (turns), behind the front panel

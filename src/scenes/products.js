@@ -51,8 +51,10 @@ export async function mountViewer(host, { quality }) {
   if (viewers.has(host)) return viewers.get(host);
   const ready = (async () => {
     const { createFanScene } = await import('../three/fan-scene.js'); // already cached if the hero has 3D
-    const viewer = createFanScene(host.querySelector('canvas'), { viewer: true, quality, observe: host, model: host.dataset.viewer });
-    Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.56, fill: 0.8 }, viewer.viewerPose ?? {});
+    const exploded = host.hasAttribute('data-exploded'); // the parts view
+    const viewer = createFanScene(host.querySelector('canvas'), { viewer: true, quality, observe: host, model: host.dataset.viewer, exploded });
+    Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.56, fill: 0.8 }, viewer.viewerPose ?? {}, exploded ? viewer.explodedPose : {});
+    if (exploded) viewer.setLevel(1); // blades turn slowly in the parts view
     viewer.setLevel(2);
     // Keyboard: arrows turn and tilt it.
     host.addEventListener('keydown', (e) => {

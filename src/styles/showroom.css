@@ -400,3 +400,16 @@
 @media (prefers-reduced-motion: reduce) { .rotor__spin, .rotor__boost { animation: none; } }
 /* the light sweep is masked by the original photo, so on turning blades it would draw "ghost" blades (brief §8) */
 .stage__product--rotor .stage__sheen { display: none !important; }
+
+/* ---------- quick view button on the cards (src/scenes/quick-view.js) */
+.product-card__inner { container-type: inline-size; }
+.quick-btn {
+  position: absolute; left: 50%; top: calc(100cqw - 66px); z-index: 3; translate: -50% 0;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6); background: rgba(19, 17, 16, 0.78); color: #fff; cursor: pointer;
+  font: 600 0.875rem var(--font-body); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s var(--ease-out), background-color 0.2s;
+}
+.quick-btn:hover { background: var(--aparna-red-deep); }
+.product-card__inner:hover .quick-btn, .quick-btn:focus-visible { opacity: 1; transform: none; }
+@media (hover: none) { .quick-btn { opacity: 1; transform: none; } } /* phones: always shown */

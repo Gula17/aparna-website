@@ -171,3 +171,12 @@
 .spotlight__viewer { width: 100%; height: 100%; aspect-ratio: auto; cursor: pointer; }
 .spotlight.has-3d .spotlight__3d { opacity: 1; }
 .spotlight.has-3d .stage__product, .spotlight.has-3d .stage__fx { opacity: 0; transition: opacity 0.8s var(--ease-out); }
+
+/* ---------- quick view pop-up */
+.quick .preview__media { background: radial-gradient(70% 60% at 50% 42%, #3a3330, #171412); min-height: min(520px, 70svh); display: grid; place-items: center; align-content: center; }
+.quick__viewer { width: 100%; height: 100%; min-height: min(520px, 70svh); aspect-ratio: auto; }
+.quick__viewer .viewer__badge { color: var(--cream-ink); }
+.quick__img { max-width: 86%; max-height: min(480px, 62svh); object-fit: contain; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.5)); }
+.quick__nophoto { color: var(--cream-soft); }
+.quick__meta { color: var(--cream-soft); }
+.quick .save-btn.is-saved { background: var(--aparna-red-deep); color: var(--white); border-color: transparent; }

@@ -46,18 +46,34 @@ export function setupProductPage({ can3D, quality }) {
   if (!page) return;
   const id = page.dataset.product;
 
-  // 360° viewer (first slide) where this product has a 3D model. Without 3D on this device, drop that
-  // slide and its thumbnail, and keep the photos.
-  const host = page.querySelector('[data-viewer]');
+  // 360° viewer (first slide) and the parts view (second) where this product has a 3D model. Without 3D on
+  // this device, drop those slides and their thumbnails, and keep the photos.
+  const host = page.querySelector('[data-viewer]:not([data-exploded])');
+  const partsHost = page.querySelector('[data-viewer][data-exploded]');
   let viewer = null;
   if (host && !can3D) {
-    host.closest('[data-slide]').remove();
-    page.querySelector('.gallery__thumb--3d')?.remove();
-    page.querySelectorAll('[data-thumb]').forEach((t) => { t.dataset.thumb = String(Number(t.dataset.thumb) - 1); });
+    const removed = page.querySelectorAll('.gallery__thumb--3d').length;
+    [host, partsHost].forEach((h) => h?.closest('[data-slide]').remove());
+    page.querySelectorAll('.gallery__thumb--3d').forEach((t) => t.remove());
+    page.querySelectorAll('[data-thumb]').forEach((t) => { t.dataset.thumb = String(Number(t.dataset.thumb) - removed); });
     if (page.querySelectorAll('[data-slide]').length < 2) page.querySelectorAll('[data-prev], [data-next], .gallery__thumbs').forEach((el) => el.remove());
   }
   const gallery = setupGallery(page.querySelector('[data-gallery]'));
   if (host && can3D) mountViewer(host, { quality }).then((v) => { viewer = v; applyColour(); });
+  // the parts view starts when its slide is swiped (or clicked) into view
+  if (partsHost && can3D) {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      mountViewer(partsHost, { quality }).then((v) => {
+        const input = page.querySelector('[data-colours] input:checked');
+        if (v && input?.dataset.finish) v.setFinish(input.dataset.finish);
+        partsViewer = v;
+      });
+    }, { root: page.querySelector('.gallery__stage'), threshold: 0.5 });
+    io.observe(partsHost);
+  }
+  let partsViewer = null;
 
   // Colour picker.
   const picker = page.querySelector('[data-colours]');
@@ -68,6 +84,7 @@ export function setupProductPage({ can3D, quality }) {
     if (!input) return;
     chosenLabel.textContent = template.replace('{colour}', input.value);
     if (viewer && input.dataset.finish) viewer.setFinish(input.dataset.finish);
+    if (partsViewer && input.dataset.finish) partsViewer.setFinish(input.dataset.finish);
     gallery.goToColour(input.value);
     setColour(id, input.value); // if it's already in My list, remember the new colour
   }
@@ -75,7 +92,7 @@ export function setupProductPage({ can3D, quality }) {
 
   // Finishes seen on the poster but not yet named in the data (Air Max): they only repaint the 3D model.
   const posterFinishes = page.querySelector('[data-poster-finishes]');
-  posterFinishes?.addEventListener('change', (e) => { if (viewer) viewer.setFinish(e.target.value); });
+  posterFinishes?.addEventListener('change', (e) => { viewer?.setFinish(e.target.value); partsViewer?.setFinish(e.target.value); });
 
   // WhatsApp: share this page's link.
   const share = page.querySelector('[data-share]');

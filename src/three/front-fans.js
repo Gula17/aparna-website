@@ -63,6 +63,8 @@ const BLADE_SHAPES = {
   scimitar: { width: (t) => 0.075 + 0.11 * Math.sin(Math.PI * Math.min(1, t * 1.15)) * (1 - 0.35 * t), sweep: (t) => 0.16 * t * t },
   // wide classic table-fan blade
   broad: { width: (t) => 0.08 + 0.17 * Math.sin(Math.PI * Math.min(1, 0.25 + t * 0.85)), sweep: (t) => 0.12 * t * t },
+  // exhaust: very wide, filling the opening, with a broad rounded tip (fresh-air fans)
+  exhaust: { width: (t) => 0.1 + 0.3 * Math.sin(Math.PI * Math.min(1, 0.18 + t * 0.78)), sweep: (t) => 0.1 * t * t },
   // paddle: narrow at the root, widening to a broad rounded tip
   paddle: { width: (t) => 0.05 + 0.13 * Math.min(1, t * 1.6), sweep: (t) => 0.03 * t },
 };
@@ -158,7 +160,7 @@ function pedestalStand(m, { headY, floorY, panel = false, chromeUpper = false })
 function tableStand(m, { headY, floorY }) {
   const g = new THREE.Group();
   // a tapered column from under the motor down to the base, oval in section
-  const h = headY - 0.28 - (floorY + 0.12);
+  const h = headY - 0.06 - (floorY + 0.12); // up into the motor housing, so the stand joins the head
   const column = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.13, h, 32), m.body);
   column.scale.z = 0.6;
   column.position.set(0, floorY + 0.12 + h / 2, -0.12);
@@ -178,7 +180,7 @@ function tableStand(m, { headY, floorY }) {
 
 function tableRoundStand(m, { headY, floorY, knobs = 1 }) {
   const g = new THREE.Group();
-  const h = headY - 0.27 - (floorY + 0.1);
+  const h = headY - 0.06 - (floorY + 0.1); // up into the motor housing, so the stand joins the head
   const column = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.11, h, 32), m.body);
   column.scale.z = 0.7;
   column.position.set(0, floorY + 0.1 + h / 2, -0.15);
@@ -253,7 +255,10 @@ function yokeStand(m, { headY, floorY }) {
     const pivot = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.05, 16), m.accent);
     pivot.rotation.z = Math.PI / 2;
     pivot.position.set(x, headY, -0.05);
-    g.add(pivot);
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.1, 10), m.accent); // guard to pivot
+    pin.rotation.z = Math.PI / 2;
+    pin.position.set(Math.sign(x) * 0.51, headY, -0.05);
+    g.add(pivot, pin);
   }
   const post = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, headY - 0.56 - floorY - 0.08, 20), m.body);
   post.position.set(0, (headY - 0.56 + floorY + 0.08) / 2, -0.05);
@@ -349,11 +354,12 @@ const withShadows = (model, shadows) => { model.shadows(shadows); return model; 
 
 // Dark wire, dark body: the high-speed pedestal fans.
 const HIGH_SPEED = {
-  wire: { color: '#3a3b3e', metalness: 0.7, roughness: 0.35 },
-  blade: { color: '#3d3f43', metalness: 0.2, roughness: 0.45, clearcoat: 0.4, clearcoatRoughness: 0.25 },
-  hub: { color: '#2f3033', metalness: 0.35, roughness: 0.38, clearcoat: 0.6 },
-  body: { color: '#2f3033', metalness: 0.35, roughness: 0.4, clearcoat: 0.5 },
-  base: { color: '#55575b', metalness: 0.3, roughness: 0.42, clearcoat: 0.4 },
+  // gunmetal rather than black, as in the posters, so the guard and blades read against the dark viewer
+  wire: { color: '#5d6066', metalness: 0.75, roughness: 0.3 },
+  blade: { color: '#4b4e53', metalness: 0.25, roughness: 0.4, clearcoat: 0.6, clearcoatRoughness: 0.2 },
+  hub: { color: '#3b3d41', metalness: 0.4, roughness: 0.32, clearcoat: 0.8 },
+  body: { color: '#3b3d41', metalness: 0.4, roughness: 0.34, clearcoat: 0.7 },
+  base: { color: '#64676c', metalness: 0.3, roughness: 0.4, clearcoat: 0.5 },
   baseRim: { color: '#1b1c1e', metalness: 0.2, roughness: 0.5 },
 };
 
@@ -669,7 +675,7 @@ export const createChampion = make('champion', {
   guard: { rings: [0.3, 0.6, 0.86], wires: 64 },
   hub: { radius: 0.14 },
   blades: { count: 3, shape: 'paddle', tip: 0.46, pitch: 0.42 },
-  colours: { ...HIGH_SPEED, blade: { color: '#1f2022', metalness: 0.2, roughness: 0.4, clearcoat: 0.5 } },
+  colours: { ...HIGH_SPEED, blade: { color: '#2b2c30', metalness: 0.25, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.12 } },
 });
 export const createIndus = make('indus', {
   ...PEDESTAL,
@@ -685,14 +691,14 @@ export const createIndus = make('indus', {
 // VENTILATION FAN 6"/8"/10" (one shared catalogue picture): white plastic square frame with a round opening and
 // five curved white blades.
 
-function squareFrame(size, hole, depth, radius, material) {
-  const h = size / 2, r = radius;
+function squareFrame(size, hole, depth, radius, material, pinch = 0) {
+  const h = size / 2, r = radius, p = pinch; // p > 0 bows each side inward a little
   const s = new THREE.Shape();
   s.moveTo(-h + r, -h);
-  s.lineTo(h - r, -h); s.quadraticCurveTo(h, -h, h, -h + r);
-  s.lineTo(h, h - r); s.quadraticCurveTo(h, h, h - r, h);
-  s.lineTo(-h + r, h); s.quadraticCurveTo(-h, h, -h, h - r);
-  s.lineTo(-h, -h + r); s.quadraticCurveTo(-h, -h, -h + r, -h);
+  s.quadraticCurveTo(0, -h + p, h - r, -h); s.quadraticCurveTo(h, -h, h, -h + r);
+  s.quadraticCurveTo(h - p, 0, h, h - r); s.quadraticCurveTo(h, h, h - r, h);
+  s.quadraticCurveTo(0, h - p, -h + r, h); s.quadraticCurveTo(-h, h, -h, h - r);
+  s.quadraticCurveTo(-h + p, 0, -h, -h + r); s.quadraticCurveTo(-h, -h, -h + r, -h);
   const opening = new THREE.Path();
   opening.absarc(0, 0, hole, 0, Math.PI * 2, true);
   s.holes.push(opening);
@@ -701,17 +707,25 @@ function squareFrame(size, hole, depth, radius, material) {
   return new THREE.Mesh(geo, material);
 }
 
-function wallFan(name, { frame, hole, blades, hub, grille, struts, colours }) {
+function wallFan(name, { frame, hole, blades, hub, grille, struts, colours, fresh = false }) {
   const m = {
     frame: physical(colours.frame), blade: physical(colours.blade), hub: physical(colours.hub),
     wire: physical(colours.wire ?? colours.frame), motor: physical(colours.motor ?? colours.frame),
     copper: physical({ color: '#b8653f', metalness: 1, roughness: 0.28 }),
     dark: physical({ color: '#151516', roughness: 0.6 }),
+    brass: physical({ color: '#b39a5c', metalness: 0.9, roughness: 0.32 }),
+    white: physical({ color: '#f1f2f3', roughness: 0.3, clearcoat: 0.8 }),
+    chrome: physical({ color: '#e8eaec', metalness: 1, roughness: 0.14 }),
   };
   const fan = new THREE.Group();
   fan.name = name;
   const stator = new THREE.Group();
-  stator.add(squareFrame(frame, hole, 0.06, 0.12, m.frame));
+  stator.add(squareFrame(frame, hole, 0.06, fresh ? 0.16 : 0.12, m.frame, fresh ? 0.035 : 0));
+  if (fresh) { // a raised lip round the opening
+    const lip = new THREE.Mesh(new THREE.TorusGeometry(hole + 0.015, 0.022, 12, 96), m.frame);
+    lip.position.z = 0.035;
+    stator.add(lip);
+  }
   // a short round shroud behind the opening
   const shroud = new THREE.Mesh(new THREE.CylinderGeometry(hole, hole, 0.12, 64, 1, true), m.frame);
   shroud.rotation.x = Math.PI / 2;
@@ -719,23 +733,37 @@ function wallFan(name, { frame, hole, blades, hub, grille, struts, colours }) {
   stator.add(shroud);
   if (grille) {
     // front wire grille: rings and radial wires across the opening, bolts in the corners
-    for (const f of [0.3, 0.55, 0.8, 0.98]) {
-      const ring = new THREE.Mesh(new THREE.TorusGeometry(hole * f, 0.0045, 6, 72), m.wire);
-      ring.position.z = 0.045;
+    const dome = (r) => 0.045 + (fresh ? 0.05 * (1 - (r / hole) ** 2) : 0);
+    for (const f of fresh ? [0.22, 0.4, 0.58, 0.76, 0.92, 1.0] : [0.3, 0.55, 0.8, 0.98]) {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(hole * f, fresh ? 0.004 : 0.0045, 6, 72), m.wire);
+      ring.position.z = dome(hole * f);
       stator.add(ring);
     }
-    for (let i = 0; i < 24; i++) {
-      const a = (i / 24) * Math.PI * 2;
-      const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.0035, 0.0035, hole * 0.72, 4), m.wire);
-      wire.position.set(Math.cos(a) * hole * 0.62, Math.sin(a) * hole * 0.62, 0.045);
-      wire.rotation.z = a - Math.PI / 2;
-      stator.add(wire);
+    const spokes = fresh ? 30 : 24;
+    for (let i = 0; i < spokes; i++) {
+      const a = (i / spokes) * Math.PI * 2;
+      const pts = [];
+      for (let k = 0; k <= 8; k++) { const rr = hole * (0.22 + 0.78 * (k / 8)); pts.push(new THREE.Vector3(Math.cos(a) * rr, Math.sin(a) * rr, dome(rr))); }
+      stator.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 8, 0.0035, 4), m.wire));
     }
     for (const [x, y] of [[-1, -1], [-1, 1], [1, -1], [1, 1]]) {
-      const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.02, 12), m.wire);
-      bolt.rotation.x = Math.PI / 2;
-      bolt.position.set(x * frame * 0.4, y * frame * 0.4, 0.04);
-      stator.add(bolt);
+      if (!fresh) {
+        const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.02, 12), m.wire);
+        bolt.rotation.x = Math.PI / 2;
+        bolt.position.set(x * frame * 0.4, y * frame * 0.4, 0.04);
+        stator.add(bolt);
+        continue;
+      }
+      // a white mounting hole in the corner, and a cluster of three brass bolts beside it
+      const holeRing = new THREE.Mesh(new THREE.TorusGeometry(0.022, 0.008, 8, 24), m.white);
+      holeRing.position.set(x * frame * 0.42, y * frame * 0.42, 0.04);
+      stator.add(holeRing);
+      for (const [dx, dy] of [[-0.1, 0], [0, -0.1], [-0.06, -0.06]]) {
+        const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.025, 6), m.brass);
+        bolt.rotation.x = Math.PI / 2;
+        bolt.position.set(x * (frame * 0.42 + dx), y * (frame * 0.42 + dy), 0.045);
+        stator.add(bolt);
+      }
     }
   }
   if (struts) {
@@ -778,7 +806,15 @@ function wallFan(name, { frame, hole, blades, hub, grille, struts, colours }) {
   rotor.name = 'rotor';
   axis.add(rotor);
   const hr = hub;
-  rotor.add(new THREE.Mesh(lathe([[0, hr * 0.7], [hr * 0.5, hr * 0.66], [hr * 0.85, hr * 0.5], [hr, hr * 0.2], [hr * 0.96, -0.02]]), m.hub));
+  if (fresh) {
+    rotor.add(new THREE.Mesh(lathe([[0, 0.075], [hr * 0.85, 0.074], [hr * 0.97, 0.06], [hr, 0.03], [hr * 0.98, -0.02]]), m.hub));
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(hr * 0.96, 0.009, 10, 64), m.chrome);
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = 0.062;
+    rotor.add(ring);
+  } else {
+    rotor.add(new THREE.Mesh(lathe([[0, hr * 0.7], [hr * 0.5, hr * 0.66], [hr * 0.85, hr * 0.5], [hr, hr * 0.2], [hr * 0.96, -0.02]]), m.hub));
+  }
   const bladeGeo = bladeGeometry({ shape: blades.shape, tip: hole * 0.95, root: hr * 0.7, pitch: blades.pitch });
   const list = [];
   for (let i = 0; i < blades.count; i++) {
@@ -805,13 +841,13 @@ function wallFan(name, { frame, hole, blades, hub, grille, struts, colours }) {
 }
 
 const FRESH_AIR = {
-  frame: 1.0, hole: 0.42, hub: 0.11, grille: true, struts: true,
-  blades: { count: 3, shape: 'broad', pitch: 0.42 },
-  colours: {
-    frame: { color: '#4f4640', metalness: 0.55, roughness: 0.4 },
-    blade: { color: '#57504a', metalness: 0.45, roughness: 0.45 },
-    hub: { color: '#1b1b1c', roughness: 0.3, clearcoat: 0.8 },
-    wire: { color: '#9aa0a6', metalness: 0.8, roughness: 0.3 },
+  frame: 1.0, hole: 0.42, hub: 0.13, grille: true, struts: true, fresh: true,
+  blades: { count: 3, shape: 'exhaust', pitch: 0.4 },
+  colours: { // as in the catalogue picture: grey-brown frame, bronze blades, light blue-grey grille
+    frame: { color: '#6e645b', metalness: 0.5, roughness: 0.42 },
+    blade: { color: '#8a7967', metalness: 0.55, roughness: 0.36 },
+    hub: { color: '#111214', roughness: 0.22, clearcoat: 1 },
+    wire: { color: '#a9bccb', metalness: 0.6, roughness: 0.3 },
     motor: { color: '#6d6f73', metalness: 0.6, roughness: 0.35 },
   },
 };

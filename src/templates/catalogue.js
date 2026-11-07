@@ -118,6 +118,9 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
   <li class="product-card" data-id="${esc(p.id)}" data-category="${esc(p.categorySlug)}" data-series="${esc(p.series)}"
       data-type="${esc(p.type)}" data-size="${p.sizeInch ?? ''}" data-colours="${esc(p.colours.join('|'))}" data-new="${p.status !== 'current' ? '1' : ''}"
       data-name="${esc(p.name.toLowerCase())}" data-search="${esc(`${p.name} ${p.series} ${p.type} ${p.category} ${p.colours.join(' ')}`.toLowerCase())}" data-sort="${esc(p.sort)}"
+      data-url="${esc(p.url)}" data-title="${esc(p.name)}" data-series-label="${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}"
+      data-meta="${esc([p.type, sizeText(p)].filter(Boolean).join(' · '))}" data-model="${esc(PRODUCT_MODELS[p.id] ?? '')}"
+      data-img="${esc(cutouts[p.id]?.variants.at(-1).file ?? p.images[0]?.variants.at(-1).file ?? '')}"
       style="--i:${index % 7}">
     <div class="product-card__inner" data-stage-card>
       <a class="product-card__link" href="${esc(p.url)}">
@@ -137,6 +140,10 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
       </a>
       <ul class="badges product-card__badges">${statusBadge(t, p)}${p.badges.filter((b) => b !== 'New launch').slice(0, 2).map((b) => `<li class="badge badge--soft">${esc(b)}</li>`).join('')}</ul>
       ${saveButton(t, p, 'save-btn--icon')}
+      <button class="quick-btn" type="button" data-quick aria-label="${esc(fmt(t.showroom.quickLabel, { name: p.name }))}">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>${esc(t.showroom.quick)}</span>
+      </button>
     </div>
   </li>`;
 }
@@ -175,6 +182,27 @@ function facet(t, name, label, entries, render = (v) => esc(v)) {
 }
 
 const FILTER_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+
+// ---------------------------------------------------------------- quick view (src/scenes/quick-view.js)
+const quickViewDialog = (t) => `
+  <dialog class="preview quick" data-quick-dialog aria-labelledby="quick-title"
+      data-badge="${esc(t.product.view360)}" data-viewer-label="${esc(t.preview.viewerLabel)}" data-no-photo="${esc(t.products.photoSoon)}">
+    <div class="preview__panel">
+      <button class="preview__close" type="button" data-quick-close aria-label="${esc(t.preview.close)}">×</button>
+      <div class="preview__media quick__media" data-quick-media></div>
+      <div class="preview__body">
+        <p class="preview__subhead" data-quick-series></p>
+        <h3 class="preview__name" id="quick-title" data-quick-name></h3>
+        <p class="quick__meta" data-quick-meta></p>
+        <p class="fine-print" data-quick-hint>${esc(t.preview.dragHint)}</p>
+        <div class="preview__actions">
+          <a class="btn btn--light" href="/products/" data-quick-link>${esc(t.preview.fullDetails)}</a>
+          <button class="save-btn btn btn--ghost-light" type="button" data-save="" data-quick-save data-label-template="${esc(t.products.saveLabel)}" aria-pressed="false">${heartIcon}<span class="save-btn__text">${esc(t.products.save)}</span></button>
+        </div>
+        <p class="preview__where">${esc(t.products.where)}</p>
+      </div>
+    </div>
+  </dialog>`;
 
 // ---------------------------------------------------------------- key numbers and the featured showcase
 
@@ -380,6 +408,7 @@ export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, ca
       <p class="results__where">${esc(t.products.where)}</p>
     </section>
   </main>
+  ${quickViewDialog(t)}
   ${siteFooter(t, range.media, catalogue.categories)}`;
 }
 
@@ -416,6 +445,16 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         </div>
       </figure>`);
     thumbs.push({ cls: 'gallery__thumb--3d', html: '360°' });
+    // the parts view: the same model from the side, its parts easing a little apart and back together
+    slides.push(`
+      <figure class="gallery__slide gallery__slide--3d gallery__slide--parts" data-slide>
+        <div class="viewer" data-viewer="${esc(modelKey)}" data-exploded tabindex="0" role="img" aria-label="${esc(fmt(t.showroom.partsLabel, { name: p.name }))}">
+          <canvas class="viewer__canvas"></canvas>
+          <span class="viewer__badge" aria-hidden="true">${esc(t.showroom.partsBadge)}</span>
+          <p class="viewer__hint" aria-hidden="true">${esc(t.showroom.partsHint)}</p>
+        </div>
+      </figure>`);
+    thumbs.push({ cls: 'gallery__thumb--3d gallery__thumb--parts', html: esc(t.showroom.partsThumb) });
   }
   if (cut) {
     slides.push(`
@@ -569,6 +608,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
       <ul class="product-grid product-grid--row">${rel.list.map((x, i) => productCard(t, colours, cutouts, x, { index: i })).join('')}</ul>
     </section>` : ''}
   </main>
+  ${quickViewDialog(t)}
   ${siteFooter(t, range.media, catalogue.categories)}
   <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`;
 }

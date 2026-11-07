@@ -68,7 +68,7 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
  * @param {boolean} [options.viewer]   360° product viewer: drag to turn, slow auto-turn, no airflow
  * @param {string}  [options.model]    which fan: 'aeroflow' (default), 'aerosleek' or 'ikon'
  */
-export function createFanScene(canvas, { observe = canvas, still = false, quality = 'low', viewer = false, model: modelKey = 'aeroflow' } = {}) {
+export function createFanScene(canvas, { observe = canvas, still = false, quality = 'low', viewer = false, model: modelKey = 'aeroflow', exploded = false } = {}) {
   const high = quality === 'high';
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: still });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, high ? 2 : 1.5));
@@ -106,6 +106,38 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
   const model = (MODELS[modelKey] ?? createAeroflow)({ shadows: high });
   scene.add(model.fan);
+
+  // ---- parts view: every part eases a little away from the centre of the product and back, so you can see
+  // how it fits together. Mostly along the product's own axis, so the layers read in a side view.
+  const parts = [];
+  let explodedPose = null;
+  if (exploded) {
+    model.fan.updateMatrixWorld(true);
+    const box = new THREE.Box3().setFromObject(model.fan);
+    const centre = box.getCenter(new THREE.Vector3());
+    const span = box.getSize(new THREE.Vector3()).length();
+    const axis = new THREE.Vector3(0, 1, 0).applyQuaternion(model.rotor.getWorldQuaternion(new THREE.Quaternion())).normalize();
+    model.fan.traverse((o) => {
+      if (!o.isMesh || o === model.hitArea || o === model.blurDisc || o.material?.visible === false) return;
+      const c = new THREE.Box3().setFromObject(o).getCenter(new THREE.Vector3()).sub(centre);
+      const along = axis.clone().multiplyScalar(c.dot(axis));
+      const world = c.multiplyScalar(0.22).add(along.multiplyScalar(0.45));
+      if (world.length() > span * 0.18) world.setLength(span * 0.18); // never far: the parts stay together
+      // as a vector in the part's parent's own frame (so blade parts keep moving outwards as the rotor turns)
+      const inv = new THREE.Matrix3().setFromMatrix4(new THREE.Matrix4().copy(o.parent.matrixWorld).invert());
+      parts.push({ mesh: o, base: o.position.clone(), dir: world.applyMatrix3(inv) });
+    });
+    model.blurDisc.visible = false;
+    // side view: across a ceiling fan's vertical axis, or from the side of a front-facing fan
+    const vertical = Math.abs(axis.y) > 0.8;
+    explodedPose = { elevation: vertical ? -0.08 : 0.06, azimuth: vertical ? 0.6 : Math.PI / 2 - 0.25, screenX: 0.5, screenY: 0.5, fill: 0.72, zoom: vertical ? 1 : (model.viewerPose?.zoom ?? 1) * 0.95 };
+  }
+  function applyExplode(now) {
+    if (!parts.length) return;
+    const t = (Math.sin(now / 1400) + 1) / 2; // apart and back together, slowly, in a loop
+    const amount = t * t * (3 - 2 * t);
+    for (const p of parts) p.mesh.position.copy(p.base).addScaledVector(p.dir, amount);
+  }
 
   // Shadows stay on the fan itself (blades shading the motor and each other). A shadow on the ceiling
   // was tried and dropped: from below it reads as a second, ghost fan (brief §8: no ghost blades).
@@ -261,6 +293,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     // Viewed from below, the fan turns anticlockwise (downdraft), which is clockwise from above.
     model.rotor.rotation.y -= state.omega * Math.PI * 2 * dt;
     model.blurDisc.material.opacity = 0.22 * clamp01((state.omega - 0.6) / 0.8);
+    applyExplode(now);
     model.fan.rotation.z = pose.roll;
 
     // Smooth the mouse drift so the fan floats rather than snaps.
@@ -274,7 +307,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
       state.spin.el *= Math.exp(-dt * 3);
       pose.azimuth += state.spin.az * dt;
       pose.elevation = clamp(pose.elevation + state.spin.el * dt, -1.45, 0.35);
-      if (now - state.idleSince > 2000) pose.azimuth += 0.35 * dt;
+      if (now - state.idleSince > 2000) pose.azimuth += (exploded ? 0.12 : 0.35) * dt; // the parts view turns slowly
     }
 
     applyIntro(state.intro);
@@ -320,6 +353,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
   return {
     pose,
     viewerPose: model.viewerPose ?? null, // a model's own starting view (a pedestal fan is seen at eye level)
+    explodedPose, // the side view the parts view starts from
     playIntro,
     render,
     orbit,

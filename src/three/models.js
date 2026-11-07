@@ -224,7 +224,7 @@ export const PICTURED_COLOUR = {
   'ceiling-fans-runner-48': 'Smoke Brown',
   'ceiling-fans-sayonara-48': 'Smoke Brown',
   'ceiling-fans-smart-deco-48': 'Smoke Brown',
-  'ceiling-fans-venus-deco-48': 'Metallic Brown',
+  'ceiling-fans-venus-deco-48': 'Smoke Brown',
   'ceiling-fans-viraj-deco-48': 'Smoke Brown',
   'ceiling-fans-viraz-48': 'Smoke Brown',
   'ceiling-fans-vista-deco-48': 'Smoke Brown',
