@@ -47,7 +47,9 @@ const viewers = new WeakMap();
 
 // Puts a 360° viewer into a [data-viewer] element (lazy-loads three.js). Used by the quick view and the
 // product page. Resolves to the viewer, or null where 3D isn't available.
-export async function mountViewer(host, { quality }) {
+// controls: show the Start / Stop button (product page and quick view). Without it (category spotlights, the
+// home page's BLDC models) the product simply runs.
+export async function mountViewer(host, { quality, controls = false }) {
   if (viewers.has(host)) return viewers.get(host);
   const ready = (async () => {
     const { createFanScene } = await import('../three/fan-scene.js'); // already cached if the hero has 3D
@@ -56,6 +58,10 @@ export async function mountViewer(host, { quality }) {
     Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.56, fill: 0.8 }, viewer.viewerPose ?? {}, exploded ? viewer.explodedPose : {});
     if (exploded) viewer.setLevel(1); // blades turn slowly in the parts view
     viewer.setLevel(2);
+    if (viewer.powerKind) {
+      if (controls) addPowerButton(host, viewer);
+      else viewer.setPower(true);
+    }
     // Keyboard: arrows turn and tilt it.
     host.addEventListener('keydown', (e) => {
       const step = { ArrowLeft: [-0.2, 0], ArrowRight: [0.2, 0], ArrowUp: [0, -0.12], ArrowDown: [0, 0.12] }[e.key];
@@ -68,6 +74,27 @@ export async function mountViewer(host, { quality }) {
   })();
   viewers.set(host, ready);
   return ready;
+}
+
+// Start / Stop: fans spin up, heaters and hot plates glow, lamps light (src/three/power.js).
+function addPowerButton(host, viewer) {
+  const labels = { start: host.dataset.start ?? 'Start', stop: host.dataset.stop ?? 'Stop' };
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'viewer__power';
+  const show = () => {
+    const on = viewer.powered;
+    button.setAttribute('aria-pressed', String(on));
+    button.innerHTML = `<span class="viewer__power-icon" aria-hidden="true">${on ? '■' : '▶'}</span>${on ? labels.stop : labels.start}`;
+  };
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    viewer.setPower(!viewer.powered);
+    show();
+  });
+  button.addEventListener('pointerdown', (e) => e.stopPropagation());
+  show();
+  host.append(button);
 }
 
 async function startViewer(dialog, { can3D, quality }) {

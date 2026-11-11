@@ -33,13 +33,13 @@ export const FINISHES = {
   golden: {
     blade: { color: '#dcb27a', metalness: 0.4, roughness: 0.4, clearcoat: 0.5 },
     body: { color: '#d9ae74', metalness: 0.4, roughness: 0.38, clearcoat: 0.5 },
-    cap: { color: '#e0b884', metalness: 0.4, roughness: 0.34, clearcoat: 0.6 },
-    trim: { color: '#d5a76a', metalness: 0.7, roughness: 0.3 },
+    cap: { color: '#dcb27a', metalness: 0.4, roughness: 0.36, clearcoat: 0.5 },
+    trim: { color: '#d9ae74', metalness: 0.4, roughness: 0.38, clearcoat: 0.5 },
     accent: copper,
   },
   wood: {
     blade: { wood: true, roughness: 0.5, clearcoat: 0.45, clearcoatRoughness: 0.3 },
-    body: { color: '#7a4a30', metalness: 0.3, roughness: 0.45, clearcoat: 0.4 },
+    body: { wood: true, roughness: 0.46, clearcoat: 0.45 }, // the poster's Wood Craft: wood all over
     cap: { wood: true, roughness: 0.45, clearcoat: 0.5 },
     trim: { wood: true, roughness: 0.48, clearcoat: 0.45 },
     accent: copper,
@@ -126,17 +126,17 @@ export function createAeroflow({ shadows = false } = {}) {
     lathe([[0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.205, -0.01], [0.198, -0.035], [0.185, -0.045]]),
     materials.body,
   );
-  // Seen from below (studio photos): a wide band in the body colour, one thin chrome ring, and a flat cap
-  // set just inside the ring, in the body colour too.
+  // Seen from below (studio photos, poster): the shell curves smoothly under, in the body colour, to one bold
+  // ring (chrome, or copper on golden and wood) about 70% of the way out, round a flat cap.
   const trim = new THREE.Mesh(
-    lathe([[0.186, -0.045], [0.18, -0.053], [0.17, -0.058], [0.162, -0.058]]),
+    lathe([[0.185, -0.045], [0.176, -0.052], [0.162, -0.0565], [0.148, -0.058]]),
     materials.trim,
   );
-  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.159, 0.0058, 16, 96), materials.accent);
+  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.141, 0.0085, 16, 96), materials.accent);
   accent.rotation.x = Math.PI / 2;
   accent.position.y = -0.0585;
   const cap = new THREE.Mesh(
-    lathe([[0.156, -0.052], [0.154, -0.0535], [0.12, -0.0545], [0, -0.055]]),
+    lathe([[0.135, -0.0565], [0.13, -0.0578], [0.09, -0.0586], [0, -0.059]]),
     materials.cap,
   );
   rotor.add(shell, trim, accent, cap);

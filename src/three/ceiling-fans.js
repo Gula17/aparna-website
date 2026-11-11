@@ -352,18 +352,42 @@ function createCeiling(name, cfg) {
   const holeGeo = cfg.holes ? plate(toShape(loop((t) => [Math.cos(t) * 0.007, Math.sin(t) * 0.007], 12)), { thickness: 0.002, pitch, y: -0.0185 }) : null;
   const trims = trimParts(cfg.trim ?? 'none', x0, w, pitch, cfg.trimSize ?? (small ? 1.2 : 1));
   const decoParts = motorDeco(cfg, r, k, yBase, yRim, dz);
+  // The top of each blade repeats the underside design the photos show (ribs, trims, holes), mirrored through
+  // the blade's own tilted plane.
+  const toTop = (geo) => {
+    const mirror = new THREE.Matrix4().makeTranslation(0, -0.006, 0)
+      .multiply(new THREE.Matrix4().makeRotationX(pitch))
+      .multiply(new THREE.Matrix4().makeScale(1, -1, 1))
+      .multiply(new THREE.Matrix4().makeRotationX(-pitch))
+      .multiply(new THREE.Matrix4().makeTranslation(0, 0.006, 0));
+    const g = (geo.index ? geo.toNonIndexed() : geo.clone()).applyMatrix4(mirror);
+    for (const attr of Object.values(g.attributes)) { // mirroring turns the faces inside out: flip them back
+      const a = attr.array, n = attr.itemSize;
+      for (let t = 0; t < attr.count; t += 3) for (let c = 0; c < n; c++) {
+        const i1 = (t + 1) * n + c, i2 = (t + 2) * n + c;
+        [a[i1], a[i2]] = [a[i2], a[i1]];
+      }
+    }
+    g.computeVertexNormals();
+    return g;
+  };
+  const ribTop = ribGeos.map(toTop);
+  const holeTop = holeGeo ? toTop(holeGeo) : null;
+  const trimTop = trims.map(([g, mat]) => [toTop(g), mat]);
   const blades = [];
   for (let i = 0; i < count; i++) {
     const pivot = new THREE.Group();
     pivot.add(new THREE.Mesh(bladeGeo, m.blade), new THREE.Mesh(armGeo, cfg.arm === 'body' ? m.body : m.arm));
-    for (const g of ribGeos) pivot.add(new THREE.Mesh(g, m.blade));
+    for (const g of [...ribGeos, ...ribTop]) pivot.add(new THREE.Mesh(g, m.blade));
     for (let j = 0; j < (cfg.holes ?? 0); j++) {
-      const h = new THREE.Mesh(holeGeo, m.hole);
       const along = x0 + 0.03 + (j % 2) * 0.04, across = (cfg.holes === 2 ? (j ? 1 : -1) * 0.3 : (j - 1) * 0.3) * w;
-      h.position.set(along, Math.sin(pitch) * across * -1, across * Math.cos(pitch));
-      pivot.add(h);
+      for (const geo of [holeGeo, holeTop]) {
+        const h = new THREE.Mesh(geo, m.hole);
+        h.position.set(along, Math.sin(pitch) * across * -1, across * Math.cos(pitch));
+        pivot.add(h);
+      }
     }
-    for (const [g, mat] of trims) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
+    for (const [g, mat] of [...trims, ...trimTop]) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
     for (const [g, mat] of decoParts) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
     pivot.userData.restAngle = (i * Math.PI * 2) / count;
     pivot.rotation.y = pivot.userData.restAngle;
@@ -400,7 +424,12 @@ function createCeiling(name, cfg) {
       mat.envMapIntensity = 1 + a.metalness * 1.4;
       mat.needsUpdate = true;
     }
-    m.arm.color.set(cfg.arm === 'chrome' ? '#cfd2d6' : f.gloss ? '#d9d8d4' : '#3a3b3e');
+    // the blade arms on top are painted in the fan's body colour (or chrome where the fan has chrome arms)
+    m.arm.color.set(cfg.arm === 'chrome' ? '#cfd2d6' : f.body);
+    m.arm.metalness = cfg.arm === 'chrome' ? 0.9 : f.metal;
+    m.arm.roughness = cfg.arm === 'chrome' ? 0.25 : f.gloss ? 0.22 : 0.38;
+    m.arm.envMapIntensity = 1 + m.arm.metalness * 1.2;
+    m.arm.needsUpdate = true;
     if (cfg.trim === 'ornate') {
       const [baseC, ink] = f.insert ?? ['#e9d6b2', '#7a2a24'];
       inserts[baseC + ink] ??= ornateTexture(baseC, ink);

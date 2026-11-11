@@ -14,6 +14,7 @@ import { COOLERS } from './coolers.js';
 import { CEILING_MODELS } from './ceiling-fans.js';
 import { APPLIANCES } from './appliances.js';
 import { SMALL_APPLIANCES } from './small-appliances.js';
+import { collectPowerParts, applyPower } from './power.js';
 
 // Real-time models, by the key in src/three/models.js.
 const MODELS = {
@@ -111,6 +112,13 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
   const model = (MODELS[modelKey] ?? createAeroflow)({ shadows: high });
   scene.add(model.fan);
 
+  // ---- Start / Stop (360° view only): blades turn and elements glow while it is on. Everything else (the hero,
+  // the parts view) is always on.
+  const switchable = viewer && !exploded;
+  const powerParts = collectPowerParts(model.fan);
+  let rotorMoves = false;
+  model.rotor.traverse((o) => { if (o.isMesh) rotorMoves = true; });
+
   // ---- parts view: every part eases a little away from the centre of the product and back, so you can see
   // how it fits together. Mostly along the product's own axis, so the layers read in a side view.
   const parts = [];
@@ -161,7 +169,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     air: viewer ? 0 : 1, // airflow line opacity
   };
   const state = {
-    level: 2, omega: 0, boost: 0, boostUntil: 0, holding: false, intro: 1, visible: true, running: false,
+    power: switchable ? 0 : 1, powerAmt: switchable ? 0 : 1, level: 2, omega: 0, boost: 0, boostUntil: 0, holding: false, intro: 1, visible: true, running: false,
     scroll: 0, // 0..1, how fast the page is being scrolled
     parallax: { x: 0, y: 0, tx: 0, ty: 0 }, // mouse-responsive camera drift
     drag: null, spin: { az: 0, el: 0 }, idleSince: performance.now(), // viewer only: starts face-on, turns after a pause
@@ -290,7 +298,11 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     const boosting = state.holding || now < state.boostUntil;
     state.boost += ((boosting ? 1 : 0) - state.boost) * Math.min(1, dt * (boosting ? 3 : 1.2));
     state.scroll *= Math.exp(-dt * 2.5); // scroll energy fades once scrolling stops
-    const base = LEVEL_SPEEDS[state.level - 1] * (0.25 + 0.75 * clamp01(state.intro * 1.4 - 0.2));
+    // switching on spins up and warms over a second or two; switching off winds down a little faster
+    state.powerAmt += (state.power - state.powerAmt) * Math.min(1, dt * (state.power ? 0.9 : 1.4));
+    if (Math.abs(state.power - state.powerAmt) < 0.002) state.powerAmt = state.power;
+    if (powerParts.length) applyPower(powerParts, state.powerAmt, now);
+    const base = LEVEL_SPEEDS[state.level - 1] * (0.25 + 0.75 * clamp01(state.intro * 1.4 - 0.2)) * state.powerAmt;
     const target = Math.min(MAX_SPEED, base + state.boost * BOOST_SPEED + state.scroll * SCROLL_SPEED);
     state.omega += (target - state.omega) * Math.min(1, dt * 2);
 
@@ -361,6 +373,14 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     playIntro,
     render,
     orbit,
+    // what Start does on this model: 'spin' (blades, a shaft), 'heat' (glow, lamps), both, or nothing
+    powerKind: !switchable ? null : rotorMoves && powerParts.length ? 'both' : rotorMoves ? 'spin' : powerParts.length ? 'heat' : null,
+    setPower(on) {
+      state.power = on ? 1 : 0;
+      if (on) state.level = Math.max(state.level, 4); // a brisk speed once started
+      if (!state.running) render();
+    },
+    get powered() { return state.power === 1; },
     setLevel(level) {
       state.level = Math.min(5, Math.max(1, Math.round(level)));
     },

@@ -126,6 +126,7 @@ export function createAerosleek({ shadows = false } = {}) {
     // vivid blue, with a soft halo round each light (studio photo 03)
     led: new THREE.MeshBasicMaterial({ color: '#3fb4ff' }),
     halo: new THREE.MeshBasicMaterial({ color: '#2a8cff', transparent: true, opacity: 0.35, depthWrite: false }),
+    hole: new THREE.MeshBasicMaterial({ color: '#4a4a4c', side: THREE.DoubleSide }),
   };
 
   // Still: a straight cup canopy, a slim downrod, and the LED base cap under the motor (it sits on the fixed
@@ -154,13 +155,32 @@ export function createAerosleek({ shadows = false } = {}) {
   const shell = new THREE.Mesh(lathe([[0.035, 0.095], [0.09, 0.09], [0.118, 0.07], [0.124, 0.03], [0.124, -0.044]]), materials.body);
   const ring = new THREE.Mesh(lathe([[0.1245, -0.044], [0.126, -0.047], [0.126, -0.061], [0.1255, -0.064]]), materials.ring);
 
-  // Blade: a long flat plank, square tip with a slight angle, carried on a narrow bracket from the motor.
+  // Blade (studio photos 03-05): a long flat plank that starts right at the motor (no visible arm; its short
+  // bracket sits on top, hidden), a square tip with a slight angle, a raised strip along the front edge,
+  // and two small holes near the root.
   const pitch = -0.09;
-  const bladeGeo = plate([[0.24, -0.072], [0.985, -0.066], [1.0, -0.05], [1.0, 0.07], [0.24, 0.078]], { pitch, y: -0.004 });
-  const bracketGeo = plate([[0.11, -0.022], [0.33, -0.026], [0.33, 0.026], [0.11, 0.022]], { thickness: 0.014, pitch, y: 0.008 });
+  const bladeGeo = plate([[0.132, -0.07], [0.985, -0.066], [1.0, -0.05], [1.0, 0.07], [0.14, 0.078]], { pitch, y: -0.004 });
+  const bracketGeo = plate([[0.1, -0.024], [0.22, -0.028], [0.22, 0.028], [0.1, 0.024]], { thickness: 0.012, pitch, y: 0.01 });
+  // the raised strip, on both faces so it shows from above and below
+  const stripGeo = (y) => plate([[0.16, -0.058], [0.975, -0.054], [0.975, -0.046], [0.16, -0.05]], { thickness: 0.002, pitch, y });
+  const stripTop = stripGeo(0.008);
+  const stripBottom = stripGeo(-0.016);
+  const holeGeo = new THREE.CircleGeometry(0.0075, 16);
   const makeBlade = () => {
     const g = new THREE.Group();
-    g.add(new THREE.Mesh(bladeGeo, materials.blade), new THREE.Mesh(bracketGeo, materials.bracket), screws([[0.27, -0.012], [0.3, 0.012]], materials.bracket, { y: 0.02, pitch }));
+    g.add(
+      new THREE.Mesh(bladeGeo, materials.blade), new THREE.Mesh(bracketGeo, materials.bracket),
+      new THREE.Mesh(stripTop, materials.blade), new THREE.Mesh(stripBottom, materials.blade),
+      screws([[0.16, -0.012], [0.19, 0.012]], materials.bracket, { y: 0.022, pitch }),
+    );
+    for (const [x, z] of [[0.3, 0.015], [0.34, 0.015]]) {
+      for (const [y, face] of [[0.0065, -Math.PI / 2], [-0.0145, Math.PI / 2]]) {
+        const hole = new THREE.Mesh(holeGeo, materials.hole);
+        hole.rotation.x = face + pitch;
+        hole.position.set(x, y + Math.sin(pitch) * z, -z * Math.cos(pitch));
+        g.add(hole);
+      }
+    }
     return g;
   };
   return assemble('aerosleek', { stator, rotorParts: [shell, ring], makeBlade, materials, finishes: AEROSLEEK_FINISHES, shadows });

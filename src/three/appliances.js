@@ -33,6 +33,33 @@ const FINISH = {
   chrome: { color: '#eceef0', metalness: 1, roughness: 0.12 },
 };
 
+// What lights up when the 360° view's Start button is pressed (src/three/power.js).
+const HOT_COIL = { kind: 'heat', emissive: '#ff3c0a', intensity: 1.5, color: '#ff8a4a' };
+const LAMP = { kind: 'lamp' };
+// A glowing heating ring seen through a cooktop's glass: concentric red-orange rings, faded at the edge.
+let ringGlowTexture = null;
+function heatRing(cx, cz, rx, rz, y) {
+  if (!ringGlowTexture) {
+    const c = document.createElement('canvas');
+    c.width = c.height = 256;
+    const x = c.getContext('2d');
+    const g = x.createRadialGradient(128, 128, 8, 128, 128, 128);
+    g.addColorStop(0, 'rgba(255,90,20,0.55)'); g.addColorStop(0.75, 'rgba(255,60,10,0.85)'); g.addColorStop(1, 'rgba(255,40,0,0)');
+    x.fillStyle = g;
+    x.fillRect(0, 0, 256, 256);
+    x.strokeStyle = 'rgba(255,200,120,0.9)';
+    for (let i = 1; i <= 7; i++) { x.lineWidth = 5; x.beginPath(); x.arc(128, 128, i * 16, 0, Math.PI * 2); x.stroke(); }
+    ringGlowTexture = new THREE.CanvasTexture(c);
+    ringGlowTexture.colorSpace = THREE.SRGBColorSpace;
+  }
+  const m = new THREE.Mesh(new THREE.CircleGeometry(1, 64), new THREE.MeshBasicMaterial({ map: ringGlowTexture, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+  m.rotation.x = -Math.PI / 2;
+  m.scale.set(rx, rz, 1);
+  m.position.set(cx, y, cz);
+  m.userData.power = { kind: 'glow', opacity: 1 };
+  return m;
+}
+
 // rounded rectangle footprint w x d, extruded h high, sitting on y = 0
 function slab(w, d, h, r, material) {
   const s = new THREE.Shape();
@@ -190,6 +217,7 @@ function hotplate(name, { finish, frame, stand = false, tall = false, shape = 'b
   bed.rotation.x = -Math.PI / 2;
   bed.position.y = yTop - 0.012;
   const coil = spiral(0.06, 0.31, 5.5, yTop + 0.006, 0.018, coilMat);
+  coil.userData.power = HOT_COIL; // glows red-hot when switched on
   const terminal = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.02, 20), coilMat);
   terminal.position.y = yTop - 0.004;
   for (const part of [dish, bed, coil, terminal]) { part.position.x += cx; part.position.z += cz; g.add(part); }
@@ -292,6 +320,9 @@ function cooktop(name, { print = 'ring', grill = false, frameFinish = 'steel' })
   glass.rotation.x = -Math.PI / 2;
   glass.position.y = 0.012;
   g.add(base, glass);
+  // the heating ring under the glass, which glows through it when switched on
+  const [cx, cz, rx, rz] = print === 'grill' ? [-0.051, 0.017, 0.293, 0.1875] : [-0.109, 0.017, 0.3125, 0.2];
+  g.add(heatRing(cx, cz, rx, rz, 0.016));
   // one flat U-shaped carry handle standing out from the left side (chrome, or black on Prime)
   const handleMat = mat(frameFinish === 'abs' ? { color: '#151618', roughness: 0.35 } : FINISH.chrome);
   const path = new THREE.CatmullRomCurve3([[0.53, -0.2], [0.62, -0.18], [0.66, -0.08], [0.66, 0.08], [0.62, 0.18], [0.53, 0.2]]
@@ -349,6 +380,7 @@ function fanHeater(name, { w, h, d, body, front, frame, side, upright = false, k
     fz += 0.015;
   }
   const panel = new THREE.Mesh(new THREE.PlaneGeometry(gw, gh), mat({ color: '#111214', roughness: 0.6 }));
+  panel.userData.power = { kind: 'heat', emissive: '#ff4a12', intensity: 1.3, color: '#5a1a08' }; // the element glows behind the slats
   panel.position.set(0, gy, fz + 0.003);
   g.add(panel);
   const n = upright ? 14 : 7;
@@ -458,7 +490,8 @@ function quartzHeater(name) {
   reflector.position.set(0, 0.09, -0.12);
   g.add(reflector);
   for (const y of [0.24, -0.06]) {
-    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.84, 14), mat({ color: '#ffb36b', emissive: '#ff6a1f', emissiveIntensity: 1.0, roughness: 0.3 }));
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.84, 14), mat({ color: '#e8ddd0', roughness: 0.25, transmission: 0 }));
+    rod.userData.power = { kind: 'heat', emissive: '#ff6a1f', intensity: 1.2, color: '#ffb36b' };
     rod.rotation.z = Math.PI / 2;
     rod.position.set(0, y, 0.02);
     g.add(rod);
@@ -487,7 +520,8 @@ function sunHeater(name) {
   const drum = new THREE.Mesh(lathe([[0, -0.12], [0.22, -0.11], [0.36, -0.06], [0.42, 0.02], [0.43, 0.06]]), ivory);
   drum.rotation.x = Math.PI / 2;
   drum.position.y = cy;
-  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.39, 48), mat({ color: '#ffb35a', emissive: '#ff7a1c', emissiveIntensity: 0.85, roughness: 0.4 }));
+  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.39, 48), mat({ color: '#c9b08a', metalness: 0.6, roughness: 0.3 }));
+  glow.userData.power = { kind: 'heat', emissive: '#ff7a1c', intensity: 1.0, color: '#ffb35a' };
   glow.position.set(0, cy, -0.04);
   g.add(drum, glow);
   for (let i = 1; i <= 6; i++) { // guard rings
@@ -564,6 +598,7 @@ function immersionRod(name, { handle = 'lime' } = {}) {
   for (let y = -0.6; y < top; y += 0.06) pts.push(new THREE.Vector3(s, y, 0));
   pts.push(new THREE.Vector3(s, top, 0));
   const element = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 400, 0.016, 8), chrome);
+  element.userData.power = HOT_COIL;
   g.add(element);
   g.position.y = -0.18;
   return shell(name, g, { pose: { elevation: 0.15, zoom: 1.0 } });
@@ -586,6 +621,7 @@ function instantHeater(name, { top, body, lower }) { // Croma / Croma2: a compac
     g.add(pipe);
   }
   const lamp = new THREE.Mesh(new THREE.CircleGeometry(0.02, 12), mat({ color: '#e33', emissive: '#f22', emissiveIntensity: 0.8 }));
+  lamp.userData.power = LAMP;
   lamp.position.set(-0.15, 0.25, 0.212);
   g.add(lamp);
   return shell(name, g, { pose: { elevation: 0.12, zoom: 1.05 } });
@@ -608,7 +644,9 @@ function kettleElement(name) {
     }
   }
   pts.push(new THREE.Vector3(0.05, yb, 0), new THREE.Vector3(0.04, -0.02, 0));
-  g.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.3), 420, 0.02, 10), chrome));
+  const loops = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.3), 420, 0.02, 10), chrome);
+  loops.userData.power = HOT_COIL;
+  g.add(loops);
   const base = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.165, 0.3, 40), mat({ color: '#3b3d40', roughness: 0.45 }));
   base.position.y = -0.2;
   const flange = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.03, 6), brass);
@@ -647,6 +685,7 @@ function lamp(color, x, y, z, square = false) {
   const m = mat({ color, emissive: color, emissiveIntensity: 0.7, roughness: 0.25 });
   const l = new THREE.Mesh(square ? new THREE.BoxGeometry(0.03, 0.03, 0.01) : new THREE.SphereGeometry(0.018, 14, 10), m);
   l.position.set(x, y, z);
+  l.userData.power = LAMP; // lights when switched on
   return l;
 }
 function cromaHeater(name) {

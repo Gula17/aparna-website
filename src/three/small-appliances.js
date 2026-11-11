@@ -163,6 +163,7 @@ function lens(g, colour, x, y, z, r = 0.035, facing = 'side') {
   m.scale.y = 0.55;
   if (facing === 'side') m.rotation.x = Math.PI / 2; // dome facing +z
   m.position.set(x, y, z);
+  m.userData.power = { kind: 'lamp' }; // the indicator lights when switched on
   g.add(m);
 }
 function dialTexture(face, print) {
