@@ -159,10 +159,16 @@ export function createAerosleek({ shadows = false } = {}) {
   // bracket sits on top, hidden), a square tip with a slight angle, a raised strip along the front edge,
   // and two small holes near the root.
   const pitch = -0.09;
-  const bladeGeo = plate([[0.132, -0.07], [0.985, -0.066], [1.0, -0.05], [1.0, 0.07], [0.14, 0.078]], { pitch, y: -0.004 });
+  // the tip (studio photo): a gentle outward curve across the end, with softly rounded corners
+  const tipArc = Array.from({ length: 13 }, (_, i) => {
+    const t = i / 12, z = -0.066 + t * 0.144; // across the chord, front edge to back edge
+    const bulge = Math.sin(t * Math.PI) ** 0.22; // a nearly flat end; only the corners round off
+    return [0.972 + 0.028 * bulge, z];
+  });
+  const bladeGeo = plate([[0.132, -0.07], ...tipArc, [0.14, 0.078]], { pitch, y: -0.004 });
   const bracketGeo = plate([[0.1, -0.024], [0.22, -0.028], [0.22, 0.028], [0.1, 0.024]], { thickness: 0.012, pitch, y: 0.01 });
   // the raised strip, on both faces so it shows from above and below
-  const stripGeo = (y) => plate([[0.16, -0.058], [0.975, -0.054], [0.975, -0.046], [0.16, -0.05]], { thickness: 0.002, pitch, y });
+  const stripGeo = (y) => plate([[0.16, -0.058], [0.95, -0.054], [0.965, -0.046], [0.16, -0.05]], { thickness: 0.002, pitch, y });
   const stripTop = stripGeo(0.008);
   const stripBottom = stripGeo(-0.016);
   const holeGeo = new THREE.CircleGeometry(0.0075, 16);
