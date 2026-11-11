@@ -39,12 +39,15 @@ export const FINISHES = {
   },
   wood: {
     blade: { wood: true, roughness: 0.5, clearcoat: 0.45, clearcoatRoughness: 0.3 },
-    body: { wood: true, roughness: 0.46, clearcoat: 0.45 }, // the poster's Wood Craft: wood all over
+    body: { wood: true, roughness: 0.46, clearcoat: 0.45 }, // the motor shell is wood like the blades
+    mount: { color: '#bd8a64', roughness: 0.42, clearcoat: 0.35 }, // studio photo: a plain tan canopy and downrod
     cap: { wood: true, roughness: 0.45, clearcoat: 0.5 },
     trim: { wood: true, roughness: 0.48, clearcoat: 0.45 },
     accent: copper,
   },
 };
+// The canopy and downrod are in the body colour, except where a finish names its own (Wood Craft).
+for (const f of Object.values(FINISHES)) f.mount ??= f.body;
 
 // ---------------------------------------------------------------- geometry helpers
 
@@ -54,17 +57,18 @@ export function lathe(points, segments = 64) {
   return new THREE.LatheGeometry(curve.getPoints(48), segments);
 }
 
-// One swept, tapered blade. The outline is drawn flat (x = out along the radius, y = across the chord),
-// then turned to lie horizontally with a small pitch.
+// One broad paddle blade (studio photo): wide and nearly straight, gently curving back, and flaring much wider
+// at the root so it flows smoothly into the motor shell. The outline is drawn flat (x = out along the radius,
+// y = across the chord), then turned to lie horizontally with a small pitch.
 function bladeGeometry() {
   const leading = [];
   const trailing = [];
-  const steps = 36;
+  const steps = 40;
   for (let i = 0; i <= steps; i++) {
-    const x = 0.1 + (0.88 * i) / steps;
-    const sweep = 0.22 * (x - 0.1) ** 2; // the blade curves backwards towards the tip
-    const root = 0.1 * Math.exp(-((x - 0.2) ** 2) * 60); // a swell where the blade leaves the motor shell
-    const width = 0.19 - 0.05 * x + root;
+    const x = 0.06 + (0.92 * i) / steps;
+    const sweep = 0.1 * (x - 0.1) ** 2; // a gentle backward curve towards the tip
+    const root = 0.17 * Math.exp(-((x - 0.15) ** 2) * 40); // the wide flare where it joins the motor
+    const width = 0.235 - 0.075 * x + root;
     leading.push(new THREE.Vector2(x, sweep - width * 0.42));
     trailing.push(new THREE.Vector2(x, sweep + width * 0.58));
   }
@@ -100,7 +104,7 @@ export function createAeroflow({ shadows = false } = {}) {
   const wood = makeWoodTexture();
   // Double-sided so the open lathe shapes (canopy, shell, cap) look solid from every camera angle.
   const material = () => new THREE.MeshPhysicalMaterial({ side: THREE.DoubleSide });
-  const materials = { blade: material(), body: material(), cap: material(), trim: material(), accent: material() };
+  const materials = { blade: material(), body: material(), mount: material(), cap: material(), trim: material(), accent: material() };
 
   const fan = new THREE.Group();
   fan.name = 'aeroflow';
@@ -108,12 +112,12 @@ export function createAeroflow({ shadows = false } = {}) {
   // Canopy: a bell that narrows from the ceiling down to the downrod.
   const canopy = new THREE.Mesh(
     lathe([[0, CANOPY_TOP], [0.135, CANOPY_TOP], [0.128, CANOPY_TOP - 0.06], [0.08, CANOPY_TOP - 0.16], [0.045, CANOPY_TOP - 0.25], [0.034, CANOPY_TOP - 0.3]]),
-    materials.body,
+    materials.mount,
   );
   // Downrod: straight, flaring into the top of the motor.
   const downrod = new THREE.Mesh(
     lathe([[0.03, CANOPY_TOP - 0.3], [0.028, 0.32], [0.032, 0.17], [0.055, 0.09], [0.09, 0.05]], 40),
-    materials.body,
+    materials.mount,
   );
   const stator = new THREE.Group(); // parts that stay still
   stator.add(canopy, downrod);
@@ -146,7 +150,7 @@ export function createAeroflow({ shadows = false } = {}) {
   for (let i = 0; i < BLADE_COUNT; i++) {
     const pivot = new THREE.Group(); // the pivot lets the intro animation fold and unfold each blade
     const blade = new THREE.Mesh(bladeGeo, materials.blade);
-    blade.position.y = -0.012;
+    blade.position.y = -0.034; // low on the motor: the blades' underside runs level with the ring, as pictured
     pivot.add(blade);
     pivot.userData.restAngle = (i * Math.PI * 2) / BLADE_COUNT;
     pivot.rotation.y = pivot.userData.restAngle;

@@ -4,9 +4,10 @@
 
 import * as THREE from 'three';
 
-const BASE = ['#7c3f1e', '#904d27', '#6e361a'];
-const DARK = 'rgba(52, 22, 8, ALPHA)';
-const LIGHT = 'rgba(200, 128, 76, ALPHA)';
+// studio photo of the Wood Craft Aeroflow: a golden walnut with broad dark streaks
+const BASE = ['#9a643c', '#ad7448', '#8a5631'];
+const DARK = 'rgba(62, 32, 14, ALPHA)';
+const LIGHT = 'rgba(214, 160, 108, ALPHA)';
 
 // Small deterministic random generator so every visitor sees the same grain.
 function random(seed) {
