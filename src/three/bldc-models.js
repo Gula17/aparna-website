@@ -123,30 +123,36 @@ const AEROSLEEK_FINISHES = {
 export function createAerosleek({ shadows = false } = {}) {
   const materials = {
     body: physical({}), blade: physical({}), bracket: physical({}), cap: physical({}), ring: physical({}),
-    led: new THREE.MeshStandardMaterial({ color: '#7fd0ff', emissive: '#1f9bff', emissiveIntensity: 2.4, roughness: 0.3 }),
+    // vivid blue, with a soft halo round each light (studio photo 03)
+    led: new THREE.MeshBasicMaterial({ color: '#3fb4ff' }),
+    halo: new THREE.MeshBasicMaterial({ color: '#2a8cff', transparent: true, opacity: 0.35, depthWrite: false }),
   };
 
-  // Still: a rounded bowl canopy, a slim downrod, and the LED base cap under the motor (it sits on the fixed
+  // Still: a straight cup canopy, a slim downrod, and the LED base cap under the motor (it sits on the fixed
   // shaft on a BLDC fan, so the lights don't spin).
-  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.1, CANOPY_TOP], [0.112, CANOPY_TOP - 0.03], [0.108, CANOPY_TOP - 0.08], [0.085, CANOPY_TOP - 0.13], [0.045, CANOPY_TOP - 0.16], [0.024, CANOPY_TOP - 0.17]]), materials.body);
-  const downrod = new THREE.Mesh(lathe([[0.019, CANOPY_TOP - 0.17], [0.018, 0.17], [0.02, 0.12], [0.035, 0.095]], 32), materials.body);
-  const cap = new THREE.Mesh(lathe([[0.118, -0.068], [0.116, -0.078], [0.1, -0.088], [0.05, -0.093], [0, -0.094]]), materials.cap);
+  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.082, CANOPY_TOP], [0.082, CANOPY_TOP - 0.012], [0.077, CANOPY_TOP - 0.11], [0.068, CANOPY_TOP - 0.124], [0.03, CANOPY_TOP - 0.13], [0.02, CANOPY_TOP - 0.134]]), materials.body);
+  const downrod = new THREE.Mesh(lathe([[0.017, CANOPY_TOP - 0.134], [0.016, 0.17], [0.019, 0.12], [0.035, 0.095]], 32), materials.body);
+  // The glossy black cap is as wide as the motor, with black sides below the chrome band.
+  const cap = new THREE.Mesh(lathe([[0.125, -0.064], [0.125, -0.08], [0.12, -0.089], [0.1, -0.095], [0.05, -0.098], [0, -0.0985]]), materials.cap);
   const leds = new THREE.Group();
-  const ledGeo = new THREE.SphereGeometry(0.0105, 14, 10);
-  [[0, 0], ...Array.from({ length: 6 }, (_, i) => [Math.cos((i * Math.PI) / 3) * 0.06, Math.sin((i * Math.PI) / 3) * 0.06])].forEach(([x, z]) => {
+  const ledGeo = new THREE.SphereGeometry(0.0095, 14, 10);
+  const haloGeo = new THREE.CircleGeometry(0.019, 24);
+  // six lights in a ring, none in the centre
+  Array.from({ length: 6 }, (_, i) => [Math.cos((i * Math.PI) / 3 + Math.PI / 6) * 0.052, Math.sin((i * Math.PI) / 3 + Math.PI / 6) * 0.052]).forEach(([x, z]) => {
     const led = new THREE.Mesh(ledGeo, materials.led);
-    led.position.set(x, -0.092 + (x || z ? 0.003 : 0), z);
-    led.scale.y = 0.45;
-    leds.add(led);
+    led.position.set(x, -0.0975, z);
+    led.scale.y = 0.4;
+    const halo = new THREE.Mesh(haloGeo, materials.halo);
+    halo.rotation.x = Math.PI / 2;
+    halo.position.set(x, -0.0995, z);
+    leds.add(led, halo);
   });
   const stator = new THREE.Group();
   stator.add(canopy, downrod, cap, leds);
 
-  // Turning: a compact, tall cylindrical motor with a thin ring at the bottom edge.
-  const shell = new THREE.Mesh(lathe([[0.035, 0.095], [0.09, 0.09], [0.118, 0.07], [0.124, 0.03], [0.124, -0.04], [0.12, -0.064]]), materials.body);
-  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.005, 12, 72), materials.ring);
-  ring.rotation.x = Math.PI / 2;
-  ring.position.y = -0.066;
+  // Turning: a compact cylindrical motor, with a wide polished chrome band round its lower edge.
+  const shell = new THREE.Mesh(lathe([[0.035, 0.095], [0.09, 0.09], [0.118, 0.07], [0.124, 0.03], [0.124, -0.044]]), materials.body);
+  const ring = new THREE.Mesh(lathe([[0.1245, -0.044], [0.126, -0.047], [0.126, -0.061], [0.1255, -0.064]]), materials.ring);
 
   // Blade: a long flat plank, square tip with a slight angle, carried on a narrow bracket from the motor.
   const pitch = -0.09;

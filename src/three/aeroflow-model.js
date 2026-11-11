@@ -19,15 +19,15 @@ export const FINISHES = {
   white: {
     blade: { color: '#f5f4f1', roughness: 0.32, clearcoat: 1, clearcoatRoughness: 0.12 },
     body: { color: '#f2f1ee', roughness: 0.3, clearcoat: 0.8 },
-    cap: { color: '#f7f6f3', roughness: 0.25, clearcoat: 1 },
-    trim: chrome,
+    cap: { color: '#eeede9', roughness: 0.3, clearcoat: 0.8 },
+    trim: { color: '#f2f1ee', roughness: 0.3, clearcoat: 0.8 },
     accent: chrome,
   },
   grey: {
     blade: { color: '#8b8e92', metalness: 0.55, roughness: 0.38, clearcoat: 0.6 },
     body: { color: '#8e9195', metalness: 0.55, roughness: 0.36, clearcoat: 0.6 },
-    cap: { color: '#9a9da1', metalness: 0.6, roughness: 0.3, clearcoat: 0.6 },
-    trim: chrome,
+    cap: { color: '#8a8d91', metalness: 0.55, roughness: 0.36, clearcoat: 0.6 },
+    trim: { color: '#8e9195', metalness: 0.55, roughness: 0.36, clearcoat: 0.6 },
     accent: chrome,
   },
   golden: {
@@ -126,15 +126,17 @@ export function createAeroflow({ shadows = false } = {}) {
     lathe([[0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.205, -0.01], [0.198, -0.035], [0.185, -0.045]]),
     materials.body,
   );
+  // Seen from below (studio photos): a wide band in the body colour, one thin chrome ring, and a flat cap
+  // set just inside the ring, in the body colour too.
   const trim = new THREE.Mesh(
-    lathe([[0.186, -0.045], [0.178, -0.054], [0.16, -0.058], [0.142, -0.056]]),
+    lathe([[0.186, -0.045], [0.18, -0.053], [0.17, -0.058], [0.162, -0.058]]),
     materials.trim,
   );
-  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.138, 0.0065, 16, 96), materials.accent);
+  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.159, 0.0058, 16, 96), materials.accent);
   accent.rotation.x = Math.PI / 2;
-  accent.position.y = -0.057;
+  accent.position.y = -0.0585;
   const cap = new THREE.Mesh(
-    lathe([[0.132, -0.055], [0.128, -0.062], [0.08, -0.066], [0, -0.067]]),
+    lathe([[0.156, -0.052], [0.154, -0.0535], [0.12, -0.0545], [0, -0.055]]),
     materials.cap,
   );
   rotor.add(shell, trim, accent, cap);

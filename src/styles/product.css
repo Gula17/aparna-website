@@ -24,6 +24,8 @@
 }
 .gallery__stage::-webkit-scrollbar { display: none; }
 .gallery__stage:focus-visible { outline: 3px solid var(--ultra-gold); outline-offset: 3px; }
+/* photos of the colours not chosen (src/scenes/product-page.js) */
+.gallery__slide[hidden], .gallery__thumb[hidden], .gallery__nav[hidden] { display: none; }
 .gallery__slide { scroll-snap-align: start; display: grid; grid-template-rows: minmax(0, 1fr) auto; aspect-ratio: 1; min-width: 0; }
 .gallery__slide figcaption { padding: 0 16px 12px; font-size: 0.8125rem; color: var(--cream-soft); }
 .gallery__frame { display: grid; place-items: center; overflow: hidden; padding: 8%; min-height: 0; }
