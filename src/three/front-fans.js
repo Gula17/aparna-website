@@ -32,23 +32,34 @@ function mergedMesh(geos, material) {
 //   twist:  how far (radians) each wire turns as it goes out, from twistFrom (fraction of the radius) to the rim;
 //           the back guard turns the other way, so the two read as the criss-cross mesh of the photos
 //   thick:  wire thickness (plastic grilles are thicker); band: a flat plastic rim band this deep instead of a wire rim
-function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wires = 90, rings = [0.85], inner = 0.13, twist = 0, twistFrom = 0.45, thick = 1, rim = 1, band = 0 } = {}) {
+//   cross:  'net' splits each wire at twistFrom into two that turn opposite ways (a diamond net), 'loop' into two
+//           that bow apart and meet again at the rim (eye-shaped loops)
+//   outer:  [from, count]: the wires from 'from' (fraction of the radius) out are this many, spaced wider (Tesla)
+function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wires = 90, rings = [0.85], inner = 0.13, twist = 0, twistFrom = 0.45, thick = 1, rim = 1, band = 0, cross = 0, outer = null, outerThick = 1 } = {}) {
   const g = new THREE.Group();
   const z = (r) => side * (offset + depth * (1 - (r / R) ** 2)); // deepest in the middle
-  const turn = (r) => { const t = Math.min(1, Math.max(0, (r / R - twistFrom) / (1 - twistFrom))); return twist * t * t; };
+  const tOf = (r) => Math.min(1, Math.max(0, (r / R - twistFrom) / (1 - twistFrom)));
+  const turn = (r) => { const t = tOf(r); return cross === 'loop' ? twist * Math.sin(Math.PI * t) : twist * t * t; };
   const geos = [];
-  const n = twist ? 14 : 6;
-  for (let i = 0; i < wires; i++) {
-    const a = (i / wires) * Math.PI * 2;
+  const wire = (a, from, to, n, dir, w = 1) => {
     const pts = [];
     for (let k = 0; k <= n; k++) {
-      const r = inner + ((R - inner) * k) / n;
-      const b = a + turn(r);
+      const r = from + ((to - from) * k) / n;
+      const b = a + dir * turn(r);
       pts.push(new THREE.Vector3(Math.cos(b) * r, Math.sin(b) * r, z(r)));
     }
-    geos.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), n, 0.0032 * thick, 4));
+    geos.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), n, 0.0022 * thick * w, 4));
+  };
+  const split = R * (outer ? outer[0] : twistFrom);
+  for (let i = 0; i < wires; i++) {
+    const a = (i / wires) * Math.PI * 2;
+    if (cross || outer) {
+      wire(a, inner, split, outer && twist ? 10 : 4, 1); // (a swirl inside the outer bars: Safari)
+      if (!outer) { wire(a, split, R, 12, 1); wire(a, split, R, 12, -1); }
+    } else wire(a, inner, R, twist ? 14 : 6, 1);
   }
-  for (const f of rings) geos.push(new THREE.TorusGeometry(R * f, 0.0038 * thick, 6, 96).translate(0, 0, z(R * f)));
+  if (outer) for (let i = 0; i < outer[1]; i++) wire((i / outer[1]) * Math.PI * 2, split, R, 3, 0, outerThick);
+  for (const f of rings) geos.push(new THREE.TorusGeometry(R * f, 0.0026 * thick, 6, 96).translate(0, 0, z(R * f)));
   g.add(mergedMesh(geos, material));
   if (band) {
     const b = [
@@ -62,28 +73,78 @@ function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wi
   return g;
 }
 
-// Blade outlines, as width and sweep along the blade (t = 0 at the root, 1 at the tip).
+// Blade outlines, as width and sweep along the blade, or as its two edges (lead, trail) and a round tip (cap);
+// t = 0 at the root, 1 at the tip.
 const BLADE_SHAPES = {
   // swept "scimitar": widest a third of the way out, narrowing to a curved tip
   scimitar: { width: (t) => 0.075 + 0.11 * Math.sin(Math.PI * Math.min(1, t * 1.15)) * (1 - 0.35 * t), sweep: (t) => 0.16 * t * t },
   // wide classic table/wall-fan blade: it widens well out from the hub and ends in a broad rounded tip
   broad: { width: (t) => 0.18 + 0.26 * Math.sin(Math.PI * Math.min(1, 0.1 + t * 0.75)), sweep: (t) => 0.13 * t * t, round: 0.16 },
-  // the same rounded blade for five-blade fans: narrower so five fit, and more swept
-  broad5: { width: (t) => 0.12 + 0.17 * Math.sin(Math.PI * Math.min(1, 0.1 + t * 0.75)), sweep: (t) => 0.17 * t * t, round: 0.1 },
-  // narrow, strongly swept blade with a cut tip (Glider, Vistara, GoAir, Maxx)
+  // the Champion's very wide clover blade, bulging to a big round tip
+  clover: { lead: (t) => -(0.05 + 0.25 * Math.sin((Math.PI / 2) * Math.min(1, t * 1.15))), trail: (t) => 0.05 + 0.19 * t ** 1.6, cap: 0.8 },
+  // the fresh-air fan's three curved scoops: narrow, widening a little to a rounded tip
+  scoop: { lead: (t) => -(0.035 + 0.06 * Math.sin((Math.PI / 2) * t)), trail: (t) => 0.035 + 0.06 * t ** 1.3, cap: 0.9 },
+  // the ventilation fan's five round white petals
+  vent: { lead: (t) => -(0.03 + 0.1 * Math.sin((Math.PI / 2) * Math.min(1, t * 1.2))), trail: (t) => 0.03 + 0.075 * t ** 1.4, cap: 0.85 },
+  // the Glider's five curved crescents with rounded tips
+  crescent: { lead: (t) => 0.2 * t * t - (0.035 + 0.055 * Math.sin(Math.PI * Math.min(1, t * 0.9))), trail: (t) => 0.2 * t * t + 0.035 + 0.06 * Math.sin(Math.PI * Math.min(1, t * 0.8)), cap: 0.9 },
+  // the studio photos' three-blade table/wall/pedestal blade: narrow at the hub, a long convex leading edge, a
+  // straighter trailing edge, widest at the broad rounded tip (lead and trail give each edge's offset directly)
+  fan: { lead: (t) => -(0.045 + 0.2 * Math.sin((Math.PI / 2) * Math.min(1, t * 1.1))), trail: (t) => 0.045 + 0.145 * t ** 1.8, cap: 0.6 },
+  // narrow, strongly swept blade (GoAir, Maxx)
   narrow: { width: (t) => 0.07 + 0.1 * Math.sin(Math.PI * Math.min(1, 0.1 + t * 0.8)), sweep: (t) => 0.24 * t * t, round: 0.07 },
   // the Indus's long S-curved blade
   sickle: { width: (t) => 0.055 + 0.065 * Math.sin(Math.PI * t), sweep: (t) => 0.34 * t * t, round: 0.04 },
-  // very wide round blade (Champion, Windstar, metal-blade fans)
+  // very wide round blade (Vento, heavy-duty exhaust)
   wide: { width: (t) => 0.2 + 0.3 * Math.sin(Math.PI * Math.min(1, 0.08 + t * 0.7)), sweep: (t) => 0.06 * t * t, round: 0.2 },
-  // exhaust: very wide, filling the opening, with a broad rounded tip (fresh-air fans)
-  exhaust: { width: (t) => 0.1 + 0.3 * Math.sin(Math.PI * Math.min(1, 0.18 + t * 0.78)), sweep: (t) => 0.1 * t * t },
+  // narrow hockey-stick blade, widening to an angled straight-cut tip (Vistara)
+  hockey: { width: (t) => 0.06 + 0.12 * Math.min(1, t * 1.25), sweep: (t) => 0.26 * t * t, round: 0.015, cut: 0.05 },
   // paddle: narrow at the root, widening to a broad rounded tip
   paddle: { width: (t) => 0.06 + 0.16 * Math.min(1, t * 1.6), sweep: (t) => 0.03 * t },
 };
 
 function bladeGeometry({ shape, tip, root, pitch }) {
-  const { width, sweep, round: roundTip } = BLADE_SHAPES[shape];
+  const s = BLADE_SHAPES[shape].lead ? edgeOutline(BLADE_SHAPES[shape], tip, root) : sweptOutline(BLADE_SHAPES[shape], shape, tip, root);
+  const geo = new THREE.ExtrudeGeometry(s, { depth: 0.01, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 2, curveSegments: 3 }); // a spline's divisions are per point: 3 is smooth
+  // a strongly swept blade can reach sideways out past the rim: shrink it to fit inside the guard
+  const far = Math.max(...s.getPoints(4).map((p) => p.length()));
+  if (far > R - 0.01) geo.scale((R - 0.025) / far, (R - 0.025) / far, 1);
+  geo.translate(0, 0, -0.005);
+  geo.rotateX(-Math.PI / 2);
+  geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-pitch));
+  geo.computeVertexNormals();
+  return geo;
+}
+
+// A blade from its two edges, closed by an elliptical arc across the tip that still ends at 'tip'.
+function edgeOutline({ lead: leadY, trail: trailY, cap }, tip, root) {
+  const half = (trailY(1) - leadY(1)) / 2;
+  const reach = tip - cap * half;
+  const lead = [], trail = [];
+  const steps = 24;
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const x = root + (reach - root) * t;
+    lead.push(new THREE.Vector2(x, leadY(t)));
+    trail.push(new THREE.Vector2(x, trailY(t)));
+  }
+  const a = lead[steps], b = trail[steps];
+  const c = a.clone().add(b).multiplyScalar(0.5);
+  const u = b.clone().sub(a).normalize(), v = new THREE.Vector2(u.y, -u.x); // across the tip, and outwards
+  const h = a.distanceTo(b) / 2;
+  const arc = [];
+  for (let k = 1; k < 12; k++) {
+    const th = -Math.PI / 2 + (Math.PI * k) / 12;
+    arc.push(c.clone().addScaledVector(u, h * Math.sin(th)).addScaledVector(v, cap * h * Math.cos(th)));
+  }
+  const s = new THREE.Shape();
+  s.moveTo(lead[0].x, lead[0].y);
+  s.splineThru([...lead.slice(1), ...arc, ...trail.slice().reverse()]);
+  s.closePath();
+  return s;
+}
+
+function sweptOutline({ width, sweep, round: roundTip, cut = 0 }, shape, tip, root) {
   const round = roundTip ?? (shape === 'paddle' ? 0.06 : 0.03);
   const reach = tip - 0.75 * Math.max(0, round - 0.03); // a big rounded tip still ends at 'tip', inside the guard
   const lead = [], trail = [];
@@ -91,8 +152,9 @@ function bladeGeometry({ shape, tip, root, pitch }) {
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const x = root + (reach - root) * t;
-    lead.push(new THREE.Vector2(x, sweep(t) - width(t) * 0.45));
-    trail.push(new THREE.Vector2(x, sweep(t) + width(t) * 0.55));
+    const c = cut * t ** 8; // a cut tip: the leading corner reaches further out than the trailing one
+    lead.push(new THREE.Vector2(x + c, sweep(t) - width(t) * 0.45));
+    trail.push(new THREE.Vector2(x - c, sweep(t) + width(t) * 0.55));
   }
   const s = new THREE.Shape();
   s.moveTo(lead[0].x, lead[0].y);
@@ -101,12 +163,7 @@ function bladeGeometry({ shape, tip, root, pitch }) {
   s.bezierCurveTo(a.x + round, a.y + 0.02, b.x + round, b.y - 0.02, b.x, b.y);
   s.splineThru(trail.slice(0, -1).reverse());
   s.closePath();
-  const geo = new THREE.ExtrudeGeometry(s, { depth: 0.01, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 2, curveSegments: 3 }); // a spline's divisions are per point: 3 is smooth
-  geo.translate(0, 0, -0.005);
-  geo.rotateX(-Math.PI / 2);
-  geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-pitch));
-  geo.computeVertexNormals();
-  return geo;
+  return s;
 }
 
 // A rounded box (for bases, pods and wall bodies), centred on the origin.
@@ -259,7 +316,9 @@ function tableStand(m, { headY, floorY, base = [0.78, 0.46, 0.13], taper = 0.12,
   if (face) {
     // an upright panel on the front of a tall base, with round buttons
     const { w = 0.28, h: fh = 0.11, y = 0.55, buttons = 3 } = face;
-    const fz = BZ + bd / 2 + 0.002;
+    // the base's front, which its rounded bevel pushes out past bd / 2, and which leans in with the taper
+    const bevelOut = Math.min(Math.min(0.09, bd * 0.3), bh / 2) * 0.48;
+    const fz = BZ + (bd / 2 + bevelOut) * (1 - taper * y) + 0.002;
     placed(g, roundedBox(w, fh, 0.016, 0.04), m.get('panel', 'accent', 'body'), 0, floorY + bh * y, fz);
     keyRow(g, m, { count: buttons, y: floorY + bh * y - 0.012, z: fz + 0.012, round: true, spacing: 0.06, face: true });
   }
@@ -290,11 +349,18 @@ function tableRoundStand(m, { headY, floorY, baseR = 0.36, depth = 0.8, column =
 
 // Wall fan: the rounded body that hangs below the head against the wall, with a speed knob, a ring switch
 // (optionally with a tail down to the bottom, Wendy), a plain dimple, or a swivel knob; and two pull cords.
-function wallStand(m, { headY, body = [0.27, 0.66], drop = 0.14, ring = false, ringTail = false, knob = false, detailAt = 0.62, cords = false, cord = 0.2, dimple: dimpleR = 0.07 }) {
+// narrowTop: how much narrower the body is at its top than at its bottom (Jazz)
+function wallStand(m, { headY, body = [0.27, 0.66], drop = 0.14, ring = false, ringTail = false, knob = false, detailAt = 0.62, cords = false, cord = 0.2, dimple: dimpleR = 0.07, narrowTop = 0 }) {
   const g = new THREE.Group();
   const [bw, bh] = body;
   const top = headY - drop; // drop: how far below the hub the body starts (its top tucks in behind the guard)
-  placed(g, roundedBox(bw, bh, 0.16, Math.min(0.12, bw / 2.2)), m.body, 0, top - bh / 2, -0.2);
+  const bodyGeo = roundedBox(bw, bh, 0.16, Math.min(0.12, bw / 2.2));
+  if (narrowTop) {
+    const p = bodyGeo.attributes.position;
+    for (let i = 0; i < p.count; i++) p.setX(i, p.getX(i) * (1 - narrowTop * Math.min(1, Math.max(0, p.getY(i) / bh + 0.5))));
+    bodyGeo.computeVertexNormals();
+  }
+  placed(g, bodyGeo, m.body, 0, top - bh / 2, -0.2);
   placed(g, new THREE.CylinderGeometry(0.045, 0.05, drop + 0.04, 20), m.motor, 0, headY - (drop + 0.04) / 2, -0.22);
   const detailY = top - bh * detailAt;
   if (knob) {
@@ -380,10 +446,11 @@ function hubParts(m, h) {
   }
   if (m.logo) {
     // a plain emblem ring and a short bar for the wordmark (never retyped)
-    const s = hr * (h.logoScale ?? 1);
-    const bar = new THREE.Mesh(new THREE.BoxGeometry(s * 0.62, 0.002, s * 0.11), m.logo);
+    // small and fine, like the printed logo in the photos
+    const s = hr * (h.logoScale ?? 1) * 0.72;
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(s * 0.6, 0.0015, s * 0.07), m.logo);
     bar.position.set(s * 0.12, top + 0.004, 0);
-    const mark = new THREE.Mesh(new THREE.TorusGeometry(s * 0.075, s * 0.016, 6, 20), m.logo);
+    const mark = new THREE.Mesh(new THREE.TorusGeometry(s * 0.065, s * 0.011, 6, 20), m.logo);
     mark.rotation.x = Math.PI / 2;
     mark.position.set(-s * 0.32, top + 0.004, 0);
     parts.push(bar, mark);
@@ -423,7 +490,8 @@ function createFrontFan(name, cfg) {
   head.add(
     // front and back guards far enough apart that the pitched blades sit fully between them
     guard(m.wire, m.rim, { side: 1, depth: 0.09, offset: 0.12, ...g }),
-    guard(m.wire, m.rim, { side: -1, depth: 0.06, offset: 0.06, wires: Math.round(g.wires * 0.7), rings: [0.45, 0.75], inner: 0.15, twist: -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: g.rim, band: 0 }),
+    // the back guard: plainer, and straight behind a criss-cross front
+    guard(m.wire, m.rim, { side: -1, depth: 0.06, offset: 0.06, wires: Math.round(g.wires * (g.backWires ?? (g.cross ? 0.5 : 0.7))), rings: g.backRings ?? [0.45, 0.75], inner: 0.15, twist: g.cross ? 0 : -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: g.rim, band: 0 }),
     motor, motorBack,
   );
   stator.add(head, STANDS[cfg.stand](m, { ...cfg, ...cfg.standOptions }));
@@ -484,12 +552,12 @@ const SOFT = (color, extra = {}) => ({ color, roughness: 0.32, clearcoat: 0.7, .
 const GLOSS = (color) => ({ color, metalness: 0.25, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.08 });
 const BLADE = (color, opacity = 0.92) => ({ color, roughness: 0.3, clearcoat: 0.7, transparent: opacity < 1, opacity });
 const WIRE = (color, metalness = 0.5) => ({ color, metalness, roughness: 0.35 });
-const METAL_BLADE = { color: '#c4c8cd', metalness: 0.9, roughness: 0.3 };
+const METAL_BLADE = { color: '#dfe3e7', metalness: 0.35, roughness: 0.25, clearcoat: 0.5 }; // bright brushed aluminium, as in the photos
 const BLACK = GLOSS('#1c1d20');
 const GUNMETAL = { color: '#4a4d52', metalness: 0.55, roughness: 0.3, clearcoat: 0.6 };
 const WHITE = SOFT('#f2f2ef');
 const CREAM = SOFT('#ece8da');
-const BROAD3 = { count: 3, shape: 'broad', tip: 0.44, pitch: 0.34 };
+const BROAD3 = { count: 3, shape: 'fan', tip: 0.46, pitch: 0.32 };
 const LOGO_DARK = { color: '#2a2622', roughness: 0.5 };
 const LOGO_LIGHT = { color: '#f4f4f2', roughness: 0.5 };
 
@@ -510,7 +578,7 @@ const HIGH_SPEED = {
 // grey domed base on a black rim
 export const createSultan = make('sultan', {
   ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4 },
-  guard: { wires: 100, rings: [0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.8, 0.88, 0.95], thick: 1.1 },
+  guard: { wires: 100, rings: [0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.8, 0.88, 0.95], thick: 1.3 },
   hub: { radius: 0.13, dome: true },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
   colours: { ...HIGH_SPEED, wire: WIRE('#2a2b2e', 0.6) },
@@ -519,8 +587,8 @@ export const createSultan = make('sultan', {
 // 105.png: gunmetal wire, five black paddle blades, black hub, gunmetal pole, grey base on a black rim
 export const createHexa = make('hexa', {
   ...ped(2.27), standOptions: { collarH: 0, baseR: 0.38 },
-  guard: { wires: 90, rings: [0.36, 0.64, 0.86] },
-  hub: { radius: 0.12 },
+  guard: { wires: 96, rings: [0.42, 0.78], twist: 0.04, twistFrom: 0.78, cross: 'loop', thick: 1, backRings: [0.6] },
+  hub: { radius: 0.12, dome: true, logoScale: 0.8 },
   blades: { count: 5, shape: 'paddle', tip: 0.44, pitch: 0.42 },
   colours: { ...HIGH_SPEED, blade: GLOSS('#202124'), hub: GLOSS('#1e1f22') },
 });
@@ -537,17 +605,17 @@ export const createNexa = make('nexa', {
 // grey base on a black rim
 export const createChampion = make('champion', {
   ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4 },
-  guard: { wires: 100, rings: [0.3, 0.45, 0.6, 0.75, 0.9] },
-  hub: { radius: 0.11 },
-  blades: { count: 3, shape: 'wide', tip: 0.46, pitch: 0.36, phase: Math.PI / 6 },
-  colours: { ...HIGH_SPEED, wire: WIRE('#b4b7bc', 0.8), rim: WIRE('#2a2b2e'), blade: GLOSS('#18191b'), hub: GLOSS('#141517') },
+  guard: { wires: 100, rings: [0.3, 0.38, 0.46, 0.54, 0.62, 0.7, 0.78, 0.86, 0.93], backRings: [0.6] }, // a fine square mesh
+  hub: { radius: 0.11, dome: true, logoScale: 0.9 },
+  blades: { count: 3, shape: 'clover', tip: 0.46, pitch: 0.32, phase: Math.PI / 6 },
+  colours: { ...HIGH_SPEED, wire: WIRE('#c9ccd0', 0.35), rim: WIRE('#2a2b2e'), blade: GLOSS('#18191b'), hub: GLOSS('#141517') },
 });
 
 // 107.png: industrial guard (eight radial spokes, many rings), two S-curved dark blades, chrome-ringed hub,
 // gunmetal pole that flares into a dark base
 export const createIndus = make('indus', {
   ...ped(2.45), standOptions: { collarH: 0, foot: 'flare', baseR: 0.38, base: 'step' },
-  guard: { wires: 8, thick: 2.4, inner: 0.17, rings: [0.34, 0.4, 0.46, 0.52, 0.58, 0.64, 0.7, 0.76, 0.82, 0.88, 0.94], rim: 1.6 },
+  guard: { wires: 8, thick: 3.5, inner: 0.17, rings: [0.34, 0.4, 0.46, 0.52, 0.58, 0.64, 0.7, 0.76, 0.82, 0.88, 0.94], rim: 1.6 },
   hub: { radius: 0.11, ringAt: 0.8, ringWidth: 0.16 },
   blades: { count: 2, shape: 'sickle', tip: 0.46, pitch: 0.4 },
   colours: { ...HIGH_SPEED, wire: WIRE('#55585d', 0.8), blade: GLOSS('#3a3c40'), hub: GLOSS('#1a1b1d'), hubRing: CHROME, logo: null, pole: { color: '#7d8187', metalness: 0.85, roughness: 0.25 }, base: GLOSS('#3a3c40'), baseRim: { color: '#1a1b1d' } },
@@ -557,17 +625,17 @@ export const createIndus = make('indus', {
 // black base with fine radial ribs
 export const createWindstar = make('windstar', {
   ...ped(2.35), standOptions: { collarH: 0, base: 'ribbed', baseR: 0.4 },
-  guard: { wires: 100, rings: [0.42, 0.72, 0.88] },
-  hub: { radius: 0.14, ringAt: 0.9, ringWidth: 0.08 },
-  blades: { count: 4, shape: 'broad', tip: 0.44, pitch: 0.36, phase: Math.PI / 4 },
-  colours: { ...HIGH_SPEED, wire: WIRE('#9a9ea3', 0.8), rim: WIRE('#2a2b2e'), blade: GLOSS('#1e1f22'), hub: GLOSS('#18191b'), hubRing: { color: '#b9bdc2', metalness: 0.9, roughness: 0.25 }, pole: BLACK, base: GLOSS('#26272a'), baseRim: { color: '#18191b' } },
+  guard: { wires: 100, rings: [0.55, 0.85], backRings: [0.6] },
+  hub: { radius: 0.13, ringAt: 0.9, ringWidth: 0.08 },
+  blades: { count: 4, shape: 'fan', tip: 0.45, pitch: 0.34, phase: Math.PI / 4 },
+  colours: { ...HIGH_SPEED, wire: WIRE('#b9bcc0', 0.35), rim: WIRE('#2a2b2e'), blade: GLOSS('#1e1f22'), hub: GLOSS('#18191b'), hubRing: { color: '#b9bdc2', metalness: 0.9, roughness: 0.25 }, pole: BLACK, base: GLOSS('#26272a'), baseRim: { color: '#18191b' } },
 });
 
 // 101.png: dark grey wire, three narrow dark swept blades, grey ringed hub, a short chrome tube and a tilt
 // collar, black pole, two-tier dark grey base
 export const createBullet12 = make('bullet-12', {
   ...ped(2.05), standOptions: { upper: 0.1, collarH: 0.09, base: 'step', baseR: 0.47 },
-  guard: { wires: 84, rings: [0.4, 0.7] },
+  guard: { wires: 84, rings: [0.55, 0.82], twist: 0.05, twistFrom: 0.55, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.12, ringAt: 0.9 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
   colours: { ...HIGH_SPEED, hub: GLOSS('#3e4145'), hubRing: GLOSS('#2a2b2e'), pole: BLACK, collar: GLOSS('#2a2b2e'), base: GLOSS('#3e4145'), baseRim: { color: '#2a2b2e' }, foot: GLOSS('#2a2b2e') },
@@ -577,26 +645,26 @@ export const createBullet12 = make('bullet-12', {
 const BULLET_DARK = { ...HIGH_SPEED, hub: GLOSS('#3e4145'), hubRing: GLOSS('#2a2b2e'), pole: BLACK, collar: GLOSS('#2a2b2e'), base: GLOSS('#3e4145'), baseRim: { color: '#2a2b2e' }, foot: GLOSS('#2a2b2e') };
 export const createBullet16 = make('bullet-16', {
   ...ped(2.55), standOptions: { upper: 0.08, collarH: 0.08, base: 'step', baseR: 0.45 },
-  guard: { wires: 84, rings: [0.36, 0.62] },
-  hub: { radius: 0.13, ringAt: 0.9 },
+  guard: { wires: 90, rings: [0.62, 0.86], twist: 0.04, twistFrom: 0.62, cross: 'loop', thick: 1, backRings: [0.6] },
+  hub: { radius: 0.12, ringAt: 0.9 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
   colours: BULLET_DARK,
 });
 export const createBulletOsc16 = make('bullet-osc-16', {
   ...ped(2.55), standOptions: { upper: 0.1, collarH: 0.08, base: 'step', baseR: 0.4 },
-  guard: { wires: 84, rings: [0.3, 0.6, 0.86] },
-  hub: { radius: 0.12 },
-  blades: { count: 3, shape: 'broad', tip: 0.44, pitch: 0.36 },
-  colours: { ...BULLET_DARK, blade: BLADE('#9aa1a9', 0.88) },
+  guard: { wires: 90, rings: [0.62, 0.86], twist: 0.04, twistFrom: 0.62, cross: 'loop', thick: 1, backRings: [0.6] },
+  hub: { radius: 0.12, ringAt: 0.9 },
+  blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
+  colours: BULLET_DARK, // no photo: as the Bullet 16
 });
 
 // 103.png (new): black wire with many rings, four aluminium blades, small black hub with a silver ring,
 // short chrome tube, black pole and domed black base
 export const createBulletMetal16 = make('bullet-metal-16', {
   ...ped(2.55), standOptions: { upper: 0.12, collarH: 0.07, baseR: 0.4 },
-  guard: { wires: 120, rings: [0.3, 0.55, 0.75, 0.9] },
+  guard: { wires: 110, rings: [0.55, 0.8, 0.9], backRings: [0.6] },
   hub: { radius: 0.1, ringAt: 0.85, ringWidth: 0.1 },
-  blades: { count: 4, shape: 'broad', tip: 0.44, pitch: 0.38, phase: Math.PI / 4 },
+  blades: { count: 4, shape: 'fan', tip: 0.45, pitch: 0.36, phase: Math.PI / 4 },
   colours: { ...HIGH_SPEED, wire: WIRE('#1f2022', 0.6), blade: METAL_BLADE, hub: GLOSS('#18191b'), hubRing: { color: '#c4c8cd', metalness: 0.9, roughness: 0.3 }, pole: BLACK, collar: BLACK, base: GLOSS('#1e1f22'), baseRim: { color: '#3a3b3e' }, foot: BLACK },
 });
 
@@ -604,7 +672,7 @@ export const createBulletMetal16 = make('bullet-metal-16', {
 // dark grey hub, black pole, dark grey flat-domed base
 export const createShine = make('shine', {
   ...ped(2.55), standOptions: { upper: 0.04, collarH: 0.12, baseR: 0.43 },
-  guard: { wires: 64, rings: [0.35, 0.55, 0.75], thick: 1.6, twist: 0.5, band: 0.07 },
+  guard: { wires: 72, rings: [0.32, 0.55], thick: 1.9, twist: 0.3, twistFrom: 0.55, cross: 'net', band: 0.07, backRings: [0.6] },
   hub: { radius: 0.11 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
   colours: { ...HIGH_SPEED, wire: SOFT('#3a3c40'), blade: BLADE('#4a4d52', 0.96), hub: SOFT('#55585d'), pole: BLACK, collar: GLOSS('#2a2b2e'), base: GLOSS('#3a3c40'), baseRim: { color: '#2a2b2e' }, foot: GLOSS('#2a2b2e') },
@@ -614,9 +682,9 @@ export const createShine = make('shine', {
 // chrome upper pole, dark grey collar, grey lower pole and domed grey base
 export const createOrnet = make('ornet', {
   ...ped(2.35), motor: 0.12, standOptions: { upper: 0.22, collarH: 0.17, baseR: 0.37, poleR: 0.03 },
-  guard: { wires: 56, rings: [0.38, 0.62, 0.82], thick: 1.6, band: 0.06 },
+  guard: { wires: 56, rings: [0.38, 0.62, 0.82], thick: 2.3, band: 0.06 },
   hub: { radius: 0.145 },
-  blades: { count: 4, shape: 'broad', tip: 0.43, pitch: 0.36 },
+  blades: { count: 4, shape: 'fan', tip: 0.43, pitch: 0.34 },
   colours: {
     wire: SOFT('#aeb1b5'), rim: SOFT('#a7aaae'), blade: BLADE('#6a6e74', 0.97), hub: SOFT('#5e6267'), logo: LOGO_LIGHT,
     body: SOFT('#55585d'), pole: SOFT('#5e6166', { metalness: 0.3 }), collar: SOFT('#4a4d52'),
@@ -628,7 +696,7 @@ export const createOrnet = make('ornet', {
 // collar, white lower pole on a blue trumpet foot, white base on a dark rim
 export const createMaxx = make('maxx', {
   ...ped(2.5), motor: 0.12, standOptions: { upper: 0.12, collarH: 0.11, foot: 'flare', base: 'step', baseR: 0.42 },
-  guard: { wires: 96, rings: [0.45, 0.72], rim: 1.5 },
+  guard: { wires: 100, rings: [0.45, 0.72], rim: 1.1, backRings: [0.6] },
   hub: { radius: 0.14 },
   blades: { count: 3, shape: 'narrow', tip: 0.45, pitch: 0.38 },
   colours: {
@@ -645,11 +713,11 @@ export const createMaxx = make('maxx', {
 export const createStallion = make('stallion', {
   ...ped(2.65), motor: 0.12,
   standOptions: { pod: { w: 0.17, h: 0.36, keys: 4 }, upper: 0.17, collarH: 0.15, base: 'disc', baseR: 0.4 },
-  guard: { wires: 100, rings: [0.36, 0.66], rim: 1.6 },
-  hub: { radius: 0.12 },
+  guard: { wires: 110, rings: [0.58, 0.8], rim: 1.1, backRings: [0.6] },
+  hub: { radius: 0.13 },
   blades: BROAD3,
   colours: {
-    wire: WIRE('#3e4044', 0.5), rim: SOFT('#e0904e'), blade: BLADE('#e39a58', 0.97), hub: SOFT('#e39a58'), logo: LOGO_DARK,
+    wire: WIRE('#4a4c50', 0.5), rim: SOFT('#d98a4e'), blade: BLADE('#dc8c50', 0.97), hub: SOFT('#d98a4e'), logo: LOGO_DARK,
     body: BLACK, pod: GLOSS('#1f2124'), key: SOFT('#33363a'), upper: BLACK, collar: SOFT('#ee9a52'),
     base: GLOSS('#18191b'), baseRim: { color: '#111' }, foot: GLOSS('#26272a'),
   },
@@ -660,7 +728,7 @@ export const createStallion = make('stallion', {
 export const createFiona = make('fiona', {
   ...ped(2.7), motor: 0.12,
   standOptions: { pod: { w: 0.18, h: 0.42, keys: 4, keysAt: 0.42, knob: 0.2 }, upper: 0.12, collarH: 0.15, base: 'disc', baseR: 0.43 },
-  guard: { wires: 90, rings: [0.4, 0.7] },
+  guard: { wires: 100, rings: [0.62], backRings: [0.6] },
   hub: { radius: 0.15, ringAt: 0.9 },
   blades: BROAD3,
   colours: {
@@ -675,7 +743,7 @@ export const createFiona = make('fiona', {
 export const createIconic = make('iconic', {
   ...ped(2.75), motor: 0.12,
   standOptions: { pod: { w: 0.15, h: 0.46, keys: 3, roundKeys: true, keysAt: 0.2, knob: 0.68 }, upper: 0.1, collarH: 0.15, base: 'disc', baseR: 0.42 },
-  guard: { wires: 90, rings: [0.4, 0.68], rim: 1.5 },
+  guard: { wires: 100, rings: [0.55, 0.8], rim: 1.1, backRings: [0.6] },
   hub: { radius: 0.15 },
   blades: BROAD3,
   colours: {
@@ -691,9 +759,9 @@ export const createIconic = make('iconic', {
 // cream tapered base with an oval plinth and four round teal buttons
 export const createVistara = make('vistara', {
   ...table(1.35), standOptions: { base: [0.66, 0.44, 0.16], taper: 0.24, column: [0.07, 0.17, 0.5], plinth: { w: 0.36, d: 0.24, h: 0.03, oval: true, z: -0.05 }, keys: { count: 4, round: true, spacing: 0.06 } },
-  guard: { wires: 100, rings: [0.6, 0.86] },
-  hub: { radius: 0.14 },
-  blades: { count: 5, shape: 'broad5', tip: 0.45, pitch: 0.36 },
+  guard: { wires: 100, rings: [0.64], thick: 1, backRings: [0.6] },
+  hub: { radius: 0.14, dome: true, logoScale: 0.7 },
+  blades: { count: 5, shape: 'hockey', tip: 0.43, pitch: 0.34 },
   colours: {
     wire: WIRE('#e3ddc9', 0.4), rim: SOFT('#2bbcc6'), blade: BLADE('#3fd0d8', 0.95), hub: CREAM, logo: LOGO_DARK,
     body: CREAM, base: CREAM, key: SOFT('#2bbcc6'),
@@ -704,7 +772,7 @@ export const createVistara = make('vistara', {
 // centre, cream column, aqua base with a cream insert and three cream keys
 export const createVectra = make('vectra', {
   ...table(1.43), standOptions: { base: [0.74, 0.46, 0.12], taper: 0.1, column: [0.07, 0.14, 0.55], plinth: { w: 0.44, d: 0.34, h: 0.025, z: -0.06 }, keys: { count: 3 } },
-  guard: { wires: 90, rings: [0.45, 0.72], twist: 0.5, rim: 1.8 },
+  guard: { wires: 90, rings: [0.5], twist: 0.3, twistFrom: 0.5, cross: 'net', thick: 0.95, rim: 1.8, backRings: [0.6] },
   hub: { radius: 0.14, ringAt: 0.78, ringWidth: 0.07, capR: 0.7 },
   blades: BROAD3,
   colours: {
@@ -717,7 +785,7 @@ export const createVectra = make('vectra', {
 // column, copper tapered base with a black oval plinth and three black keys
 export const createBlazo = make('blazo', {
   ...table(1.44), standOptions: { base: [0.78, 0.5, 0.12], taper: 0.12, column: [0.07, 0.15, 0.55], plinth: { w: 0.4, d: 0.32, h: 0.03, oval: true, z: -0.06 }, keys: { count: 3 } },
-  guard: { wires: 90, rings: [0.45, 0.72], twist: 0.5, rim: 1.5 },
+  guard: { wires: 90, rings: [0.55], twist: 0.28, twistFrom: 0.55, cross: 'net', thick: 0.95, rim: 0.9, backRings: [0.6] },
   hub: { radius: 0.14 },
   blades: BROAD3,
   colours: {
@@ -730,7 +798,7 @@ export const createBlazo = make('blazo', {
 // terracotta base with a white insert and three white keys
 export const createBlitz = make('blitz', {
   ...table(1.42), standOptions: { base: [0.74, 0.48, 0.12], taper: 0.1, column: [0.07, 0.13, 0.55], plinth: { w: 0.42, d: 0.36, h: 0.025, z: -0.05 }, keys: { count: 3 } },
-  guard: { wires: 90, rings: [0.42, 0.7], twist: 0.5, rim: 1.6 },
+  guard: { wires: 90, rings: [0.5], twist: 0.3, twistFrom: 0.5, cross: 'net', thick: 0.95, rim: 1.6, backRings: [0.6] },
   hub: { radius: 0.13 },
   blades: BROAD3,
   colours: {
@@ -743,11 +811,12 @@ export const createBlitz = make('blitz', {
 // a tall white battery base with a grey bottom band and a grey front panel with three black buttons
 const GOAIR = {
   ...table(1.47), standOptions: { base: [0.5, 0.38, 0.33], taper: 0.06, column: [0.05, 0.08, 0.7], band: 0.035, face: { w: 0.3, h: 0.11, y: 0.62, buttons: 3 } },
-  guard: { wires: 110, rings: [0.4, 0.78] },
-  hub: { radius: 0.12 },
+  // fine straight wires crossed by many evenly spaced rings, as in the photo
+  guard: { wires: 110, rings: [0.42, 0.5, 0.58, 0.66, 0.74, 0.82, 0.9], thick: 1, backRings: [0.6] },
+  hub: { radius: 0.1, logoScale: 0.9 },
   blades: { count: 5, shape: 'narrow', tip: 0.45, pitch: 0.34 },
   colours: {
-    wire: WIRE('#eceeef', 0.35), blade: BLADE('#f0f2f4', 0.85), hub: SOFT('#686c72'), logo: LOGO_LIGHT,
+    wire: WIRE('#e6e8ea', 0.35), blade: BLADE('#dde1e6', 0.78), hub: SOFT('#686c72'), logo: LOGO_LIGHT,
     body: SOFT('#eeeff1'), base: SOFT('#eeeff1'), band: SOFT('#8e9298'), panel: SOFT('#8e9298'), key: GLOSS('#1c1d20'),
   },
 };
@@ -758,9 +827,9 @@ export const createGoair16 = make('goair-16', GOAIR);
 // raised plinth and a timer knob
 export const createGlider = make('glider', {
   ...table(1.29, 'tableRound'), motor: 0.13, standOptions: { baseR: 0.29, depth: 0.85, column: [0.075, 0.1], plinth: [0.3, 0.22], knob: true },
-  guard: { wires: 80, rings: [0.62, 0.8], twist: 0.45 },
+  guard: { wires: 80, rings: [0.62], twist: 0.045, twistFrom: 0.62, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.115 },
-  blades: { count: 5, shape: 'narrow', tip: 0.45, pitch: 0.38 },
+  blades: { count: 5, shape: 'crescent', tip: 0.44, pitch: 0.38 },
   colours: { wire: WIRE('#1f2022', 0.5), blade: GLOSS('#1d1e21'), hub: GLOSS('#18191b'), logo: LOGO_LIGHT, body: BLACK, knob: GLOSS('#2e3034') },
 });
 
@@ -778,9 +847,9 @@ export const createOreo = make('oreo', {
 // with three keys
 export const createSpider = make('spider', {
   ...table(1.38, 'tableRound'), motor: 0.13, standOptions: { baseR: 0.3, depth: 0.85, column: [0.075, 0.12], keys: 3 },
-  guard: { wires: 84, rings: [0.4, 0.62, 0.82], twist: 0.55 },
+  guard: { wires: 84, rings: [0.46, 0.76], twist: 0.32, twistFrom: 0.46, cross: 'net', thick: 0.95, backRings: [0.6] },
   hub: { radius: 0.145, ringAt: 0.88, ringWidth: 0.07 },
-  blades: BROAD3,
+  blades: { count: 3, shape: 'scimitar', tip: 0.45, pitch: 0.36 }, // long swept grey blades
   colours: { wire: WIRE('#26272a', 0.5), blade: BLADE('#8a8f96', 0.9), hub: GLOSS('#26272a'), hubRing: GLOSS('#3a3c40'), logo: LOGO_LIGHT, body: BLACK, key: GLOSS('#2e3034') },
 });
 
@@ -791,7 +860,7 @@ export const createSpider = make('spider', {
 export const createVento = make('vento', {
   ...wall(1.05), standOptions: { body: [0.33, 0.6], drop: 0.26, detailAt: 0.5, cords: true, cord: 0.13, dimple: 0.1 },
   // thin straight wires and one ring near the rim, as in the photo
-  guard: { wires: 84, rings: [0.84], thick: 0.75 },
+  guard: { wires: 84, rings: [0.84], thick: 1.09 },
   hub: { radius: 0.2, dome: true, logoScale: 0.55 },
   blades: { count: 3, shape: 'wide', tip: 0.455, pitch: 0.3 }, // three big pale petals that nearly fill the guard
   colours: { wire: WIRE('#2f3033', 0.6), blade: BLADE('#a9b2be', 0.82), hub: GLOSS('#18191b'), logo: LOGO_LIGHT, body: BLACK, base: GLOSS('#26272a') },
@@ -801,16 +870,17 @@ export const createVento = make('vento', {
 // round knob, two pull cords with black tassels
 export const createTornado = make('tornado', {
   ...wall(0.84), standOptions: { body: [0.25, 0.46], drop: 0.25, knob: true, cords: true, cord: 0.05 },
-  guard: { wires: 84, rings: [0.5, 0.75], twist: 0.55 },
-  hub: { radius: 0.14, dome: true },
-  blades: { count: 3, shape: 'broad5', tip: 0.45, pitch: 0.36 },
-  colours: { wire: WIRE('#3b3d41', 0.6), blade: BLADE('#a3a8ae', 0.9), hub: GLOSS('#2e3034'), logo: LOGO_LIGHT, body: GLOSS('#34363a'), knob: GLOSS('#232427'), tassel: BLACK },
+  // thin wires, straight to a ring at half the radius, then a diamond net out to the rim
+  guard: { wires: 76, rings: [0.48], twist: 0.3, twistFrom: 0.48, cross: 'net', thick: 0.95, backRings: [0.6] },
+  hub: { radius: 0.15, dome: true, logoScale: 0.6 },
+  blades: { count: 3, shape: 'scimitar', tip: 0.45, pitch: 0.34 }, // long pale swept blades
+  colours: { wire: WIRE('#3b3d41', 0.6), blade: BLADE('#a9b2be', 0.82), hub: GLOSS('#2e3034'), logo: LOGO_LIGHT, body: GLOSS('#34363a'), knob: GLOSS('#232427'), tassel: BLACK },
 });
 
 // 96.png: black wire with a copper rim, three copper blades, large copper hub, tall black body with a copper knob
 export const createJazz = make('jazz', {
-  ...wall(0.96), standOptions: { body: [0.23, 0.56], drop: 0.4, knob: true, detailAt: 0.6 },
-  guard: { wires: 80, rings: [0.45, 0.82, 0.9], rim: 1.5 },
+  ...wall(0.96), standOptions: { body: [0.22, 0.56], drop: 0.4, knob: true, detailAt: 0.6, narrowTop: 0.35 },
+  guard: { wires: 96, rings: [0.55, 0.8, 0.9], rim: 0.8, backRings: [0.6] },
   hub: { radius: 0.19 },
   blades: BROAD3,
   colours: { wire: WIRE('#1f2022', 0.5), rim: SOFT('#c2703a', { metalness: 0.3 }), blade: BLADE('#cf7438', 0.98), hub: SOFT('#d27a40'), logo: LOGO_DARK, body: BLACK, knob: SOFT('#d27a40') },
@@ -820,7 +890,7 @@ export const createJazz = make('jazz', {
 // two pull cords with black tassels
 export const createVelora = make('velora', {
   ...wall(0.84), standOptions: { body: [0.21, 0.42], drop: 0.3, knob: true, detailAt: 0.55, cords: true, cord: 0.06 },
-  guard: { wires: 90, rings: [0.3, 0.6, 0.85], rim: 1.5 },
+  guard: { wires: 110, rings: [0.62, 0.86], rim: 0.75, backRings: [0.6] },
   hub: { radius: 0.155 },
   blades: BROAD3,
   colours: { wire: WIRE('#1f2022', 0.5), rim: SOFT('#c27a45', { metalness: 0.3 }), blade: BLADE('#c8773e', 0.98), hub: SOFT('#c8773e'), logo: LOGO_DARK, body: BLACK, knob: SOFT('#c8773e'), tassel: BLACK },
@@ -830,17 +900,19 @@ export const createVelora = make('velora', {
 // ring switch and tail, two pull cords with white tassels
 export const createWendy = make('wendy', {
   ...wall(1.17), standOptions: { body: [0.3, 0.55], drop: 0.35, ring: true, ringTail: true, detailAt: 0.5, cords: true, cord: 0.13 },
-  guard: { wires: 72, rings: [0.4, 0.7], twist: 0.6 },
-  hub: { radius: 0.175, ringAt: 0.9 },
-  blades: BROAD3,
-  colours: { wire: WIRE('#e4e6e8', 0.35), blade: BLADE('#f2f3f4', 0.93), hub: WHITE, hubRing: SOFT('#e2e4e6'), logo: LOGO_DARK, body: WHITE, accent: GLOSS('#1b1c1e'), tassel: WHITE, cord: SOFT('#d8d9db') },
+  // straight wires to a ring at 0.72 of the radius, then eye-shaped loops out to the rim
+  guard: { wires: 72, rings: [0.72], twist: 0.05, twistFrom: 0.72, cross: 'loop', thick: 1, backRings: [0.6] },
+  hub: { radius: 0.18, ringAt: 0.9, logoScale: 0.6 },
+  blades: { ...BROAD3, tip: 0.45 },
+  colours: { wire: WIRE('#e4e6e8', 0.35), blade: BLADE('#e8ebee', 0.9), hub: WHITE, hubRing: SOFT('#e2e4e6'), logo: LOGO_DARK, body: WHITE, accent: GLOSS('#1b1c1e'), tassel: WHITE, cord: SOFT('#d8d9db') },
 });
 
 // 90.png (new): all black: dense straight wire with a wide outer band of rings, three black blades, black hub
 // with a raised ring, a short black body with a swivel knob, two long pull cords with black tassels
 export const createTesla = make('tesla', {
   ...wall(0.96), standOptions: { body: [0.27, 0.28], drop: 0.37, knob: true, detailAt: 0.3, cords: true, cord: 0.24 },
-  guard: { wires: 100, rings: [0.32, 0.62, 0.8, 0.9], thick: 1.25, rim: 1.4 },
+  // fine wires inside, and an outer band of fewer, thicker bars between two rings
+  guard: { wires: 120, rings: [0.58, 0.8, 0.9], thick: 0.75, outer: [0.8, 76], outerThick: 3.8, rim: 1.4, backRings: [0.6] },
   hub: { radius: 0.16, ringAt: 0.88, ringWidth: 0.08 },
   blades: BROAD3,
   colours: { wire: WIRE('#1c1d1f', 0.5), blade: GLOSS('#1a1b1d'), hub: GLOSS('#141517'), hubRing: GLOSS('#2a2b2e'), logo: LOGO_LIGHT, body: BLACK, knob: GLOSS('#2a2b2e'), tassel: BLACK },
@@ -870,7 +942,7 @@ export const createRegal = make('regal', { ...AP_WHITE(SOFT('#7cc7d6')), colours
 // blades, tapered dark column on a rounded square base with a chrome-ringed knob
 export const createSafari = make('safari', {
   ...table(1.53), motor: 0.11, standOptions: { base: [0.56, 0.5, 0.14], taper: 0.12, column: [0.08, 0.14, 0.6], knob: { ring: true } },
-  guard: { wires: 40, rings: [0.3, 0.62], thick: 2.2, twist: 1.1, twistFrom: 0, band: 0.12, inner: 0.1 },
+  guard: { wires: 16, rings: [0.3, 0.6], thick: 3.5, twist: 3, twistFrom: 0, outer: [0.6, 48], outerThick: 1, band: 0.12, inner: 0.1, backRings: [0.6] },
   hub: { radius: 0.09, ringAt: 0.95, ringWidth: 0.05 },
   blades: { count: 3, shape: 'broad', tip: 0.44, pitch: 0.4 },
   colours: {
@@ -884,9 +956,13 @@ export const createSafari = make('safari', {
 const PIANO = (dark) => ({
   stand: 'yoke', headY: 0.17, floorY: -0.67, motor: 0.13, zoom: 1.12,
   standOptions: { armR: 0.57, baseR: 0.3, baseH: 0.14, keys: 4 },
-  guard: { wires: 60, rings: [0.45, 0.75], twist: 0.7, thick: 1.4, rim: 1.3 },
-  hub: { radius: 0.16, ringAt: 0.94, ringWidth: 0.05 },
-  blades: { count: 3, shape: 'broad', tip: 0.44, pitch: 0.34 },
+  // a dense diamond net from close to the hub (black) or from half way (white)
+  guard: dark
+    ? { wires: 56, rings: [0.42, 0.72], twist: 0.4, twistFrom: 0.42, cross: 'net', thick: 1.15, rim: 1.3, backRings: [0.6], backWires: 0.5 }
+    : { wires: 60, rings: [0.55], twist: 0.32, twistFrom: 0.55, cross: 'net', thick: 1.15, rim: 1.3, backRings: [0.6], backWires: 0.5 },
+  hub: { radius: 0.165, ringAt: 0.94, ringWidth: 0.05 },
+  // four aluminium paddles on the black, three broad white blades on the white
+  blades: dark ? { count: 4, shape: 'paddle', tip: 0.43, pitch: 0.4, phase: Math.PI / 4 } : { count: 3, shape: 'broad', tip: 0.44, pitch: 0.34 },
   colours: dark
     ? { wire: WIRE('#1f2022', 0.5), blade: METAL_BLADE, hub: SOFT('#3a3c40'), hubRing: GLOSS('#26272a'), logo: LOGO_LIGHT, body: BLACK, base: BLACK, baseRim: GLOSS('#26272a'), accent: { color: '#b39a5c', metalness: 0.9, roughness: 0.3 }, panel: SOFT('#c8323a'), key: WHITE, key1: SOFT('#e04848') }
     : { wire: WIRE('#eeeff0', 0.3), blade: BLADE('#f4f5f6', 0.95), hub: WHITE, hubRing: SOFT('#e6e7e9'), logo: LOGO_DARK, body: WHITE, base: WHITE, baseRim: GLOSS('#26272a'), accent: { color: '#b39a5c', metalness: 0.9, roughness: 0.3 }, key: SOFT('#e9e6e0'), key1: SOFT('#7a2a33') },
@@ -899,8 +975,9 @@ export const createPianoWhite = make('piano-white', PIANO(false));
 export const createSwivel = make('swivel', {
   stand: 'yoke', headY: 0.1, floorY: -0.6, motor: 0.12, zoom: 1.2,
   standOptions: { armR: 0.56, armDepth: 2.2, base: 'tray', tray: [0.66, 0.42], baseH: 0.16, band: 0.06, knob: true },
-  guard: { wires: 56, rings: [0.3, 0.56, 0.8], thick: 2, twist: 0.7, twistFrom: 0.2, band: 0.05 },
-  hub: { radius: 0.17 },
+  // curved bars from the hub to a ring at 0.72, straight bars outside it
+  guard: { wires: 40, rings: [0.36, 0.55, 0.72], thick: 2.9, twist: 1.6, twistFrom: 0, outer: [0.72, 64], outerThick: 1, band: 0.05, backRings: [0.6] },
+  hub: { radius: 0.14 },
   blades: BROAD3,
   colours: {
     wire: SOFT('#f3f3f1'), rim: SOFT('#eeeeec'), blade: BLADE('#3cb7e2', 0.97), hub: SOFT('#3cb7e2'), logo: LOGO_DARK,
@@ -911,8 +988,8 @@ export const createSwivel = make('swivel', {
 // 75.png (coming soon): white plastic grille with thick straight bars, three aqua blades, aqua hub, a short white
 // column, a white rounded base on an aqua band, with an aqua panel and a white knob
 export const createCompact = make('compact', {
-  ...table(1.45), standOptions: { base: [0.58, 0.46, 0.28], taper: 0.14, column: [0.08, 0.14, 0.6], band: 0.05, knob: { panel: 0.22 } },
-  guard: { wires: 60, rings: [0.3, 0.6, 0.85], thick: 1.9, band: 0.05 },
+  ...table(1.45), standOptions: { base: [0.6, 0.46, 0.22], taper: 0.14, column: [0.08, 0.14, 0.6], band: 0.05, knob: { panel: 0.22 } },
+  guard: { wires: 60, rings: [0.3, 0.6, 0.85], thick: 2.75, band: 0.05 },
   hub: { radius: 0.12 },
   blades: BROAD3,
   colours: {
@@ -1084,8 +1161,8 @@ const FRESH_AIR = {
   style: 'pinched', frame: 1.0, hole: 0.4, fresh: true,
   hub: { radius: 0.1, style: 'ringed' },
   grille: { spokes: 36, rings: [0.27, 0.5, 0.75, 1.0], from: 0.25 },
-  struts: { motor: 0.15 },
-  blades: { count: 3, shape: 'exhaust', pitch: 0.4 },
+  struts: { motor: 0.15, flat: true }, // the photo's four flat bars
+  blades: { count: 3, shape: 'scoop', pitch: 0.45, reach: 0.9 },
   colours: { // as in the photo: warm taupe frame, grille and blades, black hub with a white ring
     frame: { color: '#6f6862', metalness: 0.35, roughness: 0.45 },
     wire: { color: '#827b74', metalness: 0.4, roughness: 0.4 },
@@ -1100,7 +1177,7 @@ export const createFreshAir12 = ({ shadows = false } = {}) => withShadows(wallFa
 const VENTILATION = {
   style: 'plain', frame: 1.0, hole: 0.38, grille: null, struts: null,
   hub: { radius: 0.105 },
-  blades: { count: 5, shape: 'broad5', pitch: 0.42, reach: 0.9 },
+  blades: { count: 5, shape: 'vent', pitch: 0.42, reach: 0.9 },
   colours: {
     frame: { color: '#f3f2ee', roughness: 0.32, clearcoat: 0.6 },
     blade: { color: '#f6f5f2', roughness: 0.3, clearcoat: 0.6 },
@@ -1110,10 +1187,10 @@ const VENTILATION = {
 export const createVentilation = ({ shadows = false } = {}) => withShadows(wallFan('ventilation', VENTILATION), shadows);
 
 const HEAVY_EXHAUST = {
-  style: 'octagon', frame: 1.0, hole: 0.4, grille: null,
+  style: 'octagon', frame: 1.0, hole: 0.45, grille: null, // a narrow frame round a big opening
   hub: { radius: 0.085, style: 'open' },
   struts: { motor: 0.14, flat: true },
-  blades: { count: 4, shape: 'wide', pitch: 0.5, reach: 0.97 },
+  blades: { count: 4, shape: 'wide', pitch: 0.5, reach: 0.92 },
   colours: {
     frame: { color: '#4a4e52', metalness: 0.45, roughness: 0.4, clearcoat: 0.4 },
     blade: { color: '#454a4e', metalness: 0.55, roughness: 0.35, clearcoat: 0.5 },

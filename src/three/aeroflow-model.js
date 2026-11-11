@@ -65,9 +65,9 @@ function bladeGeometry() {
   const trailing = [];
   const steps = 40;
   for (let i = 0; i <= steps; i++) {
-    const x = 0.06 + (0.92 * i) / steps;
+    const x = 0.12 + (0.86 * i) / steps; // starts inside the motor shell, so the roots never show
     const sweep = 0.1 * (x - 0.1) ** 2; // a gentle backward curve towards the tip
-    const root = 0.17 * Math.exp(-((x - 0.15) ** 2) * 40); // the wide flare where it joins the motor
+    const root = 0.15 * Math.exp(-((x - 0.2) ** 2) * 30); // the wide flare where it leaves the collar
     const width = 0.235 - 0.075 * x + root;
     leading.push(new THREE.Vector2(x, sweep - width * 0.42));
     trailing.push(new THREE.Vector2(x, sweep + width * 0.58));
@@ -93,7 +93,7 @@ function bladeGeometry() {
   geo.translate(0, 0, -0.007);
   geo.rotateX(-Math.PI / 2); // lie flat; the chord now runs along z
   // Pitch: lift the leading edge so the blade pushes air down.
-  geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-0.11));
+  geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-0.08));
   geo.computeVertexNormals();
   return geo;
 }
@@ -127,20 +127,20 @@ export function createAeroflow({ shadows = false } = {}) {
   rotor.name = 'rotor';
 
   const shell = new THREE.Mesh(
-    lathe([[0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.205, -0.01], [0.198, -0.035], [0.185, -0.045]]),
+    lathe([[0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.208, -0.015], [0.214, -0.046], [0.232, -0.058], [0.236, -0.064], [0.226, -0.07], [0.2, -0.0725], [0.165, -0.0735]]),
     materials.body,
   );
-  // Seen from below (studio photos, poster): the shell curves smoothly under, in the body colour, to one bold
-  // ring (chrome, or copper on golden and wood) about 70% of the way out, round a flat cap.
+  // Seen from below (studio photos, posters 03/04): a smooth collar in the body colour that the blades grow
+  // out of, a thin bright ring (chrome, or copper on golden and wood) and a flat cap set just inside it.
   const trim = new THREE.Mesh(
-    lathe([[0.185, -0.045], [0.176, -0.052], [0.162, -0.0565], [0.148, -0.058]]),
+    lathe([[0.165, -0.0735], [0.152, -0.074], [0.144, -0.074]]),
     materials.trim,
   );
-  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.141, 0.0085, 16, 96), materials.accent);
+  const accent = new THREE.Mesh(new THREE.TorusGeometry(0.139, 0.0068, 16, 96), materials.accent);
   accent.rotation.x = Math.PI / 2;
-  accent.position.y = -0.0585;
+  accent.position.y = -0.074;
   const cap = new THREE.Mesh(
-    lathe([[0.135, -0.0565], [0.13, -0.0578], [0.09, -0.0586], [0, -0.059]]),
+    lathe([[0.133, -0.0715], [0.12, -0.072], [0, -0.0722]]),
     materials.cap,
   );
   rotor.add(shell, trim, accent, cap);
@@ -150,7 +150,7 @@ export function createAeroflow({ shadows = false } = {}) {
   for (let i = 0; i < BLADE_COUNT; i++) {
     const pivot = new THREE.Group(); // the pivot lets the intro animation fold and unfold each blade
     const blade = new THREE.Mesh(bladeGeo, materials.blade);
-    blade.position.y = -0.034; // low on the motor: the blades' underside runs level with the ring, as pictured
+    blade.position.y = -0.03; // the blades leave the collar's edge; the collar stands just proud of them below
     pivot.add(blade);
     pivot.userData.restAngle = (i * Math.PI * 2) / BLADE_COUNT;
     pivot.rotation.y = pivot.userData.restAngle;
