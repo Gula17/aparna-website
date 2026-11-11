@@ -10,6 +10,8 @@
 // hub and blade tips. The page stacks the layers and spins only the rotor (src/styles/showroom.css).
 //
 // Marking a fan (all positions are fractions of the cutout's width and height):
+//   cutout "own-…"         the cutout the marks were made on (its file name without the size); a fan whose
+//                          picture has changed since is skipped until it is marked again
 //   hub   [x, y]           the centre the blades turn around
 //   r     0.39             face-on fans: blade-area radius, as a fraction of the width
 //   axes  [a, b, deg]      face-on fans: blade-area ellipse fitted to the guard (a, b as fractions of the width)
@@ -60,6 +62,9 @@ for (const [id, mark] of Object.entries(marks)) {
   if (id.startsWith('_')) continue;
   const cut = cutouts[id];
   if (!cut) { console.warn(`  ${id}: no cutout, skipped`); continue; }
+  // marks are positions on one particular picture: when the product's picture changes, mark it again
+  const cutKey = path.basename(cut.variants.at(-1).file).replace(/-\d+\.webp$/, '');
+  if (mark.cutout && mark.cutout !== cutKey) { console.warn(`  ${id}: picture changed (${cutKey}), mark it again in rotors.json; skipped`); continue; }
   const file = path.join(PUBLIC, cut.variants.at(-1).file);
   const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const W = info.width, H = info.height;

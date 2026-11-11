@@ -2,6 +2,7 @@
 //   - no money words anywhere in the built HTML/JS/CSS
 //   - no hidden ("confirm") or discontinued product on any page, no unverified specs
 //   - preview stays noindex
+//   - every /media/ file a page refers to is in the build
 // It also prints the gzipped size of each JS file against the §9 budget.
 
 import fs from 'node:fs/promises';
@@ -57,6 +58,15 @@ for (const file of htmlFiles) {
   if (!/name="robots" content="noindex/.test(html)) problems.push(`${path.relative(DIST, file)}: missing noindex`);
 }
 
+// Every picture a page asks for must be in the build (OneDrive has deleted freshly written files before).
+const present = new Set(all.map((f) => `/${path.relative(DIST, f).replace(/\\/g, '/')}`));
+const missingMedia = new Set();
+for (const file of text) {
+  const body = await fs.readFile(file, 'utf8');
+  for (const m of body.matchAll(/\/media\/[\w\-./]+?\.(?:webp|png|jpe?g|svg|pdf|mp4)/g)) if (!present.has(m[0])) missingMedia.add(m[0]);
+}
+for (const m of missingMedia) problems.push(`missing file ${m} (run npm run content / cutouts again)`);
+
 console.log('\nJS (gzipped)   budget: initial < 200 KB, 3D chunk < 600 KB');
 for (const file of all.filter((f) => f.endsWith('.js'))) {
   const gz = zlib.gzipSync(await fs.readFile(file)).length;
@@ -67,4 +77,4 @@ if (problems.length) {
   console.error(`\nBuild check FAILED:\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log('\nBuild check passed: no prices, no hidden products, noindex on every page.');
+console.log('\nBuild check passed: no prices, no hidden products, noindex on every page, no missing pictures.');

@@ -5,7 +5,9 @@
 //   AEROSLEEK  poster "03 AEROSLEEK" (matte black), event standee photo AVNI4456: rounded bowl canopy, slim
 //              downrod, compact cylindrical motor, glossy black base cap with blue LEDs (six round one in the
 //              centre), long flat square-tipped blades on a narrow bracket with two screws.
-//   IKON BLDC  posters "01/02 IKON BLDC" (charcoal grey): cone canopy, wider and flatter motor with a copper
+//              Studio photos 03/04/05 show it in white, black and brown.
+//   IKON BLDC  posters "01/02 IKON BLDC" (charcoal grey), studio photos 06 (white) and 21 (smoke brown): cup
+//              canopy, wider and flatter motor with a copper
 //              pin-stripe on the body and round the stepped base cap, wide blades with a raised strip along the
 //              front edge, cut-off tip corners, and a bracket with four screws.
 // Sides the photos don't show (the top of the motor, the back of the blades) follow the visible design.
@@ -94,20 +96,27 @@ function assemble(name, { stator, rotorParts, makeBlade, materials, finishes, sh
 // ---------------------------------------------------------------- AEROSLEEK
 
 const AEROSLEEK_FINISHES = {
-  // the poster's finish; the standee also shows a white one (white body, chrome ring)
-  black: {
-    body: { color: '#2b2c2f', metalness: 0.45, roughness: 0.34, clearcoat: 0.6, clearcoatRoughness: 0.15 },
-    blade: { color: '#2b2c2f', metalness: 0.15, roughness: 0.55, clearcoat: 0.15, clearcoatRoughness: 0.4 }, // matte, as on the poster
-    bracket: { color: '#1f2022', metalness: 0.55, roughness: 0.35 },
-    cap: { color: '#0a0b0c', metalness: 0.2, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05 },
-    ring: { color: '#2a2b2d', metalness: 0.8, roughness: 0.3 },
-  },
+  // the three studio photos (03 white, 04 black, 05 brown): a glossy black LED cap on all three
   white: {
     body: { color: '#f1f1ef', roughness: 0.32, clearcoat: 0.8 },
     blade: { color: '#f3f3f1', roughness: 0.35, clearcoat: 0.8 },
     bracket: { color: '#e6e6e4', roughness: 0.35 },
     cap: { color: '#0a0b0c', metalness: 0.2, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05 },
     ring: { color: '#eceef0', metalness: 1, roughness: 0.18 },
+  },
+  black: {
+    body: { color: '#38393c', metalness: 0.5, roughness: 0.34, clearcoat: 0.6, clearcoatRoughness: 0.15 },
+    blade: { color: '#3a3b3e', metalness: 0.35, roughness: 0.45, clearcoat: 0.3, clearcoatRoughness: 0.3 },
+    bracket: { color: '#2a2b2d', metalness: 0.55, roughness: 0.35 },
+    cap: { color: '#0a0b0c', metalness: 0.2, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05 },
+    ring: { color: '#8a8c90', metalness: 1, roughness: 0.25 },
+  },
+  brown: {
+    body: { color: '#5a3b2e', metalness: 0.55, roughness: 0.34, clearcoat: 0.6, clearcoatRoughness: 0.15 },
+    blade: { color: '#553629', metalness: 0.4, roughness: 0.42, clearcoat: 0.35, clearcoatRoughness: 0.3 },
+    bracket: { color: '#3f2a22', metalness: 0.55, roughness: 0.35 },
+    cap: { color: '#0a0b0c', metalness: 0.2, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05 },
+    ring: { color: '#9a9ca0', metalness: 1, roughness: 0.25 },
   },
 };
 
@@ -154,6 +163,23 @@ export function createAerosleek({ shadows = false } = {}) {
 // ---------------------------------------------------------------- IKON BLDC
 
 const IKON_FINISHES = {
+  // studio photos 06 (white, a champagne pin-line) and 21 (smoke brown, a copper pin-line)
+  white: {
+    body: { color: '#f1f1ef', roughness: 0.3, clearcoat: 0.8 },
+    blade: { color: '#f3f3f1', roughness: 0.32, clearcoat: 0.8 },
+    ridge: { color: '#f6f6f4', roughness: 0.3, clearcoat: 0.8 },
+    bracket: { color: '#d9dadc', metalness: 0.6, roughness: 0.3 },
+    copper: { color: '#cdb487', metalness: 1, roughness: 0.25 },
+    hole: { color: '#a9aaac', roughness: 0.6 },
+  },
+  'smoke-brown': {
+    body: { color: '#555355', metalness: 0.45, roughness: 0.4, clearcoat: 0.35 },
+    blade: { color: '#5a5859', metalness: 0.4, roughness: 0.44, clearcoat: 0.3 },
+    ridge: { color: '#626062', metalness: 0.4, roughness: 0.4, clearcoat: 0.3 },
+    bracket: { color: '#48474a', metalness: 0.55, roughness: 0.4 },
+    copper: { color: '#b8653f', metalness: 1, roughness: 0.28 },
+    hole: { color: '#2a2a2b', roughness: 0.8 },
+  },
   charcoal: {
     body: { color: '#4b4b4e', metalness: 0.5, roughness: 0.42, clearcoat: 0.3 },
     blade: { color: '#505053', metalness: 0.45, roughness: 0.46, clearcoat: 0.25 },
@@ -169,8 +195,8 @@ export function createIkonBldc({ shadows = false } = {}) {
     body: physical({}), blade: physical({}), ridge: physical({}), bracket: physical({}), copper: physical({}), hole: physical({}),
   };
 
-  // Still: a cone canopy (wide at the ceiling, narrowing to the rod) and the downrod.
-  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.095, CANOPY_TOP], [0.098, CANOPY_TOP - 0.02], [0.075, CANOPY_TOP - 0.09], [0.042, CANOPY_TOP - 0.15], [0.026, CANOPY_TOP - 0.17]]), materials.body);
+  // Still: a cup canopy (as in the studio photos) and the downrod.
+  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.084, CANOPY_TOP], [0.088, CANOPY_TOP - 0.014], [0.082, CANOPY_TOP - 0.06], [0.058, CANOPY_TOP - 0.1], [0.032, CANOPY_TOP - 0.125], [0.026, CANOPY_TOP - 0.17]]), materials.body);
   const downrod = new THREE.Mesh(lathe([[0.022, CANOPY_TOP - 0.17], [0.021, 0.13], [0.026, 0.09], [0.05, 0.065]], 32), materials.body);
   const stator = new THREE.Group();
   stator.add(canopy, downrod);

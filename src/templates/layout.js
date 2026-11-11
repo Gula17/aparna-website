@@ -29,9 +29,11 @@ export const siteHeader = (t, media, categories, { home = false, catalogueFile }
         <ul class="nav-menu__list">
           <li><a href="/products/"><strong>${esc(t.nav.allProducts)}</strong></a></li>
           ${categories.map((c) => `<li><a href="/products/${esc(c.slug)}/">${esc(c.name)} <span>${c.count}</span></a></li>`).join('')}
+          <li class="nav-menu__extra"><a href="/events/"><strong>${esc(t.nav.events)}</strong></a></li>
         </ul>
       </details>
       <a class="site-nav__bldc" href="${home ? '#bldc' : '/#bldc'}">${esc(t.nav.bldc)}</a>
+      <a class="site-nav__events" href="/events/">${esc(t.nav.events)}</a>
       <a class="site-nav__list" href="/my-list/" aria-label="${esc(t.nav.myList)}">
         ${HEART}<span class="site-nav__list-label">${esc(t.nav.myList)}</span><span class="list-count" data-list-count hidden>0</span>
       </a>
@@ -50,6 +52,10 @@ export const siteFooter = (t, media, categories) => `
         <li><a href="/products/">${esc(t.nav.allProducts)}</a></li>
         ${categories.map((c) => `<li><a href="/products/${esc(c.slug)}/">${esc(c.name)}</a></li>`).join('')}
       </ul>
+    </nav>
+    <nav class="site-footer__nav" aria-label="${esc(t.footer.aparna)}">
+      <h2 class="site-footer__heading">${esc(t.footer.aparna)}</h2>
+      <ul><li><a href="/events/">${esc(t.nav.events)}</a></li></ul>
     </nav>
     <div class="site-footer__social">
       <h2 class="site-footer__heading">${esc(t.footer.follow)}</h2>

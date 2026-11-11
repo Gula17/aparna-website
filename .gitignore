@@ -13,6 +13,7 @@ screenshots/
 # Generated catalogue pages (npm run content)
 products/
 my-list/
+events/
 
 # Local editor/assistant settings
 .claude/settings.local.json
@@ -22,3 +23,6 @@ my-list/
 
 # AI-upscaled photos (scripts/ai-upscale.mjs), rebuilt on demand
 .cache/
+
+# Aparna's studio photos (TransferNow download); cutouts are made from them
+TransferNow-*/

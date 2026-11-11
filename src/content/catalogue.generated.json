@@ -64,6 +64,39 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-01-480.webp",
+              "width": 480,
+              "height": 275
+            },
+            {
+              "file": "/media/products/studio-01-960.webp",
+              "width": 960,
+              "height": 551
+            }
+          ],
+          "alt": "The Aparna Aeroflow in Wood Craft",
+          "kind": "studio",
+          "colour": "Wood Craft"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-02-480.webp",
+              "width": 480,
+              "height": 140
+            },
+            {
+              "file": "/media/products/studio-02-960.webp",
+              "width": 960,
+              "height": 280
+            }
+          ],
+          "alt": "The Aparna Aeroflow in its colours",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-480.webp",
               "width": 480,
               "height": 360
@@ -157,6 +190,62 @@
         "pages": "6-7"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-03-480.webp",
+              "width": 480,
+              "height": 336
+            },
+            {
+              "file": "/media/products/studio-03-960.webp",
+              "width": 960,
+              "height": 671
+            }
+          ],
+          "alt": "The Aparna Aerosleek in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-04-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/studio-04-960.webp",
+              "width": 960,
+              "height": 632
+            },
+            {
+              "file": "/media/products/studio-04-1440.webp",
+              "width": 1107,
+              "height": 729
+            }
+          ],
+          "alt": "The Aparna Aerosleek in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-05-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/studio-05-960.webp",
+              "width": 960,
+              "height": 631
+            }
+          ],
+          "alt": "The Aparna Aerosleek in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        },
         {
           "variants": [
             {
@@ -256,6 +345,40 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-06-480.webp",
+              "width": 480,
+              "height": 322
+            },
+            {
+              "file": "/media/products/studio-06-960.webp",
+              "width": 960,
+              "height": 644
+            }
+          ],
+          "alt": "The Aparna Ikon BLDC in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-21-480.webp",
+              "width": 480,
+              "height": 321
+            },
+            {
+              "file": "/media/products/studio-21-960.webp",
+              "width": 960,
+              "height": 642
+            }
+          ],
+          "alt": "The Aparna Ikon BLDC in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-480.webp",
               "width": 480,
               "height": 360
@@ -332,6 +455,40 @@
         "pages": "10-11"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-15-480.webp",
+              "width": 480,
+              "height": 261
+            },
+            {
+              "file": "/media/products/studio-15-960.webp",
+              "width": 948,
+              "height": 515
+            }
+          ],
+          "alt": "The Aparna Air Max in Copper Brown",
+          "kind": "studio",
+          "colour": "Copper Brown"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-16-480.webp",
+              "width": 480,
+              "height": 274
+            },
+            {
+              "file": "/media/products/studio-16-960.webp",
+              "width": 960,
+              "height": 548
+            }
+          ],
+          "alt": "The Aparna Air Max in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
         {
           "variants": [
             {
@@ -414,6 +571,57 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-17-480.webp",
+              "width": 480,
+              "height": 274
+            },
+            {
+              "file": "/media/products/studio-17-960.webp",
+              "width": 960,
+              "height": 548
+            }
+          ],
+          "alt": "The Aparna Art Pro in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-18-480.webp",
+              "width": 480,
+              "height": 253
+            },
+            {
+              "file": "/media/products/studio-18-960.webp",
+              "width": 960,
+              "height": 507
+            }
+          ],
+          "alt": "The Aparna Art Pro in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-70-480.webp",
+              "width": 480,
+              "height": 279
+            },
+            {
+              "file": "/media/products/studio-70-960.webp",
+              "width": 960,
+              "height": 558
+            }
+          ],
+          "alt": "The Aparna Art Pro in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/poster-08-artpro-signature-series-ceiling-fan-480.webp",
               "width": 480,
               "height": 360
@@ -490,6 +698,23 @@
         "pages": "8-9"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-08-480.webp",
+              "width": 480,
+              "height": 284
+            },
+            {
+              "file": "/media/products/studio-08-960.webp",
+              "width": 960,
+              "height": 568
+            }
+          ],
+          "alt": "The Aparna Coral in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
         {
           "variants": [
             {
@@ -571,6 +796,57 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-10-480.webp",
+              "width": 480,
+              "height": 304
+            },
+            {
+              "file": "/media/products/studio-10-960.webp",
+              "width": 960,
+              "height": 609
+            }
+          ],
+          "alt": "The Aparna Coras in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-11-480.webp",
+              "width": 480,
+              "height": 292
+            },
+            {
+              "file": "/media/products/studio-11-960.webp",
+              "width": 960,
+              "height": 583
+            }
+          ],
+          "alt": "The Aparna Coras in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-12-480.webp",
+              "width": 480,
+              "height": 266
+            },
+            {
+              "file": "/media/products/studio-12-960.webp",
+              "width": 960,
+              "height": 533
+            }
+          ],
+          "alt": "The Aparna Coras in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/poster-05-coras-signature-series-ceiling-fan-480.webp",
               "width": 480,
               "height": 360
@@ -646,6 +922,40 @@
         "pages": "10-11"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-13-480.webp",
+              "width": 480,
+              "height": 288
+            },
+            {
+              "file": "/media/products/studio-13-960.webp",
+              "width": 918,
+              "height": 551
+            }
+          ],
+          "alt": "The Aparna Irus in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-14-480.webp",
+              "width": 480,
+              "height": 284
+            },
+            {
+              "file": "/media/products/studio-14-960.webp",
+              "width": 960,
+              "height": 568
+            }
+          ],
+          "alt": "The Aparna Irus in Golden",
+          "kind": "studio",
+          "colour": "Golden"
+        },
         {
           "variants": [
             {
@@ -975,6 +1285,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-51-480.webp",
+              "width": 480,
+              "height": 350
+            },
+            {
+              "file": "/media/products/studio-51-960.webp",
+              "width": 960,
+              "height": 701
+            }
+          ],
+          "alt": "The Aparna Mini DLX in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-mini-dlx-24-480.webp",
               "width": 480,
               "height": 557
@@ -1056,6 +1383,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-50-480.webp",
+              "width": 480,
+              "height": 342
+            },
+            {
+              "file": "/media/products/studio-50-960.webp",
+              "width": 938,
+              "height": 668
+            }
+          ],
+          "alt": "The Aparna Mini Smart in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-mini-smart-24-480.webp",
               "width": 480,
               "height": 436
@@ -1134,6 +1478,23 @@
         "pages": "18-19"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-49-480.webp",
+              "width": 480,
+              "height": 326
+            },
+            {
+              "file": "/media/products/studio-49-960.webp",
+              "width": 852,
+              "height": 579
+            }
+          ],
+          "alt": "The Aparna Mini Star in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -1229,6 +1590,23 @@
         "pages": "18-19"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-52-480.webp",
+              "width": 480,
+              "height": 338
+            },
+            {
+              "file": "/media/products/studio-52-960.webp",
+              "width": 943,
+              "height": 664
+            }
+          ],
+          "alt": "The Aparna New Josh in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
         {
           "variants": [
             {
@@ -1391,6 +1769,22 @@
         "pages": "18-19"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-47-480.webp",
+              "width": 480,
+              "height": 235
+            },
+            {
+              "file": "/media/products/studio-47-960.webp",
+              "width": 960,
+              "height": 469
+            }
+          ],
+          "alt": "The Aparna Major",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -1626,6 +2020,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-28-480.webp",
+              "width": 480,
+              "height": 304
+            },
+            {
+              "file": "/media/products/studio-28-960.webp",
+              "width": 960,
+              "height": 607
+            }
+          ],
+          "alt": "The Aparna Apsara in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-apsara-48-480.webp",
               "width": 480,
               "height": 383
@@ -1707,6 +2118,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-38-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/studio-38-960.webp",
+              "width": 960,
+              "height": 631
+            }
+          ],
+          "alt": "The Aparna Areta in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-areta-48-480.webp",
               "width": 480,
               "height": 366
@@ -1785,6 +2213,23 @@
         "pages": "14-15"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-27-480.webp",
+              "width": 480,
+              "height": 225
+            },
+            {
+              "file": "/media/products/studio-27-960.webp",
+              "width": 960,
+              "height": 451
+            }
+          ],
+          "alt": "The Aparna Croma in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -1904,6 +2349,40 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-26-480.webp",
+              "width": 480,
+              "height": 352
+            },
+            {
+              "file": "/media/products/studio-26-960.webp",
+              "width": 936,
+              "height": 686
+            }
+          ],
+          "alt": "The Aparna Crystal Pro in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-30-480.webp",
+              "width": 480,
+              "height": 341
+            },
+            {
+              "file": "/media/products/studio-30-960.webp",
+              "width": 960,
+              "height": 683
+            }
+          ],
+          "alt": "The Aparna Crystal Pro in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-crystal-pro-48-480.webp",
               "width": 480,
               "height": 386
@@ -1982,6 +2461,23 @@
         "pages": "14-15"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-31-480.webp",
+              "width": 480,
+              "height": 330
+            },
+            {
+              "file": "/media/products/studio-31-960.webp",
+              "width": 959,
+              "height": 659
+            }
+          ],
+          "alt": "The Aparna Electra in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -2147,6 +2643,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-65-480.webp",
+              "width": 480,
+              "height": 273
+            },
+            {
+              "file": "/media/products/studio-65-960.webp",
+              "width": 929,
+              "height": 529
+            }
+          ],
+          "alt": "The Aparna Flora in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-flora-48-480.webp",
               "width": 480,
               "height": 364
@@ -2309,6 +2822,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-34-480.webp",
+              "width": 480,
+              "height": 353
+            },
+            {
+              "file": "/media/products/studio-34-960.webp",
+              "width": 960,
+              "height": 707
+            }
+          ],
+          "alt": "The Aparna Glaze in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-glaze-48-480.webp",
               "width": 480,
               "height": 454
@@ -2420,6 +2950,23 @@
         "pages": "12-13"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-20-480.webp",
+              "width": 480,
+              "height": 317
+            },
+            {
+              "file": "/media/products/studio-20-960.webp",
+              "width": 960,
+              "height": 635
+            }
+          ],
+          "alt": "The Aparna Ikon in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -2586,7 +3133,25 @@
       "status": "new",
       "description": "The Luster Shine Golden is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-42-480.webp",
+              "width": 480,
+              "height": 505
+            },
+            {
+              "file": "/media/products/studio-42-960.webp",
+              "width": 909,
+              "height": 957
+            }
+          ],
+          "alt": "The Aparna Luster Shine Golden in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        }
+      ],
       "sort": "9.1.37"
     },
     {
@@ -2614,7 +3179,25 @@
       "status": "new",
       "description": "The Luster Shine Silver is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-43-480.webp",
+              "width": 480,
+              "height": 263
+            },
+            {
+              "file": "/media/products/studio-43-960.webp",
+              "width": 960,
+              "height": 526
+            }
+          ],
+          "alt": "The Aparna Luster Shine Silver in Silver/champagne",
+          "kind": "studio",
+          "colour": "Silver/champagne"
+        }
+      ],
       "sort": "9.1.38"
     },
     {
@@ -2649,7 +3232,25 @@
       "status": "new",
       "description": "The Nikon is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-55-480.webp",
+              "width": 480,
+              "height": 328
+            },
+            {
+              "file": "/media/products/studio-55-960.webp",
+              "width": 960,
+              "height": 655
+            }
+          ],
+          "alt": "The Aparna Nikon in Metallic Blue",
+          "kind": "studio",
+          "colour": "Metallic Blue"
+        }
+      ],
       "sort": "9.1.39"
     },
     {
@@ -2709,6 +3310,23 @@
         "pages": "16-17"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-41-480.webp",
+              "width": 480,
+              "height": 335
+            },
+            {
+              "file": "/media/products/studio-41-960.webp",
+              "width": 960,
+              "height": 670
+            }
+          ],
+          "alt": "The Aparna Phantom in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -2790,6 +3408,23 @@
         "pages": "12-13"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-22-480.webp",
+              "width": 480,
+              "height": 267
+            },
+            {
+              "file": "/media/products/studio-22-960.webp",
+              "width": 960,
+              "height": 534
+            }
+          ],
+          "alt": "The Aparna Prince in Metallic Brown",
+          "kind": "studio",
+          "colour": "Metallic Brown"
+        },
         {
           "variants": [
             {
@@ -2944,6 +3579,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-09-480.webp",
+              "width": 480,
+              "height": 323
+            },
+            {
+              "file": "/media/products/studio-09-960.webp",
+              "width": 960,
+              "height": 647
+            }
+          ],
+          "alt": "The Aparna Rosa in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-rosa-48-480.webp",
               "width": 480,
               "height": 520
@@ -3022,6 +3674,23 @@
         "pages": "16-17"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-36-480.webp",
+              "width": 480,
+              "height": 368
+            },
+            {
+              "file": "/media/products/studio-36-960.webp",
+              "width": 960,
+              "height": 736
+            }
+          ],
+          "alt": "The Aparna Senorita in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -3106,6 +3775,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-25-480.webp",
+              "width": 480,
+              "height": 360
+            },
+            {
+              "file": "/media/products/studio-25-960.webp",
+              "width": 960,
+              "height": 719
+            }
+          ],
+          "alt": "The Aparna Sonet Deco in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-sonet-deco-48-480.webp",
               "width": 480,
               "height": 408
@@ -3187,6 +3873,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-24-480.webp",
+              "width": 480,
+              "height": 319
+            },
+            {
+              "file": "/media/products/studio-24-960.webp",
+              "width": 960,
+              "height": 639
+            }
+          ],
+          "alt": "The Aparna Sparsh in Metallic Blue",
+          "kind": "studio",
+          "colour": "Metallic Blue"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-sparsh-48-480.webp",
               "width": 480,
               "height": 434
@@ -3265,6 +3968,23 @@
         "pages": "14-15"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-32-480.webp",
+              "width": 480,
+              "height": 362
+            },
+            {
+              "file": "/media/products/studio-32-960.webp",
+              "width": 960,
+              "height": 724
+            }
+          ],
+          "alt": "The Aparna Stunner in Metallic Brown",
+          "kind": "studio",
+          "colour": "Metallic Brown"
+        },
         {
           "variants": [
             {
@@ -3384,6 +4104,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-33-480.webp",
+              "width": 480,
+              "height": 301
+            },
+            {
+              "file": "/media/products/studio-33-960.webp",
+              "width": 960,
+              "height": 603
+            }
+          ],
+          "alt": "The Aparna Unicorn in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-unicorn-48-480.webp",
               "width": 480,
               "height": 225
@@ -3497,6 +4234,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-49-480.webp",
+              "width": 480,
+              "height": 326
+            },
+            {
+              "file": "/media/products/studio-49-960.webp",
+              "width": 852,
+              "height": 579
+            }
+          ],
+          "alt": "The Aparna Little Star in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-little-star-24-480.webp",
               "width": 480,
               "height": 503
@@ -3580,6 +4334,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-51-480.webp",
+              "width": 480,
+              "height": 350
+            },
+            {
+              "file": "/media/products/studio-51-960.webp",
+              "width": 960,
+              "height": 701
+            }
+          ],
+          "alt": "The Aparna Mini Copper in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-mini-copper-24-480.webp",
               "width": 480,
               "height": 552
@@ -3660,6 +4431,23 @@
         "pages": "28-29"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-52-480.webp",
+              "width": 480,
+              "height": 338
+            },
+            {
+              "file": "/media/products/studio-52-960.webp",
+              "width": 943,
+              "height": 664
+            }
+          ],
+          "alt": "The Aparna New Josh Copper in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
         {
           "variants": [
             {
@@ -4032,6 +4820,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-47-480.webp",
+              "width": 480,
+              "height": 235
+            },
+            {
+              "file": "/media/products/studio-47-960.webp",
+              "width": 960,
+              "height": 469
+            }
+          ],
+          "alt": "The Aparna Virat",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-virat-36-480.webp",
               "width": 480,
               "height": 289
@@ -4112,6 +4916,23 @@
         "pages": "24-25"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-35-480.webp",
+              "width": 480,
+              "height": 273
+            },
+            {
+              "file": "/media/products/studio-35-960.webp",
+              "width": 960,
+              "height": 547
+            }
+          ],
+          "alt": "The Aparna Aroma Deco in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -4281,6 +5102,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-57-480.webp",
+              "width": 480,
+              "height": 245
+            },
+            {
+              "file": "/media/products/studio-57-960.webp",
+              "width": 960,
+              "height": 491
+            }
+          ],
+          "alt": "The Aparna Croma Pro in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-croma-pro-48-480.webp",
               "width": 480,
               "height": 256
@@ -4425,6 +5263,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-60-480.webp",
+              "width": 480,
+              "height": 323
+            },
+            {
+              "file": "/media/products/studio-60-960.webp",
+              "width": 960,
+              "height": 646
+            }
+          ],
+          "alt": "The Aparna Fortune Pro in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-fortune-pro-48-480.webp",
               "width": 480,
               "height": 280
@@ -4542,6 +5397,22 @@
         "pages": "22-23"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-54-480.webp",
+              "width": 480,
+              "height": 305
+            },
+            {
+              "file": "/media/products/studio-54-960.webp",
+              "width": 960,
+              "height": 611
+            }
+          ],
+          "alt": "The Aparna Kiara",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -4831,6 +5702,28 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-68-480.webp",
+              "width": 480,
+              "height": 300
+            },
+            {
+              "file": "/media/products/studio-68-960.webp",
+              "width": 960,
+              "height": 600
+            },
+            {
+              "file": "/media/products/studio-68-1440.webp",
+              "width": 1106,
+              "height": 691
+            }
+          ],
+          "alt": "The Aparna Orchid Deco in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-orchid-deco-48-480.webp",
               "width": 480,
               "height": 422
@@ -4911,6 +5804,28 @@
         "pages": "24-25"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-64-480.webp",
+              "width": 480,
+              "height": 297
+            },
+            {
+              "file": "/media/products/studio-64-960.webp",
+              "width": 960,
+              "height": 593
+            },
+            {
+              "file": "/media/products/studio-64-1440.webp",
+              "width": 1113,
+              "height": 688
+            }
+          ],
+          "alt": "The Aparna Orina in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -4997,6 +5912,40 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-59-480.webp",
+              "width": 480,
+              "height": 337
+            },
+            {
+              "file": "/media/products/studio-59-960.webp",
+              "width": 960,
+              "height": 675
+            }
+          ],
+          "alt": "The Aparna Platinium in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-62-480.webp",
+              "width": 480,
+              "height": 538
+            },
+            {
+              "file": "/media/products/studio-62-960.webp",
+              "width": 960,
+              "height": 1076
+            }
+          ],
+          "alt": "The Aparna Platinium in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-platinium-48-480.webp",
               "width": 480,
               "height": 312
@@ -5077,6 +6026,28 @@
         "pages": "26-27"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-69-480.webp",
+              "width": 480,
+              "height": 335
+            },
+            {
+              "file": "/media/products/studio-69-960.webp",
+              "width": 960,
+              "height": 671
+            },
+            {
+              "file": "/media/products/studio-69-1440.webp",
+              "width": 1139,
+              "height": 796
+            }
+          ],
+          "alt": "The Aparna Porsche in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -5163,6 +6134,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-53-480.webp",
+              "width": 480,
+              "height": 326
+            },
+            {
+              "file": "/media/products/studio-53-960.webp",
+              "width": 960,
+              "height": 651
+            }
+          ],
+          "alt": "The Aparna Rafale in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-rafale-48-480.webp",
               "width": 480,
               "height": 292
@@ -5243,6 +6231,23 @@
         "pages": "22-23"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-61-480.webp",
+              "width": 480,
+              "height": 317
+            },
+            {
+              "file": "/media/products/studio-61-960.webp",
+              "width": 960,
+              "height": 634
+            }
+          ],
+          "alt": "The Aparna Raftaar in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -5366,6 +6371,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-66-480.webp",
+              "width": 480,
+              "height": 344
+            },
+            {
+              "file": "/media/products/studio-66-960.webp",
+              "width": 960,
+              "height": 688
+            }
+          ],
+          "alt": "The Aparna Rolex in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-rolex-48-480.webp",
               "width": 480,
               "height": 338
@@ -5421,7 +6443,25 @@
       "status": "new",
       "description": "The Rosa Pro is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-37-480.webp",
+              "width": 480,
+              "height": 315
+            },
+            {
+              "file": "/media/products/studio-37-960.webp",
+              "width": 960,
+              "height": 630
+            }
+          ],
+          "alt": "The Aparna Rosa Pro in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        }
+      ],
       "sort": "9.1.78"
     },
     {
@@ -5483,6 +6523,23 @@
         "pages": "24-25"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-63-480.webp",
+              "width": 480,
+              "height": 369
+            },
+            {
+              "file": "/media/products/studio-63-960.webp",
+              "width": 960,
+              "height": 737
+            }
+          ],
+          "alt": "The Aparna Runner in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -5569,6 +6626,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-67-480.webp",
+              "width": 480,
+              "height": 353
+            },
+            {
+              "file": "/media/products/studio-67-960.webp",
+              "width": 960,
+              "height": 706
+            }
+          ],
+          "alt": "The Aparna Sayonara in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-sayonara-48-480.webp",
               "width": 480,
               "height": 294
@@ -5649,6 +6723,23 @@
         "pages": "24-25"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-58-480.webp",
+              "width": 480,
+              "height": 321
+            },
+            {
+              "file": "/media/products/studio-58-960.webp",
+              "width": 960,
+              "height": 642
+            }
+          ],
+          "alt": "The Aparna Smart Deco in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
         {
           "variants": [
             {
@@ -5984,6 +7075,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-56-480.webp",
+              "width": 480,
+              "height": 359
+            },
+            {
+              "file": "/media/products/studio-56-960.webp",
+              "width": 960,
+              "height": 719
+            }
+          ],
+          "alt": "The Aparna Vista Deco in Smoke Brown",
+          "kind": "studio",
+          "colour": "Smoke Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ceiling-fans-vista-deco-48-480.webp",
               "width": 480,
               "height": 352
@@ -6039,6 +7147,23 @@
         "pages": "36-37"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-83-480.webp",
+              "width": 462,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-83-960.webp",
+              "width": 647,
+              "height": 1009
+            }
+          ],
+          "alt": "The Aparna Vento in Black & Grey",
+          "kind": "studio",
+          "colour": "Black & Grey"
+        },
         {
           "variants": [
             {
@@ -6121,6 +7246,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-86-480.webp",
+              "width": 480,
+              "height": 614
+            },
+            {
+              "file": "/media/products/studio-86-960.webp",
+              "width": 749,
+              "height": 958
+            }
+          ],
+          "alt": "The Aparna Glider in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-glider-16-0-480.webp",
               "width": 444,
               "height": 720
@@ -6197,6 +7339,23 @@
         "pages": "36-37"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-85-480.webp",
+              "width": 480,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-85-960.webp",
+              "width": 651,
+              "height": 977
+            }
+          ],
+          "alt": "The Aparna Spider in Black & Grey",
+          "kind": "studio",
+          "colour": "Black & Grey"
+        },
         {
           "variants": [
             {
@@ -6281,6 +7440,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-84-480.webp",
+              "width": 470,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-84-960.webp",
+              "width": 664,
+              "height": 1017
+            }
+          ],
+          "alt": "The Aparna Tornado in Black & Grey",
+          "kind": "studio",
+          "colour": "Black & Grey"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-tornado-16-0-480.webp",
               "width": 480,
               "height": 691
@@ -6360,6 +7536,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-91-480.webp",
+              "width": 442,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-91-960.webp",
+              "width": 645,
+              "height": 1051
+            }
+          ],
+          "alt": "The Aparna Wendy in White & Black",
+          "kind": "studio",
+          "colour": "White & Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-wendy-12-0-480.webp",
               "width": 330,
               "height": 720
@@ -6436,6 +7629,23 @@
         "pages": "38-39"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-87-480.webp",
+              "width": 269,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-87-960.webp",
+              "width": 387,
+              "height": 1036
+            }
+          ],
+          "alt": "The Aparna Fiona in White & Grey",
+          "kind": "studio",
+          "colour": "White & Grey"
+        },
         {
           "variants": [
             {
@@ -6597,6 +7807,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-88-480.webp",
+              "width": 446,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-88-960.webp",
+              "width": 545,
+              "height": 880
+            }
+          ],
+          "alt": "The Aparna Vectra in Aqua & Ivory",
+          "kind": "studio",
+          "colour": "Aqua & Ivory"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-vectra-16-0-480.webp",
               "width": 353,
               "height": 720
@@ -6673,6 +7900,23 @@
         "pages": "38-39"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-89-480.webp",
+              "width": 480,
+              "height": 643
+            },
+            {
+              "file": "/media/products/studio-89-960.webp",
+              "width": 768,
+              "height": 1028
+            }
+          ],
+          "alt": "The Aparna Vistara in Aqua & Ivory",
+          "kind": "studio",
+          "colour": "Aqua & Ivory"
+        },
         {
           "variants": [
             {
@@ -6755,6 +7999,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-96-480.webp",
+              "width": 480,
+              "height": 687
+            },
+            {
+              "file": "/media/products/studio-96-960.webp",
+              "width": 713,
+              "height": 1020
+            }
+          ],
+          "alt": "The Aparna Jazz in Copper & Black",
+          "kind": "studio",
+          "colour": "Copper & Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-jazz-12-0-480.webp",
               "width": 480,
               "height": 492
@@ -6831,6 +8092,23 @@
         "pages": "40-41"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-93-480.webp",
+              "width": 431,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-93-960.webp",
+              "width": 649,
+              "height": 1083
+            }
+          ],
+          "alt": "The Aparna Blazo in Copper & Black",
+          "kind": "studio",
+          "colour": "Copper & Black"
+        },
         {
           "variants": [
             {
@@ -6913,6 +8191,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-94-480.webp",
+              "width": 436,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-94-960.webp",
+              "width": 618,
+              "height": 1020
+            }
+          ],
+          "alt": "The Aparna Blitz in Terracotta & White",
+          "kind": "studio",
+          "colour": "Terracotta & White"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-blitz-16-0-480.webp",
               "width": 480,
               "height": 591
@@ -6988,7 +8283,25 @@
         "leaf": 22,
         "pages": "42-43"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-97-480.webp",
+              "width": 256,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-97-960.webp",
+              "width": 368,
+              "height": 1033
+            }
+          ],
+          "alt": "The Aparna Iconic in Rose Pink & White",
+          "kind": "studio",
+          "colour": "Rose Pink & White"
+        }
+      ],
       "sort": "9.1.98"
     },
     {
@@ -7025,6 +8338,23 @@
         "pages": "42-43"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-92-480.webp",
+              "width": 272,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-92-960.webp",
+              "width": 432,
+              "height": 1145
+            }
+          ],
+          "alt": "The Aparna Stallion in Orange & Black",
+          "kind": "studio",
+          "colour": "Orange & Black"
+        },
         {
           "variants": [
             {
@@ -7107,6 +8437,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-95-480.webp",
+              "width": 480,
+              "height": 641
+            },
+            {
+              "file": "/media/products/studio-95-960.webp",
+              "width": 774,
+              "height": 1034
+            }
+          ],
+          "alt": "The Aparna Velora in Copper & Black",
+          "kind": "studio",
+          "colour": "Copper & Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/own-table-wall-pedestal-fans-velora-16-0-480.webp",
               "width": 480,
               "height": 411
@@ -7176,7 +8523,26 @@
       "status": "new",
       "description": "The Oreo is a 12\" (300 mm) table fan in Aparna's New range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-82-480.webp",
+              "width": 475,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-82-960.webp",
+              "width": 608,
+              "height": 922
+            }
+          ],
+          "opaque": true,
+          "alt": "The Aparna Oreo in Black",
+          "kind": "studio",
+          "colour": "Black"
+        }
+      ],
       "sort": "9.1.101"
     },
     {
@@ -7260,7 +8626,25 @@
       "status": "new",
       "description": "The Tesla is a 16\" (400 mm) wall fan in Aparna's New range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-90-480.webp",
+              "width": 480,
+              "height": 686
+            },
+            {
+              "file": "/media/products/studio-90-960.webp",
+              "width": 717,
+              "height": 1024
+            }
+          ],
+          "alt": "The Aparna Tesla in Black",
+          "kind": "studio",
+          "colour": "Black"
+        }
+      ],
       "sort": "9.1.104"
     },
     {
@@ -7294,6 +8678,24 @@
         "pages": "34-35"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-80-480.webp",
+              "width": 480,
+              "height": 641
+            },
+            {
+              "file": "/media/products/studio-80-960.webp",
+              "width": 745,
+              "height": 995
+            }
+          ],
+          "opaque": true,
+          "alt": "The Aparna GoAir AC-DC in White & Grey",
+          "kind": "studio",
+          "colour": "White & Grey"
+        },
         {
           "variants": [
             {
@@ -7349,6 +8751,24 @@
         "pages": "34-35"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-81-480.webp",
+              "width": 480,
+              "height": 626
+            },
+            {
+              "file": "/media/products/studio-81-960.webp",
+              "width": 795,
+              "height": 1037
+            }
+          ],
+          "opaque": true,
+          "alt": "The Aparna GoAir AC-DC in White & Grey",
+          "kind": "studio",
+          "colour": "White & Grey"
+        },
         {
           "variants": [
             {
@@ -7410,6 +8830,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-73-480.webp",
+              "width": 460,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-73-960.webp",
+              "width": 578,
+              "height": 905
+            }
+          ],
+          "alt": "The Aparna Safari in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-all-purpose-cabin-fans-safari-9-480.webp",
               "width": 480,
               "height": 470
@@ -7465,6 +8902,23 @@
         "pages": "34-35"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-79-480.webp",
+              "width": 480,
+              "height": 553
+            },
+            {
+              "file": "/media/products/studio-79-960.webp",
+              "width": 847,
+              "height": 975
+            }
+          ],
+          "alt": "The Aparna Cabin Fan in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -7579,6 +9033,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-71-480.webp",
+              "width": 480,
+              "height": 618
+            },
+            {
+              "file": "/media/products/studio-71-960.webp",
+              "width": 777,
+              "height": 1001
+            }
+          ],
+          "alt": "The Aparna Piano Black in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-all-purpose-cabin-fans-piano-black-12-480.webp",
               "width": 468,
               "height": 720
@@ -7634,6 +9105,23 @@
         "pages": "32-33"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-72-480.webp",
+              "width": 480,
+              "height": 608
+            },
+            {
+              "file": "/media/products/studio-72-960.webp",
+              "width": 838,
+              "height": 1061
+            }
+          ],
+          "alt": "The Aparna Piano White in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -7742,6 +9230,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-101-480.webp",
+              "width": 357,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-101-960.webp",
+              "width": 547,
+              "height": 1102
+            }
+          ],
+          "alt": "The Aparna Bullet (oscillating) in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-high-speed-fans-bullet-oscillating-12-480.webp",
               "width": 264,
               "height": 720
@@ -7797,6 +9302,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-99-480.webp",
+              "width": 310,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-99-960.webp",
+              "width": 451,
+              "height": 1049
+            }
+          ],
+          "alt": "The Aparna Ornet in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-high-speed-fans-ornet-12-480.webp",
               "width": 385,
               "height": 720
@@ -7849,6 +9371,23 @@
         "pages": "44-45"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-102-480.webp",
+              "width": 280,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-102-960.webp",
+              "width": 424,
+              "height": 1090
+            }
+          ],
+          "alt": "The Aparna Bullet in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
         {
           "variants": [
             {
@@ -7950,7 +9489,25 @@
         "leaf": 23,
         "pages": "44-45"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-103-480.webp",
+              "width": 280,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-103-960.webp",
+              "width": 423,
+              "height": 1087
+            }
+          ],
+          "alt": "The Aparna Bullet (oscillating), metal blade in Black & Silver",
+          "kind": "studio",
+          "colour": "Black & Silver"
+        }
+      ],
       "sort": "9.1.117"
     },
     {
@@ -7983,7 +9540,25 @@
         "leaf": 23,
         "pages": "44-45"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-104-480.webp",
+              "width": 288,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-104-960.webp",
+              "width": 382,
+              "height": 955
+            }
+          ],
+          "alt": "The Aparna Maxx (oscillating) in Blue & White",
+          "kind": "studio",
+          "colour": "Blue & White"
+        }
+      ],
       "sort": "9.1.118"
     },
     {
@@ -8017,6 +9592,23 @@
         "pages": "42-43"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-100-480.webp",
+              "width": 265,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-100-960.webp",
+              "width": 385,
+              "height": 1048
+            }
+          ],
+          "alt": "The Aparna Shine in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
         {
           "variants": [
             {
@@ -8076,6 +9668,23 @@
         "pages": "46-47"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-109-480.webp",
+              "width": 349,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-109-960.webp",
+              "width": 521,
+              "height": 1075
+            }
+          ],
+          "alt": "The Aparna Champion in Black & Silver",
+          "kind": "studio",
+          "colour": "Black & Silver"
+        },
         {
           "variants": [
             {
@@ -8139,6 +9748,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-105-480.webp",
+              "width": 319,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-105-960.webp",
+              "width": 450,
+              "height": 1017
+            }
+          ],
+          "alt": "The Aparna Hexa in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-high-speed-fans-hexa-20-480.webp",
               "width": 343,
               "height": 720
@@ -8195,6 +9821,23 @@
         "pages": "46-47"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-107-480.webp",
+              "width": 296,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-107-960.webp",
+              "width": 428,
+              "height": 1042
+            }
+          ],
+          "alt": "The Aparna Indus (high speed) in Grey",
+          "kind": "studio",
+          "colour": "Grey"
+        },
         {
           "variants": [
             {
@@ -8317,6 +9960,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-106-480.webp",
+              "width": 346,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-106-960.webp",
+              "width": 489,
+              "height": 1017
+            }
+          ],
+          "alt": "The Aparna Sultan in Black & Grey",
+          "kind": "studio",
+          "colour": "Black & Grey"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-high-speed-fans-sultan-20-480.webp",
               "width": 291,
               "height": 721
@@ -8363,7 +10023,25 @@
       "status": "new",
       "description": "The Windstar is a 22\" (null mm) farratta fan in Aparna's Farratta fans range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-108-480.webp",
+              "width": 311,
+              "height": 721
+            },
+            {
+              "file": "/media/products/studio-108-960.webp",
+              "width": 449,
+              "height": 1041
+            }
+          ],
+          "alt": "The Aparna Windstar in Black",
+          "kind": "studio",
+          "colour": "Black"
+        }
+      ],
       "sort": "9.1.125"
     },
     {
@@ -8459,6 +10137,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-110-480.webp",
+              "width": 480,
+              "height": 480
+            },
+            {
+              "file": "/media/products/studio-110-960.webp",
+              "width": 836,
+              "height": 836
+            }
+          ],
+          "alt": "The Aparna Fresh Air Fan (high speed) in Brown",
+          "kind": "studio",
+          "colour": "Brown"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-480.webp",
               "width": 480,
               "height": 318
@@ -8514,6 +10209,23 @@
         "pages": "34-35"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-78-480.webp",
+              "width": 480,
+              "height": 473
+            },
+            {
+              "file": "/media/products/studio-78-960.webp",
+              "width": 911,
+              "height": 897
+            }
+          ],
+          "alt": "The Aparna Ventilation Fan in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -8575,6 +10287,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-76-480.webp",
+              "width": 480,
+              "height": 473
+            },
+            {
+              "file": "/media/products/studio-76-960.webp",
+              "width": 950,
+              "height": 936
+            }
+          ],
+          "alt": "The Aparna Ventilation Fan in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-ventilation-fresh-air-fans-ventilation-fan-8-480.webp",
               "width": 480,
               "height": 569
@@ -8630,6 +10359,23 @@
         "pages": "34-35"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-77-480.webp",
+              "width": 480,
+              "height": 473
+            },
+            {
+              "file": "/media/products/studio-77-960.webp",
+              "width": 960,
+              "height": 945
+            }
+          ],
+          "alt": "The Aparna Ventilation Fan in White",
+          "kind": "studio",
+          "colour": "White"
+        },
         {
           "variants": [
             {
@@ -10005,6 +11751,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-169-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/studio-169-960.webp",
+              "width": 960,
+              "height": 633
+            }
+          ],
+          "alt": "The Aparna BNG",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-bng-480.webp",
               "width": 480,
               "height": 391
@@ -10062,6 +11824,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-168-480.webp",
+              "width": 480,
+              "height": 291
+            },
+            {
+              "file": "/media/products/studio-168-960.webp",
+              "width": 960,
+              "height": 582
+            }
+          ],
+          "alt": "The Aparna Calvin",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10125,6 +11903,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-165-480.webp",
+              "width": 480,
+              "height": 308
+            },
+            {
+              "file": "/media/products/studio-165-960.webp",
+              "width": 937,
+              "height": 602
+            }
+          ],
+          "alt": "The Aparna Comfort",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-comfort-480.webp",
               "width": 480,
               "height": 538
@@ -10182,6 +11976,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-170-480.webp",
+              "width": 480,
+              "height": 279
+            },
+            {
+              "file": "/media/products/studio-170-960.webp",
+              "width": 941,
+              "height": 546
+            }
+          ],
+          "alt": "The Aparna Crescent",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10245,6 +12055,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-175-480.webp",
+              "width": 480,
+              "height": 302
+            },
+            {
+              "file": "/media/products/studio-175-960.webp",
+              "width": 931,
+              "height": 586
+            }
+          ],
+          "alt": "The Aparna Excel",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-excel-480.webp",
               "width": 480,
               "height": 397
@@ -10302,6 +12128,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-163-480.webp",
+              "width": 480,
+              "height": 323
+            },
+            {
+              "file": "/media/products/studio-163-960.webp",
+              "width": 960,
+              "height": 647
+            }
+          ],
+          "alt": "The Aparna Hudsun",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10365,6 +12207,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-162-480.webp",
+              "width": 480,
+              "height": 292
+            },
+            {
+              "file": "/media/products/studio-162-960.webp",
+              "width": 918,
+              "height": 558
+            }
+          ],
+          "alt": "The Aparna JHN 1250",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-jhn-1250-480.webp",
               "width": 480,
               "height": 493
@@ -10422,6 +12280,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-162-480.webp",
+              "width": 480,
+              "height": 292
+            },
+            {
+              "file": "/media/products/studio-162-960.webp",
+              "width": 918,
+              "height": 558
+            }
+          ],
+          "alt": "The Aparna JHN 2000",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10485,6 +12359,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-173-480.webp",
+              "width": 480,
+              "height": 301
+            },
+            {
+              "file": "/media/products/studio-173-960.webp",
+              "width": 891,
+              "height": 558
+            }
+          ],
+          "alt": "The Aparna Magnum",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-magnum-480.webp",
               "width": 480,
               "height": 495
@@ -10542,6 +12432,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-166-480.webp",
+              "width": 480,
+              "height": 347
+            },
+            {
+              "file": "/media/products/studio-166-960.webp",
+              "width": 960,
+              "height": 693
+            }
+          ],
+          "alt": "The Aparna Nelson",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10605,6 +12511,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-171-480.webp",
+              "width": 480,
+              "height": 292
+            },
+            {
+              "file": "/media/products/studio-171-960.webp",
+              "width": 939,
+              "height": 572
+            }
+          ],
+          "alt": "The Aparna Phantom",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-phantom-480.webp",
               "width": 480,
               "height": 381
@@ -10662,6 +12584,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-174-480.webp",
+              "width": 480,
+              "height": 301
+            },
+            {
+              "file": "/media/products/studio-174-960.webp",
+              "width": 877,
+              "height": 550
+            }
+          ],
+          "alt": "The Aparna Regent",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10725,6 +12663,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-178-480.webp",
+              "width": 480,
+              "height": 303
+            },
+            {
+              "file": "/media/products/studio-178-960.webp",
+              "width": 926,
+              "height": 585
+            }
+          ],
+          "alt": "The Aparna Rustam",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-rustam-480.webp",
               "width": 480,
               "height": 320
@@ -10782,6 +12736,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-177-480.webp",
+              "width": 480,
+              "height": 332
+            },
+            {
+              "file": "/media/products/studio-177-960.webp",
+              "width": 922,
+              "height": 637
+            }
+          ],
+          "alt": "The Aparna SS Jumbo",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -10845,6 +12815,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-167-480.webp",
+              "width": 480,
+              "height": 347
+            },
+            {
+              "file": "/media/products/studio-167-960.webp",
+              "width": 881,
+              "height": 636
+            }
+          ],
+          "alt": "The Aparna SS-2000",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-ss-2000-480.webp",
               "width": 480,
               "height": 494
@@ -10905,6 +12891,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-176-480.webp",
+              "width": 480,
+              "height": 352
+            },
+            {
+              "file": "/media/products/studio-176-960.webp",
+              "width": 932,
+              "height": 684
+            }
+          ],
+          "alt": "The Aparna Simson",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-simson-480.webp",
               "width": 480,
               "height": 488
@@ -10962,6 +12964,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-172-480.webp",
+              "width": 480,
+              "height": 284
+            },
+            {
+              "file": "/media/products/studio-172-960.webp",
+              "width": 950,
+              "height": 562
+            }
+          ],
+          "alt": "The Aparna Smart",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -11057,6 +13075,22 @@
         "pages": "54-55"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-164-480.webp",
+              "width": 480,
+              "height": 293
+            },
+            {
+              "file": "/media/products/studio-164-960.webp",
+              "width": 928,
+              "height": 566
+            }
+          ],
+          "alt": "The Aparna Ultima",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -11215,6 +13249,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-115-480.webp",
+              "width": 480,
+              "height": 245
+            },
+            {
+              "file": "/media/products/studio-115-960.webp",
+              "width": 960,
+              "height": 490
+            }
+          ],
+          "alt": "The Aparna Presto",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-presto-480.webp",
               "width": 480,
               "height": 167
@@ -11330,6 +13380,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-113-480.webp",
+              "width": 480,
+              "height": 273
+            },
+            {
+              "file": "/media/products/studio-113-960.webp",
+              "width": 960,
+              "height": 546
+            }
+          ],
+          "alt": "The Aparna Prime",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-prime-480.webp",
               "width": 480,
               "height": 189
@@ -11405,6 +13471,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-114-480.webp",
+              "width": 480,
+              "height": 231
+            },
+            {
+              "file": "/media/products/studio-114-960.webp",
+              "width": 960,
+              "height": 461
+            }
+          ],
+          "alt": "The Aparna Prince",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-kitchen-appliances-prince-480.webp",
               "width": 480,
               "height": 154
@@ -11469,6 +13551,23 @@
         "pages": "60-61"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-142-480.webp",
+              "width": 127,
+              "height": 717
+            },
+            {
+              "file": "/media/products/studio-142-960.webp",
+              "width": 191,
+              "height": 1079
+            }
+          ],
+          "alt": "The Aparna Pearl immersion rod 1000 W in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
         {
           "variants": [
             {
@@ -11539,6 +13638,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-141-480.webp",
+              "width": 156,
+              "height": 718
+            },
+            {
+              "file": "/media/products/studio-141-960.webp",
+              "width": 242,
+              "height": 1114
+            }
+          ],
+          "alt": "The Aparna Pearl immersion rod 1500 W in Lime green",
+          "kind": "studio",
+          "colour": "Lime green"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-480.webp",
               "width": 480,
               "height": 483
@@ -11606,6 +13722,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-141-480.webp",
+              "width": 156,
+              "height": 718
+            },
+            {
+              "file": "/media/products/studio-141-960.webp",
+              "width": 242,
+              "height": 1114
+            }
+          ],
+          "alt": "The Aparna Pearl immersion rod 2000 W in Lime green",
+          "kind": "studio",
+          "colour": "Lime green"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-480.webp",
               "width": 480,
               "height": 483
@@ -11664,6 +13797,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-140-480.webp",
+              "width": 471,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-140-960.webp",
+              "width": 672,
+              "height": 1027
+            }
+          ],
+          "alt": "The Aparna Croma in Red and white",
+          "kind": "studio",
+          "colour": "Red and white"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-croma-480.webp",
               "width": 342,
               "height": 721
@@ -11719,6 +13869,22 @@
         "pages": "60-61"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-137-480.webp",
+              "width": 480,
+              "height": 707
+            },
+            {
+              "file": "/media/products/studio-137-960.webp",
+              "width": 671,
+              "height": 989
+            }
+          ],
+          "alt": "The Aparna Croma2",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -11806,6 +13972,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-145-480.webp",
+              "width": 480,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-145-960.webp",
+              "width": 659,
+              "height": 987
+            }
+          ],
+          "alt": "The Aparna Kettle element",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-kettle-element-480.webp",
               "width": 413,
               "height": 720
@@ -11849,7 +14031,24 @@
         "leaf": 31,
         "pages": "60-61"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-143-480.webp",
+              "width": 480,
+              "height": 461
+            },
+            {
+              "file": "/media/products/studio-143-960.webp",
+              "width": 863,
+              "height": 828
+            }
+          ],
+          "alt": "The Aparna Kettle element, half round",
+          "kind": "studio"
+        }
+      ],
       "sort": "9.1.179"
     },
     {
@@ -11880,7 +14079,24 @@
         "leaf": 31,
         "pages": "60-61"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-144-480.webp",
+              "width": 296,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-144-960.webp",
+              "width": 322,
+              "height": 782
+            }
+          ],
+          "alt": "The Aparna Kettle midget element",
+          "kind": "studio"
+        }
+      ],
       "sort": "9.1.180"
     },
     {
@@ -11917,6 +14133,22 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-123-480.webp",
+              "width": 480,
+              "height": 289
+            },
+            {
+              "file": "/media/products/studio-123-960.webp",
+              "width": 960,
+              "height": 578
+            }
+          ],
+          "alt": "The Aparna Alexa",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -11978,6 +14210,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-121-480.webp",
+              "width": 480,
+              "height": 334
+            },
+            {
+              "file": "/media/products/studio-121-960.webp",
+              "width": 960,
+              "height": 669
+            }
+          ],
+          "alt": "The Aparna Alineo",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-alineo-480.webp",
               "width": 480,
               "height": 554
@@ -12033,6 +14281,22 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-116-480.webp",
+              "width": 480,
+              "height": 346
+            },
+            {
+              "file": "/media/products/studio-116-960.webp",
+              "width": 927,
+              "height": 669
+            }
+          ],
+          "alt": "The Aparna Pearl",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -12094,6 +14358,22 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-118-480.webp",
+              "width": 480,
+              "height": 651
+            },
+            {
+              "file": "/media/products/studio-118-960.webp",
+              "width": 751,
+              "height": 1019
+            }
+          ],
+          "alt": "The Aparna Pox",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-pox-480.webp",
               "width": 480,
               "height": 605
@@ -12149,6 +14429,22 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-120-480.webp",
+              "width": 480,
+              "height": 621
+            },
+            {
+              "file": "/media/products/studio-120-960.webp",
+              "width": 804,
+              "height": 1041
+            }
+          ],
+          "alt": "The Aparna Roxx",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -12210,6 +14506,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-119-480.webp",
+              "width": 480,
+              "height": 711
+            },
+            {
+              "file": "/media/products/studio-119-960.webp",
+              "width": 679,
+              "height": 1006
+            }
+          ],
+          "alt": "The Aparna Rozer in Orange and black",
+          "kind": "studio",
+          "colour": "Orange and black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-heating-water-rozer-480.webp",
               "width": 480,
               "height": 698
@@ -12256,7 +14569,25 @@
       "status": "new",
       "description": "The Sigma is a room heater in Aparna's Room heaters range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-117-480.webp",
+              "width": 480,
+              "height": 499
+            },
+            {
+              "file": "/media/products/studio-117-960.webp",
+              "width": 876,
+              "height": 911
+            }
+          ],
+          "alt": "The Aparna Sigma in Beige and red",
+          "kind": "studio",
+          "colour": "Beige and red"
+        }
+      ],
       "sort": "9.1.187"
     },
     {
@@ -12293,6 +14624,22 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-122-480.webp",
+              "width": 455,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-122-960.webp",
+              "width": 664,
+              "height": 1050
+            }
+          ],
+          "alt": "The Aparna Silky",
+          "kind": "studio"
+        },
         {
           "variants": [
             {
@@ -12346,6 +14693,23 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-124-480.webp",
+              "width": 480,
+              "height": 616
+            },
+            {
+              "file": "/media/products/studio-124-960.webp",
+              "width": 855,
+              "height": 1098
+            }
+          ],
+          "alt": "The Aparna Sun Heater Sunshine in Ivory",
+          "kind": "studio",
+          "colour": "Ivory"
+        },
         {
           "variants": [
             {
@@ -12411,6 +14775,23 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-129-480.webp",
+              "width": 480,
+              "height": 360
+            },
+            {
+              "file": "/media/products/studio-129-960.webp",
+              "width": 835,
+              "height": 627
+            }
+          ],
+          "alt": "The Aparna BMW in Black and red",
+          "kind": "studio",
+          "colour": "Black and red"
+        },
         {
           "variants": [
             {
@@ -12540,6 +14921,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-132-480.webp",
+              "width": 480,
+              "height": 344
+            },
+            {
+              "file": "/media/products/studio-132-960.webp",
+              "width": 960,
+              "height": 688
+            }
+          ],
+          "alt": "The Aparna Grand in Blue",
+          "kind": "studio",
+          "colour": "Blue"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-electric-irons-grand-480.webp",
               "width": 384,
               "height": 720
@@ -12662,6 +15060,40 @@
         "pages": "56-57"
       },
       "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-134-480.webp",
+              "width": 480,
+              "height": 370
+            },
+            {
+              "file": "/media/products/studio-134-960.webp",
+              "width": 906,
+              "height": 698
+            }
+          ],
+          "alt": "The Aparna Plancha in White",
+          "kind": "studio",
+          "colour": "White"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-136-480.webp",
+              "width": 480,
+              "height": 398
+            },
+            {
+              "file": "/media/products/studio-136-960.webp",
+              "width": 960,
+              "height": 797
+            }
+          ],
+          "alt": "The Aparna Plancha in Cream",
+          "kind": "studio",
+          "colour": "Cream"
+        },
         {
           "variants": [
             {
@@ -12790,6 +15222,23 @@
         {
           "variants": [
             {
+              "file": "/media/products/studio-126-480.webp",
+              "width": 480,
+              "height": 301
+            },
+            {
+              "file": "/media/products/studio-126-960.webp",
+              "width": 960,
+              "height": 602
+            }
+          ],
+          "alt": "The Aparna Regular in Black",
+          "kind": "studio",
+          "colour": "Black"
+        },
+        {
+          "variants": [
+            {
               "file": "/media/products/crop-electric-irons-regular-480.webp",
               "width": 460,
               "height": 720
@@ -12840,13 +15289,1277 @@
       "catalogue": null,
       "images": [],
       "sort": "9.1.200"
+    },
+    {
+      "id": "ceiling-fans-new-gold-line-48",
+      "slug": "new-gold-line-48",
+      "url": "/products/ceiling-fans/new-gold-line-48/",
+      "name": "Ceiling fan with gold pin-line",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-19-480.webp",
+              "width": 480,
+              "height": 350
+            },
+            {
+              "file": "/media/products/studio-19-960.webp",
+              "width": 960,
+              "height": 701
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with gold pin-line",
+          "kind": "studio"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-23-480.webp",
+              "width": 480,
+              "height": 326
+            },
+            {
+              "file": "/media/products/studio-23-960.webp",
+              "width": 960,
+              "height": 653
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with gold pin-line",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.000"
+    },
+    {
+      "id": "ceiling-fans-new-diamond-ring-48",
+      "slug": "new-diamond-ring-48",
+      "url": "/products/ceiling-fans/new-diamond-ring-48/",
+      "name": "Ceiling fan with diamond-cut ring",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-29-480.webp",
+              "width": 480,
+              "height": 279
+            },
+            {
+              "file": "/media/products/studio-29-960.webp",
+              "width": 960,
+              "height": 558
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with diamond-cut ring",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.001"
+    },
+    {
+      "id": "ceiling-fans-new-copper-mesh-48",
+      "slug": "new-copper-mesh-48",
+      "url": "/products/ceiling-fans/new-copper-mesh-48/",
+      "name": "Ceiling fan with copper mesh trims",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-39-480.webp",
+              "width": 480,
+              "height": 313
+            },
+            {
+              "file": "/media/products/studio-39-960.webp",
+              "width": 960,
+              "height": 627
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with copper mesh trims",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.002"
+    },
+    {
+      "id": "ceiling-fans-new-square-clips-48",
+      "slug": "new-square-clips-48",
+      "url": "/products/ceiling-fans/new-square-clips-48/",
+      "name": "Ceiling fan with square copper clips",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-40-480.webp",
+              "width": 480,
+              "height": 317
+            },
+            {
+              "file": "/media/products/studio-40-960.webp",
+              "width": 960,
+              "height": 635
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with square copper clips",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.003"
+    },
+    {
+      "id": "ceiling-fans-new-copper-edge",
+      "slug": "new-copper-edge",
+      "url": "/products/ceiling-fans/new-copper-edge/",
+      "name": "Ceiling fan with copper-edged clips",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-44-480.webp",
+              "width": 480,
+              "height": 354
+            },
+            {
+              "file": "/media/products/studio-44-960.webp",
+              "width": 960,
+              "height": 708
+            }
+          ],
+          "alt": "The Aparna Ceiling fan with copper-edged clips",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.004"
+    },
+    {
+      "id": "ceiling-fans-new-ivory-copper-ring-48",
+      "slug": "new-ivory-copper-ring-48",
+      "url": "/products/ceiling-fans/new-ivory-copper-ring-48/",
+      "name": "Ivory ceiling fan with copper ring",
+      "modelNumber": null,
+      "category": "Ceiling Fans",
+      "categorySlug": "ceiling-fans",
+      "series": "Coming soon",
+      "type": "Ceiling fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna ceiling fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-48-480.webp",
+              "width": 480,
+              "height": 328
+            },
+            {
+              "file": "/media/products/studio-48-960.webp",
+              "width": 960,
+              "height": 656
+            }
+          ],
+          "alt": "The Aparna Ivory ceiling fan with copper ring",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.005"
+    },
+    {
+      "id": "all-purpose-cabin-fans-new-swivel",
+      "slug": "new-swivel",
+      "url": "/products/all-purpose-and-cabin-fans/new-swivel/",
+      "name": "All-purpose fan, white and sky blue",
+      "modelNumber": null,
+      "category": "All-Purpose & Cabin Fans",
+      "categorySlug": "all-purpose-and-cabin-fans",
+      "series": "Coming soon",
+      "type": "All-purpose fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna all-purpose fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-74-480.webp",
+              "width": 480,
+              "height": 527
+            },
+            {
+              "file": "/media/products/studio-74-960.webp",
+              "width": 960,
+              "height": 1054
+            }
+          ],
+          "alt": "The Aparna All-purpose fan, white and sky blue",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.006"
+    },
+    {
+      "id": "all-purpose-cabin-fans-new-compact",
+      "slug": "new-compact",
+      "url": "/products/all-purpose-and-cabin-fans/new-compact/",
+      "name": "Compact table fan, white and aqua",
+      "modelNumber": null,
+      "category": "All-Purpose & Cabin Fans",
+      "categorySlug": "all-purpose-and-cabin-fans",
+      "series": "Coming soon",
+      "type": "Table fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna table fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-75-480.webp",
+              "width": 480,
+              "height": 682
+            },
+            {
+              "file": "/media/products/studio-75-960.webp",
+              "width": 685,
+              "height": 973
+            }
+          ],
+          "alt": "The Aparna Compact table fan, white and aqua",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.007"
+    },
+    {
+      "id": "ventilation-fresh-air-fans-new-heavy-duty-exhaust",
+      "slug": "new-heavy-duty-exhaust",
+      "url": "/products/ventilation-and-fresh-air-fans/new-heavy-duty-exhaust/",
+      "name": "Heavy-duty exhaust fan",
+      "modelNumber": null,
+      "category": "Ventilation & Fresh-Air Fans",
+      "categorySlug": "ventilation-and-fresh-air-fans",
+      "series": "Coming soon",
+      "type": "Exhaust fan",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna exhaust fan. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-147-480.webp",
+              "width": 480,
+              "height": 579
+            },
+            {
+              "file": "/media/products/studio-147-960.webp",
+              "width": 793,
+              "height": 956
+            }
+          ],
+          "alt": "The Aparna Heavy-duty exhaust fan",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.008"
+    },
+    {
+      "id": "kitchen-appliances-new-round-cooktop",
+      "slug": "new-round-cooktop",
+      "url": "/products/kitchen-appliances/new-round-cooktop/",
+      "name": "Round infrared cooktop",
+      "modelNumber": null,
+      "category": "Kitchen Appliances",
+      "categorySlug": "kitchen-appliances",
+      "series": "Coming soon",
+      "type": "Infrared cooktop",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna infrared cooktop. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-111-480.webp",
+              "width": 480,
+              "height": 353
+            },
+            {
+              "file": "/media/products/studio-111-960.webp",
+              "width": 960,
+              "height": 706
+            }
+          ],
+          "alt": "The Aparna Round infrared cooktop",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.009"
+    },
+    {
+      "id": "kitchen-appliances-new-touch-cooktop",
+      "slug": "new-touch-cooktop",
+      "url": "/products/kitchen-appliances/new-touch-cooktop/",
+      "name": "Infrared cooktop with touch controls",
+      "modelNumber": null,
+      "category": "Kitchen Appliances",
+      "categorySlug": "kitchen-appliances",
+      "series": "Coming soon",
+      "type": "Infrared cooktop",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna infrared cooktop. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-112-480.webp",
+              "width": 480,
+              "height": 198
+            },
+            {
+              "file": "/media/products/studio-112-960.webp",
+              "width": 960,
+              "height": 397
+            }
+          ],
+          "alt": "The Aparna Infrared cooktop with touch controls",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.010"
+    },
+    {
+      "id": "electric-irons-new-blue",
+      "slug": "new-blue",
+      "url": "/products/electric-irons/new-blue/",
+      "name": "Dry iron, blue",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-125-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/studio-125-960.webp",
+              "width": 935,
+              "height": 616
+            }
+          ],
+          "alt": "The Aparna Dry iron, blue",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.011"
+    },
+    {
+      "id": "electric-irons-new-white-grey",
+      "slug": "new-white-grey",
+      "url": "/products/electric-irons/new-white-grey/",
+      "name": "Dry iron, white and grey",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-127-480.webp",
+              "width": 480,
+              "height": 339
+            },
+            {
+              "file": "/media/products/studio-127-960.webp",
+              "width": 960,
+              "height": 677
+            }
+          ],
+          "alt": "The Aparna Dry iron, white and grey",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.012"
+    },
+    {
+      "id": "electric-irons-new-white-blue",
+      "slug": "new-white-blue",
+      "url": "/products/electric-irons/new-white-blue/",
+      "name": "Dry iron, white and blue",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-128-480.webp",
+              "width": 480,
+              "height": 341
+            },
+            {
+              "file": "/media/products/studio-128-960.webp",
+              "width": 960,
+              "height": 681
+            }
+          ],
+          "alt": "The Aparna Dry iron, white and blue",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.013"
+    },
+    {
+      "id": "electric-irons-new-white-pink",
+      "slug": "new-white-pink",
+      "url": "/products/electric-irons/new-white-pink/",
+      "name": "Dry iron, white and pink",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-130-480.webp",
+              "width": 480,
+              "height": 435
+            },
+            {
+              "file": "/media/products/studio-130-960.webp",
+              "width": 838,
+              "height": 760
+            }
+          ],
+          "alt": "The Aparna Dry iron, white and pink",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.014"
+    },
+    {
+      "id": "electric-irons-new-black",
+      "slug": "new-black",
+      "url": "/products/electric-irons/new-black/",
+      "name": "Dry iron, black",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-131-480.webp",
+              "width": 480,
+              "height": 411
+            },
+            {
+              "file": "/media/products/studio-131-960.webp",
+              "width": 889,
+              "height": 761
+            }
+          ],
+          "alt": "The Aparna Dry iron, black",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.015"
+    },
+    {
+      "id": "electric-irons-bold",
+      "slug": "bold",
+      "url": "/products/electric-irons/bold/",
+      "name": "Bold",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-133-480.webp",
+              "width": 480,
+              "height": 369
+            },
+            {
+              "file": "/media/products/studio-133-960.webp",
+              "width": 960,
+              "height": 738
+            }
+          ],
+          "alt": "The Aparna Bold",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.016"
+    },
+    {
+      "id": "electric-irons-new-heavy-black",
+      "slug": "new-heavy-black",
+      "url": "/products/electric-irons/new-heavy-black/",
+      "name": "Heavyweight dry iron, black",
+      "modelNumber": null,
+      "category": "Electric Irons",
+      "categorySlug": "electric-irons",
+      "series": "Coming soon",
+      "type": "Dry iron",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-135-480.webp",
+              "width": 480,
+              "height": 306
+            },
+            {
+              "file": "/media/products/studio-135-960.webp",
+              "width": 960,
+              "height": 613
+            }
+          ],
+          "alt": "The Aparna Heavyweight dry iron, black",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.017"
+    },
+    {
+      "id": "motors-cooler-motor-1",
+      "slug": "cooler-motor-1",
+      "url": "/products/motors/cooler-motor-1/",
+      "name": "Cooler motor 1",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-148-480.webp",
+              "width": 354,
+              "height": 719
+            },
+            {
+              "file": "/media/products/studio-148-960.webp",
+              "width": 508,
+              "height": 1032
+            }
+          ],
+          "alt": "The Aparna Cooler motor 1",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.018"
+    },
+    {
+      "id": "motors-cooler-motor-2",
+      "slug": "cooler-motor-2",
+      "url": "/products/motors/cooler-motor-2/",
+      "name": "Cooler motor 2",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-149-480.webp",
+              "width": 445,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-149-960.webp",
+              "width": 589,
+              "height": 953
+            }
+          ],
+          "alt": "The Aparna Cooler motor 2",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.019"
+    },
+    {
+      "id": "motors-cooler-motor-3",
+      "slug": "cooler-motor-3",
+      "url": "/products/motors/cooler-motor-3/",
+      "name": "Cooler motor 3",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-150-480.webp",
+              "width": 480,
+              "height": 468
+            },
+            {
+              "file": "/media/products/studio-150-960.webp",
+              "width": 872,
+              "height": 851
+            }
+          ],
+          "alt": "The Aparna Cooler motor 3",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.020"
+    },
+    {
+      "id": "motors-cooler-motor-4",
+      "slug": "cooler-motor-4",
+      "url": "/products/motors/cooler-motor-4/",
+      "name": "Cooler motor 4",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-151-480.webp",
+              "width": 480,
+              "height": 715
+            },
+            {
+              "file": "/media/products/studio-151-960.webp",
+              "width": 683,
+              "height": 1018
+            }
+          ],
+          "alt": "The Aparna Cooler motor 4",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.021"
+    },
+    {
+      "id": "motors-cooler-motor-5",
+      "slug": "cooler-motor-5",
+      "url": "/products/motors/cooler-motor-5/",
+      "name": "Cooler motor 5",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-152-480.webp",
+              "width": 480,
+              "height": 597
+            },
+            {
+              "file": "/media/products/studio-152-960.webp",
+              "width": 819,
+              "height": 1018
+            }
+          ],
+          "alt": "The Aparna Cooler motor 5",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.022"
+    },
+    {
+      "id": "motors-cooler-motor-6",
+      "slug": "cooler-motor-6",
+      "url": "/products/motors/cooler-motor-6/",
+      "name": "Cooler motor 6",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-153-480.webp",
+              "width": 464,
+              "height": 720
+            },
+            {
+              "file": "/media/products/studio-153-960.webp",
+              "width": 641,
+              "height": 995
+            }
+          ],
+          "alt": "The Aparna Cooler motor 6",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.023"
+    },
+    {
+      "id": "motors-cooler-motor-7",
+      "slug": "cooler-motor-7",
+      "url": "/products/motors/cooler-motor-7/",
+      "name": "Cooler motor 7",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-154-480.webp",
+              "width": 480,
+              "height": 589
+            },
+            {
+              "file": "/media/products/studio-154-960.webp",
+              "width": 777,
+              "height": 954
+            }
+          ],
+          "alt": "The Aparna Cooler motor 7",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.024"
+    },
+    {
+      "id": "motors-cooler-motor-8",
+      "slug": "cooler-motor-8",
+      "url": "/products/motors/cooler-motor-8/",
+      "name": "Cooler motor 8",
+      "modelNumber": null,
+      "category": "Motors",
+      "categorySlug": "motors",
+      "series": "Coming soon",
+      "type": "Cooler motor",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna cooler motor. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-155-480.webp",
+              "width": 480,
+              "height": 557
+            },
+            {
+              "file": "/media/products/studio-155-960.webp",
+              "width": 885,
+              "height": 1027
+            }
+          ],
+          "alt": "The Aparna Cooler motor 8",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.025"
+    },
+    {
+      "id": "pumps-cooler-pump-1",
+      "slug": "cooler-pump-1",
+      "url": "/products/pumps/cooler-pump-1/",
+      "name": "Cooler pump 1",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-156-480.webp",
+              "width": 480,
+              "height": 512
+            },
+            {
+              "file": "/media/products/studio-156-960.webp",
+              "width": 745,
+              "height": 794
+            }
+          ],
+          "alt": "The Aparna Cooler pump 1",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.026"
+    },
+    {
+      "id": "pumps-cooler-pump-2",
+      "slug": "cooler-pump-2",
+      "url": "/products/pumps/cooler-pump-2/",
+      "name": "Cooler pump 2",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-157-480.webp",
+              "width": 480,
+              "height": 517
+            },
+            {
+              "file": "/media/products/studio-157-960.webp",
+              "width": 686,
+              "height": 739
+            }
+          ],
+          "alt": "The Aparna Cooler pump 2",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.027"
+    },
+    {
+      "id": "pumps-cooler-pump-3",
+      "slug": "cooler-pump-3",
+      "url": "/products/pumps/cooler-pump-3/",
+      "name": "Cooler pump 3",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-158-480.webp",
+              "width": 480,
+              "height": 437
+            },
+            {
+              "file": "/media/products/studio-158-960.webp",
+              "width": 960,
+              "height": 874
+            }
+          ],
+          "alt": "The Aparna Cooler pump 3",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.028"
+    },
+    {
+      "id": "pumps-cooler-pump-4",
+      "slug": "cooler-pump-4",
+      "url": "/products/pumps/cooler-pump-4/",
+      "name": "Cooler pump 4",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-159-480.webp",
+              "width": 480,
+              "height": 491
+            },
+            {
+              "file": "/media/products/studio-159-960.webp",
+              "width": 882,
+              "height": 902
+            }
+          ],
+          "alt": "The Aparna Cooler pump 4",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.029"
+    },
+    {
+      "id": "pumps-cooler-pump-5",
+      "slug": "cooler-pump-5",
+      "url": "/products/pumps/cooler-pump-5/",
+      "name": "Cooler pump 5",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-160-480.webp",
+              "width": 480,
+              "height": 508
+            },
+            {
+              "file": "/media/products/studio-160-960.webp",
+              "width": 801,
+              "height": 847
+            }
+          ],
+          "alt": "The Aparna Cooler pump 5",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.030"
+    },
+    {
+      "id": "pumps-cooler-pump-6",
+      "slug": "cooler-pump-6",
+      "url": "/products/pumps/cooler-pump-6/",
+      "name": "Cooler pump 6",
+      "modelNumber": null,
+      "category": "Pumps",
+      "categorySlug": "pumps",
+      "series": "Coming soon",
+      "type": "Submersible cooler pump",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "specs": [],
+      "features": [],
+      "badges": [],
+      "status": "soon",
+      "description": "Aparna submersible cooler pump. Its name and full details are coming soon.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/studio-161-480.webp",
+              "width": 480,
+              "height": 463
+            },
+            {
+              "file": "/media/products/studio-161-960.webp",
+              "width": 741,
+              "height": 715
+            }
+          ],
+          "alt": "The Aparna Cooler pump 6",
+          "kind": "studio"
+        }
+      ],
+      "sort": "9.9.031"
     }
   ],
   "categories": [
     {
       "name": "Ceiling Fans",
       "slug": "ceiling-fans",
-      "count": 86
+      "count": 92
     },
     {
       "name": "Table, Wall & Pedestal Fans",
@@ -12856,7 +16569,7 @@
     {
       "name": "All-Purpose & Cabin Fans",
       "slug": "all-purpose-and-cabin-fans",
-      "count": 8
+      "count": 10
     },
     {
       "name": "High-Speed Fans",
@@ -12866,7 +16579,7 @@
     {
       "name": "Ventilation & Fresh-Air Fans",
       "slug": "ventilation-and-fresh-air-fans",
-      "count": 5
+      "count": 6
     },
     {
       "name": "Air Coolers",
@@ -12881,7 +16594,7 @@
     {
       "name": "Kitchen Appliances",
       "slug": "kitchen-appliances",
-      "count": 25
+      "count": 27
     },
     {
       "name": "Heating & Water",
@@ -12891,7 +16604,17 @@
     {
       "name": "Electric Irons",
       "slug": "electric-irons",
-      "count": 11
+      "count": 18
+    },
+    {
+      "name": "Motors",
+      "slug": "motors",
+      "count": 8
+    },
+    {
+      "name": "Pumps",
+      "slug": "pumps",
+      "count": 6
     }
   ],
   "missing": []

@@ -116,7 +116,11 @@ const result = {};
 const previous = JSON.parse(await fs.readFile(path.join(CONTENT, 'cutouts.generated.json'), 'utf8').catch(() => '{"products":{}}')).products;
 const erase = settings.erase ?? {};
 const keyOf = (file) => path.basename(file).replace(/-\d+\.webp$/, '');
-const todo = catalogue.products.filter((p) => p.images[0] && p.images[0].kind !== 'photo' && !reject.has(p.id));
+// Aparna's studio photos are already cut out (transparent background): used as they are, and never rejected
+// (the reject list is about automatic cutouts of posters and catalogue crops). The few on a white background
+// are cut out like any other picture.
+const isStudio = (p) => p.images[0]?.kind === 'studio' && !p.images[0].opaque;
+const todo = catalogue.products.filter((p) => p.images[0] && p.images[0].kind !== 'photo' && (isStudio(p) || !reject.has(p.id)));
 let made = 0;
 let reused = 0;
 const t0 = Date.now();
@@ -132,7 +136,9 @@ for (const [i, p] of todo.entries()) {
   const eraseChanged = erased !== (previous[p.id]?.erased ?? '[]');
 
   if (!exists || force || eraseChanged) {
-    const { image, coverage } = await cutout(path.join(PUBLIC, source), erase[p.id]);
+    const { image, coverage } = isStudio(p)
+      ? { image: await sharp(path.join(PUBLIC, source)).trim({ threshold: 1 }).png().toBuffer(), coverage: 1 }
+      : await cutout(path.join(PUBLIC, source), erase[p.id]);
     if (coverage < 0.02) { console.warn(`  skipped ${p.id}: almost nothing left after cutting out`); continue; }
     for (const { w, file } of files) {
       await sharp(image).resize({ width: w, height: w, fit: 'inside', withoutEnlargement: true }).webp({ quality: 82, alphaQuality: 90 }).toFile(path.join(PUBLIC, file));

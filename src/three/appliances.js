@@ -5,9 +5,9 @@
 //                      Rustam a wire pan stand
 //   INFRARED COOKTOPS  black glass top with a printed ring and touch panel; Prince has a grill grid
 //   FAN HEATERS        box body with a front grille and knobs; the inner fan turns (the scene spins it)
-//   QUARTZ (Silky) and SUN HEATER (14"), IMMERSION RODS, INSTANT WATER HEATERS (Croma, Croma2), KETTLE ELEMENT
-//   DRY IRONS          chrome soleplate, shaped body, handle and dial
-//   CABIN FAN 12"      white round housing with swirl vanes; the fan inside turns
+//   QUARTZ (Sigma) and SUN HEATER (14"), IMMERSION RODS, INSTANT WATER HEATERS (Croma, Croma2), KETTLE ELEMENT
+// The kitchen and heating models follow the Aparna studio photos (src/content/studio-photos.json).
+// (The dry irons and the Cabin Fan 12" are in src/three/small-appliances.js, with the cooler motors and pumps.)
 // Only fan heaters have a turning part; for the rest the rotor is empty. Sides the pictures don't show follow
 // the visible side.
 
@@ -26,6 +26,10 @@ const FINISH = {
   'powder-dark': { color: '#55575b', metalness: 0.25, roughness: 0.62 },
   white: { color: '#efeeea', roughness: 0.45 },
   black: { color: '#1e1f22', metalness: 0.2, roughness: 0.4, clearcoat: 0.4 },
+  charcoal: { color: '#3a3c40', metalness: 0.5, roughness: 0.35 },
+  'grey-steel': { color: '#8e9196', metalness: 0.75, roughness: 0.32 },
+  'black-glass': { color: '#101114', roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.1 },
+  'steel-white': { color: '#e4e5e6', metalness: 0.55, roughness: 0.3 },
   chrome: { color: '#eceef0', metalness: 1, roughness: 0.12 },
 };
 
@@ -83,42 +87,104 @@ function shell(name, stator, { rotor = new THREE.Group(), axis = null, pose = {}
 }
 
 // ---------------------------------------------------------------- G-coil hot plates
-function hotplate(name, { finish, frame, stand = false, dome = false }) {
+// hammertone powder coat: a fine light/dark speckle over grey, tiled over the body
+function hammerTexture() {
+  const c = document.createElement('canvas');
+  c.width = c.height = 256;
+  const x = c.getContext('2d');
+  x.fillStyle = '#626468';
+  x.fillRect(0, 0, 256, 256);
+  let seed = 7;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  for (let i = 0; i < 4200; i++) {
+    const v = Math.round(55 + rnd() * 150);
+    x.fillStyle = `rgb(${v},${v + 1},${v + 4})`;
+    x.beginPath(); x.arc(rnd() * 256, rnd() * 256, 0.6 + rnd() * 1.4, 0, Math.PI * 2); x.fill();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.repeat.set(4, 4);
+  return t;
+}
+// the faint floral print on the dark tops of Comfort and Smart (transparent, laid over the top)
+function floralTexture(tone) {
+  const c = document.createElement('canvas');
+  c.width = c.height = 512;
+  const x = c.getContext('2d');
+  x.strokeStyle = tone === 'dark' ? 'rgba(45,47,52,0.6)' : 'rgba(200,202,206,0.55)';
+  x.lineWidth = 3;
+  const sprig = (px, py, s, rot) => {
+    x.save(); x.translate(px, py); x.rotate(rot); x.scale(s, s);
+    x.beginPath(); x.moveTo(0, 0); x.bezierCurveTo(30, -20, 60, -10, 90, -40); x.stroke();
+    for (let i = 0; i < 4; i++) {
+      x.beginPath(); x.ellipse(20 + i * 22, -10 - i * 8, 14, 6, -0.6, 0, Math.PI * 2); x.stroke();
+    }
+    x.restore();
+  };
+  sprig(30, 120, 1, 0.2); sprig(390, 110, 0.9, 2.6); sprig(40, 470, 1, -0.4); sprig(400, 460, 1.1, 3.6);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+// Two body shapes, as in the pictures:
+//   box     a squared case with a flat top, on four black feet (or sitting flat, feet: false)
+//   pressed a rounded, drawn-steel body that slopes up from a wide flat flange; no feet show
+function hotplate(name, { finish, frame, stand = false, tall = false, shape = 'box', feet = true, print = false, slots = false, size = 1 }) {
   const g = new THREE.Group();
-  const body = mat(FINISH[frame ?? finish]);
-  const top = mat(FINISH[finish]);
+  const spec = (k) => (k === 'hammer' ? { color: '#ffffff', map: hammerTexture(), metalness: 0.45, roughness: 0.5 } : FINISH[k]);
+  const body = mat(spec(frame ?? finish));
+  const top = mat(spec(finish));
   const chrome = mat(FINISH.chrome);
   const black = mat({ color: '#111214', roughness: 0.5 });
-  const coilMat = mat({ color: '#2c2d30', metalness: 0.65, roughness: 0.32 });
+  const coilMat = mat({ color: '#85878b', metalness: 0.7, roughness: 0.32 });
   const ceramic = mat({ color: '#f1eee6', roughness: 0.55 });
-  const H = dome ? 0.27 : 0.24;
-  const y0 = -0.2;
-  const base = slab(1.0, 0.95, H, 0.1, body);
-  base.position.y = y0;
-  g.add(base);
-  if (frame) { // a steel top over a different frame (Magnum)
-    const lid = slab(0.96, 0.91, 0.03, 0.09, top);
-    lid.position.y = y0 + H;
-    g.add(lid);
+  const pressed = shape === 'pressed';
+  const W = 1.0, D = 0.95;
+  const H = pressed ? 0.26 : tall ? 0.3 : 0.24;
+  const y0 = feet ? -0.2 : -0.25;
+  let yTop, front; // the top surface height, and how far the front face stands at knob height
+  if (pressed) {
+    const flange = slab(W + 0.16, D + 0.16, 0.035, 0.12, body);
+    flange.position.y = y0 - 0.02;
+    const shellMesh = taper(slab(W, D, H, 0.22, body), 0.16);
+    shellMesh.position.y = y0;
+    g.add(flange, shellMesh);
+    yTop = y0 + H;
+    front = (D / 2 + 0.021) * (1 - 0.16 * 0.42) + 0.008; // the slab's bevel stands 0.021 proud of its outline
+    // the raised chrome ring the dish is pressed into
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.385, 0.022, 10, 64), top);
+    ring.rotation.x = Math.PI / 2;
+    ring.position.set(-0.03, yTop - 0.005, -0.03);
+    g.add(ring);
+  } else {
+    const base = slab(W, D, H, 0.06, body);
+    base.position.y = y0;
+    g.add(base);
+    yTop = y0 + H;
+    if (frame) { // a top panel in its own finish over the frame (Magnum, Ultima, Smart)
+      const lid = slab(W - 0.04, D - 0.04, 0.03, 0.05, top);
+      lid.position.y = yTop;
+      g.add(lid);
+      yTop += 0.03;
+    }
+    if (print) { // the printed pattern on the top panel
+      const p = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.08, D - 0.08), new THREE.MeshBasicMaterial({ map: floralTexture(print), transparent: true, depthWrite: false }));
+      p.rotation.x = -Math.PI / 2;
+      p.position.y = yTop + 0.002;
+      g.add(p);
+    }
+    if (slots) { // Crescent: a long pressed handle slot down each side of the top
+      for (const sx of [-1, 1]) {
+        const slot = slab(0.07, D * 0.7, 0.012, 0.03, mat({ color: '#9fa2a6', metalness: 0.9, roughness: 0.35 }));
+        slot.position.set(sx * (W / 2 - 0.08), yTop - 0.004, -0.02);
+        g.add(slot);
+      }
+    }
+    front = D / 2 + 0.021 + 0.006;
   }
-  const yTop = y0 + H + (frame ? 0.03 : 0);
-  // the raised rim round the top edge, so the top reads as a shallow tray
-  const rimShape = new THREE.Shape();
-  const rr = (s, w, d, r) => {
-    s.moveTo(-w / 2 + r, -d / 2); s.lineTo(w / 2 - r, -d / 2); s.quadraticCurveTo(w / 2, -d / 2, w / 2, -d / 2 + r);
-    s.lineTo(w / 2, d / 2 - r); s.quadraticCurveTo(w / 2, d / 2, w / 2 - r, d / 2); s.lineTo(-w / 2 + r, d / 2);
-    s.quadraticCurveTo(-w / 2, d / 2, -w / 2, d / 2 - r); s.lineTo(-w / 2, -d / 2 + r); s.quadraticCurveTo(-w / 2, -d / 2, -w / 2 + r, -d / 2);
-    return s;
-  };
-  rr(rimShape, 1.0, 0.95, 0.1);
-  rimShape.holes.push(rr(new THREE.Path(), 0.9, 0.85, 0.07));
-  const rimGeo = new THREE.ExtrudeGeometry(rimShape, { depth: 0.03, bevelEnabled: true, bevelThickness: 0.008, bevelSize: 0.006, bevelSegments: 2, curveSegments: 8 });
-  rimGeo.rotateX(-Math.PI / 2);
-  const rim = new THREE.Mesh(rimGeo, top);
-  rim.position.y = yTop - 0.004;
-  g.add(rim);
   // chrome dish, white ceramic ring, and the dark G-coil sitting proud on it
-  const cx = -0.04, cz = -0.04;
+  const cx = -0.03, cz = -0.03;
   const dish = new THREE.Mesh(lathe([[0, yTop - 0.02], [0.33, yTop - 0.018], [0.37, yTop - 0.004], [0.39, yTop + 0.006]]), chrome);
   const bed = new THREE.Mesh(new THREE.RingGeometry(0.04, 0.335, 64), ceramic);
   bed.rotation.x = -Math.PI / 2;
@@ -127,39 +193,58 @@ function hotplate(name, { finish, frame, stand = false, dome = false }) {
   const terminal = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.02, 20), coilMat);
   terminal.position.y = yTop - 0.004;
   for (const part of [dish, bed, coil, terminal]) { part.position.x += cx; part.position.z += cz; g.add(part); }
-  // the knob and red nameplate stand out from the front face (the body's bevel puts it at z ~ 0.5)
-  g.add(knob(black, 0.34, y0 + H * 0.5, 0.52, 0.065));
-  const plate = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.06, 0.012), mat({ color: '#c8232c', roughness: 0.35, clearcoat: 0.8 }));
-  plate.position.set(-0.02, y0 + H * 0.45, 0.502);
-  g.add(plate);
+  // the black knob at the front right, and the white oval nameplate with its red rim
+  const ky = y0 + H * 0.45;
+  const kx = pressed ? 0.33 : 0.36;
+  g.add(knob(black, kx, ky, front + 0.025, 0.055));
+  const pointer = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.085, 0.03), black); // the knob's grip ridge
+  pointer.position.set(kx, ky, front + 0.06);
+  g.add(pointer);
+  const badgeRim = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.01, 32), mat({ color: '#c8232c', roughness: 0.35, clearcoat: 0.8 }));
+  badgeRim.rotation.x = Math.PI / 2;
+  badgeRim.scale.x = 2.0;
+  badgeRim.position.set(-0.04, y0 + H * 0.4, front);
+  const badge = badgeRim.clone();
+  badge.material = mat({ color: '#f4f2ee', roughness: 0.35 });
+  badge.scale.set(1.8, 0.8, 0.72);
+  badge.position.z += 0.004;
+  g.add(badgeRim, badge);
   // vent slots down both sides
   const slotMat = mat({ color: '#1a1b1d', roughness: 0.7 });
+  const sx = pressed ? (W / 2) * (1 - 0.16 * 0.5) + 0.004 : W / 2 + 0.006;
   for (const side of [-1, 1]) {
     for (let i = 0; i < 5; i++) {
-      const slot = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.025, 0.1), slotMat);
-      slot.position.set(side * 0.506, y0 + H * 0.5, -0.3 + i * 0.15);
+      const slot = new THREE.Mesh(new THREE.BoxGeometry(0.012, pressed ? 0.06 : 0.1, 0.03), slotMat);
+      slot.position.set(side * sx, y0 + H * 0.45, -0.24 + i * 0.12);
       g.add(slot);
     }
   }
-  // four short black feet showing below the body
-  for (const [x, z] of [[-1, -1], [-1, 1], [1, -1], [1, 1]]) {
-    const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.07, 16), black);
-    foot.position.set(x * 0.38, y0 - 0.025, z * 0.35);
-    g.add(foot);
+  if (feet) { // four short black feet showing below the body
+    for (const [x, z] of [[-1, -1], [-1, 1], [1, -1], [1, 1]]) {
+      const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.07, 16), black);
+      foot.position.set(x * 0.38, y0 - 0.025, z * 0.35);
+      g.add(foot);
+    }
   }
-  if (stand) { // Rustam: a wire pan stand over the coil
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.012, 8, 48), chrome);
-    ring.rotation.x = Math.PI / 2;
-    ring.position.set(cx, yTop + 0.12, cz);
-    g.add(ring);
-    for (let i = 0; i < 4; i++) {
-      const a = (i / 4) * Math.PI * 2 + Math.PI / 4;
-      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.13, 6), chrome);
-      leg.position.set(cx + Math.cos(a) * 0.3, yTop + 0.06, cz + Math.sin(a) * 0.3);
+  if (stand) { // Rustam: a square wire pan stand over the coil, on four bent legs
+    const s = 0.36, h = yTop + 0.08;
+    const loop = new THREE.CatmullRomCurve3([[-s, -s], [s, -s], [s, s], [-s, s]].map(([x, z]) => new THREE.Vector3(cx + x, h, cz + z)), true, 'catmullrom', 0.05);
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(loop, 64, 0.012, 8, true), chrome));
+    for (const z of [-0.12, 0.12]) { // two bars across
+      const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.009, 2 * s, 6), chrome);
+      bar.rotation.z = Math.PI / 2;
+      bar.position.set(cx, h, cz + z);
+      g.add(bar);
+    }
+    for (const [x, z] of [[-1, -1], [-1, 1], [1, -1], [1, 1]]) {
+      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.09, 6), chrome);
+      leg.position.set(cx + x * s, h - 0.045, cz + z * s);
       g.add(leg);
     }
   }
-  return shell(name, g);
+  g.scale.setScalar(size);
+  // looking down on the front-left corner, as the photos do
+  return shell(name, g, { pose: { elevation: 0.35, azimuth: -0.4, zoom: 1.5 } }); // 0.35: the viewer's highest view
 }
 
 // ---------------------------------------------------------------- infrared cooktops
@@ -175,13 +260,25 @@ function ringTexture(kind) {
     x.fillStyle = gr;
     x.beginPath(); x.moveTo(0, 360); x.bezierCurveTo(170, 280, 340, 470, 512, 360); x.lineTo(512, 400); x.bezierCurveTo(340, 510, 170, 320, 0, 400); x.fill();
   }
-  x.strokeStyle = kind === 'swirl' ? '#7a7c80' : '#c4262e';
-  x.lineWidth = 6;
-  x.beginPath(); x.arc(200, 256, 150, 0, Math.PI * 2); x.stroke();
-  x.fillStyle = '#c4262e';
-  x.beginPath(); x.arc(200, 256, 10, 0, Math.PI * 2); x.fill();
-  x.fillStyle = '#d9dadc'; // touch buttons
-  for (let i = 0; i < 6; i++) { x.beginPath(); x.arc(400 + (i % 2) * 50, 150 + Math.floor(i / 2) * 60, 13, 0, Math.PI * 2); x.fill(); }
+  if (kind === 'grill') { // Prince: plain glass under the grill, a faint ring and the red logo at the back right
+    x.strokeStyle = '#3a3c40';
+    x.lineWidth = 3;
+    x.beginPath(); x.arc(230, 270, 150, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = '#d3222b';
+    x.font = 'bold italic 44px Arial';
+    x.fillText('APARNA', 340, 70);
+  } else {
+    // Presto: two pale rings round a red centre mark; Prime: one grey ring through the red sweep
+    x.strokeStyle = kind === 'swirl' ? '#8a8c90' : '#d6d7d9';
+    x.lineWidth = 5;
+    x.beginPath(); x.arc(200, 270, 160, 0, Math.PI * 2); x.stroke();
+    if (kind === 'ring') { x.beginPath(); x.arc(200, 270, 112, 0, Math.PI * 2); x.stroke(); }
+    x.fillStyle = '#c4262e';
+    x.beginPath(); x.arc(200, 270, kind === 'ring' ? 20 : 8, 0, Math.PI * 2); x.fill();
+  }
+  x.fillStyle = kind === 'grill' ? '#c4262e' : '#d9dadc'; // touch buttons (Prince: one red switch)
+  if (kind === 'grill') x.fillRect(440, 400, 30, 30);
+  else for (let i = 0; i < 6; i++) { x.beginPath(); x.arc(410 + (i % 2) * 45, 220 + Math.floor(i / 2) * 55, 12, 0, Math.PI * 2); x.fill(); }
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
@@ -195,12 +292,11 @@ function cooktop(name, { print = 'ring', grill = false, frameFinish = 'steel' })
   glass.rotation.x = -Math.PI / 2;
   glass.position.y = 0.012;
   g.add(base, glass);
-  const handleMat = mat(FINISH.chrome);
-  for (const sx of [-1, 1]) { // flat U-shaped carry handles standing out from the sides
-    const path = new THREE.CatmullRomCurve3([[0.53, -0.17], [0.6, -0.15], [0.635, -0.06], [0.635, 0.06], [0.6, 0.15], [0.53, 0.17]]
-      .map(([x, z]) => new THREE.Vector3(sx * x, -0.05, z)));
-    g.add(new THREE.Mesh(new THREE.TubeGeometry(path, 32, 0.014, 8), handleMat));
-  }
+  // one flat U-shaped carry handle standing out from the left side (chrome, or black on Prime)
+  const handleMat = mat(frameFinish === 'abs' ? { color: '#151618', roughness: 0.35 } : FINISH.chrome);
+  const path = new THREE.CatmullRomCurve3([[0.53, -0.2], [0.62, -0.18], [0.66, -0.08], [0.66, 0.08], [0.62, 0.18], [0.53, 0.2]]
+    .map(([x, z]) => new THREE.Vector3(-x, -0.06, z)));
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(path, 32, 0.018, 8), handleMat));
   g.add(knob(mat({ color: '#d9dadc', metalness: 0.7, roughness: 0.3 }), 0.42, -0.06, 0.36, 0.035));
   if (grill) { // Prince: a grill grid over the top
     const bar = mat(FINISH.chrome);
@@ -217,27 +313,60 @@ function cooktop(name, { print = 'ring', grill = false, frameFinish = 'steel' })
       g.add(b);
     }
   }
-  return shell(name, g);
+  return shell(name, g, { pose: { elevation: 0.35, azimuth: -0.3, zoom: 1.2 } }); // from the front left, handle side, as photographed
 }
 
 // ---------------------------------------------------------------- heaters
-function fanHeater(name, { w, h, d, body, front, upright = false, knobs = 2, knobColour }) {
+// the wide sides of the upright heaters: a field of round perforations, or tall moulded ribs (Silky)
+function sideTexture(kind, bg, fg) {
+  const c = document.createElement('canvas');
+  c.width = c.height = 256;
+  const x = c.getContext('2d');
+  x.fillStyle = bg;
+  x.fillRect(0, 0, 256, 256);
+  x.fillStyle = fg;
+  if (kind === 'ribs') for (let i = 0; i < 12; i++) x.fillRect(14 + i * 20, 8, 7, 240);
+  else for (let r = 0; r < 14; r++) for (let k = 0; k < 14; k++) { x.beginPath(); x.arc(14 + k * 17.5, 14 + r * 17.5, 4.2, 0, Math.PI * 2); x.fill(); }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+// Low models: a soft box, black slatted front, knobs at the top right and a warm-air vent on top (round, or
+// a slatted panel on Pearl). Upright models: narrow at the front, deep at the side; the front grille sits in a
+// coloured frame, the wide sides are perforated, the knobs stand on top.
+function fanHeater(name, { w, h, d, body, front, frame, side, upright = false, knobs = 2, knobColour, vent = 'round' }) {
   const g = new THREE.Group();
   const bodyMat = mat(body);
   const frontMat = mat(front);
   g.add(box(w, h, d, upright ? 0.1 : 0.17, bodyMat)); // the low models are softly rounded all over
-  const gw = w * 0.82, gh = upright ? h * 0.62 : h * 0.5;
-  const gy = upright ? -h * 0.06 : -h * 0.14;
+  const gw = upright ? w * 0.62 : w * 0.82, gh = upright ? h * 0.66 : h * 0.5;
+  const gy = upright ? -h * 0.04 : -h * 0.14;
+  let fz = d / 2;
+  if (frame) { // the coloured front frame round the grille
+    const f = box(w * 0.9, h * 0.88, 0.03, 0.06, mat(frame));
+    f.position.set(0, -h * 0.02, d / 2);
+    g.add(f);
+    fz += 0.015;
+  }
   const panel = new THREE.Mesh(new THREE.PlaneGeometry(gw, gh), mat({ color: '#111214', roughness: 0.6 }));
-  panel.position.set(0, gy, d / 2 + 0.003);
+  panel.position.set(0, gy, fz + 0.003);
   g.add(panel);
-  const n = upright ? 11 : 7;
+  const n = upright ? 14 : 7;
   for (let i = 0; i < n; i++) { // the front grille slats
     const slat = new THREE.Mesh(new THREE.BoxGeometry(gw, gh / n * 0.45, 0.02), frontMat);
-    slat.position.set(0, gy - gh / 2 + (i + 0.5) * (gh / n), d / 2 + 0.012);
+    slat.position.set(0, gy - gh / 2 + (i + 0.5) * (gh / n), fz + 0.012);
     g.add(slat);
   }
-  // the control knobs on top, at the right (light grey with a pointer ridge, as pictured)
+  if (side) { // perforated (or ribbed) wide sides
+    const tex = sideTexture(side.kind, side.bg, side.fg);
+    for (const sx of [-1, 1]) {
+      const p = new THREE.Mesh(new THREE.PlaneGeometry(d * 0.72, h * 0.7), mat({ map: tex, roughness: 0.5 }));
+      p.rotation.y = sx * Math.PI / 2;
+      p.position.set(sx * (w / 2 + 0.004), -h * 0.04, -d * 0.04);
+      g.add(p);
+    }
+  }
+  // the control knobs on top (light grey with a pointer ridge, as pictured)
   const knobMat = mat(knobColour ?? { color: '#dcdcd8', roughness: 0.35, clearcoat: 0.5 });
   const ridgeMat = mat({ color: '#9a9b9d', roughness: 0.4 });
   for (let i = 0; i < knobs; i++) {
@@ -246,18 +375,30 @@ function fanHeater(name, { w, h, d, body, front, upright = false, knobs = 2, kno
     const ridge = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.025, 0.022), ridgeMat);
     ridge.position.y = 0.035;
     k.add(ridge);
-    const kx = upright ? (i - (knobs - 1) / 2) * 0.2 : w * 0.26 + (i - (knobs - 1) / 2) * 0.19;
-    k.position.set(kx, h / 2 + 0.025, upright ? 0 : d * 0.05);
+    if (upright) k.position.set(0, h / 2 + 0.025, d * 0.12 - i * 0.2); // in a line, front to back
+    else k.position.set(w * 0.26 + (i - (knobs - 1) / 2) * 0.19, h / 2 + 0.025, d * 0.05);
     g.add(k);
   }
-  if (!upright) { // the warm-air vent grille on the top
-    const vent = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.36, d * 0.5), mat({ color: '#1a1b1d', roughness: 0.6 }));
+  if (!upright && vent === 'round') { // a round warm-air grille on the top: rings over a dark disc
+    const vx = -w * 0.1, r = Math.min(w, d) * 0.27;
+    const disc = new THREE.Mesh(new THREE.CircleGeometry(r, 48), mat({ color: '#1a1b1d', roughness: 0.6 }));
+    disc.rotation.x = -Math.PI / 2;
+    disc.position.set(vx, h / 2 + 0.004, 0);
+    g.add(disc);
+    for (let i = 1; i <= 5; i++) {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(r * (i / 5.3), 0.008, 6, 48), bodyMat);
+      ring.rotation.x = Math.PI / 2;
+      ring.position.set(vx, h / 2 + 0.01, 0);
+      g.add(ring);
+    }
+  } else if (!upright) { // Pearl: a slatted vent panel across the back of the top
+    const vent = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.5, d * 0.4), mat({ color: '#1a1b1d', roughness: 0.6 }));
     vent.rotation.x = -Math.PI / 2;
-    vent.position.set(-w * 0.12, h / 2 + 0.004, 0);
+    vent.position.set(-w * 0.1, h / 2 + 0.004, -d * 0.12);
     g.add(vent);
     for (let i = 0; i < 6; i++) {
-      const bar = new THREE.Mesh(new THREE.BoxGeometry(w * 0.36, 0.012, d * 0.5 / 6 * 0.45), bodyMat);
-      bar.position.set(-w * 0.12, h / 2 + 0.01, -d * 0.25 + (i + 0.5) * (d * 0.5 / 6));
+      const bar = new THREE.Mesh(new THREE.BoxGeometry(w * 0.5, 0.012, d * 0.4 / 6 * 0.45), bodyMat);
+      bar.position.set(-w * 0.1, h / 2 + 0.01, -d * 0.32 + (i + 0.5) * (d * 0.4 / 6));
       g.add(bar);
     }
   }
@@ -288,82 +429,143 @@ function fanHeater(name, { w, h, d, body, front, upright = false, knobs = 2, kno
   return shell(name, g, { rotor, axis, pose: { elevation: upright ? 0.2 : 0.45, azimuth: 0.5, zoom: 1.15 } });
 }
 
-function quartzHeater(name) { // Silky: a chrome reflector trough with two quartz rods, on blue end stands
+function quartzHeater(name) {
+  // Sigma (studio photo 117): a beige moulded frame with hand-hold cut-outs, a red control strip with a dial
+  // along the foot, and two glowing quartz rods in front of a chrome reflector behind a wire guard
   const g = new THREE.Group();
   const chrome = mat(FINISH.chrome);
-  const blue = mat({ color: '#2f63b8', roughness: 0.35, clearcoat: 0.6 });
-  const trough = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 1.2, 32, 1, true, Math.PI * 0.15, Math.PI * 1.1), chrome);
-  trough.rotation.z = Math.PI / 2;
-  trough.rotation.x = -0.5;
-  g.add(trough);
-  for (const y of [-0.06, 0.08]) {
-    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.1, 12), mat({ color: '#ffb36b', emissive: '#ff6a1f', emissiveIntensity: 0.9, roughness: 0.3 }));
+  const beige = mat({ color: '#e2cfa8', roughness: 0.45, clearcoat: 0.3 });
+  const red = mat({ color: '#c9232b', roughness: 0.3, clearcoat: 0.8 });
+  const hole = mat({ color: '#6e604a', roughness: 0.7 });
+  for (const sx of [-1, 1]) {
+    const post = box(0.16, 1.02, 0.42, 0.05, beige);
+    post.position.set(sx * 0.5, 0.02, 0);
+    const grip = box(0.04, 0.16, 0.2, 0.02, hole); // the hand-hold cut-out near the top
+    grip.position.set(sx * 0.58, 0.36, 0);
+    const foot = box(0.24, 0.06, 0.5, 0.03, beige);
+    foot.position.set(sx * 0.5, -0.5, 0);
+    g.add(post, grip, foot);
+  }
+  const topBar = box(1.0, 0.08, 0.36, 0.03, mat({ color: '#f1efe9', roughness: 0.4 }));
+  topBar.position.y = 0.48;
+  const base = box(0.86, 0.22, 0.42, 0.04, beige);
+  base.position.y = -0.36;
+  const strip = box(0.8, 0.17, 0.03, 0.03, red);
+  strip.position.set(0, -0.36, 0.215);
+  const dial = knob(mat({ color: '#e8dcc0', roughness: 0.4 }), 0.12, -0.36, 0.25, 0.06);
+  g.add(topBar, base, strip, dial, lamp('#ffb02e', -0.06, -0.36, 0.235));
+  const reflector = new THREE.Mesh(new THREE.PlaneGeometry(0.84, 0.7), chrome);
+  reflector.position.set(0, 0.09, -0.12);
+  g.add(reflector);
+  for (const y of [0.24, -0.06]) {
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.84, 14), mat({ color: '#ffb36b', emissive: '#ff6a1f', emissiveIntensity: 1.0, roughness: 0.3 }));
     rod.rotation.z = Math.PI / 2;
-    rod.position.set(0, y, 0.08);
+    rod.position.set(0, y, 0.02);
     g.add(rod);
   }
-  for (let i = 0; i < 9; i++) { // front guard wires
-    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.42, 6), chrome);
-    wire.position.set(-0.5 + i * 0.125, 0.01, 0.24);
+  for (let i = 0; i < 15; i++) { // the front guard: upright wires and two cross wires
+    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.68, 6), chrome);
+    wire.position.set(-0.4 + i * (0.8 / 14), 0.1, 0.16);
     g.add(wire);
   }
-  for (const sx of [-1, 1]) {
-    const end = box(0.06, 0.62, 0.4, 0.03, blue);
-    end.position.set(sx * 0.63, -0.08, 0);
-    const foot = box(0.08, 0.04, 0.5, 0.02, blue);
-    foot.position.set(sx * 0.63, -0.4, 0);
-    g.add(end, foot);
+  for (const y of [0.09, -0.2]) {
+    const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.84, 6), chrome);
+    bar.rotation.z = Math.PI / 2;
+    bar.position.set(0, y, 0.165);
+    g.add(bar);
   }
-  return shell(name, g, { pose: { elevation: 0.25, zoom: 1.0 } });
+  return shell(name, g, { pose: { elevation: 0.15, zoom: 1.0 } });
 }
 
-function sunHeater(name) { // 14" sun heater: a round chrome reflector with a spiral element on a yellow pedestal
+function sunHeater(name) {
+  // 14" sun heater (studio photo 124): an ivory drum with a glowing orange bowl behind a ring-and-spoke guard
+  // and a round centre badge, held in a crescent yoke on an oval foot
   const g = new THREE.Group();
-  const chrome = mat(FINISH.chrome);
-  const yellow = mat({ color: '#f2c12e', roughness: 0.35, clearcoat: 0.6 });
-  const dish = new THREE.Mesh(lathe([[0, -0.12], [0.18, -0.1], [0.32, -0.04], [0.4, 0.04]]), chrome);
-  dish.rotation.x = Math.PI / 2;
-  dish.position.y = 0.3;
-  const element = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.12, 20), mat({ color: '#ffb36b', emissive: '#ff5a14', emissiveIntensity: 0.8 }));
-  element.rotation.x = Math.PI / 2;
-  element.position.set(0, 0.3, -0.04);
-  g.add(dish, element);
-  for (let i = 0; i < 16; i++) { // the front guard: radial wires and a ring
-    const a = (i / 16) * Math.PI * 2;
-    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.36, 4), chrome);
-    wire.position.set(Math.cos(a) * 0.2, 0.3 + Math.sin(a) * 0.2, 0.05);
+  const chrome = mat({ color: '#d9d4c6', metalness: 0.8, roughness: 0.3 });
+  const ivory = mat({ color: '#ece2cb', roughness: 0.4, clearcoat: 0.5 });
+  const cy = 0.24;
+  const drum = new THREE.Mesh(lathe([[0, -0.12], [0.22, -0.11], [0.36, -0.06], [0.42, 0.02], [0.43, 0.06]]), ivory);
+  drum.rotation.x = Math.PI / 2;
+  drum.position.y = cy;
+  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.39, 48), mat({ color: '#ffb35a', emissive: '#ff7a1c', emissiveIntensity: 0.85, roughness: 0.4 }));
+  glow.position.set(0, cy, -0.04);
+  g.add(drum, glow);
+  for (let i = 1; i <= 6; i++) { // guard rings
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.1 + i * 0.053, 0.004, 5, 64), chrome);
+    ring.position.set(0, cy, 0.06);
+    g.add(ring);
+  }
+  for (let i = 0; i < 24; i++) { // and spokes
+    const a = (i / 24) * Math.PI * 2;
+    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 0.32, 4), chrome);
+    wire.position.set(Math.cos(a) * 0.26, cy + Math.sin(a) * 0.26, 0.06);
     wire.rotation.z = a - Math.PI / 2;
     g.add(wire);
   }
-  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.012, 8, 64), yellow);
-  rim.position.set(0, 0.3, 0.05);
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.36, 20), yellow);
-  neck.position.y = -0.2;
-  const base = new THREE.Mesh(lathe([[0.06, -0.36], [0.2, -0.4], [0.3, -0.46], [0.31, -0.5], [0, -0.5]]), yellow);
-  g.add(rim, neck, base);
-  return shell(name, g, { pose: { elevation: 0.15, zoom: 1.05 } });
+  const badge = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 40), ivory);
+  badge.rotation.x = Math.PI / 2;
+  badge.position.set(0, cy, 0.08);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.43, 0.02, 10, 64), ivory);
+  rim.position.set(0, cy, 0.06);
+  // the yoke: a broad crescent under the drum, its tips reaching up past the drum's middle
+  const yoke = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.045, 12, 64, Math.PI + 0.9), ivory);
+  yoke.rotation.z = Math.PI - 0.45;
+  yoke.scale.z = 1.8;
+  yoke.position.set(0, cy, -0.04);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.14, 24), ivory);
+  neck.position.set(0, cy - 0.58, -0.04);
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.012, 8, 32), mat({ color: '#7b5a44', roughness: 0.4 }));
+  band.rotation.x = Math.PI / 2;
+  band.position.set(0, cy - 0.6, -0.04);
+  const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.36, 0.08, 48), ivory);
+  foot.scale.z = 0.62;
+  foot.position.set(0, cy - 0.69, -0.04);
+  g.add(badge, rim, yoke, neck, band, foot);
+  return shell(name, g, { pose: { elevation: 0.12, zoom: 1.05 } });
 }
 
 // ---------------------------------------------------------------- water heating
-function immersionRod(name) { // Pearl immersion rod: teal-capped dark handle, chrome rod and coil
+// Pearl immersion rods, as in their studio photos: 1500 W and 2000 W have a lime-green box handle over a clear
+// collar (141); 1000 W a black bell-shaped handle over a steel sleeve with a printed label (142)
+function immersionRod(name, { handle = 'lime' } = {}) {
   const g = new THREE.Group();
   const chrome = mat(FINISH.chrome);
-  const handle = new THREE.Mesh(lathe([[0, 0.92], [0.05, 0.9], [0.075, 0.78], [0.07, 0.5], [0.05, 0.36], [0.03, 0.32]]), mat({ color: '#2d3033', roughness: 0.35, clearcoat: 0.6 }));
-  const cap = new THREE.Mesh(lathe([[0, 0.96], [0.04, 0.95], [0.08, 0.86], [0.078, 0.8]]), mat({ color: '#3cb6b0', roughness: 0.3, clearcoat: 0.7 }));
-  const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.2, 8), mat({ color: '#111', roughness: 0.6 }));
-  cord.position.y = 1.04;
-  // the heating element is one tube: down from the handle, bending out into the coil, five turns down,
-  // then back up through the middle of the coil to the handle (the way a real immersion rod is made)
-  const pts = [];
-  for (let y = 0.33; y > -0.1; y -= 0.06) pts.push(new THREE.Vector3(0.012, y, 0));
-  pts.push(new THREE.Vector3(0.03, -0.15, 0), new THREE.Vector3(0.08, -0.19, 0));
-  for (let i = 0; i <= 200; i++) { const t = i / 200, a = t * 5 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * 0.1, -0.21 - t * 0.54, Math.sin(a) * 0.1)); }
-  pts.push(new THREE.Vector3(0.07, -0.79, 0), new THREE.Vector3(0.02, -0.78, 0));
-  for (let y = -0.74; y < 0.33; y += 0.06) pts.push(new THREE.Vector3(-0.012, y, 0));
-  pts.push(new THREE.Vector3(-0.012, 0.33, 0));
-  const element = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 420, 0.016, 8), chrome);
-  g.add(handle, cap, cord, element);
-  g.position.y = -0.12;
+  const cordMat = mat({ color: '#111', roughness: 0.6 });
+  let top; // where the two rods leave the handle
+  if (handle === 'lime') {
+    const body = box(0.3, 0.38, 0.17, 0.06, mat({ color: '#c6dc2c', roughness: 0.3, clearcoat: 0.7 }));
+    body.position.y = 0.78;
+    const band = box(0.31, 0.05, 0.18, 0.02, mat({ color: '#2a2b2d', roughness: 0.45 }));
+    band.position.y = 0.58;
+    const collar = box(0.2, 0.14, 0.12, 0.03, new THREE.MeshPhysicalMaterial({ color: '#dfe6ea', roughness: 0.1, transparent: true, opacity: 0.45 }));
+    collar.position.y = 0.48;
+    const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.14, 8), cordMat);
+    cord.position.set(-0.08, 1.02, 0);
+    cord.rotation.z = 0.5;
+    g.add(body, band, collar, cord);
+    top = 0.42;
+  } else {
+    const bell = new THREE.Mesh(lathe([[0, 1.04], [0.06, 1.03], [0.11, 0.96], [0.135, 0.82], [0.14, 0.72], [0.095, 0.68], [0.07, 0.67]]), mat({ color: '#1f2022', roughness: 0.35, clearcoat: 0.6 }));
+    const sleeve = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.062, 0.38, 24), mat({ color: '#e2e3e4', metalness: 0.7, roughness: 0.3 }));
+    sleeve.position.y = 0.48;
+    const label = new THREE.Mesh(new THREE.CylinderGeometry(0.064, 0.064, 0.24, 24, 1, true, -0.9, 1.8), mat({ color: '#f5f3ee', roughness: 0.5 }));
+    label.position.y = 0.5;
+    const cord = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([[0, 1.02], [0, 1.1], [0.04, 1.18], [0.1, 1.22]].map(([x, y]) => new THREE.Vector3(x, y, 0))), 12, 0.022, 8), cordMat);
+    g.add(bell, sleeve, label, cord);
+    top = 0.3;
+  }
+  // the heating element is one tube: down the left rod, bending out into the coil, four turns down, then back
+  // up through the middle of the coil and the right rod (the way a real immersion rod is made)
+  const s = 0.045, pts = [];
+  for (let y = top; y > -0.05; y -= 0.06) pts.push(new THREE.Vector3(-s, y, 0));
+  pts.push(new THREE.Vector3(-0.07, -0.1, 0), new THREE.Vector3(-0.11, -0.15, 0));
+  for (let i = 0; i <= 160; i++) { const t = i / 160, a = Math.PI + t * 4 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * 0.12, -0.18 - t * 0.5, Math.sin(a) * 0.12)); }
+  pts.push(new THREE.Vector3(-0.06, -0.72, 0), new THREE.Vector3(s, -0.66, 0));
+  for (let y = -0.6; y < top; y += 0.06) pts.push(new THREE.Vector3(s, y, 0));
+  pts.push(new THREE.Vector3(s, top, 0));
+  const element = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 400, 0.016, 8), chrome);
+  g.add(element);
+  g.position.y = -0.18;
   return shell(name, g, { pose: { elevation: 0.15, zoom: 1.0 } });
 }
 
@@ -389,26 +591,33 @@ function instantHeater(name, { top, body, lower }) { // Croma / Croma2: a compac
   return shell(name, g, { pose: { elevation: 0.12, zoom: 1.05 } });
 }
 
-function kettleElement(name) { // two chrome loops on a black base
+function kettleElement(name) {
+  // studio photo 145: one chrome tube bent into two upright figure-8s side by side, joined along the bottom,
+  // rising from a dark grey cylinder with a brass hex flange on top and a brass terminal underneath
   const g = new THREE.Group();
   const chrome = mat(FINISH.chrome);
-  for (const x of [-0.14, 0.14]) {
-    const loop = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.025, 10, 40), chrome);
-    loop.position.set(x, 0.22, 0);
-    const loop2 = loop.clone();
-    loop2.position.y = 0.45;
-    g.add(loop, loop2);
+  const brass = mat({ color: '#c9944f', metalness: 1, roughness: 0.3 });
+  const yb = 0.08, h8 = 0.3, w8 = 0.17; // the bar along the bottom, and each 8's half height and half width
+  const pts = [new THREE.Vector3(-0.04, -0.02, 0), new THREE.Vector3(-0.05, yb, 0)];
+  for (const [side, x0] of [[-1, -0.2], [1, 0.2]]) {
+    if (side === 1) pts.push(new THREE.Vector3(0, yb, 0.012)); // along the bottom bar to the second 8
+    // an upright figure-8 (a Gerono lemniscate) from its bottom point, round both loops and back
+    for (let i = 0; i <= 96; i++) {
+      const t = -Math.PI / 2 + (i / 96) * Math.PI * 2 * side;
+      pts.push(new THREE.Vector3(x0 + w8 * Math.sin(2 * t) * side, yb + h8 + h8 * Math.sin(t), 0.02 * Math.cos(t)));
+    }
   }
-  for (const x of [-0.06, 0.06]) { // the two legs joining the loops to the base
-    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.16, 10), chrome);
-    leg.position.set(x, 0.1, 0);
-    g.add(leg);
-  }
-  const base = new THREE.Mesh(lathe([[0, -0.3], [0.17, -0.3], [0.19, -0.2], [0.16, -0.05], [0.12, 0.05]]), mat({ color: '#1a1b1d', roughness: 0.45 }));
-  const flange = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.04, 32), mat({ color: '#b8653f', metalness: 1, roughness: 0.3 }));
-  flange.position.y = 0.06;
-  g.add(base, flange);
-  return shell(name, g, { pose: { elevation: 0.2, zoom: 1.2 } });
+  pts.push(new THREE.Vector3(0.05, yb, 0), new THREE.Vector3(0.04, -0.02, 0));
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.3), 420, 0.02, 10), chrome));
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.165, 0.3, 40), mat({ color: '#3b3d40', roughness: 0.45 }));
+  base.position.y = -0.2;
+  const flange = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.03, 6), brass);
+  flange.position.y = -0.04;
+  const terminal = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.05, 12), brass);
+  terminal.position.y = -0.37;
+  g.add(base, flange, terminal);
+  g.position.y = -0.15;
+  return shell(name, g, { pose: { elevation: 0.15, zoom: 1.15 } });
 }
 
 // Croma and Croma2, as in their catalogue pictures
@@ -488,126 +697,40 @@ function croma2Heater(name) {
   return shell(name, g, { pose: { elevation: 0.15, azimuth: 0.45, zoom: 1.05 } });
 }
 
-// ---------------------------------------------------------------- dry irons
-function iron(name, { body, accent, handle }) {
-  const g = new THREE.Group();
-  const outline = (scale) => {
-    const s = new THREE.Shape();
-    s.moveTo(-0.5 * scale, -0.26 * scale);
-    s.lineTo(0.15 * scale, -0.26 * scale);
-    s.quadraticCurveTo(0.5 * scale, -0.2 * scale, 0.62 * scale, 0);
-    s.quadraticCurveTo(0.5 * scale, 0.2 * scale, 0.15 * scale, 0.26 * scale);
-    s.lineTo(-0.5 * scale, 0.26 * scale);
-    s.closePath();
-    return s;
-  };
-  const plateGeo = new THREE.ExtrudeGeometry(outline(1), { depth: 0.05, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 2 });
-  plateGeo.rotateX(-Math.PI / 2);
-  const plate = new THREE.Mesh(plateGeo, mat(FINISH.chrome));
-  plate.position.y = -0.3;
-  const shellGeo = new THREE.ExtrudeGeometry(outline(0.93), { depth: 0.18, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.05, bevelSegments: 5 });
-  shellGeo.rotateX(-Math.PI / 2);
-  // the cover rises from the nose to a tall heel, as on a dry iron
-  const rise = (x) => THREE.MathUtils.clamp(1.4 - 0.9 * ((x + 0.5) / 1.12), 0.45, 1.4);
-  const pos = shellGeo.attributes.position;
-  for (let i = 0; i < pos.count; i++) pos.setY(i, pos.getY(i) * rise(pos.getX(i)));
-  shellGeo.computeVertexNormals();
-  const bodyMesh = new THREE.Mesh(shellGeo, mat(body));
-  bodyMesh.position.y = -0.24;
-  g.add(plate, bodyMesh);
-  // the handle: a closed loop, an upright post at the heel, the grip on top, and a strut down to the front
-  const pts = [[-0.43, 0.02], [-0.44, 0.2], [-0.32, 0.33], [-0.05, 0.34], [0.16, 0.24], [0.27, 0.04], [0.3, -0.08]].map(([x, y]) => new THREE.Vector3(x, y, 0));
-  const arch = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, 0.055, 14), mat(handle));
-  arch.scale.z = 0.85;
-  g.add(arch);
-  // the temperature dial, set into the sloping cover in front of the handle
-  const dial = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.075, 0.04, 28), mat(accent));
-  dial.position.set(0.4, -0.06, 0);
-  dial.rotation.z = -0.25;
-  g.add(dial);
-  const cord = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(-0.45, 0, 0), new THREE.Vector3(-0.62, -0.05, 0), new THREE.Vector3(-0.8, -0.25, 0)]), 16, 0.016, 8), mat({ color: '#111', roughness: 0.6 }));
-  g.add(cord);
-  return shell(name, g, { pose: { elevation: 0.3, azimuth: 0.9, zoom: 1.25 } });
-}
-
-// ---------------------------------------------------------------- cabin fan
-function cabinFan(name) { // Cabin Fan 12": a white round housing with curved swirl vanes over a turning fan
-  const g = new THREE.Group();
-  const white = mat({ color: '#f1f1ee', roughness: 0.35, clearcoat: 0.6 });
-  const housing = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.6, 0.32, 64, 1, true), white);
-  housing.rotation.x = Math.PI / 2;
-  const back = new THREE.Mesh(new THREE.CircleGeometry(0.6, 64), white);
-  back.position.z = -0.16;
-  back.rotation.y = Math.PI;
-  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.035, 12, 64), white);
-  rim.position.z = 0.16;
-  const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.05, 40), white);
-  hub.rotation.x = Math.PI / 2;
-  hub.position.z = 0.17;
-  g.add(housing, back, rim, hub);
-  for (let i = 0; i < 22; i++) { // the swirl vanes
-    const pts = [];
-    for (let k = 0; k <= 8; k++) {
-      const t = k / 8, r = 0.15 + 0.45 * t, a = (i / 22) * Math.PI * 2 + t * 0.9;
-      pts.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, 0.16 - t * 0.02));
-    }
-    const vane = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 8, 0.013, 5), white);
-    vane.scale.z = 2.2;
-    g.add(vane);
-  }
-  const bracket = box(0.18, 0.5, 0.12, 0.05, white);
-  bracket.position.set(0, -0.62, -0.06);
-  g.add(bracket);
-  const axis = new THREE.Group();
-  axis.position.z = 0.02;
-  axis.rotation.x = Math.PI / 2;
-  const rotor = new THREE.Group();
-  const bladeMat = mat({ color: '#e6e6e2', roughness: 0.4 });
-  for (let i = 0; i < 5; i++) {
-    const b = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.008, 0.16), bladeMat);
-    b.position.x = 0.32;
-    b.rotation.x = -0.4;
-    const p = new THREE.Group();
-    p.rotation.y = (i / 5) * Math.PI * 2;
-    p.add(b);
-    rotor.add(p);
-  }
-  axis.add(rotor);
-  return shell(name, g, { rotor, axis, pose: { elevation: 0.12, azimuth: 0.45, zoom: 1.0 } });
-}
-
 // ---------------------------------------------------------------- the range, as pictured
 const build = (fn) => ({ shadows = false } = {}) => { const a = fn(); a.shadows(shadows); return a; };
+// as in each one's studio photo
 const PLATES = {
-  bng: { finish: 'powder-dark' }, calvin: { finish: 'steel' }, comfort: { finish: 'powder' }, crescent: { finish: 'nickel' },
-  excel: { finish: 'white' }, hudsun: { finish: 'powder' }, 'jhn-1250': { finish: 'powder' }, 'jhn-2000': { finish: 'powder' },
-  magnum: { finish: 'steel', frame: 'black' }, nelson: { finish: 'nickel' }, phantom: { finish: 'nickel' }, regent: { finish: 'white' },
-  rustam: { finish: 'steel', stand: true }, 'ss-jumbo': { finish: 'steel', dome: true }, 'ss-2000': { finish: 'steel' },
-  simson: { finish: 'steel' }, smart: { finish: 'powder-dark' }, ultima: { finish: 'black' },
+  'jhn-1250': { finish: 'hammer', shape: 'pressed' }, 'jhn-2000': { finish: 'hammer', shape: 'pressed' },
+  hudsun: { finish: 'hammer', shape: 'pressed', size: 1.08 },
+  nelson: { finish: 'chrome', shape: 'pressed' }, calvin: { finish: 'chrome', shape: 'pressed' }, simson: { finish: 'steel', shape: 'pressed' },
+  bng: { finish: 'hammer', tall: true }, comfort: { finish: 'grey-steel', print: 'dark' },
+  smart: { finish: 'charcoal', frame: 'steel', print: 'light' }, ultima: { finish: 'black-glass', frame: 'steel', feet: false },
+  magnum: { finish: 'steel', frame: 'black', feet: false }, crescent: { finish: 'steel', feet: false, slots: true },
+  regent: { finish: 'steel-white', feet: false }, excel: { finish: 'steel-white', tall: true },
+  phantom: { finish: 'nickel' }, 'ss-2000': { finish: 'steel' }, 'ss-jumbo': { finish: 'steel', tall: true },
+  rustam: { finish: 'steel', stand: true },
 };
 
 export const APPLIANCES = {
   ...Object.fromEntries(Object.entries(PLATES).map(([k, cfg]) => [`kitchen-appliances-${k}`, build(() => hotplate(k, cfg))])),
   'kitchen-appliances-presto': build(() => cooktop('presto', { print: 'ring', frameFinish: 'steel' })),
   'kitchen-appliances-prime': build(() => cooktop('prime', { print: 'swirl', frameFinish: 'abs' })),
-  'kitchen-appliances-prince': build(() => cooktop('prince', { print: 'ring', grill: true, frameFinish: 'abs' })),
+  'kitchen-appliances-prince': build(() => cooktop('prince', { print: 'grill', grill: true, frameFinish: 'steel' })),
   'heating-water-alexa': build(() => fanHeater('alexa', { w: 0.95, h: 0.5, d: 0.68, body: FINISH.white, front: FINISH.black })),
-  'heating-water-alineo': build(() => fanHeater('alineo', { w: 1.05, h: 0.56, d: 0.74, body: FINISH.white, front: FINISH.black })),
-  'heating-water-pearl': build(() => fanHeater('pearl', { w: 1.0, h: 0.52, d: 0.66, body: FINISH.white, front: { color: '#55575b', roughness: 0.4 } })),
-  'heating-water-pox': build(() => fanHeater('pox', { w: 0.6, h: 0.9, d: 0.45, body: FINISH.white, front: FINISH.black, upright: true, knobs: 2 })),
-  'heating-water-roxx': build(() => fanHeater('roxx', { w: 0.6, h: 0.9, d: 0.45, body: { color: '#e9e3d3', roughness: 0.45 }, front: { color: '#9a958a', roughness: 0.45 }, upright: true, knobs: 1 })),
-  'heating-water-rozer': build(() => fanHeater('rozer', { w: 0.62, h: 0.92, d: 0.45, body: FINISH.black, front: { color: '#e6672a', roughness: 0.35, clearcoat: 0.6 }, upright: true, knobs: 2, knobColour: { color: '#232427', roughness: 0.35 } })),
-  'heating-water-silky': build(() => quartzHeater('silky')),
+  'heating-water-alineo': build(() => fanHeater('alineo', { w: 1.05, h: 0.56, d: 0.74, body: FINISH.white, front: FINISH.black, knobColour: { color: '#ece6d4', roughness: 0.35 } })),
+  'heating-water-pearl': build(() => fanHeater('pearl', { w: 1.0, h: 0.52, d: 0.66, body: { color: '#e4e4e1', roughness: 0.4 }, front: { color: '#2a2b2e', roughness: 0.4 }, vent: 'slats' })),
+  // the upright ones: narrow front, deep perforated sides
+  'heating-water-pox': build(() => fanHeater('pox', { w: 0.5, h: 0.9, d: 0.75, body: FINISH.white, frame: { color: '#2a2b2e', roughness: 0.4 }, front: { color: '#55575b', roughness: 0.4 }, side: { kind: 'dots', bg: '#f1f1ee', fg: '#a9aaa8' }, upright: true, knobs: 2 })),
+  'heating-water-roxx': build(() => fanHeater('roxx', { w: 0.5, h: 0.9, d: 0.75, body: { color: '#ebe5d6', roughness: 0.45 }, frame: { color: '#9c9d9f', roughness: 0.4 }, front: { color: '#2a2b2e', roughness: 0.45 }, side: { kind: 'dots', bg: '#ebe5d6', fg: '#b0a68e' }, upright: true, knobs: 2, knobColour: { color: '#ebe5d6', roughness: 0.4 } })),
+  'heating-water-rozer': build(() => fanHeater('rozer', { w: 0.52, h: 0.92, d: 0.72, body: { color: '#26272a', roughness: 0.4 }, frame: { color: '#e6672a', roughness: 0.35, clearcoat: 0.6 }, front: { color: '#c8322a', roughness: 0.35 }, side: { kind: 'dots', bg: '#26272a', fg: '#151617' }, upright: true, knobs: 2, knobColour: { color: '#232427', roughness: 0.35 } })),
+  'heating-water-silky': build(() => fanHeater('silky', { w: 0.5, h: 0.95, d: 0.72, body: FINISH.white, frame: { color: '#9a6b4c', metalness: 0.6, roughness: 0.3 }, front: { color: '#1e1f21', roughness: 0.45 }, side: { kind: 'ribs', bg: '#f1f1ee', fg: '#b9b9b4' }, upright: true, knobs: 2, knobColour: { color: '#ece6d4', roughness: 0.35 } })),
+  'heating-water-sigma': build(() => quartzHeater('sigma')),
   'heating-water-sun-heater-sunshine-14': build(() => sunHeater('sun-heater')),
-  'heating-water-pearl-immersion-rod-1000-w': build(() => immersionRod('rod-1000')),
-  'heating-water-pearl-immersion-rod-1500-w': build(() => immersionRod('rod-1500')),
-  'heating-water-pearl-immersion-rod-2000-w': build(() => immersionRod('rod-2000')),
+  'heating-water-pearl-immersion-rod-1000-w': build(() => immersionRod('rod-1000', { handle: 'black' })),
+  'heating-water-pearl-immersion-rod-1500-w': build(() => immersionRod('rod-1500', { handle: 'lime' })),
+  'heating-water-pearl-immersion-rod-2000-w': build(() => immersionRod('rod-2000', { handle: 'lime' })),
   'heating-water-croma': build(() => cromaHeater('croma')),
   'heating-water-croma2': build(() => croma2Heater('croma2')),
   'heating-water-kettle-element': build(() => kettleElement('kettle-element')),
-  'all-purpose-cabin-fans-cabin-fan-12': build(() => cabinFan('cabin-fan')),
-  'electric-irons-bmw': build(() => iron('bmw', { body: FINISH.black, accent: { color: '#d8262d', roughness: 0.3, clearcoat: 0.8 }, handle: { color: '#d8262d', roughness: 0.3, clearcoat: 0.8 } })),
-  'electric-irons-grand': build(() => iron('grand', { body: { color: '#2f6fd1', roughness: 0.3, clearcoat: 0.8 }, accent: FINISH.chrome, handle: { color: '#2f6fd1', roughness: 0.3, clearcoat: 0.8 } })),
-  'electric-irons-plancha': build(() => iron('plancha', { body: FINISH.white, accent: { color: '#9bb2d6', roughness: 0.35 }, handle: FINISH.white })),
-  'electric-irons-regular': build(() => iron('regular', { body: FINISH.chrome, accent: FINISH.black, handle: FINISH.black })),
 };

@@ -1,0 +1,49 @@
+{
+  "_read_me": "Aparna's events, newest first. Each becomes a page at /events/<id>/ and a card on /events/. To add one: put its photos in a folder (for example events-media/<id>/, any .jpg/.png/.webp), add an entry here with that folder, then run npm run content. Paths are relative to the project folder; \"pack:\" means the build pack folder. Photo captions come from \"captions\" (file name -> caption) or else from the file names (text before \" - \" or the whole name), so name files by what they show, never by people's names (brief rule 4). galleries: optional named sets (a folder each, shown in file-name order). video: an optional muted loop (.mp4). afterMovie: link to the full film (YouTube) once Aparna sends it, or null. launches: optional category names launched at the event (linked to their pages).",
+  "events": [
+    {
+      "id": "utsav-26",
+      "name": "Utsav '26",
+      "when": "October 2026",
+      "date": "2026-10",
+      "kicker": "Ek naam, poori range",
+      "summary": "In October 2026, Aparna's distributors and dealers from across India came together for Utsav '26: a day of thanks, new launches and celebration.",
+      "cover": "pack:06_Utsav26_Event/photos/Wide night shot of a crowd cheering under clear balloons - AVNI5199.jpg",
+      "video": "pack:06_Utsav26_Event/video/Utsav 26 - glimpse loop, 40 s, muted, no names (from the After Movie).mp4",
+      "afterMovie": null,
+      "photos": "pack:06_Utsav26_Event/photos",
+      "galleries": [
+        {
+          "title": "Ek din, das pal",
+          "subtitle": "The day, in eleven moments",
+          "folder": "pack:06_Utsav26_Event/carousel - Ek din, das pal (the day in 11 slides)"
+        },
+        {
+          "title": "Ek naam, poori range",
+          "subtitle": "The whole range at the meet",
+          "folder": "pack:06_Utsav26_Event/carousel - Ek naam, poori range (the range at the meet)"
+        },
+        {
+          "title": "Sajaavat",
+          "subtitle": "The decor",
+          "folder": "pack:06_Utsav26_Event/carousel - Sajaavat (decor)"
+        }
+      ],
+      "launches": [
+        "Washing Machines"
+      ],
+      "captions": {
+        "Blue stage beams fanning out over the crowd and balloons - AVNI5224.jpg": "Stage lights over the crowd",
+        "Grand hotel entrance with red carpet - AVNI4382.jpg": "The red-carpet welcome",
+        "Hotel courtyard with glass facade - AVNI4959.jpg": "The courtyard, ready for the evening",
+        "Row of semi-automatic washing machines in front of a SEMI - AVNI4401.jpg": "The new semi-automatic washing machines, launched at Utsav ’26",
+        "Singer in dark cape gown holds mic - AVNI4709.jpg": "A performance on the main stage",
+        "Speaker in dark suit on stage in front of My journey is not - AVNI4852.jpg": "On stage: the journey so far",
+        "Speaker mid-frame gesturing before My journey is not - AVNI4854.jpg": "Sharing the story of the journey",
+        "Two older men in conversation one in red-and-gold embroidered - AVNI4608.jpg": "Guests in conversation",
+        "Wide banquet hall guests at round tables facing a pink stage - AVNI4871.jpg": "Distributors and dealers in the banquet hall",
+        "Wide night shot of a crowd cheering under clear balloons - AVNI5199.jpg": "The night celebration"
+      }
+    }
+  ]
+}

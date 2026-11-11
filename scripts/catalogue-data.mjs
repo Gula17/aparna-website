@@ -6,8 +6,10 @@
 //   - publish only verified specs (never anything under specs.unverified_from_sheet), and also hold back
 //     specs that a product's notes say must be confirmed first (SPEC_HOLDS below)
 //   - no price, ever (the data has none)
-//   - images: the product's own photos and posters, then its crop from the catalogue page
-//     (src/content/product-images.json). No image is ever borrowed from another product.
+//   - images: Aparna's studio photos (src/content/studio-photos.json), the product's own photos and posters,
+//     then its crop from the catalogue page (src/content/product-images.json). A studio photo is shared by two
+//     models only where Aparna's own catalogue prints one picture for both (listed in studio-photos.json).
+//   - products in the studio photos but not in the data are shown as "details coming soon" (status 'soon')
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -78,26 +80,38 @@ class ImageWriter {
     this.done = new Map(); // key -> media entry
   }
 
-  async write(key, src, { crop, alt, kind }) {
-    if (this.done.has(key)) return { ...this.done.get(key), alt, kind };
-    const input = path.join(this.pack, src);
+  async write(key, src, { crop, alt, kind, colour = null }) {
+    const extra = { alt, kind, ...(colour ? { colour } : {}) };
+    if (this.done.has(key)) return { ...this.done.get(key), ...extra };
+    const input = path.isAbsolute(src) ? src : path.join(this.pack, src);
+    const studio = kind === 'studio'; // Aparna's studio photos: already on a transparent background
     // The master picture: the crop, turned upright where needed. The event standees were photographed lying
     // on their side (turned after cropping, so crop boxes stay in the original photo's coordinates).
     let img = sharp(input).rotate();
     if (crop) img = img.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] });
     let master = await img.png().toBuffer();
     if (SIDEWAYS.test(src)) master = await sharp(master).rotate(270).png().toBuffer();
+    let opaque = false;
+    if (studio) {
+      // every studio photo has a thin dark frame line round its edge: cut it off, then drop the empty margin
+      const m = await sharp(master).metadata();
+      master = await sharp(master).extract({ left: 3, top: 3, width: m.width - 6, height: m.height - 6 }).png().toBuffer();
+      const { data } = await sharp(master).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+      opaque = data[3] > 200; // a few came on a white background instead of a transparent one
+      master = await sharp(master).trim({ threshold: 10 }).png().toBuffer();
+    }
     const { width: mw, height: mh } = await sharp(master).metadata();
     // Small catalogue crops are upscaled 4x with AI (scripts/ai-upscale.mjs: the product's own photo, sharpened,
     // nothing new drawn), so they stay crisp up to full-HD size. Without the upscaler: Lanczos, at most 2x.
-    let upscaled = Math.max(mw, mh) < 1100 ? await aiUpscale(master) : null;
+    // Studio photos are sharp already and are never enlarged.
+    let upscaled = !studio && Math.max(mw, mh) < 1100 ? await aiUpscale(master) : null;
     if (upscaled) {
       // the smallest catalogue crops (under ~360 px) are still short of full-HD after one pass: a second pass
       const once = await sharp(upscaled).metadata();
       if (Math.max(once.width, once.height) < 1440) upscaled = (await aiUpscale(upscaled)) ?? upscaled;
       master = upscaled;
     }
-    const limit = upscaled ? Infinity : 2; // how far a picture may be enlarged
+    const limit = upscaled ? Infinity : studio ? 1 : 2; // how far a picture may be enlarged
     const variants = [];
     // sizes: 480, 960 and (when there are the pixels for it) a 1440 version for full-HD and high-DPI screens
     for (const [width, maxH] of [[480, 720], [960, 1440], [1440, 2160]]) {
@@ -111,9 +125,9 @@ class ImageWriter {
       const info = await out.webp({ quality: width === 1440 ? 78 : 76 }).toFile(path.join(this.publicDir, file));
       variants.push({ file: `/${file}`, width: info.width, height: info.height });
     }
-    const entry = { variants };
+    const entry = { variants, ...(opaque ? { opaque: true } : {}) };
     this.done.set(key, entry);
-    return { ...entry, alt, kind };
+    return { ...entry, ...extra };
   }
 }
 
@@ -122,8 +136,14 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
   const crops = JSON.parse(await fs.readFile(path.join(contentDir, 'product-images.json'), 'utf8').catch(() => '{}'));
   const overrides = JSON.parse(await fs.readFile(path.join(contentDir, 'product-overrides.json'), 'utf8').catch(() => '{}'));
   const discontinued = (data.discontinued_do_not_show ?? []).map((d) => (d.name ?? d).toString().toLowerCase());
+  // Aparna's studio photos (src/content/studio-photos.json): each product's main picture where there is one
+  const studio = JSON.parse(await fs.readFile(path.join(contentDir, 'studio-photos.json'), 'utf8').catch(() => '{"photos":{},"comingSoon":[]}'));
+  const studioDir = path.resolve(contentDir, '..', '..', studio.source ?? '');
   await fs.mkdir(path.join(publicDir, 'media', 'products'), { recursive: true });
   const images = new ImageWriter(pack, publicDir);
+  const studioImage = (file, name, colour, role) => images.write(`studio-${idSlug(path.basename(file, '.png'))}`, path.join(studioDir, file), {
+    alt: role === 'range' ? `The Aparna ${name} in its colours` : `The Aparna ${name}${colour ? ` in ${colour}` : ''}`, kind: 'studio', colour,
+  });
 
   const shown = data.products.filter((p) => SHOWABLE.has(p.status) && !discontinued.some((d) => d.startsWith(p.name.toLowerCase())));
   const products = [];
@@ -134,9 +154,11 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     const slug = p.id.startsWith(prefix) ? p.id.slice(prefix.length) : p.id;
     const extra = overrides[p.id] ?? {};
 
-    // Gallery: this model cut out of a shared poster or photo (if listed), its poster, the model cropped from
-    // its catalogue page, then event photos.
+    // Gallery: Aparna's studio photos (one per colour), this model cut out of a shared poster or photo (if
+    // listed), its poster, the model cropped from its catalogue page, then event photos.
     const gallery = [];
+    // colour: the listed colour it shows; for models with no colour list in the data, the colour seen in the photo
+    for (const s of studio.photos?.[p.id] ?? []) gallery.push(await studioImage(s.file, p.name, s.colour ?? s.shows ?? null, s.role));
     for (const [i, extra] of (crops[p.id]?.crops ?? []).entries()) {
       gallery.push(await images.write(`own-${p.id}-${i}`, extra.src, { crop: extra.crop, alt: `The Aparna ${p.name}`, kind: extra.kind ?? 'poster' }));
     }
@@ -178,8 +200,27 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     });
   }
 
-  const categories = data.categories
-    .map((c) => ({ name: c.name, slug: slugify(c.name), count: products.filter((p) => p.category === c.name).length }))
+  // Products in Aparna's studio photos that are not in the product data yet: shown with their photo and
+  // "details coming soon" (no specs, no made-up name: a plain description of what the photo shows).
+  for (const [i, s] of (studio.comingSoon ?? []).entries()) {
+    const categorySlug = slugify(s.category);
+    const slug = s.id.startsWith(`${idSlug(s.category)}-`) ? s.id.slice(idSlug(s.category).length + 1) : s.id;
+    const gallery = [];
+    for (const file of s.files) gallery.push(await studioImage(file, s.name, null));
+    products.push({
+      id: s.id, slug, url: `/products/${categorySlug}/${slug}/`, name: s.name, modelNumber: null,
+      category: s.category, categorySlug, series: s.series ?? 'Coming soon', type: s.type,
+      sizeInch: null, sizeMm: null, colours: [], specs: [], features: [], badges: [],
+      status: 'soon', // details coming soon
+      description: `Aparna ${s.type.toLowerCase()}. Its name and full details are coming soon.`,
+      catalogue: null, images: gallery, sort: `9.9.${String(i).padStart(3, '0')}`,
+    });
+  }
+
+  const known = new Set(data.categories.map((c) => c.name));
+  const extraCategories = [...new Set(products.map((p) => p.category).filter((c) => !known.has(c)))];
+  const categories = [...data.categories.map((c) => c.name), ...extraCategories]
+    .map((name) => ({ name, slug: slugify(name), count: products.filter((p) => p.category === name).length }))
     .filter((c) => c.count > 0);
 
   // Every product id in the data's showable list must be in the catalogue.

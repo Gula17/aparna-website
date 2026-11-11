@@ -12,7 +12,7 @@ const load = (ctx, file) => (ctx.server ? ctx.server.ssrLoadModule(file) : impor
 // Renders every page from the copy + product data into its HTML, so each page is complete before any
 // JavaScript runs (works with JS off, and search engines see real content).
 //   index.html             <!--app-->              the home page
-//   products/**, my-list/  <!--page:kind:key-->    catalogue pages (shells written by npm run content)
+//   products/**, my-list/, events/**  <!--page:kind:key-->  catalogue and event pages (shells: npm run content)
 function renderPages() {
   return {
     name: 'aparna-render-pages',
@@ -24,8 +24,11 @@ function renderPages() {
       if (html.includes('<!--app-->')) {
         const emblemSvg = fs.readFileSync(path.join(root, 'public/brand/aparna-emblem-diya.svg'), 'utf8');
         const { renderHome } = await load(ctx, '/src/templates/home.js');
+        // the same categories and counts as the catalogue pages (it adds Motors, Pumps and coming-soon products)
+        const cat = fs.existsSync(path.join(root, 'src/content/catalogue.generated.json')) ? readJson('src/content/catalogue.generated.json').categories : null;
+        const homeRange = cat ? { ...range, categories: cat.map((c) => ({ ...range.categories.find((r) => r.name === c.name), ...c })) } : range;
         return html
-          .replace('<!--app-->', renderHome({ t, range, emblemSvg }))
+          .replace('<!--app-->', renderHome({ t, range: homeRange, emblemSvg, events: fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : null }))
           .replaceAll('%TITLE%', t.meta.title)
           .replaceAll('%DESCRIPTION%', t.meta.description)
           .replaceAll('%LANG%', t.lang);
@@ -42,14 +45,18 @@ function renderPages() {
         for (const [id, rotor] of Object.entries(readJson('src/content/rotors.generated.json').products)) if (cutouts[id]) cutouts[id] = { ...cutouts[id], rotor };
       }
       const pages = await load(ctx, '/src/templates/catalogue.js');
+      const eventPages = await load(ctx, '/src/templates/events.js');
+      const events = fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : { events: [] };
       const [kind, key] = marker.split(':');
       const body = {
         catalogue: () => pages.renderCatalogue({ t, range, catalogue, colours, cutouts }),
         category: () => pages.renderCatalogue({ t, range, catalogue, colours, cutouts, categorySlug: key }),
         product: () => pages.renderProduct({ t, range, catalogue, colours, cutouts, id: key }),
         list: () => pages.renderList({ t, range, catalogue, cutouts }),
+        events: () => eventPages.renderEvents({ t, range, catalogue, events }),
+        event: () => eventPages.renderEvent({ t, range, catalogue, events, id: key }),
       }[kind]();
-      const meta = pages.pageMeta({ t, catalogue, marker });
+      const meta = kind === 'events' || kind === 'event' ? eventPages.eventsMeta({ t, events, marker }) : pages.pageMeta({ t, catalogue, marker });
       const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
       return html
         .replace(`<!--page:${marker}-->`, body)
@@ -81,6 +88,7 @@ function pageInputs() {
   };
   walk(path.join(root, 'products'));
   walk(path.join(root, 'my-list'));
+  walk(path.join(root, 'events'));
   return inputs;
 }
 

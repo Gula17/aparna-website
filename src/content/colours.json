@@ -15,5 +15,8 @@
   "Honey Gold": "linear-gradient(135deg, #e8c070, #D3A44A 55%, #b0852f)",
   "Rose Gold": "linear-gradient(135deg, #e0aa9b, #C98E7E 55%, #a8705f)",
   "Coffee Brown": "#5A3B2E",
-  "Bricken Gold": "linear-gradient(135deg, #cc8c56, #B0703C 55%, #8c5528)"
+  "Bricken Gold": "linear-gradient(135deg, #cc8c56, #B0703C 55%, #8c5528)",
+  "Brown": "#5a3a2c",
+  "Copper Brown": "linear-gradient(135deg, #9a5a3c, #6b3b27 60%, #4e2a1c)",
+  "Cream": "#EFE6D2"
 }

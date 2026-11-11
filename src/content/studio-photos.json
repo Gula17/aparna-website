@@ -1,0 +1,1224 @@
+{
+ "_read_me": "Aparna studio photos (Nov 2026), matched to products by eye. photos: product id -> its studio photos, first is the main one; colour = which listed colour it shows. comingSoon: products in a photo that are not in the product data yet (shown as \"details coming soon\"). unused: photos left out and why. confirm: matches Aparna should check. Run npm run content after a change.",
+ "source": "TransferNow-20261106484Q6rIm",
+ "photos": {
+  "ceiling-fans-aeroflow-48": [
+   {
+    "file": "01.png",
+    "colour": "Wood Craft"
+   },
+   {
+    "file": "02.png",
+    "role": "range"
+   }
+  ],
+  "ceiling-fans-aerosleek-48": [
+   {
+    "file": "03.png",
+    "shows": "White"
+   },
+   {
+    "file": "04.png",
+    "shows": "Black"
+   },
+   {
+    "file": "05.png",
+    "shows": "Brown"
+   }
+  ],
+  "ceiling-fans-ikon-bldc-48": [
+   {
+    "file": "06.png",
+    "shows": "White"
+   },
+   {
+    "file": "21.png",
+    "shows": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-coral-48": [
+   {
+    "file": "08.png",
+    "shows": "Golden"
+   }
+  ],
+  "ceiling-fans-rosa-48": [
+   {
+    "file": "09.png",
+    "colour": "Ivory"
+   }
+  ],
+  "ceiling-fans-coras-48": [
+   {
+    "file": "10.png",
+    "shows": "Golden"
+   },
+   {
+    "file": "11.png",
+    "shows": "Grey"
+   },
+   {
+    "file": "12.png",
+    "shows": "Brown"
+   }
+  ],
+  "ceiling-fans-irus-48": [
+   {
+    "file": "13.png",
+    "shows": "Brown"
+   },
+   {
+    "file": "14.png",
+    "shows": "Golden"
+   }
+  ],
+  "ceiling-fans-air-max-48": [
+   {
+    "file": "15.png",
+    "shows": "Copper Brown"
+   },
+   {
+    "file": "16.png",
+    "shows": "Golden"
+   }
+  ],
+  "ceiling-fans-art-pro-48": [
+   {
+    "file": "17.png",
+    "shows": "Golden"
+   },
+   {
+    "file": "18.png",
+    "shows": "Brown"
+   },
+   {
+    "file": "70.png",
+    "shows": "Golden"
+   }
+  ],
+  "ceiling-fans-ikon-48": [
+   {
+    "file": "20.png",
+    "colour": "White"
+   }
+  ],
+  "ceiling-fans-prince-48": [
+   {
+    "file": "22.png",
+    "colour": "Metallic Brown"
+   }
+  ],
+  "ceiling-fans-sparsh-48": [
+   {
+    "file": "24.png",
+    "colour": "Metallic Blue"
+   }
+  ],
+  "ceiling-fans-sonet-deco-48": [
+   {
+    "file": "25.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-crystal-pro-48": [
+   {
+    "file": "26.png",
+    "colour": "Smoke Brown"
+   },
+   {
+    "file": "30.png",
+    "colour": "Ivory"
+   }
+  ],
+  "ceiling-fans-croma-48": [
+   {
+    "file": "27.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-apsara-48": [
+   {
+    "file": "28.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-electra-48": [
+   {
+    "file": "31.png",
+    "colour": "White"
+   }
+  ],
+  "ceiling-fans-stunner-48": [
+   {
+    "file": "32.png",
+    "colour": "Metallic Brown"
+   }
+  ],
+  "ceiling-fans-unicorn-48": [
+   {
+    "file": "33.png",
+    "colour": "White"
+   }
+  ],
+  "ceiling-fans-glaze-48": [
+   {
+    "file": "34.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-aroma-deco-48": [
+   {
+    "file": "35.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-senorita-48": [
+   {
+    "file": "36.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-rosa-pro-48": [
+   {
+    "file": "37.png",
+    "colour": "Ivory"
+   }
+  ],
+  "ceiling-fans-areta-48": [
+   {
+    "file": "38.png",
+    "colour": "White"
+   }
+  ],
+  "ceiling-fans-phantom-48": [
+   {
+    "file": "41.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-luster-shine-golden-48": [
+   {
+    "file": "42.png",
+    "shows": "Brown"
+   }
+  ],
+  "ceiling-fans-luster-shine-silver-48": [
+   {
+    "file": "43.png",
+    "shows": "Silver/champagne"
+   }
+  ],
+  "ceiling-fans-major-36": [
+   {
+    "file": "47.png"
+   }
+  ],
+  "ceiling-fans-virat-36": [
+   {
+    "file": "47.png",
+    "sharedWith": "ceiling-fans-major-36"
+   }
+  ],
+  "ceiling-fans-mini-star-24": [
+   {
+    "file": "49.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-little-star-24": [
+   {
+    "file": "49.png",
+    "colour": "Smoke Brown",
+    "sharedWith": "ceiling-fans-mini-star-24"
+   }
+  ],
+  "ceiling-fans-mini-smart-24": [
+   {
+    "file": "50.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-mini-dlx-24": [
+   {
+    "file": "51.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-mini-copper-24": [
+   {
+    "file": "51.png",
+    "colour": "Smoke Brown",
+    "sharedWith": "ceiling-fans-mini-dlx-24"
+   }
+  ],
+  "ceiling-fans-new-josh-24": [
+   {
+    "file": "52.png",
+    "colour": "Ivory"
+   }
+  ],
+  "ceiling-fans-new-josh-copper-24": [
+   {
+    "file": "52.png",
+    "colour": "Ivory",
+    "sharedWith": "ceiling-fans-new-josh-24"
+   }
+  ],
+  "ceiling-fans-rafale-48": [
+   {
+    "file": "53.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-kiara-48": [
+   {
+    "file": "54.png"
+   }
+  ],
+  "ceiling-fans-nikon-48": [
+   {
+    "file": "55.png",
+    "colour": "Metallic Blue"
+   }
+  ],
+  "ceiling-fans-vista-deco-48": [
+   {
+    "file": "56.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-croma-pro-48": [
+   {
+    "file": "57.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-smart-deco-48": [
+   {
+    "file": "58.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-platinium-48": [
+   {
+    "file": "59.png",
+    "colour": "Ivory"
+   },
+   {
+    "file": "62.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-fortune-pro-48": [
+   {
+    "file": "60.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-raftaar-48": [
+   {
+    "file": "61.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-runner-48": [
+   {
+    "file": "63.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-orina-48": [
+   {
+    "file": "64.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-flora-48": [
+   {
+    "file": "65.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-rolex-48": [
+   {
+    "file": "66.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-sayonara-48": [
+   {
+    "file": "67.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-orchid-deco-48": [
+   {
+    "file": "68.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "ceiling-fans-porsche-48": [
+   {
+    "file": "69.png",
+    "colour": "Smoke Brown"
+   }
+  ],
+  "all-purpose-cabin-fans-piano-black-12": [
+   {
+    "file": "71.png",
+    "shows": "Black"
+   }
+  ],
+  "all-purpose-cabin-fans-piano-white-12": [
+   {
+    "file": "72.png",
+    "shows": "White"
+   }
+  ],
+  "all-purpose-cabin-fans-safari-9": [
+   {
+    "file": "73.png",
+    "shows": "Black"
+   }
+  ],
+  "ventilation-fresh-air-fans-ventilation-fan-8": [
+   {
+    "file": "76.png",
+    "shows": "White"
+   }
+  ],
+  "ventilation-fresh-air-fans-ventilation-fan-10": [
+   {
+    "file": "77.png",
+    "shows": "White"
+   }
+  ],
+  "ventilation-fresh-air-fans-ventilation-fan-6": [
+   {
+    "file": "78.png",
+    "shows": "White"
+   }
+  ],
+  "all-purpose-cabin-fans-cabin-fan-12": [
+   {
+    "file": "79.png",
+    "shows": "White"
+   }
+  ],
+  "all-purpose-cabin-fans-goair-ac-dc-12": [
+   {
+    "file": "80.png",
+    "shows": "White & Grey"
+   }
+  ],
+  "all-purpose-cabin-fans-goair-ac-dc-16": [
+   {
+    "file": "81.png",
+    "shows": "White & Grey"
+   }
+  ],
+  "table-wall-pedestal-fans-oreo-12": [
+   {
+    "file": "82.png",
+    "colour": "Black"
+   }
+  ],
+  "table-wall-pedestal-fans-vento-12": [
+   {
+    "file": "83.png",
+    "shows": "Black & Grey"
+   }
+  ],
+  "table-wall-pedestal-fans-tornado-16": [
+   {
+    "file": "84.png",
+    "shows": "Black & Grey"
+   }
+  ],
+  "table-wall-pedestal-fans-spider-16": [
+   {
+    "file": "85.png",
+    "shows": "Black & Grey"
+   }
+  ],
+  "table-wall-pedestal-fans-glider-16": [
+   {
+    "file": "86.png",
+    "shows": "Black"
+   }
+  ],
+  "table-wall-pedestal-fans-fiona-16": [
+   {
+    "file": "87.png",
+    "shows": "White & Grey"
+   }
+  ],
+  "table-wall-pedestal-fans-vectra-16": [
+   {
+    "file": "88.png",
+    "shows": "Aqua & Ivory"
+   }
+  ],
+  "table-wall-pedestal-fans-vistara-16": [
+   {
+    "file": "89.png",
+    "shows": "Aqua & Ivory"
+   }
+  ],
+  "table-wall-pedestal-fans-tesla-16": [
+   {
+    "file": "90.png",
+    "colour": "Black"
+   }
+  ],
+  "table-wall-pedestal-fans-wendy-12": [
+   {
+    "file": "91.png",
+    "shows": "White & Black"
+   }
+  ],
+  "table-wall-pedestal-fans-stallion-16": [
+   {
+    "file": "92.png",
+    "shows": "Orange & Black"
+   }
+  ],
+  "table-wall-pedestal-fans-blazo-16": [
+   {
+    "file": "93.png",
+    "shows": "Copper & Black"
+   }
+  ],
+  "table-wall-pedestal-fans-blitz-16": [
+   {
+    "file": "94.png",
+    "shows": "Terracotta & White"
+   }
+  ],
+  "table-wall-pedestal-fans-velora-16": [
+   {
+    "file": "95.png",
+    "shows": "Copper & Black"
+   }
+  ],
+  "table-wall-pedestal-fans-jazz-12": [
+   {
+    "file": "96.png",
+    "shows": "Copper & Black"
+   }
+  ],
+  "table-wall-pedestal-fans-iconic-16": [
+   {
+    "file": "97.png",
+    "shows": "Rose Pink & White"
+   }
+  ],
+  "high-speed-fans-ornet-12": [
+   {
+    "file": "99.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-shine-16": [
+   {
+    "file": "100.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-bullet-oscillating-12": [
+   {
+    "file": "101.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-bullet-16": [
+   {
+    "file": "102.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-bullet-oscillating-metal-blade-16": [
+   {
+    "file": "103.png",
+    "shows": "Black & Silver"
+   }
+  ],
+  "high-speed-fans-maxx-oscillating-16": [
+   {
+    "file": "104.png",
+    "shows": "Blue & White"
+   }
+  ],
+  "high-speed-fans-hexa-20": [
+   {
+    "file": "105.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-sultan-20": [
+   {
+    "file": "106.png",
+    "shows": "Black & Grey"
+   }
+  ],
+  "high-speed-fans-indus-high-speed-20": [
+   {
+    "file": "107.png",
+    "shows": "Grey"
+   }
+  ],
+  "high-speed-fans-windstar-22": [
+   {
+    "file": "108.png",
+    "shows": "Black"
+   }
+  ],
+  "high-speed-fans-champion-22": [
+   {
+    "file": "109.png",
+    "shows": "Black & Silver"
+   }
+  ],
+  "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": [
+   {
+    "file": "110.png",
+    "shows": "Brown"
+   }
+  ],
+  "kitchen-appliances-prime": [
+   {
+    "file": "113.png"
+   }
+  ],
+  "kitchen-appliances-prince": [
+   {
+    "file": "114.png"
+   }
+  ],
+  "kitchen-appliances-presto": [
+   {
+    "file": "115.png"
+   }
+  ],
+  "heating-water-pearl": [
+   {
+    "file": "116.png"
+   }
+  ],
+  "heating-water-sigma": [
+   {
+    "file": "117.png",
+    "shows": "Beige and red"
+   }
+  ],
+  "heating-water-pox": [
+   {
+    "file": "118.png"
+   }
+  ],
+  "heating-water-rozer": [
+   {
+    "file": "119.png",
+    "shows": "Orange and black"
+   }
+  ],
+  "heating-water-roxx": [
+   {
+    "file": "120.png"
+   }
+  ],
+  "heating-water-alineo": [
+   {
+    "file": "121.png"
+   }
+  ],
+  "heating-water-silky": [
+   {
+    "file": "122.png"
+   }
+  ],
+  "heating-water-alexa": [
+   {
+    "file": "123.png"
+   }
+  ],
+  "heating-water-sun-heater-sunshine-14": [
+   {
+    "file": "124.png",
+    "shows": "Ivory"
+   }
+  ],
+  "electric-irons-regular": [
+   {
+    "file": "126.png",
+    "shows": "Black"
+   }
+  ],
+  "electric-irons-bmw": [
+   {
+    "file": "129.png",
+    "shows": "Black and red"
+   }
+  ],
+  "electric-irons-grand": [
+   {
+    "file": "132.png",
+    "shows": "Blue"
+   }
+  ],
+  "electric-irons-plancha": [
+   {
+    "file": "134.png",
+    "shows": "White"
+   },
+   {
+    "file": "136.png",
+    "shows": "Cream"
+   }
+  ],
+  "heating-water-croma2": [
+   {
+    "file": "137.png"
+   }
+  ],
+  "heating-water-croma": [
+   {
+    "file": "140.png",
+    "shows": "Red and white"
+   }
+  ],
+  "heating-water-pearl-immersion-rod-1500-w": [
+   {
+    "file": "141.png",
+    "shows": "Lime green"
+   }
+  ],
+  "heating-water-pearl-immersion-rod-2000-w": [
+   {
+    "file": "141.png",
+    "shows": "Lime green",
+    "sharedWith": "heating-water-pearl-immersion-rod-1500-w"
+   }
+  ],
+  "heating-water-pearl-immersion-rod-1000-w": [
+   {
+    "file": "142.png",
+    "shows": "Black"
+   }
+  ],
+  "heating-water-kettle-element-half-round": [
+   {
+    "file": "143.png"
+   }
+  ],
+  "heating-water-kettle-midget-element": [
+   {
+    "file": "144.png"
+   }
+  ],
+  "heating-water-kettle-element": [
+   {
+    "file": "145.png"
+   }
+  ],
+  "kitchen-appliances-jhn-1250": [
+   {
+    "file": "162.png"
+   }
+  ],
+  "kitchen-appliances-jhn-2000": [
+   {
+    "file": "162.png",
+    "sharedWith": "kitchen-appliances-jhn-1250"
+   }
+  ],
+  "kitchen-appliances-hudsun": [
+   {
+    "file": "163.png"
+   }
+  ],
+  "kitchen-appliances-ultima": [
+   {
+    "file": "164.png"
+   }
+  ],
+  "kitchen-appliances-comfort": [
+   {
+    "file": "165.png"
+   }
+  ],
+  "kitchen-appliances-nelson": [
+   {
+    "file": "166.png"
+   }
+  ],
+  "kitchen-appliances-ss-2000": [
+   {
+    "file": "167.png"
+   }
+  ],
+  "kitchen-appliances-calvin": [
+   {
+    "file": "168.png"
+   }
+  ],
+  "kitchen-appliances-bng": [
+   {
+    "file": "169.png"
+   }
+  ],
+  "kitchen-appliances-crescent": [
+   {
+    "file": "170.png"
+   }
+  ],
+  "kitchen-appliances-phantom": [
+   {
+    "file": "171.png"
+   }
+  ],
+  "kitchen-appliances-smart": [
+   {
+    "file": "172.png"
+   }
+  ],
+  "kitchen-appliances-magnum": [
+   {
+    "file": "173.png"
+   }
+  ],
+  "kitchen-appliances-regent": [
+   {
+    "file": "174.png"
+   }
+  ],
+  "kitchen-appliances-excel": [
+   {
+    "file": "175.png"
+   }
+  ],
+  "kitchen-appliances-simson": [
+   {
+    "file": "176.png"
+   }
+  ],
+  "kitchen-appliances-ss-jumbo": [
+   {
+    "file": "177.png"
+   }
+  ],
+  "kitchen-appliances-rustam": [
+   {
+    "file": "178.png"
+   }
+  ]
+ },
+ "comingSoon": [
+  {
+   "id": "ceiling-fans-new-gold-line-48",
+   "name": "Ceiling fan with gold pin-line",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "19.png",
+    "23.png"
+   ],
+   "description": "Ceiling fan with stepped hub and gold pin-line (model name to be confirmed)"
+  },
+  {
+   "id": "ceiling-fans-new-diamond-ring-48",
+   "name": "Ceiling fan with diamond-cut ring",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "29.png"
+   ],
+   "description": "Ceiling fan with diamond-cut copper hub ring (model name to be confirmed)"
+  },
+  {
+   "id": "ceiling-fans-new-copper-mesh-48",
+   "name": "Ceiling fan with copper mesh trims",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "39.png"
+   ],
+   "description": "Ceiling fan with copper mesh trims and pointed clips (48\")"
+  },
+  {
+   "id": "ceiling-fans-new-square-clips-48",
+   "name": "Ceiling fan with square copper clips",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "40.png"
+   ],
+   "description": "Ceiling fan with square copper-framed blade clips (48\")"
+  },
+  {
+   "id": "ceiling-fans-new-copper-edge",
+   "name": "Ceiling fan with copper-edged clips",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "44.png"
+   ],
+   "description": "Ceiling fan with copper-lipped shell clips"
+  },
+  {
+   "id": "ceiling-fans-new-ivory-copper-ring-48",
+   "name": "Ivory ceiling fan with copper ring",
+   "category": "Ceiling Fans",
+   "type": "Ceiling fan",
+   "files": [
+    "48.png"
+   ],
+   "description": "Ivory ceiling fan with copper ring"
+  },
+  {
+   "id": "all-purpose-cabin-fans-new-swivel",
+   "name": "All-purpose fan, white and sky blue",
+   "category": "All-Purpose & Cabin Fans",
+   "type": "All-purpose fan",
+   "files": [
+    "74.png"
+   ],
+   "description": "All-purpose fan with swivel yoke (white and sky blue)"
+  },
+  {
+   "id": "all-purpose-cabin-fans-new-compact",
+   "name": "Compact table fan, white and aqua",
+   "category": "All-Purpose & Cabin Fans",
+   "type": "Table fan",
+   "files": [
+    "75.png"
+   ],
+   "description": "Compact table fan (white and aqua)"
+  },
+  {
+   "id": "ventilation-fresh-air-fans-new-heavy-duty-exhaust",
+   "name": "Heavy-duty exhaust fan",
+   "category": "Ventilation & Fresh-Air Fans",
+   "type": "Exhaust fan",
+   "files": [
+    "147.png"
+   ],
+   "description": "Heavy-duty metal exhaust fan"
+  },
+  {
+   "id": "kitchen-appliances-new-round-cooktop",
+   "name": "Round infrared cooktop",
+   "category": "Kitchen Appliances",
+   "type": "Infrared cooktop",
+   "files": [
+    "111.png"
+   ],
+   "description": "Round infrared cooktop (black, floral)"
+  },
+  {
+   "id": "kitchen-appliances-new-touch-cooktop",
+   "name": "Infrared cooktop with touch controls",
+   "category": "Kitchen Appliances",
+   "type": "Infrared cooktop",
+   "files": [
+    "112.png"
+   ],
+   "description": "Infrared cooktop with touch controls (black, teal)"
+  },
+  {
+   "id": "electric-irons-new-blue",
+   "name": "Dry iron, blue",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "125.png"
+   ],
+   "description": "Lightweight dry iron (blue handle)"
+  },
+  {
+   "id": "electric-irons-new-white-grey",
+   "name": "Dry iron, white and grey",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "127.png"
+   ],
+   "description": "Dry iron (white and grey)"
+  },
+  {
+   "id": "electric-irons-new-white-blue",
+   "name": "Dry iron, white and blue",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "128.png"
+   ],
+   "description": "Dry iron (white and blue)"
+  },
+  {
+   "id": "electric-irons-new-white-pink",
+   "name": "Dry iron, white and pink",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "130.png"
+   ],
+   "description": "Dry iron (white and pink)"
+  },
+  {
+   "id": "electric-irons-new-black",
+   "name": "Dry iron, black",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "131.png"
+   ],
+   "description": "Dry iron (black)"
+  },
+  {
+   "id": "electric-irons-bold",
+   "name": "Bold",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "133.png"
+   ],
+   "description": "Bold side-switch iron"
+  },
+  {
+   "id": "electric-irons-new-heavy-black",
+   "name": "Heavyweight dry iron, black",
+   "category": "Electric Irons",
+   "type": "Dry iron",
+   "files": [
+    "135.png"
+   ],
+   "description": "Heavyweight dry iron (black, Plancha style)"
+  },
+  {
+   "id": "motors-cooler-motor-1",
+   "name": "Cooler motor 1",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "148.png"
+   ],
+   "description": "Cooler motor, tall finned body"
+  },
+  {
+   "id": "motors-cooler-motor-2",
+   "name": "Cooler motor 2",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "149.png"
+   ],
+   "description": "Cooler motor with mounting ring"
+  },
+  {
+   "id": "motors-cooler-motor-3",
+   "name": "Cooler motor 3",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "150.png"
+   ],
+   "description": "Cooler motor with side clamps and capacitor"
+  },
+  {
+   "id": "motors-cooler-motor-4",
+   "name": "Cooler motor 4",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "151.png"
+   ],
+   "description": "Cooler motor, plain round body"
+  },
+  {
+   "id": "motors-cooler-motor-5",
+   "name": "Cooler motor 5",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "152.png"
+   ],
+   "description": "Cooler motor with bolt-on side clamps"
+  },
+  {
+   "id": "motors-cooler-motor-6",
+   "name": "Cooler motor 6",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "153.png"
+   ],
+   "description": "Cooler motor, round body with top bolts"
+  },
+  {
+   "id": "motors-cooler-motor-7",
+   "name": "Cooler motor 7",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "154.png"
+   ],
+   "description": "Cooler motor with flange mount"
+  },
+  {
+   "id": "motors-cooler-motor-8",
+   "name": "Cooler motor 8",
+   "category": "Motors",
+   "type": "Cooler motor",
+   "files": [
+    "155.png"
+   ],
+   "description": "Cooler motor with wide flange mount"
+  },
+  {
+   "id": "pumps-cooler-pump-1",
+   "name": "Cooler pump 1",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "156.png"
+   ],
+   "description": "Submersible cooler pump (white and black)"
+  },
+  {
+   "id": "pumps-cooler-pump-2",
+   "name": "Cooler pump 2",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "157.png"
+   ],
+   "description": "Submersible cooler pump (white and grey)"
+  },
+  {
+   "id": "pumps-cooler-pump-3",
+   "name": "Cooler pump 3",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "158.png"
+   ],
+   "description": "Submersible cooler pump (dark grey)"
+  },
+  {
+   "id": "pumps-cooler-pump-4",
+   "name": "Cooler pump 4",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "159.png"
+   ],
+   "description": "Submersible pump with filter cap (grey)"
+  },
+  {
+   "id": "pumps-cooler-pump-5",
+   "name": "Cooler pump 5",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "160.png"
+   ],
+   "description": "Submersible cooler pump, round (grey)"
+  },
+  {
+   "id": "pumps-cooler-pump-6",
+   "name": "Cooler pump 6",
+   "category": "Pumps",
+   "type": "Submersible cooler pump",
+   "files": [
+    "161.png"
+   ],
+   "description": "Submersible cooler pump (white, finned grey body)"
+  }
+ ],
+ "unused": {
+  "138.png": "Alpha water heater: discontinued in the product data",
+  "139.png": "Bliss storage water heater: discontinued in the product data",
+  "45.png": "same picture as 10.png",
+  "46.png": "same picture as 13.png",
+  "98.png": "same picture as 92.png",
+  "146.png": "same picture as 145.png (with a sticker)"
+ },
+ "confirm": {
+  "04.png": "Same canopy, banded motor and curled blade tips as Aerosleek (the poster fan is black), but the underside is plain body colour with no LED ring. It could be a no-LED variant or a different BLDC model on the same body. Colour name not listed.",
+  "09.png": "Ivory fan with copper stripe inserts on the blade roots and stripes on the hub: matches the ivory ROSA on catalogue p.8. Rolex (p.26, shown in Smoke Brown) and Rosa Pro (no picture) look identical. 37.png is nearly the same picture.",
+  "19.png": "Plain blades and a multi-step hub with a single gold pin-line at the top edge (no line round the cover, unlike Ikon or Rafale), with a dome canopy. It doesn't match any catalogue picture: Ikon, Rafale, Prince, Major and Virat all differ in hub or canopy. Probably one of the models with no picture (for example Ikon Pro, Nikon, Supreme, Radiant, Alexa or Glory); ask Aparna.",
+  "20.png": "The same white fan as 06.png (stepped hub with gold pin-lines at the top edge and round the cover), but without the remote. Ikon (Silver Series, catalogue p.12) and Ikon BLDC (p.8) look identical, so it could be either. Assigned to Ikon because 06.png, with the remote, already covers Ikon BLDC.",
+  "21.png": "Grey matte fan with copper pin-lines at the hub top and round the cover, bowl canopy: matches the grey IKON BLDC poster closely. Ikon (AC) and Rafale (catalogue p.22) have practically the same hub and canopy. No remote is shown, so BLDC is not proven.",
+  "23.png": "Same hub as 19.png (single orange-gold pin-line at the top edge, stepped glossy cover) in dark grey. It doesn't match any catalogue picture; see 19.png for candidate models with no picture.",
+  "24.png": "Metallic blue fan with a plain smooth bowl hub, no trim, silver blade connectors and a dome canopy: matches the blue SPARSH on catalogue p.13. Kiara (p.22) also has a plain hub but is shown glossier and rounder.",
+  "25.png": "Copper teardrop-outline inserts and a plain hub with a faint copper line. Sonet Deco (p.13) and Vista Deco (p.23) look identical in the catalogue, so it could be either. Viraj Deco is ruled out because its hub has moulded fins.",
+  "26.png": "Copper scoop inserts with grey pads and a wide copper ring round the hub cover. Crystal Pro (p.13) and Platinium (p.23) look identical, so it could be either. Crystal Deco (no picture) is also possible.",
+  "27.png": "Copper mesh-texture inserts on the blade roots and a copper mesh ring round the hub cover. Croma (p.14) and Croma Pro (p.24) look identical, so it could be either.",
+  "28.png": "Copper feather/swoosh inserts on the blade roots and a copper flash on the hub. Apsara (p.14) and Smart Deco (p.24) look identical, so it could be either.",
+  "29.png": "Faceted, diamond-cut copper ring round the hub cover, rounded-rectangle inserts with copper outlines, silver blade connectors. This hub doesn't appear anywhere in the catalogue (Venus Deco, Lotus Deco, Phantom and Fortune Pro all differ). Possibly Crystal Deco, which has no picture and whose name fits the crystal-cut trim; ask Aparna.",
+  "30.png": "Ivory fan with copper scoop inserts holding ivory pads (the same insert style as 26.png). The hub is stepped with a thin copper ring rather than 26's wide copper band, so it may be a different model. Candidates: Crystal Pro, Platinium, Crystal Deco (no picture). Orbit and Saphire (36in) are ruled out: their inserts are open triangular outlines.",
+  "31.png": "White fan with a copper swirl ('6') on the hub and ring inserts on moulded blade pads: matches the white ELECTRA on catalogue p.15. Orina (p.25, grey) has the same design, and the 36in Nova DLX and Diplomat have a similar swirl.",
+  "32.png": "Brown fan with round copper-ringed inserts and a copper ring round the hub cover: matches the brown STUNNER on catalogue p.15. Runner (p.25, grey) has an identical design.",
+  "33.png": "White fan with a wide copper ring round the glossy hub cover and rectangular silver/copper inserts: matches the white UNICORN on catalogue p.15. Fortune Pro (p.25, grey) has the same design.",
+  "35.png": "Open copper loop inserts and a copper ring at the top of the hub. The copper rim on the canopy matches AROMA DECO (p.25); Flora (p.16) has the same inserts but a plain canopy.",
+  "36.png": "Copper band round the hub and copper fork/flame cut-out inserts. Senorita (p.16) and Sayonara (p.26) look identical, so it could be either.",
+  "37.png": "Almost a duplicate of 09.png (same ivory Rosa-style fan with copper stripes; only the angle differs a little). Rolex and Rosa Pro have the same design.",
+  "39.png": "Copper mesh (knurled) design like Croma / Croma Pro, but the photo differs from both catalogue renders: the mesh band wraps the motor side with no smooth copper band, and the blade clips end in a pointed chevron (catalogue Croma/Croma Pro clips have a rounded bevelled end, as in 57.png). Could be Croma Pro if the render is simply old, or a newer model with no picture yet. Needs Aparna to confirm.",
+  "40.png": "Square copper-framed blade clips with a dark inset, silver outer ring and a double copper ring on the motor bottom. Matches no catalogue picture (Unicorn and Fortune Pro have different clips and rings). Probably one of the models that have no picture yet (e.g. Radiant, Rider, Supreme, Glory, Ikon Pro, Crystal Deco, Alexa, Nokia, Rider Pro, Rosa Pro); can't tell which.",
+  "41.png": "D-shaped copper-outlined blade clips with a dark centre and a wide copper ring: matches PHANTOM (p17), but PORSCHE (p27) uses the same render and can't be told apart. 69.png is the same design in the same colour: either one is Phantom and the other Porsche, or it's a duplicate shot.",
+  "42.png": "Seen from below: leaf-shaped blades, copper petal outlines round each blade root, copper ring. Same model as 43.png. The design matches LUSTER SHINE on the new-launch standee photo (05_Product_Photos_Real/Ceiling fans/New Launch standee...AVNI4463: U-shaped copper-lined blade roots, brown/purple body, cone canopy). The product data splits it into Luster Shine Golden and Luster Shine Silver (no colours given), so which id applies is a guess; Golden picked only because of the copper/gold trim on a brown body. Confirm with Aparna.",
+  "43.png": "Tall cone canopy, leaf-shaped blades, glossy copper U/petal accents at the blade roots, copper ring: same design as 42.png and the LUSTER SHINE standee. Silver/champagne body, so Luster Shine Silver is assumed; the Golden/Silver split isn't explained in the data.",
+  "44.png": "Curved shell blade clips with a copper lip on the outer edge, single copper ring. Close to FORTUNE PRO and UNICORN, but those have box clips with a straight copper strip (60.png is the exact Fortune Pro). The blades also look short, so it may be a 36\" model. Possibly a model with no picture yet (e.g. Senoprime 36).",
+  "47.png": "Plain bolted blades that flare at the tip, stepped brown motor with two gold lines, bell canopy: identical to MAJOR (p18) and VIRAT (p28). Both are 36\" and use the same render (even the white vertical line next to the canopy appears in both layouts), so I can't separate them. Prince (p13) has straight blades. Brown = Metallic or Glossy Brown (confirm). Also shown on Virat (catalogue prints the same picture).",
+  "48.png": "Ivory, plain blades with no visible clips or bolts, wide copper ring round an ivory bottom cover. No catalogue picture matches: Saphire and Orbit have copper-outlined clips, Ikon and Nikon have bolted blades and a thin line. Probably a model with no picture yet.",
+  "49.png": "24\" 4-blade, rounded blade tips with bolt holes, silver-grey ring, no copper: identical to MINI STAR (p19) and LITTLE STAR (p29, copper motor). The two renders are the same and can't be separated. Also shown on Little Star (catalogue prints the same picture).",
+  "50.png": "24\" 4-blade, dark brown, pentagon copper-outlined blade inserts, copper band: MINI SMART (p19) or TEJAS (p29) use the same render. Leaning Mini Smart because the canopy has a second line of text above the logo (ISO line), as on the Mini Smart render; Tejas shows the logo only.",
+  "51.png": "24\" 4-blade, squared angled tips with bolt holes, copper ring band: identical to MINI DLX (p19) and MINI COPPER (p29). Can't separate them. Also shown on Mini Copper (catalogue prints the same picture).",
+  "52.png": "24\" 4-blade ivory, raised oval blade inserts with copper rings, copper ring on the bottom: identical to NEW JOSH (p19) and NEW JOSH COPPER (p29, printed 'NEW JOSH'). Can't separate them. Also shown on New Josh Copper (catalogue prints the same picture).",
+  "53.png": "Plain bolted blades, black cup canopy, stepped bottom cover with thin copper lines on the inner disc and the upper rim: matches RAFALE (p22) closely. NIKON (standee) and IKON (p12) are similar plain/stepped designs but differ in the cover profile.",
+  "54.png": "Black canopy and downrod, smooth bowl motor with a silver-grey bottom, plain bolted grey blades: matches KIARA (p22). Viraz has a finned motor and Sparsh a single-colour hub.",
+  "55.png": "Blue, plain bolted blades, double-stepped bottom cover (flat outer ring plus a raised inner disc): matches the NIKON 1200mm standee (05_Product_Photos_Real/Ceiling fans/NIKON...AVNI4461), which shows a 'Midnight Blue' option (data uses Metallic Blue). SPARSH (p13, also blue) has a smooth domed cover, not stepped. No copper line is visible, which the standee's discs have.",
+  "56.png": "Teardrop copper-outlined blade clips, thin copper line on the bottom cover: identical to SONET DECO (p13, labelled Smoke Brown) and VISTA DECO (p23). Can't separate them. Viraj Deco differs (fin on the motor).",
+  "57.png": "Copper mesh blade clips with a rounded bevelled end, smooth copper band plus a knurled copper ring on the motor: identical to the CROMA (p14) and CROMA PRO (p24) renders, which are the same. Can't separate them. See 39.png for the other mesh-style photo.",
+  "58.png": "Rose-gold feather/leaf blade inserts and a copper swoosh on the motor: identical to APSARA (p14) and SMART DECO (p24). Can't separate them.",
+  "59.png": "Rounded-triangle copper shell blade clips, stepped bottom with a copper ring: same design as 62.png, which matches PLATINIUM (p23). Ivory version.",
+  "61.png": "Rounded-triangle copper-outlined clips, stepped copper rings, black canopy: matches RAFTAAR (p22). Aroma Deco/Flora have longer oval clips, and Platinium has solid copper shell clips.",
+  "63.png": "Round copper-ringed blade clips and a copper ring on the bottom cover: identical to RUNNER (p25, grey) and STUNNER (p15, brown render). Can't separate them; Runner picked only because the catalogue render colour matches.",
+  "65.png": "Long oval copper-outlined clips, copper outer ring round a stepped bottom: identical to AROMA DECO (p25) and FLORA (p16). Can't separate them.",
+  "67.png": "Copper flame/feather inlays on the blade roots and a copper motor band: identical to SAYONARA (p26) and SENORITA (p16). Can't separate them.",
+  "68.png": "Inverted-teardrop canopy, copper-outlined oval clips with a dark inset, copper motor band: matches ORCHID DECO (p27). Femina has wooden-look clips and Venus Deco a ribbed rim.",
+  "69.png": "Same design as 41.png: D-shaped copper-outlined clips and a wide copper ring. Matches both PHANTOM (p17) and PORSCHE (p27), which share one render. Given Porsche only so the two photos aren't both on one page; it could equally be a duplicate of 41. Confirm with Aparna.",
+  "74.png": "Plastic swirl grill, sky-blue blades and hub, white U-yoke on a two-tone oval base with a centre knob. Nothing like it on catalogue pp.32-35 or on the reference sheets. Small fan (likely 9-12 inch). Only other possibility: the unpictured new models Nova 16 / Nuuk 16, but nothing links it to them, and it does not look like a 16-inch table fan.",
+  "75.png": "Small table fan with a white plastic grill, aqua blades and hub, and a LOW/HI/OFF rotary knob on an aqua panel in the base. Not in the catalogue or on the reference sheets (Regal/Jawa have wire grills and different bases). Could also be one of the unpictured Nova 16 / Nuuk 16, but its proportions look like a small 9-12 inch fan. Ask Aparna for the name.",
+  "76.png": "White square-panel ventilation fan, 5 white blades, logo tab at the bottom: matches catalogue p.35. 76/77/78 are the SAME photo at three scales (diff after normalising under 0.5/255), so the size can't be read from the picture. The 6/8/10-inch link is a guess from the scale: 78 is the smallest, 76 the middle, 77 the largest. One photo can serve all three sizes.",
+  "77.png": "Same photo as 76/78, shown largest. Ventilation Fan model is certain; linking it to 10-inch only follows the scale order.",
+  "78.png": "Same photo as 76/77, shown smallest. Ventilation Fan model is certain; linking it to 6-inch only follows the scale order.",
+  "80.png": "GoAir AC-DC (5 translucent blades, grey hub with carry handle, white base with grey 3-button panel), as on p.35. 80 and 81 are the SAME photo scaled differently (diff 0.42/255), so the picture can't tell 12-inch from 16-inch. 80 is the smaller one, so it goes to the 12-inch. The model is certain.",
+  "81.png": "Same photo as 80, scaled larger, so it goes to the 16-inch. GoAir model certain; the size split is by scale only.",
+  "82.png": "All-black 3-blade table fan with a rotary knob on a raised plate in an oval base. It shares Glider's base and knob, but has 3 blades and a smaller grill. Taking the base as the same moulding, the grill works out about 0.78x Glider's 16-inch, so about 12-inch. That fits Oreo 12 (new, unpictured, colours White/Black). Not Spider (grey blades, push buttons).",
+  "90.png": "All-black wall fan with black blades, an outer slotted grill ring and a short body with knob and two pulls. It matches no pictured wall fan (Vento/Tornado have grey blades, Wendy/Spectra are white, Jazz/Velora are copper). Tesla 16 is the only unpictured wall fan and is listed in White/Black, so it is the likely match. Size can't be confirmed from the photo.",
+  "101.png": "Short-stem bullet fan, 3 grey blades, large black hub, wide domed base: matches the 12-inch Mini Bullet on p.44. Its grill/base ratio (about 1.21) matches the 12-inch there, not the 16-inch (about 1.1). The catalogue lists 12-inch Mini Bullet and Mini Bullet (OSC), but the site has only the oscillating 12-inch, so it goes there. The photo doesn't show whether it oscillates.",
+  "102.png": "Tall bullet fan, 3 grey blades, black hub, tilt knob, wide domed base: matches the 16-inch Bullet on p.44. Not Bullet (osc) 16 on p.45, which has a chrome upper tube and a flat disc base.",
+  "103.png": "3 aluminium (metal) blades, small vented black hub with oscillation knob, fine black wire grill, chrome upper tube with black collar (the same pole as Bullet (osc) on p.45), black ribbed domed base. Metal blades + oscillation point to the unpictured 'Bullet (oscillating), metal blade 16'. Caveat: the hub is small for the grill, which hints at a bigger Farratta, so Windstar 22 (also unpictured) is the alternative. Confirm with Aparna.",
+  "108.png": "4 broad black blades, black hub, grey wire grill, black pole, black base with radial ribs. Matches no pictured Farratta: Champion and Nexa have 3 blades, Hexa 5, Indus 2, Sultan 3. Windstar 22 is the only unpictured Farratta, and the grill/base ratio (about 1.25) fits a 22-inch like Champion (about 1.22). If it isn't Windstar, it is a new 4-blade Farratta.",
+  "110.png": "Front view of the brown rounded-square metal fresh-air fan, 3 blades, bolted grill, black logo badge: identical to the 12-inch front view on catalogue p.48/49. The 9-inch is only shown from behind, and the two may look alike from the front, so 9-inch can't be ruled out.",
+  "111.png": "Round infrared cooktop, black glass with gold floral print, front rotary knob. Not Prime/Prince/Presto (page 53). The infra cooktops with no picture are Boss, Crystal, Pride; Pride is the square pink/white touch-panel model seen at Utsav'26 (real photo Kitchen/AVNI4514, 'Pride' printed on it), so this is probably Boss or Crystal. No name on the product: ask Aparna.",
+  "112.png": "Rectangular infrared cooktop, black glass with teal swirl, touch keys (Stir fry/Barbecue/Milk-Tea/Curry/Timer/On-Off), knob, handles both sides. Not Prime/Prince/Presto. Probably Boss or Crystal (Pride looks different, see 111). No name on the product: ask Aparna.",
+  "117.png": "Quartz/halogen rod heater, beige frame with red control panel. Not any heater on page 56 (Silky 2000W there is a chrome reflector heater with blue legs). Sigma is the only room heater with no picture; this heater was on display at Utsav'26 (real photo Heating and irons/AVNI4508). Guess only: ask Aparna to confirm it is Sigma, otherwise treat as a new room heater.",
+  "125.png": "Lightweight dry iron, chrome body, blue closed-loop handle, black dial. Not Regular/BMW/Grand/Plancha. Body resembles 'Popular' on page 57 (not in the product master). Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+  "127.png": "Modern plastic-body dry iron, white with grey handle. No match on page 57. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+  "128.png": "Modern plastic-body dry iron, white with sky-blue handle stripe, red light. Layout resembles 'Jet' on page 57 (green), but Jet is not in the product master. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+  "130.png": "Dry iron, white with pink/magenta lower body, dial in the pink area. Resembles 'Platina' on page 57 (white/red), which is not in the product master. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+  "131.png": "Modern plastic-body dry iron, all black/dark grey, red light. No match on page 57. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+  "133.png": "Matches BOLD (side switch) on page 57: same body as Grand but yellow, orange window in the handle. 'Bold' is printed in Catalogue 2026 but is NOT in the product master. Use it as a yellow colour of Grand only if Aparna says Bold = Grand.",
+  "134.png": "Heavyweight iron with the PLANCHA body (page 57): white handle, chrome shell, copper-tone soleplate, temperature chart panel, orange light. The catalogue's white Plancha also has grey-blue trim this photo lacks, so it could be Plancha Turbo/Beetle (no picture) instead.",
+  "135.png": "Same heavyweight body as 134/136 (Plancha style: front MIN-MAX dial, chart panel, orange light) but black. Not on page 57. Likely Plancha Turbo or Plancha Beetle (master models with no picture), or a black Plancha: ask Aparna.",
+  "136.png": "Matches the cream PLANCHA on page 57 (off-white handle, chart panel with dark numbered boxes, orange light). Plain chrome soleplate (134 has copper tone). Could be Plancha Turbo/Beetle instead.",
+  "141.png": "Immersion rod with lime-green head. Sold in a 'Pearl immersion rod' box at Utsav'26 (real photo AVNI4508; that head is marked 1500W). The catalogue Pearl rod (page 60) has a teal/black head, so this is a newer head design. One picture serves all three Pearl ids (1000/1500/2000 W). Also shown on Pearl immersion rod 2000 W (catalogue prints the same picture).",
+  "142.png": "Matches the second, black-head rod on page 60 beside the Pearl text. The same picture can serve all three Pearl ids (1000/1500/2000 W). CHECK: the moulded head reads 'ALPANNA / MAKE HONOUR' with a lion, not APARNA (the paper tag says APARNA). Confirm with Aparna before using.",
+  "143.png": "Matches 'ROUND KETTLE ELEMENT 2000W' on page 60 (large U-loop element, black base). The master calls it 'Kettle element, half round' (no picture). Alternative: heating-water-kettle-element.",
+  "144.png": "Small spiral coil element on a threaded flange with two brass terminals (instant-geyser type). Not on page 60. Candidates with no picture: 'Kettle midget element' (3000 W) or 'Geyser element Tricone 9\"'; the short coil fits 'midget' better. Ask Aparna.",
+  "162.png": "Also shown on JHN 2000 (catalogue prints the same picture)."
+ }
+}

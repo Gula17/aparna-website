@@ -40,6 +40,15 @@ export const PRODUCT_MODELS = {
   'ventilation-fresh-air-fans-ventilation-fan-6': 'ventilation', // one shared picture for 6", 8" and 10"
   'ventilation-fresh-air-fans-ventilation-fan-8': 'ventilation',
   'ventilation-fresh-air-fans-ventilation-fan-10': 'ventilation',
+  'table-wall-pedestal-fans-oreo-12': 'oreo', // built from the studio photos (src/three/front-fans.js)
+  'table-wall-pedestal-fans-tesla-16': 'tesla',
+  'table-wall-pedestal-fans-iconic-16': 'iconic',
+  'high-speed-fans-bullet-oscillating-metal-blade-16': 'bullet-metal-16',
+  'high-speed-fans-maxx-oscillating-16': 'maxx',
+  'high-speed-fans-windstar-22': 'windstar',
+  'all-purpose-cabin-fans-new-swivel': 'swivel',
+  'all-purpose-cabin-fans-new-compact': 'compact',
+  'ventilation-fresh-air-fans-new-heavy-duty-exhaust': 'heavy-exhaust',
   // air coolers: src/three/coolers.js
   'air-coolers-discovery-1201': 'cooler-discovery-1201',
   'air-coolers-discovery-1202': 'cooler-discovery-1202',
@@ -117,6 +126,16 @@ export const PRODUCT_MODELS = {
   'ceiling-fans-viraj-deco-48': 'ceiling-viraj-deco-48',
   'ceiling-fans-viraz-48': 'ceiling-viraz-48',
   'ceiling-fans-vista-deco-48': 'ceiling-vista-deco-48',
+  'ceiling-fans-rosa-pro-48': 'ceiling-rosa-pro-48',
+  'ceiling-fans-luster-shine-golden-48': 'ceiling-luster-shine-golden-48',
+  'ceiling-fans-luster-shine-silver-48': 'ceiling-luster-shine-silver-48',
+  'ceiling-fans-nikon-48': 'ceiling-nikon-48',
+  'ceiling-fans-new-gold-line-48': 'ceiling-new-gold-line-48',
+  'ceiling-fans-new-diamond-ring-48': 'ceiling-new-diamond-ring-48',
+  'ceiling-fans-new-copper-mesh-48': 'ceiling-new-copper-mesh-48',
+  'ceiling-fans-new-square-clips-48': 'ceiling-new-square-clips-48',
+  'ceiling-fans-new-copper-edge': 'ceiling-new-copper-edge',
+  'ceiling-fans-new-ivory-copper-ring-48': 'ceiling-new-ivory-copper-ring-48',
   // kitchen, heating and ironing appliances (and the Cabin Fan): src/three/appliances.js
   'all-purpose-cabin-fans-cabin-fan-12': 'appl-all-purpose-cabin-fans-cabin-fan-12',
   'kitchen-appliances-calvin': 'appl-kitchen-appliances-calvin',
@@ -147,6 +166,7 @@ export const PRODUCT_MODELS = {
   'heating-water-roxx': 'appl-heating-water-roxx',
   'heating-water-rozer': 'appl-heating-water-rozer',
   'heating-water-silky': 'appl-heating-water-silky',
+  'heating-water-sigma': 'appl-heating-water-sigma',
   'heating-water-sun-heater-sunshine-14': 'appl-heating-water-sun-heater-sunshine-14',
   'heating-water-pearl-immersion-rod-1000-w': 'appl-heating-water-pearl-immersion-rod-1000-w',
   'heating-water-pearl-immersion-rod-1500-w': 'appl-heating-water-pearl-immersion-rod-1500-w',
@@ -158,6 +178,16 @@ export const PRODUCT_MODELS = {
   'electric-irons-grand': 'appl-electric-irons-grand',
   'electric-irons-plancha': 'appl-electric-irons-plancha',
   'electric-irons-regular': 'appl-electric-irons-regular',
+  // irons, cooler motors and pumps built from their studio photos: src/three/small-appliances.js
+  'electric-irons-bold': 'appl-electric-irons-bold',
+  'electric-irons-new-blue': 'appl-electric-irons-new-blue',
+  'electric-irons-new-white-grey': 'appl-electric-irons-new-white-grey',
+  'electric-irons-new-white-blue': 'appl-electric-irons-new-white-blue',
+  'electric-irons-new-white-pink': 'appl-electric-irons-new-white-pink',
+  'electric-irons-new-black': 'appl-electric-irons-new-black',
+  'electric-irons-new-heavy-black': 'appl-electric-irons-new-heavy-black',
+  ...Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map((n) => [`motors-cooler-motor-${n}`, `appl-motors-cooler-motor-${n}`])),
+  ...Object.fromEntries([1, 2, 3, 4, 5, 6].map((n) => [`pumps-cooler-pump-${n}`, `appl-pumps-cooler-pump-${n}`])),
 };
 
 // Colour names in the product data -> the finish a 3D model shows for them (the colour picker repaints it).
@@ -166,16 +196,29 @@ export const FINISH_KEYS = {
   'Ivory': 'ivory', 'Smoke Brown': 'smoke-brown', 'Metallic Brown': 'metallic-brown', 'Glossy Brown': 'glossy-brown',
   'Metallic Blue': 'metallic-blue', 'Rose Gold': 'rose-gold', 'Pearl White': 'pearl-white',
   'Titanium Silver': 'titanium-silver', 'Honey Gold': 'honey-gold', 'Coffee Brown': 'coffee-brown',
+  // colours seen only in the studio photos (fans with no colour list in the data)
+  'Brown': 'brown', 'Black': 'black', 'Copper Brown': 'copper', 'Silver/champagne': 'champagne',
 };
 
 // The colour each modelled product is shown in on its picture: the colour picker starts there, so the 3D model
 // first appears as the product does in the catalogue.
 export const PICTURED_COLOUR = {
-  'ceiling-fans-irus-48': 'Metallic Brown',
+  'ceiling-fans-aeroflow-48': 'Wood Craft',
+  'ceiling-fans-aerosleek-48': 'White',
+  'ceiling-fans-ikon-bldc-48': 'White',
+  'ceiling-fans-coral-48': 'Golden',
+  'ceiling-fans-coras-48': 'Golden',
+  'ceiling-fans-air-max-48': 'Copper Brown',
+  'ceiling-fans-art-pro-48': 'Golden',
+  'ceiling-fans-irus-48': 'Brown',
+  'ceiling-fans-rosa-pro-48': 'Ivory',
+  'ceiling-fans-luster-shine-golden-48': 'Brown',
+  'ceiling-fans-luster-shine-silver-48': 'Silver/champagne',
+  'ceiling-fans-nikon-48': 'Metallic Blue',
   'ceiling-fans-heritage-48': 'Honey Gold',
   'ceiling-fans-pazero-48': 'Titanium Silver',
   'ceiling-fans-mini-dlx-24': 'Smoke Brown',
-  'ceiling-fans-mini-smart-24': 'Metallic Brown',
+  'ceiling-fans-mini-smart-24': 'Smoke Brown',
   'ceiling-fans-mini-star-24': 'Smoke Brown',
   'ceiling-fans-new-josh-24': 'Ivory',
   'ceiling-fans-diplomat-36': 'Ivory',
@@ -216,7 +259,7 @@ export const PICTURED_COLOUR = {
   'ceiling-fans-lumero-48': 'Ivory',
   'ceiling-fans-orchid-deco-48': 'Smoke Brown',
   'ceiling-fans-orina-48': 'Smoke Brown',
-  'ceiling-fans-platinium-48': 'Smoke Brown',
+  'ceiling-fans-platinium-48': 'Ivory',
   'ceiling-fans-porsche-48': 'Smoke Brown',
   'ceiling-fans-rafale-48': 'Smoke Brown',
   'ceiling-fans-raftaar-48': 'Smoke Brown',
@@ -236,5 +279,9 @@ export const POSTER_FINISHES = {
   'ceiling-fans-air-max-48': [
     { key: 'gold', label: 'Gold tone', swatch: '#d8b57f' },
     { key: 'copper', label: 'Copper tone', swatch: '#a65a3b' },
+  ],
+  'electric-irons-plancha': [ // its two studio photos (134, 136)
+    { key: 'white', label: 'White', swatch: '#f4f4f1' },
+    { key: 'cream', label: 'Cream', swatch: '#ece5d2' },
   ],
 };

@@ -39,6 +39,8 @@ const MOTION_BY_CATEGORY = {
   'electric-irons': 'iron',
   'kitchen-appliances': 'cook',
   'heating-and-water': 'heat',
+  motors: 'cooler', // cooler motors and pumps: a slow turntable, like the coolers they go in
+  pumps: 'cooler',
 };
 export const motionOf = (p) => MOTION_BY_CATEGORY[p.categorySlug] ?? 'oscillate'; // table, wall, pedestal, high-speed, cabin
 
@@ -103,7 +105,9 @@ function spotlightFor(catalogue, cutouts, slug) {
 
 const swatch = (colours, name) => `<span class="swatch" style="--swatch:${esc(colours[name] ?? '#ccc')}" aria-hidden="true"></span>`;
 
-const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--new">${esc(t.products.newLaunch)}</li>` : p.status === 'new' ? `<li class="badge badge--soft">${esc(t.products.newModel)}</li>` : '');
+const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--new">${esc(t.products.newLaunch)}</li>`
+  : p.status === 'new' ? `<li class="badge badge--soft">${esc(t.products.newModel)}</li>`
+    : p.status === 'soon' ? `<li class="badge badge--soft">${esc(t.products.comingSoon)}</li>` : '');
 
 const sizeText = (p) => (p.sizeInch ? `${p.sizeInch}" · ${p.sizeMm} mm` : '');
 
@@ -116,7 +120,7 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
   const shownColours = p.colours.slice(0, 5);
   return `
   <li class="product-card" data-id="${esc(p.id)}" data-category="${esc(p.categorySlug)}" data-series="${esc(p.series)}"
-      data-type="${esc(p.type)}" data-size="${p.sizeInch ?? ''}" data-colours="${esc(p.colours.join('|'))}" data-new="${p.status !== 'current' ? '1' : ''}"
+      data-type="${esc(p.type)}" data-size="${p.sizeInch ?? ''}" data-colours="${esc(p.colours.join('|'))}" data-new="${p.status === 'new' || p.status === 'launch' ? '1' : ''}"
       data-name="${esc(p.name.toLowerCase())}" data-search="${esc(`${p.name} ${p.series} ${p.type} ${p.category} ${p.colours.join(' ')}`.toLowerCase())}" data-sort="${esc(p.sort)}"
       data-url="${esc(p.url)}" data-title="${esc(p.name)}" data-series-label="${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}"
       data-meta="${esc([p.type, sizeText(p)].filter(Boolean).join(' · '))}" data-model="${esc(PRODUCT_MODELS[p.id] ?? '')}"
@@ -425,11 +429,23 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   const cut = cutouts[p.id];
   const catalogueFile = range.downloads.catalogue.file;
   const modelKey = PRODUCT_MODELS[p.id];
-  const finishes = modelKey ? p.colours.filter((c) => DATA_COLOUR_TO_FINISH[c]) : [];
+  // the 3D finish for a colour: a poster finish of this model ("Gold tone" for Golden), else the named finish
+  const finishOf = (c) => {
+    if (!modelKey) return '';
+    const poster = POSTER_FINISHES[p.id]?.find((f) => c.toLowerCase().startsWith(f.label.split(' ')[0].toLowerCase()));
+    return poster?.key ?? DATA_COLOUR_TO_FINISH[c] ?? '';
+  };
   const rel = related(catalogue, p);
   const shareText = `Aparna ${p.name}${p.sizeInch ? ` ${p.sizeInch}"` : ''} (${p.type}). Ask for Aparna at your nearest electrical shop:`;
   const numbers = keyNumbers(t, p);
-  const startColour = Math.max(0, p.colours.indexOf(PICTURED_COLOUR[p.id])); // the colour in its picture, if listed
+  // Colours to choose from: the product's listed colours, or (for models with no colour list in the data)
+  // the colours of its studio photos, when there are photos in two or more.
+  const photoColours = [...new Set(p.images.filter((img) => img.kind === 'studio').map((img) => img.colour).filter(Boolean))];
+  const pickColours = p.colours.length ? p.colours : photoColours.length >= 2 ? photoColours : [];
+  // the colour in its main picture, if listed (the studio photo's colour, else the 3D model's starting colour)
+  const startColour = Math.max(0, pickColours.indexOf(p.images[0]?.colour ?? PICTURED_COLOUR[p.id]));
+  // a studio photo is the product's cutout as it is: show it once, on the stage, not again as a photo
+  const studioCut = cut && p.images[0]?.kind === 'studio';
 
   // Gallery: the real-time 3D model (Aeroflow only), the product on its stage (its own photo with the
   // background removed), then every original picture with a close-up lens.
@@ -458,16 +474,18 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   }
   if (cut) {
     slides.push(`
-      <figure class="gallery__slide gallery__slide--stage" data-slide>
+      <figure class="gallery__slide gallery__slide--stage" data-slide data-colour="${esc(studioCut ? p.images[0].colour ?? '' : '')}">
         <div class="gallery__showcase" data-stage-card>${stage(t, p, cut, { sizes: '(min-width: 900px) 50vw, 94vw', eager: !modelKey, extraClass: 'gallery__stagebox' })}</div>
       </figure>`);
     thumbs.push({ html: `<img src="${esc(cut.variants[0].file)}" alt="" width="${cut.variants[0].width}" height="${cut.variants[0].height}" loading="lazy">` });
   }
+  // photos: each studio photo is marked with the colour it shows, so picking that colour brings it up
   p.images.forEach((img, i) => {
+    if (i === 0 && studioCut) return;
     slides.push(`
-      <figure class="gallery__slide" data-slide data-colour="">
+      <figure class="gallery__slide" data-slide data-colour="${esc(img.colour ?? '')}">
         <div class="gallery__frame lens" data-lens>${productImage(img, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 94vw', eager: i === 0 && !modelKey && !cut })}</div>
-        <figcaption>${esc(t.product.kind[img.kind])}</figcaption>
+        <figcaption>${esc(img.colour ? `${t.product.kind[img.kind]} · ${img.colour}` : t.product.kind[img.kind])}</figcaption>
       </figure>`);
     thumbs.push({ html: productImage(img, { sizes: '80px' }) });
   });
@@ -536,22 +554,22 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         <h1 class="product__name" id="product-title">${esc(p.name)}</h1>
         <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
         <p class="product__desc">${esc(p.description)}</p>
-        ${p.status !== 'current' ? `<p class="product__soon">${esc(t.product.detailsSoon)}</p>` : ''}
+        ${p.status !== 'current' ? `<p class="product__soon">${esc(p.status === 'soon' ? t.product.nameSoon : t.product.detailsSoon)}</p>` : ''}
 
-        ${p.colours.length ? `
+        ${pickColours.length ? `
         <fieldset class="colour-picker" data-colours>
-          <legend>${esc(t.product.colours)} <span class="colour-picker__chosen" data-chosen aria-live="polite">${esc(fmt(t.product.selectedColour, { colour: p.colours[startColour] }))}</span></legend>
+          <legend>${esc(t.product.colours)} <span class="colour-picker__chosen" data-chosen aria-live="polite">${esc(fmt(t.product.selectedColour, { colour: pickColours[startColour] }))}</span></legend>
           <div class="colour-picker__list">
-            ${p.colours.map((c, i) => `
+            ${pickColours.map((c, i) => `
               <label class="colour-option">
-                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishes.includes(c) ? DATA_COLOUR_TO_FINISH[c] : '')}">
+                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}">
                 ${swatch(colours, c)}<span class="colour-option__name">${esc(c)}</span>
               </label>`).join('')}
           </div>
-          <p class="fine-print">${esc(modelKey ? t.product.colourNote.replace(/ Photos.*/, '') : t.product.colourNote)}</p>
+          <p class="fine-print">${esc(modelKey || pickColours.every((c) => photoColours.includes(c)) ? t.product.colourNote.replace(/ Photos.*/, '') : t.product.colourNote)}</p>
         </fieldset>` : ''}
 
-        ${modelKey && !p.colours.length && POSTER_FINISHES[p.id] ? `
+        ${modelKey && !pickColours.length && POSTER_FINISHES[p.id] ? `
         <fieldset class="colour-picker" data-poster-finishes>
           <legend>${esc(t.showroom.posterFinishes)}</legend>
           <div class="colour-picker__list">

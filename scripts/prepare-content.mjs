@@ -11,6 +11,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { buildCatalogue } from './catalogue-data.mjs';
 import { writePageShells } from './generate-pages.mjs';
+import { buildEvents } from './events-data.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PACK = path.join(ROOT, 'Aparna Website Build Pack (Nov 2026)', 'Aparna Website Build Pack (Nov 2026)');
@@ -161,7 +162,11 @@ console.log(`Images: ${Object.keys(media).length}`);
 
 const catalogue = await buildCatalogue({ pack: PACK, publicDir: PUBLIC, contentDir: CONTENT });
 await fs.writeFile(path.join(CONTENT, 'catalogue.generated.json'), JSON.stringify(catalogue, null, 2));
-const pages = await writePageShells(ROOT, catalogue);
+// Aparna's events (src/content/events.json)
+const events = await buildEvents({ root: ROOT, pack: PACK, publicDir: PUBLIC, contentDir: CONTENT });
+await fs.writeFile(path.join(CONTENT, 'events.generated.json'), JSON.stringify(events, null, 2));
+console.log(`Events: ${events.events.map((e) => `${e.name} (${e.count} photos)`).join(', ')}`);
+const pages = await writePageShells(ROOT, catalogue, events);
 
 const withImage = catalogue.products.filter((p) => p.images.length).length;
 console.log(`Catalogue: ${catalogue.products.length} products in ${catalogue.categories.length} categories, ${withImage} with an image, ${pages.length} pages`);

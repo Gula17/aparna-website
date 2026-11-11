@@ -278,6 +278,29 @@ const rangeParade = (t, range) => {
   </section>`;
 };
 
+// ---------------------------------------------------------------- Utsav '26, a glimpse (brief scene 6)
+
+const srcsetOf = (img) => img.variants.map((v) => `${esc(v.file)} ${v.width}w`).join(', ');
+function eventGlimpse(t, events) {
+  const e = events?.events?.[0];
+  if (!e) return '';
+  const shots = [e.cover, ...e.photos.filter((p) => p.variants[0].file !== e.cover?.variants[0].file)].filter(Boolean).slice(0, 4);
+  return `
+  <section class="glimpse" aria-labelledby="glimpse-title">
+    <div class="glimpse__text" data-reveal>
+      <p class="eyebrow glimpse__eyebrow">${esc(e.when)}</p>
+      <h2 class="glimpse__title" id="glimpse-title">${esc(e.name)}</h2>
+      ${e.kicker ? `<p class="glimpse__kicker">${esc(e.kicker)}</p>` : ''}
+      <p class="glimpse__summary">${esc(e.summary)}</p>
+      <a class="btn btn--primary" href="${esc(e.url)}">${esc(fmt(t.events.seePhotos, { count: e.count }))}</a>
+      <a class="glimpse__all" href="/events/">${esc(t.events.all)} →</a>
+    </div>
+    <ul class="glimpse__shots" aria-hidden="true">
+      ${shots.map((s) => `<li><img src="${esc(s.variants[0].file)}" srcset="${srcsetOf(s)}" sizes="(min-width: 900px) 24vw, 46vw" width="${s.variants[0].width}" height="${s.variants[0].height}" alt="" loading="lazy" decoding="async"></li>`).join('')}
+    </ul>
+  </section>`;
+}
+
 // ---------------------------------------------------------------- closing band + footer
 
 const closing = (t, range) => `
@@ -295,7 +318,7 @@ const closing = (t, range) => `
 
 // ---------------------------------------------------------------- page
 
-export function renderHome({ t, range, emblemSvg }) {
+export function renderHome({ t, range, emblemSvg, events = null }) {
   const tt = { ...t, _catalogueFile: range.downloads.catalogue.file };
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
@@ -305,6 +328,7 @@ export function renderHome({ t, range, emblemSvg }) {
     ${fanJourney(tt, range)}
     ${bldcModels(tt, range)}
     ${rangeParade(tt, range)}
+    ${eventGlimpse(tt, events)}
     ${closing(tt, range)}
   </main>
   ${siteFooter(tt, range.media, range.categories)}

@@ -1,22 +1,25 @@
 // Side-by-side sheets of each product's photo and its 3D model, to check the models against the pictures.
 // Run after npm run build:  node scripts/compare-3d.mjs <output folder> [product id filter]
+// Or straight from the source, no build needed:  DEV=1 PORT=5301 node scripts/compare-3d.mjs <folder> [filter]
+// The filter may list several ids or id parts, comma-separated.
 // Writes compare-0.jpg, compare-1.jpg, ... (6 products per sheet: photo on the left, 3D on the right).
 
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
-import { startPreviewServer, launchBrowser } from './browser.mjs';
+import { startPreviewServer, startDevServer, launchBrowser } from './browser.mjs';
 import { PRODUCT_MODELS } from '../src/three/models.js';
 
 sharp.cache(false);
 const [out = '.', filter = ''] = process.argv.slice(2);
 const ROOT = path.resolve(import.meta.dirname, '..');
 const catalogue = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content/catalogue.generated.json'), 'utf8'));
-const products = catalogue.products.filter((p) => PRODUCT_MODELS[p.id] && p.id.includes(filter));
+const parts = filter.split(',').filter(Boolean);
+const products = catalogue.products.filter((p) => PRODUCT_MODELS[p.id] && (!parts.length || parts.some((f) => p.id.includes(f))));
 const T = 300;
 const label = (text) => Buffer.from(`<svg width="${2 * T + 4}" height="22"><rect width="100%" height="22"/><text x="5" y="16" font-size="14" fill="#fff" font-family="Arial">${text.replace(/&/g, '&amp;')}</text></svg>`);
 
-const { server, url } = await startPreviewServer();
+const { server, url } = await (process.env.DEV ? startDevServer() : startPreviewServer());
 const browser = await launchBrowser();
 const pairs = [];
 try {

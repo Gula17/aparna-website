@@ -13,6 +13,7 @@ import * as FRONT from './front-fans.js';
 import { COOLERS } from './coolers.js';
 import { CEILING_MODELS } from './ceiling-fans.js';
 import { APPLIANCES } from './appliances.js';
+import { SMALL_APPLIANCES } from './small-appliances.js';
 
 // Real-time models, by the key in src/three/models.js.
 const MODELS = {
@@ -42,9 +43,12 @@ const MODELS = {
   'champion': FRONT.createChampion,
   'indus': FRONT.createIndus,
   ...Object.fromEntries(Object.entries(APPLIANCES).map(([id, create]) => [`appl-${id}`, create])),
+  // irons, the Cabin Fan, cooler motors and pumps (same 'appl-' keys)
+  ...Object.fromEntries(Object.entries(SMALL_APPLIANCES).map(([id, create]) => [`appl-${id}`, create])),
   ...Object.fromEntries(Object.entries(CEILING_MODELS).map(([key, create]) => [`ceiling-${key}`, create])),
   ...Object.fromEntries(Object.entries(COOLERS).map(([key, create]) => [`cooler-${key}`, create])),
   'fresh-air-9': FRONT.createFreshAir9, 'fresh-air-12': FRONT.createFreshAir12, ventilation: FRONT.createVentilation,
+  ...FRONT.FRONT_MODELS, // every front-facing fan, including the ones built from the studio photos
 };
 
 // Regulator steps 1-5, in turns per second. Kept well below the speed where blades start to strobe,

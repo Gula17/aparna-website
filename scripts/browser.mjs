@@ -19,11 +19,13 @@ export async function startPreviewServer() {
   return { server: { close: () => new Promise((r) => server.httpServer.close(r)) }, url: 'http://127.0.0.1:5198' };
 }
 
+// PORT=… picks another port, so several scripts can run at once.
 export async function startDevServer() {
   if (process.env.USE_BUILD) return startPreviewServer();
-  const server = await createServer({ server: { port: 5199, strictPort: true, host: '127.0.0.1' }, logLevel: 'error' });
+  const port = Number(process.env.PORT) || 5199;
+  const server = await createServer({ server: { port, strictPort: true, host: '127.0.0.1' }, logLevel: 'error' });
   await server.listen();
-  return { server, url: 'http://127.0.0.1:5199' };
+  return { server, url: `http://127.0.0.1:${port}` };
 }
 
 export async function launchBrowser() {

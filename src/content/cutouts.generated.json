@@ -5,19 +5,14 @@
       "alt": "The Aparna Aeroflow",
       "variants": [
         {
-          "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-480.webp",
+          "file": "/media/cutouts/studio-01-480.webp",
           "width": 480,
-          "height": 143
+          "height": 276
         },
         {
-          "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-960.webp",
+          "file": "/media/cutouts/studio-01-960.webp",
           "width": 960,
-          "height": 285
-        },
-        {
-          "file": "/media/cutouts/poster-04-aeroflow-bldc-ceiling-fan-white-golden-wood-craft-1440.webp",
-          "width": 1325,
-          "height": 394
+          "height": 551
         }
       ],
       "erased": "[[0,0,0.2,0.3]]"
@@ -26,19 +21,14 @@
       "alt": "The Aparna Aerosleek",
       "variants": [
         {
-          "file": "/media/cutouts/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-480.webp",
+          "file": "/media/cutouts/studio-03-480.webp",
           "width": 480,
-          "height": 294
+          "height": 336
         },
         {
-          "file": "/media/cutouts/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-960.webp",
+          "file": "/media/cutouts/studio-03-960.webp",
           "width": 960,
-          "height": 588
-        },
-        {
-          "file": "/media/cutouts/poster-03-aerosleek-bldc-ceiling-fan-savings-line-removed-1440.webp",
-          "width": 1137,
-          "height": 697
+          "height": 671
         }
       ],
       "erased": "[[0.84,0.82,0.16,0.18]]"
@@ -47,19 +37,14 @@
       "alt": "The Aparna Ikon BLDC",
       "variants": [
         {
-          "file": "/media/cutouts/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-480.webp",
+          "file": "/media/cutouts/studio-06-480.webp",
           "width": 480,
-          "height": 316
+          "height": 322
         },
         {
-          "file": "/media/cutouts/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-960.webp",
+          "file": "/media/cutouts/studio-06-960.webp",
           "width": 960,
-          "height": 632
-        },
-        {
-          "file": "/media/cutouts/poster-01-ikon-bldc-ceiling-fan-a-savings-line-removed-1440.webp",
-          "width": 1074,
-          "height": 707
+          "height": 644
         }
       ],
       "erased": "[[0,0,0.21,0.3],[0.72,0.77,0.28,0.23]]"
@@ -68,19 +53,14 @@
       "alt": "The Aparna Air Max",
       "variants": [
         {
-          "file": "/media/cutouts/poster-07-airmax-signature-series-ceiling-fan-480.webp",
+          "file": "/media/cutouts/studio-15-480.webp",
           "width": 480,
-          "height": 270
+          "height": 261
         },
         {
-          "file": "/media/cutouts/poster-07-airmax-signature-series-ceiling-fan-960.webp",
-          "width": 960,
-          "height": 540
-        },
-        {
-          "file": "/media/cutouts/poster-07-airmax-signature-series-ceiling-fan-1440.webp",
-          "width": 1361,
-          "height": 765
+          "file": "/media/cutouts/studio-15-960.webp",
+          "width": 948,
+          "height": 515
         }
       ],
       "erased": "[[0.16,0.8,0.18,0.2]]"
@@ -89,19 +69,14 @@
       "alt": "The Aparna Art Pro",
       "variants": [
         {
-          "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-480.webp",
+          "file": "/media/cutouts/studio-17-480.webp",
           "width": 480,
-          "height": 343
+          "height": 274
         },
         {
-          "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-960.webp",
+          "file": "/media/cutouts/studio-17-960.webp",
           "width": 960,
-          "height": 686
-        },
-        {
-          "file": "/media/cutouts/poster-08-artpro-signature-series-ceiling-fan-1440.webp",
-          "width": 1402,
-          "height": 1002
+          "height": 548
         }
       ]
     },
@@ -109,19 +84,59 @@
       "alt": "The Aparna Coral",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-coral-48-480.webp",
+          "file": "/media/cutouts/studio-08-480.webp",
           "width": 480,
           "height": 284
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-coral-48-960.webp",
+          "file": "/media/cutouts/studio-08-960.webp",
           "width": 960,
           "height": 568
+        }
+      ]
+    },
+    "ceiling-fans-coras-48": {
+      "alt": "The Aparna Coras",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-10-480.webp",
+          "width": 480,
+          "height": 305
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-coral-48-1440.webp",
-          "width": 1387,
-          "height": 821
+          "file": "/media/cutouts/studio-10-960.webp",
+          "width": 960,
+          "height": 609
+        }
+      ]
+    },
+    "ceiling-fans-irus-48": {
+      "alt": "The Aparna Irus",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-13-480.webp",
+          "width": 480,
+          "height": 288
+        },
+        {
+          "file": "/media/cutouts/studio-13-960.webp",
+          "width": 918,
+          "height": 551
+        }
+      ]
+    },
+    "ceiling-fans-mini-dlx-24": {
+      "alt": "The Aparna Mini DLX",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-51-480.webp",
+          "width": 480,
+          "height": 351
+        },
+        {
+          "file": "/media/cutouts/studio-51-960.webp",
+          "width": 960,
+          "height": 701
         }
       ]
     },
@@ -129,19 +144,29 @@
       "alt": "The Aparna Mini Smart",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-480.webp",
+          "file": "/media/cutouts/studio-50-480.webp",
           "width": 480,
           "height": 342
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-960.webp",
-          "width": 960,
-          "height": 684
+          "file": "/media/cutouts/studio-50-960.webp",
+          "width": 938,
+          "height": 668
+        }
+      ]
+    },
+    "ceiling-fans-mini-star-24": {
+      "alt": "The Aparna Mini Star",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-49-480.webp",
+          "width": 480,
+          "height": 326
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-mini-smart-24-1440.webp",
-          "width": 1141,
-          "height": 813
+          "file": "/media/cutouts/studio-49-960.webp",
+          "width": 852,
+          "height": 579
         }
       ]
     },
@@ -149,19 +174,14 @@
       "alt": "The Aparna New Josh",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-480.webp",
+          "file": "/media/cutouts/studio-52-480.webp",
           "width": 480,
           "height": 338
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-960.webp",
-          "width": 960,
-          "height": 675
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-24-1440.webp",
-          "width": 1055,
-          "height": 742
+          "file": "/media/cutouts/studio-52-960.webp",
+          "width": 943,
+          "height": 664
         }
       ]
     },
@@ -189,19 +209,59 @@
       "alt": "The Aparna Major",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-major-36-480.webp",
-          "width": 406,
-          "height": 480
+          "file": "/media/cutouts/studio-47-480.webp",
+          "width": 480,
+          "height": 235
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-major-36-960.webp",
-          "width": 812,
-          "height": 959
+          "file": "/media/cutouts/studio-47-960.webp",
+          "width": 960,
+          "height": 469
+        }
+      ]
+    },
+    "ceiling-fans-apsara-48": {
+      "alt": "The Aparna Apsara",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-28-480.webp",
+          "width": 480,
+          "height": 304
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-major-36-1440.webp",
-          "width": 812,
-          "height": 959
+          "file": "/media/cutouts/studio-28-960.webp",
+          "width": 960,
+          "height": 607
+        }
+      ]
+    },
+    "ceiling-fans-areta-48": {
+      "alt": "The Aparna Areta",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-38-480.webp",
+          "width": 480,
+          "height": 316
+        },
+        {
+          "file": "/media/cutouts/studio-38-960.webp",
+          "width": 960,
+          "height": 631
+        }
+      ]
+    },
+    "ceiling-fans-croma-48": {
+      "alt": "The Aparna Croma",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-27-480.webp",
+          "width": 480,
+          "height": 226
+        },
+        {
+          "file": "/media/cutouts/studio-27-960.webp",
+          "width": 960,
+          "height": 451
         }
       ]
     },
@@ -209,19 +269,44 @@
       "alt": "The Aparna Crystal Pro",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-480.webp",
+          "file": "/media/cutouts/studio-26-480.webp",
           "width": 480,
-          "height": 342
+          "height": 352
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-960.webp",
-          "width": 960,
-          "height": 684
+          "file": "/media/cutouts/studio-26-960.webp",
+          "width": 936,
+          "height": 686
+        }
+      ]
+    },
+    "ceiling-fans-electra-48": {
+      "alt": "The Aparna Electra",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-31-480.webp",
+          "width": 480,
+          "height": 330
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-crystal-pro-48-1440.webp",
-          "width": 1393,
-          "height": 992
+          "file": "/media/cutouts/studio-31-960.webp",
+          "width": 959,
+          "height": 659
+        }
+      ]
+    },
+    "ceiling-fans-flora-48": {
+      "alt": "The Aparna Flora",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-65-480.webp",
+          "width": 480,
+          "height": 273
+        },
+        {
+          "file": "/media/cutouts/studio-65-960.webp",
+          "width": 929,
+          "height": 529
         }
       ]
     },
@@ -229,19 +314,29 @@
       "alt": "The Aparna Glaze",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-glaze-48-480.webp",
+          "file": "/media/cutouts/studio-34-480.webp",
           "width": 480,
-          "height": 355
+          "height": 354
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-glaze-48-960.webp",
+          "file": "/media/cutouts/studio-34-960.webp",
           "width": 960,
-          "height": 710
+          "height": 707
+        }
+      ]
+    },
+    "ceiling-fans-ikon-48": {
+      "alt": "The Aparna Ikon",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-20-480.webp",
+          "width": 480,
+          "height": 318
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-glaze-48-1440.webp",
-          "width": 1430,
-          "height": 1058
+          "file": "/media/cutouts/studio-20-960.webp",
+          "width": 960,
+          "height": 635
         }
       ]
     },
@@ -265,23 +360,138 @@
         }
       ]
     },
+    "ceiling-fans-luster-shine-golden-48": {
+      "alt": "The Aparna Luster Shine Golden",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-42-480.webp",
+          "width": 456,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-42-960.webp",
+          "width": 909,
+          "height": 957
+        }
+      ]
+    },
+    "ceiling-fans-luster-shine-silver-48": {
+      "alt": "The Aparna Luster Shine Silver",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-43-480.webp",
+          "width": 480,
+          "height": 263
+        },
+        {
+          "file": "/media/cutouts/studio-43-960.webp",
+          "width": 960,
+          "height": 526
+        }
+      ]
+    },
+    "ceiling-fans-nikon-48": {
+      "alt": "The Aparna Nikon",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-55-480.webp",
+          "width": 480,
+          "height": 328
+        },
+        {
+          "file": "/media/cutouts/studio-55-960.webp",
+          "width": 960,
+          "height": 655
+        }
+      ]
+    },
     "ceiling-fans-phantom-48": {
       "alt": "The Aparna Phantom",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-phantom-48-480.webp",
+          "file": "/media/cutouts/studio-41-480.webp",
           "width": 480,
           "height": 335
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-phantom-48-960.webp",
+          "file": "/media/cutouts/studio-41-960.webp",
           "width": 960,
           "height": 670
+        }
+      ]
+    },
+    "ceiling-fans-prince-48": {
+      "alt": "The Aparna Prince",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-22-480.webp",
+          "width": 480,
+          "height": 267
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-phantom-48-1440.webp",
-          "width": 1432,
-          "height": 999
+          "file": "/media/cutouts/studio-22-960.webp",
+          "width": 960,
+          "height": 534
+        }
+      ]
+    },
+    "ceiling-fans-rosa-48": {
+      "alt": "The Aparna Rosa",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-09-480.webp",
+          "width": 480,
+          "height": 324
+        },
+        {
+          "file": "/media/cutouts/studio-09-960.webp",
+          "width": 960,
+          "height": 647
+        }
+      ]
+    },
+    "ceiling-fans-senorita-48": {
+      "alt": "The Aparna Senorita",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-36-480.webp",
+          "width": 480,
+          "height": 368
+        },
+        {
+          "file": "/media/cutouts/studio-36-960.webp",
+          "width": 960,
+          "height": 736
+        }
+      ]
+    },
+    "ceiling-fans-sonet-deco-48": {
+      "alt": "The Aparna Sonet Deco",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-25-480.webp",
+          "width": 480,
+          "height": 360
+        },
+        {
+          "file": "/media/cutouts/studio-25-960.webp",
+          "width": 960,
+          "height": 719
+        }
+      ]
+    },
+    "ceiling-fans-sparsh-48": {
+      "alt": "The Aparna Sparsh",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-24-480.webp",
+          "width": 480,
+          "height": 320
+        },
+        {
+          "file": "/media/cutouts/studio-24-960.webp",
+          "width": 960,
+          "height": 639
         }
       ]
     },
@@ -289,19 +499,59 @@
       "alt": "The Aparna Stunner",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-stunner-48-480.webp",
+          "file": "/media/cutouts/studio-32-480.webp",
           "width": 480,
-          "height": 278
+          "height": 362
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-stunner-48-960.webp",
+          "file": "/media/cutouts/studio-32-960.webp",
           "width": 960,
-          "height": 556
+          "height": 724
+        }
+      ]
+    },
+    "ceiling-fans-unicorn-48": {
+      "alt": "The Aparna Unicorn",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-33-480.webp",
+          "width": 480,
+          "height": 302
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-stunner-48-1440.webp",
-          "width": 1403,
-          "height": 813
+          "file": "/media/cutouts/studio-33-960.webp",
+          "width": 960,
+          "height": 603
+        }
+      ]
+    },
+    "ceiling-fans-little-star-24": {
+      "alt": "The Aparna Little Star",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-49-480.webp",
+          "width": 480,
+          "height": 326
+        },
+        {
+          "file": "/media/cutouts/studio-49-960.webp",
+          "width": 852,
+          "height": 579
+        }
+      ]
+    },
+    "ceiling-fans-mini-copper-24": {
+      "alt": "The Aparna Mini Copper",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-51-480.webp",
+          "width": 480,
+          "height": 351
+        },
+        {
+          "file": "/media/cutouts/studio-51-960.webp",
+          "width": 960,
+          "height": 701
         }
       ]
     },
@@ -309,19 +559,14 @@
       "alt": "The Aparna New Josh Copper",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-480.webp",
+          "file": "/media/cutouts/studio-52-480.webp",
           "width": 480,
-          "height": 330
+          "height": 338
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-960.webp",
-          "width": 960,
-          "height": 660
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-new-josh-copper-24-1440.webp",
-          "width": 1146,
-          "height": 788
+          "file": "/media/cutouts/studio-52-960.webp",
+          "width": 943,
+          "height": 664
         }
       ]
     },
@@ -365,23 +610,183 @@
         }
       ]
     },
+    "ceiling-fans-virat-36": {
+      "alt": "The Aparna Virat",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-47-480.webp",
+          "width": 480,
+          "height": 235
+        },
+        {
+          "file": "/media/cutouts/studio-47-960.webp",
+          "width": 960,
+          "height": 469
+        }
+      ]
+    },
+    "ceiling-fans-aroma-deco-48": {
+      "alt": "The Aparna Aroma Deco",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-35-480.webp",
+          "width": 480,
+          "height": 274
+        },
+        {
+          "file": "/media/cutouts/studio-35-960.webp",
+          "width": 960,
+          "height": 547
+        }
+      ]
+    },
+    "ceiling-fans-croma-pro-48": {
+      "alt": "The Aparna Croma Pro",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-57-480.webp",
+          "width": 480,
+          "height": 246
+        },
+        {
+          "file": "/media/cutouts/studio-57-960.webp",
+          "width": 960,
+          "height": 491
+        }
+      ]
+    },
+    "ceiling-fans-fortune-pro-48": {
+      "alt": "The Aparna Fortune Pro",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-60-480.webp",
+          "width": 480,
+          "height": 323
+        },
+        {
+          "file": "/media/cutouts/studio-60-960.webp",
+          "width": 960,
+          "height": 646
+        }
+      ]
+    },
+    "ceiling-fans-kiara-48": {
+      "alt": "The Aparna Kiara",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-54-480.webp",
+          "width": 480,
+          "height": 306
+        },
+        {
+          "file": "/media/cutouts/studio-54-960.webp",
+          "width": 960,
+          "height": 611
+        }
+      ]
+    },
+    "ceiling-fans-orchid-deco-48": {
+      "alt": "The Aparna Orchid Deco",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-68-480.webp",
+          "width": 480,
+          "height": 300
+        },
+        {
+          "file": "/media/cutouts/studio-68-960.webp",
+          "width": 960,
+          "height": 600
+        },
+        {
+          "file": "/media/cutouts/studio-68-1440.webp",
+          "width": 1106,
+          "height": 691
+        }
+      ]
+    },
+    "ceiling-fans-orina-48": {
+      "alt": "The Aparna Orina",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-64-480.webp",
+          "width": 480,
+          "height": 297
+        },
+        {
+          "file": "/media/cutouts/studio-64-960.webp",
+          "width": 960,
+          "height": 593
+        },
+        {
+          "file": "/media/cutouts/studio-64-1440.webp",
+          "width": 1113,
+          "height": 688
+        }
+      ]
+    },
+    "ceiling-fans-platinium-48": {
+      "alt": "The Aparna Platinium",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-59-480.webp",
+          "width": 480,
+          "height": 338
+        },
+        {
+          "file": "/media/cutouts/studio-59-960.webp",
+          "width": 960,
+          "height": 675
+        }
+      ]
+    },
     "ceiling-fans-porsche-48": {
       "alt": "The Aparna Porsche",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-porsche-48-480.webp",
-          "width": 359,
-          "height": 480
+          "file": "/media/cutouts/studio-69-480.webp",
+          "width": 480,
+          "height": 335
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-porsche-48-960.webp",
-          "width": 717,
-          "height": 960
+          "file": "/media/cutouts/studio-69-960.webp",
+          "width": 960,
+          "height": 671
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-porsche-48-1440.webp",
-          "width": 1076,
-          "height": 1440
+          "file": "/media/cutouts/studio-69-1440.webp",
+          "width": 1139,
+          "height": 796
+        }
+      ]
+    },
+    "ceiling-fans-rafale-48": {
+      "alt": "The Aparna Rafale",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-53-480.webp",
+          "width": 480,
+          "height": 326
+        },
+        {
+          "file": "/media/cutouts/studio-53-960.webp",
+          "width": 960,
+          "height": 651
+        }
+      ]
+    },
+    "ceiling-fans-raftaar-48": {
+      "alt": "The Aparna Raftaar",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-61-480.webp",
+          "width": 480,
+          "height": 317
+        },
+        {
+          "file": "/media/cutouts/studio-61-960.webp",
+          "width": 960,
+          "height": 634
         }
       ]
     },
@@ -389,19 +794,29 @@
       "alt": "The Aparna Rolex",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-rolex-48-480.webp",
+          "file": "/media/cutouts/studio-66-480.webp",
           "width": 480,
-          "height": 287
+          "height": 344
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-rolex-48-960.webp",
+          "file": "/media/cutouts/studio-66-960.webp",
           "width": 960,
-          "height": 573
+          "height": 688
+        }
+      ]
+    },
+    "ceiling-fans-rosa-pro-48": {
+      "alt": "The Aparna Rosa Pro",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-37-480.webp",
+          "width": 480,
+          "height": 315
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-rolex-48-1440.webp",
-          "width": 1424,
-          "height": 850
+          "file": "/media/cutouts/studio-37-960.webp",
+          "width": 960,
+          "height": 630
         }
       ]
     },
@@ -409,19 +824,44 @@
       "alt": "The Aparna Runner",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ceiling-fans-runner-48-480.webp",
+          "file": "/media/cutouts/studio-63-480.webp",
           "width": 480,
-          "height": 363
+          "height": 369
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-runner-48-960.webp",
+          "file": "/media/cutouts/studio-63-960.webp",
           "width": 960,
-          "height": 726
+          "height": 737
+        }
+      ]
+    },
+    "ceiling-fans-sayonara-48": {
+      "alt": "The Aparna Sayonara",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-67-480.webp",
+          "width": 480,
+          "height": 353
         },
         {
-          "file": "/media/cutouts/crop-ceiling-fans-runner-48-1440.webp",
-          "width": 1400,
-          "height": 1059
+          "file": "/media/cutouts/studio-67-960.webp",
+          "width": 960,
+          "height": 706
+        }
+      ]
+    },
+    "ceiling-fans-smart-deco-48": {
+      "alt": "The Aparna Smart Deco",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-58-480.webp",
+          "width": 480,
+          "height": 321
+        },
+        {
+          "file": "/media/cutouts/studio-58-960.webp",
+          "width": 960,
+          "height": 642
         }
       ]
     },
@@ -445,23 +885,33 @@
         }
       ]
     },
+    "ceiling-fans-vista-deco-48": {
+      "alt": "The Aparna Vista Deco",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-56-480.webp",
+          "width": 480,
+          "height": 360
+        },
+        {
+          "file": "/media/cutouts/studio-56-960.webp",
+          "width": 960,
+          "height": 719
+        }
+      ]
+    },
     "table-wall-pedestal-fans-vento-12": {
       "alt": "The Aparna Vento",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vento-12-0-480.webp",
-          "width": 348,
+          "file": "/media/cutouts/studio-83-480.webp",
+          "width": 308,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vento-12-0-960.webp",
-          "width": 697,
+          "file": "/media/cutouts/studio-83-960.webp",
+          "width": 616,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vento-12-0-1440.webp",
-          "width": 1045,
-          "height": 1440
         }
       ]
     },
@@ -469,19 +919,14 @@
       "alt": "The Aparna Glider",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-glider-16-0-480.webp",
-          "width": 338,
+          "file": "/media/cutouts/studio-86-480.webp",
+          "width": 375,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-glider-16-0-960.webp",
-          "width": 676,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-glider-16-0-1440.webp",
-          "width": 1014,
-          "height": 1440
+          "file": "/media/cutouts/studio-86-960.webp",
+          "width": 749,
+          "height": 958
         }
       ]
     },
@@ -489,19 +934,14 @@
       "alt": "The Aparna Spider",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-spider-16-0-480.webp",
+          "file": "/media/cutouts/studio-85-480.webp",
           "width": 320,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-spider-16-0-960.webp",
+          "file": "/media/cutouts/studio-85-960.webp",
           "width": 640,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-spider-16-0-1440.webp",
-          "width": 960,
-          "height": 1440
         }
       ]
     },
@@ -509,19 +949,14 @@
       "alt": "The Aparna Tornado",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-tornado-16-0-480.webp",
-          "width": 316,
+          "file": "/media/cutouts/studio-84-480.webp",
+          "width": 313,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-tornado-16-0-960.webp",
-          "width": 632,
+          "file": "/media/cutouts/studio-84-960.webp",
+          "width": 627,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-tornado-16-0-1440.webp",
-          "width": 948,
-          "height": 1440
         }
       ]
     },
@@ -529,19 +964,14 @@
       "alt": "The Aparna Wendy",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-480.webp",
-          "width": 294,
+          "file": "/media/cutouts/studio-91-480.webp",
+          "width": 295,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-960.webp",
-          "width": 588,
+          "file": "/media/cutouts/studio-91-960.webp",
+          "width": 589,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-wendy-12-0-1440.webp",
-          "width": 882,
-          "height": 1440
         }
       ]
     },
@@ -549,19 +979,14 @@
       "alt": "The Aparna Fiona",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-480.webp",
+          "file": "/media/cutouts/studio-87-480.webp",
           "width": 179,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-960.webp",
+          "file": "/media/cutouts/studio-87-960.webp",
           "width": 359,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-fiona-16-0-1440.webp",
-          "width": 538,
-          "height": 1440
         }
       ]
     },
@@ -589,19 +1014,14 @@
       "alt": "The Aparna Vectra",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vectra-16-0-480.webp",
+          "file": "/media/cutouts/studio-88-480.webp",
           "width": 297,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vectra-16-0-960.webp",
-          "width": 595,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vectra-16-0-1440.webp",
-          "width": 892,
-          "height": 1440
+          "file": "/media/cutouts/studio-88-960.webp",
+          "width": 545,
+          "height": 880
         }
       ]
     },
@@ -609,19 +1029,14 @@
       "alt": "The Aparna Vistara",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-480.webp",
+          "file": "/media/cutouts/studio-89-480.webp",
           "width": 359,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-960.webp",
+          "file": "/media/cutouts/studio-89-960.webp",
           "width": 717,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-vistara-16-0-1440.webp",
-          "width": 1076,
-          "height": 1440
         }
       ]
     },
@@ -629,19 +1044,14 @@
       "alt": "The Aparna Jazz",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-480.webp",
-          "width": 480,
-          "height": 347
+          "file": "/media/cutouts/studio-96-480.webp",
+          "width": 336,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-960.webp",
-          "width": 960,
-          "height": 695
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-jazz-12-0-1440.webp",
-          "width": 1238,
-          "height": 896
+          "file": "/media/cutouts/studio-96-960.webp",
+          "width": 671,
+          "height": 960
         }
       ]
     },
@@ -649,19 +1059,14 @@
       "alt": "The Aparna Blazo",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blazo-16-0-480.webp",
-          "width": 480,
-          "height": 360
+          "file": "/media/cutouts/studio-93-480.webp",
+          "width": 288,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blazo-16-0-960.webp",
-          "width": 960,
-          "height": 720
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blazo-16-0-1440.webp",
-          "width": 1306,
-          "height": 980
+          "file": "/media/cutouts/studio-93-960.webp",
+          "width": 575,
+          "height": 960
         }
       ]
     },
@@ -669,19 +1074,29 @@
       "alt": "The Aparna Blitz",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blitz-16-0-480.webp",
-          "width": 290,
+          "file": "/media/cutouts/studio-94-480.webp",
+          "width": 291,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blitz-16-0-960.webp",
-          "width": 580,
+          "file": "/media/cutouts/studio-94-960.webp",
+          "width": 582,
           "height": 960
+        }
+      ]
+    },
+    "table-wall-pedestal-fans-iconic-16": {
+      "alt": "The Aparna Iconic",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-97-480.webp",
+          "width": 171,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-blitz-16-0-1440.webp",
-          "width": 810,
-          "height": 1340
+          "file": "/media/cutouts/studio-97-960.webp",
+          "width": 342,
+          "height": 960
         }
       ]
     },
@@ -689,19 +1104,14 @@
       "alt": "The Aparna Stallion",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-480.webp",
-          "width": 391,
+          "file": "/media/cutouts/studio-92-480.webp",
+          "width": 181,
           "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-960.webp",
-          "width": 781,
+          "file": "/media/cutouts/studio-92-960.webp",
+          "width": 362,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-stallion-16-0-1440.webp",
-          "width": 1172,
-          "height": 1440
         }
       ]
     },
@@ -709,19 +1119,44 @@
       "alt": "The Aparna Velora",
       "variants": [
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-480.webp",
-          "width": 480,
-          "height": 323
+          "file": "/media/cutouts/studio-95-480.webp",
+          "width": 359,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-960.webp",
-          "width": 960,
-          "height": 645
+          "file": "/media/cutouts/studio-95-960.webp",
+          "width": 719,
+          "height": 960
+        }
+      ]
+    },
+    "table-wall-pedestal-fans-oreo-12": {
+      "alt": "The Aparna Oreo",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-82-480.webp",
+          "width": 317,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-velora-16-0-1440.webp",
-          "width": 1373,
-          "height": 923
+          "file": "/media/cutouts/studio-82-960.webp",
+          "width": 608,
+          "height": 922
+        }
+      ]
+    },
+    "table-wall-pedestal-fans-tesla-16": {
+      "alt": "The Aparna Tesla",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-90-480.webp",
+          "width": 336,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-90-960.webp",
+          "width": 672,
+          "height": 960
         }
       ]
     },
@@ -729,19 +1164,14 @@
       "alt": "The Aparna GoAir AC-DC",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-480.webp",
-          "width": 365,
+          "file": "/media/cutouts/studio-80-480.webp",
+          "width": 359,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-960.webp",
-          "width": 729,
+          "file": "/media/cutouts/studio-80-960.webp",
+          "width": 719,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-12-1440.webp",
-          "width": 1094,
-          "height": 1440
         }
       ]
     },
@@ -749,19 +1179,14 @@
       "alt": "The Aparna GoAir AC-DC",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-480.webp",
-          "width": 358,
+          "file": "/media/cutouts/studio-81-480.webp",
+          "width": 368,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-960.webp",
-          "width": 716,
+          "file": "/media/cutouts/studio-81-960.webp",
+          "width": 736,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-goair-ac-dc-16-1440.webp",
-          "width": 1072,
-          "height": 1437
         }
       ]
     },
@@ -769,19 +1194,14 @@
       "alt": "The Aparna Safari",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-480.webp",
+          "file": "/media/cutouts/studio-73-480.webp",
           "width": 307,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-960.webp",
-          "width": 613,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-safari-9-1440.webp",
-          "width": 725,
-          "height": 1135
+          "file": "/media/cutouts/studio-73-960.webp",
+          "width": 578,
+          "height": 905
         }
       ]
     },
@@ -789,19 +1209,14 @@
       "alt": "The Aparna Cabin Fan",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-480.webp",
-          "width": 416,
+          "file": "/media/cutouts/studio-79-480.webp",
+          "width": 417,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-960.webp",
-          "width": 832,
+          "file": "/media/cutouts/studio-79-960.webp",
+          "width": 834,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-cabin-fan-12-1440.webp",
-          "width": 1249,
-          "height": 1440
         }
       ]
     },
@@ -824,19 +1239,14 @@
       "alt": "The Aparna Piano Black",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-480.webp",
+          "file": "/media/cutouts/studio-71-480.webp",
           "width": 373,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-960.webp",
-          "width": 746,
+          "file": "/media/cutouts/studio-71-960.webp",
+          "width": 745,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-black-12-1440.webp",
-          "width": 1119,
-          "height": 1440
         }
       ]
     },
@@ -844,19 +1254,14 @@
       "alt": "The Aparna Piano White",
       "variants": [
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-480.webp",
-          "width": 378,
+          "file": "/media/cutouts/studio-72-480.webp",
+          "width": 379,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-960.webp",
-          "width": 756,
+          "file": "/media/cutouts/studio-72-960.webp",
+          "width": 758,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-piano-white-12-1440.webp",
-          "width": 1135,
-          "height": 1440
         }
       ]
     },
@@ -884,19 +1289,14 @@
       "alt": "The Aparna Bullet (oscillating)",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-480.webp",
-          "width": 248,
+          "file": "/media/cutouts/studio-101-480.webp",
+          "width": 238,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-960.webp",
-          "width": 496,
+          "file": "/media/cutouts/studio-101-960.webp",
+          "width": 477,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-12-1440.webp",
-          "width": 743,
-          "height": 1440
         }
       ]
     },
@@ -904,19 +1304,14 @@
       "alt": "The Aparna Ornet",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-ornet-12-480.webp",
-          "width": 205,
+          "file": "/media/cutouts/studio-99-480.webp",
+          "width": 206,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-ornet-12-960.webp",
-          "width": 409,
+          "file": "/media/cutouts/studio-99-960.webp",
+          "width": 413,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-ornet-12-1440.webp",
-          "width": 614,
-          "height": 1440
         }
       ]
     },
@@ -924,19 +1319,14 @@
       "alt": "The Aparna Bullet",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-16-480.webp",
-          "width": 185,
+          "file": "/media/cutouts/studio-102-480.webp",
+          "width": 187,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-16-960.webp",
-          "width": 371,
+          "file": "/media/cutouts/studio-102-960.webp",
+          "width": 373,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-16-1440.webp",
-          "width": 556,
-          "height": 1440
         }
       ]
     },
@@ -960,23 +1350,48 @@
         }
       ]
     },
+    "high-speed-fans-bullet-oscillating-metal-blade-16": {
+      "alt": "The Aparna Bullet (oscillating), metal blade",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-103-480.webp",
+          "width": 187,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-103-960.webp",
+          "width": 374,
+          "height": 960
+        }
+      ]
+    },
+    "high-speed-fans-maxx-oscillating-16": {
+      "alt": "The Aparna Maxx (oscillating)",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-104-480.webp",
+          "width": 192,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-104-960.webp",
+          "width": 382,
+          "height": 955
+        }
+      ]
+    },
     "high-speed-fans-shine-16": {
       "alt": "The Aparna Shine",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-shine-16-480.webp",
+          "file": "/media/cutouts/studio-100-480.webp",
           "width": 176,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-shine-16-960.webp",
-          "width": 352,
+          "file": "/media/cutouts/studio-100-960.webp",
+          "width": 353,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-shine-16-1440.webp",
-          "width": 527,
-          "height": 1440
         }
       ]
     },
@@ -984,19 +1399,14 @@
       "alt": "The Aparna Champion",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-champion-22-480.webp",
-          "width": 232,
+          "file": "/media/cutouts/studio-109-480.webp",
+          "width": 233,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-champion-22-960.webp",
-          "width": 463,
+          "file": "/media/cutouts/studio-109-960.webp",
+          "width": 465,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-champion-22-1440.webp",
-          "width": 695,
-          "height": 1440
         }
       ]
     },
@@ -1004,19 +1414,14 @@
       "alt": "The Aparna Hexa",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-hexa-20-480.webp",
+          "file": "/media/cutouts/studio-105-480.webp",
           "width": 212,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-hexa-20-960.webp",
-          "width": 424,
+          "file": "/media/cutouts/studio-105-960.webp",
+          "width": 425,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-hexa-20-1440.webp",
-          "width": 636,
-          "height": 1440
         }
       ]
     },
@@ -1024,19 +1429,14 @@
       "alt": "The Aparna Indus (high speed)",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-indus-high-speed-20-480.webp",
+          "file": "/media/cutouts/studio-107-480.webp",
           "width": 197,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-indus-high-speed-20-960.webp",
+          "file": "/media/cutouts/studio-107-960.webp",
           "width": 394,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-indus-high-speed-20-1440.webp",
-          "width": 591,
-          "height": 1440
         }
       ]
     },
@@ -1064,19 +1464,29 @@
       "alt": "The Aparna Sultan",
       "variants": [
         {
-          "file": "/media/cutouts/crop-high-speed-fans-sultan-20-480.webp",
+          "file": "/media/cutouts/studio-106-480.webp",
           "width": 231,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-sultan-20-960.webp",
-          "width": 461,
+          "file": "/media/cutouts/studio-106-960.webp",
+          "width": 462,
           "height": 960
+        }
+      ]
+    },
+    "high-speed-fans-windstar-22": {
+      "alt": "The Aparna Windstar",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-108-480.webp",
+          "width": 207,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/crop-high-speed-fans-sultan-20-1440.webp",
-          "width": 692,
-          "height": 1440
+          "file": "/media/cutouts/studio-108-960.webp",
+          "width": 414,
+          "height": 960
         }
       ]
     },
@@ -1104,19 +1514,59 @@
       "alt": "The Aparna Fresh Air Fan (high speed)",
       "variants": [
         {
-          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-480.webp",
+          "file": "/media/cutouts/studio-110-480.webp",
           "width": 480,
-          "height": 479
+          "height": 480
         },
         {
-          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-960.webp",
-          "width": 745,
-          "height": 744
+          "file": "/media/cutouts/studio-110-960.webp",
+          "width": 836,
+          "height": 836
+        }
+      ]
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-6": {
+      "alt": "The Aparna Ventilation Fan",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-78-480.webp",
+          "width": 480,
+          "height": 473
         },
         {
-          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12-1440.webp",
-          "width": 745,
-          "height": 744
+          "file": "/media/cutouts/studio-78-960.webp",
+          "width": 911,
+          "height": 897
+        }
+      ]
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-8": {
+      "alt": "The Aparna Ventilation Fan",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-76-480.webp",
+          "width": 480,
+          "height": 473
+        },
+        {
+          "file": "/media/cutouts/studio-76-960.webp",
+          "width": 950,
+          "height": 936
+        }
+      ]
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-10": {
+      "alt": "The Aparna Ventilation Fan",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-77-480.webp",
+          "width": 480,
+          "height": 473
+        },
+        {
+          "file": "/media/cutouts/studio-77-960.webp",
+          "width": 960,
+          "height": 945
         }
       ]
     },
@@ -1405,19 +1855,14 @@
       "alt": "The Aparna BNG",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-bng-480.webp",
+          "file": "/media/cutouts/studio-169-480.webp",
           "width": 480,
-          "height": 316
+          "height": 317
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-bng-960.webp",
+          "file": "/media/cutouts/studio-169-960.webp",
           "width": 960,
-          "height": 632
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-bng-1440.webp",
-          "width": 1020,
-          "height": 671
+          "height": 633
         }
       ]
     },
@@ -1425,19 +1870,14 @@
       "alt": "The Aparna Calvin",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-calvin-480.webp",
+          "file": "/media/cutouts/studio-168-480.webp",
           "width": 480,
           "height": 291
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-calvin-960.webp",
+          "file": "/media/cutouts/studio-168-960.webp",
           "width": 960,
-          "height": 581
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-calvin-1440.webp",
-          "width": 1321,
-          "height": 800
+          "height": 582
         }
       ]
     },
@@ -1445,19 +1885,14 @@
       "alt": "The Aparna Comfort",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-comfort-480.webp",
+          "file": "/media/cutouts/studio-165-480.webp",
           "width": 480,
-          "height": 254
+          "height": 308
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-comfort-960.webp",
-          "width": 960,
-          "height": 509
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-comfort-1440.webp",
-          "width": 1270,
-          "height": 673
+          "file": "/media/cutouts/studio-165-960.webp",
+          "width": 937,
+          "height": 602
         }
       ],
       "erased": "[[0,0.82,1,0.18]]"
@@ -1466,19 +1901,14 @@
       "alt": "The Aparna Crescent",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-crescent-480.webp",
+          "file": "/media/cutouts/studio-170-480.webp",
           "width": 480,
-          "height": 312
+          "height": 279
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-crescent-960.webp",
-          "width": 960,
-          "height": 625
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-crescent-1440.webp",
-          "width": 1116,
-          "height": 726
+          "file": "/media/cutouts/studio-170-960.webp",
+          "width": 941,
+          "height": 546
         }
       ]
     },
@@ -1486,19 +1916,14 @@
       "alt": "The Aparna Excel",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-excel-480.webp",
+          "file": "/media/cutouts/studio-175-480.webp",
           "width": 480,
           "height": 302
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-excel-960.webp",
-          "width": 960,
-          "height": 605
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-excel-1440.webp",
-          "width": 1041,
-          "height": 656
+          "file": "/media/cutouts/studio-175-960.webp",
+          "width": 931,
+          "height": 586
         }
       ]
     },
@@ -1506,19 +1931,14 @@
       "alt": "The Aparna Hudsun",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-hudsun-480.webp",
+          "file": "/media/cutouts/studio-163-480.webp",
           "width": 480,
-          "height": 325
+          "height": 324
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-hudsun-960.webp",
+          "file": "/media/cutouts/studio-163-960.webp",
           "width": 960,
-          "height": 649
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-hudsun-1440.webp",
-          "width": 1273,
-          "height": 861
+          "height": 647
         }
       ]
     },
@@ -1526,19 +1946,14 @@
       "alt": "The Aparna JHN 1250",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-480.webp",
+          "file": "/media/cutouts/studio-162-480.webp",
           "width": 480,
-          "height": 291
+          "height": 292
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-960.webp",
-          "width": 960,
-          "height": 583
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-1250-1440.webp",
-          "width": 1311,
-          "height": 796
+          "file": "/media/cutouts/studio-162-960.webp",
+          "width": 918,
+          "height": 558
         }
       ]
     },
@@ -1546,19 +1961,14 @@
       "alt": "The Aparna JHN 2000",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-480.webp",
+          "file": "/media/cutouts/studio-162-480.webp",
           "width": 480,
-          "height": 291
+          "height": 292
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-960.webp",
-          "width": 960,
-          "height": 583
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-jhn-2000-1440.webp",
-          "width": 1311,
-          "height": 796
+          "file": "/media/cutouts/studio-162-960.webp",
+          "width": 918,
+          "height": 558
         }
       ]
     },
@@ -1566,19 +1976,14 @@
       "alt": "The Aparna Magnum",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-magnum-480.webp",
+          "file": "/media/cutouts/studio-173-480.webp",
           "width": 480,
-          "height": 298
+          "height": 301
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-magnum-960.webp",
-          "width": 960,
-          "height": 596
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-magnum-1440.webp",
-          "width": 1235,
-          "height": 767
+          "file": "/media/cutouts/studio-173-960.webp",
+          "width": 891,
+          "height": 558
         }
       ]
     },
@@ -1586,19 +1991,14 @@
       "alt": "The Aparna Nelson",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-nelson-480.webp",
+          "file": "/media/cutouts/studio-166-480.webp",
           "width": 480,
-          "height": 348
+          "height": 347
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-nelson-960.webp",
+          "file": "/media/cutouts/studio-166-960.webp",
           "width": 960,
-          "height": 696
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-nelson-1440.webp",
-          "width": 1127,
-          "height": 817
+          "height": 693
         }
       ]
     },
@@ -1606,19 +2006,14 @@
       "alt": "The Aparna Phantom",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-phantom-480.webp",
+          "file": "/media/cutouts/studio-171-480.webp",
           "width": 480,
           "height": 292
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-phantom-960.webp",
-          "width": 960,
-          "height": 583
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-phantom-1440.webp",
-          "width": 973,
-          "height": 591
+          "file": "/media/cutouts/studio-171-960.webp",
+          "width": 939,
+          "height": 572
         }
       ]
     },
@@ -1626,19 +2021,14 @@
       "alt": "The Aparna Regent",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-regent-480.webp",
+          "file": "/media/cutouts/studio-174-480.webp",
           "width": 480,
-          "height": 302
+          "height": 301
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-regent-960.webp",
-          "width": 960,
-          "height": 604
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-regent-1440.webp",
-          "width": 1193,
-          "height": 750
+          "file": "/media/cutouts/studio-174-960.webp",
+          "width": 877,
+          "height": 550
         }
       ]
     },
@@ -1646,19 +2036,14 @@
       "alt": "The Aparna Rustam",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-rustam-480.webp",
+          "file": "/media/cutouts/studio-178-480.webp",
           "width": 480,
-          "height": 432
+          "height": 303
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-rustam-960.webp",
-          "width": 960,
-          "height": 863
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-rustam-1440.webp",
-          "width": 971,
-          "height": 873
+          "file": "/media/cutouts/studio-178-960.webp",
+          "width": 926,
+          "height": 585
         }
       ]
     },
@@ -1666,19 +2051,14 @@
       "alt": "The Aparna SS Jumbo",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-jumbo-480.webp",
+          "file": "/media/cutouts/studio-177-480.webp",
           "width": 480,
-          "height": 331
+          "height": 332
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-jumbo-960.webp",
-          "width": 960,
-          "height": 661
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-jumbo-1440.webp",
-          "width": 1298,
-          "height": 894
+          "file": "/media/cutouts/studio-177-960.webp",
+          "width": 922,
+          "height": 637
         }
       ]
     },
@@ -1686,19 +2066,14 @@
       "alt": "The Aparna SS-2000",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-480.webp",
+          "file": "/media/cutouts/studio-167-480.webp",
           "width": 480,
-          "height": 283
+          "height": 347
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-960.webp",
-          "width": 960,
-          "height": 566
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-ss-2000-1440.webp",
-          "width": 1213,
-          "height": 715
+          "file": "/media/cutouts/studio-167-960.webp",
+          "width": 881,
+          "height": 636
         }
       ],
       "erased": "[[0,0.82,1,0.18]]"
@@ -1707,19 +2082,14 @@
       "alt": "The Aparna Simson",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-simson-480.webp",
+          "file": "/media/cutouts/studio-176-480.webp",
           "width": 480,
-          "height": 351
+          "height": 352
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-simson-960.webp",
-          "width": 960,
-          "height": 701
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-simson-1440.webp",
-          "width": 1179,
-          "height": 861
+          "file": "/media/cutouts/studio-176-960.webp",
+          "width": 932,
+          "height": 684
         }
       ]
     },
@@ -1727,19 +2097,14 @@
       "alt": "The Aparna Smart",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-smart-480.webp",
+          "file": "/media/cutouts/studio-172-480.webp",
           "width": 480,
-          "height": 283
+          "height": 284
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-smart-960.webp",
-          "width": 960,
-          "height": 566
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-smart-1440.webp",
-          "width": 1316,
-          "height": 776
+          "file": "/media/cutouts/studio-172-960.webp",
+          "width": 950,
+          "height": 562
         }
       ]
     },
@@ -1747,19 +2112,29 @@
       "alt": "The Aparna Ultima",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ultima-480.webp",
+          "file": "/media/cutouts/studio-164-480.webp",
           "width": 480,
-          "height": 292
+          "height": 293
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-ultima-960.webp",
+          "file": "/media/cutouts/studio-164-960.webp",
+          "width": 928,
+          "height": 566
+        }
+      ]
+    },
+    "kitchen-appliances-presto": {
+      "alt": "The Aparna Presto",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-115-480.webp",
+          "width": 480,
+          "height": 245
+        },
+        {
+          "file": "/media/cutouts/studio-115-960.webp",
           "width": 960,
-          "height": 585
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-ultima-1440.webp",
-          "width": 1315,
-          "height": 801
+          "height": 490
         }
       ]
     },
@@ -1767,19 +2142,14 @@
       "alt": "The Aparna Prime",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-prime-480.webp",
+          "file": "/media/cutouts/studio-113-480.webp",
           "width": 480,
-          "height": 303
+          "height": 273
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-prime-960.webp",
-          "width": 830,
-          "height": 524
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-prime-1440.webp",
-          "width": 830,
-          "height": 524
+          "file": "/media/cutouts/studio-113-960.webp",
+          "width": 960,
+          "height": 546
         }
       ],
       "erased": "[[0.75,0,0.25,0.7]]"
@@ -1788,19 +2158,14 @@
       "alt": "The Aparna Prince",
       "variants": [
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-prince-480.webp",
+          "file": "/media/cutouts/studio-114-480.webp",
           "width": 480,
-          "height": 224
+          "height": 231
         },
         {
-          "file": "/media/cutouts/crop-kitchen-appliances-prince-960.webp",
-          "width": 909,
-          "height": 424
-        },
-        {
-          "file": "/media/cutouts/crop-kitchen-appliances-prince-1440.webp",
-          "width": 909,
-          "height": 424
+          "file": "/media/cutouts/studio-114-960.webp",
+          "width": 960,
+          "height": 461
         }
       ]
     },
@@ -1808,19 +2173,14 @@
       "alt": "The Aparna Pearl immersion rod 1000 W",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-480.webp",
-          "width": 363,
+          "file": "/media/cutouts/studio-142-480.webp",
+          "width": 85,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-960.webp",
-          "width": 725,
+          "file": "/media/cutouts/studio-142-960.webp",
+          "width": 170,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1000-w-1440.webp",
-          "width": 1058,
-          "height": 1400
         }
       ]
     },
@@ -1828,19 +2188,14 @@
       "alt": "The Aparna Pearl immersion rod 1500 W",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-480.webp",
-          "width": 363,
+          "file": "/media/cutouts/studio-141-480.webp",
+          "width": 104,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-960.webp",
-          "width": 725,
+          "file": "/media/cutouts/studio-141-960.webp",
+          "width": 209,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-1500-w-1440.webp",
-          "width": 1058,
-          "height": 1400
         }
       ]
     },
@@ -1848,19 +2203,14 @@
       "alt": "The Aparna Pearl immersion rod 2000 W",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-480.webp",
-          "width": 363,
+          "file": "/media/cutouts/studio-141-480.webp",
+          "width": 104,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-960.webp",
-          "width": 725,
+          "file": "/media/cutouts/studio-141-960.webp",
+          "width": 209,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-pearl-immersion-rod-2000-w-1440.webp",
-          "width": 1058,
-          "height": 1400
         }
       ]
     },
@@ -1868,19 +2218,14 @@
       "alt": "The Aparna Croma",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-croma-480.webp",
-          "width": 313,
+          "file": "/media/cutouts/studio-140-480.webp",
+          "width": 314,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-croma-960.webp",
-          "width": 627,
+          "file": "/media/cutouts/studio-140-960.webp",
+          "width": 628,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-croma-1440.webp",
-          "width": 913,
-          "height": 1398
         }
       ]
     },
@@ -1888,19 +2233,14 @@
       "alt": "The Aparna Croma2",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-croma2-480.webp",
+          "file": "/media/cutouts/studio-137-480.webp",
           "width": 326,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-croma2-960.webp",
-          "width": 653,
+          "file": "/media/cutouts/studio-137-960.webp",
+          "width": 651,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-croma2-1440.webp",
-          "width": 860,
-          "height": 1265
         }
       ]
     },
@@ -1908,40 +2248,60 @@
       "alt": "The Aparna Kettle element",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-kettle-element-480.webp",
-          "width": 386,
+          "file": "/media/cutouts/studio-145-480.webp",
+          "width": 320,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-kettle-element-960.webp",
-          "width": 772,
+          "file": "/media/cutouts/studio-145-960.webp",
+          "width": 641,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-kettle-element-1440.webp",
-          "width": 1083,
-          "height": 1347
         }
       ],
       "erased": "[[0,0.84,1,0.16]]"
+    },
+    "heating-water-kettle-element-half-round": {
+      "alt": "The Aparna Kettle element, half round",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-143-480.webp",
+          "width": 480,
+          "height": 461
+        },
+        {
+          "file": "/media/cutouts/studio-143-960.webp",
+          "width": 863,
+          "height": 828
+        }
+      ]
+    },
+    "heating-water-kettle-midget-element": {
+      "alt": "The Aparna Kettle midget element",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-144-480.webp",
+          "width": 198,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-144-960.webp",
+          "width": 322,
+          "height": 782
+        }
+      ]
     },
     "heating-water-alexa": {
       "alt": "The Aparna Alexa",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-alexa-480.webp",
+          "file": "/media/cutouts/studio-123-480.webp",
           "width": 480,
-          "height": 290
+          "height": 289
         },
         {
-          "file": "/media/cutouts/crop-heating-water-alexa-960.webp",
+          "file": "/media/cutouts/studio-123-960.webp",
           "width": 960,
-          "height": 580
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-alexa-1440.webp",
-          "width": 1323,
-          "height": 800
+          "height": 578
         }
       ]
     },
@@ -1949,19 +2309,14 @@
       "alt": "The Aparna Alineo",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-alineo-480.webp",
+          "file": "/media/cutouts/studio-121-480.webp",
           "width": 480,
-          "height": 340
+          "height": 335
         },
         {
-          "file": "/media/cutouts/crop-heating-water-alineo-960.webp",
+          "file": "/media/cutouts/studio-121-960.webp",
           "width": 960,
-          "height": 681
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-alineo-1440.webp",
-          "width": 1390,
-          "height": 986
+          "height": 669
         }
       ]
     },
@@ -1969,19 +2324,14 @@
       "alt": "The Aparna Pearl",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-480.webp",
+          "file": "/media/cutouts/studio-116-480.webp",
           "width": 480,
           "height": 346
         },
         {
-          "file": "/media/cutouts/crop-heating-water-pearl-960.webp",
-          "width": 960,
-          "height": 692
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-pearl-1440.webp",
-          "width": 1217,
-          "height": 877
+          "file": "/media/cutouts/studio-116-960.webp",
+          "width": 927,
+          "height": 669
         }
       ]
     },
@@ -1989,19 +2339,14 @@
       "alt": "The Aparna Pox",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-pox-480.webp",
-          "width": 352,
+          "file": "/media/cutouts/studio-118-480.webp",
+          "width": 354,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-pox-960.webp",
-          "width": 703,
+          "file": "/media/cutouts/studio-118-960.webp",
+          "width": 708,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-pox-1440.webp",
-          "width": 1028,
-          "height": 1403
         }
       ]
     },
@@ -2009,19 +2354,14 @@
       "alt": "The Aparna Roxx",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-roxx-480.webp",
-          "width": 369,
+          "file": "/media/cutouts/studio-120-480.webp",
+          "width": 371,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-roxx-960.webp",
-          "width": 738,
+          "file": "/media/cutouts/studio-120-960.webp",
+          "width": 741,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-roxx-1440.webp",
-          "width": 1107,
-          "height": 1440
         }
       ]
     },
@@ -2029,19 +2369,29 @@
       "alt": "The Aparna Rozer",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-rozer-480.webp",
-          "width": 317,
+          "file": "/media/cutouts/studio-119-480.webp",
+          "width": 324,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-rozer-960.webp",
-          "width": 633,
+          "file": "/media/cutouts/studio-119-960.webp",
+          "width": 648,
           "height": 960
+        }
+      ]
+    },
+    "heating-water-sigma": {
+      "alt": "The Aparna Sigma",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-117-480.webp",
+          "width": 462,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-rozer-1440.webp",
-          "width": 950,
-          "height": 1440
+          "file": "/media/cutouts/studio-117-960.webp",
+          "width": 876,
+          "height": 911
         }
       ]
     },
@@ -2049,19 +2399,14 @@
       "alt": "The Aparna Silky",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-silky-480.webp",
-          "width": 480,
-          "height": 398
+          "file": "/media/cutouts/studio-122-480.webp",
+          "width": 304,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-silky-960.webp",
-          "width": 960,
-          "height": 797
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-silky-1440.webp",
-          "width": 1293,
-          "height": 1073
+          "file": "/media/cutouts/studio-122-960.webp",
+          "width": 607,
+          "height": 960
         }
       ]
     },
@@ -2069,19 +2414,14 @@
       "alt": "The Aparna Sun Heater Sunshine",
       "variants": [
         {
-          "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-480.webp",
-          "width": 362,
+          "file": "/media/cutouts/studio-124-480.webp",
+          "width": 374,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-960.webp",
-          "width": 725,
+          "file": "/media/cutouts/studio-124-960.webp",
+          "width": 748,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-heating-water-sun-heater-sunshine-14-1440.webp",
-          "width": 1087,
-          "height": 1440
         }
       ]
     },
@@ -2089,19 +2429,14 @@
       "alt": "The Aparna BMW",
       "variants": [
         {
-          "file": "/media/cutouts/crop-electric-irons-bmw-480.webp",
-          "width": 296,
-          "height": 480
+          "file": "/media/cutouts/studio-129-480.webp",
+          "width": 480,
+          "height": 360
         },
         {
-          "file": "/media/cutouts/crop-electric-irons-bmw-960.webp",
-          "width": 593,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-electric-irons-bmw-1440.webp",
-          "width": 889,
-          "height": 1440
+          "file": "/media/cutouts/studio-129-960.webp",
+          "width": 835,
+          "height": 627
         }
       ]
     },
@@ -2109,19 +2444,14 @@
       "alt": "The Aparna Grand",
       "variants": [
         {
-          "file": "/media/cutouts/crop-electric-irons-grand-480.webp",
-          "width": 308,
-          "height": 480
+          "file": "/media/cutouts/studio-132-480.webp",
+          "width": 480,
+          "height": 344
         },
         {
-          "file": "/media/cutouts/crop-electric-irons-grand-960.webp",
-          "width": 616,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-electric-irons-grand-1440.webp",
-          "width": 924,
-          "height": 1440
+          "file": "/media/cutouts/studio-132-960.webp",
+          "width": 960,
+          "height": 688
         }
       ]
     },
@@ -2129,19 +2459,14 @@
       "alt": "The Aparna Plancha",
       "variants": [
         {
-          "file": "/media/cutouts/crop-electric-irons-plancha-480.webp",
-          "width": 261,
-          "height": 480
+          "file": "/media/cutouts/studio-134-480.webp",
+          "width": 480,
+          "height": 370
         },
         {
-          "file": "/media/cutouts/crop-electric-irons-plancha-960.webp",
-          "width": 522,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-electric-irons-plancha-1440.webp",
-          "width": 782,
-          "height": 1440
+          "file": "/media/cutouts/studio-134-960.webp",
+          "width": 906,
+          "height": 698
         }
       ]
     },
@@ -2149,19 +2474,494 @@
       "alt": "The Aparna Regular",
       "variants": [
         {
-          "file": "/media/cutouts/crop-electric-irons-regular-480.webp",
-          "width": 282,
+          "file": "/media/cutouts/studio-126-480.webp",
+          "width": 480,
+          "height": 301
+        },
+        {
+          "file": "/media/cutouts/studio-126-960.webp",
+          "width": 960,
+          "height": 602
+        }
+      ]
+    },
+    "ceiling-fans-new-gold-line-48": {
+      "alt": "The Aparna Ceiling fan with gold pin-line",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-19-480.webp",
+          "width": 480,
+          "height": 351
+        },
+        {
+          "file": "/media/cutouts/studio-19-960.webp",
+          "width": 960,
+          "height": 701
+        }
+      ]
+    },
+    "ceiling-fans-new-diamond-ring-48": {
+      "alt": "The Aparna Ceiling fan with diamond-cut ring",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-29-480.webp",
+          "width": 480,
+          "height": 279
+        },
+        {
+          "file": "/media/cutouts/studio-29-960.webp",
+          "width": 960,
+          "height": 558
+        }
+      ]
+    },
+    "ceiling-fans-new-copper-mesh-48": {
+      "alt": "The Aparna Ceiling fan with copper mesh trims",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-39-480.webp",
+          "width": 480,
+          "height": 314
+        },
+        {
+          "file": "/media/cutouts/studio-39-960.webp",
+          "width": 960,
+          "height": 627
+        }
+      ]
+    },
+    "ceiling-fans-new-square-clips-48": {
+      "alt": "The Aparna Ceiling fan with square copper clips",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-40-480.webp",
+          "width": 480,
+          "height": 318
+        },
+        {
+          "file": "/media/cutouts/studio-40-960.webp",
+          "width": 960,
+          "height": 635
+        }
+      ]
+    },
+    "ceiling-fans-new-copper-edge": {
+      "alt": "The Aparna Ceiling fan with copper-edged clips",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-44-480.webp",
+          "width": 480,
+          "height": 354
+        },
+        {
+          "file": "/media/cutouts/studio-44-960.webp",
+          "width": 960,
+          "height": 708
+        }
+      ]
+    },
+    "ceiling-fans-new-ivory-copper-ring-48": {
+      "alt": "The Aparna Ivory ceiling fan with copper ring",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-48-480.webp",
+          "width": 480,
+          "height": 328
+        },
+        {
+          "file": "/media/cutouts/studio-48-960.webp",
+          "width": 960,
+          "height": 656
+        }
+      ]
+    },
+    "all-purpose-cabin-fans-new-swivel": {
+      "alt": "The Aparna All-purpose fan, white and sky blue",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-74-480.webp",
+          "width": 437,
           "height": 480
         },
         {
-          "file": "/media/cutouts/crop-electric-irons-regular-960.webp",
-          "width": 564,
+          "file": "/media/cutouts/studio-74-960.webp",
+          "width": 874,
           "height": 960
+        }
+      ]
+    },
+    "all-purpose-cabin-fans-new-compact": {
+      "alt": "The Aparna Compact table fan, white and aqua",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-75-480.webp",
+          "width": 338,
+          "height": 480
         },
         {
-          "file": "/media/cutouts/crop-electric-irons-regular-1440.webp",
-          "width": 846,
-          "height": 1440
+          "file": "/media/cutouts/studio-75-960.webp",
+          "width": 676,
+          "height": 960
+        }
+      ]
+    },
+    "ventilation-fresh-air-fans-new-heavy-duty-exhaust": {
+      "alt": "The Aparna Heavy-duty exhaust fan",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-147-480.webp",
+          "width": 398,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-147-960.webp",
+          "width": 793,
+          "height": 956
+        }
+      ]
+    },
+    "kitchen-appliances-new-round-cooktop": {
+      "alt": "The Aparna Round infrared cooktop",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-111-480.webp",
+          "width": 480,
+          "height": 353
+        },
+        {
+          "file": "/media/cutouts/studio-111-960.webp",
+          "width": 960,
+          "height": 706
+        }
+      ]
+    },
+    "kitchen-appliances-new-touch-cooktop": {
+      "alt": "The Aparna Infrared cooktop with touch controls",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-112-480.webp",
+          "width": 480,
+          "height": 199
+        },
+        {
+          "file": "/media/cutouts/studio-112-960.webp",
+          "width": 960,
+          "height": 397
+        }
+      ]
+    },
+    "electric-irons-new-blue": {
+      "alt": "The Aparna Dry iron, blue",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-125-480.webp",
+          "width": 480,
+          "height": 316
+        },
+        {
+          "file": "/media/cutouts/studio-125-960.webp",
+          "width": 935,
+          "height": 616
+        }
+      ]
+    },
+    "electric-irons-new-white-grey": {
+      "alt": "The Aparna Dry iron, white and grey",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-127-480.webp",
+          "width": 480,
+          "height": 339
+        },
+        {
+          "file": "/media/cutouts/studio-127-960.webp",
+          "width": 960,
+          "height": 677
+        }
+      ]
+    },
+    "electric-irons-new-white-blue": {
+      "alt": "The Aparna Dry iron, white and blue",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-128-480.webp",
+          "width": 480,
+          "height": 341
+        },
+        {
+          "file": "/media/cutouts/studio-128-960.webp",
+          "width": 960,
+          "height": 681
+        }
+      ]
+    },
+    "electric-irons-new-white-pink": {
+      "alt": "The Aparna Dry iron, white and pink",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-130-480.webp",
+          "width": 480,
+          "height": 435
+        },
+        {
+          "file": "/media/cutouts/studio-130-960.webp",
+          "width": 838,
+          "height": 760
+        }
+      ]
+    },
+    "electric-irons-new-black": {
+      "alt": "The Aparna Dry iron, black",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-131-480.webp",
+          "width": 480,
+          "height": 411
+        },
+        {
+          "file": "/media/cutouts/studio-131-960.webp",
+          "width": 889,
+          "height": 761
+        }
+      ]
+    },
+    "electric-irons-bold": {
+      "alt": "The Aparna Bold",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-133-480.webp",
+          "width": 480,
+          "height": 369
+        },
+        {
+          "file": "/media/cutouts/studio-133-960.webp",
+          "width": 960,
+          "height": 738
+        }
+      ]
+    },
+    "electric-irons-new-heavy-black": {
+      "alt": "The Aparna Heavyweight dry iron, black",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-135-480.webp",
+          "width": 480,
+          "height": 307
+        },
+        {
+          "file": "/media/cutouts/studio-135-960.webp",
+          "width": 960,
+          "height": 613
+        }
+      ]
+    },
+    "motors-cooler-motor-1": {
+      "alt": "The Aparna Cooler motor 1",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-148-480.webp",
+          "width": 236,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-148-960.webp",
+          "width": 473,
+          "height": 960
+        }
+      ]
+    },
+    "motors-cooler-motor-2": {
+      "alt": "The Aparna Cooler motor 2",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-149-480.webp",
+          "width": 297,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-149-960.webp",
+          "width": 589,
+          "height": 953
+        }
+      ]
+    },
+    "motors-cooler-motor-3": {
+      "alt": "The Aparna Cooler motor 3",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-150-480.webp",
+          "width": 480,
+          "height": 468
+        },
+        {
+          "file": "/media/cutouts/studio-150-960.webp",
+          "width": 872,
+          "height": 851
+        }
+      ]
+    },
+    "motors-cooler-motor-4": {
+      "alt": "The Aparna Cooler motor 4",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-151-480.webp",
+          "width": 322,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-151-960.webp",
+          "width": 644,
+          "height": 960
+        }
+      ]
+    },
+    "motors-cooler-motor-5": {
+      "alt": "The Aparna Cooler motor 5",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-152-480.webp",
+          "width": 386,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-152-960.webp",
+          "width": 772,
+          "height": 960
+        }
+      ]
+    },
+    "motors-cooler-motor-6": {
+      "alt": "The Aparna Cooler motor 6",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-153-480.webp",
+          "width": 309,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-153-960.webp",
+          "width": 618,
+          "height": 960
+        }
+      ]
+    },
+    "motors-cooler-motor-7": {
+      "alt": "The Aparna Cooler motor 7",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-154-480.webp",
+          "width": 391,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-154-960.webp",
+          "width": 777,
+          "height": 954
+        }
+      ]
+    },
+    "motors-cooler-motor-8": {
+      "alt": "The Aparna Cooler motor 8",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-155-480.webp",
+          "width": 414,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-155-960.webp",
+          "width": 827,
+          "height": 960
+        }
+      ]
+    },
+    "pumps-cooler-pump-1": {
+      "alt": "The Aparna Cooler pump 1",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-156-480.webp",
+          "width": 450,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-156-960.webp",
+          "width": 745,
+          "height": 794
+        }
+      ]
+    },
+    "pumps-cooler-pump-2": {
+      "alt": "The Aparna Cooler pump 2",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-157-480.webp",
+          "width": 446,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-157-960.webp",
+          "width": 686,
+          "height": 739
+        }
+      ]
+    },
+    "pumps-cooler-pump-3": {
+      "alt": "The Aparna Cooler pump 3",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-158-480.webp",
+          "width": 480,
+          "height": 437
+        },
+        {
+          "file": "/media/cutouts/studio-158-960.webp",
+          "width": 960,
+          "height": 874
+        }
+      ]
+    },
+    "pumps-cooler-pump-4": {
+      "alt": "The Aparna Cooler pump 4",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-159-480.webp",
+          "width": 469,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-159-960.webp",
+          "width": 882,
+          "height": 902
+        }
+      ]
+    },
+    "pumps-cooler-pump-5": {
+      "alt": "The Aparna Cooler pump 5",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-160-480.webp",
+          "width": 454,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/studio-160-960.webp",
+          "width": 801,
+          "height": 847
+        }
+      ]
+    },
+    "pumps-cooler-pump-6": {
+      "alt": "The Aparna Cooler pump 6",
+      "variants": [
+        {
+          "file": "/media/cutouts/studio-161-480.webp",
+          "width": 480,
+          "height": 463
+        },
+        {
+          "file": "/media/cutouts/studio-161-960.webp",
+          "width": 741,
+          "height": 715
         }
       ]
     }

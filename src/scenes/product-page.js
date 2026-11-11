@@ -2,8 +2,8 @@
 // viewer where a 3D model exists, and WhatsApp sharing.
 //
 // Colours: picking a colour updates the label, turns the 3D model to that finish, and jumps to a photo of
-// that colour if one exists (slides marked data-colour). No product has per-colour photos yet, so no image
-// is ever swapped in for a colour it doesn't show.
+// that colour if one exists (slides marked data-colour: Aparna's studio photos, one per colour). A photo is
+// only marked with the colour it shows, so no image is ever swapped in for a colour it doesn't show.
 
 import { addLens, mountViewer } from './products.js';
 import { setColour } from './my-list.js';

@@ -139,6 +139,25 @@ fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
 .site-nav a[href="#bldc"] { display: none; }
 @media (min-width: 640px) { .site-nav a[href="#bldc"] { display: inline-flex; } }
 .site-nav .site-nav__cta { border: 2px solid var(--ink); }
+/* Events link: in the header on wider screens, at the end of the Products menu on phones */
+.site-nav .site-nav__events { display: none; }
+@media (min-width: 760px) { .site-nav .site-nav__events { display: inline-flex; } }
+.nav-menu__extra { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); }
+@media (min-width: 760px) { .nav-menu__extra { display: none; } }
+
+/* ---------- Utsav '26 glimpse on the home page (marigold is for Utsav only, brief) */
+
+.glimpse { display: grid; gap: 22px; align-items: center; margin: clamp(40px, 7vw, 80px) var(--gutter) 0; padding: clamp(24px, 5vw, 56px); border-radius: var(--radius); background: var(--charcoal); color: var(--cream-ink); }
+.glimpse__text { display: grid; gap: 10px; justify-items: start; }
+.glimpse__eyebrow { color: var(--marigold); }
+.glimpse__title { font: 600 clamp(2.6rem, 8vw, 5rem)/0.92 var(--font-display); text-transform: uppercase; }
+.glimpse__kicker { font-style: italic; color: var(--ultra-gold); }
+.glimpse__summary { color: var(--cream-soft); max-width: 52ch; margin-bottom: 6px; }
+.glimpse__all { color: var(--cream-ink); font-weight: 600; }
+.glimpse__shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-bottom: 18px; }
+.glimpse__shots img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-sm); }
+.glimpse__shots li:nth-child(even) { translate: 0 18px; }
+@media (min-width: 900px) { .glimpse { grid-template-columns: 1fr 1.2fr; } }
 
 /* ---------- closing band */
 

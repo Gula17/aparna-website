@@ -1,4 +1,5 @@
-// Entry point for the catalogue pages: /products/, the category pages, every product page and /my-list/.
+// Entry point for the catalogue pages: /products/, the category pages, every product page, /my-list/ and the
+// events pages (/events/).
 // Lighter than the home page: no hero scene. three.js only loads on a product page that has a 360° viewer.
 
 import '@fontsource/oswald/500.css';
@@ -11,6 +12,7 @@ import './styles/hero.css'; // product-card details, the 360° viewer and the le
 import './styles/catalogue.css';
 import './styles/showroom.css';
 import './styles/product.css';
+import './styles/events.css';
 
 import { setupReveal } from './scenes/reveal.js';
 import { setupCatalogue } from './scenes/catalogue.js';
@@ -19,6 +21,7 @@ import { setupShowcase } from './scenes/showcase.js';
 import { setupQuickView } from './scenes/quick-view.js';
 import { setupProductPage, chosenColourFor } from './scenes/product-page.js';
 import { setupSaveButtons, setupListPage } from './scenes/my-list.js';
+import { setupEvents } from './scenes/events.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -45,3 +48,4 @@ setupShowcase({ reducedMotion, can3D, quality });
 setupProductPage({ can3D, quality });
 setupQuickView({ can3D, quality });
 setupListPage();
+setupEvents({ reducedMotion });
