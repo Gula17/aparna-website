@@ -12,6 +12,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
+import { brandMark } from './brand-mark.js';
 
 const R = 0.5; // guard radius
 
@@ -445,17 +446,19 @@ function hubParts(m, h) {
     parts.push(cap);
   }
   if (m.logo) {
-    // a plain emblem ring and a short bar for the wordmark (never retyped)
-    // small and fine, like the printed logo in the photos
-    const s = hr * (h.logoScale ?? 1) * 0.72;
-    const bar = new THREE.Mesh(new THREE.BoxGeometry(s * 0.6, 0.0015, s * 0.07), m.logo);
-    bar.position.set(s * 0.12, top + 0.004, 0);
-    const mark = new THREE.Mesh(new THREE.TorusGeometry(s * 0.065, s * 0.011, 6, 20), m.logo);
-    mark.rotation.x = Math.PI / 2;
-    mark.position.set(-s * 0.32, top + 0.004, 0);
-    parts.push(bar, mark);
+    // the Aparna logo on the hub face (src/three/brand-mark.js): white on a dark hub, red on a light one
+    parts.push(hubLogo(m.logo, hr * (h.logoScale ?? 1) * 0.8, top + 0.004));
   }
   return parts;
+}
+
+// The logo decal lying on a hub face (the rotor's +y), reading upright when the fan stands still.
+function hubLogo(logoMaterial, width, y) {
+  const light = logoMaterial.color.getHSL({}).l > 0.5;
+  const mark = brandMark({ colour: light ? 'white' : 'red', width });
+  mark.rotation.x = -Math.PI / 2;
+  mark.position.y = y;
+  return mark;
 }
 
 function materials(colours) {
@@ -861,7 +864,7 @@ export const createVento = make('vento', {
   ...wall(1.05), standOptions: { body: [0.33, 0.6], drop: 0.26, detailAt: 0.5, cords: true, cord: 0.13, dimple: 0.1 },
   // thin straight wires and one ring near the rim, as in the photo
   guard: { wires: 84, rings: [0.84], thick: 1.09 },
-  hub: { radius: 0.2, dome: true, logoScale: 0.55 },
+  hub: { radius: 0.2, dome: true },
   blades: { count: 3, shape: 'wide', tip: 0.455, pitch: 0.3 }, // three big pale petals that nearly fill the guard
   colours: { wire: WIRE('#2f3033', 0.6), blade: BLADE('#a9b2be', 0.82), hub: GLOSS('#18191b'), logo: LOGO_LIGHT, body: BLACK, base: GLOSS('#26272a') },
 });
@@ -1121,7 +1124,7 @@ function wallFan(name, { style, frame, hole, blades, hub, grille, struts, colour
     rotor.add(new THREE.Mesh(lathe([[0, 0.075], [hr * 0.85, 0.074], [hr * 0.97, 0.06], [hr, 0.03], [hr * 0.98, -0.02]]), hubM));
     const ring = placed(rotor, new THREE.TorusGeometry(hr * 0.96, 0.012, 10, 64), M('hubRing', 'white'), 0, 0.064, 0);
     ring.rotation.x = Math.PI / 2;
-    if (m.logo) { const s = hr; placed(rotor, new THREE.BoxGeometry(s * 0.62, 0.002, s * 0.11), m.logo, s * 0.12, 0.078, 0); }
+    if (m.logo) rotor.add(hubLogo(m.logo, hr * 0.8, 0.078));
   } else if (hub.style === 'open') {
     // an open spider ring with the shaft end inside
     rotor.add(new THREE.Mesh(new THREE.CylinderGeometry(hr, hr, 0.1, 40, 1, true), hubM));

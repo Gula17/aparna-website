@@ -16,6 +16,16 @@
 
 import * as THREE from 'three';
 import { lathe, makeBlurTexture, BLADE_COUNT } from './aeroflow-model.js';
+import { brandMarkCurved } from './brand-mark.js';
+
+// The logo printed on the canopy: red on the white finish, white on the dark ones. Both are built; the finish
+// shows one.
+function canopyLogos(stator, { width, radius, y }) {
+  const red = brandMarkCurved({ colour: 'red', width, radius, y });
+  const white = brandMarkCurved({ colour: 'white', width, radius, y });
+  stator.add(red, white);
+  return (finishName) => { red.visible = finishName === 'white'; white.visible = finishName !== 'white'; };
+}
 
 // Both posters show a short drop: the canopy sits much closer to the motor than on the Aeroflow.
 const CANOPY_TOP = 0.5;
@@ -51,7 +61,7 @@ function screws(points, material, { y = 0.012, pitch = -0.1 } = {}) {
 }
 
 // Shared assembly: still canopy + downrod, turning motor + blades, the blur disc and the pointer hit area.
-function assemble(name, { stator, rotorParts, makeBlade, materials, finishes, shadows }) {
+function assemble(name, { stator, rotorParts, makeBlade, materials, finishes, shadows, showLogo = () => {} }) {
   const fan = new THREE.Group();
   fan.name = name;
   const rotor = new THREE.Group();
@@ -79,6 +89,7 @@ function assemble(name, { stator, rotorParts, makeBlade, materials, finishes, sh
 
   function setFinish(finishName) {
     const finish = finishes[finishName] ?? Object.values(finishes)[0];
+    showLogo(finishes[finishName] ? finishName : Object.keys(finishes)[0]);
     for (const [part, spec] of Object.entries(finish)) {
       const m = materials[part];
       if (!m) continue;
@@ -150,6 +161,7 @@ export function createAerosleek({ shadows = false } = {}) {
   });
   const stator = new THREE.Group();
   stator.add(canopy, downrod, cap, leds);
+  const showLogo = canopyLogos(stator, { width: 0.085, radius: 0.0815, y: CANOPY_TOP - 0.058 });
 
   // Turning: a compact cylindrical motor, with a wide polished chrome band round its lower edge.
   const shell = new THREE.Mesh(lathe([[0.035, 0.095], [0.09, 0.09], [0.118, 0.07], [0.124, 0.03], [0.124, -0.044]]), materials.body);
@@ -189,7 +201,7 @@ export function createAerosleek({ shadows = false } = {}) {
     }
     return g;
   };
-  return assemble('aerosleek', { stator, rotorParts: [shell, ring], makeBlade, materials, finishes: AEROSLEEK_FINISHES, shadows });
+  return assemble('aerosleek', { stator, rotorParts: [shell, ring], makeBlade, materials, finishes: AEROSLEEK_FINISHES, shadows, showLogo });
 }
 
 // ---------------------------------------------------------------- IKON BLDC
@@ -232,6 +244,7 @@ export function createIkonBldc({ shadows = false } = {}) {
   const downrod = new THREE.Mesh(lathe([[0.022, CANOPY_TOP - 0.17], [0.021, 0.13], [0.026, 0.09], [0.05, 0.065]], 32), materials.body);
   const stator = new THREE.Group();
   stator.add(canopy, downrod);
+  const showLogo = canopyLogos(stator, { width: 0.072, radius: 0.0875, y: CANOPY_TOP - 0.036 });
 
   // Turning: a wide, low motor. Upper body with a copper pin-stripe, a lower band, and a stepped base cap
   // with a copper ring round it.
@@ -259,5 +272,5 @@ export function createIkonBldc({ shadows = false } = {}) {
     g.add(new THREE.Mesh(bladeGeo, materials.blade), new THREE.Mesh(ridgeGeo, materials.ridge), new THREE.Mesh(bracketGeo, materials.bracket), holes.clone());
     return g;
   };
-  return assemble('ikon-bldc', { stator, rotorParts: [upper, stripe, band, capRing, cap, capStep], makeBlade, materials, finishes: IKON_FINISHES, shadows });
+  return assemble('ikon-bldc', { stator, rotorParts: [upper, stripe, band, capRing, cap, capStep], makeBlade, materials, finishes: IKON_FINISHES, shadows, showLogo });
 }

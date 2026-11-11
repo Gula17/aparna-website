@@ -6,9 +6,10 @@
 
 import * as THREE from 'three';
 import { makeWoodTexture } from './wood-texture.js';
+import { brandMarkCurved } from './brand-mark.js';
 
 export const BLADE_COUNT = 3; // Brief §3.7: always exactly three blades.
-export const CANOPY_TOP = 0.92;
+export const CANOPY_TOP = 0.6; // studio photo: a short drop, the canopy close above the motor
 
 // ---------------------------------------------------------------- finishes
 
@@ -68,7 +69,7 @@ function bladeGeometry() {
     const x = 0.12 + (0.86 * i) / steps; // starts inside the motor shell, so the roots never show
     const sweep = 0.1 * (x - 0.1) ** 2; // a gentle backward curve towards the tip
     const root = 0.15 * Math.exp(-((x - 0.2) ** 2) * 30); // the wide flare where it leaves the collar
-    const width = 0.235 - 0.075 * x + root;
+    const width = 0.27 - 0.09 * x + root;
     leading.push(new THREE.Vector2(x, sweep - width * 0.42));
     trailing.push(new THREE.Vector2(x, sweep + width * 0.58));
   }
@@ -83,14 +84,14 @@ function bladeGeometry() {
   shape.closePath();
 
   const geo = new THREE.ExtrudeGeometry(shape, {
-    depth: 0.014,
+    depth: 0.022, // thick, rounded blades as pictured
     bevelEnabled: true,
-    bevelThickness: 0.007,
-    bevelSize: 0.007,
+    bevelThickness: 0.011,
+    bevelSize: 0.009,
     bevelSegments: 3,
     curveSegments: 24,
   });
-  geo.translate(0, 0, -0.007);
+  geo.translate(0, 0, -0.011);
   geo.rotateX(-Math.PI / 2); // lie flat; the chord now runs along z
   // Pitch: lift the leading edge so the blade pushes air down.
   geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-0.08));
@@ -109,18 +110,23 @@ export function createAeroflow({ shadows = false } = {}) {
   const fan = new THREE.Group();
   fan.name = 'aeroflow';
 
-  // Canopy: a bell that narrows from the ceiling down to the downrod.
+  // Canopy (studio photo): a small rounded egg shape with a flat top, narrowing into the downrod.
   const canopy = new THREE.Mesh(
-    lathe([[0, CANOPY_TOP], [0.135, CANOPY_TOP], [0.128, CANOPY_TOP - 0.06], [0.08, CANOPY_TOP - 0.16], [0.045, CANOPY_TOP - 0.25], [0.034, CANOPY_TOP - 0.3]]),
+    lathe([[0, CANOPY_TOP], [0.07, CANOPY_TOP], [0.092, CANOPY_TOP - 0.025], [0.1, CANOPY_TOP - 0.07], [0.088, CANOPY_TOP - 0.13], [0.058, CANOPY_TOP - 0.18], [0.04, CANOPY_TOP - 0.205]]),
     materials.mount,
   );
   // Downrod: straight, flaring into the top of the motor.
   const downrod = new THREE.Mesh(
-    lathe([[0.03, CANOPY_TOP - 0.3], [0.028, 0.32], [0.032, 0.17], [0.055, 0.09], [0.09, 0.05]], 40),
+    lathe([[0.037, CANOPY_TOP - 0.205], [0.036, 0.2], [0.04, 0.13], [0.06, 0.08], [0.09, 0.05]], 40), // short and stout
     materials.mount,
   );
+  // the logo printed on the front of the canopy: red on the light finishes, white on grey
+  const logos = {
+    red: brandMarkCurved({ colour: 'red', width: 0.105, radius: 0.1025, y: CANOPY_TOP - 0.078 }),
+    white: brandMarkCurved({ colour: 'white', width: 0.105, radius: 0.1025, y: CANOPY_TOP - 0.078 }),
+  };
   const stator = new THREE.Group(); // parts that stay still
-  stator.add(canopy, downrod);
+  stator.add(canopy, downrod, logos.red, logos.white);
 
   // Rotor: the motor shell, the trim ring, the copper accent, the centre cap and the three blades.
   const rotor = new THREE.Group();
@@ -143,14 +149,18 @@ export function createAeroflow({ shadows = false } = {}) {
     lathe([[0.133, -0.0715], [0.12, -0.072], [0, -0.0722]]),
     materials.cap,
   );
-  rotor.add(shell, trim, accent, cap);
+  // the fine seam where each blade meets the hub, following the collar's edge
+  const seam = new THREE.Mesh(new THREE.TorusGeometry(0.236, 0.0016, 6, 128), new THREE.MeshBasicMaterial({ color: '#2a1d15', transparent: true, opacity: 0.5 }));
+  seam.rotation.x = Math.PI / 2;
+  seam.position.y = -0.064;
+  rotor.add(shell, trim, accent, cap, seam);
 
   const bladeGeo = bladeGeometry();
   const blades = [];
   for (let i = 0; i < BLADE_COUNT; i++) {
     const pivot = new THREE.Group(); // the pivot lets the intro animation fold and unfold each blade
     const blade = new THREE.Mesh(bladeGeo, materials.blade);
-    blade.position.y = -0.03; // the blades leave the collar's edge; the collar stands just proud of them below
+    blade.position.y = -0.038; // low on the motor: the blades' underside runs level with the collar, as pictured
     pivot.add(blade);
     pivot.userData.restAngle = (i * Math.PI * 2) / BLADE_COUNT;
     pivot.rotation.y = pivot.userData.restAngle;
@@ -180,6 +190,8 @@ export function createAeroflow({ shadows = false } = {}) {
 
   function setFinish(name) {
     const finish = FINISHES[name] ?? FINISHES.wood;
+    logos.white.visible = name === 'grey';
+    logos.red.visible = name !== 'grey';
     for (const [part, spec] of Object.entries(finish)) {
       const m = materials[part];
       const { wood: useWood, color = '#ffffff', ...rest } = spec;
