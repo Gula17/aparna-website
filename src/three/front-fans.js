@@ -290,7 +290,7 @@ function tableRoundStand(m, { headY, floorY, baseR = 0.36, depth = 0.8, column =
 
 // Wall fan: the rounded body that hangs below the head against the wall, with a speed knob, a ring switch
 // (optionally with a tail down to the bottom, Wendy), a plain dimple, or a swivel knob; and two pull cords.
-function wallStand(m, { headY, body = [0.27, 0.66], drop = 0.14, ring = false, ringTail = false, knob = false, detailAt = 0.62, cords = false, cord = 0.2 }) {
+function wallStand(m, { headY, body = [0.27, 0.66], drop = 0.14, ring = false, ringTail = false, knob = false, detailAt = 0.62, cords = false, cord = 0.2, dimple: dimpleR = 0.07 }) {
   const g = new THREE.Group();
   const [bw, bh] = body;
   const top = headY - drop; // drop: how far below the hub the body starts (its top tucks in behind the guard)
@@ -305,15 +305,16 @@ function wallStand(m, { headY, body = [0.27, 0.66], drop = 0.14, ring = false, r
     // the black band that runs from the ring down to the bottom of the body
     if (ringTail) placed(g, roundedBox(0.08, detailY - (top - bh) - 0.02, 0.012, 0.035), m.accent, 0.018, (detailY + top - bh) / 2 - 0.01, -0.118);
   } else {
-    const dimple = placed(g, new THREE.SphereGeometry(0.07, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2), m.base, 0, detailY, -0.115);
+    const dimple = placed(g, new THREE.SphereGeometry(dimpleR, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2), m.base, 0, detailY, -0.115);
+    placed(g, new THREE.TorusGeometry(dimpleR * 1.02, 0.005, 8, 40), m.base, 0, detailY, -0.117); // its moulded rim
     dimple.rotation.x = Math.PI / 2;
     dimple.scale.set(1, 0.25, 1.2);
   }
   if (cords) {
     // two pull cords (speed and oscillation) with tassels
-    for (const x of [-0.045, 0.045]) {
-      placed(g, new THREE.CylinderGeometry(0.003, 0.003, cord, 6), m.get('cord', 'tassel', 'body'), x, top - bh - cord / 2 + 0.01, -0.16);
-      placed(g, new THREE.CapsuleGeometry(0.017, 0.035, 6, 12), m.get('tassel', 'body'), x, top - bh - cord - 0.02, -0.16);
+    for (const x of [-0.06, 0.06]) {
+      placed(g, new THREE.CylinderGeometry(0.004, 0.004, cord, 6), m.get('cord', 'tassel', 'body'), x, top - bh - cord / 2 + 0.01, -0.16);
+      placed(g, new THREE.CapsuleGeometry(0.024, 0.05, 6, 14), m.get('tassel', 'body'), x, top - bh - cord - 0.03, -0.16);
     }
   }
   return g;
@@ -420,8 +421,9 @@ function createFrontFan(name, cfg) {
   motorBack.position.z = -0.27;
   const g = { wires: 90, rings: [0.35, 0.62, 0.86], ...cfg.guard };
   head.add(
-    guard(m.wire, m.rim, { side: 1, depth: 0.1, offset: 0.07, ...g }),
-    guard(m.wire, m.rim, { side: -1, depth: 0.05, offset: 0.05, wires: Math.round(g.wires * 0.7), rings: [0.45, 0.75], inner: 0.15, twist: -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: g.rim, band: 0 }),
+    // front and back guards far enough apart that the pitched blades sit fully between them
+    guard(m.wire, m.rim, { side: 1, depth: 0.09, offset: 0.12, ...g }),
+    guard(m.wire, m.rim, { side: -1, depth: 0.06, offset: 0.06, wires: Math.round(g.wires * 0.7), rings: [0.45, 0.75], inner: 0.15, twist: -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: g.rim, band: 0 }),
     motor, motorBack,
   );
   stator.add(head, STANDS[cfg.stand](m, { ...cfg, ...cfg.standOptions }));
@@ -787,11 +789,12 @@ export const createSpider = make('spider', {
 // 83.png: dark straight wire, three grey translucent blades, large black hub, black body below with a round
 // dimple, two pull cords with black tassels
 export const createVento = make('vento', {
-  ...wall(0.98), standOptions: { body: [0.32, 0.62], drop: 0.25, detailAt: 0.66, cords: true, cord: 0.05 },
-  guard: { wires: 90, rings: [0.32, 0.62, 0.84] },
-  hub: { radius: 0.2 },
-  blades: BROAD3,
-  colours: { wire: WIRE('#2f3033', 0.6), blade: BLADE('#9097a2', 0.9), hub: GLOSS('#18191b'), logo: LOGO_LIGHT, body: BLACK, base: GLOSS('#26272a') },
+  ...wall(1.05), standOptions: { body: [0.33, 0.6], drop: 0.26, detailAt: 0.5, cords: true, cord: 0.13, dimple: 0.1 },
+  // thin straight wires and one ring near the rim, as in the photo
+  guard: { wires: 84, rings: [0.84], thick: 0.75 },
+  hub: { radius: 0.2, dome: true, logoScale: 0.55 },
+  blades: { count: 3, shape: 'wide', tip: 0.455, pitch: 0.3 }, // three big pale petals that nearly fill the guard
+  colours: { wire: WIRE('#2f3033', 0.6), blade: BLADE('#a9b2be', 0.82), hub: GLOSS('#18191b'), logo: LOGO_LIGHT, body: BLACK, base: GLOSS('#26272a') },
 });
 
 // 84.png: dark criss-cross wire, three grey translucent swept blades, glossy dark hub, dark grey body with a
