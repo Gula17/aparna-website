@@ -454,7 +454,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   if (modelKey) {
     slides.push(`
       <figure class="gallery__slide gallery__slide--3d" data-slide>
-        <div class="viewer" data-viewer="${esc(modelKey)}" tabindex="0" role="img" aria-label="${esc(fmt(t.preview.viewerLabel, { name: p.name }))}">
+        <div class="viewer" data-viewer="${esc(modelKey)}" data-start="${esc(t.preview.start)}" data-stop="${esc(t.preview.stop)}" tabindex="0" role="img" aria-label="${esc(fmt(t.preview.viewerLabel, { name: p.name }))}">
           <canvas class="viewer__canvas"></canvas>
           <span class="viewer__badge" aria-hidden="true">${esc(t.product.view360)}</span>
           <p class="viewer__hint" aria-hidden="true">${esc(t.preview.dragHint)}</p>

@@ -267,6 +267,17 @@ html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom:
   position: absolute; left: 14px; top: 14px; padding: 6px 12px; border-radius: 999px;
   font: 600 0.8125rem/1 var(--font-display); letter-spacing: 0.08em; background: var(--ink); color: var(--ultra-gold);
 }
+/* Start / Stop in the 360° view (src/scenes/products.js) */
+.viewer__power {
+  position: absolute; top: 12px; right: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--aparna-red-deep); color: var(--white); font: 600 0.9375rem/1 var(--font-body);
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.6); transition: background-color 0.2s, transform 0.2s;
+}
+.viewer__power:hover { background: var(--aparna-red-dark); transform: translateY(-1px); }
+.viewer__power[aria-pressed="true"] { background: var(--ink); }
+.viewer__power:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+.viewer__power-icon { font-size: 0.75rem; }
 .viewer__hint { padding: 10px 16px 14px; text-align: center; font-size: 0.875rem; color: var(--ink-soft); }
 .viewer .viewer__hint { position: absolute; inset: auto 0 0 0; transition: opacity 0.4s; }
 .viewer.is-used .viewer__hint { opacity: 0; }

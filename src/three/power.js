@@ -38,7 +38,8 @@ export function applyPower(parts, amount, now) {
     }
     if (spec.kind === 'lamp') {
       const on = amount > 0.5 ? 1 : 0;
-      m.emissive.copy(p.emissive.lengthSq() ? p.emissive : p.color);
+      const e = p.emissive;
+      m.emissive.copy(e.r + e.g + e.b > 0 ? e : p.color);
       m.emissiveIntensity = on ? Math.max(1.4, p.intensity * 2) : 0.04;
       continue;
     }

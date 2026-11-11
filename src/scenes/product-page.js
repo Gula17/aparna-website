@@ -88,7 +88,7 @@ export function setupProductPage({ can3D, quality }) {
     if (page.querySelectorAll('[data-slide]').length < 2) page.querySelectorAll('[data-prev], [data-next], .gallery__thumbs').forEach((el) => el.remove());
   }
   const gallery = setupGallery(page.querySelector('[data-gallery]'));
-  if (host && can3D) mountViewer(host, { quality }).then((v) => { viewer = v; paint3D(); });
+  if (host && can3D) mountViewer(host, { quality, controls: true }).then((v) => { viewer = v; paint3D(); });
   // the parts view starts when its slide is swiped (or clicked) into view
   if (partsHost && can3D) {
     const io = new IntersectionObserver(([e]) => {

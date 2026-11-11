@@ -106,7 +106,7 @@ async function startViewer(dialog, { can3D, quality }) {
     return;
   }
   const first = !viewers.has(host);
-  const viewer = await mountViewer(host, { quality });
+  const viewer = await mountViewer(host, { quality, controls: true });
   media.classList.add('has-viewer');
   if (first) {
     dialog.querySelectorAll('.finishes--viewer input').forEach((input) => {

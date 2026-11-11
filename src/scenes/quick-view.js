@@ -42,7 +42,7 @@ export function setupQuickView({ can3D, quality }) {
       host.innerHTML = `<canvas class="viewer__canvas"></canvas><span class="viewer__badge" aria-hidden="true">${dialog.dataset.badge}</span>`;
       media.append(host);
       dialog.showModal();
-      mountViewer(host, { quality }).then((v) => {
+      mountViewer(host, { quality, controls: true }).then((v) => {
         if (!dialog.open || !media.contains(host)) { v?.dispose(); return; } // closed before it was ready
         current = v;
       }).catch(() => { media.replaceChildren(photo(d)); });

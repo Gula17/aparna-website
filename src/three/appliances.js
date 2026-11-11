@@ -34,7 +34,7 @@ const FINISH = {
 };
 
 // What lights up when the 360° view's Start button is pressed (src/three/power.js).
-const HOT_COIL = { kind: 'heat', emissive: '#ff3c0a', intensity: 1.5, color: '#ff8a4a' };
+const HOT_COIL = { kind: 'heat', emissive: '#ff3c0a', intensity: 1.8, color: '#ff8a4a' };
 const LAMP = { kind: 'lamp' };
 // A glowing heating ring seen through a cooktop's glass: concentric red-orange rings, faded at the edge.
 let ringGlowTexture = null;
@@ -491,7 +491,7 @@ function quartzHeater(name) {
   g.add(reflector);
   for (const y of [0.24, -0.06]) {
     const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.84, 14), mat({ color: '#e8ddd0', roughness: 0.25, transmission: 0 }));
-    rod.userData.power = { kind: 'heat', emissive: '#ff6a1f', intensity: 1.2, color: '#ffb36b' };
+    rod.userData.power = { kind: 'heat', emissive: '#ff7a24', intensity: 2.6, color: '#ffd08a' };
     rod.rotation.z = Math.PI / 2;
     rod.position.set(0, y, 0.02);
     g.add(rod);
@@ -521,7 +521,7 @@ function sunHeater(name) {
   drum.rotation.x = Math.PI / 2;
   drum.position.y = cy;
   const glow = new THREE.Mesh(new THREE.CircleGeometry(0.39, 48), mat({ color: '#c9b08a', metalness: 0.6, roughness: 0.3 }));
-  glow.userData.power = { kind: 'heat', emissive: '#ff7a1c', intensity: 1.0, color: '#ffb35a' };
+  glow.userData.power = { kind: 'heat', emissive: '#ff6a14', intensity: 1.9, color: '#ffb35a' };
   glow.position.set(0, cy, -0.04);
   g.add(drum, glow);
   for (let i = 1; i <= 6; i++) { // guard rings
