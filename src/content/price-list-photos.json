@@ -1,0 +1,22 @@
+{
+  "_read_me": "Product photos cropped from Aparna's price list (AAPRNA_PRICE _IST_28_10_2026.pdf) for products that had no picture. Used only when a product has no other photo.",
+  "photos": {
+    "ceiling-fans-ikon-pro-48": { "image": "src/content/price-list-images/ceiling-fans-ikon-pro-48.png", "page": "main p5 (printed p. 8)" },
+    "ceiling-fans-iconic-48": { "image": "src/content/price-list-images/ceiling-fans-iconic-48.png", "page": "main p5 (printed p. 9)" },
+    "ceiling-fans-rider-48": { "image": "src/content/price-list-images/ceiling-fans-rider-48.png", "page": "main p5 (printed p. 9)" },
+    "ceiling-fans-supreme-48": { "image": "src/content/price-list-images/ceiling-fans-supreme-48.png", "page": "main p6 (printed p. 10)" },
+    "ceiling-fans-aronita-48": { "image": "src/content/price-list-images/ceiling-fans-aronita-48.png", "page": "main p6 (printed p. 11)" },
+    "ceiling-fans-nexus-48": { "image": "src/content/price-list-images/ceiling-fans-nexus-48.png", "page": "main p6 (printed p. 11)" },
+    "ceiling-fans-nokia-48": { "image": "src/content/price-list-images/ceiling-fans-nokia-48.png", "page": "main p9 (printed p. 16)" },
+    "ceiling-fans-rider-pro-48": { "image": "src/content/price-list-images/ceiling-fans-rider-pro-48.png", "page": "main p9 (printed p. 17)" },
+    "kitchen-appliances-boss": { "image": "src/content/price-list-images/kitchen-appliances-boss.png", "page": "main p16 (printed p. 30)" },
+    "kitchen-appliances-crystal": { "image": "src/content/price-list-images/kitchen-appliances-crystal.png", "page": "main p16 (printed p. 30)" },
+    "electric-irons-verna": { "image": "src/content/price-list-images/electric-irons-verna.png", "page": "main p18 (printed p. 35)" },
+    "electric-irons-passion": { "image": "src/content/price-list-images/electric-irons-passion.png", "page": "main p18 (printed p. 35)" },
+    "electric-irons-majestic": { "image": "src/content/price-list-images/electric-irons-majestic.png", "page": "main p18 (printed p. 35)" },
+    "electric-irons-curv": { "image": "src/content/price-list-images/electric-irons-curv.png", "page": "main p18 (printed p. 35)" },
+    "electric-irons-plancha-beetle": { "image": "src/content/price-list-images/electric-irons-plancha-beetle.png", "page": "main p18 (printed p. 35)" },
+    "electric-irons-plancha-turbo": { "image": "src/content/price-list-images/electric-irons-plancha-turbo.png", "page": "main p18 (printed p. 35)" },
+    "heating-water-geyser-element-tricone-9": { "image": "src/content/price-list-images/heating-water-geyser-element-tricone-9.png", "page": "main p19 (printed p. 37)" }
+  }
+}

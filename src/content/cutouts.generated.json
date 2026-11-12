@@ -125,6 +125,46 @@
         }
       ]
     },
+    "ceiling-fans-aronita-48": {
+      "alt": "The Aparna Aronita",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-480.webp",
+          "width": 480,
+          "height": 452
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-960.webp",
+          "width": 960,
+          "height": 905
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-1440.webp",
+          "width": 960,
+          "height": 905
+        }
+      ]
+    },
+    "ceiling-fans-nexus-48": {
+      "alt": "The Aparna Nexus",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nexus-48-480.webp",
+          "width": 480,
+          "height": 248
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nexus-48-960.webp",
+          "width": 960,
+          "height": 496
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nexus-48-1440.webp",
+          "width": 1061,
+          "height": 548
+        }
+      ]
+    },
     "ceiling-fans-mini-dlx-24": {
       "alt": "The Aparna Mini DLX",
       "variants": [
@@ -325,6 +365,26 @@
         }
       ]
     },
+    "ceiling-fans-iconic-48": {
+      "alt": "The Aparna Iconic",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-480.webp",
+          "width": 480,
+          "height": 412
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-960.webp",
+          "width": 960,
+          "height": 825
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-1440.webp",
+          "width": 1198,
+          "height": 1029
+        }
+      ]
+    },
     "ceiling-fans-ikon-48": {
       "alt": "The Aparna Ikon",
       "variants": [
@@ -337,6 +397,26 @@
           "file": "/media/cutouts/studio-20-960.webp",
           "width": 960,
           "height": 635
+        }
+      ]
+    },
+    "ceiling-fans-ikon-pro-48": {
+      "alt": "The Aparna Ikon Pro",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-480.webp",
+          "width": 333,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-960.webp",
+          "width": 666,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-1440.webp",
+          "width": 706,
+          "height": 1018
         }
       ]
     },
@@ -435,6 +515,26 @@
         }
       ]
     },
+    "ceiling-fans-rider-48": {
+      "alt": "The Aparna Rider",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-480.webp",
+          "width": 372,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-960.webp",
+          "width": 744,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-1440.webp",
+          "width": 765,
+          "height": 987
+        }
+      ]
+    },
     "ceiling-fans-rosa-48": {
       "alt": "The Aparna Rosa",
       "variants": [
@@ -507,6 +607,26 @@
           "file": "/media/cutouts/studio-32-960.webp",
           "width": 960,
           "height": 724
+        }
+      ]
+    },
+    "ceiling-fans-supreme-48": {
+      "alt": "The Aparna Supreme",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-480.webp",
+          "width": 350,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-960.webp",
+          "width": 699,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-1440.webp",
+          "width": 793,
+          "height": 1089
         }
       ]
     },
@@ -685,6 +805,26 @@
         }
       ]
     },
+    "ceiling-fans-nokia-48": {
+      "alt": "The Aparna Nokia",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nokia-48-480.webp",
+          "width": 480,
+          "height": 359
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nokia-48-960.webp",
+          "width": 960,
+          "height": 719
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-nokia-48-1440.webp",
+          "width": 1440,
+          "height": 1078
+        }
+      ]
+    },
     "ceiling-fans-orchid-deco-48": {
       "alt": "The Aparna Orchid Deco",
       "variants": [
@@ -787,6 +927,26 @@
           "file": "/media/cutouts/studio-61-960.webp",
           "width": 960,
           "height": 634
+        }
+      ]
+    },
+    "ceiling-fans-rider-pro-48": {
+      "alt": "The Aparna Rider Pro",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-480.webp",
+          "width": 387,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-960.webp",
+          "width": 774,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-1440.webp",
+          "width": 804,
+          "height": 997
         }
       ]
     },
@@ -2123,6 +2283,46 @@
         }
       ]
     },
+    "kitchen-appliances-boss": {
+      "alt": "The Aparna Boss",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-boss-480.webp",
+          "width": 480,
+          "height": 354
+        },
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-boss-960.webp",
+          "width": 960,
+          "height": 707
+        },
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-boss-1440.webp",
+          "width": 1329,
+          "height": 979
+        }
+      ]
+    },
+    "kitchen-appliances-crystal": {
+      "alt": "The Aparna Crystal",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-crystal-480.webp",
+          "width": 480,
+          "height": 198
+        },
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-crystal-960.webp",
+          "width": 960,
+          "height": 396
+        },
+        {
+          "file": "/media/cutouts/pricelist-kitchen-appliances-crystal-1440.webp",
+          "width": 1328,
+          "height": 548
+        }
+      ]
+    },
     "kitchen-appliances-presto": {
       "alt": "The Aparna Presto",
       "variants": [
@@ -2241,6 +2441,26 @@
           "file": "/media/cutouts/studio-137-960.webp",
           "width": 651,
           "height": 960
+        }
+      ]
+    },
+    "heating-water-geyser-element-tricone-9": {
+      "alt": "The Aparna Geyser element Tricone 9\"",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-480.webp",
+          "width": 480,
+          "height": 446
+        },
+        {
+          "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-960.webp",
+          "width": 960,
+          "height": 892
+        },
+        {
+          "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-1440.webp",
+          "width": 1252,
+          "height": 1163
         }
       ]
     },
@@ -2440,6 +2660,26 @@
         }
       ]
     },
+    "electric-irons-curv": {
+      "alt": "The Aparna Curv",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-curv-480.webp",
+          "width": 480,
+          "height": 398
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-curv-960.webp",
+          "width": 960,
+          "height": 795
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-curv-1440.webp",
+          "width": 1288,
+          "height": 1067
+        }
+      ]
+    },
     "electric-irons-grand": {
       "alt": "The Aparna Grand",
       "variants": [
@@ -2452,6 +2692,46 @@
           "file": "/media/cutouts/studio-132-960.webp",
           "width": 960,
           "height": 688
+        }
+      ]
+    },
+    "electric-irons-majestic": {
+      "alt": "The Aparna Majestic",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-majestic-480.webp",
+          "width": 480,
+          "height": 298
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-majestic-960.webp",
+          "width": 960,
+          "height": 596
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-majestic-1440.webp",
+          "width": 1267,
+          "height": 786
+        }
+      ]
+    },
+    "electric-irons-passion": {
+      "alt": "The Aparna Passion",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-passion-480.webp",
+          "width": 480,
+          "height": 320
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-passion-960.webp",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-passion-1440.webp",
+          "width": 1229,
+          "height": 819
         }
       ]
     },
@@ -2470,6 +2750,46 @@
         }
       ]
     },
+    "electric-irons-plancha-beetle": {
+      "alt": "The Aparna Plancha Beetle",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-480.webp",
+          "width": 480,
+          "height": 245
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-960.webp",
+          "width": 960,
+          "height": 491
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-1440.webp",
+          "width": 1211,
+          "height": 619
+        }
+      ]
+    },
+    "electric-irons-plancha-turbo": {
+      "alt": "The Aparna Plancha Turbo",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-480.webp",
+          "width": 480,
+          "height": 307
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-960.webp",
+          "width": 960,
+          "height": 614
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-1440.webp",
+          "width": 1281,
+          "height": 819
+        }
+      ]
+    },
     "electric-irons-regular": {
       "alt": "The Aparna Regular",
       "variants": [
@@ -2482,6 +2802,26 @@
           "file": "/media/cutouts/studio-126-960.webp",
           "width": 960,
           "height": 602
+        }
+      ]
+    },
+    "electric-irons-verna": {
+      "alt": "The Aparna Verna",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-verna-480.webp",
+          "width": 480,
+          "height": 321
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-verna-960.webp",
+          "width": 960,
+          "height": 641
+        },
+        {
+          "file": "/media/cutouts/pricelist-electric-irons-verna-1440.webp",
+          "width": 1067,
+          "height": 713
         }
       ]
     },
@@ -2962,6 +3302,486 @@
           "file": "/media/cutouts/studio-161-960.webp",
           "width": 741,
           "height": 715
+        }
+      ]
+    },
+    "air-coolers-aerix-9": {
+      "alt": "The Aparna Aerix",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-aerix-9-480.webp",
+          "width": 294,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-aerix-9-960.webp",
+          "width": 589,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-aerix-9-1440.webp",
+          "width": 883,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-nexus-tower-12": {
+      "alt": "The Aparna Nexus Tower",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-480.webp",
+          "width": 283,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-960.webp",
+          "width": 566,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-1440.webp",
+          "width": 848,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-sonata-tower-gm-12": {
+      "alt": "The Aparna Sonata Tower GM",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-480.webp",
+          "width": 269,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-960.webp",
+          "width": 539,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-1440.webp",
+          "width": 808,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-heritage-16": {
+      "alt": "The Aparna Heritage",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-heritage-16-480.webp",
+          "width": 252,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-heritage-16-960.webp",
+          "width": 503,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-heritage-16-1440.webp",
+          "width": 755,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-glister-tower-16": {
+      "alt": "The Aparna Glister Tower",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glister-tower-16-480.webp",
+          "width": 253,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glister-tower-16-960.webp",
+          "width": 506,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glister-tower-16-1440.webp",
+          "width": 760,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-cruiser-16": {
+      "alt": "The Aparna Cruiser",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-480.webp",
+          "width": 285,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-960.webp",
+          "width": 569,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-1440.webp",
+          "width": 854,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-glado-14": {
+      "alt": "The Aparna Glado",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glado-14-480.webp",
+          "width": 260,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glado-14-960.webp",
+          "width": 520,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glado-14-1440.webp",
+          "width": 780,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-victoria-16": {
+      "alt": "The Aparna Victoria",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-victoria-16-480.webp",
+          "width": 279,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-victoria-16-960.webp",
+          "width": 558,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-victoria-16-1440.webp",
+          "width": 837,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-astra-20": {
+      "alt": "The Aparna Astra",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-astra-20-480.webp",
+          "width": 292,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-astra-20-960.webp",
+          "width": 585,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-astra-20-1440.webp",
+          "width": 877,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-magnum-20": {
+      "alt": "The Aparna Magnum",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-magnum-20-480.webp",
+          "width": 280,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-magnum-20-960.webp",
+          "width": 561,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-magnum-20-1440.webp",
+          "width": 841,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-ultra-max-22": {
+      "alt": "The Aparna Ultra Max",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-ultra-max-22-480.webp",
+          "width": 301,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-ultra-max-22-960.webp",
+          "width": 602,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-ultra-max-22-1440.webp",
+          "width": 903,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-indigo-22": {
+      "alt": "The Aparna Indigo",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-indigo-22-480.webp",
+          "width": 311,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-indigo-22-960.webp",
+          "width": 623,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-indigo-22-1440.webp",
+          "width": 934,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-200l-26": {
+      "alt": "The Aparna 200L",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-200l-26-480.webp",
+          "width": 316,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-200l-26-960.webp",
+          "width": 631,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-200l-26-1440.webp",
+          "width": 947,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-blister-16": {
+      "alt": "The Aparna Blister",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-blister-16-480.webp",
+          "width": 277,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-blister-16-960.webp",
+          "width": 555,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-blister-16-1440.webp",
+          "width": 832,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-glacier-16": {
+      "alt": "The Aparna Glacier",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glacier-16-480.webp",
+          "width": 240,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glacier-16-960.webp",
+          "width": 480,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-glacier-16-1440.webp",
+          "width": 720,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-black-commando-18": {
+      "alt": "The Aparna Black Commando",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-black-commando-18-480.webp",
+          "width": 267,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-black-commando-18-960.webp",
+          "width": 533,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-black-commando-18-1440.webp",
+          "width": 800,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-cyclone-19": {
+      "alt": "The Aparna Cyclone",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cyclone-19-480.webp",
+          "width": 285,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cyclone-19-960.webp",
+          "width": 570,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-cyclone-19-1440.webp",
+          "width": 855,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-vellar-12": {
+      "alt": "The Aparna Vellar",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-vellar-12-480.webp",
+          "width": 216,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-vellar-12-960.webp",
+          "width": 431,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-vellar-12-1440.webp",
+          "width": 647,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-curvv-12": {
+      "alt": "The Aparna Curvv",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-curvv-12-480.webp",
+          "width": 294,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-curvv-12-960.webp",
+          "width": 589,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-curvv-12-1440.webp",
+          "width": 883,
+          "height": 1440
+        }
+      ]
+    },
+    "air-coolers-tower": {
+      "alt": "The Aparna Tower",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-tower-480.webp",
+          "width": 177,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-tower-960.webp",
+          "width": 353,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-air-coolers-tower-1440.webp",
+          "width": 530,
+          "height": 1440
+        }
+      ]
+    },
+    "washing-machines-apwm-9-0-pm": {
+      "alt": "The Aparna APWM 9.0 PM",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-480.webp",
+          "width": 267,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-960.webp",
+          "width": 534,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-1440.webp",
+          "width": 801,
+          "height": 1440
+        }
+      ]
+    },
+    "washing-machines-apwm-7-5-pm": {
+      "alt": "The Aparna APWM 7.5 PM",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-480.webp",
+          "width": 375,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-960.webp",
+          "width": 749,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-1440.webp",
+          "width": 1124,
+          "height": 1440
+        }
+      ]
+    },
+    "washing-machines-apwm-7-5-gm": {
+      "alt": "The Aparna APWM 7.5 GM",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-480.webp",
+          "width": 364,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-960.webp",
+          "width": 728,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-1440.webp",
+          "width": 1093,
+          "height": 1440
+        }
+      ]
+    },
+    "washing-machines-apwm-9-5-gm": {
+      "alt": "The Aparna APWM 9.5 GM",
+      "variants": [
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-5-gm-480.webp",
+          "width": 391,
+          "height": 480
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-5-gm-960.webp",
+          "width": 782,
+          "height": 960
+        },
+        {
+          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-5-gm-1440.webp",
+          "width": 1173,
+          "height": 1440
         }
       ]
     }

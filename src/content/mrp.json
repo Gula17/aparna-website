@@ -18,7 +18,7 @@
       "pages": "5 pages; pages 1-4 air coolers, page 5 semi-automatic washing machines",
       "columns": "MODEL / OFFER PRICE / MRP; only MRP kept",
       "tax": "No tax wording printed.",
-      "note": "Every cooler MRP is exactly 3x its offer price. None of these cooler or washing-machine models matches a site product, so all are in 'unmatched'."
+      "note": "Every cooler MRP is exactly 3x its offer price. None of these cooler or washing-machine models was a site product; they are added from the list itself (src/content/price-list-products.json) and their MRPs are under 'prices', except Vellar (printed twice with two MRPs) and APWM 7.5 PM (MRP looks like a typo), which stay in 'unmatched'."
     }
   },
   "prices": {
@@ -858,6 +858,117 @@
       "mrp": 790,
       "page": "main p19 (printed pp. 36-37)",
       "listedAs": "2000W TRICONE 9\" GEYSER ELEMENT A97"
+    },
+    "air-coolers-aerix-9": {
+      "mrp": 7410,
+      "page": "cooler p1",
+      "listedAs": "AERIX-9\""
+    },
+    "air-coolers-nexus-tower-12": {
+      "mrp": 9510,
+      "page": "cooler p1",
+      "listedAs": "NEXUS TOWER-12\""
+    },
+    "air-coolers-sonata-tower-gm-12": {
+      "mrp": 10395,
+      "page": "cooler p1",
+      "listedAs": "SONATA TOWER-12\" GM"
+    },
+    "air-coolers-heritage-16": {
+      "mrp": 16650,
+      "page": "cooler p1",
+      "listedAs": "HERITAGE-16\" (air cooler)"
+    },
+    "air-coolers-glister-tower-16": {
+      "mrp": 17640,
+      "page": "cooler p1",
+      "listedAs": "GLISTER TOWER-16\""
+    },
+    "air-coolers-cruiser-16": {
+      "mrp": 17820,
+      "page": "cooler p2",
+      "listedAs": "CRUISER-16\""
+    },
+    "air-coolers-glado-14": {
+      "mrp": 11280,
+      "page": "cooler p2",
+      "listedAs": "GLADO-14\""
+    },
+    "air-coolers-victoria-16": {
+      "mrp": 16260,
+      "page": "cooler p2",
+      "listedAs": "VICTORIA-16\""
+    },
+    "air-coolers-astra-20": {
+      "mrp": 20400,
+      "page": "cooler p2",
+      "listedAs": "ASTRA-20\""
+    },
+    "air-coolers-magnum-20": {
+      "mrp": 20610,
+      "page": "cooler p2",
+      "listedAs": "MAGNUM-20\" (air cooler)"
+    },
+    "air-coolers-ultra-max-22": {
+      "mrp": 24750,
+      "page": "cooler p3",
+      "listedAs": "ULTRA MAX-22\""
+    },
+    "air-coolers-indigo-22": {
+      "mrp": 24750,
+      "page": "cooler p3",
+      "listedAs": "INDIGO-22\""
+    },
+    "air-coolers-200l-26": {
+      "mrp": 35700,
+      "page": "cooler p3",
+      "listedAs": "26\"-200L"
+    },
+    "air-coolers-blister-16": {
+      "mrp": 16140,
+      "page": "cooler p3",
+      "listedAs": "BLISTER"
+    },
+    "air-coolers-glacier-16": {
+      "mrp": 17820,
+      "page": "cooler p3",
+      "listedAs": "GLACIER"
+    },
+    "air-coolers-black-commando-18": {
+      "mrp": 21960,
+      "page": "cooler p4",
+      "listedAs": "BLACK COMMANDO"
+    },
+    "air-coolers-cyclone-19": {
+      "mrp": 24000,
+      "page": "cooler p4",
+      "listedAs": "CYCLONE"
+    },
+    "air-coolers-curvv-12": {
+      "mrp": 10395,
+      "page": "cooler p4",
+      "listedAs": "CURVV"
+    },
+    "air-coolers-tower": {
+      "mrp": 6300,
+      "page": "cooler p4",
+      "listedAs": "TOWER (bladeless)"
+    },
+    "washing-machines-apwm-9-0-pm": {
+      "mrp": 13050,
+      "page": "cooler p5",
+      "listedAs": "APWM 9.0 PM (WASHER 9.0KG), first row"
+    },
+    "washing-machines-apwm-7-5-gm": {
+      "mrp": 22050,
+      "page": "cooler p5",
+      "listedAs": "APWM 7.5 GM (WB 7.5KG)"
+    },
+    "washing-machines-apwm-9-5-gm": {
+      "mrp": 22050,
+      "page": "cooler p5",
+      "listedAs": "APWM 9.5 GM (BLACK 9.5KG)",
+      "note": "MRP is about 2.4x its offer price (9320), where the other rows are about 3x; 3x would be about 27960, close to the 27950 printed for APWM 7.5 PM, so these two MRPs may be swapped. Confirm with Aparna."
     }
   },
   "variants": {
@@ -1044,160 +1155,22 @@
       "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
     },
     {
-      "listedAs": "AERIX-9\"",
-      "mrp": 7410,
-      "page": "cooler p1",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "NEXUS TOWER-12\"",
-      "mrp": 9510,
-      "page": "cooler p1",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "SONATA TOWER-12\" GM",
-      "mrp": 10395,
-      "page": "cooler p1",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "HERITAGE-16\" (air cooler)",
-      "mrp": 16650,
-      "page": "cooler p1",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "GLISTER TOWER-16\"",
-      "mrp": 17640,
-      "page": "cooler p1",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "CRUISER-16\"",
-      "mrp": 17820,
-      "page": "cooler p2",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "GLADO-14\"",
-      "mrp": 11280,
-      "page": "cooler p2",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "VICTORIA-16\"",
-      "mrp": 16260,
-      "page": "cooler p2",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "ASTRA-20\"",
-      "mrp": 20400,
-      "page": "cooler p2",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "MAGNUM-20\" (air cooler)",
-      "mrp": 20610,
-      "page": "cooler p2",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "ULTRA MAX-22\"",
-      "mrp": 24750,
-      "page": "cooler p3",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "INDIGO-22\"",
-      "mrp": 24750,
-      "page": "cooler p3",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "26\"-200L",
-      "mrp": 35700,
-      "page": "cooler p3",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "BLISTER",
-      "mrp": 16140,
-      "page": "cooler p3",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "GLACIER",
-      "mrp": 17820,
-      "page": "cooler p3",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "BLACK COMMANDO",
-      "mrp": 21960,
-      "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "CYCLONE",
-      "mrp": 24000,
-      "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
       "listedAs": "VELLAR (left box)",
       "mrp": 11250,
       "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry). Vellar is printed twice side by side with identical specs (motor 89 DIA / 100 DIA) but different MRPs (11250 and 11850); which is which is not stated"
+      "note": "Air cooler added from the price list as one product (air-coolers-vellar-12 in src/content/price-list-products.json) with no MRP: Vellar is printed twice side by side with the same photo and identical specs (motor 89 DIA / 100 DIA, 12\" blade, 30 L tank, 500 X 395 X 1000, 2450 RPM) but different MRPs (11250 and 11850); which is which is not stated. Confirm with Aparna."
     },
     {
       "listedAs": "VELLAR (right box)",
       "mrp": 11850,
       "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry). Vellar is printed twice side by side with identical specs (motor 89 DIA / 100 DIA) but different MRPs (11250 and 11850); which is which is not stated"
-    },
-    {
-      "listedAs": "CURVV",
-      "mrp": 10395,
-      "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "TOWER (bladeless)",
-      "mrp": 6300,
-      "page": "cooler p4",
-      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
-    },
-    {
-      "listedAs": "APWM 9.0 PM (WASHER 9.0KG), first row",
-      "mrp": 13050,
-      "page": "cooler p5",
-      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Listed twice with different offer prices but the same MRP"
-    },
-    {
-      "listedAs": "APWM 9.0 PM (WASHER 9.0KG), second row (decorated lid)",
-      "mrp": 13050,
-      "page": "cooler p5",
-      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Listed twice with different offer prices but the same MRP"
+      "note": "Air cooler added from the price list as one product (air-coolers-vellar-12 in src/content/price-list-products.json) with no MRP: Vellar is printed twice side by side with the same photo and identical specs (motor 89 DIA / 100 DIA, 12\" blade, 30 L tank, 500 X 395 X 1000, 2450 RPM) but different MRPs (11250 and 11850); which is which is not stated. Confirm with Aparna."
     },
     {
       "listedAs": "APWM 7.5 PM (BLACK 7.5KG)",
       "mrp": 27950,
       "page": "cooler p5",
-      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Looks suspicious: higher MRP than the 9.5 kg model (22050) and about 4x its offer price, where the others are about 2.4-3x; confirm with Aparna before showing"
-    },
-    {
-      "listedAs": "APWM 7.5 GM (WB 7.5KG)",
-      "mrp": 22050,
-      "page": "cooler p5",
-      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched"
-    },
-    {
-      "listedAs": "APWM 9.5 GM (BLACK 9.5KG)",
-      "mrp": 22050,
-      "page": "cooler p5",
-      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Same MRP as APWM 7.5 GM"
+      "note": "Washing machine added from the price list (washing-machines-apwm-7-5-pm in src/content/price-list-products.json) with no MRP: the printed 27950 looks suspicious (higher than the 9.5 kg model's 22050 and about 4x its offer price, where the others are about 3x). Confirm with Aparna before showing."
     }
   ],
   "notInLists": [

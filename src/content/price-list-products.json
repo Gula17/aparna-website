@@ -1,0 +1,775 @@
+{
+  "_read_me": "Products in Aparna's price lists that are not in 03_Product_Data yet (added 2026-11-12). Names, sizes and specs exactly as printed in the list; photos cropped from it. MRP is in mrp.json.",
+  "products": [
+    {
+      "id": "air-coolers-aerix-9",
+      "name": "Aerix",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 9,
+      "listedAs": "AERIX-9\"",
+      "page": "cooler p1",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "9\""
+        },
+        {
+          "label": "Tank",
+          "value": "20 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "360 × 370 × 665 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-aerix-9.png",
+      "mrp": 7410
+    },
+    {
+      "id": "air-coolers-nexus-tower-12",
+      "name": "Nexus Tower",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "listedAs": "NEXUS TOWER-12\"",
+      "page": "cooler p1",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "label": "Tank",
+          "value": "35 & 45 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "460 × 430 × 885 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-nexus-tower-12.png",
+      "mrp": 9510
+    },
+    {
+      "id": "air-coolers-sonata-tower-gm-12",
+      "name": "Sonata Tower GM",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "listedAs": "SONATA TOWER-12\" GM",
+      "page": "cooler p1",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "label": "Tank",
+          "value": "45 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "460 × 430 × 885 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-sonata-tower-gm-12.png",
+      "mrp": 10395
+    },
+    {
+      "id": "air-coolers-heritage-16",
+      "name": "Heritage",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "HERITAGE-16\"",
+      "page": "cooler p1",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-heritage-16.png",
+      "mrp": 16650
+    },
+    {
+      "id": "air-coolers-glister-tower-16",
+      "name": "Glister Tower",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "GLISTER TOWER-16\"",
+      "page": "cooler p1",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "95 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-glister-tower-16.png",
+      "mrp": 17640
+    },
+    {
+      "id": "air-coolers-cruiser-16",
+      "name": "Cruiser",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "CRUISER-16\"",
+      "page": "cooler p2",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-cruiser-16.png",
+      "mrp": 17820
+    },
+    {
+      "id": "air-coolers-glado-14",
+      "name": "Glado",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 14,
+      "listedAs": "GLADO-14\"",
+      "page": "cooler p2",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "96 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "label": "Tank",
+          "value": "55 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "530 × 400 × 1135 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-glado-14.png",
+      "mrp": 11280
+    },
+    {
+      "id": "air-coolers-victoria-16",
+      "name": "Victoria",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "VICTORIA-16\"",
+      "page": "cooler p2",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "122 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "18\""
+        },
+        {
+          "label": "Tank",
+          "value": "100 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "810 × 565 × 1475 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-victoria-16.png",
+      "mrp": 16260
+    },
+    {
+      "id": "air-coolers-astra-20",
+      "name": "Astra",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 20,
+      "listedAs": "ASTRA-20\"",
+      "page": "cooler p2",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "675 × 520 × 1280 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-astra-20.png",
+      "mrp": 20400
+    },
+    {
+      "id": "air-coolers-magnum-20",
+      "name": "Magnum",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 20,
+      "listedAs": "MAGNUM-20\"",
+      "page": "cooler p2",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "122 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "18\""
+        },
+        {
+          "label": "Tank",
+          "value": "95 & 120 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "810 × 565 × 1475 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-magnum-20.png",
+      "mrp": 20610
+    },
+    {
+      "id": "air-coolers-ultra-max-22",
+      "name": "Ultra Max",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 22,
+      "listedAs": "ULTRA MAX-22\"",
+      "page": "cooler p3",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "140 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "20\""
+        },
+        {
+          "label": "Tank",
+          "value": "100, 130 & 150 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "870 × 655 × 1380 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-ultra-max-22.png",
+      "mrp": 24750
+    },
+    {
+      "id": "air-coolers-indigo-22",
+      "name": "Indigo",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 22,
+      "listedAs": "INDIGO-22\"",
+      "page": "cooler p3",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "140 mm (capcan)"
+        },
+        {
+          "label": "Blade",
+          "value": "20\""
+        },
+        {
+          "label": "Tank",
+          "value": "100, 130 & 150 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "870 × 655 × 1380 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-indigo-22.png",
+      "mrp": 24750
+    },
+    {
+      "id": "air-coolers-200l-26",
+      "name": "200L",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 26,
+      "listedAs": "26\"-200L",
+      "page": "cooler p3",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "140 mm (heat sink)"
+        },
+        {
+          "label": "Blade",
+          "value": "24\""
+        },
+        {
+          "label": "Tank",
+          "value": "150 & 200 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "1068 × 610 × 1596 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "25 W"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-200l-26.png",
+      "mrp": 35700
+    },
+    {
+      "id": "air-coolers-blister-16",
+      "name": "Blister",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "BLISTER",
+      "page": "cooler p3",
+      "specs": [
+        {
+          "label": "Motor",
+          "value": "110\" 28 mm"
+        },
+        {
+          "label": "Fan size",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "70 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "600 × 580 × 1240 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "label": "Power",
+          "value": "180 W"
+        },
+        {
+          "label": "Height",
+          "value": "3' 5\""
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-blister-16.png",
+      "mrp": 16140
+    },
+    {
+      "id": "air-coolers-glacier-16",
+      "name": "Glacier",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "listedAs": "GLACIER",
+      "page": "cooler p3",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "110 dia"
+        },
+        {
+          "label": "Fan size",
+          "value": "16\""
+        },
+        {
+          "label": "Tank",
+          "value": "90 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "600 × 580 × 1240 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "label": "Power",
+          "value": "180 W"
+        },
+        {
+          "label": "Height",
+          "value": "4.9 ft"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-glacier-16.png",
+      "mrp": 17820
+    },
+    {
+      "id": "air-coolers-black-commando-18",
+      "name": "Black Commando",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 18,
+      "listedAs": "BLACK COMMANDO",
+      "page": "cooler p4",
+      "specs": [
+        {
+          "label": "Motor",
+          "value": "E frame 32 mm"
+        },
+        {
+          "label": "Fan size",
+          "value": "18\""
+        },
+        {
+          "label": "Tank",
+          "value": "125 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "800 × 600 × 1350 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "label": "Power",
+          "value": "280 W"
+        },
+        {
+          "label": "Height",
+          "value": "4.9 ft"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-black-commando-18.png",
+      "mrp": 21960
+    },
+    {
+      "id": "air-coolers-cyclone-19",
+      "name": "Cyclone",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 19,
+      "listedAs": "CYCLONE",
+      "page": "cooler p4",
+      "specs": [
+        {
+          "label": "Motor",
+          "value": "H-frame"
+        },
+        {
+          "label": "Fan size",
+          "value": "19\""
+        },
+        {
+          "label": "Tank",
+          "value": "135 L"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "800 × 600 × 1350 mm"
+        },
+        {
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "label": "Power",
+          "value": "320 W"
+        },
+        {
+          "label": "Height",
+          "value": "4' 8\""
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-cyclone-19.png",
+      "mrp": 24000
+    },
+    {
+      "id": "air-coolers-vellar-12",
+      "name": "Vellar",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "listedAs": "VELLAR",
+      "page": "cooler p4",
+      "specs": [
+        {
+          "label": "Motor",
+          "value": "89 dia / 100 dia"
+        },
+        {
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "label": "Tank",
+          "value": "30 L (approx.)"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "500 × 395 × 1000 mm"
+        },
+        {
+          "label": "Speed",
+          "value": "2450 RPM"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-vellar-12.png",
+      "mrp": null,
+      "note": "Printed twice side by side on cooler p4 with the same name, photo and specs but two MRPs (11250 and 11850); the list does not say which is which, so no MRP until Aparna confirms."
+    },
+    {
+      "id": "air-coolers-curvv-12",
+      "name": "Curvv",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "listedAs": "CURVV",
+      "page": "cooler p4",
+      "specs": [
+        {
+          "label": "Motor diameter",
+          "value": "89 dia"
+        },
+        {
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "label": "Tank",
+          "value": "30 L (approx.)"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "430 × 375 × 695 mm"
+        },
+        {
+          "label": "Speed",
+          "value": "2450 RPM"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-curvv-12.png",
+      "mrp": 10395
+    },
+    {
+      "id": "air-coolers-tower",
+      "name": "Tower",
+      "category": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": null,
+      "listedAs": "TOWER",
+      "page": "cooler p4",
+      "specs": [
+        {
+          "label": "Motor",
+          "value": "110 dia / bearing"
+        },
+        {
+          "label": "Blade",
+          "value": "Bladeless"
+        },
+        {
+          "label": "Size with wheels",
+          "value": "300 × 300 × 790 mm"
+        },
+        {
+          "label": "Speed",
+          "value": "1400 RPM"
+        }
+      ],
+      "image": "src/content/price-list-images/air-coolers-tower.png",
+      "mrp": 6300
+    },
+    {
+      "id": "washing-machines-apwm-9-0-pm",
+      "name": "APWM 9.0 PM",
+      "category": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "listedAs": "APWM 9.0 PM (WASHER 9.0KG)",
+      "page": "cooler p5",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9.0 kg"
+        }
+      ],
+      "mrp": 13050,
+      "note": "Printed twice on cooler p5 with the same name and MRP; this is the first row (plain lid in the photo). Printed twice in the list (same name, specs and MRP, two photos): one product with both photos.",
+      "images": [
+        "src/content/price-list-images/washing-machines-apwm-9-0-pm.png",
+        "src/content/price-list-images/washing-machines-apwm-9-0-pm-2.png"
+      ]
+    },
+    {
+      "id": "washing-machines-apwm-7-5-pm",
+      "name": "APWM 7.5 PM",
+      "category": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "listedAs": "APWM 7.5 PM (BLACK 7.5KG)",
+      "page": "cooler p5",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "7.5 kg"
+        },
+        {
+          "label": "Colour",
+          "value": "Black"
+        }
+      ],
+      "image": "src/content/price-list-images/washing-machines-apwm-7-5-pm.png",
+      "mrp": null,
+      "note": "Printed MRP 27950 looks like a typo (higher than the 9.5 kg model and about 4x its offer price, where the others are about 3x), so no MRP until Aparna confirms."
+    },
+    {
+      "id": "washing-machines-apwm-7-5-gm",
+      "name": "APWM 7.5 GM",
+      "category": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "listedAs": "APWM 7.5 GM (WB 7.5KG)",
+      "page": "cooler p5",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "7.5 kg"
+        }
+      ],
+      "image": "src/content/price-list-images/washing-machines-apwm-7-5-gm.png",
+      "mrp": 22050
+    },
+    {
+      "id": "washing-machines-apwm-9-5-gm",
+      "name": "APWM 9.5 GM",
+      "category": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "listedAs": "APWM 9.5 GM (BLACK 9.5KG)",
+      "page": "cooler p5",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "9.5 kg"
+        },
+        {
+          "label": "Colour",
+          "value": "Black"
+        }
+      ],
+      "image": "src/content/price-list-images/washing-machines-apwm-9-5-gm.png",
+      "mrp": 22050
+    }
+  ]
+}

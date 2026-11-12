@@ -140,6 +140,7 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
   const studio = JSON.parse(await fs.readFile(path.join(contentDir, 'studio-photos.json'), 'utf8').catch(() => '{"photos":{},"comingSoon":[]}'));
   // MRP only, from Aparna's price lists (src/content/mrp.json). Shown since 2026-11-12 at Gul's request; offer
   // and dealer prices are never kept or shown.
+  const listPhotos = JSON.parse(await fs.readFile(path.join(contentDir, 'price-list-photos.json'), 'utf8').catch(() => '{"photos":{}}'));
   const mrpData = JSON.parse(await fs.readFile(path.join(contentDir, 'mrp.json'), 'utf8').catch(() => '{"prices":{},"variants":{}}'));
   const mrpOf = (id) => {
     const p = mrpData.prices?.[id];
@@ -184,6 +185,9 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
       gallery.push(await images.write(`crop-${p.id}`, `02_Catalogue_2026/pages/${crop.page}`, { crop: crop.crop, alt: `The ${p.name} in Aparna Catalogue 2026`, kind: 'catalogue' }));
     }
     gallery.push(...photos); // event photos last: posters and catalogue pictures show the model more clearly
+    // no picture anywhere else: the photo printed beside it in Aparna's price list (src/content/price-list-photos.json)
+    const listPhoto = listPhotos.photos?.[p.id];
+    if (!gallery.length && listPhoto) gallery.push(await images.write(`pricelist-${p.id}`, path.resolve(contentDir, '..', '..', listPhoto.image), { alt: `The ${p.name}, as pictured in Aparna's price list`, kind: 'catalogue' }));
 
     products.push({
       id: p.id,
@@ -223,6 +227,29 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
       status: 'soon', // details coming soon
       description: `Aparna ${s.type.toLowerCase()}. Its name and full details are coming soon.`,
       catalogue: null, images: gallery, sort: `9.9.${String(i).padStart(3, '0')}`,
+    });
+  }
+
+  // Products in Aparna's price lists that are not in the product data yet (src/content/price-list-products.json):
+  // their names, sizes and specs exactly as printed, and their photo cropped from the list.
+  const priceList = JSON.parse(await fs.readFile(path.join(contentDir, 'price-list-products.json'), 'utf8').catch(() => '{"products":[]}'));
+  for (const [i, s] of priceList.products.entries()) {
+    if (products.some((x) => x.id === s.id)) continue;
+    const categorySlug = slugify(s.category);
+    const slug = s.id.startsWith(`${idSlug(s.category)}-`) ? s.id.slice(idSlug(s.category).length + 1) : s.id;
+    const size = s.sizeInch ? `${s.sizeInch}" ` : '';
+    const gallery = [];
+    for (const [k, file] of (s.images ?? (s.image ? [s.image] : [])).entries()) {
+      gallery.push(await images.write(`pricelist-${s.id}${k ? `-${k + 1}` : ''}`, path.resolve(contentDir, '..', '..', file), { alt: `The ${s.name}${s.sizeInch ? ` ${s.sizeInch}"` : ''}, as pictured in Aparna's price list`, kind: 'catalogue' }));
+    }
+    products.push({
+      id: s.id, slug, url: `/products/${categorySlug}/${slug}/`, name: s.name, modelNumber: null,
+      category: s.category, categorySlug, series: s.category, type: s.type,
+      sizeInch: s.sizeInch ?? null, sizeMm: null, colours: [], badges: [], features: [],
+      specs: (s.specs ?? []).map((x) => ({ key: x.label, label: x.label, value: x.value })),
+      status: 'current',
+      description: `The ${s.name} is a ${size}${s.type.toLowerCase()} in Aparna's ${s.category.toLowerCase()} range.`,
+      catalogue: null, images: gallery, sort: `8.9.${String(i).padStart(3, '0')}`,
     });
   }
 

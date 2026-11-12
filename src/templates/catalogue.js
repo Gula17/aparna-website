@@ -109,7 +109,7 @@ const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--
   : p.status === 'new' ? `<li class="badge badge--soft">${esc(t.products.newModel)}</li>`
     : p.status === 'soon' ? `<li class="badge badge--soft">${esc(t.products.comingSoon)}</li>` : '');
 
-const sizeText = (p) => (p.sizeInch ? `${p.sizeInch}" · ${p.sizeMm} mm` : '');
+const sizeText = (p) => (p.sizeInch ? (p.sizeMm ? `${p.sizeInch}" · ${p.sizeMm} mm` : `${p.sizeInch}"`) : '');
 
 const saveButton = (t, p, extra = '') => `
   <button class="save-btn ${extra}" type="button" data-save="${esc(p.id)}" aria-pressed="false" aria-label="${esc(fmt(t.products.saveLabel, { name: p.name }))}">
@@ -626,7 +626,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
           <div><dt>${esc(t.product.category)}</dt><dd>${esc(p.category)}</dd></div>
           <div><dt>${esc(t.product.series)}</dt><dd>${esc(p.series)}</dd></div>
           <div><dt>${esc(t.product.type)}</dt><dd>${esc(p.type)}</dd></div>
-          ${p.sizeInch ? `<div><dt>${esc(t.product.size)}</dt><dd>${p.sizeMm} mm (${p.sizeInch}")</dd></div>` : ''}
+          ${p.sizeInch ? `<div><dt>${esc(t.product.size)}</dt><dd>${p.sizeMm ? `${p.sizeMm} mm (${p.sizeInch}")` : `${p.sizeInch}"`}</dd></div>` : ''}
           ${p.specs.map((s) => `<div><dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd></div>`).join('')}
         </dl>
         ${p.specs.length ? `<p class="fine-print">${esc(t.footer.tolerance)}</p>` : `<p class="fine-print">${esc(t.product.noSpecs)}</p>`}

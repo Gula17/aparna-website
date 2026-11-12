@@ -1065,7 +1065,29 @@
       "status": "new",
       "description": "The Aronita is a 48\" (1200 mm) ceiling fan in Aparna's New premium range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-aronita-48-480.webp",
+              "width": 480,
+              "height": 217
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-aronita-48-960.webp",
+              "width": 960,
+              "height": 435
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-aronita-48-1440.webp",
+              "width": 1440,
+              "height": 652
+            }
+          ],
+          "alt": "The Aronita, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "2.1.8",
       "mrp": {
         "value": 3300,
@@ -1180,7 +1202,29 @@
       "status": "new",
       "description": "The Nexus is a 48\" (1200 mm) ceiling fan in Aparna's New premium range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nexus-48-480.webp",
+              "width": 480,
+              "height": 267
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nexus-48-960.webp",
+              "width": 960,
+              "height": 533
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nexus-48-1440.webp",
+              "width": 1440,
+              "height": 800
+            }
+          ],
+          "alt": "The Nexus, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "2.1.10",
       "mrp": {
         "value": 3300,
@@ -3048,7 +3092,29 @@
       "status": "new",
       "description": "The Iconic is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-iconic-48-480.webp",
+              "width": 480,
+              "height": 384
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-iconic-48-960.webp",
+              "width": 960,
+              "height": 768
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-iconic-48-1440.webp",
+              "width": 1440,
+              "height": 1152
+            }
+          ],
+          "alt": "The Iconic, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.33",
       "mrp": {
         "value": 2190,
@@ -3191,7 +3257,29 @@
       "status": "new",
       "description": "The Ikon Pro is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-ikon-pro-48-480.webp",
+              "width": 480,
+              "height": 379
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-ikon-pro-48-960.webp",
+              "width": 960,
+              "height": 758
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-ikon-pro-48-1440.webp",
+              "width": 1440,
+              "height": 1137
+            }
+          ],
+          "alt": "The Ikon Pro, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.35",
       "mrp": {
         "value": 2080,
@@ -3716,7 +3804,29 @@
       "status": "new",
       "description": "The Rider is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-48-480.webp",
+              "width": 480,
+              "height": 380
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-48-960.webp",
+              "width": 960,
+              "height": 760
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-48-1440.webp",
+              "width": 1440,
+              "height": 1140
+            }
+          ],
+          "alt": "The Rider, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.43",
       "mrp": {
         "value": 2190,
@@ -4271,7 +4381,29 @@
       "status": "new",
       "description": "The Supreme is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-supreme-48-480.webp",
+              "width": 480,
+              "height": 384
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-supreme-48-960.webp",
+              "width": 960,
+              "height": 767
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-supreme-48-1440.webp",
+              "width": 1440,
+              "height": 1151
+            }
+          ],
+          "alt": "The Supreme, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.49",
       "mrp": {
         "value": 2290,
@@ -5943,7 +6075,29 @@
       "status": "new",
       "description": "The Nokia is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nokia-48-480.webp",
+              "width": 480,
+              "height": 359
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nokia-48-960.webp",
+              "width": 960,
+              "height": 719
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-nokia-48-1440.webp",
+              "width": 1440,
+              "height": 1078
+            }
+          ],
+          "alt": "The Nokia, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.69",
       "mrp": {
         "value": 2680,
@@ -6647,7 +6801,29 @@
       "status": "new",
       "description": "The Rider Pro is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-pro-48-480.webp",
+              "width": 480,
+              "height": 385
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-pro-48-960.webp",
+              "width": 960,
+              "height": 770
+            },
+            {
+              "file": "/media/products/pricelist-ceiling-fans-rider-pro-48-1440.webp",
+              "width": 1440,
+              "height": 1156
+            }
+          ],
+          "alt": "The Rider Pro, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.76",
       "mrp": {
         "value": 2740,
@@ -13881,7 +14057,29 @@
       "status": "new",
       "description": "The Boss is an infrared cooktop in Aparna's Infrared (infra) cooktops range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-boss-480.webp",
+              "width": 480,
+              "height": 351
+            },
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-boss-960.webp",
+              "width": 960,
+              "height": 703
+            },
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-boss-1440.webp",
+              "width": 1440,
+              "height": 1054
+            }
+          ],
+          "alt": "The Boss, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.166",
       "mrp": {
         "value": 5300,
@@ -13926,7 +14124,29 @@
       "status": "new",
       "description": "The Crystal is an infrared cooktop in Aparna's Infrared (infra) cooktops range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-crystal-480.webp",
+              "width": 480,
+              "height": 238
+            },
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-crystal-960.webp",
+              "width": 960,
+              "height": 477
+            },
+            {
+              "file": "/media/products/pricelist-kitchen-appliances-crystal-1440.webp",
+              "width": 1440,
+              "height": 715
+            }
+          ],
+          "alt": "The Crystal, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.167",
       "mrp": {
         "value": 5500,
@@ -14744,7 +14964,29 @@
         "leaf": 31,
         "pages": "60-61"
       },
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-heating-water-geyser-element-tricone-9-480.webp",
+              "width": 480,
+              "height": 454
+            },
+            {
+              "file": "/media/products/pricelist-heating-water-geyser-element-tricone-9-960.webp",
+              "width": 960,
+              "height": 909
+            },
+            {
+              "file": "/media/products/pricelist-heating-water-geyser-element-tricone-9-1440.webp",
+              "width": 1440,
+              "height": 1363
+            }
+          ],
+          "alt": "The Geyser element Tricone 9\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.177",
       "mrp": {
         "value": 790,
@@ -15716,7 +15958,29 @@
       "status": "new",
       "description": "The Curv is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-curv-480.webp",
+              "width": 480,
+              "height": 397
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-curv-960.webp",
+              "width": 960,
+              "height": 793
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-curv-1440.webp",
+              "width": 1440,
+              "height": 1190
+            }
+          ],
+          "alt": "The Curv, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.191",
       "mrp": {
         "value": 930,
@@ -15874,7 +16138,29 @@
       "status": "new",
       "description": "The Majestic is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-majestic-480.webp",
+              "width": 480,
+              "height": 298
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-majestic-960.webp",
+              "width": 960,
+              "height": 597
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-majestic-1440.webp",
+              "width": 1440,
+              "height": 896
+            }
+          ],
+          "alt": "The Majestic, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.194",
       "mrp": {
         "value": 930,
@@ -15909,7 +16195,29 @@
       "status": "new",
       "description": "The Passion is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-passion-480.webp",
+              "width": 480,
+              "height": 399
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-passion-960.webp",
+              "width": 960,
+              "height": 797
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-passion-1440.webp",
+              "width": 1440,
+              "height": 1196
+            }
+          ],
+          "alt": "The Passion, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.195",
       "mrp": {
         "value": 930,
@@ -16048,7 +16356,29 @@
       "status": "new",
       "description": "The Plancha Beetle is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-beetle-480.webp",
+              "width": 480,
+              "height": 382
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-beetle-960.webp",
+              "width": 960,
+              "height": 764
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-beetle-1440.webp",
+              "width": 1440,
+              "height": 1146
+            }
+          ],
+          "alt": "The Plancha Beetle, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.197",
       "mrp": {
         "value": 1530,
@@ -16083,7 +16413,29 @@
       "status": "new",
       "description": "The Plancha Turbo is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-turbo-480.webp",
+              "width": 480,
+              "height": 316
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-turbo-960.webp",
+              "width": 960,
+              "height": 631
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-plancha-turbo-1440.webp",
+              "width": 1440,
+              "height": 947
+            }
+          ],
+          "alt": "The Plancha Turbo, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.198",
       "mrp": {
         "value": 1530,
@@ -16205,7 +16557,29 @@
       "status": "new",
       "description": "The Verna is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
-      "images": [],
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-electric-irons-verna-480.webp",
+              "width": 480,
+              "height": 343
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-verna-960.webp",
+              "width": 960,
+              "height": 686
+            },
+            {
+              "file": "/media/products/pricelist-electric-irons-verna-1440.webp",
+              "width": 1440,
+              "height": 1029
+            }
+          ],
+          "alt": "The Verna, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
       "sort": "9.1.200",
       "mrp": {
         "value": 930,
@@ -17512,6 +17886,1784 @@
       ],
       "sort": "9.9.031",
       "mrp": null
+    },
+    {
+      "id": "air-coolers-aerix-9",
+      "slug": "aerix-9",
+      "url": "/products/air-coolers/aerix-9/",
+      "name": "Aerix",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 9,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "9\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "20 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "360 × 370 × 665 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Aerix is a 9\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-aerix-9-480.webp",
+              "width": 480,
+              "height": 719
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-aerix-9-960.webp",
+              "width": 960,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-aerix-9-1440.webp",
+              "width": 1404,
+              "height": 2104
+            }
+          ],
+          "alt": "The Aerix 9\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.000",
+      "mrp": {
+        "value": 7410,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-nexus-tower-12",
+      "slug": "nexus-tower-12",
+      "url": "/products/air-coolers/nexus-tower-12/",
+      "name": "Nexus Tower",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "35 & 45 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "460 × 430 × 885 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Nexus Tower is a 12\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-nexus-tower-12-480.webp",
+              "width": 469,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-nexus-tower-12-960.webp",
+              "width": 938,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-nexus-tower-12-1440.webp",
+              "width": 1407,
+              "height": 2160
+            }
+          ],
+          "alt": "The Nexus Tower 12\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.001",
+      "mrp": {
+        "value": 9510,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-sonata-tower-gm-12",
+      "slug": "sonata-tower-gm-12",
+      "url": "/products/air-coolers/sonata-tower-gm-12/",
+      "name": "Sonata Tower GM",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "82 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "45 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "460 × 430 × 885 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "10 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Sonata Tower GM is a 12\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-sonata-tower-gm-12-480.webp",
+              "width": 463,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-sonata-tower-gm-12-960.webp",
+              "width": 926,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-sonata-tower-gm-12-1440.webp",
+              "width": 1390,
+              "height": 2161
+            }
+          ],
+          "alt": "The Sonata Tower GM 12\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.002",
+      "mrp": {
+        "value": 10395,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-heritage-16",
+      "slug": "heritage-16",
+      "url": "/products/air-coolers/heritage-16/",
+      "name": "Heritage",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Heritage is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-heritage-16-480.webp",
+              "width": 433,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-heritage-16-960.webp",
+              "width": 866,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-heritage-16-1440.webp",
+              "width": 1299,
+              "height": 2160
+            }
+          ],
+          "alt": "The Heritage 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.003",
+      "mrp": {
+        "value": 16650,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-glister-tower-16",
+      "slug": "glister-tower-16",
+      "url": "/products/air-coolers/glister-tower-16/",
+      "name": "Glister Tower",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "95 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Glister Tower is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-glister-tower-16-480.webp",
+              "width": 425,
+              "height": 721
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glister-tower-16-960.webp",
+              "width": 849,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glister-tower-16-1440.webp",
+              "width": 1274,
+              "height": 2160
+            }
+          ],
+          "alt": "The Glister Tower 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.004",
+      "mrp": {
+        "value": 17640,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-cruiser-16",
+      "slug": "cruiser-16",
+      "url": "/products/air-coolers/cruiser-16/",
+      "name": "Cruiser",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "585 × 455 × 1305 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Cruiser is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-cruiser-16-480.webp",
+              "width": 480,
+              "height": 711
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-cruiser-16-960.webp",
+              "width": 960,
+              "height": 1421
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-cruiser-16-1440.webp",
+              "width": 1440,
+              "height": 2132
+            }
+          ],
+          "alt": "The Cruiser 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.005",
+      "mrp": {
+        "value": 17820,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-glado-14",
+      "slug": "glado-14",
+      "url": "/products/air-coolers/glado-14/",
+      "name": "Glado",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 14,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "96 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "55 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "530 × 400 × 1135 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Glado is a 14\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-glado-14-480.webp",
+              "width": 474,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glado-14-960.webp",
+              "width": 948,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glado-14-1440.webp",
+              "width": 1422,
+              "height": 2160
+            }
+          ],
+          "alt": "The Glado 14\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.006",
+      "mrp": {
+        "value": 11280,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-victoria-16",
+      "slug": "victoria-16",
+      "url": "/products/air-coolers/victoria-16/",
+      "name": "Victoria",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "122 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "18\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "100 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "810 × 565 × 1475 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Victoria is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-victoria-16-480.webp",
+              "width": 471,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-victoria-16-960.webp",
+              "width": 942,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-victoria-16-1440.webp",
+              "width": 1412,
+              "height": 2160
+            }
+          ],
+          "alt": "The Victoria 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.007",
+      "mrp": {
+        "value": 16260,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-astra-20",
+      "slug": "astra-20",
+      "url": "/products/air-coolers/astra-20/",
+      "name": "Astra",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 20,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "120 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "75 & 95 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "675 × 520 × 1280 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "15 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Astra is a 20\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-astra-20-480.webp",
+              "width": 480,
+              "height": 703
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-astra-20-960.webp",
+              "width": 960,
+              "height": 1407
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-astra-20-1440.webp",
+              "width": 1440,
+              "height": 2110
+            }
+          ],
+          "alt": "The Astra 20\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.008",
+      "mrp": {
+        "value": 20400,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-magnum-20",
+      "slug": "magnum-20",
+      "url": "/products/air-coolers/magnum-20/",
+      "name": "Magnum",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 20,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "122 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "18\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "95 & 120 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "810 × 565 × 1475 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Magnum is a 20\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-magnum-20-480.webp",
+              "width": 478,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-magnum-20-960.webp",
+              "width": 956,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-magnum-20-1440.webp",
+              "width": 1434,
+              "height": 2161
+            }
+          ],
+          "alt": "The Magnum 20\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.009",
+      "mrp": {
+        "value": 20610,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-ultra-max-22",
+      "slug": "ultra-max-22",
+      "url": "/products/air-coolers/ultra-max-22/",
+      "name": "Ultra Max",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 22,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "140 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "20\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "100, 130 & 150 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "870 × 655 × 1380 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Ultra Max is a 22\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-ultra-max-22-480.webp",
+              "width": 480,
+              "height": 707
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-ultra-max-22-960.webp",
+              "width": 960,
+              "height": 1414
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-ultra-max-22-1440.webp",
+              "width": 1440,
+              "height": 2121
+            }
+          ],
+          "alt": "The Ultra Max 22\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.010",
+      "mrp": {
+        "value": 24750,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-indigo-22",
+      "slug": "indigo-22",
+      "url": "/products/air-coolers/indigo-22/",
+      "name": "Indigo",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 22,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "140 mm (capcan)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "20\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "100, 130 & 150 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "870 × 655 × 1380 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "20 W"
+        }
+      ],
+      "status": "current",
+      "description": "The Indigo is a 22\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-indigo-22-480.webp",
+              "width": 480,
+              "height": 675
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-indigo-22-960.webp",
+              "width": 960,
+              "height": 1349
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-indigo-22-1440.webp",
+              "width": 1440,
+              "height": 2024
+            }
+          ],
+          "alt": "The Indigo 22\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.011",
+      "mrp": {
+        "value": 24750,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-200l-26",
+      "slug": "200l-26",
+      "url": "/products/air-coolers/200l-26/",
+      "name": "200L",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 26,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "140 mm (heat sink)"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "24\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "150 & 200 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "1068 × 610 × 1596 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "25 W"
+        }
+      ],
+      "status": "current",
+      "description": "The 200L is a 26\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-200l-26-480.webp",
+              "width": 480,
+              "height": 673
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-200l-26-960.webp",
+              "width": 960,
+              "height": 1346
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-200l-26-1440.webp",
+              "width": 1440,
+              "height": 2019
+            }
+          ],
+          "alt": "The 200L 26\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.012",
+      "mrp": {
+        "value": 35700,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-blister-16",
+      "slug": "blister-16",
+      "url": "/products/air-coolers/blister-16/",
+      "name": "Blister",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor",
+          "label": "Motor",
+          "value": "110\" 28 mm"
+        },
+        {
+          "key": "Fan size",
+          "label": "Fan size",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "70 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "600 × 580 × 1240 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "key": "Power",
+          "label": "Power",
+          "value": "180 W"
+        },
+        {
+          "key": "Height",
+          "label": "Height",
+          "value": "3' 5\""
+        }
+      ],
+      "status": "current",
+      "description": "The Blister is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-blister-16-480.webp",
+              "width": 473,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-blister-16-960.webp",
+              "width": 947,
+              "height": 1441
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-blister-16-1440.webp",
+              "width": 1420,
+              "height": 2160
+            }
+          ],
+          "alt": "The Blister 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.013",
+      "mrp": {
+        "value": 16140,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-glacier-16",
+      "slug": "glacier-16",
+      "url": "/products/air-coolers/glacier-16/",
+      "name": "Glacier",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 16,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "110 dia"
+        },
+        {
+          "key": "Fan size",
+          "label": "Fan size",
+          "value": "16\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "90 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "600 × 580 × 1240 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "key": "Power",
+          "label": "Power",
+          "value": "180 W"
+        },
+        {
+          "key": "Height",
+          "label": "Height",
+          "value": "4.9 ft"
+        }
+      ],
+      "status": "current",
+      "description": "The Glacier is a 16\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-glacier-16-480.webp",
+              "width": 419,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glacier-16-960.webp",
+              "width": 838,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-glacier-16-1440.webp",
+              "width": 1257,
+              "height": 2159
+            }
+          ],
+          "alt": "The Glacier 16\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.014",
+      "mrp": {
+        "value": 17820,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-black-commando-18",
+      "slug": "black-commando-18",
+      "url": "/products/air-coolers/black-commando-18/",
+      "name": "Black Commando",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 18,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor",
+          "label": "Motor",
+          "value": "E frame 32 mm"
+        },
+        {
+          "key": "Fan size",
+          "label": "Fan size",
+          "value": "18\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "125 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "800 × 600 × 1350 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "key": "Power",
+          "label": "Power",
+          "value": "280 W"
+        },
+        {
+          "key": "Height",
+          "label": "Height",
+          "value": "4.9 ft"
+        }
+      ],
+      "status": "current",
+      "description": "The Black Commando is a 18\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-black-commando-18-480.webp",
+              "width": 458,
+              "height": 719
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-black-commando-18-960.webp",
+              "width": 917,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-black-commando-18-1440.webp",
+              "width": 1375,
+              "height": 2160
+            }
+          ],
+          "alt": "The Black Commando 18\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.015",
+      "mrp": {
+        "value": 21960,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-cyclone-19",
+      "slug": "cyclone-19",
+      "url": "/products/air-coolers/cyclone-19/",
+      "name": "Cyclone",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 19,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor",
+          "label": "Motor",
+          "value": "H-frame"
+        },
+        {
+          "key": "Fan size",
+          "label": "Fan size",
+          "value": "19\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "135 L"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "800 × 600 × 1350 mm"
+        },
+        {
+          "key": "Pump",
+          "label": "Pump",
+          "value": "18 W"
+        },
+        {
+          "key": "Power",
+          "label": "Power",
+          "value": "320 W"
+        },
+        {
+          "key": "Height",
+          "label": "Height",
+          "value": "4' 8\""
+        }
+      ],
+      "status": "current",
+      "description": "The Cyclone is a 19\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-cyclone-19-480.webp",
+              "width": 480,
+              "height": 714
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-cyclone-19-960.webp",
+              "width": 960,
+              "height": 1427
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-cyclone-19-1440.webp",
+              "width": 1440,
+              "height": 2141
+            }
+          ],
+          "alt": "The Cyclone 19\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.016",
+      "mrp": {
+        "value": 24000,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-vellar-12",
+      "slug": "vellar-12",
+      "url": "/products/air-coolers/vellar-12/",
+      "name": "Vellar",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor",
+          "label": "Motor",
+          "value": "89 dia / 100 dia"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "30 L (approx.)"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "500 × 395 × 1000 mm"
+        },
+        {
+          "key": "Speed",
+          "label": "Speed",
+          "value": "2450 RPM"
+        }
+      ],
+      "status": "current",
+      "description": "The Vellar is a 12\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-vellar-12-480.webp",
+              "width": 373,
+              "height": 721
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-vellar-12-960.webp",
+              "width": 745,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-vellar-12-1440.webp",
+              "width": 1118,
+              "height": 2160
+            }
+          ],
+          "alt": "The Vellar 12\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.017",
+      "mrp": null
+    },
+    {
+      "id": "air-coolers-curvv-12",
+      "slug": "curvv-12",
+      "url": "/products/air-coolers/curvv-12/",
+      "name": "Curvv",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": 12,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor diameter",
+          "label": "Motor diameter",
+          "value": "89 dia"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "12\""
+        },
+        {
+          "key": "Tank",
+          "label": "Tank",
+          "value": "30 L (approx.)"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "430 × 375 × 695 mm"
+        },
+        {
+          "key": "Speed",
+          "label": "Speed",
+          "value": "2450 RPM"
+        }
+      ],
+      "status": "current",
+      "description": "The Curvv is a 12\" air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-curvv-12-480.webp",
+              "width": 480,
+              "height": 659
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-curvv-12-960.webp",
+              "width": 960,
+              "height": 1318
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-curvv-12-1440.webp",
+              "width": 1440,
+              "height": 1977
+            }
+          ],
+          "alt": "The Curvv 12\", as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.018",
+      "mrp": {
+        "value": 10395,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "air-coolers-tower",
+      "slug": "tower",
+      "url": "/products/air-coolers/tower/",
+      "name": "Tower",
+      "modelNumber": null,
+      "category": "Air Coolers",
+      "categorySlug": "air-coolers",
+      "series": "Air Coolers",
+      "type": "Air cooler",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Motor",
+          "label": "Motor",
+          "value": "110 dia / bearing"
+        },
+        {
+          "key": "Blade",
+          "label": "Blade",
+          "value": "Bladeless"
+        },
+        {
+          "key": "Size with wheels",
+          "label": "Size with wheels",
+          "value": "300 × 300 × 790 mm"
+        },
+        {
+          "key": "Speed",
+          "label": "Speed",
+          "value": "1400 RPM"
+        }
+      ],
+      "status": "current",
+      "description": "The Tower is a air cooler in Aparna's air coolers range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-air-coolers-tower-480.webp",
+              "width": 327,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-tower-960.webp",
+              "width": 654,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-air-coolers-tower-1440.webp",
+              "width": 981,
+              "height": 2160
+            }
+          ],
+          "alt": "The Tower, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.019",
+      "mrp": {
+        "value": 6300,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "washing-machines-apwm-9-0-pm",
+      "slug": "apwm-9-0-pm",
+      "url": "/products/washing-machines/apwm-9-0-pm/",
+      "name": "APWM 9.0 PM",
+      "modelNumber": null,
+      "category": "Washing Machines",
+      "categorySlug": "washing-machines",
+      "series": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Capacity",
+          "label": "Capacity",
+          "value": "9.0 kg"
+        }
+      ],
+      "status": "current",
+      "description": "The APWM 9.0 PM is a semi-automatic washing machine in Aparna's washing machines range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-480.webp",
+              "width": 450,
+              "height": 720
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-960.webp",
+              "width": 900,
+              "height": 1439
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-1440.webp",
+              "width": 1350,
+              "height": 2159
+            }
+          ],
+          "alt": "The APWM 9.0 PM, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        },
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-2-480.webp",
+              "width": 444,
+              "height": 721
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-2-960.webp",
+              "width": 887,
+              "height": 1440
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-0-pm-2-1440.webp",
+              "width": 1331,
+              "height": 2160
+            }
+          ],
+          "alt": "The APWM 9.0 PM, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.020",
+      "mrp": {
+        "value": 13050,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "washing-machines-apwm-7-5-pm",
+      "slug": "apwm-7-5-pm",
+      "url": "/products/washing-machines/apwm-7-5-pm/",
+      "name": "APWM 7.5 PM",
+      "modelNumber": null,
+      "category": "Washing Machines",
+      "categorySlug": "washing-machines",
+      "series": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Capacity",
+          "label": "Capacity",
+          "value": "7.5 kg"
+        },
+        {
+          "key": "Colour",
+          "label": "Colour",
+          "value": "Black"
+        }
+      ],
+      "status": "current",
+      "description": "The APWM 7.5 PM is a semi-automatic washing machine in Aparna's washing machines range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-pm-480.webp",
+              "width": 480,
+              "height": 535
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-pm-960.webp",
+              "width": 960,
+              "height": 1070
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-pm-1440.webp",
+              "width": 1440,
+              "height": 1605
+            }
+          ],
+          "alt": "The APWM 7.5 PM, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.021",
+      "mrp": null
+    },
+    {
+      "id": "washing-machines-apwm-7-5-gm",
+      "slug": "apwm-7-5-gm",
+      "url": "/products/washing-machines/apwm-7-5-gm/",
+      "name": "APWM 7.5 GM",
+      "modelNumber": null,
+      "category": "Washing Machines",
+      "categorySlug": "washing-machines",
+      "series": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Capacity",
+          "label": "Capacity",
+          "value": "7.5 kg"
+        }
+      ],
+      "status": "current",
+      "description": "The APWM 7.5 GM is a semi-automatic washing machine in Aparna's washing machines range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-gm-480.webp",
+              "width": 480,
+              "height": 597
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-gm-960.webp",
+              "width": 960,
+              "height": 1194
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-7-5-gm-1440.webp",
+              "width": 1440,
+              "height": 1791
+            }
+          ],
+          "alt": "The APWM 7.5 GM, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.022",
+      "mrp": {
+        "value": 22050,
+        "variants": [],
+        "varies": false
+      }
+    },
+    {
+      "id": "washing-machines-apwm-9-5-gm",
+      "slug": "apwm-9-5-gm",
+      "url": "/products/washing-machines/apwm-9-5-gm/",
+      "name": "APWM 9.5 GM",
+      "modelNumber": null,
+      "category": "Washing Machines",
+      "categorySlug": "washing-machines",
+      "series": "Washing Machines",
+      "type": "Semi-automatic washing machine",
+      "sizeInch": null,
+      "sizeMm": null,
+      "colours": [],
+      "badges": [],
+      "features": [],
+      "specs": [
+        {
+          "key": "Capacity",
+          "label": "Capacity",
+          "value": "9.5 kg"
+        },
+        {
+          "key": "Colour",
+          "label": "Colour",
+          "value": "Black"
+        }
+      ],
+      "status": "current",
+      "description": "The APWM 9.5 GM is a semi-automatic washing machine in Aparna's washing machines range.",
+      "catalogue": null,
+      "images": [
+        {
+          "variants": [
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-5-gm-480.webp",
+              "width": 480,
+              "height": 516
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-5-gm-960.webp",
+              "width": 960,
+              "height": 1033
+            },
+            {
+              "file": "/media/products/pricelist-washing-machines-apwm-9-5-gm-1440.webp",
+              "width": 1440,
+              "height": 1549
+            }
+          ],
+          "alt": "The APWM 9.5 GM, as pictured in Aparna's price list",
+          "kind": "catalogue"
+        }
+      ],
+      "sort": "8.9.023",
+      "mrp": {
+        "value": 22050,
+        "variants": [],
+        "varies": false
+      }
     }
   ],
   "categories": [
@@ -17543,12 +19695,12 @@
     {
       "name": "Air Coolers",
       "slug": "air-coolers",
-      "count": 15
+      "count": 35
     },
     {
       "name": "Washing Machines",
       "slug": "washing-machines",
-      "count": 1
+      "count": 5
     },
     {
       "name": "Kitchen Appliances",
