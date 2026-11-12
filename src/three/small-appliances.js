@@ -17,6 +17,7 @@
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { makeBlurTexture } from './aeroflow-model.js';
+import { brandMark, brandMarkCurved } from './brand-mark.js';
 
 const mat = (spec) => {
   const m = new THREE.MeshPhysicalMaterial({ side: THREE.DoubleSide, roughness: 0.4, ...spec });
@@ -115,6 +116,15 @@ function loft(fn, material, { rings = 56, around = 30, arc = null } = {}) {
 function sideZ(s, y) {
   const q = THREE.MathUtils.clamp((y - s.y0) / s.h, 0, 1);
   return s.w * (1 - q ** s.e) ** (1 / s.e) * (1 - (s.taper ?? 0) * q);
+}
+
+// The Aparna logo (brand-mark.js) set onto the +z side of a loft section at height y, leaning with the side.
+function sideLogo(colour, width, s, y) {
+  const m = brandMark({ colour, width });
+  const z = sideZ(s, y), lean = (sideZ(s, y + 0.02) - sideZ(s, y - 0.02)) / 0.04;
+  m.rotation.x = -Math.atan(-lean);
+  m.position.set(s.x, y, z + 0.003);
+  return m;
 }
 
 function canvasTexture(w, h, draw) {
@@ -306,7 +316,7 @@ function ratingLabel() {
 }
 
 // 'plancha' irons: a chrome hood, a tall rounded rear body and a looped grip
-function planchaIron(name, { body, sole = CHROME, under, band, hood = CHROME, lamp = '#ff7a1f', label = true, lever = false, ribs = false }) {
+function planchaIron(name, { body, sole = CHROME, under, band, hood = CHROME, lamp = '#ff7a1f', label = true, lever = false, ribs = false, mark = false }) {
   const g = new THREE.Group();
   const bodyMat = mat(body);
   if (band) { // the heavyweight iron: a dark soleplate, a chrome band, then the body colour
@@ -347,6 +357,8 @@ function planchaIron(name, { body, sole = CHROME, under, band, hood = CHROME, la
   if (lever) g.add(rbox(0.07, 0.05, 0.12, 0.015, bodyMat, ix(0.16), hoodTop(0.16) + 0.03, 0.12));
   const s = rear(0.85);
   lens(g, lamp, s.x, 0.04, sideZ(s, 0.04) - 0.004, 0.04);
+  // the logo low on the side of the rear body, under the lamp (Plancha, photo 134): red on the light body
+  if (mark) g.add(sideLogo('red', 0.12, rear(0.8), -0.085));
   if (label) {
     const sl = rear(0.45);
     const plate = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.15), mat({ map: ratingLabel(), color: '#d9dadc', metalness: 0.6, roughness: 0.3 }));
@@ -378,7 +390,7 @@ const IRONS = {
   'electric-irons-new-blue': () => classicIron('new-blue', { handle: plastic('#2a7fd6'), hoodHeight: 0.32, slim: true, knobDial: { face: '#18191b', print: '#bbb', bezel: { color: '#9a9ca0', metalness: 0.8 } }, cap: plastic('#1c1d1f') }),
   // Plancha (photos 134 white, 136 cream): the finish switch shows both
   'electric-irons-plancha': () => {
-    const { g, bodyMat } = planchaIron('plancha', { body: plastic('#f4f4f1'), under: { color: '#b8774b', metalness: 0.9, roughness: 0.35 }, ribs: true });
+    const { g, bodyMat } = planchaIron('plancha', { body: plastic('#f4f4f1'), under: { color: '#b8774b', metalness: 0.9, roughness: 0.35 }, ribs: true, mark: true });
     return shell('plancha', g, {
       pose: IRON_POSE,
       setFinish(key) { bodyMat.color.set(key === 'cream' ? CREAM : '#f4f4f1'); },
@@ -416,23 +428,15 @@ function cabinFan() {
   const support = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.008, 6, 72), white); // a thin ring behind the vanes
   support.position.z = 0.12;
   g.add(support);
-  const badgeTex = canvasTexture(256, 256, (x, w) => {
-    x.fillStyle = '#f4f4f1';
-    x.fillRect(0, 0, w, w);
-    x.fillStyle = '#3a3a3a';
-    x.font = 'bold 34px Arial';
-    x.textAlign = 'center';
-    x.fillText('APARNA', 140, 138);
-    x.lineWidth = 3;
-    x.strokeStyle = '#3a3a3a';
-    x.beginPath(); x.arc(60, 126, 12, 0, Math.PI * 2); x.stroke();
-  });
+  // the round centre badge, carrying the Aparna logo (photo 79): red on the white plastic
   const badge = cyl(0.21, 0.215, 0.05, white, 64);
   badge.rotation.x = Math.PI / 2;
   badge.position.z = 0.165;
-  const face = new THREE.Mesh(new THREE.CircleGeometry(0.205, 64), mat({ map: badgeTex, roughness: 0.3, clearcoat: 0.6 }));
+  const face = new THREE.Mesh(new THREE.CircleGeometry(0.205, 64), mat(plastic('#f4f4f1', { roughness: 0.3 })));
   face.position.z = 0.191;
-  g.add(badge, face);
+  const mark = brandMark({ colour: 'red', width: 0.2 });
+  mark.position.z = 0.194;
+  g.add(badge, face, mark);
   // the stand: a short neck from under the drum to a round foot
   const neck = rbox(0.16, 0.16, 0.14, 0.05, white, 0, -0.84, -0.14);
   const foot = cyl(0.2, 0.23, 0.06, white, 48);
@@ -465,9 +469,8 @@ function motorLabel() {
     x.fillRect(0, 0, w, h);
     x.fillStyle = '#d52027';
     x.fillRect(0, h - 34, w, 34);
-    x.fillStyle = '#ffffff';
-    x.font = 'bold 18px Arial';
-    x.fillText('MADE BY: APARNA ENTERPRISES, NEW DELHI, INDIA', 14, h - 11);
+    x.fillStyle = '#ffffff'; // the maker's line, as fine print (the brand name is never retyped: brand-mark.js)
+    for (let i = 0; i < 6; i++) x.fillRect(14 + i * 82, h - 21, 66 - (i % 2) * 14, 7);
     x.fillStyle = '#222';
     x.font = 'bold 20px Arial';
     x.fillText('CAPACITOR Start & Run 1-Ph. Motor', 92, 30);
@@ -479,9 +482,7 @@ function motorLabel() {
     x.font = 'bold 15px Arial';
     x.textAlign = 'center';
     x.fillText('ENERGY', 420, 72); x.fillText('EFFICIENT', 420, 90); x.fillText('MOTOR', 420, 108);
-    x.fillStyle = '#d52027';
-    x.font = 'bold 22px Arial';
-    x.fillText('APARNA', 46, 98);
+    // (the Aparna logo is a separate decal, on the motors whose photo shows it: motor())
   });
   return motorLabelTexture;
 }
@@ -490,7 +491,7 @@ function bolt(material, x, y, z, r = 0.03, h = 0.03) {
   b.position.set(x, y, z);
   return b;
 }
-function motor(name, { r, h, top = 'flat', fins, ring, clamps, wings, capacitor = false, holes = false, labelY = 0.15, labelAround = 0, topBolts = 6, shaft = 0.5, studs = 0.12 }) {
+function motor(name, { r, h, top = 'flat', fins, ring, clamps, wings, capacitor = false, holes = false, labelY = 0.15, labelAround = 0, topBolts = 6, shaft = 0.5, studs = 0.12, mark = null }) {
   const g = new THREE.Group();
   const paint = mat(MOTOR_PAINT);
   const zinc = mat(ZINC);
@@ -576,6 +577,14 @@ function motor(name, { r, h, top = 'flat', fins, ring, clamps, wings, capacitor 
   const label = new THREE.Mesh(new THREE.CylinderGeometry(r + 0.004, r + 0.004, 0.2, 48, 1, true, -0.62 + labelAround, 1.24), mat({ map: motorLabel(), roughness: 0.45 }));
   label.position.y = y0 + h * 0.5 + labelY;
   g.add(label);
+  // the red Aparna logo on the label: in its top-left corner, or over the middle (motor 5), as each photo shows
+  if (mark) {
+    const corner = mark === 'corner';
+    g.add(brandMarkCurved({
+      colour: 'red', width: corner ? 0.11 : 0.1, radius: r + 0.007,
+      y: label.position.y + (corner ? 0.045 : 0), angle: labelAround + (corner ? -0.62 + 0.11 / (r + 0.007) / 2 + 0.03 : -0.05),
+    }));
+  }
   if (holes) for (const [a, yy] of [[-0.9, 0.32], [-0.95, -0.32]]) { // the two drain holes
     const d = new THREE.Mesh(new THREE.CircleGeometry(0.06, 24), mat({ color: '#f4f4f0', roughness: 0.6 }));
     d.position.set(Math.sin(a) * (r + 0.005), y0 + h * 0.5 + yy, Math.cos(a) * (r + 0.005));
@@ -607,13 +616,13 @@ function motor(name, { r, h, top = 'flat', fins, ring, clamps, wings, capacitor 
 }
 const MOTORS = {
   'motors-cooler-motor-1': () => motor('cooler-motor-1', { r: 0.4, h: 1.1, fins: [0.36, 0.74], labelY: 0.4, shaft: 0.48, topBolts: 4 }),
-  'motors-cooler-motor-2': () => motor('cooler-motor-2', { r: 0.46, h: 1.0, ring: 0.66, labelY: 0.19, shaft: 0.36 }),
-  'motors-cooler-motor-3': () => motor('cooler-motor-3', { r: 0.56, h: 0.68, fins: [0.08, 0.42], clamps: { at: 0.5 }, capacitor: true, labelY: 0.1, shaft: 0.42, studs: 0.18, topBolts: 8 }),
+  'motors-cooler-motor-2': () => motor('cooler-motor-2', { r: 0.46, h: 1.0, ring: 0.57, labelY: 0.25, shaft: 0.36, mark: 'corner' }),
+  'motors-cooler-motor-3': () => motor('cooler-motor-3', { r: 0.56, h: 0.68, fins: [0.08, 0.42], clamps: { at: 0.5 }, capacitor: true, labelY: 0.1, shaft: 0.42, studs: 0.18, topBolts: 8, mark: 'corner' }),
   'motors-cooler-motor-4': () => motor('cooler-motor-4', { r: 0.58, h: 0.92, holes: true, labelY: -0.02, labelAround: 0.25, shaft: 0.5 }),
-  'motors-cooler-motor-5': () => motor('cooler-motor-5', { r: 0.55, h: 0.98, clamps: { at: 0.36, tall: true }, labelY: 0.17, shaft: 0.45, topBolts: 8 }),
+  'motors-cooler-motor-5': () => motor('cooler-motor-5', { r: 0.55, h: 0.98, clamps: { at: 0.36, tall: true }, labelY: 0.17, shaft: 0.45, topBolts: 8, mark: 'middle' }),
   'motors-cooler-motor-6': () => motor('cooler-motor-6', { r: 0.54, h: 0.98, labelY: -0.12, labelAround: 0.3, shaft: 0.45, topBolts: 8 }),
-  'motors-cooler-motor-7': () => motor('cooler-motor-7', { r: 0.48, h: 1.0, wings: { at: 0.5 }, labelY: 0.18, shaft: 0.34 }),
-  'motors-cooler-motor-8': () => motor('cooler-motor-8', { r: 0.53, h: 0.92, top: 'dome', wings: { at: 0.42, wide: true }, labelY: 0.12, shaft: 0.5, topBolts: 0 }),
+  'motors-cooler-motor-7': () => motor('cooler-motor-7', { r: 0.48, h: 1.0, wings: { at: 0.5 }, labelY: 0.18, shaft: 0.34, mark: 'corner' }),
+  'motors-cooler-motor-8': () => motor('cooler-motor-8', { r: 0.53, h: 0.92, top: 'dome', wings: { at: 0.42, wide: true }, labelY: 0.12, shaft: 0.5, topBolts: 0, mark: 'corner' }),
 };
 
 // ================================================================ cooler pumps (photos 156-161)
@@ -726,6 +735,13 @@ const PUMPS = {
     const label = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.36), mat({ map: motorLabel(), roughness: 0.4 }));
     label.position.set(0.05, 0.26, 0.322);
     g.add(label);
+    // the white Aparna logo on a red patch of the sticker, turned a quarter as printed (photo 159)
+    const patch = new THREE.Mesh(new THREE.PlaneGeometry(0.095, 0.13), mat({ color: '#d52027', roughness: 0.4 }));
+    patch.position.set(-0.07, 0.2, 0.3235);
+    const mark = brandMark({ colour: 'white', width: 0.11 });
+    mark.rotation.z = Math.PI / 2;
+    mark.position.set(-0.07, 0.2, 0.325);
+    g.add(patch, mark);
     const filter = cyl(0.25, 0.25, 0.42, cream, 40); // the inlet filter, pointing out to -x
     filter.rotation.z = Math.PI / 2;
     filter.position.set(-0.42, -0.18, 0);

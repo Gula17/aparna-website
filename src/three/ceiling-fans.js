@@ -14,8 +14,82 @@
 
 import * as THREE from 'three';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
+import { brandMark, MARK_ASPECT } from './brand-mark.js';
 
 const TOP = 0.5; // canopy top; these fans hang on a short drop, as in their photos
+
+// The Aparna logo (brand-mark.js) laid on a turned surface (axis y) whose outline is `points`, as given to
+// lathe(): it follows the slope and curve of a cup or cone canopy instead of standing off it like a cylinder
+// decal. Centred at height y and facing `angle` (0 = +z, growing towards +x), lifted `lift` off the surface;
+// width is measured across the surface. `sides` > 0 is a faceted (e.g. five-sided) surface made by lathe(points,
+// sides): the decal then lies flat on the facet whose middle is nearest `angle`.
+export function latheLogo({ colour, width, points, y, angle = 0, sides = 0, lift = 0.002 }) {
+  const mark = brandMark({ colour, width });
+  const h = width * MARK_ASPECT;
+  const prof = new THREE.SplineCurve(points.map(([r, yy]) => new THREE.Vector2(r, yy))).getPoints(240);
+  const len = [0];
+  for (let i = 1; i < prof.length; i++) len.push(len[i - 1] + prof[i].distanceTo(prof[i - 1]));
+  // the outline point (and its outward normal) at a distance s along the outline
+  const at = (s) => {
+    let i = 1;
+    while (i < prof.length - 1 && len[i] < s) i++;
+    const a = prof[i - 1], b = prof[i], f = THREE.MathUtils.clamp((s - len[i - 1]) / (len[i] - len[i - 1] || 1), 0, 1);
+    const t = b.clone().sub(a).normalize();
+    let n = new THREE.Vector2(t.y, -t.x);
+    if (n.x < 0) n.negate();
+    return { r: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f, n };
+  };
+  // where the centre height falls along the outline
+  let s0 = 0;
+  for (let i = 1; i < prof.length; i++) {
+    const a = prof[i - 1], b = prof[i];
+    if ((a.y - y) * (b.y - y) <= 0 && a.y !== b.y) { s0 = len[i - 1] + (len[i] - len[i - 1]) * ((y - a.y) / (b.y - a.y)); if (a.x > 0.01 || b.x > 0.01) break; }
+  }
+  const cols = 32, rows = 14, pos = [], uv = [], index = [];
+  const facet = sides ? Math.PI / sides + Math.round((angle - Math.PI / sides) / ((2 * Math.PI) / sides)) * ((2 * Math.PI) / sides) : angle;
+  for (let j = 0; j <= rows; j++) {
+    const v = 1 - j / rows; // the top row first
+    const p = at(s0 + (j / rows - 0.5) * h);
+    const R = p.r + p.n.x * lift, Y = p.y + p.n.y * lift;
+    for (let i = 0; i <= cols; i++) {
+      const u = i / cols, t = (u - 0.5) * width;
+      if (sides) { // flat on the facet: out along its middle, across along it
+        const apo = R * Math.cos(Math.PI / sides);
+        pos.push(Math.sin(facet) * apo + Math.cos(facet) * t, Y, Math.cos(facet) * apo - Math.sin(facet) * t);
+      } else {
+        const a = facet + t / R;
+        pos.push(Math.sin(a) * R, Y, Math.cos(a) * R);
+      }
+      uv.push(u, v);
+    }
+  }
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const a = j * (cols + 1) + i, b = a + cols + 1;
+    index.push(a, b, a + 1, a + 1, b, b + 1);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setIndex(index);
+  geo.computeVertexNormals();
+  mark.geometry.dispose();
+  mark.geometry = geo;
+  return mark;
+}
+
+// The canopy logo in both colours: red on the light finishes, white on the rest (the studio photos print white
+// on gold and champagne too). setFinish shows one.
+const LIGHT_CANOPIES = new Set(['white', 'ivory', 'pearl-white', 'titanium-silver']);
+function canopyLogos(stator, spec) {
+  const red = latheLogo({ ...spec, colour: 'red' });
+  const white = latheLogo({ ...spec, colour: 'white' });
+  stator.add(red, white);
+  return (finishKey) => { const light = LIGHT_CANOPIES.has(finishKey); red.visible = light; white.visible = !light; };
+}
+// the canopy outlines (also used to lay the logo on them)
+const CUP_CANOPY = [[0, TOP], [0.084, TOP], [0.088, TOP - 0.014], [0.082, TOP - 0.06], [0.058, TOP - 0.1], [0.032, TOP - 0.122], [0.028, TOP - 0.14], [0.022, TOP - 0.15]];
+const CONE_CANOPY = [[0, TOP], [0.1, TOP], [0.102, TOP - 0.014], [0.06, TOP - 0.08], [0.03, TOP - 0.14], [0.022, TOP - 0.16]];
+const LOGO_ANGLE = 0.6; // facing the viewer's opening view (viewerPose azimuth), as the photos show it
 
 // Body and blade colours for every colour name in the product data and in the studio photos.
 export const CEILING_FINISHES = {
@@ -281,12 +355,15 @@ function createCeiling(name, cfg) {
 
   // ---- still: canopy (cup, cone or five-sided cone) and the downrod with its cone cover over the motor
   const cone = cfg.canopy === 'cone' || cfg.canopy === 'penta';
-  const canopyGeo = cone
-    ? lathe([[0, TOP], [0.1, TOP], [0.102, TOP - 0.014], [0.06, TOP - 0.08], [0.03, TOP - 0.14], [0.022, TOP - 0.16]], cfg.canopy === 'penta' ? 5 : 64)
-    : lathe([[0, TOP], [0.084, TOP], [0.088, TOP - 0.014], [0.082, TOP - 0.06], [0.058, TOP - 0.1], [0.032, TOP - 0.122], [0.028, TOP - 0.14], [0.022, TOP - 0.15]]);
+  const canopyGeo = cone ? lathe(CONE_CANOPY, cfg.canopy === 'penta' ? 5 : 64) : lathe(CUP_CANOPY);
   if (cfg.canopy === 'penta') { const g = canopyGeo.toNonIndexed(); g.computeVertexNormals(); canopyGeo.copy(g); }
   const stator = new THREE.Group();
   stator.add(new THREE.Mesh(canopyGeo, m.canopy));
+  // the Aparna logo on the front of the canopy, as in every studio photo (about half the canopy across, a
+  // third to a half of the way down)
+  const showLogo = cfg.logo === false ? () => {} : canopyLogos(stator, cone
+    ? { points: CONE_CANOPY, width: 0.066, y: TOP - 0.046, angle: LOGO_ANGLE, sides: cfg.canopy === 'penta' ? 5 : 0 }
+    : { points: CUP_CANOPY, width: 0.07, y: TOP - 0.042, angle: LOGO_ANGLE });
   if (cfg.canopyRim) { // Irus, Art Pro, Flora: a copper rim round the top of the canopy
     const rim = new THREE.Mesh(new THREE.TorusGeometry(cone ? 0.101 : 0.087, 0.007, 10, 64), m.accent);
     rim.rotation.x = Math.PI / 2;
@@ -406,6 +483,7 @@ function createCeiling(name, cfg) {
   function setFinish(key) {
     const known = CEILING_FINISHES[key] ? key : cfg.colour;
     const f = { ...CEILING_FINISHES[known], ...(cfg.finishes?.[known] ?? {}) };
+    showLogo(known);
     for (const [mat, color] of [[m.body, f.body], [m.blade, f.blade], [m.canopy, f.canopy ?? f.body]]) {
       mat.color.set(color);
       mat.metalness = f.metal;
@@ -554,7 +632,7 @@ export const CEILING = {
   'lumero-48': { ...SILVER, colour: 'ivory', trim: 'ornate', accent: 'copper', tip: 'swept', chord: 0.16 },
   'nikon-48': { ...SILVER, colour: 'metallic-blue', holes: 3, deco: 'steps', accent: 'steel', ribs: false, baseRing: 0.6, baseRingTube: 0.004 },
   'orchid-deco-48': { ...SILVER, trim: 'shell', rim: true },
-  'orina-48': { ...SILVER, trim: 'button', deco: 'swirl', band: true },
+  'orina-48': { ...SILVER, trim: 'button', deco: 'swirl', band: true, logo: false }, // its photo shows a plain canopy
   'platinium-48': { ...SILVER, colour: 'ivory', trim: 'shell', rim: true, baseRing: 0.62 },
   'porsche-48': { ...SILVER, trim: 'loop', rim: true },
   'rafale-48': { ...SILVER, holes: 3, band: true, ribs: false },
@@ -624,7 +702,10 @@ function createAirMax({ shadows = false } = {}) {
   fan.name = 'air-max';
 
   // still: inverted-cone canopy with a maroon rim, the downrod and the cone shank cover
-  const canopy = new THREE.Mesh(lathe([[0, TOP], [0.11, TOP], [0.112, TOP - 0.012], [0.07, TOP - 0.08], [0.03, TOP - 0.15], [0.022, TOP - 0.165]]), m.body);
+  const canopyOutline = [[0, TOP], [0.11, TOP], [0.112, TOP - 0.012], [0.07, TOP - 0.08], [0.03, TOP - 0.15], [0.022, TOP - 0.165]];
+  const canopy = new THREE.Mesh(lathe(canopyOutline), m.body);
+  // the logo on the front of the canopy, white in both finishes (studio photos 15 and 16)
+  const logo = latheLogo({ colour: 'white', width: 0.072, points: canopyOutline, y: TOP - 0.046, angle: LOGO_ANGLE });
   const rim = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.009, 10, 64), m.maroon);
   rim.rotation.x = Math.PI / 2;
   rim.position.y = TOP - 0.008;
@@ -632,7 +713,7 @@ function createAirMax({ shadows = false } = {}) {
   rod.position.y = (TOP - 0.165 + 0.13) / 2;
   const shank = new THREE.Mesh(lathe([[0.019, 0.14], [0.03, 0.11], [0.05, 0.085], [0.075, 0.068]], 40), m.body);
   const stator = new THREE.Group();
-  stator.add(canopy, rim, rod, shank);
+  stator.add(canopy, rim, rod, shank, logo);
 
   // turning: a low wide motor with a maroon line at the waist and the three-armed plate on its base
   const r = 0.2;

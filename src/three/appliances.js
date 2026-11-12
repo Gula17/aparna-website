@@ -13,6 +13,16 @@
 
 import * as THREE from 'three';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
+import { brandMark, brandMarkCurved } from './brand-mark.js';
+
+// The Aparna logo (brand-mark.js) where each studio photo prints it: red on light parts, white on dark ones.
+// A flat decal facing +z at (x, y, z); flat: true lays it on a top face (facing up, reading from the front).
+function logo(colour, width, x, y, z, { flat = false } = {}) {
+  const m = brandMark({ colour, width });
+  if (flat) m.rotation.x = -Math.PI / 2;
+  m.position.set(x, y, z);
+  return m;
+}
 
 const mat = (spec) => {
   const m = new THREE.MeshPhysicalMaterial({ side: THREE.DoubleSide, roughness: 0.4, ...spec });
@@ -221,22 +231,23 @@ function hotplate(name, { finish, frame, stand = false, tall = false, shape = 'b
   const terminal = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.02, 20), coilMat);
   terminal.position.y = yTop - 0.004;
   for (const part of [dish, bed, coil, terminal]) { part.position.x += cx; part.position.z += cz; g.add(part); }
-  // the black knob at the front right, and the white oval nameplate with its red rim
+  // the black knob at the front right, and the white oval nameplate with its red rim in the left half, carrying
+  // the red Aparna logo (every hot plate's studio photo, 162-178)
   const ky = y0 + H * 0.45;
   const kx = pressed ? 0.33 : 0.36;
   g.add(knob(black, kx, ky, front + 0.025, 0.055));
   const pointer = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.085, 0.03), black); // the knob's grip ridge
   pointer.position.set(kx, ky, front + 0.06);
   g.add(pointer);
-  const badgeRim = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.01, 32), mat({ color: '#c8232c', roughness: 0.35, clearcoat: 0.8 }));
+  const badgeRim = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.01, 32), mat({ color: '#c8232c', roughness: 0.35, clearcoat: 0.8 }));
   badgeRim.rotation.x = Math.PI / 2;
-  badgeRim.scale.x = 2.0;
-  badgeRim.position.set(-0.04, y0 + H * 0.4, front);
+  badgeRim.scale.x = 2.3;
+  badgeRim.position.set(-0.24, y0 + H * 0.42, front);
   const badge = badgeRim.clone();
   badge.material = mat({ color: '#f4f2ee', roughness: 0.35 });
-  badge.scale.set(1.8, 0.8, 0.72);
+  badge.scale.set(2.17, 0.9, 0.85);
   badge.position.z += 0.004;
-  g.add(badgeRim, badge);
+  g.add(badgeRim, badge, logo('red', 0.105, badgeRim.position.x, badgeRim.position.y, front + 0.0105));
   // vent slots down both sides
   const slotMat = mat({ color: '#1a1b1d', roughness: 0.7 });
   const sx = pressed ? (W / 2) * (1 - 0.16 * 0.5) + 0.004 : W / 2 + 0.006;
@@ -288,13 +299,10 @@ function ringTexture(kind) {
     x.fillStyle = gr;
     x.beginPath(); x.moveTo(0, 360); x.bezierCurveTo(170, 280, 340, 470, 512, 360); x.lineTo(512, 400); x.bezierCurveTo(340, 510, 170, 320, 0, 400); x.fill();
   }
-  if (kind === 'grill') { // Prince: plain glass under the grill, a faint ring and the red logo at the back right
+  if (kind === 'grill') { // Prince: plain glass under the grill and a faint ring (the logo is a decal, cooktop())
     x.strokeStyle = '#3a3c40';
     x.lineWidth = 3;
     x.beginPath(); x.arc(230, 270, 150, 0, Math.PI * 2); x.stroke();
-    x.fillStyle = '#d3222b';
-    x.font = 'bold italic 44px Arial';
-    x.fillText('APARNA', 340, 70);
   } else {
     // Presto: two pale rings round a red centre mark; Prime: one grey ring through the red sweep
     x.strokeStyle = kind === 'swirl' ? '#8a8c90' : '#d6d7d9';
@@ -320,6 +328,9 @@ function cooktop(name, { print = 'ring', grill = false, frameFinish = 'steel' })
   glass.rotation.x = -Math.PI / 2;
   glass.position.y = 0.012;
   g.add(base, glass);
+  // the Aparna logo printed on the glass at the back of the control area, right (studio photos 113-115); white
+  // on the black glass (Prince's photo prints it red, which the brand's colour rule replaces with white here)
+  g.add(logo('white', 0.1, grill ? 0.33 : 0.37, 0.0145, grill ? -0.22 : -0.14, { flat: true }));
   // the heating ring under the glass, which glows through it when switched on
   const [cx, cz, rx, rz] = print === 'grill' ? [-0.051, 0.017, 0.293, 0.1875] : [-0.109, 0.017, 0.3125, 0.2];
   g.add(heatRing(cx, cz, rx, rz, 0.016));
@@ -365,7 +376,7 @@ function sideTexture(kind, bg, fg) {
 // Low models: a soft box, black slatted front, knobs at the top right and a warm-air vent on top (round, or
 // a slatted panel on Pearl). Upright models: narrow at the front, deep at the side; the front grille sits in a
 // coloured frame, the wide sides are perforated, the knobs stand on top.
-function fanHeater(name, { w, h, d, body, front, frame, side, upright = false, knobs = 2, knobColour, vent = 'round' }) {
+function fanHeater(name, { w, h, d, body, front, frame, side, upright = false, knobs = 2, knobColour, vent = 'round', mark = null }) {
   const g = new THREE.Group();
   const bodyMat = mat(body);
   const frontMat = mat(front);
@@ -379,6 +390,10 @@ function fanHeater(name, { w, h, d, body, front, frame, side, upright = false, k
     g.add(f);
     fz += 0.015;
   }
+  // the Aparna logo: on the top by the front edge, left of centre (low models, photos 116, 121, 123), or on the
+  // front frame above the grille (Silky, 122)
+  if (mark === 'top') g.add(logo('red', 0.16, -w * 0.22, h / 2 + 0.021 + 0.002, d / 2 - 0.1, { flat: true }));
+  else if (mark === 'frame') g.add(logo('white', 0.15, 0, (gy + gh / 2 + h * 0.42) / 2, d / 2 + 0.015 + 0.002));
   const panel = new THREE.Mesh(new THREE.PlaneGeometry(gw, gh), mat({ color: '#111214', roughness: 0.6 }));
   panel.userData.power = { kind: 'heat', emissive: '#ff4a12', intensity: 1.3, color: '#5a1a08' }; // the element glows behind the slats
   panel.position.set(0, gy, fz + 0.003);
@@ -486,6 +501,7 @@ function quartzHeater(name) {
   strip.position.set(0, -0.36, 0.215);
   const dial = knob(mat({ color: '#e8dcc0', roughness: 0.4 }), 0.12, -0.36, 0.25, 0.06);
   g.add(topBar, base, strip, dial, lamp('#ffb02e', -0.06, -0.36, 0.235));
+  g.add(logo('white', 0.15, -0.26, -0.36, 0.2325)); // white on the left of the red strip, as in the photo
   const reflector = new THREE.Mesh(new THREE.PlaneGeometry(0.84, 0.7), chrome);
   reflector.position.set(0, 0.09, -0.12);
   g.add(reflector);
@@ -555,6 +571,7 @@ function sunHeater(name) {
   foot.scale.z = 0.62;
   foot.position.set(0, cy - 0.69, -0.04);
   g.add(badge, rim, yoke, neck, band, foot);
+  g.add(logo('red', 0.125, 0, cy, 0.1015)); // on the round centre badge, as in the photo
   return shell(name, g, { pose: { elevation: 0.12, zoom: 1.05 } });
 }
 
@@ -577,6 +594,7 @@ function immersionRod(name, { handle = 'lime' } = {}) {
     cord.position.set(-0.08, 1.02, 0);
     cord.rotation.z = 0.5;
     g.add(body, band, collar, cord);
+    g.add(logo('red', 0.15, 0, 0.86, 0.0875)); // on the front of the handle, upper half (photo 141)
     top = 0.42;
   } else {
     const bell = new THREE.Mesh(lathe([[0, 1.04], [0.06, 1.03], [0.11, 0.96], [0.135, 0.82], [0.14, 0.72], [0.095, 0.68], [0.07, 0.67]]), mat({ color: '#1f2022', roughness: 0.35, clearcoat: 0.6 }));
@@ -586,6 +604,8 @@ function immersionRod(name, { handle = 'lime' } = {}) {
     label.position.y = 0.5;
     const cord = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([[0, 1.02], [0, 1.1], [0.04, 1.18], [0.1, 1.22]].map(([x, y]) => new THREE.Vector3(x, y, 0))), 12, 0.022, 8), cordMat);
     g.add(bell, sleeve, label, cord);
+    // the red logo at the top of the printed label (photo 142; the handle's moulded mark is not the logo file)
+    g.add(brandMarkCurved({ colour: 'red', width: 0.075, radius: 0.066, y: 0.585 }));
     top = 0.3;
   }
   // the heating element is one tube: down the left rod, bending out into the coil, four turns down, then back
@@ -704,6 +724,7 @@ function cromaHeater(name) {
   const capDome = new THREE.Mesh(new THREE.SphereGeometry(0.045, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), white);
   capDome.position.set(0.15, 0.49, -0.04);
   g.add(body, lip, hood, capBase, capDome, tap(white, -0.13, -0.02, 0.21));
+  g.add(logo('red', 0.15, 0.1, -0.42, 0.2335)); // low on the white body, right of centre (photo 140)
   g.add(lamp('#ff3b30', -0.04, 0.27, 0.205), lamp('#38c7d1', 0.05, 0.27, 0.205));
   for (const x of [-0.1, 0.1]) { // inlet and outlet pipes underneath
     const pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.12, 10), mat(FINISH.chrome));
@@ -732,6 +753,7 @@ function croma2Heater(name) {
   const upper = new THREE.Mesh(upperGeo, grey);
   upper.position.y = 0.21;
   g.add(lower, upper, tap(white, -0.14, -0.08, 0.21));
+  g.add(logo('red', 0.13, 0.1, 0.25, 0.2325)); // on the grey upper section, right of centre (photo 137)
   g.add(lamp('#3ac05a', -0.19, 0.27, 0.235, true), lamp('#ff3b30', -0.19, 0.19, 0.235, true));
   return shell(name, g, { pose: { elevation: 0.15, azimuth: 0.45, zoom: 1.05 } });
 }
@@ -756,14 +778,14 @@ export const APPLIANCES = {
   'kitchen-appliances-presto': build(() => cooktop('presto', { print: 'ring', frameFinish: 'steel' })),
   'kitchen-appliances-prime': build(() => cooktop('prime', { print: 'swirl', frameFinish: 'abs' })),
   'kitchen-appliances-prince': build(() => cooktop('prince', { print: 'grill', grill: true, frameFinish: 'steel' })),
-  'heating-water-alexa': build(() => fanHeater('alexa', { w: 0.95, h: 0.5, d: 0.68, body: FINISH.white, front: FINISH.black })),
-  'heating-water-alineo': build(() => fanHeater('alineo', { w: 1.05, h: 0.56, d: 0.74, body: FINISH.white, front: FINISH.black, knobColour: { color: '#ece6d4', roughness: 0.35 } })),
-  'heating-water-pearl': build(() => fanHeater('pearl', { w: 1.0, h: 0.52, d: 0.66, body: { color: '#e4e4e1', roughness: 0.4 }, front: { color: '#2a2b2e', roughness: 0.4 }, vent: 'slats' })),
+  'heating-water-alexa': build(() => fanHeater('alexa', { w: 0.95, h: 0.5, d: 0.68, body: FINISH.white, front: FINISH.black, mark: 'top' })),
+  'heating-water-alineo': build(() => fanHeater('alineo', { w: 1.05, h: 0.56, d: 0.74, body: FINISH.white, front: FINISH.black, knobColour: { color: '#ece6d4', roughness: 0.35 }, mark: 'top' })),
+  'heating-water-pearl': build(() => fanHeater('pearl', { w: 1.0, h: 0.52, d: 0.66, body: { color: '#e4e4e1', roughness: 0.4 }, front: { color: '#2a2b2e', roughness: 0.4 }, vent: 'slats', mark: 'top' })),
   // the upright ones: narrow front, deep perforated sides
   'heating-water-pox': build(() => fanHeater('pox', { w: 0.5, h: 0.9, d: 0.75, body: FINISH.white, frame: { color: '#2a2b2e', roughness: 0.4 }, front: { color: '#55575b', roughness: 0.4 }, side: { kind: 'dots', bg: '#f1f1ee', fg: '#a9aaa8' }, upright: true, knobs: 2 })),
   'heating-water-roxx': build(() => fanHeater('roxx', { w: 0.5, h: 0.9, d: 0.75, body: { color: '#ebe5d6', roughness: 0.45 }, frame: { color: '#9c9d9f', roughness: 0.4 }, front: { color: '#2a2b2e', roughness: 0.45 }, side: { kind: 'dots', bg: '#ebe5d6', fg: '#b0a68e' }, upright: true, knobs: 2, knobColour: { color: '#ebe5d6', roughness: 0.4 } })),
   'heating-water-rozer': build(() => fanHeater('rozer', { w: 0.52, h: 0.92, d: 0.72, body: { color: '#26272a', roughness: 0.4 }, frame: { color: '#e6672a', roughness: 0.35, clearcoat: 0.6 }, front: { color: '#c8322a', roughness: 0.35 }, side: { kind: 'dots', bg: '#26272a', fg: '#151617' }, upright: true, knobs: 2, knobColour: { color: '#232427', roughness: 0.35 } })),
-  'heating-water-silky': build(() => fanHeater('silky', { w: 0.5, h: 0.95, d: 0.72, body: FINISH.white, frame: { color: '#9a6b4c', metalness: 0.6, roughness: 0.3 }, front: { color: '#1e1f21', roughness: 0.45 }, side: { kind: 'ribs', bg: '#f1f1ee', fg: '#b9b9b4' }, upright: true, knobs: 2, knobColour: { color: '#ece6d4', roughness: 0.35 } })),
+  'heating-water-silky': build(() => fanHeater('silky', { w: 0.5, h: 0.95, d: 0.72, body: FINISH.white, frame: { color: '#9a6b4c', metalness: 0.6, roughness: 0.3 }, front: { color: '#1e1f21', roughness: 0.45 }, side: { kind: 'ribs', bg: '#f1f1ee', fg: '#b9b9b4' }, upright: true, knobs: 2, knobColour: { color: '#ece6d4', roughness: 0.35 }, mark: 'frame' })),
   'heating-water-sigma': build(() => quartzHeater('sigma')),
   'heating-water-sun-heater-sunshine-14': build(() => sunHeater('sun-heater')),
   'heating-water-pearl-immersion-rod-1000-w': build(() => immersionRod('rod-1000', { handle: 'black' })),

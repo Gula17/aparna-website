@@ -10,6 +10,17 @@
 
 import * as THREE from 'three';
 import { makeBlurTexture } from './aeroflow-model.js';
+import { brandMark } from './brand-mark.js';
+
+const roundedRect = (w, h, r) => {
+  const s = new THREE.Shape();
+  s.moveTo(-w / 2 + r, -h / 2);
+  s.lineTo(w / 2 - r, -h / 2); s.quadraticCurveTo(w / 2, -h / 2, w / 2, -h / 2 + r);
+  s.lineTo(w / 2, h / 2 - r); s.quadraticCurveTo(w / 2, h / 2, w / 2 - r, h / 2);
+  s.lineTo(-w / 2 + r, h / 2); s.quadraticCurveTo(-w / 2, h / 2, -w / 2, h / 2 - r);
+  s.lineTo(-w / 2, -h / 2 + r); s.quadraticCurveTo(-w / 2, -h / 2, -w / 2 + r, -h / 2);
+  return s;
+};
 
 const physical = (spec) => {
   const m = new THREE.MeshPhysicalMaterial({ roughness: 0.4, ...spec });
@@ -171,6 +182,27 @@ function cooler(name, cfg) {
   window_.position.set(cfg.ribs ? w * 0.07 : 0, floor + lower * 0.5, d * 0.485 + (cfg.ribs ? 0.026 : 0.004));
   stator.add(window_);
 
+  // the Aparna logo: a small red badge carrying the white logo (brand-mark.js), as on each poster: in a top
+  // corner of the cabinet front above the panel ('left' / 'right'), or on the top beside the knobs ('top-left' /
+  // 'top-right')
+  if (cfg.mark) {
+    const bw = 0.1, bh = 0.074;
+    const badge = new THREE.Mesh(new THREE.ShapeGeometry(roundedRect(bw, bh, 0.014), 6), physical({ color: '#d2232a', roughness: 0.35, clearcoat: 0.7 }));
+    const mark = brandMark({ colour: 'white', width: 0.078 });
+    const g = new THREE.Group();
+    g.add(badge, mark);
+    mark.position.z = 0.0015;
+    if (cfg.mark.startsWith('top')) {
+      const span = (((cfg.knobs ?? 1) - 1) / 2) * 0.11 + 0.12;
+      g.rotation.x = -Math.PI / 2;
+      g.position.set(cfg.mark === 'top-left' ? -span : span, floor + H + (cfg.glassTop ? 0.054 : 0.047), d * 0.3);
+    } else {
+      const s = cfg.mark === 'left' ? -1 : 1;
+      g.position.set(fx + s * (pw / 2 - bw / 2 - 0.02), floor + lower + upper * 0.945, d / 2 + 0.003);
+    }
+    stator.add(g);
+  }
+
   // knobs on top, at the front
   for (let i = 0; i < (cfg.knobs ?? 0); i++) {
     const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.045, 0.035, 24), m.knob);
@@ -240,19 +272,19 @@ const PERSONAL = { w: 0.66, d: 0.56, upper: 1.0, lower: 0.62, side: 'honeycomb',
 const BLACK = '#17181b', LILAC = '#b9a3d9', TEAL = '#3f9fb8';
 
 export const COOLERS = {
-  'discovery-1201': build('discovery-1201', { ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: BLACK } }),
-  'discovery-1202': build('discovery-1202', { ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: LILAC }, knobs: 3 }),
-  'discovery-1203-dlx': build('discovery-1203-dlx', { ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: BLACK }, glassTop: true }),
-  'discovery-1204-dlx': build('discovery-1204-dlx', { ...PERSONAL, upper: 1.1, lower: 0.72, sides: ['right'], front: { kind: 'louvre', colour: BLACK }, glassTop: true, zoom: 0.88 }),
-  'pearl-009': build('pearl-009', { ...PERSONAL, w: 0.58, side: 'slots', sides: ['left'], front: { kind: 'louvre', colour: TEAL, width: 0.62 }, knobs: 2 }),
-  'pearl-1201': build('pearl-1201', { ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: LILAC } }),
-  'pearl-1202': build('pearl-1202', { ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: TEAL }, legs: TEAL }),
-  'pearl-1203-dlx': build('pearl-1203-dlx', { ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: LILAC }, legs: LILAC, glassTop: true, knobs: 3 }),
+  'discovery-1201': build('discovery-1201', { mark: 'left', ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: BLACK } }),
+  'discovery-1202': build('discovery-1202', { mark: 'top-right', ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: LILAC }, knobs: 3 }),
+  'discovery-1203-dlx': build('discovery-1203-dlx', { mark: 'right', ...PERSONAL, sides: ['right'], front: { kind: 'louvre', colour: BLACK }, glassTop: true }),
+  'discovery-1204-dlx': build('discovery-1204-dlx', { mark: 'left', ...PERSONAL, upper: 1.1, lower: 0.72, sides: ['right'], front: { kind: 'louvre', colour: BLACK }, glassTop: true, zoom: 0.88 }),
+  'pearl-009': build('pearl-009', { mark: 'right', ...PERSONAL, w: 0.58, side: 'slots', sides: ['left'], front: { kind: 'louvre', colour: TEAL, width: 0.62 }, knobs: 2 }),
+  'pearl-1201': build('pearl-1201', { mark: 'left', ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: LILAC } }),
+  'pearl-1202': build('pearl-1202', { mark: 'right', ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: TEAL }, legs: TEAL }),
+  'pearl-1203-dlx': build('pearl-1203-dlx', { mark: 'top-left', ...PERSONAL, sides: ['left'], front: { kind: 'louvre', colour: LILAC }, legs: LILAC, glassTop: true, knobs: 3 }),
   // Ultima: larger, a smooth or gridded dark front, vent slots, ribbed tank
-  'ultima-1401': build('ultima-1401', { w: 0.82, d: 0.62, upper: 0.95, lower: 0.62, side: 'slots', sides: ['right'], front: { kind: 'smooth', colour: BLACK, width: 0.78 }, ribs: true }),
-  'ultima-1402': build('ultima-1402', { w: 0.82, d: 0.62, upper: 1.0, lower: 0.7, side: 'slots', sides: ['right'], front: { kind: 'smooth', colour: BLACK, width: 0.74, x: -0.05 }, ribs: true, zoom: 0.9 }),
-  'ultima-1601': build('ultima-1601', { w: 0.85, d: 0.64, upper: 1.0, lower: 0.66, body: '#efe9dc', lowerColour: '#5a4636', side: 'honeycomb', sides: ['right'], front: { kind: 'louvre', colour: '#5b4636' }, knobs: 3, zoom: 0.9 }),
-  'ultima-1801': build('ultima-1801', { w: 0.85, d: 0.64, upper: 1.0, lower: 0.66, lowerColour: '#1d1e21', side: 'slots', sides: ['right'], front: { kind: 'grid', colour: '#1b1c1f', width: 0.7, x: -0.06 }, knobs: 2, zoom: 0.9 }),
-  'ultima-2201': build('ultima-2201', { w: 1.05, d: 0.72, upper: 1.0, lower: 0.6, body: '#e4e5e7', lowerColour: '#d8d9db', side: 'slots', sides: ['left'], front: { kind: 'slats', colour: '#18191c', width: 0.62, x: 0.12 }, ribs: true, zoom: 0.85 }),
-  'ultima-2601': build('ultima-2601', { w: 1.05, d: 0.72, upper: 1.05, lower: 0.62, body: '#dfe0e2', lowerColour: '#d3d4d6', side: 'slots', sides: ['left', 'right'], front: { kind: 'spiral', colour: '#2b2c2f', width: 0.86, height: 0.84 }, ribs: true, zoom: 0.82 }),
+  'ultima-1401': build('ultima-1401', { mark: 'left', w: 0.82, d: 0.62, upper: 0.95, lower: 0.62, side: 'slots', sides: ['right'], front: { kind: 'smooth', colour: BLACK, width: 0.78 }, ribs: true }),
+  'ultima-1402': build('ultima-1402', { mark: 'right', w: 0.82, d: 0.62, upper: 1.0, lower: 0.7, side: 'slots', sides: ['right'], front: { kind: 'smooth', colour: BLACK, width: 0.74, x: -0.05 }, ribs: true, zoom: 0.9 }),
+  'ultima-1601': build('ultima-1601', { mark: 'right', w: 0.85, d: 0.64, upper: 1.0, lower: 0.66, body: '#efe9dc', lowerColour: '#5a4636', side: 'honeycomb', sides: ['right'], front: { kind: 'louvre', colour: '#5b4636' }, knobs: 3, zoom: 0.9 }),
+  'ultima-1801': build('ultima-1801', { mark: 'top-right', w: 0.85, d: 0.64, upper: 1.0, lower: 0.66, lowerColour: '#1d1e21', side: 'slots', sides: ['right'], front: { kind: 'grid', colour: '#1b1c1f', width: 0.7, x: -0.06 }, knobs: 2, zoom: 0.9 }),
+  'ultima-2201': build('ultima-2201', { mark: 'top-left', w: 1.05, d: 0.72, upper: 1.0, lower: 0.6, body: '#e4e5e7', lowerColour: '#d8d9db', side: 'slots', sides: ['left'], front: { kind: 'slats', colour: '#18191c', width: 0.62, x: 0.12 }, ribs: true, zoom: 0.85 }),
+  'ultima-2601': build('ultima-2601', { mark: 'left', w: 1.05, d: 0.72, upper: 1.05, lower: 0.62, body: '#dfe0e2', lowerColour: '#d3d4d6', side: 'slots', sides: ['left', 'right'], front: { kind: 'spiral', colour: '#2b2c2f', width: 0.86, height: 0.84 }, ribs: true, zoom: 0.82 }),
 };

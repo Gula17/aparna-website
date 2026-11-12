@@ -12,7 +12,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
-import { brandMark } from './brand-mark.js';
+import { brandMark, MARK_ASPECT } from './brand-mark.js';
 
 const R = 0.5; // guard radius
 
@@ -219,7 +219,7 @@ function keyRow(g, m, { count, y, z, round = false, spacing = 0.065, face = fals
 // ---- the stands
 // Pedestal: an optional control pod right under the head, a short upper pole (chrome or dark), a height-lock
 // collar, the lower pole, a foot (boss or flared) and the base (dome with a rim, flat disc, ribbed dome or two-tier).
-function pedestalStand(m, { headY, floorY, pod, upper = 0, collarH = 0.08, foot = 'boss', base = 'dome', baseR = 0.4, poleR = 0.034 }) {
+function pedestalStand(m, { headY, floorY, pod, upper = 0, collarH = 0.08, foot = 'boss', base = 'dome', baseR = 0.4, poleR = 0.034, poleMark = null }) {
   const g = new THREE.Group();
   const Z = -0.17;
   const cyl = (r1, r2, h, mat, y, seg = 24) => placed(g, new THREE.CylinderGeometry(r1, r2, h, seg), mat, 0, y, Z);
@@ -278,6 +278,17 @@ function pedestalStand(m, { headY, floorY, pod, upper = 0, collarH = 0.08, foot 
     cyl(0.062, 0.075, 0.05, m.get('foot', 'base', 'body'), top + 0.02, 32);
   }
   cyl(poleR, poleR * 1.05, y - top, pole, (y + top) / 2);
+  if (poleMark) {
+    // the logo on the lower pole, `at` of the way down it: red on a light pole, white on a dark one
+    // (measured from where the pole shows below the guard or the collar, as on the photos)
+    const at = poleMark.at ?? 0.35, from = Math.min(y, headY - R);
+    const mark = poleLogo({
+      colour: pole.color.getHSL({}).l > 0.6 ? 'red' : 'white', width: poleMark.width ?? 0.1,
+      radius: poleR * (1 + 0.05 * ((y - from) / (y - top) + at)) + 0.002, y: from - at * (from - top), up: poleMark.up,
+    });
+    mark.position.z = Z;
+    g.add(mark);
+  }
   return g;
 }
 
@@ -461,6 +472,36 @@ function hubLogo(logoMaterial, width, y) {
   return mark;
 }
 
+// The logo printed down the front of a pedestal pole (studio photos 99-109): the lockup turned a quarter so it
+// reads down the pole (up it with up = true, as on the Stallion), wrapped round a pole of the given radius,
+// centred at height y on the side facing +z. width runs along the pole.
+function poleLogo({ colour, width, radius, y, up = false }) {
+  const mark = brandMark({ colour, width });
+  const h = width * MARK_ASPECT;
+  const cols = 8, rows = 24, pos = [], uv = [], index = [];
+  for (let j = 0; j <= rows; j++) for (let i = 0; i <= cols; i++) {
+    const u = j / rows, v = i / cols;
+    const along = (u - 0.5) * width, across = (v - 0.5) * h;
+    // turned clockwise: the logo's right end goes down, its top faces the viewer's right
+    const yy = up ? y + along : y - along;
+    const a = (up ? -across : across) / radius;
+    pos.push(Math.sin(a) * radius, yy, Math.cos(a) * radius);
+    uv.push(u, v);
+  }
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const a = j * (cols + 1) + i, b = a + cols + 1;
+    index.push(a, b, a + 1, a + 1, b, b + 1);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setIndex(index);
+  geo.computeVertexNormals();
+  mark.geometry.dispose();
+  mark.geometry = geo;
+  return mark;
+}
+
 function materials(colours) {
   const cache = {};
   const get = (...keys) => { for (const k of keys) if (colours[k]) return (cache[k] ??= physical(colours[k])); return null; };
@@ -580,7 +621,7 @@ const HIGH_SPEED = {
 // 106.png: square-mesh black guard (many rings), three dark swept blades, glossy black hub, gunmetal pole,
 // grey domed base on a black rim
 export const createSultan = make('sultan', {
-  ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4 },
+  ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4, poleMark: { at: 0.42 } },
   guard: { wires: 100, rings: [0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.8, 0.88, 0.95], thick: 1.3 },
   hub: { radius: 0.13, dome: true },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
@@ -589,7 +630,7 @@ export const createSultan = make('sultan', {
 
 // 105.png: gunmetal wire, five black paddle blades, black hub, gunmetal pole, grey base on a black rim
 export const createHexa = make('hexa', {
-  ...ped(2.27), standOptions: { collarH: 0, baseR: 0.38 },
+  ...ped(2.27), standOptions: { collarH: 0, baseR: 0.38, poleMark: { at: 0.4 } },
   guard: { wires: 96, rings: [0.42, 0.78], twist: 0.04, twistFrom: 0.78, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.12, dome: true, logoScale: 0.8 },
   blades: { count: 5, shape: 'paddle', tip: 0.44, pitch: 0.42 },
@@ -597,7 +638,7 @@ export const createHexa = make('hexa', {
 });
 
 export const createNexa = make('nexa', {
-  ...ped(2.2), standOptions: { collarH: 0 },
+  ...ped(2.2), standOptions: { collarH: 0, poleMark: { at: 0.38 } },
   guard: { rings: [0.3, 0.86], wires: 90 },
   hub: { radius: 0.12 },
   blades: { count: 3, shape: 'paddle', tip: 0.45, pitch: 0.4 },
@@ -607,7 +648,7 @@ export const createNexa = make('nexa', {
 // 109.png: bright silver wire on a dark rim, three very wide black blades, glossy black hub, dark grey pole,
 // grey base on a black rim
 export const createChampion = make('champion', {
-  ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4 },
+  ...ped(2.1), standOptions: { collarH: 0, baseR: 0.4, poleMark: { at: 0.32 } },
   guard: { wires: 100, rings: [0.3, 0.38, 0.46, 0.54, 0.62, 0.7, 0.78, 0.86, 0.93], backRings: [0.6] }, // a fine square mesh
   hub: { radius: 0.11, dome: true, logoScale: 0.9 },
   blades: { count: 3, shape: 'clover', tip: 0.46, pitch: 0.32, phase: Math.PI / 6 },
@@ -617,7 +658,7 @@ export const createChampion = make('champion', {
 // 107.png: industrial guard (eight radial spokes, many rings), two S-curved dark blades, chrome-ringed hub,
 // gunmetal pole that flares into a dark base
 export const createIndus = make('indus', {
-  ...ped(2.45), standOptions: { collarH: 0, foot: 'flare', baseR: 0.38, base: 'step' },
+  ...ped(2.45), standOptions: { collarH: 0, foot: 'flare', baseR: 0.38, base: 'step', poleMark: { at: 0.42 } },
   guard: { wires: 8, thick: 3.5, inner: 0.17, rings: [0.34, 0.4, 0.46, 0.52, 0.58, 0.64, 0.7, 0.76, 0.82, 0.88, 0.94], rim: 1.6 },
   hub: { radius: 0.11, ringAt: 0.8, ringWidth: 0.16 },
   blades: { count: 2, shape: 'sickle', tip: 0.46, pitch: 0.4 },
@@ -627,7 +668,7 @@ export const createIndus = make('indus', {
 // 108.png (new): silver-grey wire, four broad black blades, black hub with a silver ring, black pole,
 // black base with fine radial ribs
 export const createWindstar = make('windstar', {
-  ...ped(2.35), standOptions: { collarH: 0, base: 'ribbed', baseR: 0.4 },
+  ...ped(2.35), standOptions: { collarH: 0, base: 'ribbed', baseR: 0.4, poleMark: { at: 0.4 } },
   guard: { wires: 100, rings: [0.55, 0.85], backRings: [0.6] },
   hub: { radius: 0.13, ringAt: 0.9, ringWidth: 0.08 },
   blades: { count: 4, shape: 'fan', tip: 0.45, pitch: 0.34, phase: Math.PI / 4 },
@@ -637,7 +678,7 @@ export const createWindstar = make('windstar', {
 // 101.png: dark grey wire, three narrow dark swept blades, grey ringed hub, a short chrome tube and a tilt
 // collar, black pole, two-tier dark grey base
 export const createBullet12 = make('bullet-12', {
-  ...ped(2.05), standOptions: { upper: 0.1, collarH: 0.09, base: 'step', baseR: 0.47 },
+  ...ped(2.05), standOptions: { upper: 0.1, collarH: 0.09, base: 'step', baseR: 0.47, poleMark: { at: 0.33 } },
   guard: { wires: 84, rings: [0.55, 0.82], twist: 0.05, twistFrom: 0.55, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.12, ringAt: 0.9 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
@@ -647,14 +688,14 @@ export const createBullet12 = make('bullet-12', {
 // 102.png: as the Bullet 12 on a taller pole: grey hub with a raised ring, chrome tube, dark collar
 const BULLET_DARK = { ...HIGH_SPEED, hub: GLOSS('#3e4145'), hubRing: GLOSS('#2a2b2e'), pole: BLACK, collar: GLOSS('#2a2b2e'), base: GLOSS('#3e4145'), baseRim: { color: '#2a2b2e' }, foot: GLOSS('#2a2b2e') };
 export const createBullet16 = make('bullet-16', {
-  ...ped(2.55), standOptions: { upper: 0.08, collarH: 0.08, base: 'step', baseR: 0.45 },
+  ...ped(2.55), standOptions: { upper: 0.08, collarH: 0.08, base: 'step', baseR: 0.45, poleMark: { at: 0.38 } },
   guard: { wires: 90, rings: [0.62, 0.86], twist: 0.04, twistFrom: 0.62, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.12, ringAt: 0.9 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
   colours: BULLET_DARK,
 });
 export const createBulletOsc16 = make('bullet-osc-16', {
-  ...ped(2.55), standOptions: { upper: 0.1, collarH: 0.08, base: 'step', baseR: 0.4 },
+  ...ped(2.55), standOptions: { upper: 0.1, collarH: 0.08, base: 'step', baseR: 0.4, poleMark: { at: 0.38 } },
   guard: { wires: 90, rings: [0.62, 0.86], twist: 0.04, twistFrom: 0.62, cross: 'loop', thick: 1, backRings: [0.6] },
   hub: { radius: 0.12, ringAt: 0.9 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
@@ -674,7 +715,7 @@ export const createBulletMetal16 = make('bullet-metal-16', {
 // 100.png: dark grey plastic grille with a deep rim band and criss-cross outer wires, three dark swept blades,
 // dark grey hub, black pole, dark grey flat-domed base
 export const createShine = make('shine', {
-  ...ped(2.55), standOptions: { upper: 0.04, collarH: 0.12, baseR: 0.43 },
+  ...ped(2.55), standOptions: { upper: 0.04, collarH: 0.12, baseR: 0.43, poleMark: { at: 0.3 } },
   guard: { wires: 72, rings: [0.32, 0.55], thick: 1.9, twist: 0.3, twistFrom: 0.55, cross: 'net', band: 0.07, backRings: [0.6] },
   hub: { radius: 0.11 },
   blades: { count: 3, shape: 'scimitar', pitch: 0.4 },
@@ -684,7 +725,7 @@ export const createShine = make('shine', {
 // 99.png: light grey plastic grille (thick bars, a flat rim band), four dark grey blades, flat grey hub,
 // chrome upper pole, dark grey collar, grey lower pole and domed grey base
 export const createOrnet = make('ornet', {
-  ...ped(2.35), motor: 0.12, standOptions: { upper: 0.22, collarH: 0.17, baseR: 0.37, poleR: 0.03 },
+  ...ped(2.35), motor: 0.12, standOptions: { upper: 0.22, collarH: 0.17, baseR: 0.37, poleR: 0.03, poleMark: { at: 0.27, width: 0.09 } },
   guard: { wires: 56, rings: [0.38, 0.62, 0.82], thick: 2.3, band: 0.06 },
   hub: { radius: 0.145 },
   blades: { count: 4, shape: 'fan', tip: 0.43, pitch: 0.34 },
@@ -698,7 +739,7 @@ export const createOrnet = make('ornet', {
 // 104.png (new): white wire with a blue rim, three narrow blue blades, blue hub, chrome upper pole, blue
 // collar, white lower pole on a blue trumpet foot, white base on a dark rim
 export const createMaxx = make('maxx', {
-  ...ped(2.5), motor: 0.12, standOptions: { upper: 0.12, collarH: 0.11, foot: 'flare', base: 'step', baseR: 0.42 },
+  ...ped(2.5), motor: 0.12, standOptions: { upper: 0.12, collarH: 0.11, foot: 'flare', base: 'step', baseR: 0.42, poleMark: { at: 0.22 } },
   guard: { wires: 100, rings: [0.45, 0.72], rim: 1.1, backRings: [0.6] },
   hub: { radius: 0.14 },
   blades: { count: 3, shape: 'narrow', tip: 0.45, pitch: 0.38 },
@@ -715,7 +756,7 @@ export const createMaxx = make('maxx', {
 // under the head, black poles with an orange height-lock collar, flat black disc base
 export const createStallion = make('stallion', {
   ...ped(2.65), motor: 0.12,
-  standOptions: { pod: { w: 0.17, h: 0.36, keys: 4 }, upper: 0.17, collarH: 0.15, base: 'disc', baseR: 0.4 },
+  standOptions: { pod: { w: 0.17, h: 0.36, keys: 4 }, upper: 0.17, collarH: 0.15, base: 'disc', baseR: 0.4, poleMark: { at: 0.42, up: true } },
   guard: { wires: 110, rings: [0.58, 0.8], rim: 1.1, backRings: [0.6] },
   hub: { radius: 0.13 },
   blades: BROAD3,
@@ -1059,6 +1100,10 @@ function wallFan(name, { style, frame, hole, blades, hub, grille, struts, colour
     // the deep rounded surround, and the tab under it
     placed(stator, new THREE.TorusGeometry(hole + 0.05, 0.055, 18, 96), frameM, 0, 0, 0.03).scale.z = 0.8;
     placed(stator, roundedBox(0.3, 0.07, 0.04, 0.015), frameM, 0, -(hole + 0.1), 0.05);
+    // the Aparna logo printed on the front of the tab (studio photos 76-78), red on the white plastic
+    const mark = brandMark({ colour: 'red', width: 0.074 });
+    mark.position.set(0, -(hole + 0.1), 0.0725);
+    stator.add(mark);
     // rear bracket bars behind the opening
     for (const x of [-0.16, 0.13]) placed(stator, new THREE.BoxGeometry(0.045, hole * 1.9, 0.03), frameM, x, 0, -0.13);
     for (const y of [-0.2, 0.15]) placed(stator, new THREE.BoxGeometry(hole * 1.9, 0.045, 0.03), frameM, 0, y, -0.14);
