@@ -1,0 +1,1276 @@
+{
+  "_read_me": "MRP (incl. taxes) from Aparna's price lists: AAPRNA_PRICE _IST_28_10_2026.pdf (w.e.f. 1 Sep 2026) and COOLER_OR_WASHING_MACHINE_PRICE_LIST_corrected.pdf. Only MRP is kept; offer and dealer prices are ignored.",
+  "source": {
+    "main": {
+      "file": "AAPRNA_PRICE _IST_28_10_2026.pdf",
+      "printed": "new PRICE LIST Wef. 1st sep 2026 (cover)",
+      "pdfCreated": "2026-10-28",
+      "pages": "20 PDF pages, each a 2-page spread; PDF pages 1-2 are covers, 4 and 20 have no prices. 'main pN' = PDF page N; printed page numbers are given alongside",
+      "columns": "MRP and DLP (dealer price); only MRP kept",
+      "tax": "No 'incl./excl. GST' wording is printed next to the MRPs; each section header gives the HSN code and 'GST Rate 18%' (8414 for fans, 8516 for infrared cookers, irons and immersion rods, 8516 or 8414 printed for hot plates, '8090' as printed for room and water heaters). MRP in India is inclusive of all taxes.",
+      "unit": "Per piece; 'Outer Pack Pcs.' is only the carton quantity. No per-set prices.",
+      "extras": "Immersion rods / elements page: 'RS.10/- EXTRA FOR 16 AMP TOP' (not added to any MRP here)."
+    },
+    "coolers": {
+      "file": "COOLER_OR_WASHING_MACHINE_PRICE_LIST_corrected.pdf",
+      "printed": "no date or validity printed",
+      "pdfCreated": "2026-10-28",
+      "pages": "5 pages; pages 1-4 air coolers, page 5 semi-automatic washing machines",
+      "columns": "MODEL / OFFER PRICE / MRP; only MRP kept",
+      "tax": "No tax wording printed.",
+      "note": "Every cooler MRP is exactly 3x its offer price. None of these cooler or washing-machine models matches a site product, so all are in 'unmatched'."
+    }
+  },
+  "prices": {
+    "ceiling-fans-aeroflow-48": {
+      "mrp": 6550,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "AEROFLOW BLDC (White, Golden) A 1450, 1200mm (48\")",
+      "note": "Lowest MRP shown; price depends on finish, see variants"
+    },
+    "ceiling-fans-ikon-bldc-48": {
+      "mrp": 3250,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "IKON BLDC A 702, 1200mm (48\")"
+    },
+    "ceiling-fans-aerosleek-48": {
+      "mrp": 3750,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "AEROSLEEK BLDC A 701, 1200mm (48\")"
+    },
+    "ceiling-fans-coral-48": {
+      "mrp": 2800,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "CORAL (Signature Series) A 601"
+    },
+    "ceiling-fans-coras-48": {
+      "mrp": 3200,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "CORAS (Signature Series) A 602"
+    },
+    "ceiling-fans-irus-48": {
+      "mrp": 3200,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "IRUS (Signature Series) A 603"
+    },
+    "ceiling-fans-air-max-48": {
+      "mrp": 3200,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "AIR MAX (Signature Series) A 604"
+    },
+    "ceiling-fans-art-pro-48": {
+      "mrp": 3260,
+      "page": "main p3 (printed pp. 4-5)",
+      "listedAs": "ARTPRO (Signature Series) A 605",
+      "note": "The MRP row is labelled; the DLP label is missing on the figure below it (2710), which is ignored"
+    },
+    "ceiling-fans-ikon-48": {
+      "mrp": 2080,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "IKON A 301, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-ikon-pro-48": {
+      "mrp": 2080,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "IKON PRO A 302, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-prince-48": {
+      "mrp": 2090,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "PRINCE A 302, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-nikon-48": {
+      "mrp": 2130,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "NIKON A 303 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-sparsh-48": {
+      "mrp": 2110,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "SPARSH A 303, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-sonet-deco-48": {
+      "mrp": 2150,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "SONET DECO A 304, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-crystal-pro-48": {
+      "mrp": 2160,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "CRYSTAL PRO A 304B, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-apsara-48": {
+      "mrp": 2180,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "APSARA A 306, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-croma-48": {
+      "mrp": 2190,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "CROMA A 306 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-iconic-48": {
+      "mrp": 2190,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "ICONIC A 303 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-rider-48": {
+      "mrp": 2190,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "RIDER A 306 B, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-electra-48": {
+      "mrp": 2190,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "ELECTRA A 307, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-stunner-48": {
+      "mrp": 2190,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "STUNNER A 307 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-unicorn-48": {
+      "mrp": 2210,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "UNICORN A 307 B, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-glaze-48": {
+      "mrp": 2230,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "GLAZE A 308, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-flora-48": {
+      "mrp": 2230,
+      "page": "main p5 (printed pp. 8-9)",
+      "listedAs": "FLORA A 308 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-areta-48": {
+      "mrp": 2280,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "ARETA A 309, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-senorita-48": {
+      "mrp": 2290,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "SENORITA A 309 A, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-rosa-48": {
+      "mrp": 2290,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "ROSA A 399, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-festiva-48": {
+      "mrp": 2330,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "FESTIVA A 309 B, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-supreme-48": {
+      "mrp": 2290,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "SUPREME A 309 B, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-phantom-48": {
+      "mrp": 2380,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "PHANTOM A 309 C, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-aronita-48": {
+      "mrp": 3300,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "ARONITA A 309 F, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-nexus-48": {
+      "mrp": 3300,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "NEXUS A 309 G, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-pazero-48": {
+      "mrp": 3300,
+      "page": "main p6 (printed pp. 10-11)",
+      "listedAs": "PAZERO A 309 H, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-heritage-48": {
+      "mrp": 3410,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "HERITAGE A 309 J, Smart Series Ceiling Fans (Silver) 1200 (48\")"
+    },
+    "ceiling-fans-luster-shine-golden-48": {
+      "mrp": 3410,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "LUSTER SHINE A 309 L, 1200 (48\")",
+      "note": "The list has one Luster Shine row (one MRP); applied to both the Golden and Silver site entries"
+    },
+    "ceiling-fans-luster-shine-silver-48": {
+      "mrp": 3410,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "LUSTER SHINE A 309 L, 1200 (48\")",
+      "note": "The list has one Luster Shine row (one MRP); applied to both the Golden and Silver site entries"
+    },
+    "ceiling-fans-major-36": {
+      "mrp": 2080,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "MAJOR A 310, 900mm (36\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-orbit-36": {
+      "mrp": 2150,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "ORBIT A 311, 900mm (36\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-diplomat-36": {
+      "mrp": 2290,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "DIPLOMAT A 312, 900mm (36\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-mini-star-24": {
+      "mrp": 1910,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "MINI STAR A 314, 600mm (24\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-mini-dlx-24": {
+      "mrp": 1930,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "MINI DLX. A 315, 600mm (24\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-mini-smart-24": {
+      "mrp": 1980,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "MINI SMART A 316, 600mm (24\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-new-josh-24": {
+      "mrp": 2020,
+      "page": "main p7 (printed pp. 12-13)",
+      "listedAs": "NEW JOSH A 317, 600mm (24\"), Smart Series (Silver)"
+    },
+    "ceiling-fans-rafale-48": {
+      "mrp": 2630,
+      "page": "main p8 (printed pp. 14-15)",
+      "listedAs": "RAFALE A 318, 1200mm (48\"), Ultra Gold Series"
+    },
+    "ceiling-fans-kiara-48": {
+      "mrp": 2660,
+      "page": "main p8 (printed pp. 14-15)",
+      "listedAs": "KIARA A 319, 1200mm (48\"), Ultra Gold Series"
+    },
+    "ceiling-fans-nokia-48": {
+      "mrp": 2680,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "NOKIA A 320, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-platinium-48": {
+      "mrp": 2710,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "PLATINIUM A 323 A, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-croma-pro-48": {
+      "mrp": 2740,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "CROMA PRO A 323 B, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-raftaar-48": {
+      "mrp": 2700,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "RAFTAAR A 321, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-smart-deco-48": {
+      "mrp": 2740,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "SMART DECO A 326, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-vista-deco-48": {
+      "mrp": 2700,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "VISTA DECO A 323, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-fortune-pro-48": {
+      "mrp": 2760,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "FORTUNE PRO A 327, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-rider-pro-48": {
+      "mrp": 2740,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "RIDER PRO A 327 C, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-orina-48": {
+      "mrp": 2740,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "ORINA A 327 A, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-runner-48": {
+      "mrp": 2740,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "RUNNER A 327B, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-aroma-deco-48": {
+      "mrp": 2780,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "AROMA DECO A 328, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-sayonara-48": {
+      "mrp": 2840,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "SAYONARA A 329B, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-orchid-deco-48": {
+      "mrp": 2840,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "ORCHID DECO A 329, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-rolex-48": {
+      "mrp": 2840,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "ROLEX A 444, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-porsche-48": {
+      "mrp": 2930,
+      "page": "main p9 (printed pp. 16-17)",
+      "listedAs": "PORSCHE A 400B, Ultra Gold Series 1200 (48\") (100% Copper)"
+    },
+    "ceiling-fans-lumero-48": {
+      "mrp": 3820,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "LUMERO A 445, 1200mm (48\"), single packing"
+    },
+    "ceiling-fans-virat-36": {
+      "mrp": 2630,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "VIRAT A 330, 900mm (36\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-saphire-36": {
+      "mrp": 2700,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "SAPHIRE A 331, 900mm (36\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-nova-dlx-36": {
+      "mrp": 2740,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "NOVA DLX A 331 B, 900mm (36\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-little-star-24": {
+      "mrp": 2460,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "LITTLE STAR A 334, 600mm (24\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-mini-copper-24": {
+      "mrp": 2480,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "MINI COPPER A 335, 600mm (24\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-tejas-24": {
+      "mrp": 2530,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "TEJAS A 336, 600mm (24\")",
+      "note": "Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "ceiling-fans-new-josh-copper-24": {
+      "mrp": 2570,
+      "page": "main p10 (printed pp. 18-19)",
+      "listedAs": "NEW JOSH A 337, 600mm (24\")",
+      "note": "Second New Josh row: this one is on the gold (copper) page next to Little Star / Mini Copper / Tejas; the silver New Josh (A 317, 2020) is on p7. Page header reads \"Smart Series Ceiling Fans (Silver)\" but the page is in the gold Ultra Gold styling and holds the copper models (site: Ultra Gold Series)"
+    },
+    "all-purpose-cabin-fans-piano-black-12": {
+      "mrp": 1630,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "12\" Piano Black (2) A250B, sweep 300mm"
+    },
+    "all-purpose-cabin-fans-piano-white-12": {
+      "mrp": 1680,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "12\" Piano White (5 SOOT CRC) A250C, sweep 300mm"
+    },
+    "all-purpose-cabin-fans-safari-9": {
+      "mrp": 1600,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "9\" AP FAN SAFARI A 252, sweep 225mm"
+    },
+    "all-purpose-cabin-fans-regal-12": {
+      "mrp": 1660,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "12\" AP FAN REGAL A 254, sweep 300mm"
+    },
+    "all-purpose-cabin-fans-jawa-osc-12": {
+      "mrp": 1990,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "JAWA OSC A 255, sweep 300mm"
+    },
+    "all-purpose-cabin-fans-goair-ac-dc-12": {
+      "mrp": 3000,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "AC DC 12\" GO AIR A 262, sweep 300mm"
+    },
+    "all-purpose-cabin-fans-goair-ac-dc-16": {
+      "mrp": 3140,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "AC DC 16\" GO AIR A 408, sweep 400mm"
+    },
+    "all-purpose-cabin-fans-cabin-fan-12": {
+      "mrp": 2080,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "12\" CABIN FAN A 260B, sweep 300mm"
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-6": {
+      "mrp": 1550,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "VENTILATION FAN 6 INCH - 150MM, A 261 A"
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-8": {
+      "mrp": 1650,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "VENTILATION FAN 8 INCH - 200MM, A 261 B"
+    },
+    "ventilation-fresh-air-fans-ventilation-fan-10": {
+      "mrp": 1750,
+      "page": "main p11 (printed pp. 20-21)",
+      "listedAs": "VENTILATION FAN 10 INCH - 250MM, A 261 C"
+    },
+    "table-wall-pedestal-fans-oreo-12": {
+      "mrp": 2200,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "12\" TABLE FAN OREO 501A, Eco Series"
+    },
+    "table-wall-pedestal-fans-vento-12": {
+      "mrp": 2320,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "12\" WALL FAN VENTO A 514, Eco Series"
+    },
+    "table-wall-pedestal-fans-tornado-16": {
+      "mrp": 2430,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" WALL FAN TORNADO A 513, Eco Series"
+    },
+    "table-wall-pedestal-fans-spider-16": {
+      "mrp": 2180,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" TABLE FAN SPIDER A 512, Eco Series"
+    },
+    "table-wall-pedestal-fans-glider-16": {
+      "mrp": 2180,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" TABLE FAN GLIDER A 501, Eco Series"
+    },
+    "table-wall-pedestal-fans-wendy-12": {
+      "mrp": 2480,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "12\" WALL FAN WENDY A 509, Smart Series",
+      "note": "Printed sweep is \"400mm\" although the row says 12\""
+    },
+    "table-wall-pedestal-fans-spectra-16": {
+      "mrp": 2740,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" WALL FAN SPECTRA A 518, Smart Series"
+    },
+    "table-wall-pedestal-fans-vectra-16": {
+      "mrp": 2480,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" TABLE FAN VECTRA A 515, Smart Series"
+    },
+    "table-wall-pedestal-fans-vistara-16": {
+      "mrp": 2480,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" TABLE FAN VISTARA A 516, Smart Series"
+    },
+    "table-wall-pedestal-fans-fiona-16": {
+      "mrp": 2990,
+      "page": "main p12 (printed pp. 22-23)",
+      "listedAs": "16\" PEDESTAL FAN FIONA A 517, Smart Series"
+    },
+    "table-wall-pedestal-fans-jazz-12": {
+      "mrp": 3600,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "12\" WALL FAN JAZZ A 1104, Premium Series"
+    },
+    "table-wall-pedestal-fans-velora-16": {
+      "mrp": 3710,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" WALL FAN VELORA A 1103, Premium Series"
+    },
+    "table-wall-pedestal-fans-blazo-16": {
+      "mrp": 3520,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" TABLE FAN BLAZO A 1101, Premium Series"
+    },
+    "table-wall-pedestal-fans-blitz-16": {
+      "mrp": 3520,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" TABLE FAN BLITZ A 1102, Premium Series"
+    },
+    "table-wall-pedestal-fans-iconic-16": {
+      "mrp": 4230,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" PEDESTAL FAN ICONIC A 1105, Premium Series"
+    },
+    "table-wall-pedestal-fans-stallion-16": {
+      "mrp": 4230,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" PEDESTAL FAN STALLION A 1106, Premium Series"
+    },
+    "high-speed-fans-bullet-oscillating-12": {
+      "mrp": 2330,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "12\" OSC BULLET 501A, sweep 300mm",
+      "note": "Code printed as 501A, the same code as the Oreo table fan"
+    },
+    "high-speed-fans-bullet-16": {
+      "mrp": 2260,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" BULLET A 342, sweep 400mm"
+    },
+    "high-speed-fans-bullet-oscillating-16": {
+      "mrp": 2780,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" BULLET OSC A 343, sweep 400mm"
+    },
+    "high-speed-fans-bullet-oscillating-metal-blade-16": {
+      "mrp": 3000,
+      "page": "main p13 (printed pp. 24-25)",
+      "listedAs": "16\" BULLET OSC METAL BLADE A 344, sweep 400mm"
+    },
+    "high-speed-fans-ornet-12": {
+      "mrp": 2430,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "12\" BULLET FAN ORNET A 222, sweep 300mm"
+    },
+    "high-speed-fans-shine-16": {
+      "mrp": 2890,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "16\" BULLET FAN SHINE A 333, sweep 400mm"
+    },
+    "high-speed-fans-maxx-oscillating-16": {
+      "mrp": 2870,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "16\" BULLET (OSC) FAN MAXX A 255, sweep 400mm",
+      "note": "Code printed as A 255, the same code as Jawa OSC"
+    },
+    "high-speed-fans-hexa-20": {
+      "mrp": 3850,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "20\" FARRATA FAN HEXA A 256, sweep 500mm"
+    },
+    "high-speed-fans-nexa-20": {
+      "mrp": 3850,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "20\" FARRATA FAN NEXA A 257, sweep 500mm"
+    },
+    "high-speed-fans-sultan-20": {
+      "mrp": 3850,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "20\" FARRATA FAN SULTAN A 258, sweep 500mm"
+    },
+    "high-speed-fans-indus-high-speed-20": {
+      "mrp": 3510,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "20\" FARRATA FAN INDUS A 259, sweep 500mm"
+    },
+    "high-speed-fans-windstar-22": {
+      "mrp": 4330,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "22\" FARRATA FAN WINDSTAR A 260, sweep 550mm"
+    },
+    "high-speed-fans-champion-22": {
+      "mrp": 4490,
+      "page": "main p14 (printed pp. 26-27)",
+      "listedAs": "22\" FARRATA FAN CHAMPION (UDAAN) A 261, sweep 550mm"
+    },
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9": {
+      "mrp": 1650,
+      "page": "main p15 (printed pp. 28-29)",
+      "listedAs": "Silver Series FRESH AIR FAN (High Speed) 9\" 225MM, A 263",
+      "note": "Lowest MRP (standard Silver Series); RF and 100% copper versions cost more, see variants"
+    },
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": {
+      "mrp": 1790,
+      "page": "main p15 (printed pp. 28-29)",
+      "listedAs": "Silver Series FRESH AIR FAN (High Speed) 12\" 300MM, A 265",
+      "note": "Lowest MRP (standard Silver Series); RF and 100% copper versions cost more, see variants"
+    },
+    "kitchen-appliances-boss": {
+      "mrp": 5300,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "BOSS 2200 (WITH GRILL) A508, Infrared Cooker"
+    },
+    "kitchen-appliances-prime": {
+      "mrp": 5300,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "PRIME 2400 (WITH GRILL) A509, Infrared Cooker"
+    },
+    "kitchen-appliances-crystal": {
+      "mrp": 5500,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "CRYSTAL 2200 (WITH GRILL) A510, Infrared Cooker"
+    },
+    "kitchen-appliances-presto": {
+      "mrp": 5500,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "PRESTO 2000 (WITH GRILL) A511, Infrared Cooker"
+    },
+    "kitchen-appliances-prince": {
+      "mrp": 5500,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "PRINCE 2000 (WITH GRILL) A512, Infrared Cooker"
+    },
+    "kitchen-appliances-jhn-1250": {
+      "mrp": 1910,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "JHN-1250-POWDER, G-Coil / Hot Plate (100% Copper)",
+      "note": "Listed as the powder-coated version"
+    },
+    "kitchen-appliances-jhn-2000": {
+      "mrp": 2010,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "JHN-2000-POWDER, G-Coil / Hot Plate (100% Copper)",
+      "note": "Listed as the powder-coated version"
+    },
+    "kitchen-appliances-hudsun": {
+      "mrp": 2010,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "HUDSUN 2000, G-Coil / Hot Plate (100% Copper)"
+    },
+    "kitchen-appliances-ultima": {
+      "mrp": 2160,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "ULTIMA 2000, G-Coil / Hot Plate (100% Copper)"
+    },
+    "kitchen-appliances-comfort": {
+      "mrp": 2190,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "COMFORT 2000, G-Coil / Hot Plate (100% Copper)"
+    },
+    "kitchen-appliances-nelson": {
+      "mrp": 2160,
+      "page": "main p16 (printed pp. 30-31)",
+      "listedAs": "NELSON 2000, G-Coil / Hot Plate (100% Copper)"
+    },
+    "kitchen-appliances-ss-2000": {
+      "mrp": 2160,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "SS-2000, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-calvin": {
+      "mrp": 2160,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "CALVIN 2000, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-bng": {
+      "mrp": 2160,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "BNG 2000, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-regent": {
+      "mrp": 2160,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "REGENT 2000, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-excel": {
+      "mrp": 2160,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "EXCEL 2000, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-simson": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "SIMSON 2000 A501, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-ss-jumbo": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "SS JUMBO 2000 A502, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-crescent": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "CRESCENT 2000 A503, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-phantom": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "PHANTOM 2000 A504, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-smart": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "SMART 2000 A505, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-magnum": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "MAGNUM 2000 A506, G-Coil / Hot Plate"
+    },
+    "kitchen-appliances-rustam": {
+      "mrp": 2700,
+      "page": "main p17 (printed pp. 32-33)",
+      "listedAs": "RUSTAM 2000 A507, G-Coil / Hot Plate"
+    },
+    "heating-water-pearl": {
+      "mrp": 1530,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "PEARL 271, Room Heaters"
+    },
+    "heating-water-sigma": {
+      "mrp": 1690,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "SIGMA 271 A, Room Heaters"
+    },
+    "heating-water-pox": {
+      "mrp": 1620,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "POX 272, Room Heaters"
+    },
+    "heating-water-rozer": {
+      "mrp": 1620,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "ROZER 273, Room Heaters"
+    },
+    "heating-water-roxx": {
+      "mrp": 1670,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "ROXX 274, Room Heaters"
+    },
+    "heating-water-alineo": {
+      "mrp": 1670,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "ALINEO 275, Room Heaters"
+    },
+    "heating-water-silky": {
+      "mrp": 1670,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "SILKY 276, Room Heaters"
+    },
+    "heating-water-sun-heater-sunshine-14": {
+      "mrp": 2110,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "14\" SUN HEATER 278, Room Heaters"
+    },
+    "electric-irons-eon": {
+      "mrp": 900,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "EON / REGUALR [sic] A121",
+      "note": "One row covers Eon and Regular"
+    },
+    "electric-irons-regular": {
+      "mrp": 900,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "EON / REGUALR [sic] A121",
+      "note": "One row covers Eon and Regular"
+    },
+    "electric-irons-verna": {
+      "mrp": 930,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "VERNA A122"
+    },
+    "electric-irons-passion": {
+      "mrp": 930,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "PASSION A123"
+    },
+    "electric-irons-majestic": {
+      "mrp": 930,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "MAJESTY A124",
+      "note": "Listed as \"Majesty\"; the site calls it Majestic"
+    },
+    "electric-irons-bmw": {
+      "mrp": 930,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "BMW A125"
+    },
+    "electric-irons-curv": {
+      "mrp": 930,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "CURV A126"
+    },
+    "electric-irons-grand": {
+      "mrp": 980,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "BOLD/GRAND SIDE SWITCH A127",
+      "note": "One row covers Bold and Grand"
+    },
+    "electric-irons-bold": {
+      "mrp": 980,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "BOLD/GRAND SIDE SWITCH A127",
+      "note": "One row covers Bold and Grand; on the site Bold is still a coming-soon product"
+    },
+    "electric-irons-plancha-beetle": {
+      "mrp": 1530,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "PLANCHA BEETLE A128"
+    },
+    "electric-irons-plancha-turbo": {
+      "mrp": 1530,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "PLANCHA TURBO A129"
+    },
+    "electric-irons-plancha": {
+      "mrp": 1530,
+      "page": "main p18 (printed pp. 34-35)",
+      "listedAs": "PLANCHA HEAVY WEIGHT A130"
+    },
+    "heating-water-croma": {
+      "mrp": 1850,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "CROMA, ABS body, Instant / Storage Water Heater"
+    },
+    "heating-water-croma2": {
+      "mrp": 1800,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "CROMA2, ABS body, Instant / Storage Water Heater",
+      "note": "MRP is printed lower than Croma (1850) while the dealer price is the same; as printed"
+    },
+    "heating-water-pearl-immersion-rod-1000-w": {
+      "mrp": 620,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "1000W A91, Immersion Rod Pearl Series (SS304)",
+      "note": "Standard version; the water-proof version costs more, see variants"
+    },
+    "heating-water-pearl-immersion-rod-1500-w": {
+      "mrp": 640,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "1500W A92, Immersion Rod Pearl Series (SS304)",
+      "note": "Standard version; the water-proof version costs more, see variants"
+    },
+    "heating-water-pearl-immersion-rod-2000-w": {
+      "mrp": 660,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "2000W A93, Immersion Rod Pearl Series (SS304)",
+      "note": "Standard version; the water-proof version costs more, see variants"
+    },
+    "heating-water-kettle-element": {
+      "mrp": 880,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "2000W KETTLE ELEMENT A94"
+    },
+    "heating-water-kettle-midget-element": {
+      "mrp": 880,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "3000W MIDIGET [sic] ELEMENT A95"
+    },
+    "heating-water-kettle-element-half-round": {
+      "mrp": 880,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "2000W HALFROUND KETTLE ELEMENT A96"
+    },
+    "heating-water-geyser-element-tricone-9": {
+      "mrp": 790,
+      "page": "main p19 (printed pp. 36-37)",
+      "listedAs": "2000W TRICONE 9\" GEYSER ELEMENT A97"
+    }
+  },
+  "variants": {
+    "ceiling-fans-aeroflow-48": [
+      {
+        "variant": "White",
+        "mrp": 6550,
+        "page": "main p3 (printed pp. 4-5)",
+        "listedAs": "AEROFLOW BLDC White, Golden, A 1450"
+      },
+      {
+        "variant": "Golden",
+        "mrp": 6550,
+        "page": "main p3 (printed pp. 4-5)",
+        "listedAs": "AEROFLOW BLDC White, Golden, A 1450"
+      },
+      {
+        "variant": "Grey",
+        "mrp": 7050,
+        "page": "main p3 (printed pp. 4-5)",
+        "listedAs": "AEROFLOW BLDC Metallic Grey, A 1451"
+      },
+      {
+        "variant": "Wood Craft",
+        "mrp": 7550,
+        "page": "main p3 (printed pp. 4-5)",
+        "listedAs": "AEROFLOW BLDC Wood Craft, A 1452"
+      }
+    ],
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9": [
+      {
+        "variant": "Standard (Silver Series)",
+        "mrp": 1650,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Silver Series FRESH AIR FAN (High Speed) 9\" A 263"
+      },
+      {
+        "variant": "RF (Silver Series)",
+        "mrp": 1720,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Silver Series FRESH AIR FAN (RF) (High Speed) 9\" A 264"
+      },
+      {
+        "variant": "100% copper (Ultra Gold Series)",
+        "mrp": 2200,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Ultra Gold Series FRESH AIR FAN (High Speed) 9\" A 267"
+      },
+      {
+        "variant": "Copper RF (Ultra Gold Series)",
+        "mrp": 2270,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Ultra Gold Series FRESH AIR FAN (RF) (High Speed) 9\" A 268"
+      }
+    ],
+    "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": [
+      {
+        "variant": "Standard (Silver Series)",
+        "mrp": 1790,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Silver Series FRESH AIR FAN (High Speed) 12\" A 265"
+      },
+      {
+        "variant": "RF (Silver Series)",
+        "mrp": 1860,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Silver Series FRESH AIR FAN (RF) (High Speed) 12\" A 266"
+      },
+      {
+        "variant": "100% copper (Ultra Gold Series)",
+        "mrp": 2340,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Ultra Gold Series FRESH AIR FAN (High Speed) 12\" A 269"
+      },
+      {
+        "variant": "Copper RF (Ultra Gold Series)",
+        "mrp": 2410,
+        "page": "main p15 (printed pp. 28-29)",
+        "listedAs": "Ultra Gold Series FRESH AIR FAN (RF) (High Speed) 12\" A 270"
+      }
+    ],
+    "heating-water-pearl-immersion-rod-1000-w": [
+      {
+        "variant": "Standard",
+        "mrp": 620,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "1000W A91"
+      },
+      {
+        "variant": "Water proof",
+        "mrp": 640,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "1000W WATER PROOF A91(S)"
+      }
+    ],
+    "heating-water-pearl-immersion-rod-1500-w": [
+      {
+        "variant": "Standard",
+        "mrp": 640,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "1500W A92"
+      },
+      {
+        "variant": "Water proof",
+        "mrp": 660,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "1500W WATER PROOF A92(S)"
+      }
+    ],
+    "heating-water-pearl-immersion-rod-2000-w": [
+      {
+        "variant": "Standard",
+        "mrp": 660,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "2000W A93"
+      },
+      {
+        "variant": "Water proof",
+        "mrp": 680,
+        "page": "main p19 (printed pp. 36-37)",
+        "listedAs": "2000W WATER PROOF A93(S)"
+      }
+    ]
+  },
+  "unmatched": [
+    {
+      "listedAs": "ALPHA 1, ABS body",
+      "mrp": 3150,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "ALPHA 3, ABS body",
+      "mrp": 4150,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 6, CRC body",
+      "mrp": 4800,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 6, ABS body",
+      "mrp": 5700,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 10, CRC body",
+      "mrp": 5350,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 10, ABS body",
+      "mrp": 6450,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 15, CRC body",
+      "mrp": 6850,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 15, ABS body",
+      "mrp": 8150,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 25, CRC body",
+      "mrp": 7350,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "BLISS 25, ABS body",
+      "mrp": 8750,
+      "page": "main p19 (printed pp. 36-37)",
+      "note": "Discontinued water heater: do NOT show. The site has no Alpha/Bliss product."
+    },
+    {
+      "listedAs": "AERIX-9\"",
+      "mrp": 7410,
+      "page": "cooler p1",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "NEXUS TOWER-12\"",
+      "mrp": 9510,
+      "page": "cooler p1",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "SONATA TOWER-12\" GM",
+      "mrp": 10395,
+      "page": "cooler p1",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "HERITAGE-16\" (air cooler)",
+      "mrp": 16650,
+      "page": "cooler p1",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "GLISTER TOWER-16\"",
+      "mrp": 17640,
+      "page": "cooler p1",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "CRUISER-16\"",
+      "mrp": 17820,
+      "page": "cooler p2",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "GLADO-14\"",
+      "mrp": 11280,
+      "page": "cooler p2",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "VICTORIA-16\"",
+      "mrp": 16260,
+      "page": "cooler p2",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "ASTRA-20\"",
+      "mrp": 20400,
+      "page": "cooler p2",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "MAGNUM-20\" (air cooler)",
+      "mrp": 20610,
+      "page": "cooler p2",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "ULTRA MAX-22\"",
+      "mrp": 24750,
+      "page": "cooler p3",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "INDIGO-22\"",
+      "mrp": 24750,
+      "page": "cooler p3",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "26\"-200L",
+      "mrp": 35700,
+      "page": "cooler p3",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "BLISTER",
+      "mrp": 16140,
+      "page": "cooler p3",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "GLACIER",
+      "mrp": 17820,
+      "page": "cooler p3",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "BLACK COMMANDO",
+      "mrp": 21960,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "CYCLONE",
+      "mrp": 24000,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "VELLAR (left box)",
+      "mrp": 11250,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry). Vellar is printed twice side by side with identical specs (motor 89 DIA / 100 DIA) but different MRPs (11250 and 11850); which is which is not stated"
+    },
+    {
+      "listedAs": "VELLAR (right box)",
+      "mrp": 11850,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry). Vellar is printed twice side by side with identical specs (motor 89 DIA / 100 DIA) but different MRPs (11250 and 11850); which is which is not stated"
+    },
+    {
+      "listedAs": "CURVV",
+      "mrp": 10395,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "TOWER (bladeless)",
+      "mrp": 6300,
+      "page": "cooler p4",
+      "note": "Cooler model not on the site (site coolers are Discovery / Pearl / Ultima models, plus a generic \"Commercial coolers\" entry)"
+    },
+    {
+      "listedAs": "APWM 9.0 PM (WASHER 9.0KG), first row",
+      "mrp": 13050,
+      "page": "cooler p5",
+      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Listed twice with different offer prices but the same MRP"
+    },
+    {
+      "listedAs": "APWM 9.0 PM (WASHER 9.0KG), second row (decorated lid)",
+      "mrp": 13050,
+      "page": "cooler p5",
+      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Listed twice with different offer prices but the same MRP"
+    },
+    {
+      "listedAs": "APWM 7.5 PM (BLACK 7.5KG)",
+      "mrp": 27950,
+      "page": "cooler p5",
+      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Looks suspicious: higher MRP than the 9.5 kg model (22050) and about 4x its offer price, where the others are about 2.4-3x; confirm with Aparna before showing"
+    },
+    {
+      "listedAs": "APWM 7.5 GM (WB 7.5KG)",
+      "mrp": 22050,
+      "page": "cooler p5",
+      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched"
+    },
+    {
+      "listedAs": "APWM 9.5 GM (BLACK 9.5KG)",
+      "mrp": 22050,
+      "page": "cooler p5",
+      "note": "Washing-machine model; the site only has a generic \"Semi-automatic washing machines\" launch entry (washing-machines-semi-automatic-washing-machines), so not matched. Same MRP as APWM 7.5 GM"
+    }
+  ],
+  "notInLists": [
+    "ceiling-fans-crysta-24",
+    "ceiling-fans-mist-24",
+    "ceiling-fans-senoprime-36",
+    "ceiling-fans-alexa-48",
+    "ceiling-fans-crystal-deco-48",
+    "ceiling-fans-florence-48",
+    "ceiling-fans-luster-48",
+    "ceiling-fans-radiant-48",
+    "ceiling-fans-lumero-shine-gold",
+    "ceiling-fans-solo-pro-24",
+    "ceiling-fans-aspire-48",
+    "ceiling-fans-femina-48",
+    "ceiling-fans-glory-48",
+    "ceiling-fans-lotus-deco-48",
+    "ceiling-fans-rosa-pro-48",
+    "ceiling-fans-venus-deco-48",
+    "ceiling-fans-viraj-deco-48",
+    "ceiling-fans-viraz-48",
+    "table-wall-pedestal-fans-nova-16",
+    "table-wall-pedestal-fans-nuuk-16",
+    "table-wall-pedestal-fans-tesla-16",
+    "air-coolers-commercial-coolers",
+    "air-coolers-discovery-1201",
+    "air-coolers-discovery-1202",
+    "air-coolers-discovery-1203-dlx",
+    "air-coolers-discovery-1204-dlx",
+    "air-coolers-pearl-009",
+    "air-coolers-pearl-1201",
+    "air-coolers-pearl-1202",
+    "air-coolers-pearl-1203-dlx",
+    "air-coolers-ultima-1401",
+    "air-coolers-ultima-1402",
+    "air-coolers-ultima-1601",
+    "air-coolers-ultima-1801",
+    "air-coolers-ultima-2201",
+    "air-coolers-ultima-2601",
+    "washing-machines-semi-automatic-washing-machines",
+    "kitchen-appliances-sumo",
+    "kitchen-appliances-pride",
+    "heating-water-alexa",
+    "ceiling-fans-new-gold-line-48",
+    "ceiling-fans-new-diamond-ring-48",
+    "ceiling-fans-new-copper-mesh-48",
+    "ceiling-fans-new-square-clips-48",
+    "ceiling-fans-new-copper-edge",
+    "ceiling-fans-new-ivory-copper-ring-48",
+    "all-purpose-cabin-fans-new-swivel",
+    "all-purpose-cabin-fans-new-compact",
+    "ventilation-fresh-air-fans-new-heavy-duty-exhaust",
+    "kitchen-appliances-new-round-cooktop",
+    "kitchen-appliances-new-touch-cooktop",
+    "electric-irons-new-blue",
+    "electric-irons-new-white-grey",
+    "electric-irons-new-white-blue",
+    "electric-irons-new-white-pink",
+    "electric-irons-new-black",
+    "electric-irons-new-heavy-black",
+    "motors-cooler-motor-1",
+    "motors-cooler-motor-2",
+    "motors-cooler-motor-3",
+    "motors-cooler-motor-4",
+    "motors-cooler-motor-5",
+    "motors-cooler-motor-6",
+    "motors-cooler-motor-7",
+    "motors-cooler-motor-8",
+    "pumps-cooler-pump-1",
+    "pumps-cooler-pump-2",
+    "pumps-cooler-pump-3",
+    "pumps-cooler-pump-4",
+    "pumps-cooler-pump-5",
+    "pumps-cooler-pump-6"
+  ]
+}

@@ -278,7 +278,11 @@
     },
     "detailsSoon": "This is a new model. Photos and full details are on their way from Aparna.",
     "nameSoon": "Name and full details are coming soon from Aparna. Ask your nearest Aparna dealer about it today.",
-    "view360": "360° view"
+    "view360": "360° view",
+    "mrp": "MRP",
+    "mrpFrom": "MRP from",
+    "mrpTax": "Incl. of all taxes",
+    "mrpVersions": "MRP by version"
   },
   "list": {
     "title": "My list",
@@ -348,6 +352,11 @@
     "next": "Next",
     "close": "Close",
     "viewer": "Photo viewer",
-    "all": "All events"
+    "all": "All events",
+    "scroll": "Scroll",
+    "storyHint": "Scroll to walk through the day",
+    "fromAbove": "From above",
+    "newLaunch": "New launch",
+    "afterMovieSoon": "After movie coming soon"
   }
 }

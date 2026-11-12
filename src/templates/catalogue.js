@@ -116,6 +116,10 @@ const saveButton = (t, p, extra = '') => `
     ${heartIcon}<span class="save-btn__text">${esc(t.products.save)}</span>
   </button>`;
 
+// MRP in Indian digit grouping, e.g. ₹10,395
+const rupees = (n) => `₹${Number(n).toLocaleString('en-IN')}`;
+const mrpLine = (t, p) => (p.mrp ? `${p.mrp.varies ? t.product.mrpFrom : t.product.mrp} ${rupees(p.mrp.value)}` : '');
+
 function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) {
   const shownColours = p.colours.slice(0, 5);
   return `
@@ -133,6 +137,7 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
           <span class="product-card__series">${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}</span>
           <span class="product-card__name">${esc(p.name)}</span>
           <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</span>
+          ${p.mrp ? `<span class="product-card__mrp">${esc(mrpLine(t, p))}</span>` : ''}
           <span class="product-card__desc">${esc(p.description)}</span>
           <span class="product-card__foot">
             ${shownColours.length ? `<span class="product-card__colours" title="${esc(p.colours.join(', '))}">
@@ -424,6 +429,21 @@ function related(catalogue, p) {
   return { list: [...sameSeries, ...sameCategory].slice(0, 4), bySeries: sameSeries.length > 0 };
 }
 
+// A version's MRP when the price list prices it by colour (Aeroflow: White, Golden, Grey, Wood Craft).
+const colourMrp = (p, colour) => p.mrp?.variants.find((v) => v.label.toLowerCase() === colour.toLowerCase())?.mrp ?? null;
+
+function productMrp(t, p, pickColours) {
+  const byColour = p.mrp.variants.length && p.mrp.variants.every((v) => pickColours.some((c) => c.toLowerCase() === v.label.toLowerCase()));
+  const others = p.mrp.varies && !byColour ? p.mrp.variants : [];
+  return `
+        <div class="product__mrp">
+          <p class="product__mrp-line"><span class="product__mrp-label">${esc(p.mrp.varies && !byColour ? t.product.mrpFrom : t.product.mrp)}</span>
+            <span class="product__mrp-value" data-mrp-value>${esc(rupees(p.mrp.value))}</span>
+            <span class="product__mrp-tax">${esc(t.product.mrpTax)}</span></p>
+          ${others.length ? `<details class="product__mrp-versions"><summary>${esc(t.product.mrpVersions)}</summary><ul>${others.map((v) => `<li><span>${esc(v.label)}</span><span>${esc(rupees(v.mrp))}</span></li>`).join('')}</ul></details>` : ''}
+        </div>`;
+}
+
 export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }) {
   const p = catalogue.products.find((x) => x.id === id);
   const cut = cutouts[p.id];
@@ -553,6 +573,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         <p class="product__series">${esc(p.series)}</p>
         <h1 class="product__name" id="product-title">${esc(p.name)}</h1>
         <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
+        ${p.mrp ? productMrp(t, p, pickColours) : ''}
         <p class="product__desc">${esc(p.description)}</p>
         ${p.status !== 'current' ? `<p class="product__soon">${esc(p.status === 'soon' ? t.product.nameSoon : t.product.detailsSoon)}</p>` : ''}
 
@@ -562,7 +583,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
           <div class="colour-picker__list">
             ${pickColours.map((c, i) => `
               <label class="colour-option">
-                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}">
+                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}"${colourMrp(p, c) ? ` data-mrp="${esc(rupees(colourMrp(p, c)))}"` : ''}>
                 ${swatch(colours, c)}<span class="colour-option__name">${esc(c)}</span>
               </label>`).join('')}
           </div>

@@ -1,5 +1,5 @@
 {
-  "_read_me": "Aparna's events, newest first. Each becomes a page at /events/<id>/ and a card on /events/. To add one: put its photos in a folder (for example events-media/<id>/, any .jpg/.png/.webp), add an entry here with that folder, then run npm run content. Paths are relative to the project folder; \"pack:\" means the build pack folder. Photo captions come from \"captions\" (file name -> caption) or else from the file names (text before \" - \" or the whole name), so name files by what they show, never by people's names (brief rule 4). galleries: optional named sets (a folder each, shown in file-name order). video: an optional muted loop (.mp4). afterMovie: link to the full film (YouTube) once Aparna sends it, or null. launches: optional category names launched at the event (linked to their pages).",
+  "_read_me": "Aparna's events, newest first. Each becomes a page at /events/<id>/ and a card on /events/. To add one: put its photos in a folder (for example events-media/<id>/, any .jpg/.png/.webp), add an entry here with that folder, then run npm run content. Paths are relative to the project folder; \"pack:\" means the build pack folder. Photo captions come from \"captions\" (file name -> caption) or else from the file names (text before \" - \" or the whole name), so name files by what they show, never by people's names (brief rule 4). galleries: optional named sets (a folder each, shown in file-name order). video: an optional muted loop (.mp4). drones: optional muted drone loops [{ file, label, poster }]. afterMovie: link to the full film (YouTube) once Aparna sends it, or null. launches: optional category names launched at the event (linked to their pages).",
   "events": [
     {
       "id": "utsav-26",
@@ -10,6 +10,18 @@
       "summary": "In October 2026, Aparna's distributors and dealers from across India came together for Utsav '26: a day of thanks, new launches and celebration.",
       "cover": "pack:06_Utsav26_Event/photos/Wide night shot of a crowd cheering under clear balloons - AVNI5199.jpg",
       "video": "pack:06_Utsav26_Event/video/Utsav 26 - glimpse loop, 40 s, muted, no names (from the After Movie).mp4",
+      "drones": [
+        {
+          "file": "pack:06_Utsav26_Event/drone (no audio, web loops)/drone - entrance with Aparna standees, rise and reveal.mp4",
+          "label": "Arrival, from above",
+          "poster": "pack:06_Utsav26_Event/photos/Grand hotel entrance with red carpet - AVNI4382.jpg"
+        },
+        {
+          "file": "pack:06_Utsav26_Event/drone (no audio, web loops)/drone - rise from the Journey Since 1991 hoardings.mp4",
+          "label": "The venue from above",
+          "poster": "pack:06_Utsav26_Event/photos/Hotel courtyard with glass facade - AVNI4959.jpg"
+        }
+      ],
       "afterMovie": null,
       "photos": "pack:06_Utsav26_Event/photos",
       "galleries": [

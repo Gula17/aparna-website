@@ -25,6 +25,48 @@
         "caption": "The night celebration"
       },
       "video": "/media/events/utsav-26/utsav-26-glimpse-loop-40-s-muted-no-name.mp4",
+      "drones": [
+        {
+          "label": "Arrival, from above",
+          "video": "/media/events/utsav-26/drone-entrance-with-aparna-standees-rise.mp4",
+          "poster": {
+            "variants": [
+              {
+                "file": "/media/events/utsav-26/grand-hotel-entrance-with-red-carpet-avni4382-1-640.webp",
+                "width": 640,
+                "height": 426
+              },
+              {
+                "file": "/media/events/utsav-26/grand-hotel-entrance-with-red-carpet-avni4382-1-1280.webp",
+                "width": 1280,
+                "height": 853
+              }
+            ],
+            "alt": "The red-carpet welcome",
+            "caption": "The red-carpet welcome"
+          }
+        },
+        {
+          "label": "The venue from above",
+          "video": "/media/events/utsav-26/drone-rise-from-the-journey-since-1991-h.mp4",
+          "poster": {
+            "variants": [
+              {
+                "file": "/media/events/utsav-26/hotel-courtyard-with-glass-facade-avni4959-2-640.webp",
+                "width": 640,
+                "height": 426
+              },
+              {
+                "file": "/media/events/utsav-26/hotel-courtyard-with-glass-facade-avni4959-2-1280.webp",
+                "width": 1280,
+                "height": 853
+              }
+            ],
+            "alt": "The courtyard, ready for the evening",
+            "caption": "The courtyard, ready for the evening"
+          }
+        }
+      ],
       "afterMovie": null,
       "photos": [
         {

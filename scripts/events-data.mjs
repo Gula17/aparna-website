@@ -57,18 +57,21 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
     }
     const cover = e.cover ? await photo(resolve(e.cover)) : photos[0] ?? galleries[0]?.items[0] ?? null;
 
-    let video = null;
-    if (e.video) {
-      const name = `${slug(path.basename(e.video, path.extname(e.video))).slice(0, 40)}.mp4`;
+    // video loops are copied as they are (only when changed)
+    async function copyVideo(file) {
+      const name = `${slug(path.basename(file, path.extname(file))).slice(0, 40)}.mp4`;
       const out = path.join(outDir, name);
-      const [a, b] = await Promise.all([fs.stat(resolve(e.video)), fs.stat(out).catch(() => null)]);
-      if (!b || b.size !== a.size) await fs.copyFile(resolve(e.video), out);
-      video = `/media/events/${e.id}/${name}`;
+      const [a, b] = await Promise.all([fs.stat(resolve(file)), fs.stat(out).catch(() => null)]);
+      if (!b || b.size !== a.size) await fs.copyFile(resolve(file), out);
+      return `/media/events/${e.id}/${name}`;
     }
+    const video = e.video ? await copyVideo(e.video) : null;
+    const drones = [];
+    for (const d of e.drones ?? []) drones.push({ label: d.label, video: await copyVideo(d.file), poster: d.poster ? await photo(resolve(d.poster)) : cover });
 
     events.push({
       id: e.id, url: `/events/${e.id}/`, name: e.name, when: e.when, date: e.date, kicker: e.kicker ?? '',
-      summary: e.summary, cover, video, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [],
+      summary: e.summary, cover, video, drones, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [],
       count: photos.length + galleries.reduce((n, g) => n + g.items.length, 0),
     });
   }

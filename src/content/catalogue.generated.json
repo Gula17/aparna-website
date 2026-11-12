@@ -137,7 +137,29 @@
           "kind": "photo"
         }
       ],
-      "sort": "0.1.0"
+      "sort": "0.1.0",
+      "mrp": {
+        "value": 6550,
+        "variants": [
+          {
+            "label": "White",
+            "mrp": 6550
+          },
+          {
+            "label": "Golden",
+            "mrp": 6550
+          },
+          {
+            "label": "Grey",
+            "mrp": 7050
+          },
+          {
+            "label": "Wood Craft",
+            "mrp": 7550
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "ceiling-fans-aerosleek-48",
@@ -289,7 +311,12 @@
           "kind": "photo"
         }
       ],
-      "sort": "0.1.1"
+      "sort": "0.1.1",
+      "mrp": {
+        "value": 3750,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-ikon-bldc-48",
@@ -398,7 +425,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "0.1.2"
+      "sort": "0.1.2",
+      "mrp": {
+        "value": 3250,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-air-max-48",
@@ -511,7 +543,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "1.1.3"
+      "sort": "1.1.3",
+      "mrp": {
+        "value": 3200,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-art-pro-48",
@@ -641,7 +678,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "1.1.4"
+      "sort": "1.1.4",
+      "mrp": {
+        "value": 3260,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-coral-48",
@@ -737,7 +779,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "1.1.5"
+      "sort": "1.1.5",
+      "mrp": {
+        "value": 2800,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-coras-48",
@@ -866,7 +913,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "1.1.6"
+      "sort": "1.1.6",
+      "mrp": {
+        "value": 3200,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-irus-48",
@@ -978,7 +1030,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "1.1.7"
+      "sort": "1.1.7",
+      "mrp": {
+        "value": 3200,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-aronita-48",
@@ -1009,7 +1066,12 @@
       "description": "The Aronita is a 48\" (1200 mm) ceiling fan in Aparna's New premium range.",
       "catalogue": null,
       "images": [],
-      "sort": "2.1.8"
+      "sort": "2.1.8",
+      "mrp": {
+        "value": 3300,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-heritage-48",
@@ -1083,7 +1145,12 @@
           "kind": "photo"
         }
       ],
-      "sort": "2.1.9"
+      "sort": "2.1.9",
+      "mrp": {
+        "value": 3410,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-nexus-48",
@@ -1114,7 +1181,12 @@
       "description": "The Nexus is a 48\" (1200 mm) ceiling fan in Aparna's New premium range.",
       "catalogue": null,
       "images": [],
-      "sort": "2.1.10"
+      "sort": "2.1.10",
+      "mrp": {
+        "value": 3300,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-pazero-48",
@@ -1188,7 +1260,12 @@
           "kind": "photo"
         }
       ],
-      "sort": "2.1.11"
+      "sort": "2.1.11",
+      "mrp": {
+        "value": 3300,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-crysta-24",
@@ -1223,7 +1300,8 @@
       "description": "The Crysta is a 24\" (600 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.12"
+      "sort": "9.1.12",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-mini-dlx-24",
@@ -1321,7 +1399,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.13"
+      "sort": "9.1.13",
+      "mrp": {
+        "value": 1930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-mini-smart-24",
@@ -1419,7 +1502,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.14"
+      "sort": "9.1.14",
+      "mrp": {
+        "value": 1980,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-mini-star-24",
@@ -1517,7 +1605,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.15"
+      "sort": "9.1.15",
+      "mrp": {
+        "value": 1910,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-mist-24",
@@ -1552,7 +1645,8 @@
       "description": "The Mist is a 24\" (600 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.16"
+      "sort": "9.1.16",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-josh-24",
@@ -1629,7 +1723,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.17"
+      "sort": "9.1.17",
+      "mrp": {
+        "value": 2020,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-diplomat-36",
@@ -1710,7 +1809,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.18"
+      "sort": "9.1.18",
+      "mrp": {
+        "value": 2290,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-major-36",
@@ -1807,7 +1911,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.19"
+      "sort": "9.1.19",
+      "mrp": {
+        "value": 2080,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-orbit-36",
@@ -1888,7 +1997,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.20"
+      "sort": "9.1.20",
+      "mrp": {
+        "value": 2150,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-senoprime-36",
@@ -1923,7 +2037,8 @@
       "description": "The Senoprime is a 36\" (900 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.21"
+      "sort": "9.1.21",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-alexa-48",
@@ -1958,7 +2073,8 @@
       "description": "The Alexa is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.22"
+      "sort": "9.1.22",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-apsara-48",
@@ -2056,7 +2172,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.23"
+      "sort": "9.1.23",
+      "mrp": {
+        "value": 2180,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-areta-48",
@@ -2154,7 +2275,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.24"
+      "sort": "9.1.24",
+      "mrp": {
+        "value": 2280,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-croma-48",
@@ -2252,7 +2378,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.25"
+      "sort": "9.1.25",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-crystal-deco-48",
@@ -2287,7 +2418,8 @@
       "description": "The Crystal Deco is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.26"
+      "sort": "9.1.26",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-crystal-pro-48",
@@ -2402,7 +2534,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.27"
+      "sort": "9.1.27",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-electra-48",
@@ -2500,7 +2637,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.28"
+      "sort": "9.1.28",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-festiva-48",
@@ -2581,7 +2723,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.29"
+      "sort": "9.1.29",
+      "mrp": {
+        "value": 2330,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-flora-48",
@@ -2679,7 +2826,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.30"
+      "sort": "9.1.30",
+      "mrp": {
+        "value": 2230,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-florence-48",
@@ -2760,7 +2912,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.31"
+      "sort": "9.1.31",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-glaze-48",
@@ -2858,7 +3011,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.32"
+      "sort": "9.1.32",
+      "mrp": {
+        "value": 2230,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-iconic-48",
@@ -2891,7 +3049,12 @@
       "description": "The Iconic is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.33"
+      "sort": "9.1.33",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-ikon-48",
@@ -2989,7 +3152,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.34"
+      "sort": "9.1.34",
+      "mrp": {
+        "value": 2080,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-ikon-pro-48",
@@ -3024,7 +3192,12 @@
       "description": "The Ikon Pro is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.35"
+      "sort": "9.1.35",
+      "mrp": {
+        "value": 2080,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-luster-48",
@@ -3106,7 +3279,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.36"
+      "sort": "9.1.36",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-luster-shine-golden-48",
@@ -3152,7 +3326,12 @@
           "colour": "Brown"
         }
       ],
-      "sort": "9.1.37"
+      "sort": "9.1.37",
+      "mrp": {
+        "value": 3410,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-luster-shine-silver-48",
@@ -3198,7 +3377,12 @@
           "colour": "Silver/champagne"
         }
       ],
-      "sort": "9.1.38"
+      "sort": "9.1.38",
+      "mrp": {
+        "value": 3410,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-nikon-48",
@@ -3251,7 +3435,12 @@
           "colour": "Metallic Blue"
         }
       ],
-      "sort": "9.1.39"
+      "sort": "9.1.39",
+      "mrp": {
+        "value": 2130,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-phantom-48",
@@ -3349,7 +3538,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.40"
+      "sort": "9.1.40",
+      "mrp": {
+        "value": 2380,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-prince-48",
@@ -3447,7 +3641,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.41"
+      "sort": "9.1.41",
+      "mrp": {
+        "value": 2090,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-radiant-48",
@@ -3482,7 +3681,8 @@
       "description": "The Radiant is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.42"
+      "sort": "9.1.42",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-rider-48",
@@ -3517,7 +3717,12 @@
       "description": "The Rider is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.43"
+      "sort": "9.1.43",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-rosa-48",
@@ -3615,7 +3820,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.44"
+      "sort": "9.1.44",
+      "mrp": {
+        "value": 2290,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-senorita-48",
@@ -3713,7 +3923,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.45"
+      "sort": "9.1.45",
+      "mrp": {
+        "value": 2290,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-sonet-deco-48",
@@ -3811,7 +4026,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.46"
+      "sort": "9.1.46",
+      "mrp": {
+        "value": 2150,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-sparsh-48",
@@ -3909,7 +4129,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.47"
+      "sort": "9.1.47",
+      "mrp": {
+        "value": 2110,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-stunner-48",
@@ -4007,7 +4232,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.48"
+      "sort": "9.1.48",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-supreme-48",
@@ -4042,7 +4272,12 @@
       "description": "The Supreme is a 48\" (1200 mm) ceiling fan in Aparna's Silver Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.49"
+      "sort": "9.1.49",
+      "mrp": {
+        "value": 2290,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-unicorn-48",
@@ -4140,7 +4375,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.50"
+      "sort": "9.1.50",
+      "mrp": {
+        "value": 2210,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-lumero-shine-gold",
@@ -4170,7 +4410,8 @@
       "description": "The Lumero Shine Gold is a ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.51"
+      "sort": "9.1.51",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-little-star-24",
@@ -4270,7 +4511,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.52"
+      "sort": "9.1.52",
+      "mrp": {
+        "value": 2460,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-mini-copper-24",
@@ -4370,7 +4616,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.53"
+      "sort": "9.1.53",
+      "mrp": {
+        "value": 2480,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-new-josh-copper-24",
@@ -4470,7 +4721,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.54"
+      "sort": "9.1.54",
+      "mrp": {
+        "value": 2570,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-solo-pro-24",
@@ -4507,7 +4763,8 @@
       "description": "The Solo Pro is a 24\" (600 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.55"
+      "sort": "9.1.55",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-tejas-24",
@@ -4590,7 +4847,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.56"
+      "sort": "9.1.56",
+      "mrp": {
+        "value": 2530,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-nova-dlx-36",
@@ -4673,7 +4935,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.57"
+      "sort": "9.1.57",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-saphire-36",
@@ -4756,7 +5023,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.58"
+      "sort": "9.1.58",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-virat-36",
@@ -4855,7 +5127,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.59"
+      "sort": "9.1.59",
+      "mrp": {
+        "value": 2630,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-aroma-deco-48",
@@ -4955,7 +5232,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.60"
+      "sort": "9.1.60",
+      "mrp": {
+        "value": 2780,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-aspire-48",
@@ -5038,7 +5320,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.61"
+      "sort": "9.1.61",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-croma-pro-48",
@@ -5138,7 +5421,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.62"
+      "sort": "9.1.62",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-femina-48",
@@ -5199,7 +5487,8 @@
         "pages": "26-27"
       },
       "images": [],
-      "sort": "9.1.63"
+      "sort": "9.1.63",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-fortune-pro-48",
@@ -5299,7 +5588,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.64"
+      "sort": "9.1.64",
+      "mrp": {
+        "value": 2760,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-glory-48",
@@ -5336,7 +5630,8 @@
       "description": "The Glory is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.65"
+      "sort": "9.1.65",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-kiara-48",
@@ -5435,7 +5730,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.66"
+      "sort": "9.1.66",
+      "mrp": {
+        "value": 2660,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-lotus-deco-48",
@@ -5518,7 +5818,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.67"
+      "sort": "9.1.67",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-lumero-48",
@@ -5602,7 +5903,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.68"
+      "sort": "9.1.68",
+      "mrp": {
+        "value": 3820,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-nokia-48",
@@ -5638,7 +5944,12 @@
       "description": "The Nokia is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.69"
+      "sort": "9.1.69",
+      "mrp": {
+        "value": 2680,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-orchid-deco-48",
@@ -5743,7 +6054,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.70"
+      "sort": "9.1.70",
+      "mrp": {
+        "value": 2840,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-orina-48",
@@ -5848,7 +6164,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.71"
+      "sort": "9.1.71",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-platinium-48",
@@ -5965,7 +6286,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.72"
+      "sort": "9.1.72",
+      "mrp": {
+        "value": 2710,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-porsche-48",
@@ -6070,7 +6396,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.73"
+      "sort": "9.1.73",
+      "mrp": {
+        "value": 2930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-rafale-48",
@@ -6170,7 +6501,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.74"
+      "sort": "9.1.74",
+      "mrp": {
+        "value": 2630,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-raftaar-48",
@@ -6270,7 +6606,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.75"
+      "sort": "9.1.75",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-rider-pro-48",
@@ -6307,7 +6648,12 @@
       "description": "The Rider Pro is a 48\" (1200 mm) ceiling fan in Aparna's Ultra Gold Series.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.76"
+      "sort": "9.1.76",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-rolex-48",
@@ -6407,7 +6753,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.77"
+      "sort": "9.1.77",
+      "mrp": {
+        "value": 2840,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-rosa-pro-48",
@@ -6462,7 +6813,8 @@
           "colour": "Ivory"
         }
       ],
-      "sort": "9.1.78"
+      "sort": "9.1.78",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-runner-48",
@@ -6562,7 +6914,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.79"
+      "sort": "9.1.79",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-sayonara-48",
@@ -6662,7 +7019,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.80"
+      "sort": "9.1.80",
+      "mrp": {
+        "value": 2840,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-smart-deco-48",
@@ -6762,7 +7124,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.81"
+      "sort": "9.1.81",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-venus-deco-48",
@@ -6845,7 +7212,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.82"
+      "sort": "9.1.82",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-viraj-deco-48",
@@ -6928,7 +7296,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.83"
+      "sort": "9.1.83",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-viraz-48",
@@ -7011,7 +7380,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.84"
+      "sort": "9.1.84",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-vista-deco-48",
@@ -7111,7 +7481,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.85"
+      "sort": "9.1.85",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-vento-12",
@@ -7207,7 +7582,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.86"
+      "sort": "9.1.86",
+      "mrp": {
+        "value": 2320,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-glider-16",
@@ -7303,7 +7683,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.87"
+      "sort": "9.1.87",
+      "mrp": {
+        "value": 2180,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-spider-16",
@@ -7399,7 +7784,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.88"
+      "sort": "9.1.88",
+      "mrp": {
+        "value": 2180,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-tornado-16",
@@ -7497,7 +7887,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.89"
+      "sort": "9.1.89",
+      "mrp": {
+        "value": 2430,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-wendy-12",
@@ -7593,7 +7988,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.90"
+      "sort": "9.1.90",
+      "mrp": {
+        "value": 2480,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-fiona-16",
@@ -7689,7 +8089,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.91"
+      "sort": "9.1.91",
+      "mrp": {
+        "value": 2990,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-spectra-16",
@@ -7768,7 +8173,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.92"
+      "sort": "9.1.92",
+      "mrp": {
+        "value": 2740,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-vectra-16",
@@ -7864,7 +8274,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.93"
+      "sort": "9.1.93",
+      "mrp": {
+        "value": 2480,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-vistara-16",
@@ -7960,7 +8375,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.94"
+      "sort": "9.1.94",
+      "mrp": {
+        "value": 2480,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-jazz-12",
@@ -8056,7 +8476,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.95"
+      "sort": "9.1.95",
+      "mrp": {
+        "value": 3600,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-blazo-16",
@@ -8152,7 +8577,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.96"
+      "sort": "9.1.96",
+      "mrp": {
+        "value": 3520,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-blitz-16",
@@ -8248,7 +8678,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.97"
+      "sort": "9.1.97",
+      "mrp": {
+        "value": 3520,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-iconic-16",
@@ -8302,7 +8737,12 @@
           "colour": "Rose Pink & White"
         }
       ],
-      "sort": "9.1.98"
+      "sort": "9.1.98",
+      "mrp": {
+        "value": 4230,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-stallion-16",
@@ -8398,7 +8838,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.99"
+      "sort": "9.1.99",
+      "mrp": {
+        "value": 4230,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-velora-16",
@@ -8494,7 +8939,12 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.100"
+      "sort": "9.1.100",
+      "mrp": {
+        "value": 3710,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-oreo-12",
@@ -8543,7 +8993,12 @@
           "colour": "Black"
         }
       ],
-      "sort": "9.1.101"
+      "sort": "9.1.101",
+      "mrp": {
+        "value": 2200,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "table-wall-pedestal-fans-nova-16",
@@ -8570,7 +9025,8 @@
       "description": "The Nova is a 16\" (400 mm) table fan in Aparna's New range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.102"
+      "sort": "9.1.102",
+      "mrp": null
     },
     {
       "id": "table-wall-pedestal-fans-nuuk-16",
@@ -8597,7 +9053,8 @@
       "description": "The Nuuk is a 16\" (400 mm) table fan in Aparna's New range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.103"
+      "sort": "9.1.103",
+      "mrp": null
     },
     {
       "id": "table-wall-pedestal-fans-tesla-16",
@@ -8645,7 +9102,8 @@
           "colour": "Black"
         }
       ],
-      "sort": "9.1.104"
+      "sort": "9.1.104",
+      "mrp": null
     },
     {
       "id": "all-purpose-cabin-fans-goair-ac-dc-12",
@@ -8718,7 +9176,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.105"
+      "sort": "9.1.105",
+      "mrp": {
+        "value": 3000,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-goair-ac-dc-16",
@@ -8791,7 +9254,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.106"
+      "sort": "9.1.106",
+      "mrp": {
+        "value": 3140,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-safari-9",
@@ -8866,7 +9334,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.107"
+      "sort": "9.1.107",
+      "mrp": {
+        "value": 1600,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-cabin-fan-12",
@@ -8941,7 +9414,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.108"
+      "sort": "9.1.108",
+      "mrp": {
+        "value": 2080,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-jawa-osc-12",
@@ -8994,7 +9472,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.109"
+      "sort": "9.1.109",
+      "mrp": {
+        "value": 1990,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-piano-black-12",
@@ -9069,7 +9552,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.110"
+      "sort": "9.1.110",
+      "mrp": {
+        "value": 1630,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-piano-white-12",
@@ -9144,7 +9632,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.111"
+      "sort": "9.1.111",
+      "mrp": {
+        "value": 1680,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "all-purpose-cabin-fans-regal-12",
@@ -9202,7 +9695,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.112"
+      "sort": "9.1.112",
+      "mrp": {
+        "value": 1660,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-bullet-oscillating-12",
@@ -9266,7 +9764,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.113"
+      "sort": "9.1.113",
+      "mrp": {
+        "value": 2330,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-ornet-12",
@@ -9338,7 +9841,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.114"
+      "sort": "9.1.114",
+      "mrp": {
+        "value": 2430,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-bullet-16",
@@ -9410,7 +9918,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.115"
+      "sort": "9.1.115",
+      "mrp": {
+        "value": 2260,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-bullet-oscillating-16",
@@ -9465,7 +9978,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.116"
+      "sort": "9.1.116",
+      "mrp": {
+        "value": 2780,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-bullet-oscillating-metal-blade-16",
@@ -9508,7 +10026,12 @@
           "colour": "Black & Silver"
         }
       ],
-      "sort": "9.1.117"
+      "sort": "9.1.117",
+      "mrp": {
+        "value": 3000,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-maxx-oscillating-16",
@@ -9559,7 +10082,12 @@
           "colour": "Blue & White"
         }
       ],
-      "sort": "9.1.118"
+      "sort": "9.1.118",
+      "mrp": {
+        "value": 2870,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-shine-16",
@@ -9631,7 +10159,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.119"
+      "sort": "9.1.119",
+      "mrp": {
+        "value": 2890,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-champion-22",
@@ -9707,7 +10240,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.120"
+      "sort": "9.1.120",
+      "mrp": {
+        "value": 4490,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-hexa-20",
@@ -9784,7 +10322,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.121"
+      "sort": "9.1.121",
+      "mrp": {
+        "value": 3850,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-indus-high-speed-20",
@@ -9860,7 +10403,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.122"
+      "sort": "9.1.122",
+      "mrp": {
+        "value": 3510,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-nexa-20",
@@ -9920,7 +10468,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.123"
+      "sort": "9.1.123",
+      "mrp": {
+        "value": 3850,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-sultan-20",
@@ -9996,7 +10549,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.124"
+      "sort": "9.1.124",
+      "mrp": {
+        "value": 3850,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "high-speed-fans-windstar-22",
@@ -10042,7 +10600,12 @@
           "colour": "Black"
         }
       ],
-      "sort": "9.1.125"
+      "sort": "9.1.125",
+      "mrp": {
+        "value": 4330,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9",
@@ -10099,7 +10662,29 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.126"
+      "sort": "9.1.126",
+      "mrp": {
+        "value": 1650,
+        "variants": [
+          {
+            "label": "Standard (Silver Series)",
+            "mrp": 1650
+          },
+          {
+            "label": "RF (Silver Series)",
+            "mrp": 1720
+          },
+          {
+            "label": "100% copper (Ultra Gold Series)",
+            "mrp": 2200
+          },
+          {
+            "label": "Copper RF (Ultra Gold Series)",
+            "mrp": 2270
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12",
@@ -10173,7 +10758,29 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.127"
+      "sort": "9.1.127",
+      "mrp": {
+        "value": 1790,
+        "variants": [
+          {
+            "label": "Standard (Silver Series)",
+            "mrp": 1790
+          },
+          {
+            "label": "RF (Silver Series)",
+            "mrp": 1860
+          },
+          {
+            "label": "100% copper (Ultra Gold Series)",
+            "mrp": 2340
+          },
+          {
+            "label": "Copper RF (Ultra Gold Series)",
+            "mrp": 2410
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "ventilation-fresh-air-fans-ventilation-fan-6",
@@ -10248,7 +10855,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.128"
+      "sort": "9.1.128",
+      "mrp": {
+        "value": 1550,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ventilation-fresh-air-fans-ventilation-fan-8",
@@ -10323,7 +10935,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.129"
+      "sort": "9.1.129",
+      "mrp": {
+        "value": 1650,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ventilation-fresh-air-fans-ventilation-fan-10",
@@ -10398,7 +11015,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.130"
+      "sort": "9.1.130",
+      "mrp": {
+        "value": 1750,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "air-coolers-commercial-coolers",
@@ -10463,7 +11085,8 @@
           "kind": "photo"
         }
       ],
-      "sort": "9.0.131"
+      "sort": "9.0.131",
+      "mrp": null
     },
     {
       "id": "air-coolers-discovery-1201",
@@ -10547,7 +11170,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.132"
+      "sort": "9.1.132",
+      "mrp": null
     },
     {
       "id": "air-coolers-discovery-1202",
@@ -10631,7 +11255,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.133"
+      "sort": "9.1.133",
+      "mrp": null
     },
     {
       "id": "air-coolers-discovery-1203-dlx",
@@ -10715,7 +11340,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.134"
+      "sort": "9.1.134",
+      "mrp": null
     },
     {
       "id": "air-coolers-discovery-1204-dlx",
@@ -10799,7 +11425,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.135"
+      "sort": "9.1.135",
+      "mrp": null
     },
     {
       "id": "air-coolers-pearl-009",
@@ -10883,7 +11510,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.136"
+      "sort": "9.1.136",
+      "mrp": null
     },
     {
       "id": "air-coolers-pearl-1201",
@@ -10967,7 +11595,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.137"
+      "sort": "9.1.137",
+      "mrp": null
     },
     {
       "id": "air-coolers-pearl-1202",
@@ -11051,7 +11680,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.138"
+      "sort": "9.1.138",
+      "mrp": null
     },
     {
       "id": "air-coolers-pearl-1203-dlx",
@@ -11135,7 +11765,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.139"
+      "sort": "9.1.139",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-1401",
@@ -11219,7 +11850,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.140"
+      "sort": "9.1.140",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-1402",
@@ -11303,7 +11935,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.141"
+      "sort": "9.1.141",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-1601",
@@ -11388,7 +12021,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.142"
+      "sort": "9.1.142",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-1801",
@@ -11473,7 +12107,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.143"
+      "sort": "9.1.143",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-2201",
@@ -11558,7 +12193,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.144"
+      "sort": "9.1.144",
+      "mrp": null
     },
     {
       "id": "air-coolers-ultima-2601",
@@ -11643,7 +12279,8 @@
           "kind": "poster"
         }
       ],
-      "sort": "9.1.145"
+      "sort": "9.1.145",
+      "mrp": null
     },
     {
       "id": "washing-machines-semi-automatic-washing-machines",
@@ -11710,7 +12347,8 @@
           "kind": "photo"
         }
       ],
-      "sort": "9.0.146"
+      "sort": "9.0.146",
+      "mrp": null
     },
     {
       "id": "kitchen-appliances-bng",
@@ -11786,7 +12424,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.147"
+      "sort": "9.1.147",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-calvin",
@@ -11862,7 +12505,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.148"
+      "sort": "9.1.148",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-comfort",
@@ -11938,7 +12586,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.149"
+      "sort": "9.1.149",
+      "mrp": {
+        "value": 2190,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-crescent",
@@ -12014,7 +12667,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.150"
+      "sort": "9.1.150",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-excel",
@@ -12090,7 +12748,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.151"
+      "sort": "9.1.151",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-hudsun",
@@ -12166,7 +12829,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.152"
+      "sort": "9.1.152",
+      "mrp": {
+        "value": 2010,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-jhn-1250",
@@ -12242,7 +12910,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.153"
+      "sort": "9.1.153",
+      "mrp": {
+        "value": 1910,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-jhn-2000",
@@ -12318,7 +12991,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.154"
+      "sort": "9.1.154",
+      "mrp": {
+        "value": 2010,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-magnum",
@@ -12394,7 +13072,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.155"
+      "sort": "9.1.155",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-nelson",
@@ -12470,7 +13153,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.156"
+      "sort": "9.1.156",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-phantom",
@@ -12546,7 +13234,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.157"
+      "sort": "9.1.157",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-regent",
@@ -12622,7 +13315,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.158"
+      "sort": "9.1.158",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-rustam",
@@ -12698,7 +13396,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.159"
+      "sort": "9.1.159",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-ss-jumbo",
@@ -12774,7 +13477,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.160"
+      "sort": "9.1.160",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-ss-2000",
@@ -12850,7 +13558,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.161"
+      "sort": "9.1.161",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-simson",
@@ -12926,7 +13639,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.162"
+      "sort": "9.1.162",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-smart",
@@ -13002,7 +13720,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.163"
+      "sort": "9.1.163",
+      "mrp": {
+        "value": 2700,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-sumo",
@@ -13037,7 +13760,8 @@
       "description": "The Sumo is a g-coil hot plate in Aparna's G-coil hot plates range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.164"
+      "sort": "9.1.164",
+      "mrp": null
     },
     {
       "id": "kitchen-appliances-ultima",
@@ -13113,7 +13837,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.165"
+      "sort": "9.1.165",
+      "mrp": {
+        "value": 2160,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-boss",
@@ -13153,7 +13882,12 @@
       "description": "The Boss is an infrared cooktop in Aparna's Infrared (infra) cooktops range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.166"
+      "sort": "9.1.166",
+      "mrp": {
+        "value": 5300,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-crystal",
@@ -13193,7 +13927,12 @@
       "description": "The Crystal is an infrared cooktop in Aparna's Infrared (infra) cooktops range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.167"
+      "sort": "9.1.167",
+      "mrp": {
+        "value": 5500,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-presto",
@@ -13284,7 +14023,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.168"
+      "sort": "9.1.168",
+      "mrp": {
+        "value": 5500,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-pride",
@@ -13324,7 +14068,8 @@
       "description": "The Pride is an infrared cooktop in Aparna's Infrared (infra) cooktops range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.169"
+      "sort": "9.1.169",
+      "mrp": null
     },
     {
       "id": "kitchen-appliances-prime",
@@ -13415,7 +14160,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.170"
+      "sort": "9.1.170",
+      "mrp": {
+        "value": 5300,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "kitchen-appliances-prince",
@@ -13506,7 +14256,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.171"
+      "sort": "9.1.171",
+      "mrp": {
+        "value": 5500,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-pearl-immersion-rod-1000-w",
@@ -13590,7 +14345,21 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.172"
+      "sort": "9.1.172",
+      "mrp": {
+        "value": 620,
+        "variants": [
+          {
+            "label": "Standard",
+            "mrp": 620
+          },
+          {
+            "label": "Water proof",
+            "mrp": 640
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "heating-water-pearl-immersion-rod-1500-w",
@@ -13674,7 +14443,21 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.173"
+      "sort": "9.1.173",
+      "mrp": {
+        "value": 640,
+        "variants": [
+          {
+            "label": "Standard",
+            "mrp": 640
+          },
+          {
+            "label": "Water proof",
+            "mrp": 660
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "heating-water-pearl-immersion-rod-2000-w",
@@ -13758,7 +14541,21 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.174"
+      "sort": "9.1.174",
+      "mrp": {
+        "value": 660,
+        "variants": [
+          {
+            "label": "Standard",
+            "mrp": 660
+          },
+          {
+            "label": "Water proof",
+            "mrp": 680
+          }
+        ],
+        "varies": true
+      }
     },
     {
       "id": "heating-water-croma",
@@ -13833,7 +14630,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.175"
+      "sort": "9.1.175",
+      "mrp": {
+        "value": 1850,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-croma2",
@@ -13907,7 +14709,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.176"
+      "sort": "9.1.176",
+      "mrp": {
+        "value": 1800,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-geyser-element-tricone-9",
@@ -13938,7 +14745,12 @@
         "pages": "60-61"
       },
       "images": [],
-      "sort": "9.1.177"
+      "sort": "9.1.177",
+      "mrp": {
+        "value": 790,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-kettle-element",
@@ -14007,7 +14819,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.178"
+      "sort": "9.1.178",
+      "mrp": {
+        "value": 880,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-kettle-element-half-round",
@@ -14049,7 +14866,12 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.1.179"
+      "sort": "9.1.179",
+      "mrp": {
+        "value": 880,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-kettle-midget-element",
@@ -14097,7 +14919,12 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.1.180"
+      "sort": "9.1.180",
+      "mrp": {
+        "value": 880,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-alexa",
@@ -14171,7 +14998,8 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.181"
+      "sort": "9.1.181",
+      "mrp": null
     },
     {
       "id": "heating-water-alineo",
@@ -14245,7 +15073,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.182"
+      "sort": "9.1.182",
+      "mrp": {
+        "value": 1670,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-pearl",
@@ -14319,7 +15152,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.183"
+      "sort": "9.1.183",
+      "mrp": {
+        "value": 1530,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-pox",
@@ -14393,7 +15231,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.184"
+      "sort": "9.1.184",
+      "mrp": {
+        "value": 1620,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-roxx",
@@ -14467,7 +15310,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.185"
+      "sort": "9.1.185",
+      "mrp": {
+        "value": 1670,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-rozer",
@@ -14542,7 +15390,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.186"
+      "sort": "9.1.186",
+      "mrp": {
+        "value": 1620,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-sigma",
@@ -14588,7 +15441,12 @@
           "colour": "Beige and red"
         }
       ],
-      "sort": "9.1.187"
+      "sort": "9.1.187",
+      "mrp": {
+        "value": 1690,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-silky",
@@ -14662,7 +15520,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.188"
+      "sort": "9.1.188",
+      "mrp": {
+        "value": 1670,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "heating-water-sun-heater-sunshine-14",
@@ -14732,7 +15595,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.189"
+      "sort": "9.1.189",
+      "mrp": {
+        "value": 2110,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-bmw",
@@ -14814,7 +15682,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.190"
+      "sort": "9.1.190",
+      "mrp": {
+        "value": 930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-curv",
@@ -14844,7 +15717,12 @@
       "description": "The Curv is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.191"
+      "sort": "9.1.191",
+      "mrp": {
+        "value": 930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-eon",
@@ -14874,7 +15752,12 @@
       "description": "The Eon is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.192"
+      "sort": "9.1.192",
+      "mrp": {
+        "value": 900,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-grand",
@@ -14957,7 +15840,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.193"
+      "sort": "9.1.193",
+      "mrp": {
+        "value": 980,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-majestic",
@@ -14987,7 +15875,12 @@
       "description": "The Majestic is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.194"
+      "sort": "9.1.194",
+      "mrp": {
+        "value": 930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-passion",
@@ -15017,7 +15910,12 @@
       "description": "The Passion is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.195"
+      "sort": "9.1.195",
+      "mrp": {
+        "value": 930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-plancha",
@@ -15116,7 +16014,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.196"
+      "sort": "9.1.196",
+      "mrp": {
+        "value": 1530,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-plancha-beetle",
@@ -15146,7 +16049,12 @@
       "description": "The Plancha Beetle is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.197"
+      "sort": "9.1.197",
+      "mrp": {
+        "value": 1530,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-plancha-turbo",
@@ -15176,7 +16084,12 @@
       "description": "The Plancha Turbo is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.198"
+      "sort": "9.1.198",
+      "mrp": {
+        "value": 1530,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-regular",
@@ -15258,7 +16171,12 @@
           "kind": "catalogue"
         }
       ],
-      "sort": "9.1.199"
+      "sort": "9.1.199",
+      "mrp": {
+        "value": 900,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-verna",
@@ -15288,7 +16206,12 @@
       "description": "The Verna is an electric dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [],
-      "sort": "9.1.200"
+      "sort": "9.1.200",
+      "mrp": {
+        "value": 930,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "ceiling-fans-new-gold-line-48",
@@ -15343,7 +16266,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.000"
+      "sort": "9.9.000",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-diamond-ring-48",
@@ -15382,7 +16306,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.001"
+      "sort": "9.9.001",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-copper-mesh-48",
@@ -15421,7 +16346,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.002"
+      "sort": "9.9.002",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-square-clips-48",
@@ -15460,7 +16386,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.003"
+      "sort": "9.9.003",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-copper-edge",
@@ -15499,7 +16426,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.004"
+      "sort": "9.9.004",
+      "mrp": null
     },
     {
       "id": "ceiling-fans-new-ivory-copper-ring-48",
@@ -15538,7 +16466,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.005"
+      "sort": "9.9.005",
+      "mrp": null
     },
     {
       "id": "all-purpose-cabin-fans-new-swivel",
@@ -15577,7 +16506,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.006"
+      "sort": "9.9.006",
+      "mrp": null
     },
     {
       "id": "all-purpose-cabin-fans-new-compact",
@@ -15616,7 +16546,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.007"
+      "sort": "9.9.007",
+      "mrp": null
     },
     {
       "id": "ventilation-fresh-air-fans-new-heavy-duty-exhaust",
@@ -15655,7 +16586,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.008"
+      "sort": "9.9.008",
+      "mrp": null
     },
     {
       "id": "kitchen-appliances-new-round-cooktop",
@@ -15694,7 +16626,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.009"
+      "sort": "9.9.009",
+      "mrp": null
     },
     {
       "id": "kitchen-appliances-new-touch-cooktop",
@@ -15733,7 +16666,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.010"
+      "sort": "9.9.010",
+      "mrp": null
     },
     {
       "id": "electric-irons-new-blue",
@@ -15772,7 +16706,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.011"
+      "sort": "9.9.011",
+      "mrp": null
     },
     {
       "id": "electric-irons-new-white-grey",
@@ -15811,7 +16746,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.012"
+      "sort": "9.9.012",
+      "mrp": null
     },
     {
       "id": "electric-irons-new-white-blue",
@@ -15850,7 +16786,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.013"
+      "sort": "9.9.013",
+      "mrp": null
     },
     {
       "id": "electric-irons-new-white-pink",
@@ -15889,7 +16826,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.014"
+      "sort": "9.9.014",
+      "mrp": null
     },
     {
       "id": "electric-irons-new-black",
@@ -15928,7 +16866,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.015"
+      "sort": "9.9.015",
+      "mrp": null
     },
     {
       "id": "electric-irons-bold",
@@ -15967,7 +16906,12 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.016"
+      "sort": "9.9.016",
+      "mrp": {
+        "value": 980,
+        "variants": [],
+        "varies": false
+      }
     },
     {
       "id": "electric-irons-new-heavy-black",
@@ -16006,7 +16950,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.017"
+      "sort": "9.9.017",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-1",
@@ -16045,7 +16990,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.018"
+      "sort": "9.9.018",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-2",
@@ -16084,7 +17030,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.019"
+      "sort": "9.9.019",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-3",
@@ -16123,7 +17070,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.020"
+      "sort": "9.9.020",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-4",
@@ -16162,7 +17110,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.021"
+      "sort": "9.9.021",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-5",
@@ -16201,7 +17150,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.022"
+      "sort": "9.9.022",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-6",
@@ -16240,7 +17190,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.023"
+      "sort": "9.9.023",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-7",
@@ -16279,7 +17230,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.024"
+      "sort": "9.9.024",
+      "mrp": null
     },
     {
       "id": "motors-cooler-motor-8",
@@ -16318,7 +17270,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.025"
+      "sort": "9.9.025",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-1",
@@ -16357,7 +17310,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.026"
+      "sort": "9.9.026",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-2",
@@ -16396,7 +17350,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.027"
+      "sort": "9.9.027",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-3",
@@ -16435,7 +17390,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.028"
+      "sort": "9.9.028",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-4",
@@ -16474,7 +17430,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.029"
+      "sort": "9.9.029",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-5",
@@ -16513,7 +17470,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.030"
+      "sort": "9.9.030",
+      "mrp": null
     },
     {
       "id": "pumps-cooler-pump-6",
@@ -16552,7 +17510,8 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.031"
+      "sort": "9.9.031",
+      "mrp": null
     }
   ],
   "categories": [

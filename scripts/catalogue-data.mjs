@@ -138,6 +138,15 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
   const discontinued = (data.discontinued_do_not_show ?? []).map((d) => (d.name ?? d).toString().toLowerCase());
   // Aparna's studio photos (src/content/studio-photos.json): each product's main picture where there is one
   const studio = JSON.parse(await fs.readFile(path.join(contentDir, 'studio-photos.json'), 'utf8').catch(() => '{"photos":{},"comingSoon":[]}'));
+  // MRP only, from Aparna's price lists (src/content/mrp.json). Shown since 2026-11-12 at Gul's request; offer
+  // and dealer prices are never kept or shown.
+  const mrpData = JSON.parse(await fs.readFile(path.join(contentDir, 'mrp.json'), 'utf8').catch(() => '{"prices":{},"variants":{}}'));
+  const mrpOf = (id) => {
+    const p = mrpData.prices?.[id];
+    if (!p) return null;
+    const variants = (mrpData.variants?.[id] ?? []).map((v) => ({ label: v.variant, mrp: v.mrp }));
+    return { value: variants.length ? Math.min(...variants.map((v) => v.mrp)) : p.mrp, variants, varies: new Set(variants.map((v) => v.mrp)).size > 1 };
+  };
   const studioDir = path.resolve(contentDir, '..', '..', studio.source ?? '');
   await fs.mkdir(path.join(publicDir, 'media', 'products'), { recursive: true });
   const images = new ImageWriter(pack, publicDir);
@@ -225,5 +234,6 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
 
   // Every product id in the data's showable list must be in the catalogue.
   const missing = data.products.filter((p) => SHOWABLE.has(p.status) && !products.some((x) => x.id === p.id));
+  for (const p of products) p.mrp = mrpOf(p.id);
   return { products, categories, missing: missing.map((p) => p.id) };
 }

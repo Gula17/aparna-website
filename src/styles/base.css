@@ -139,11 +139,10 @@ fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
 .site-nav a[href="#bldc"] { display: none; }
 @media (min-width: 640px) { .site-nav a[href="#bldc"] { display: inline-flex; } }
 .site-nav .site-nav__cta { border: 2px solid var(--ink); }
-/* Events link: in the header on wider screens, at the end of the Products menu on phones */
-.site-nav .site-nav__events { display: none; }
-@media (min-width: 760px) { .site-nav .site-nav__events { display: inline-flex; } }
-.nav-menu__extra { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); }
-@media (min-width: 760px) { .nav-menu__extra { display: none; } }
+/* Events: always in the header bar, with a marigold dot (marigold is the Utsav colour) */
+.site-nav .site-nav__events { gap: 7px; }
+.site-nav__events::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.25); }
+@media (max-width: 400px) { .site-nav a.site-nav__events, .nav-menu summary { padding: 0 9px; } }
 
 /* ---------- Utsav '26 glimpse on the home page (marigold is for Utsav only, brief) */
 

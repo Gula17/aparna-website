@@ -13,7 +13,10 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const PACK = path.join(ROOT, 'Aparna Website Build Pack (Nov 2026)', 'Aparna Website Build Pack (Nov 2026)');
 
-const MONEY = [/₹/, /\bRs\.?\s?\d/, /\bMRP\b/, /\bprices?\b/i, /\boffers?\b/i, /\bEMI\b/, /\bdiscount/i, /\bbuy now\b/i, /add to cart/i];
+// The MRP is shown (since 2026-11-12, at Gul's request, only from src/content/mrp.json), so ₹ and "MRP" are
+// allowed; offer and dealer prices and every other selling word are not. Each ₹ figure on a product page is
+// checked against that product's MRPs below.
+const MONEY = [/\bRs\.?\s?\d/, /\boffer price/i, /\bdealer price/i, /\bDLP\b/, /\boffers?\b/i, /\bEMI\b/, /\bdiscount/i, /\bbuy now\b/i, /add to cart/i];
 
 async function files(dir) {
   const out = [];
@@ -67,6 +70,20 @@ for (const file of text) {
 }
 for (const m of missingMedia) problems.push(`missing file ${m} (run npm run content / cutouts again)`);
 
+// Every ₹ figure in a product page's own details is one of that product's MRPs from the price lists.
+const mrpData = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/mrp.json'), 'utf8').catch(() => '{"prices":{},"variants":{}}'));
+const catalogueData = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/catalogue.generated.json'), 'utf8'));
+for (const p of catalogueData.products) {
+  const body = await fs.readFile(path.join(DIST, p.url, 'index.html'), 'utf8').catch(() => null);
+  if (!body) continue;
+  const start = body.indexOf('product__info');
+  const own = start < 0 ? '' : body.slice(start, body.indexOf('</section>', start));
+  const allowed = new Set([mrpData.prices[p.id]?.mrp, ...(mrpData.variants[p.id] ?? []).map((v) => v.mrp)].filter(Boolean));
+  for (const m of own.matchAll(/₹([\d,]+)/g)) {
+    if (!allowed.has(Number(m[1].replace(/,/g, '')))) problems.push(`${p.url}: ₹${m[1]} is not an MRP of ${p.id}`);
+  }
+}
+
 console.log('\nJS (gzipped)   budget: initial < 200 KB, 3D chunk < 600 KB');
 for (const file of all.filter((f) => f.endsWith('.js'))) {
   const gz = zlib.gzipSync(await fs.readFile(file)).length;
@@ -77,4 +94,4 @@ if (problems.length) {
   console.error(`\nBuild check FAILED:\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log('\nBuild check passed: no prices, no hidden products, noindex on every page, no missing pictures.');
+console.log('\nBuild check passed: MRP only (no offer or dealer prices), no hidden products, noindex on every page, no missing pictures.');

@@ -182,3 +182,13 @@
 .quick__nophoto { color: var(--cream-soft); }
 .quick__meta { color: var(--cream-soft); }
 .quick .save-btn.is-saved { background: var(--aparna-red-deep); color: var(--white); border-color: transparent; }
+
+/* MRP (src/content/mrp.json): one clear line, the tax note, and a list where the price differs by version */
+.product__mrp { display: grid; gap: 8px; margin: 6px 0 4px; }
+.product__mrp-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.product__mrp-label { font: 600 0.8125rem/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ultra-gold); }
+.product__mrp-value { font: 600 clamp(1.9rem, 4vw, 2.5rem)/1 var(--font-display); color: var(--white); font-variant-numeric: tabular-nums; }
+.product__mrp-tax { font-size: 0.875rem; color: var(--cream-soft); }
+.product__mrp-versions summary { cursor: pointer; font-weight: 600; color: var(--cream-ink); }
+.product__mrp-versions ul { display: grid; gap: 4px; margin-top: 8px; max-width: 360px; }
+.product__mrp-versions li { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border-bottom: 1px solid rgba(246, 238, 228, 0.12); font-variant-numeric: tabular-nums; }

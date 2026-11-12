@@ -119,6 +119,8 @@ export function setupProductPage({ can3D, quality }) {
     const input = picker?.querySelector('input:checked');
     if (!input) return;
     chosenLabel.textContent = template.replace('{colour}', input.value);
+    const mrp = page.querySelector('[data-mrp-value]');
+    if (mrp && input.dataset.mrp) mrp.textContent = input.dataset.mrp; // the price list prices some models by colour
     paint3D();
     gallery.showColour(input.value, { first });
     if (!first) setColour(id, input.value); // if it's already in My list, remember the new colour
