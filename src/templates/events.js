@@ -48,6 +48,19 @@ const letters = (text) => [...text].map((ch, i) => (ch === ' ' ? ' ' : `<span st
 // The marigold ribbon: the event's marquee lines (events.json) with a ✦ after each. The set repeats four times,
 // each copy in its own block with the same trailing space, and the track slides by exactly one copy, so the loop
 // wraps with no jump and fills the widest screens.
+// "Watch the After Movie": a plain link to the film where Aparna posted it (events.json afterMovie). Never an
+// embed: no third-party scripts or frames (brief rule 10). The platform's name comes from the link.
+const PLATFORMS = { 'instagram.com': 'Instagram', 'youtube.com': 'YouTube', 'youtu.be': 'YouTube', 'facebook.com': 'Facebook' };
+function afterMovieCta(t, e) {
+  if (!e.afterMovie) return '';
+  const host = new URL(e.afterMovie).hostname.replace(/^www./, '');
+  const platform = PLATFORMS[host] ?? host;
+  return `<span class="ev-movie">
+          <a class="ev-movie__btn" href="${esc(e.afterMovie)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(fmt(t.events.afterMovieLabel, { name: e.name, platform }))}"><span class="ev-movie__play" aria-hidden="true">▶</span>${esc(t.events.afterMovie)}<span class="ev-movie__out" aria-hidden="true">↗</span></a>
+          <span class="ev-movie__hint" aria-hidden="true">${esc(fmt(t.events.afterMovieOn, { platform }))}</span>
+        </span>`;
+}
+
 const marquee = (words) => {
   const run = `<div class="ev-marquee__run">${words.map((w) => `<span>${esc(w)}</span><span class="ev-marquee__star">✦</span>`).join('')}</div>`;
   return `<div class="ev-marquee" aria-hidden="true"><div class="ev-marquee__track">${run.repeat(4)}</div></div>`;
@@ -125,7 +138,7 @@ export function renderEvent({ t, range, catalogue, events, id }) {
         <h1 class="ev-title" id="event-title" aria-label="${esc(e.name)}">${letters(e.name)}</h1>
         ${e.kicker ? `<p class="ev-kicker">${esc(e.kicker)}</p>` : ''}
         <p class="ev-lead">${esc(e.summary)}</p>
-        ${e.afterMovie ? `<div class="ev-actions"><a class="btn btn--light" href="${esc(e.afterMovie)}" target="_blank" rel="noopener">${esc(t.events.afterMovie)}</a></div>` : ''}
+        ${e.afterMovie ? `<div class="ev-actions">${afterMovieCta(t, e)}</div>` : ''}
       </div>
       <a class="ev-scroll" href="#the-day">${esc(t.events.scroll)}</a>
     </section>
@@ -213,9 +226,7 @@ export function renderEvent({ t, range, catalogue, events, id }) {
       <h2 class="ev-end__title" id="end-title">${letters(e.name)}</h2>
       <p class="ev-end__kicker">${esc(e.kicker || e.when)}</p>
       <div class="ev-actions ev-actions--center">
-        ${e.afterMovie
-          ? `<a class="btn btn--light" href="${esc(e.afterMovie)}" target="_blank" rel="noopener">${esc(t.events.afterMovie)}</a>`
-          : `<span class="ev-pill">${esc(t.events.afterMovieSoon)}</span>`}
+        ${afterMovieCta(t, e)}
         <a class="btn btn--ghost-light" href="/events/">${esc(t.events.all)}</a>
         ${others.slice(0, 3).map((x) => `<a class="btn btn--ghost-light" href="${esc(x.url)}">${esc(x.name)} →</a>`).join('')}
       </div>

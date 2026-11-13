@@ -341,7 +341,8 @@
     "storyHint": "Scroll to walk through the day",
     "fromAbove": "From above",
     "newLaunch": "New launch",
-    "afterMovieSoon": "After movie coming soon"
+    "afterMovieOn": "on {platform}",
+    "afterMovieLabel": "Watch the {name} After Movie on {platform} (opens in a new tab)"
   },
   "social": {
     "_note": "Aparna's official accounts (given by Aparna, 13 Nov 2026). The footer links to these; add no other platforms.",
