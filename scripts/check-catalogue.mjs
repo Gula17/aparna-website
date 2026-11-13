@@ -28,8 +28,13 @@ const showable = data.products.filter((p) => ['current', 'new', 'launch'].includ
 const byId = new Map(catalogue.products.map((p) => [p.id, p]));
 
 for (const p of showable) if (!byId.has(p.id)) fail(`Missing from the website: ${p.name} (${p.id})`);
+// Products added on purpose beyond the product data: studio photos with "details coming soon", and the
+// price-list products (12 Nov 2026). Anything else on the website must be showable in the data.
+const studioSoon = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/studio-photos.json'), 'utf8')).comingSoon ?? [];
+const priceListOnly = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/price-list-products.json'), 'utf8')).products ?? [];
+const added = new Set([...studioSoon, ...priceListOnly].map((x) => x.id));
 for (const p of catalogue.products) {
-  if (!showable.some((x) => x.id === p.id)) fail(`On the website but not showable in the data: ${p.id}`);
+  if (!showable.some((x) => x.id === p.id) && !added.has(p.id)) fail(`On the website but not showable in the data: ${p.id}`);
 }
 const urls = new Set();
 for (const p of catalogue.products) {
@@ -153,7 +158,7 @@ try {
 
   // Footer: the four official social links, opening in a new tab; the privacy policy page.
   const t = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/en.json'), 'utf8'));
-  const social = await page.$eval('.site-footer__social a', (a) => a.map((x) => [x.dataset.social, x.getAttribute('href'), x.target, x.rel]));
+  const social = await page.$$eval('.site-footer__social a', (a) => a.map((x) => [x.dataset.social, x.getAttribute('href'), x.target, x.rel]));
   const want = ['facebook', 'instagram', 'threads', 'youtube'];
   if (social.map(([k]) => k).join() !== want.join()) fail(`Footer social links: ${social.map(([k]) => k).join()}`);
   for (const [k, href, target, rel] of social) if (href !== t.social[k] || target !== '_blank' || !/noopener/.test(rel) || !/noreferrer/.test(rel)) fail(`Footer ${k} link: ${href} ${target} ${rel}`);
