@@ -17,6 +17,7 @@
 import * as THREE from 'three';
 import { lathe, makeBlurTexture, BLADE_COUNT } from './aeroflow-model.js';
 import { brandMarkCurved } from './brand-mark.js';
+import { bottomCanopy, neckScrew } from './fan-mount.js';
 
 // The logo printed on the canopy: red on the white finish, white on the dark ones. Both are built; the finish
 // shows one.
@@ -145,9 +146,12 @@ export function createAerosleek({ shadows = false } = {}) {
   // shaft on a BLDC fan, so the lights don't spin).
   // studio photos: a rounded bowl, wide at the top and curving in to a small base, a little collar on the rod
   // below it, a slim rod, and the motor rising in a curved shoulder to a raised neck round the rod
-  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.07, CANOPY_TOP], [0.072, CANOPY_TOP - 0.006], [0.069, CANOPY_TOP - 0.03], [0.06, CANOPY_TOP - 0.056], [0.044, CANOPY_TOP - 0.074], [0.026, CANOPY_TOP - 0.082], [0.014, CANOPY_TOP - 0.085]]), materials.body);
+  const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.078, CANOPY_TOP], [0.08, CANOPY_TOP - 0.006], [0.079, CANOPY_TOP - 0.03], [0.075, CANOPY_TOP - 0.05], [0.064, CANOPY_TOP - 0.068], [0.044, CANOPY_TOP - 0.08], [0.024, CANOPY_TOP - 0.085], [0.014, CANOPY_TOP - 0.086]]), materials.body);
   const collar = new THREE.Mesh(lathe([[0.012, CANOPY_TOP - 0.084], [0.019, CANOPY_TOP - 0.09], [0.02, CANOPY_TOP - 0.1], [0.015, CANOPY_TOP - 0.11], [0.011, CANOPY_TOP - 0.112]], 24), materials.body);
-  const downrod = new THREE.Mesh(lathe([[0.011, CANOPY_TOP - 0.11], [0.011, 0.17], [0.012, 0.16]], 24), materials.body);
+  const downrod = new THREE.Mesh(lathe([[0.011, CANOPY_TOP - 0.11], [0.011, 0.165]], 24), materials.body);
+  // the bottom canopy: a separate cup over the rod-to-motor joint, a few mm above the motor (Aparna's manual)
+  const lowCanopy = bottomCanopy(materials.body, materials.body, { rodR: 0.011, top: 0.175, baseR: 0.068, baseY: 0.099, shape: 'cup', angle: 1.2 });
+  const topScrew = neckScrew(materials.body, { r: 0.02, y: CANOPY_TOP - 0.098, angle: 1.2 });
   // The glossy black cap is as wide as the motor, with black sides below the chrome band.
   const cap = new THREE.Mesh(lathe([[0.125, -0.064], [0.125, -0.08], [0.12, -0.089], [0.1, -0.095], [0.05, -0.098], [0, -0.0985]]), materials.cap);
   const leds = new THREE.Group();
@@ -164,20 +168,21 @@ export function createAerosleek({ shadows = false } = {}) {
     leds.add(led, halo);
   });
   const stator = new THREE.Group();
-  stator.add(canopy, collar, downrod, cap, leds);
-  const showLogo = canopyLogos(stator, { width: 0.068, radius: 0.0712, y: CANOPY_TOP - 0.026 });
+  stator.add(canopy, collar, downrod, lowCanopy, topScrew, cap, leds);
+  const showLogo = canopyLogos(stator, { width: 0.07, radius: 0.0805, y: CANOPY_TOP - 0.028 });
 
   // Turning: a compact cylindrical motor, with a wide polished chrome band round its lower edge.
-  const shell = new THREE.Mesh(lathe([[0.012, 0.165], [0.022, 0.16], [0.034, 0.145], [0.05, 0.118], [0.08, 0.098], [0.108, 0.084], [0.121, 0.06], [0.124, 0.02], [0.124, -0.044]]), materials.body);
+  // the motor's top cover: a low closed dome under the bottom canopy
+  const shell = new THREE.Mesh(lathe([[0, 0.101], [0.06, 0.1], [0.1, 0.09], [0.118, 0.072], [0.124, 0.04], [0.124, -0.044]]), materials.body);
   const ring = new THREE.Mesh(lathe([[0.1245, -0.044], [0.126, -0.047], [0.126, -0.061], [0.1255, -0.064]]), materials.ring);
 
-  // Blade (studio photos 03-05): a long plank that starts right at the motor (its short bracket sits on top,
-  // hidden), widening a little towards a gently rounded tip, with a shallow fold running its whole length so its
-  // two faces catch the light differently, and three screws in a triangle near the root.
+  // Blade (studio photos 03-05): a long flat plank that starts right at the motor (its short bracket sits on top,
+  // hidden), widening a little towards a gently rounded tip, with a narrow lip folded up along its front edge,
+  // and three screws in a triangle near the root.
   const pitch = -0.09;
-  const fold = 0.075; // how far each face turns away from the fold line
-  const lead = (t) => -(0.048 + 0.017 * t); // the front edge (the fold sits nearer this edge, as pictured)
-  const trail = (t) => 0.07 + 0.028 * t;    // the back edge
+  const lip = 0.42; // the narrow lip along the front edge is folded up this far (radians); the rest is flat
+  const lead = () => -0.022;                // the lip's width
+  const trail = (t) => 0.098 + 0.03 * t;    // the flat face, widening towards the tip
   const x0 = 0.132, x1 = 0.972;
   const at = (x) => (x - x0) / (x1 - x0);
   // one face of the blade: from the fold line (chord 0) out to one edge, with its half of the rounded tip
@@ -188,16 +193,16 @@ export function createAerosleek({ shadows = false } = {}) {
     for (let i = 1; i <= 6; i++) { const k = i / 6; pts.push([x1 + 0.028 * Math.sin((1 - k) * Math.PI / 2) ** 0.4, e * (1 - k)]); }
     return pts;
   };
-  const frontGeo = plate(face(lead), { pitch: pitch - fold, y: -0.004 });
-  const backGeo = plate(face(trail), { pitch: pitch + fold, y: -0.004 });
+  const frontGeo = plate(face(lead), { pitch: pitch - lip, y: -0.004, thickness: 0.01 });
+  const backGeo = plate(face(trail), { pitch, y: -0.004 });
   const bracketGeo = plate([[0.1, -0.024], [0.22, -0.028], [0.22, 0.028], [0.1, 0.024]], { thickness: 0.012, pitch, y: 0.01 });
   const holeGeo = new THREE.CircleGeometry(0.0072, 16);
   const makeBlade = () => {
     const g = new THREE.Group();
     g.add(new THREE.Mesh(frontGeo, materials.blade), new THREE.Mesh(backGeo, materials.blade), new THREE.Mesh(bracketGeo, materials.bracket));
     // the three screws, on both faces, each set into the face it sits on
-    for (const [x, c] of [[0.19, -0.026], [0.19, 0.034], [0.235, 0.012]]) {
-      const tilt = pitch + (c < 0 ? -fold : fold);
+    for (const [x, c] of [[0.19, 0.02], [0.19, 0.07], [0.235, 0.045]]) {
+      const tilt = pitch;
       for (const [off, turn] of [[0.0066, -Math.PI / 2], [-0.0066, Math.PI / 2]]) {
         const hole = new THREE.Mesh(holeGeo, materials.hole);
         hole.rotation.x = turn + tilt;
@@ -247,36 +252,53 @@ export function createIkonBldc({ shadows = false } = {}) {
 
   // Still: a cup canopy (as in the studio photos) and the downrod.
   const canopy = new THREE.Mesh(lathe([[0, CANOPY_TOP], [0.084, CANOPY_TOP], [0.088, CANOPY_TOP - 0.014], [0.082, CANOPY_TOP - 0.06], [0.058, CANOPY_TOP - 0.1], [0.032, CANOPY_TOP - 0.125], [0.026, CANOPY_TOP - 0.17]]), materials.body);
-  const downrod = new THREE.Mesh(lathe([[0.022, CANOPY_TOP - 0.17], [0.021, 0.13], [0.026, 0.09], [0.05, 0.065]], 32), materials.body);
+  const downrod = new THREE.Mesh(lathe([[0.022, CANOPY_TOP - 0.17], [0.021, 0.12]], 32), materials.body);
   const stator = new THREE.Group();
-  stator.add(canopy, downrod);
+  // the bottom canopy: a separate bell over the rod-to-motor joint, a few mm above the motor (Aparna's manual)
+  stator.add(canopy, downrod, bottomCanopy(materials.body, materials.body, { rodR: 0.021, top: 0.13, baseR: 0.062, baseY: 0.082, angle: 1.2 }), neckScrew(materials.body, { r: 0.03, y: CANOPY_TOP - 0.15, angle: 1.2 }));
   const showLogo = canopyLogos(stator, { width: 0.072, radius: 0.0875, y: CANOPY_TOP - 0.036 });
 
-  // Turning: a wide, low motor. Upper body with a copper pin-stripe, a lower band, and a stepped base cap
-  // with a copper ring round it.
-  const upper = new THREE.Mesh(lathe([[0.05, 0.066], [0.11, 0.058], [0.158, 0.038], [0.172, 0.012], [0.174, -0.004]]), materials.body);
+  // Turning (studio photos 06, 21): a wide, low motor whose domed top rises to a neck round the rod, a copper
+  // pin-stripe on the body, and underneath one large shallow dish with a copper line round its rim.
+  const upper = new THREE.Mesh(lathe([[0, 0.084], [0.04, 0.083], [0.08, 0.075], [0.125, 0.058], [0.158, 0.038], [0.172, 0.012], [0.174, -0.004]]), materials.body);
   const stripe = new THREE.Mesh(new THREE.TorusGeometry(0.163, 0.0035, 10, 96), materials.copper);
   stripe.rotation.x = Math.PI / 2;
   stripe.position.y = 0.03;
-  const band = new THREE.Mesh(lathe([[0.174, -0.004], [0.176, -0.03], [0.168, -0.046], [0.15, -0.052]]), materials.body);
-  const capRing = new THREE.Mesh(new THREE.TorusGeometry(0.146, 0.0045, 10, 96), materials.copper);
+  const band = new THREE.Mesh(lathe([[0.174, -0.004], [0.176, -0.028], [0.173, -0.04], [0.166, -0.046]]), materials.body);
+  const capRing = new THREE.Mesh(new THREE.TorusGeometry(0.163, 0.004, 10, 96), materials.copper);
   capRing.rotation.x = Math.PI / 2;
-  capRing.position.y = -0.052;
-  const cap = new THREE.Mesh(lathe([[0.142, -0.052], [0.138, -0.058], [0.11, -0.061], [0.1, -0.066], [0.06, -0.069], [0, -0.07]]), materials.body);
-  const capStep = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.004, 8, 80), materials.body);
-  capStep.rotation.x = Math.PI / 2;
-  capStep.position.y = -0.064;
+  capRing.position.y = -0.0465;
+  const cap = new THREE.Mesh(lathe([[0.161, -0.047], [0.152, -0.05], [0.11, -0.0535], [0, -0.0545]]), materials.body);
 
-  // Blade: wide and straight, both tip corners cut off, with a raised strip along the leading edge.
+  // Blade: starts right at the motor, widening towards the tip, with a shallow fold running its length near the
+  // front edge (two faces catching the light differently), the front tip corner cut off, a rounded root and four
+  // screws there on a short bracket.
   const pitch = -0.1;
-  const bladeGeo = plate([[0.25, -0.085], [0.975, -0.08], [1.0, -0.055], [1.0, 0.06], [0.975, 0.085], [0.25, 0.088]], { pitch, y: -0.006 });
-  const ridgeGeo = plate([[0.27, -0.085], [0.975, -0.08], [0.99, -0.064], [0.99, -0.046], [0.27, -0.05]], { thickness: 0.008, pitch: pitch - 0.05, y: 0.007 });
-  const bracketGeo = plate([[0.15, -0.032], [0.36, -0.04], [0.36, 0.04], [0.15, 0.032]], { thickness: 0.014, pitch, y: 0.01 });
-  const holes = screws([[0.29, -0.022], [0.29, 0.022], [0.335, -0.024], [0.335, 0.024]], materials.hole, { y: 0.02, pitch });
+  const fold = 0.06;
+  const x0 = 0.19, x1 = 1.0;
+  const lead = (t) => -(0.045 + 0.02 * t); // the narrow face, in front of the fold
+  const trail = (t) => 0.075 + 0.03 * t;   // the wide face, behind it
+  const at = (x) => (x - x0) / (x1 - x0);
+  const span = (edge) => Array.from({ length: 9 }, (_, i) => { const x = x0 + 0.014 + ((x1 - x0 - 0.05) * i) / 8; return [x, edge(at(x))]; });
+  const front = [[x0, 0], [x0, lead(0) + 0.012], [x0 + 0.014, lead(0)], ...span(lead), [x1 - 0.04, lead(1)], [x1, lead(1) + 0.035], [x1, 0]];
+  const back = [[x0, 0], [x0, trail(0) - 0.012], [x0 + 0.014, trail(0)], ...span(trail), [x1 - 0.012, trail(1)], [x1, trail(1) - 0.012], [x1, 0]];
+  const frontGeo = plate(front, { pitch: pitch - fold, y: -0.006 });
+  const backGeo = plate(back, { pitch: pitch + fold, y: -0.006 });
+  const bracketGeo = plate([[0.12, -0.03], [0.27, -0.034], [0.27, 0.034], [0.12, 0.03]], { thickness: 0.014, pitch, y: 0.01 });
+  const holeGeo = new THREE.CircleGeometry(0.0075, 16);
   const makeBlade = () => {
     const g = new THREE.Group();
-    g.add(new THREE.Mesh(bladeGeo, materials.blade), new THREE.Mesh(ridgeGeo, materials.ridge), new THREE.Mesh(bracketGeo, materials.bracket), holes.clone());
+    g.add(new THREE.Mesh(frontGeo, materials.blade), new THREE.Mesh(backGeo, materials.blade), new THREE.Mesh(bracketGeo, materials.bracket));
+    for (const [x, c] of [[0.22, -0.024], [0.22, 0.03], [0.26, -0.024], [0.26, 0.03]]) {
+      const tilt = pitch + (c < 0 ? -fold : fold);
+      for (const [off, turn] of [[0.0066, -Math.PI / 2], [-0.0066, Math.PI / 2]]) {
+        const hole = new THREE.Mesh(holeGeo, materials.hole);
+        hole.rotation.x = turn + tilt;
+        hole.position.set(x, -0.006 + off * Math.cos(tilt) + Math.sin(tilt) * c, -c * Math.cos(tilt) + off * Math.sin(tilt));
+        g.add(hole);
+      }
+    }
     return g;
   };
-  return assemble('ikon-bldc', { stator, rotorParts: [upper, stripe, band, capRing, cap, capStep], makeBlade, materials, finishes: IKON_FINISHES, shadows, showLogo });
+  return assemble('ikon-bldc', { stator, rotorParts: [upper, stripe, band, capRing, cap], makeBlade, materials, finishes: IKON_FINISHES, shadows, showLogo });
 }

@@ -15,6 +15,7 @@
 import * as THREE from 'three';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
 import { brandMark, MARK_ASPECT } from './brand-mark.js';
+import { bottomCanopy, neckScrew, CANOPY_GAP } from './fan-mount.js';
 
 const TOP = 0.5; // canopy top; these fans hang on a short drop, as in their photos
 
@@ -234,6 +235,31 @@ function meshTexture() {
   meshTex.colorSpace = THREE.SRGBColorSpace;
   return meshTex;
 }
+// The printed border round the Art Pro's base, drawn as a ring (inner/outer radius ratio 'inner') so it lies
+// straight on a RingGeometry: small flowers with a scroll between each, on the insert's cream.
+function ornateRingTexture(base, ink, inner) {
+  const S = 512, c = document.createElement('canvas');
+  c.width = c.height = S;
+  const g = c.getContext('2d');
+  const R = S / 2, r0 = R * inner, mid = (R + r0) / 2, wdt = R - r0;
+  g.translate(R, R);
+  g.fillStyle = base;
+  g.beginPath(); g.arc(0, 0, R, 0, Math.PI * 2); g.arc(0, 0, r0, 0, Math.PI * 2, true); g.fill();
+  g.strokeStyle = ink; g.fillStyle = ink; g.lineWidth = 2;
+  const n = 18;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    const x = Math.cos(a) * mid, y = Math.sin(a) * mid;
+    for (let p = 0; p < 6; p++) { const q = (p * Math.PI) / 3; g.beginPath(); g.ellipse(x + Math.cos(q) * wdt * 0.17, y + Math.sin(q) * wdt * 0.17, wdt * 0.12, wdt * 0.06, q, 0, Math.PI * 2); g.stroke(); }
+    g.beginPath(); g.arc(x, y, wdt * 0.05, 0, Math.PI * 2); g.fill();
+    const b = a + Math.PI / n; // a scroll between flowers
+    g.beginPath(); g.arc(Math.cos(b) * mid, Math.sin(b) * mid, wdt * 0.18, b, b + Math.PI * 1.4); g.stroke();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
 function ornateTexture(base, ink) {
   const c = document.createElement('canvas');
   c.width = 256; c.height = 128;
@@ -319,17 +345,27 @@ function trimParts(kind, x0, w, pitch, size = 1) {
     case 'hex': // Mini Smart: a hexagon clip edged in copper
       out.push([flat(solid(hexa, cx, L * 1.05, b), yClip, 0.01), 'body'], [flat(frame(hexa, cx, L * 1.05, b, 0.012), yTop), 'accent']);
       break;
-    case 'u': { // Irus: a copper U round the blade root, open towards the motor
+    case 'u': { // Irus (studio photos): the hub flows out into a body-coloured sleeve round each blade root, edged in
+      // copper, with a copper U on it open towards the motor
+      const sleeve = [[x0 - 0.05, -w * 0.8], [x0 - 0.02, -w * 0.66], [x0 + 0.11, -w * 0.56], [x0 + 0.13, -w * 0.5], [x0 + 0.13, w * 0.5], [x0 + 0.11, w * 0.56], [x0 - 0.02, w * 0.66], [x0 - 0.05, w * 0.8]];
+      out.push([plate(toShape(sleeve), { thickness: 0.016, pitch, y: -0.012 }), 'body'],
+        [flat(ribbon(sleeve.slice(1, -1), 0.006), -0.021, 0.004), 'accent']);
       const pts = [[x0 + 0.01, -b], ...arc(cx + L * 0.2, 0, b, -Math.PI / 2, Math.PI / 2, 20).map(([x, y]) => [x + L * 0.5, y]), [x0 + 0.01, b]];
-      out.push([flat(ribbon(pts, 0.012), yClip, 0.008), 'accent']);
+      out.push([flat(ribbon(pts, 0.01), -0.023, 0.004), 'accent']);
       break;
     }
-    case 'ornate': // Art Pro: an ornate floral insert framed in copper
-      out.push([flat(frame((c, a, bb) => pill(c, a, bb, 5), cx + L * 0.2, L * 1.25, b * 1.4, 0.012), yTop), 'accent'],
-        [flat(solid((c, a, bb) => pill(c, a, bb, 5), cx + L * 0.2, L * 1.25 - 0.01, b * 1.4 - 0.01), yClip, 0.006), 'insert']);
+    case 'ornate': { // Art Pro (studio photos 17, 18): a big rounded panel with a floral print, framed in glossy
+      // maroon with a fine copper line just inside the frame
+      const box = (c, a, bb) => pill(c, a, bb, 7);
+      const pc = cx + L * 0.35, pa = L * 1.5, pb = b * 1.55;
+      out.push([flat(frame(box, pc, pa, pb, 0.018), yTop, 0.008), 'maroon'],
+        [flat(frame(box, pc, pa - 0.024, pb - 0.024, 0.005), yTop + 0.003, 0.004), 'accent'],
+        [flat(solid(box, pc, pa - 0.012, pb - 0.012), yClip, 0.006), 'insert']);
       break;
+    }
     case 'band': // Coras: a glossy band wrapped round the blade root
-      out.push([plate(toShape([[x0 - 0.01, -w * 0.56], [x0 + 0.05, -w * 0.56], [x0 + 0.05, w * 0.56], [x0 - 0.01, w * 0.56]]), { thickness: 0.03, pitch, y: -0.006 }), 'accent']);
+      // a wide glossy sleeve round the blade root, flaring where it grows out of the hub's rim (studio photos)
+      out.push([plate(toShape([[x0 - 0.05, -w * 0.82], [x0 - 0.02, -w * 0.7], [x0 + 0.075, -w * 0.58], [x0 + 0.075, w * 0.58], [x0 - 0.02, w * 0.7], [x0 - 0.05, w * 0.82]]), { thickness: 0.024, pitch, y: -0.008 }), 'accent']);
       break;
     case 'petal': // Luster Shine: a big copper almond round the blade root
       out.push([flat(frame(lens, x0 + 0.1, 0.13, w * 0.4, 0.016), yClip, 0.01), 'accent']);
@@ -349,6 +385,8 @@ function createCeiling(name, cfg) {
     accent: physical(), mesh: physical({ map: meshTexture() }), insert: physical({ roughness: 0.4, clearcoat: 0.5 }),
     arm: physical({ color: '#3a3b3e', metalness: 0.6, roughness: 0.35 }),
     hole: physical({ color: '#1a1a1b', roughness: 0.8 }),
+    maroon: physical({ color: '#6c1d22', metalness: 0.3, roughness: 0.14, clearcoat: 1, clearcoatRoughness: 0.05 }),
+    band: physical({ transparent: true, alphaTest: 0.1, roughness: 0.4, clearcoat: 0.5 }),
   };
   const fan = new THREE.Group();
   fan.name = name;
@@ -358,32 +396,51 @@ function createCeiling(name, cfg) {
   const canopyGeo = cone ? lathe(CONE_CANOPY, cfg.canopy === 'penta' ? 5 : 64) : lathe(CUP_CANOPY);
   if (cfg.canopy === 'penta') { const g = canopyGeo.toNonIndexed(); g.computeVertexNormals(); canopyGeo.copy(g); }
   const stator = new THREE.Group();
-  stator.add(new THREE.Mesh(canopyGeo, m.canopy));
+  // the canopy and its fittings, lowered on fans that hang on a shorter drop (cfg.drop)
+  const head = new THREE.Group();
+  head.position.y = cfg.drop ?? 0;
+  stator.add(head);
+  head.add(new THREE.Mesh(canopyGeo, m.canopy));
   // the Aparna logo on the front of the canopy, as in every studio photo (about half the canopy across, a
   // third to a half of the way down)
-  const showLogo = cfg.logo === false ? () => {} : canopyLogos(stator, cone
+  const showLogo = cfg.logo === false ? () => {} : canopyLogos(head, cone
     ? { points: CONE_CANOPY, width: 0.066, y: TOP - 0.046, angle: LOGO_ANGLE, sides: cfg.canopy === 'penta' ? 5 : 0 }
     : { points: CUP_CANOPY, width: 0.07, y: TOP - 0.042, angle: LOGO_ANGLE });
-  if (cfg.canopyRim) { // Irus, Art Pro, Flora: a copper rim round the top of the canopy
+  if (cfg.canopyRim === 'band') { // Art Pro: a broad glossy band round the top of the cone
+    const R = 0.1;
+    head.add(new THREE.Mesh(lathe([[R * 0.99, TOP + 0.001], [R * 1.03, TOP - 0.002], [R * 1.035, TOP - 0.014], [R * 0.98, TOP - 0.02]], 64), m.accent));
+  } else if (cfg.canopyRim) { // Irus, Flora: a copper rim round the top of the canopy
     const rim = new THREE.Mesh(new THREE.TorusGeometry(cone ? 0.101 : 0.087, 0.007, 10, 64), m.accent);
     rim.rotation.x = Math.PI / 2;
     rim.position.y = TOP - 0.008;
-    stator.add(rim);
+    head.add(rim);
   }
   if (!cone) { // the collar where the cup meets the rod
     const collar = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.008, 8, 32), m.canopy);
     collar.rotation.x = Math.PI / 2;
     collar.position.y = TOP - 0.135;
-    stator.add(collar);
+    head.add(collar);
   }
+  // the small screw on the top canopy's neck (manual: "Top Canopy ... Screw")
+  head.add(neckScrew(m.canopy, cone ? { r: 0.026, y: TOP - 0.145, angle: LOGO_ANGLE + 0.9 } : { r: 0.036, y: TOP - 0.135, angle: LOGO_ANGLE + 0.9 }));
+  // the down rod, and the bottom canopy: a separate bell over the rod-to-motor joint, a few mm above the motor
   const topY = 0.075 * k;
-  stator.add(new THREE.Mesh(lathe([[0.019, TOP - 0.15], [0.018, 0.17], [0.022, 0.14], [0.04 * k, topY + 0.02 * k], [0.062 * k, topY]], 32), cfg.rod === 'accent' ? m.accent : m.body));
+  const rodMat = cfg.rod === 'accent' ? m.accent : m.body;
+  const shank = cone && cfg.shank !== 'cup'
+    ? { rodR: 0.018, top: cfg.shankTop ?? 0.2, baseR: 0.066 * k, baseY: topY - 0.001 * k, shape: 'cone', angle: LOGO_ANGLE + 0.9 } // a cone, matching the canopy
+    : cfg.shank === 'cup'
+      ? { rodR: 0.018, top: 0.13, baseR: 0.058 * k, baseY: topY - 0.0005 * k, shape: 'cup', angle: LOGO_ANGLE + 0.9 }
+      : { rodR: 0.018, top: 0.16, baseR: 0.068 * k, baseY: topY - 0.001 * k, angle: LOGO_ANGLE + 0.9 };
+  // the rod runs down into the bottom canopy
+  stator.add(new THREE.Mesh(lathe([[0.019, TOP - 0.15 + (cfg.drop ?? 0)], [0.018, shank.top + 0.01], [0.0185, shank.top - 0.006]], 32), rodMat));
+  stator.add(bottomCanopy(rodMat, m.body, shank));
 
   // ---- turning: the motor (upper dome, rim, lower bowl, flat base) with its rings, and the blades
   const r = 0.2 * k;
   const dz = cfg.motor === 'deep' ? 1.25 : cfg.motor === 'flat' ? 0.8 : 1;
   const yRim = -0.016 * k * dz, yLow = -0.058 * k * dz, yBase = -0.07 * k * dz;
-  const upper = new THREE.Mesh(lathe([[0.06 * k, topY], [0.1 * k, 0.07 * k], [0.16 * k, 0.05 * k], [r * 0.97, 0.022 * k], [r, 0.004 * k]]), m.body);
+  // the motor's top cover, closed under the bottom canopy
+  const upper = new THREE.Mesh(lathe([[0, topY + 0.002 * k], [0.06 * k, topY], [0.1 * k, 0.07 * k], [0.16 * k, 0.05 * k], [r * 0.97, 0.022 * k], [r, 0.004 * k]]), m.body);
   const lower = new THREE.Mesh(lathe([[r, 0.004 * k], [r * 1.005, yRim], [r * 0.97, yRim - 0.024 * k * dz], [r * 0.87, yLow], [r * 0.8, yBase + 0.004 * k]]), m.body);
   const base = new THREE.Mesh(lathe([[r * 0.8, yBase + 0.004 * k], [r * 0.77, yBase], [r * 0.4, yBase - 0.002 * k], [0, yBase - 0.002 * k]]), m.body);
   const rotorParts = [upper, lower, base];
@@ -402,6 +459,13 @@ function createCeiling(name, cfg) {
   if (cfg.rimLine) ring(r * 0.99, yRim - 0.02 * k * dz, 0.003 * k); // a fine line on the lower bowl
   const baseR = cfg.baseRing === true ? 0.6 : cfg.baseRing;
   if (baseR) ring(r * baseR, yBase - 0.003 * k, (cfg.baseRingTube ?? 0.006) * k, m.accent, cfg.deco === 'diamond' ? 4 : 10);
+  if (cfg.ornateBand) { // Art Pro: a printed border of scrolls and flowers round the base, between copper lines
+    const band = new THREE.Mesh(new THREE.RingGeometry(r * 0.7, r * 0.86, 128), m.band);
+    band.rotation.x = Math.PI / 2;
+    band.position.y = yBase - 0.004 * k;
+    rotorParts.push(band);
+    ring(r * 0.86, yBase - 0.004 * k, 0.003 * k);
+  }
   if (cfg.deco === 'steps') { // Major, Virat, Prince, Nikon: a stepped base with fine rings
     ring(r * 0.7, yBase - 0.002 * k, 0.007 * k, m.body);
     ring(r * 0.5, yBase - 0.003 * k, 0.005 * k, m.body);
@@ -420,9 +484,23 @@ function createCeiling(name, cfg) {
   // ---- blades: the blade, its arm from the motor, ribs along the edges, screw holes, and the root clip
   const pitch = -0.1;
   const w = cfg.chord ?? (small ? 0.3 : mid ? 0.18 : 0.165);
-  const x0 = r + (cfg.gap ?? (small ? 0.05 : 0.07));
+  // the blades start close to the motor: only a short stub of each arm shows (studio photos)
+  const x0 = r + (cfg.gap ?? (small ? 0.022 : 0.026));
   const tip = cfg.tip ?? (small ? 'round' : 'square');
   const bladeGeo = plate(bladeShape(tip, x0, w), { pitch, y: -0.006 });
+  // 'flare' (Irus, Coras): the blade widens a lot from root to an angled tip and has a shallow fold along its
+  // length, so it is built as two faces meeting at the fold line, each turned a little away from it
+  let bladeGeos = [bladeGeo];
+  if (tip === 'flare') {
+    const fold = 0.06, span = (x) => (x - x0) / (1 - x0);
+    const lead = (x) => -w * (0.36 + 0.26 * span(x)), trail = (x) => w * (0.3 + 0.36 * span(x));
+    const Lt = lead(1), Tt = trail(1);
+    const tipX = (c) => 1.0 - 0.05 * ((c - Lt) / (Tt - Lt)); // the tip is cut at a slant
+    const xs = Array.from({ length: 11 }, (_, i) => x0 + ((0.94 - x0) * i) / 10);
+    const front = [[x0, 0], ...xs.map((x) => [x, lead(x)]), [tipX(Lt), Lt], [tipX(0), 0]];
+    const back = [[x0, 0], ...xs.map((x) => [x, trail(x)]), [tipX(Tt) - 0.014, Tt], [tipX(Tt), Tt - 0.022], [tipX(0), 0]];
+    bladeGeos = [plate(toShape(front), { pitch: pitch - fold, y: -0.006 }), plate(toShape(back), { pitch: pitch + fold, y: -0.006 })];
+  }
   const armGeo = plate([[r * 0.75, -w * 0.15], [x0 + 0.1, -w * 0.2], [x0 + 0.1, w * 0.2], [r * 0.75, w * 0.15]], { thickness: 0.012, pitch, y: 0.008 });
   const ribs = cfg.ribs ?? (!small && (tip === 'square' || tip === 'angled'));
   const ribGeos = ribs ? [-1, 1].map((s) => plate([[x0 + 0.02, s * w * 0.5], [0.97, s * w * 0.47], [0.97, s * w * 0.4], [x0 + 0.02, s * w * 0.43]], { thickness: 0.005, pitch, y: -0.021 })) : [];
@@ -450,11 +528,10 @@ function createCeiling(name, cfg) {
   };
   const ribTop = ribGeos.map(toTop);
   const holeTop = holeGeo ? toTop(holeGeo) : null;
-  const trimTop = trims.map(([g, mat]) => [toTop(g), mat]);
   const blades = [];
   for (let i = 0; i < count; i++) {
     const pivot = new THREE.Group();
-    pivot.add(new THREE.Mesh(bladeGeo, m.blade), new THREE.Mesh(armGeo, cfg.arm === 'body' ? m.body : m.arm));
+    pivot.add(...bladeGeos.map((g) => new THREE.Mesh(g, m.blade)), new THREE.Mesh(armGeo, cfg.arm === 'body' ? m.body : m.arm));
     for (const g of [...ribGeos, ...ribTop]) pivot.add(new THREE.Mesh(g, m.blade));
     for (let j = 0; j < (cfg.holes ?? 0); j++) {
       const along = x0 + 0.03 + (j % 2) * 0.04, across = (cfg.holes === 2 ? (j ? 1 : -1) * 0.3 : (j - 1) * 0.3) * w;
@@ -464,7 +541,7 @@ function createCeiling(name, cfg) {
         pivot.add(h);
       }
     }
-    for (const [g, mat] of [...trims, ...trimTop]) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
+    for (const [g, mat] of trims) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
     for (const [g, mat] of decoParts) pivot.add(new THREE.Mesh(g, m[mat] ?? m.accent));
     pivot.userData.restAngle = (i * Math.PI * 2) / count;
     pivot.rotation.y = pivot.userData.restAngle;
@@ -512,12 +589,17 @@ function createCeiling(name, cfg) {
       const [baseC, ink] = f.insert ?? ['#e9d6b2', '#7a2a24'];
       inserts[baseC + ink] ??= ornateTexture(baseC, ink);
       const t = inserts[baseC + ink];
-      const L = 0.085 * 1.25 * 2, cx = x0 + 0.015 + 0.085 + 0.017, b2 = w * 0.36 * 1.4 * 2; // texture across the insert
+      const L = 0.085 * 1.5 * 2, cx = x0 + 0.015 + 0.085 * 1.35, b2 = w * 0.36 * 1.55 * 2; // texture across the panel
       t.repeat.set(1 / L, 1 / b2);
       t.offset.set(-(cx - L / 2) / L, 0.5);
       m.insert.map = t;
       m.insert.color.set('#ffffff');
       m.insert.needsUpdate = true;
+      if (cfg.ornateBand) {
+        inserts[`band${baseC}${ink}`] ??= ornateRingTexture(baseC, ink, 0.7 / 0.86);
+        m.band.map = inserts[`band${baseC}${ink}`];
+        m.band.needsUpdate = true;
+      }
     }
   }
   setFinish(cfg.colour);
@@ -573,13 +655,13 @@ const SIGNATURE = { size: 48, accent: 'copper', tip: 'swept', chord: 0.16, canop
 
 export const CEILING = {
   // Signature Series and the new premium range
-  'art-pro-48': { ...SIGNATURE, colour: 'golden', trim: 'ornate', canopyRim: true, rimLine: true, baseRing: 0.68, finishes: { brown: { insert: ['#3d2420', '#efe6d6'] } } },
-  'coral-48': { ...SIGNATURE, canopy: 'cup', colour: 'golden', accent: 'gold-gloss', trim: 'window', rim: true, rod: 'accent' },
+  'art-pro-48': { ...SIGNATURE, colour: 'golden', trim: 'ornate', canopyRim: 'band', ornateBand: true, rimLine: true, baseRing: 0.68, finishes: { brown: { insert: ['#3d2420', '#efe6d6'] } } },
+  'coral-48': { ...SIGNATURE, canopy: 'cup', colour: 'golden', accent: 'gold-gloss', trim: 'window', rim: true, shank: 'cup' }, // studio photo: rod in the body colour, a short cup over the motor
   'coras-48': {
-    ...SIGNATURE, canopy: 'penta', colour: 'golden', accent: 'gold-gloss', trim: 'band', rim: true,
+    ...SIGNATURE, tip: 'flare', chord: 0.17, canopy: 'penta', colour: 'golden', accent: 'gold-gloss', trim: 'band', rim: true, drop: -0.13, shank: 'cup', // a short drop, as in its photo
     finishes: { golden: { accent: 'gold-gloss' }, grey: { accent: 'steel' }, brown: { accent: 'copper' } },
   },
-  'irus-48': { ...SIGNATURE, colour: 'brown', trim: 'u', canopyRim: true, rim: true, deco: 'chevron', finishes: { golden: { accent: 'copper' } } },
+  'irus-48': { ...SIGNATURE, tip: 'flare', chord: 0.17, colour: 'brown', trim: 'u', canopyRim: 'band', rim: true, drop: -0.1, shankTop: 0.17, finishes: { golden: { accent: 'copper' } } }, // studio photos: a broad copper band on the canopy, a short drop, a plain dish
   'luster-shine-golden-48': { size: 48, colour: 'glossy-brown', accent: 'copper', tip: 'leaf', chord: 0.2, trim: 'petal', rim: true, canopy: 'cone', ribs: false, gap: 0.03, motorScale: 1.2, finishes: { brown: { body: '#43231a', blade: '#4a271c', metal: 0.25, gloss: true } } },
   'luster-shine-silver-48': { size: 48, colour: 'champagne', accent: 'copper', tip: 'leaf', chord: 0.2, trim: 'petal', rim: true, canopy: 'cone', ribs: false, gap: 0.03, motorScale: 1.2 },
   'heritage-48': { size: 48, colour: 'honey-gold', accent: 'chrome', tip: 'swept', trim: 'loop', chord: 0.17, motor: 'deep' },
@@ -667,7 +749,7 @@ export const CEILING_MODELS = Object.fromEntries(Object.entries(CEILING).map(([k
 
 const AIRMAX_FINISHES = {
   gold: { body: '#d8b57f', blade: '#dcbb88', insert: '#e3c99a', lines: '#7a4a2a', metal: 0.45 },
-  copper: { body: '#9c5236', blade: '#a65a3b', insert: '#e9e4de', lines: '#a8573a', metal: 0.5 },
+  copper: { body: '#ad6b54', blade: '#b3735d', insert: '#ece6df', lines: '#a8634a', metal: 0.62 }, // studio photo: a light rose copper
 };
 
 function wavyTexture(base, line) {
@@ -706,18 +788,21 @@ function createAirMax({ shadows = false } = {}) {
   const canopy = new THREE.Mesh(lathe(canopyOutline), m.body);
   // the logo on the front of the canopy, white in both finishes (studio photos 15 and 16)
   const logo = latheLogo({ colour: 'white', width: 0.072, points: canopyOutline, y: TOP - 0.046, angle: LOGO_ANGLE });
-  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.009, 10, 64), m.maroon);
+  // a plain cone in the body colour (the studio photos show no coloured rim), with a fine lip round its top
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.004, 10, 64), m.body);
   rim.rotation.x = Math.PI / 2;
   rim.position.y = TOP - 0.008;
   const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.019, 0.019, TOP - 0.165 - 0.13, 20), m.body);
   rod.position.y = (TOP - 0.165 + 0.13) / 2;
-  const shank = new THREE.Mesh(lathe([[0.019, 0.14], [0.03, 0.11], [0.05, 0.085], [0.075, 0.068]], 40), m.body);
+  // the shank cover is its bottom canopy: a separate bell, a few mm above the motor (manual), with its screw
+  const shank = new THREE.Mesh(lathe([[0.019, 0.14 + CANOPY_GAP], [0.03, 0.11 + CANOPY_GAP], [0.05, 0.085 + CANOPY_GAP], [0.075, 0.068 + CANOPY_GAP]], 40), m.body);
+  const shankScrew = neckScrew(m.body, { r: 0.024, y: 0.13, angle: 1.5 });
   const stator = new THREE.Group();
-  stator.add(canopy, rim, rod, shank, logo);
+  stator.add(canopy, rim, rod, shank, shankScrew, logo);
 
   // turning: a low wide motor with a maroon line at the waist and the three-armed plate on its base
   const r = 0.2;
-  const upper = new THREE.Mesh(lathe([[0.07, 0.068], [0.14, 0.058], [0.19, 0.03], [r, 0.004]]), m.body);
+  const upper = new THREE.Mesh(lathe([[0, 0.07], [0.07, 0.068], [0.14, 0.058], [0.19, 0.03], [r, 0.004]]), m.body);
   const lower = new THREE.Mesh(lathe([[r, 0.004], [0.202, -0.018], [0.19, -0.034], [0.17, -0.04]]), m.body);
   const base = new THREE.Mesh(new THREE.CircleGeometry(0.17, 64), m.body);
   base.rotation.x = Math.PI / 2;
@@ -755,8 +840,15 @@ function createAirMax({ shadows = false } = {}) {
   s.closePath();
   const bladeGeo = plate_(s, pitch, -0.006, 0.012);
   // (both on the underside of the blade, where the poster shows them)
-  const frameGeo = plate_([[0.17, -0.1], [0.42, -0.108], [0.47, -0.07], [0.47, 0.07], [0.42, 0.108], [0.17, 0.1]], pitch, -0.024, 0.014);
-  const insertGeo = plate_([[0.2, -0.078], [0.4, -0.084], [0.44, -0.052], [0.44, 0.052], [0.4, 0.084], [0.2, 0.078]], pitch, -0.033, 0.004);
+  // the cover: a dark glossy frame with softly rounded corners round a cream insert of wavy lines
+  const rounded = (x0, x1, half, r) => {
+    const pts = [];
+    const arc = (cx, cz, a0) => { for (let i = 0; i <= 6; i++) { const a = a0 + (i / 6) * (Math.PI / 2); pts.push([cx + Math.cos(a) * r, cz + Math.sin(a) * r]); } };
+    arc(x1 - r, half - r, 0); arc(x0 + r, half - r, Math.PI / 2); arc(x0 + r, -half + r, Math.PI); arc(x1 - r, -half + r, Math.PI * 1.5);
+    return pts;
+  };
+  const frameGeo = plate_(rounded(0.17, 0.47, 0.104, 0.035), pitch, -0.024, 0.014);
+  const insertGeo = plate_(rounded(0.195, 0.445, 0.08, 0.022), pitch, -0.033, 0.004);
   // texture coordinates across the insert so the wavy lines show
   const uv = insertGeo.getAttribute('uv');
   const pos = insertGeo.getAttribute('position');

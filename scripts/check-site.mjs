@@ -37,19 +37,23 @@ if (process.argv.includes('--browser')) {
   const { server, url } = await startPreviewServer();
   const browser = await launchBrowser();
   try {
+    // four tabs at once, each taking the next product off the list
+    const queue = [...catalogue.products];
+    let done = 0;
+    const worker = async () => {
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 860 });
     let errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     page.on('console', (m) => { if (m.type() === 'error' && !/favicon|net::ERR/.test(m.text())) errors.push(m.text()); });
-    let done = 0;
-    for (const p of catalogue.products) {
+    for (let p = queue.shift(); p; p = queue.shift()) {
       errors = [];
       const has3D = Boolean(PRODUCT_MODELS[p.id]);
       await page.goto(`${url}${p.url}${has3D ? '?force3d' : ''}`, { waitUntil: 'load', timeout: 60000 }).catch((e) => errors.push(`load: ${e.message}`));
       await new Promise((r) => setTimeout(r, has3D ? 3500 : 800));
       // read the 3D canvas inside an animation frame, right after it draws (a WebGL canvas reads blank otherwise)
-      const state = await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => resolve((() => {
+      // (a tab that isn't in front may never draw a frame, so don't wait for one longer than half a second)
+      const state = await page.evaluate(() => new Promise((resolve) => { let sent = false; const read = () => { if (sent) return; sent = true; resolve((() => {
         const img = [...document.querySelectorAll('.gallery img')].some((i) => i.complete && i.naturalWidth > 0);
         const canvas = document.querySelector('.gallery__slide--3d:not(.gallery__slide--parts) canvas');
         let drawn = null;
@@ -63,18 +67,23 @@ if (process.argv.includes('--browser')) {
           drawn = max - min > 60;
         }
         return { img, canvas: Boolean(canvas), drawn };
-      })())))).catch(() => ({}));
+      })()); }; requestAnimationFrame(read); setTimeout(read, 500); })).catch(() => ({}));
       if (errors.length) problems.push(`${p.id}: script error: ${errors[0].slice(0, 140)}`);
       if (!state.img && !state.canvas) problems.push(`${p.id}: nothing shows in the gallery`);
       if (has3D && state.canvas && state.drawn === false) {
         // reading a WebGL canvas can come back empty: judge by a screenshot of the view instead
         const box = await page.evaluate(() => { const r = document.querySelector('.gallery__slide--3d:not(.gallery__slide--parts) canvas').getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; });
+        await page.bringToFront();
+        await new Promise((r) => setTimeout(r, 1500)); // let it draw now that it is in front
         const shot = await page.screenshot({ clip: box });
         const { channels } = await sharp(shot).stats();
         if (channels.slice(0, 3).every((c) => c.stdev < 6)) problems.push(`${p.id}: the 3D view is blank`);
       }
       if (++done % 25 === 0) console.log(`  ${done} pages opened`);
     }
+    await page.close();
+    };
+    await Promise.all([worker(), worker(), worker(), worker()]);
   } finally {
     await browser.close().catch(() => {}); // Windows sometimes keeps Chrome's profile lock a moment longer
     await server.close();

@@ -7,6 +7,7 @@
 import * as THREE from 'three';
 import { makeWoodTexture } from './wood-texture.js';
 import { brandMarkCurved } from './brand-mark.js';
+import { neckScrew, CANOPY_GAP } from './fan-mount.js';
 
 export const BLADE_COUNT = 3; // Brief §3.7: always exactly three blades.
 export const CANOPY_TOP = 0.6; // studio photo: a short drop, the canopy close above the motor
@@ -15,6 +16,7 @@ export const CANOPY_TOP = 0.6; // studio photo: a short drop, the canopy close a
 
 const chrome = { color: '#eceef0', metalness: 1, roughness: 0.18 };
 const copper = { color: '#b8653f', metalness: 1, roughness: 0.28 };
+const bronze = { color: '#b88d5e', metalness: 0.85, roughness: 0.3 }; // the soft bronze rings of the Wood Craft photo
 
 export const FINISHES = {
   white: {
@@ -44,7 +46,7 @@ export const FINISHES = {
     mount: { color: '#bd8a64', roughness: 0.42, clearcoat: 0.35 }, // studio photo: a plain tan canopy and downrod
     cap: { wood: true, roughness: 0.45, clearcoat: 0.5 },
     trim: { wood: true, roughness: 0.48, clearcoat: 0.45 },
-    accent: copper,
+    accent: bronze,
   },
 };
 // The canopy and downrod are in the body colour, except where a finish names its own (Wood Craft).
@@ -99,6 +101,14 @@ function bladeGeometry() {
   return geo;
 }
 
+// Maps a texture straight across a shape from above (x, z), so wood grain runs in lines, not rings.
+function flatGrain(geo, scale = 2.2) {
+  const pos = geo.getAttribute('position');
+  const uv = geo.getAttribute('uv');
+  for (let i = 0; i < pos.count; i++) uv.setXY(i, pos.getX(i) * scale + 0.5, pos.getZ(i) * scale + 0.5);
+  uv.needsUpdate = true;
+}
+
 // ---------------------------------------------------------------- the fan
 
 export function createAeroflow({ shadows = false } = {}) {
@@ -110,36 +120,39 @@ export function createAeroflow({ shadows = false } = {}) {
   const fan = new THREE.Group();
   fan.name = 'aeroflow';
 
-  // Canopy (studio photo): a small rounded egg shape with a flat top, narrowing into the downrod.
+  // Canopy (studio photo): a smooth flared funnel, wide and flat at the top, narrowing into a stout downrod.
   const canopy = new THREE.Mesh(
-    lathe([[0, CANOPY_TOP], [0.07, CANOPY_TOP], [0.092, CANOPY_TOP - 0.025], [0.1, CANOPY_TOP - 0.07], [0.088, CANOPY_TOP - 0.13], [0.058, CANOPY_TOP - 0.18], [0.04, CANOPY_TOP - 0.205]]),
+    lathe([[0, CANOPY_TOP], [0.09, CANOPY_TOP], [0.093, CANOPY_TOP - 0.008], [0.086, CANOPY_TOP - 0.03], [0.071, CANOPY_TOP - 0.06], [0.056, CANOPY_TOP - 0.095], [0.046, CANOPY_TOP - 0.125], [0.04, CANOPY_TOP - 0.15]]),
     materials.mount,
   );
-  // Downrod: straight, flaring into the top of the motor.
-  const downrod = new THREE.Mesh(
-    lathe([[0.037, CANOPY_TOP - 0.205], [0.036, 0.2], [0.04, 0.13], [0.06, 0.08], [0.09, 0.05]], 40), // short and stout
+  // Downrod: stout. At its foot the bottom canopy, a separate trumpet-shaped cover over the rod-to-motor joint,
+  // flares down to just above the motor (Aparna's manual: 3-4 mm), held by a screw on its neck.
+  const downrod = new THREE.Mesh(lathe([[0.039, CANOPY_TOP - 0.15], [0.037, 0.2]], 24), materials.mount);
+  const bottomCanopy = new THREE.Mesh(
+    lathe([[0.037, 0.225], [0.041, 0.222], [0.041, 0.175], [0.049, 0.13], [0.068, 0.096], [0.1, 0.074], [0.13, 0.062 + CANOPY_GAP * 0.5], [0.148, 0.051 + CANOPY_GAP]], 48),
     materials.mount,
   );
+  const canopyScrews = [neckScrew(materials.mount, { r: 0.041, y: 0.205, angle: 1.4 }), neckScrew(materials.mount, { r: 0.05, y: CANOPY_TOP - 0.125, angle: 1.4 })];
   // the logo printed on the front of the canopy: red on the light finishes, white on grey
   const logos = {
-    red: brandMarkCurved({ colour: 'red', width: 0.105, radius: 0.1025, y: CANOPY_TOP - 0.078 }),
-    white: brandMarkCurved({ colour: 'white', width: 0.105, radius: 0.1025, y: CANOPY_TOP - 0.078 }),
+    red: brandMarkCurved({ colour: 'red', width: 0.06, radius: 0.0905, y: CANOPY_TOP - 0.026 }),
+    white: brandMarkCurved({ colour: 'white', width: 0.06, radius: 0.0905, y: CANOPY_TOP - 0.026 }),
   };
   const stator = new THREE.Group(); // parts that stay still
-  stator.add(canopy, downrod, logos.red, logos.white);
+  stator.add(canopy, downrod, bottomCanopy, ...canopyScrews, logos.red, logos.white);
 
   // Rotor: the motor shell, the trim ring, the copper accent, the centre cap and the three blades.
   const rotor = new THREE.Group();
   rotor.name = 'rotor';
 
   const shell = new THREE.Mesh(
-    lathe([[0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.208, -0.015], [0.214, -0.046], [0.232, -0.058], [0.236, -0.064], [0.226, -0.07], [0.2, -0.0725], [0.165, -0.0735]]),
+    lathe([[0, 0.058], [0.09, 0.055], [0.15, 0.045], [0.198, 0.02], [0.208, -0.015], [0.214, -0.042], [0.222, -0.056], [0.218, -0.066], [0.2, -0.0718], [0.18, -0.0735]]),
     materials.body,
   );
   // Seen from below (studio photos, posters 03/04): a smooth collar in the body colour that the blades grow
   // out of, a thin bright ring (chrome, or copper on golden and wood) and a flat cap set just inside it.
   const trim = new THREE.Mesh(
-    lathe([[0.165, -0.0735], [0.152, -0.074], [0.144, -0.074]]),
+    lathe([[0.18, -0.0735], [0.152, -0.074], [0.144, -0.074]]),
     materials.trim,
   );
   const accent = new THREE.Mesh(new THREE.TorusGeometry(0.139, 0.0068, 16, 96), materials.accent);
@@ -150,10 +163,16 @@ export function createAeroflow({ shadows = false } = {}) {
     materials.cap,
   );
   // the fine seam where each blade meets the hub, following the collar's edge
-  const seam = new THREE.Mesh(new THREE.TorusGeometry(0.236, 0.0016, 6, 128), new THREE.MeshBasicMaterial({ color: '#2a1d15', transparent: true, opacity: 0.5 }));
+  // a thin raised lip a little outside the ring (the photos' second, finer ring)
+  const lip = new THREE.Mesh(new THREE.TorusGeometry(0.176, 0.0038, 12, 96), materials.accent);
+  lip.rotation.x = Math.PI / 2;
+  lip.position.y = -0.0738;
+  const seam = new THREE.Mesh(new THREE.TorusGeometry(0.219, 0.0016, 6, 128), new THREE.MeshBasicMaterial({ color: '#2a1d15', transparent: true, opacity: 0.5 }));
   seam.rotation.x = Math.PI / 2;
-  seam.position.y = -0.064;
-  rotor.add(shell, trim, accent, cap, seam);
+  seam.position.y = -0.062;
+  // straight wood grain across the hub's underside (a lathe's own mapping would draw tree rings)
+  for (const m of [shell, trim, cap]) flatGrain(m.geometry);
+  rotor.add(shell, trim, accent, lip, cap, seam);
 
   const bladeGeo = bladeGeometry();
   const blades = [];
