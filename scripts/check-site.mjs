@@ -6,6 +6,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import sharp from 'sharp';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -65,7 +66,13 @@ if (process.argv.includes('--browser')) {
       })())))).catch(() => ({}));
       if (errors.length) problems.push(`${p.id}: script error: ${errors[0].slice(0, 140)}`);
       if (!state.img && !state.canvas) problems.push(`${p.id}: nothing shows in the gallery`);
-      if (has3D && state.canvas && state.drawn === false) problems.push(`${p.id}: the 3D view is blank`);
+      if (has3D && state.canvas && state.drawn === false) {
+        // reading a WebGL canvas can come back empty: judge by a screenshot of the view instead
+        const box = await page.evaluate(() => { const r = document.querySelector('.gallery__slide--3d:not(.gallery__slide--parts) canvas').getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; });
+        const shot = await page.screenshot({ clip: box });
+        const { channels } = await sharp(shot).stats();
+        if (channels.slice(0, 3).every((c) => c.stdev < 6)) problems.push(`${p.id}: the 3D view is blank`);
+      }
       if (++done % 25 === 0) console.log(`  ${done} pages opened`);
     }
   } finally {
