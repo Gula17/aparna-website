@@ -21,11 +21,15 @@ const openable = (t, it, i, total, inner) => `
 
 // A muted loop that plays only on screen (src/scenes/events.js). The poster shows until then, and always on
 // Data Saver, with reduced motion or without JavaScript.
-const loop = (src, poster, className) => `
+// A muted loop. iOS Safari plays it inline only when it is muted and playsinline (webkit-playsinline for older
+// iOS); src/scenes/events.js starts it when it is on screen, never with reduced motion or Data Saver, so it has
+// no autoplay attribute and downloads nothing until then (preload="none"). Phones get the 720p H.264 copy; the
+// poster frame shows until it plays.
+const loop = (video, poster, className, { autoplay = false } = {}) => `
   <div class="${className}">
     ${poster ? image(poster, { sizes: '100vw', className: 'ev-loop__poster' }) : ''}
-    <video class="ev-loop__video" data-loop muted loop playsinline preload="none" aria-hidden="true"
-      ${poster ? `poster="${esc(poster.variants.at(-1).file)}"` : ''}><source src="${esc(src)}" type="video/mp4"></video>
+    <video class="ev-loop__video" data-loop ${autoplay ? 'autoplay ' : ''}muted loop playsinline webkit-playsinline disablepictureinpicture preload="${autoplay ? 'metadata' : 'none'}" aria-hidden="true"
+      ${poster ? `poster="${esc(poster.variants.at(-1).file)}"` : ''}>${video.small ? `<source src="${esc(video.small)}" type="video/mp4" media="(max-width: 700px)">` : ''}<source src="${esc(video.src ?? video)}" type="video/mp4"></video>
   </div>`;
 
 const viewer = (t) => `
@@ -76,7 +80,7 @@ export function renderEvents({ t, range, catalogue, events }) {
   ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="events ev">
     <section class="ev-hero ev-hero--index" aria-labelledby="events-title">
-      ${drone ? loop(drone.video, drone.poster, 'ev-hero__media') : first?.cover ? `<div class="ev-hero__media">${image(first.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
+      ${drone ? loop(drone.video, drone.poster, 'ev-hero__media', { autoplay: true }) : first?.cover ? `<div class="ev-hero__media">${image(first.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
       <span class="ev-hero__shade" aria-hidden="true"></span>
       <canvas class="ev-petals" data-petals aria-hidden="true"></canvas>
       <div class="ev-hero__text">
@@ -91,7 +95,7 @@ export function renderEvents({ t, range, catalogue, events }) {
     <ul class="ev-cards" id="event-list">
       ${events.events.map((e, i) => `
         <li class="ev-card" data-reveal>
-          <a class="ev-card__link" href="${esc(e.url)}" ${e.video ? `data-preview="${esc(e.video)}"` : ''}>
+          <a class="ev-card__link" href="${esc(e.url)}" ${e.video ? `data-preview="${esc(e.video.src)}"` : ''}>
             <span class="ev-card__media">
               ${e.cover ? image(e.cover, { sizes: '(min-width: 900px) 60vw, 100vw', className: 'ev-card__img', eager: i === 0 }) : ''}
             </span>
@@ -131,7 +135,7 @@ export function renderEvent({ t, range, catalogue, events, id }) {
   ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="events ev event">
     <section class="ev-hero" aria-labelledby="event-title">
-      ${e.video ? loop(e.video, e.cover, 'ev-hero__media') : e.cover ? `<div class="ev-hero__media">${image(e.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
+      ${e.video ? loop(e.video, e.cover, 'ev-hero__media', { autoplay: true }) : e.cover ? `<div class="ev-hero__media">${image(e.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
       <span class="ev-hero__shade" aria-hidden="true"></span>
       <canvas class="ev-petals" data-petals aria-hidden="true"></canvas>
       <div class="ev-hero__text">

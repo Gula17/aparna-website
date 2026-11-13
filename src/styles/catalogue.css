@@ -36,7 +36,7 @@
 .nav-menu__panel {
   position: absolute; top: 66px; right: var(--gutter); z-index: 40;
   width: min(880px, calc(100% - 2 * var(--gutter)));
-  max-height: calc(100dvh - 82px); overflow-y: auto; overscroll-behavior: contain;
+  max-height: calc(100vh - 82px); max-height: calc(100dvh - 82px); overflow-y: auto; overscroll-behavior: contain;
   display: grid; gap: 12px; padding: 14px;
   border-radius: 18px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow);
   animation: menu-in 0.2s var(--ease-out);
@@ -45,7 +45,7 @@
 .nav-menu__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 2px 0 6px; }
 .nav-menu__title { font: 600 0.75rem/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
 .nav-menu__close {
-  display: none; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line);
+  display: none; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line);
   background: var(--white); color: var(--ink); font-size: 1.5rem; line-height: 1; cursor: pointer; transition: background-color 0.2s, color 0.2s;
 }
 .js .nav-menu__close { display: grid; } /* it needs JavaScript; without it, "Products" closes the menu */

@@ -45,7 +45,12 @@ export function setupReveal({ reducedMotion }) {
     for (const { target, isIntersecting } of entries) {
       if (!isIntersecting) continue;
       near.unobserve(target);
-      setTimeout(() => { if (!target.dataset.revealed) { target.dataset.revealed = '1'; show(target); } }, 1500);
+      // 1.5 s later it must be visible: not played yet, or played but its animation never ran (WebKit can drop
+      // one that starts while the element is covered or the page is busy) -> finish it and show it
+      setTimeout(() => {
+        target.getAnimations?.({ subtree: true }).forEach((a) => { try { a.finish(); } catch { /* already gone */ } });
+        if (!target.dataset.revealed || Number(getComputedStyle(target).opacity) < 0.99) { target.dataset.revealed = '1'; show(target); }
+      }, 1500);
     }
   }, { rootMargin: '120px 0px' });
   document.querySelectorAll('[data-reveal]').forEach((el) => {

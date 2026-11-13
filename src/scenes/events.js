@@ -1,8 +1,8 @@
 // Events pages (src/templates/events.js): marigold petals over the hero, muted loops that play only on screen,
 // the day's story pinned and scrubbed sideways on wide screens, a photo wall that drifts as you scroll, the
 // range prints fanning out, a preview loop on the event cards, and a full-size photo viewer.
-// Loops never play by themselves on Data Saver, with reduced motion or on narrow screens (they are 12-21 MB):
-// those visitors see the poster.
+// Loops never play by themselves on Data Saver or with reduced motion: those visitors see the poster. Phones
+// play the 720p copy (a few MB; the template's <source media>), desktops the original.
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,18 +14,35 @@ export function setupEvents({ reducedMotion }) {
   if (!root) return;
   const saveData = navigator.connection?.saveData;
   const wide = matchMedia('(min-width: 900px)').matches;
-  const autoplay = !reducedMotion && !saveData && matchMedia('(min-width: 701px)').matches;
+  const autoplay = !reducedMotion && !saveData;
 
   // ---- muted loops: play while on screen
   const loops = [...root.querySelectorAll('[data-loop]')];
-  const play = (v) => v.play().then(() => v.classList.add('is-playing')).catch(() => {});
+  const onScreen = new Set();
+  const play = (v) => {
+    // iOS Safari plays inline only when muted and playsinline: set them in script too, not just as attributes
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    return v.play().then(() => v.classList.add('is-playing')).catch(() => {}); // blocked (Low Power Mode): poster stays
+  };
   const io = new IntersectionObserver((entries) => {
     for (const { target: v, isIntersecting } of entries) {
-      if (isIntersecting && autoplay) play(v); // reduced motion, Data Saver, phones: the poster stays
+      if (isIntersecting) onScreen.add(v); else onScreen.delete(v);
+      if (isIntersecting && autoplay) play(v); // reduced motion, Data Saver: the poster stays
       else if (!isIntersecting && !v.paused) v.pause();
     }
   }, { threshold: 0.25 });
-  loops.forEach((v) => io.observe(v));
+  loops.forEach((v) => {
+    v.addEventListener('playing', () => v.classList.add('is-playing')); // shown once it really plays (autoplay too)
+    if (!autoplay) { v.removeAttribute('autoplay'); v.pause(); } // reduced motion, Data Saver: the poster stays
+    io.observe(v);
+  });
+  // iOS Low Power Mode refuses to start videos by themselves: try again on the first touch, and when the tab
+  // comes back to the front
+  const retry = () => { if (autoplay) onScreen.forEach((v) => { if (v.paused) play(v); }); };
+  addEventListener('touchstart', retry, { once: true, passive: true });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) retry(); });
 
   // ---- event cards: a short preview of the loop on hover (mouse only)
   if (autoplay && matchMedia('(hover: hover)').matches) {

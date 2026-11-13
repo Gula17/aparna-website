@@ -137,7 +137,7 @@ const modelPreview = (t, range, m) => {
             <p class="viewer__hint" aria-hidden="true">${esc(t.preview.dragHint)}</p>
           </div>
           <div class="viewer__fallback">
-            ${picture(range.media, m.image, { sizes: '(min-width: 900px) 50vw, 92vw' })}
+            ${bldcPicture(range, m, '', '(min-width: 900px) 50vw, 92vw')}
             <p class="viewer__hint">${esc(t.preview.noViewer)}</p>
           </div>
           ${finishes.length ? `
@@ -153,7 +153,7 @@ const modelPreview = (t, range, m) => {
             </div>
           </fieldset>` : ''}` : `
           <div class="lens" data-lens>
-            ${picture(range.media, m.image, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 92vw' })}
+            ${bldcPicture(range, m, 'lens__img', '(min-width: 900px) 50vw, 92vw')}
           </div>
           <p class="viewer__hint viewer__hint--below" data-needs-hover>${esc(t.preview.photoHint)}</p>`}
       </div>
@@ -176,6 +176,11 @@ const modelPreview = (t, range, m) => {
   </dialog>`;
 };
 
+// A BLDC model's picture: its clean studio cutout (cutouts.generated.json), else its poster.
+const bldcPicture = (range, m, className, sizes) => (m.cutout
+  ? `<img class="${className} is-cutout" src="${esc(m.cutout.variants[0].file)}" srcset="${m.cutout.variants.map((v) => `${esc(v.file)} ${v.width}w`).join(', ')}" sizes="${sizes}" width="${m.cutout.variants[0].width}" height="${m.cutout.variants[0].height}" alt="${esc(m.cutout.alt ?? `The Aparna ${m.name}`)}" loading="lazy" decoding="async">`
+  : picture(range.media, m.image, { className, sizes }));
+
 const bldcModels = (t, range) => `
   <section class="bldc-models" aria-labelledby="bldc-models-title">
     <header class="bldc-models__head">
@@ -187,7 +192,7 @@ const bldcModels = (t, range) => `
         <li class="model-card ${PRODUCT_MODELS[m.id] ? 'model-card--3d' : ''}" style="--i:${i}" data-tilt>
           <div class="model-card__inner">
             <div class="model-card__media">
-              ${m.image ? picture(range.media, m.image, { className: 'model-card__img', sizes: '(min-width: 900px) 30vw, 90vw' }) : ''}
+              ${m.cutout || m.image ? bldcPicture(range, m, 'model-card__img', '(min-width: 900px) 30vw, 90vw') : ''}
               ${PRODUCT_MODELS[m.id] ? `<span class="model-card__360" aria-hidden="true">${esc(t.preview.view360)}</span>` : ''}
               <span class="model-card__glare" aria-hidden="true"></span>
             </div>

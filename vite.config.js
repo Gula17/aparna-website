@@ -41,7 +41,7 @@ function renderPages() {
         const collageFile = path.join(root, 'src/content/station-collages.json');
         homeRange.stationCollages = Object.fromEntries(Object.entries(fs.existsSync(collageFile) ? readJson('src/content/station-collages.json').stations : {}).map(([station, ids]) => [station,
           ids.map((id) => ({ p: catProducts.find((x) => x.id === id), c: homeCutouts[id] })).filter((x) => x.p && x.c).map(({ p, c }) => ({ id: p.id, name: p.name, alt: c.alt ?? `The Aparna ${p.name}`, variants: c.variants }))]));
-        homeRange.bldc = range.bldc.map((m) => ({ ...m, mrp: catProducts.find((p) => p.id === m.id)?.mrp ?? null }));
+        homeRange.bldc = range.bldc.map((m) => ({ ...m, mrp: catProducts.find((p) => p.id === m.id)?.mrp ?? null, cutout: homeCutouts[m.id] ?? null }));
         return html
           .replace('<!--app-->', renderHome({ t, range: homeRange, emblemSvg, events: fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : null }))
           .replaceAll('%TITLE%', t.meta.title)
@@ -114,7 +114,8 @@ export default defineConfig({
   plugins: [renderPages()],
   appType: 'mpa', // an address with no page is a 404 in dev and preview too (as on Netlify), never the home page
   build: {
-    target: 'es2020',
+    target: ['es2020', 'safari14', 'ios14'], // iOS 14+ Safari can run every bundle (no newer syntax slips through)
+    cssTarget: ['safari14', 'ios14'],
     chunkSizeWarningLimit: 700, // three.js chunk; budget is 600 KB gzipped (brief §9), it ships ~130 KB
     rollupOptions: { input: pageInputs() },
   },

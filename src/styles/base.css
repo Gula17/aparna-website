@@ -12,6 +12,10 @@ body {
   font: 400 1.0625rem/1.55 var(--font-body);
   overflow-x: clip;
 }
+/* Safari before 16 has no overflow: clip: hidden on body still stops sideways drift (the page, not body, scrolls) */
+@supports not (overflow-x: clip) { body { overflow-x: hidden; } }
+/* taps act at once on touch screens (no double-tap-zoom wait) */
+a, button, summary, label, select, input, [role='button'] { touch-action: manipulation; }
 
 img, svg, canvas { display: block; max-width: 100%; }
 img { height: auto; }

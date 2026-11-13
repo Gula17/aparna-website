@@ -45,7 +45,7 @@
 /* The wordmark (the emblem is already on screen, so the wordmark stands alone: brief §4.1),
    the percentage and a thin progress line. */
 .loader__foot {
-  position: absolute; left: 50%; bottom: max(9svh, 56px); translate: -50% 0;
+  position: absolute; left: 50%; bottom: max(9vh, 56px); bottom: max(9svh, 56px); translate: -50% 0;
   display: grid; justify-items: center; gap: 10px;
   animation: foot-in 0.6s 0.25s var(--ease-out) both;
   transition: opacity 0.45s ease, translate 0.6s var(--ease-out);

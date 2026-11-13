@@ -47,16 +47,14 @@
   transform: rotate(-4deg);
 }
 
-/* Mobile: cards stack and stick, each sliding over the last. Only where the screen is tall enough. */
-@media (max-width: 899px) and (min-height: 640px) {
-  .station { position: sticky; top: 16px; }
-}
+/* Phones: plain cards one after another. (They used to stick and stack, but the next card then slid over the
+   bottom of the one before, cutting through its heading and text.) */
 
 /* Desktop: one horizontal, pinned journey (JS sets the parade height and moves the track). */
 @media (min-width: 900px) {
-  .js .parade__viewport { position: sticky; top: 0; height: 100svh; overflow: hidden; display: flex; align-items: center; }
+  .js .parade__viewport { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; align-items: center; }
   .js .parade__track { display: flex; gap: 32px; padding: 0 var(--gutter); will-change: transform; }
-  .js .station { flex: none; width: min(86vw, 1200px); height: min(78svh, 680px); grid-template-columns: 1.25fr 1fr; padding: 18px; }
+  .js .station { flex: none; width: min(86vw, 1200px); height: min(78vh, 680px); height: min(78svh, 680px); grid-template-columns: 1.25fr 1fr; padding: 18px; }
   .js .station__media { aspect-ratio: auto; height: 100%; }
   .js .station__text { padding: 12px 24px 12px 12px; }
 

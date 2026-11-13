@@ -21,6 +21,14 @@ export function setupRange({ reducedMotion }) {
   const track = document.querySelector('.parade__track');
   const stations = [...document.querySelectorAll('.station[data-moment]')];
   if (!parade) return;
+  // The collage cutouts are lazy, and mobile Safari only fetches lazy images just before they show, so the stages
+  // looked empty for a moment. Start them all when the section is about two screens away.
+  const early = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    early.disconnect();
+    parade.querySelectorAll('.collage img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+  }, { rootMargin: '200% 0px' });
+  early.observe(parade);
 
   const mm = gsap.matchMedia();
 

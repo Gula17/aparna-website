@@ -8,6 +8,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import ffmpegPath from 'ffmpeg-static';
+
+const run = promisify(execFile);
 
 sharp.cache(false);
 const PHOTO = /\.(jpe?g|png|webp)$/i;
@@ -82,13 +87,19 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
 
     const cover = e.cover ? await photo(resolve(e.cover)) : photos[0] ?? galleries[0]?.items[0] ?? null;
 
-    // video loops are copied as they are (only when changed)
+    // video loops: the original is copied as it is (H.264 MP4, fast-start); phones get a 720p H.264 copy (Main
+    // profile, yuv420p, fast-start, no sound) made once with ffmpeg, a few MB instead of 12-21 MB
     async function copyVideo(file) {
-      const name = `${slug(path.basename(file, path.extname(file))).slice(0, 40)}.mp4`;
-      const out = path.join(outDir, name);
-      const [a, b] = await Promise.all([fs.stat(resolve(file)), fs.stat(out).catch(() => null)]);
+      const base = slug(path.basename(file, path.extname(file))).slice(0, 40);
+      const out = path.join(outDir, `${base}.mp4`);
+      const small = path.join(outDir, `${base}-720.mp4`);
+      const [a, b, c] = await Promise.all([fs.stat(resolve(file)), fs.stat(out).catch(() => null), fs.stat(small).catch(() => null)]);
       if (!b || b.size !== a.size) await fs.copyFile(resolve(file), out);
-      return `/media/events/${e.id}/${name}`;
+      if (!c || c.mtimeMs < a.mtimeMs) {
+        await run(ffmpegPath, ['-y', '-i', resolve(file), '-an', '-vf', 'scale=-2:720', '-c:v', 'libx264', '-profile:v', 'main', '-level', '3.1',
+          '-pix_fmt', 'yuv420p', '-preset', 'slow', '-crf', '27', '-maxrate', '1600k', '-bufsize', '3200k', '-movflags', '+faststart', small]);
+      }
+      return { src: `/media/events/${e.id}/${base}.mp4`, small: `/media/events/${e.id}/${base}-720.mp4` };
     }
     const video = e.video ? await copyVideo(e.video) : null;
     const drones = [];

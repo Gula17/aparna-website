@@ -29,11 +29,17 @@
         "alt": "The night celebration",
         "caption": "The night celebration"
       },
-      "video": "/media/events/utsav-26/utsav-26-glimpse-loop-40-s-muted-no-name.mp4",
+      "video": {
+        "src": "/media/events/utsav-26/utsav-26-glimpse-loop-40-s-muted-no-name.mp4",
+        "small": "/media/events/utsav-26/utsav-26-glimpse-loop-40-s-muted-no-name-720.mp4"
+      },
       "drones": [
         {
           "label": "Arrival, from above",
-          "video": "/media/events/utsav-26/drone-entrance-with-aparna-standees-rise.mp4",
+          "video": {
+            "src": "/media/events/utsav-26/drone-entrance-with-aparna-standees-rise.mp4",
+            "small": "/media/events/utsav-26/drone-entrance-with-aparna-standees-rise-720.mp4"
+          },
           "poster": {
             "variants": [
               {
@@ -53,7 +59,10 @@
         },
         {
           "label": "The venue from above",
-          "video": "/media/events/utsav-26/drone-rise-from-the-journey-since-1991-h.mp4",
+          "video": {
+            "src": "/media/events/utsav-26/drone-rise-from-the-journey-since-1991-h.mp4",
+            "small": "/media/events/utsav-26/drone-rise-from-the-journey-since-1991-h-720.mp4"
+          },
           "poster": {
             "variants": [
               {

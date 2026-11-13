@@ -41,7 +41,13 @@ const POSES = {
 const isDesktop = () => matchMedia('(min-width: 900px)').matches;
 
 // The hero framing for the current screen size (the loader hands over to this).
-export const getHeroPose = () => ({ ...(isDesktop() ? POSES.desktop : POSES.mobile).hero });
+export const getHeroPose = () => ({ ...(isDesktop() ? POSES.desktop : POSES.mobile).hero, ...shortPhone() });
+// Phones whose visible height is short (iPhone Safari with its toolbars shows ~660 px): the hero fan sits higher
+// and smaller, so it never reaches the three-line headline at the bottom of the hero.
+function shortPhone() {
+  if (isDesktop() || innerHeight >= 760) return {};
+  return innerHeight < 700 ? { screenY: 0.21, zoom: 0.78 } : { screenY: 0.25, zoom: 0.88 };
+}
 
 export const getCurrentLevel = () => Number(document.querySelector('input[name="speed"]:checked')?.value ?? 2);
 
@@ -88,7 +94,8 @@ export function setupFanJourney({ fan, reducedMotion }) {
   mm.add({ desktop: '(min-width: 900px)', mobile: '(max-width: 899px)' }, (ctx) => {
     const poses = ctx.conditions.desktop ? POSES.desktop : POSES.mobile;
     // Don't jump if the loader is still pulling the camera back into this pose.
-    if (!gsap.isTweening(fan.pose)) Object.assign(fan.pose, poses.hero);
+    const hero = { ...poses.hero, ...shortPhone() };
+    if (!gsap.isTweening(fan.pose)) Object.assign(fan.pose, hero);
 
     // Reduced motion never reaches here with 3D on, but keep scrubbing gentle if it ever does.
     const scrub = reducedMotion ? true : 0.6;
@@ -109,7 +116,7 @@ export function setupFanJourney({ fan, reducedMotion }) {
     }
 
     // One tween per section, each from the previous pose to the next, over non-overlapping scroll ranges.
-    const sequence = [poses.hero, poses.intro, ...poses.steps.slice(0, steps.length)];
+    const sequence = [hero, { ...poses.intro, ...(ctx.conditions.desktop ? {} : shortPhone()) }, ...poses.steps.slice(0, steps.length)];
     const triggers = [intro, ...steps];
     triggers.forEach((trigger, i) => {
       gsap.fromTo(fan.pose, { ...sequence[i] }, {

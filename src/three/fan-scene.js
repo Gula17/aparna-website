@@ -345,7 +345,24 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
       requestAnimationFrame(loop);
     }
   }
-  const updateRunning = () => setRunning(state.visible && !document.hidden);
+  const updateRunning = () => setRunning(state.visible && !document.hidden && !state.lost);
+
+  // iOS Safari can take the WebGL context away (memory pressure, too many contexts in one tab). Stop drawing and
+  // say so (the page then shows its still picture, not a blank canvas); draw again if the context comes back.
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    state.lost = true;
+    setRunning(false);
+    canvas.dispatchEvent(new CustomEvent('fan:contextlost', { bubbles: true }));
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    state.lost = false;
+    canvas.dispatchEvent(new CustomEvent('fan:contextrestored', { bubbles: true }));
+    updateRunning();
+  });
+  // leaving the page for good: free the context at once (Safari caps how many a tab may hold); a page kept in
+  // the back/forward cache keeps its context so it still works when you come back
+  addEventListener('pagehide', (e) => { if (!e.persisted) { renderer.dispose(); renderer.forceContextLoss(); } });
 
   // Pause when off-screen or in a background tab (brief §8).
   const io = new IntersectionObserver(([entry]) => {

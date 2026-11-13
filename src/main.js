@@ -24,6 +24,18 @@ import { setupReveal, revealHero } from './scenes/reveal.js';
 import { setupNavMenu } from './scenes/nav-menu.js';
 
 gsap.registerPlugin(ScrollTrigger);
+// iOS Safari shows and hides its toolbar while you scroll; that resize must not re-measure every trigger mid-scroll
+ScrollTrigger.config({ ignoreMobileResize: true });
+// A 3D view whose WebGL context Safari took away shows its still picture instead of a blank canvas.
+document.addEventListener('fan:contextlost', (e) => {
+  e.target.closest('.fan-stage')?.classList.remove('is-3d');
+  e.target.closest('[data-viewer]')?.classList.add('is-lost');
+});
+document.addEventListener('fan:contextrestored', (e) => {
+  e.target.closest('.fan-stage')?.classList.add('is-3d');
+  e.target.closest('[data-viewer]')?.classList.remove('is-lost');
+});
+
 
 const html = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
