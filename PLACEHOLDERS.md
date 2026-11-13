@@ -5,7 +5,7 @@ Everything below is waiting on Gage Labs or Aparna (brief §13). Each one is eas
 | What | Where it shows | Placeholder used | Where to change it |
 |---|---|---|---|
 | ~~Legal company name~~ | Footer | **Done:** `© 2026 Aparna Home Appliances Pvt. Ltd.` (confirmed by Gage Labs, 13 Nov 2026) | `src/content/en.json` → `footer.copyright` |
-| "Made in India" | Footer | `Made in India [to confirm]` (still pending) | `src/content/en.json` → `footer.madeIn` |
+| ~~"Made in India"~~ | Footer | **Done:** `Made in India` (confirmed by Gul, 13 Nov 2026) | `src/content/en.json` → `footer.madeIn` |
 | ~~Social media links~~ | Footer icons | **Done:** Facebook, Instagram, Threads, YouTube (given by Aparna, 13 Nov 2026; no LinkedIn) | `src/content/en.json` → `social` |
 | Privacy Policy page | `/privacy-policy/`, linked from the footer | **Draft, to be reviewed by Aparna before launch.** Placeholders: `[Contact details to come]` (Contact section) and `Last updated: [date]` | `src/content/en.json` → `privacy` (re-check it if the site ever adds forms, cookies or analytics) |
 | Model numbers | Every product page, "Model number" row | "To be confirmed" | `src/content/product-overrides.json` → `{ "<product id>": { "modelNumber": "..." } }` |

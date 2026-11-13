@@ -1,0 +1,14 @@
+{
+  "_read_me": "Home page \"Ek naam, poori range\": the products in each station card's collage (station id from en.json \"stations\" -> product ids). The first is the hero, shown largest in front. Only products with a verified cutout in cutouts.generated.json are used (others are skipped). Desktop shows up to 4, phones the first 3. Ceiling fans: the three BLDC fans only. Irons: the Plancha leads because it is the only iron cutout with a readable Aparna mark. Picks from the station contact sheet (13 Nov 2026).",
+  "stations": {
+    "ceiling": ["ceiling-fans-aeroflow-48", "ceiling-fans-aerosleek-48", "ceiling-fans-ikon-bldc-48"],
+    "table": ["table-wall-pedestal-fans-glider-16", "table-wall-pedestal-fans-fiona-16", "table-wall-pedestal-fans-vento-12", "table-wall-pedestal-fans-tornado-16"],
+    "highspeed": ["high-speed-fans-champion-22", "high-speed-fans-maxx-oscillating-16", "high-speed-fans-ornet-12", "high-speed-fans-bullet-oscillating-metal-blade-16"],
+    "ventilation": ["ventilation-fresh-air-fans-fresh-air-fan-high-speed-12", "ventilation-fresh-air-fans-ventilation-fan-8", "ventilation-fresh-air-fans-new-heavy-duty-exhaust"],
+    "coolers": ["air-coolers-discovery-1201", "air-coolers-pearl-1201", "air-coolers-black-commando-18", "air-coolers-indigo-22"],
+    "washing": ["washing-machines-apwm-7-5-gm", "washing-machines-apwm-9-0-pm", "washing-machines-apwm-9-5-gm", "washing-machines-apwm-7-5-pm"],
+    "kitchen": ["kitchen-appliances-prime", "kitchen-appliances-hudsun", "kitchen-appliances-prince", "kitchen-appliances-nelson"],
+    "heating": ["heating-water-sun-heater-sunshine-14", "heating-water-rozer", "heating-water-croma", "heating-water-pearl-immersion-rod-1500-w"],
+    "irons": ["electric-irons-plancha", "electric-irons-bmw", "electric-irons-grand", "electric-irons-regular"]
+  }
+}

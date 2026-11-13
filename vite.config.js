@@ -36,6 +36,11 @@ function renderPages() {
         const catProducts = fs.existsSync(path.join(root, 'src/content/catalogue.generated.json')) ? readJson('src/content/catalogue.generated.json').products : [];
         const homeRange = cat ? { ...range, categories: withMenuThumbs(cat).map((c) => ({ ...range.categories.find((r) => r.name === c.name), ...c })) } : range;
         // the BLDC cards carry their MRP, read from the catalogue data (src/content/mrp.json)
+        // the station collages: verified cutouts only, names from the catalogue (hidden products are never in it)
+        const homeCutouts = fs.existsSync(path.join(root, 'src/content/cutouts.generated.json')) ? readJson('src/content/cutouts.generated.json').products : {};
+        const collageFile = path.join(root, 'src/content/station-collages.json');
+        homeRange.stationCollages = Object.fromEntries(Object.entries(fs.existsSync(collageFile) ? readJson('src/content/station-collages.json').stations : {}).map(([station, ids]) => [station,
+          ids.map((id) => ({ p: catProducts.find((x) => x.id === id), c: homeCutouts[id] })).filter((x) => x.p && x.c).map(({ p, c }) => ({ id: p.id, name: p.name, alt: c.alt ?? `The Aparna ${p.name}`, variants: c.variants }))]));
         homeRange.bldc = range.bldc.map((m) => ({ ...m, mrp: catProducts.find((p) => p.id === m.id)?.mrp ?? null }));
         return html
           .replace('<!--app-->', renderHome({ t, range: homeRange, emblemSvg, events: fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : null }))

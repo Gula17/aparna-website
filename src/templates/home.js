@@ -215,6 +215,16 @@ function stationCount(t, category) {
   return esc(fmt(t.range.models, { count: category.count }));
 }
 
+// A station's collage: real product cutouts on a studio backdrop (src/content/station-collages.json; the first
+// is the hero, in front). Lazy-loaded; phones show the first three. No labels on the pictures.
+function stationCollage(items, id) {
+  return `<div class="station__img collage collage--n${items.length} collage--${esc(id)}">
+                ${items.map((it, i) => `<span class="collage__item collage__item--${i + 1}"><img src="${esc(it.variants[0].file)}" srcset="${it.variants.map((v) => `${esc(v.file)} ${v.width}w`).join(', ')}" sizes="(min-width: 900px) 24vw, 40vw" width="${it.variants[0].width}" height="${it.variants[0].height}" alt="${esc(it.alt)}" loading="lazy" decoding="async"></span>`).join('')}
+              </div>`;
+}
+// drawn overlays that would sit on top of the products in a collage
+const OVER_PRODUCTS = new Set(['drum', 'coil']);
+
 const rangeParade = (t, range) => {
   const bySlugName = Object.fromEntries(range.categories.map((c) => [c.name, c]));
   const total = t.stations.length;
@@ -230,11 +240,12 @@ const rangeParade = (t, range) => {
       <div class="parade__track">
         ${t.stations.map((s, i) => {
           const cat = bySlugName[s.category];
+          const collage = range.stationCollages?.[s.id] ?? [];
           return `
           <article class="station station--${esc(s.id)}" data-moment="${esc(s.moment)}" aria-labelledby="station-${esc(s.id)}-title">
             <div class="station__media">
-              ${picture(range.media, s.image, { className: 'station__img', sizes: '(min-width: 900px) 55vw, 92vw' })}
-              ${renderMoment(s.moment)}
+              ${collage.length ? stationCollage(collage, s.id) : picture(range.media, s.image, { className: 'station__img', sizes: '(min-width: 900px) 55vw, 92vw' })}
+              ${collage.length && OVER_PRODUCTS.has(s.moment) ? '' : renderMoment(s.moment)}
               ${cat?.onlyLaunch ? `<span class="station__launch">${esc(t.range.newLaunch)}</span>` : ''}
             </div>
             <div class="station__text">
@@ -242,6 +253,7 @@ const rangeParade = (t, range) => {
               <h3 class="station__name" id="station-${esc(s.id)}-title" data-reveal="words">${esc(s.name)}</h3>
               <p class="station__line" data-reveal>${linkEvents(esc(s.line))}</p>
               <p class="station__count">${stationCount(t, cat)}</p>
+              ${collage.length ? `<p class="station__models">${collage.slice(0, 3).map((it) => esc(it.name)).join(' · ')}${collage.slice(3).map((it) => `<span class="station__models-more"> · ${esc(it.name)}</span>`).join('')}</p>` : ''}
               ${cat ? `<a class="link-arrow" href="/products/${esc(cat.slug)}/" aria-label="${esc(fmt(t.range.seeAllLabel, { name: s.name }))}">${esc(t.range.seeAll)}</a>` : ''}
             </div>
           </article>`;

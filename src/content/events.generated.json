@@ -524,6 +524,22 @@
       "launches": [
         "Washing Machines"
       ],
+      "launchPhoto": {
+        "variants": [
+          {
+            "file": "/media/events/utsav-26/launch-640.webp",
+            "width": 640,
+            "height": 523
+          },
+          {
+            "file": "/media/events/utsav-26/launch-1280.webp",
+            "width": 1280,
+            "height": 1047
+          }
+        ],
+        "alt": "The new Aparna semi-automatic washing machines lined up at Utsav '26",
+        "caption": ""
+      },
       "count": 27
     }
   ]

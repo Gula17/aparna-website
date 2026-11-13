@@ -116,6 +116,8 @@ export function renderEvent({ t, range, catalogue, events, id }) {
   const e = events.events.find((x) => x.id === id);
   const launched = e.launches.map((name) => catalogue.categories.find((c) => c.name === name)).filter(Boolean);
   const launchProducts = catalogue.products.filter((p) => e.launches.includes(p.category) && p.images[0]);
+  // the event's own launch photo (events.json launchPhoto), else the first launched product's picture
+  const launchImg = e.launchPhoto ?? launchProducts[0]?.images[0] ?? null;
   const others = events.events.filter((x) => x.id !== e.id);
   const [story, range2, decor] = [e.galleries[0], e.galleries[1], e.galleries[2]];
   const allPhotos = [...(story?.items ?? []), ...e.photos, ...(range2?.items ?? []), ...(decor?.items ?? [])];
@@ -186,7 +188,7 @@ export function renderEvent({ t, range, catalogue, events, id }) {
     ${launched.length ? `
     <section class="ev-launch" aria-labelledby="launch-title">
       <div class="ev-launch__inner">
-        ${launchProducts[0] ? `<div class="ev-launch__media" data-reveal>${image(launchProducts[0].images[0], { sizes: '(min-width: 900px) 50vw, 92vw', className: 'ev-launch__img' })}</div>` : ''}
+        ${launchImg ? `<div class="ev-launch__media" data-reveal>${image(launchImg, { sizes: '(min-width: 900px) 50vw, 92vw', className: `ev-launch__img${e.launchPhoto ? ' ev-launch__img--natural' : ''}` })}</div>` : ''}
         <div class="ev-launch__text" data-reveal>
           <p class="ev-eyebrow">${esc(t.events.newLaunch)}</p>
           <h2 class="ev-h2" id="launch-title">${esc(fmt(t.events.launched, { name: e.name }))}</h2>

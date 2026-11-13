@@ -53,6 +53,16 @@ export function setupEvents({ reducedMotion }) {
     const track = story?.querySelector('[data-story-track]');
     if (story && track && wide) {
       story.classList.add('is-pinned');
+      // While pinned the section is exactly one screen tall (events.css), so it pins only once the heading and
+      // every card, the lower staggered ones included, are fully on screen. The card size comes from the screen
+      // height: what is left after the heading, the gaps and the stagger, at the cards' 4:5 shape.
+      const head = story.querySelector('.ev-story__head');
+      const fit = () => {
+        const spare = innerHeight - head.offsetHeight - 36 /* viewport top padding */ - 34 /* stagger */ - 56 /* section padding */ - 28 /* air */;
+        story.style.setProperty('--story-card', `${Math.round(Math.max(200, Math.min(400, spare / 1.25)))}px`);
+      };
+      fit();
+      ScrollTrigger.addEventListener('refreshInit', fit);
       const distance = () => Math.max(0, track.scrollWidth - innerWidth);
       gsap.to(track, {
         x: () => -distance(),
@@ -60,6 +70,10 @@ export function setupEvents({ reducedMotion }) {
         scrollTrigger: { trigger: story, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true },
       });
     }
+    // trigger positions are measured again once fonts and pictures have loaded, so they never drift
+    document.fonts?.ready.then(() => ScrollTrigger.refresh());
+    if (document.readyState === 'complete') ScrollTrigger.refresh();
+    else addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
 
     // ---- photo wall: each photo drifts at its own speed
     for (const item of root.querySelectorAll('.ev-wall__item[data-speed]')) {

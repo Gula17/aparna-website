@@ -65,6 +65,10 @@
 .ev-story__item:nth-child(even) { translate: 0 34px; }
 .ev-story__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8); }
 .ev-story.is-pinned .ev-story__viewport { overflow: visible; }
+/* wide screens: while pinned the section is one screen tall, content centred, cards sized to fit (events.js) */
+.ev-story.is-pinned { box-sizing: border-box; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 28px 0; overflow: hidden; }
+.ev-story.is-pinned .ev-story__viewport { padding-bottom: 0; }
+.ev-story.is-pinned .ev-story__item { width: var(--story-card, 340px); }
 
 /* ---------- drone band */
 .ev-drone { position: relative; display: grid; place-items: center; min-height: min(86svh, 760px); margin: 70px 0; overflow: hidden; isolation: isolate; }
@@ -100,6 +104,7 @@
 .ev-launch__inner { display: grid; gap: 30px; align-items: center; padding: clamp(24px, 5vw, 60px); border-radius: 28px; background: linear-gradient(135deg, #2c2420, #1a1614 60%); border: 1px solid rgba(255, 159, 28, 0.25); }
 .ev-launch__media { border-radius: 18px; overflow: hidden; }
 .ev-launch__img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.ev-launch__img--natural { aspect-ratio: auto; height: auto; } /* the event photo at its own shape: the whole line-up, nothing cut off */
 .ev-launch__text { display: grid; gap: 14px; justify-items: start; }
 .ev-launch__list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 @media (min-width: 900px) { .ev-launch__inner { grid-template-columns: 1.1fr 1fr; } }
@@ -110,13 +115,14 @@
 .ev-fan__deck {
   /* the cards spread just wide enough to fit the screen */
   --card: clamp(150px, 20vw, 270px);
-  --spread: min(150px, calc((min(100vw, 1280px) - var(--card) - 2 * var(--gutter)) / max(1, var(--count) - 1)));
+  --spread: min(150px, calc((min(100vw, 1280px) - var(--card) * 1.7 - 2 * var(--gutter)) / max(1, var(--count) - 1))); /* the tilt swings the outer cards out: leave room so they stay on screen */
   position: relative; display: flex; justify-content: center; height: clamp(320px, 46vw, 520px); }
 .ev-fan__card {
   position: absolute; bottom: 0; width: var(--card); transform-origin: 50% 120%;
-  transform: translateX(calc(var(--k) * var(--spread))) rotate(calc(var(--k) * 7deg)); transition: transform 1s var(--ease-out);
+  transform: translateX(calc(var(--k) * var(--spread))) rotate(calc(var(--k) * var(--tilt, 7deg))); transition: transform 1s var(--ease-out);
 }
 /* gathered into one pile until it scrolls into view (src/scenes/events.js) */
+@media (max-width: 899px) { .ev-fan__deck { --tilt: 3.5deg; } } /* narrow screens: less tilt, so the end cards stay on screen */
 .ev-fan.is-gathered .ev-fan__card { transform: rotate(calc(var(--k) * 3deg)); }
 .ev-fan__card:hover { z-index: 5; }
 .ev-fan:not(.is-gathered) .ev-fan__card:hover { transform: translateX(calc(var(--k) * var(--spread))) translateY(-24px) rotate(0deg) scale(1.06); }

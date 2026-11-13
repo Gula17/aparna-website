@@ -65,6 +65,40 @@
   html:not(.js) .station { width: 80vw; grid-template-columns: 1.25fr 1fr; }
 }
 
+/* ---------- product collages (src/content/station-collages.json): real cutouts on a studio backdrop, the hero in
+   front, the others beside and a little behind on the same floor, each with a soft ground shadow */
+.collage {
+  position: absolute; inset: 0; overflow: hidden;
+  background: radial-gradient(80% 70% at 50% 30%, #fffaf3, #efe5d6 75%), #efe5d6;
+}
+.collage::before { content: ''; position: absolute; inset: auto 0 0; height: 24%; background: linear-gradient(180deg, transparent, rgba(120, 80, 40, 0.10)); }
+.collage__item { position: absolute; display: block; }
+.collage__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+.collage__item::after {
+  content: ''; position: absolute; left: 12%; right: 12%; bottom: -3%; height: 8%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(60, 35, 15, 0.32), transparent);
+}
+/* three products (and the first three on phones) */
+.collage__item--1 { left: 25%; width: 50%; bottom: 7%; height: 72%; z-index: 3; }
+.collage__item--2 { left: 2%; width: 34%; bottom: 15%; height: 54%; z-index: 2; }
+.collage__item--3 { right: 2%; width: 34%; bottom: 15%; height: 54%; z-index: 2; }
+.collage__item--4 { display: none; }
+@media (min-width: 900px) {
+  .collage--n4 .collage__item--1 { left: 21%; width: 40%; bottom: 6%; height: 74%; z-index: 4; }
+  .collage--n4 .collage__item--2 { left: 1%; width: 27%; bottom: 16%; height: 56%; z-index: 2; }
+  .collage--n4 .collage__item--3 { left: auto; right: 21%; width: 26%; bottom: 12%; height: 60%; z-index: 3; }
+  .collage--n4 .collage__item--4 { display: block; right: 1%; width: 24%; bottom: 19%; height: 50%; z-index: 1; }
+}
+/* the BLDC fans: a charcoal studio, like the BLDC section; wide fans, so they sit side by side, fully inside */
+.collage--ceiling { background: radial-gradient(80% 75% at 50% 35%, #3b3431, #1c1917 78%); }
+.collage--ceiling::before { background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35)); }
+.collage--ceiling .collage__item::after { background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent); }
+.collage--ceiling .collage__item--1 { left: 23%; width: 54%; bottom: 6%; height: 44%; }
+.collage--ceiling .collage__item--2 { left: 2%; width: 44%; bottom: 47%; height: 34%; }
+.collage--ceiling .collage__item--3 { right: 2%; width: 44%; bottom: 47%; height: 34%; }
+.station__models { font-size: 0.875rem; color: var(--ink-soft); }
+@media (max-width: 899px) { .station__models-more { display: none; } } /* phones show the first three */
+
 /* ---------- the end card */
 
 .station--end { background: var(--aparna-red); color: var(--white); border: 0; padding: clamp(22px, 4vw, 48px); }

@@ -60,6 +60,26 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
       items.forEach((it, i) => { if (!it.caption) it.alt = `${e.name}, ${g.title}: ${i + 1} of ${items.length}`; });
       galleries.push({ title: g.title, subtitle: g.subtitle ?? '', items });
     }
+    // the launch card's photo: trimmed at the source when asked (crop: fractions), then shown at its own shape
+    let launchPhoto = null;
+    if (e.launchPhoto) {
+      const lp = e.launchPhoto;
+      let img = sharp(await fs.readFile(resolve(lp.file))).rotate();
+      if (lp.crop) {
+        const m = await sharp(await img.toBuffer()).metadata();
+        const [l, t, w, h] = lp.crop;
+        img = sharp(await img.toBuffer()).extract({ left: Math.round(l * m.width), top: Math.round(t * m.height), width: Math.round(w * m.width), height: Math.round(h * m.height) });
+      }
+      const input = await img.toBuffer();
+      const variants = [];
+      for (const w of [640, 1280]) {
+        const out = path.join(outDir, `launch-${w}.webp`);
+        const info = await sharp(input).resize({ width: w, withoutEnlargement: true }).webp({ quality: 78 }).toFile(out);
+        variants.push({ file: `/media/events/${e.id}/launch-${w}.webp`, width: info.width, height: info.height });
+      }
+      launchPhoto = { variants, alt: lp.alt ?? e.name, caption: '' };
+    }
+
     const cover = e.cover ? await photo(resolve(e.cover)) : photos[0] ?? galleries[0]?.items[0] ?? null;
 
     // video loops are copied as they are (only when changed)
@@ -76,7 +96,7 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
 
     events.push({
       id: e.id, url: `/events/${e.id}/`, name: e.name, when: e.when, date: e.date, kicker: e.kicker ?? '',
-      summary: e.summary, marquee: e.marquee?.length ? e.marquee : [e.kicker, `${e.name} · ${e.when}`].filter(Boolean), cover, video, drones, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [],
+      summary: e.summary, marquee: e.marquee?.length ? e.marquee : [e.kicker, `${e.name} · ${e.when}`].filter(Boolean), cover, video, drones, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [], launchPhoto,
       count: photos.length + galleries.reduce((n, g) => n + g.items.length, 0),
     });
   }

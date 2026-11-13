@@ -1,5 +1,5 @@
 {
-  "_read_me": "Aparna's events, newest first. Each becomes a page at /events/<id>/ and a card on /events/. To add one: put its photos in a folder (for example events-media/<id>/, any .jpg/.png/.webp), add an entry here with that folder, then run npm run content. Paths are relative to the project folder; \"pack:\" means the build pack folder. Photo captions come from \"captions\" (file name -> caption) or else from the file names (text before \" - \" or the whole name), so name files by what they show, never by people's names (brief rule 4). galleries: optional named sets (a folder each, shown in file-name order). video: an optional muted loop (.mp4). drones: optional muted drone loops [{ file, label, poster }]. afterMovie: link to the full film (YouTube) once Aparna sends it, or null. hide: optional photos left out of the page (\"file name\" or \"folder name/file name\"; the originals stay in the pack). launches: optional category names launched at the event (linked to their pages). marquee: the lines in the marigold ribbon on the event page (and on /events/ for the newest event), in order; written exactly as they should read (the ribbon shows them in capitals); without it the ribbon shows the kicker and the name and month.",
+  "_read_me": "Aparna's events, newest first. Each becomes a page at /events/<id>/ and a card on /events/. To add one: put its photos in a folder (for example events-media/<id>/, any .jpg/.png/.webp), add an entry here with that folder, then run npm run content. Paths are relative to the project folder; \"pack:\" means the build pack folder. Photo captions come from \"captions\" (file name -> caption) or else from the file names (text before \" - \" or the whole name), so name files by what they show, never by people's names (brief rule 4). galleries: optional named sets (a folder each, shown in file-name order). video: an optional muted loop (.mp4). drones: optional muted drone loops [{ file, label, poster }]. afterMovie: link to the full film (YouTube) once Aparna sends it, or null. hide: optional photos left out of the page (\"file name\" or \"folder name/file name\"; the originals stay in the pack). launches: optional category names launched at the event (linked to their pages). launchPhoto: optional { file, crop, alt } for the launch card, shown at its own shape (crop trims the edges at the source, as fractions). marquee: the lines in the marigold ribbon on the event page (and on /events/ for the newest event), in order; written exactly as they should read (the ribbon shows them in capitals); without it the ribbon shows the kicker and the name and month.",
   "events": [
     {
       "id": "utsav-26",
@@ -44,6 +44,12 @@
       "launches": [
         "Washing Machines"
       ],
+      "launchPhoto": {
+        "file": "pack:06_Utsav26_Event/photos/Row of semi-automatic washing machines in front of a SEMI - AVNI4401.jpg",
+        "crop": [0.03, 0, 0.815, 1],
+        "alt": "The new Aparna semi-automatic washing machines lined up at Utsav '26",
+        "_note": "crop (left, top, width, height as fractions) trims a branded suitcase and packing foam at the edges (brief rule 8); every machine stays whole"
+      },
       "captions": {
         "Blue stage beams fanning out over the crowd and balloons - AVNI5224.jpg": "Stage lights over the crowd",
         "Grand hotel entrance with red carpet - AVNI4382.jpg": "The red-carpet welcome",
