@@ -13,7 +13,7 @@ const POSES = {
     hero: { elevation: -0.42, azimuth: 0, zoom: 1, screenX: 0.5, screenY: 0.3, roll: 0, air: 1 },
     intro: { elevation: -0.7, azimuth: 0.2, zoom: 1, screenX: 0.5, screenY: 0.32, roll: 0, air: 0.5 },
     steps: [
-      { elevation: -0.42, azimuth: 0.35, zoom: 2.3, screenX: 0.42, screenY: 0.16, roll: 0, air: 0.2 }, // BLDC motor: three-quarter view from below, so the split along the shaft reads
+      { elevation: -0.42, azimuth: 0.35, zoom: 1.75, screenX: 0.45, screenY: 0.1, roll: 0, air: 0.2 }, // BLDC motor: three-quarter view from below, so the split along the shaft reads; high and smaller, so the opened parts fit above the 01 card
       { elevation: -1.0, azimuth: 0.5, zoom: 1.15, screenX: 0.5, screenY: 0.3, roll: 0.12, air: 0.5 }, // 35 W
       { elevation: -0.55, azimuth: -0.35, zoom: 1, screenX: 0.5, screenY: 0.28, roll: -0.1, air: 1 }, // 3X less power
       { elevation: -1.35, azimuth: 0, zoom: 1.35, screenX: 0.5, screenY: 0.3, roll: 0, air: 0.4 }, // remote
@@ -118,10 +118,14 @@ export function setupFanJourney({ fan, reducedMotion }) {
     // One tween per section, each from the previous pose to the next, over non-overlapping scroll ranges.
     const sequence = [hero, { ...poses.intro, ...(ctx.conditions.desktop ? {} : shortPhone()) }, ...poses.steps.slice(0, steps.length)];
     const triggers = [intro, ...steps];
+    // Phones: each step is a tall section with its card at the bottom, so the camera follows the CARD (not the
+    // section), and only moves once that card is coming on screen. Desktop is unchanged.
+    const cardOf = (step) => step.querySelector('.bldc-step__card') ?? step;
     triggers.forEach((trigger, i) => {
+      const phoneStep = !ctx.conditions.desktop && i > 0;
       gsap.fromTo(fan.pose, { ...sequence[i] }, {
         ...sequence[i + 1], ease: 'power1.inOut', immediateRender: false,
-        scrollTrigger: { trigger, start: 'top bottom', end: 'top 35%', scrub },
+        scrollTrigger: phoneStep ? { trigger: cardOf(trigger), start: 'top bottom', end: 'top 55%', scrub } : { trigger, start: 'top bottom', end: 'top 35%', scrub },
       });
     });
 
@@ -141,6 +145,11 @@ export function setupFanJourney({ fan, reducedMotion }) {
       const split = { t: 0 };
       const spread = ctx.conditions.desktop ? 1 : 0.85; // a slightly tighter split on phones
       const labelEls = motorLabels ? [...motorLabels.querySelectorAll('[data-part]')] : [];
+      const introBox = document.querySelector('.bldc__intro');
+      // phones: a label is hidden while it would touch any text (the 01 card, the intro heading and lines), so a
+      // label can never sit on words; on small screens that can mean fewer labels
+      const avoid = ctx.conditions.desktop ? [] : [cardOf(steps[0]), ...document.querySelectorAll('.bldc__intro > *')];
+      const hits = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
       const show = () => {
         fan.setExplode(split.t, spread);
         if (!motorLabels) return;
@@ -159,9 +168,22 @@ export function setupFanJourney({ fan, reducedMotion }) {
           if (left && p.x - textW - 40 < 0) left = false;
           el.classList.toggle('is-left', left);
           el.style.transform = `translate(${Math.round(p.x)}px, ${Math.round(p.y)}px)`;
+          if (avoid.length) {
+            const box = el.querySelector('.motor-label__text').getBoundingClientRect();
+            el.style.visibility = avoid.some((o) => { if (introBox && introBox.contains(o) && Number(getComputedStyle(introBox).opacity) < 0.05) return false; const r = o.getBoundingClientRect(); return r.height && hits(box, r); }) ? 'hidden' : '';
+          }
         }
       };
-      gsap.timeline({ scrollTrigger: { trigger: steps[0], start: 'top 70%', end: 'bottom 30%', scrub, onLeave: () => { split.t = 0; show(); }, onLeaveBack: () => { split.t = 0; show(); } } })
+      // Desktop: over the whole step. Phones: only while the 01 CARD is on screen (the intro heading has gone by
+      // then), closed again by the time the 02 card reaches the screen.
+      if (!ctx.conditions.desktop && introBox) {
+        gsap.fromTo(introBox, { autoAlpha: 1 }, { autoAlpha: 0, ease: 'none', immediateRender: false,
+          scrollTrigger: { trigger: cardOf(steps[0]), start: 'top bottom', end: 'top 80%', scrub } });
+      }
+      const range = ctx.conditions.desktop
+        ? { trigger: steps[0], start: 'top 70%', end: 'bottom 30%' }
+        : { trigger: cardOf(steps[0]), start: 'top 78%', endTrigger: steps[1] ? cardOf(steps[1]) : steps[0], end: steps[1] ? 'top bottom' : 'bottom top' };
+      gsap.timeline({ scrollTrigger: { ...range, scrub, onLeave: () => { split.t = 0; show(); }, onLeaveBack: () => { split.t = 0; show(); } } })
         .to(split, { t: 1, duration: 0.35, ease: 'power2.inOut', onUpdate: show })
         .to(split, { t: 1, duration: 0.3, onUpdate: show })
         .to(split, { t: 0, duration: 0.35, ease: 'power2.inOut', onUpdate: show });

@@ -22,6 +22,7 @@ import { setupRange } from './scenes/range.js';
 import { setupProducts } from './scenes/products.js';
 import { setupReveal, revealHero } from './scenes/reveal.js';
 import { setupNavMenu } from './scenes/nav-menu.js';
+import { canRun3D as canRun3DOn } from './scenes/device.js';
 
 gsap.registerPlugin(ScrollTrigger);
 // iOS Safari shows and hides its toolbar while you scroll; that resize must not re-measure every trigger mid-scroll
@@ -40,19 +41,8 @@ document.addEventListener('fan:contextrestored', (e) => {
 const html = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Brief §8: low-end devices and reduced motion get the still image instead of real-time 3D.
-function canRun3D() {
-  if (reducedMotion) return false;
-  if (navigator.deviceMemory && navigator.deviceMemory <= 2) return false;
-  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return false;
-  if (new URLSearchParams(location.search).has('no3d')) return false;
-  try {
-    const gl = document.createElement('canvas').getContext('webgl2');
-    return Boolean(gl);
-  } catch {
-    return false;
-  }
-}
+// Brief §8: low-end devices and reduced motion get the still image instead of real-time 3D (src/scenes/device.js).
+const canRun3D = () => canRun3DOn({ reducedMotion });
 
 // Soft shadows and full resolution only for desktop-class machines; phones get a lighter render.
 function renderQuality() {

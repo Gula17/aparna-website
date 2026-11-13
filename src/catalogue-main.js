@@ -22,6 +22,7 @@ import { setupQuickView } from './scenes/quick-view.js';
 import { setupProductPage } from './scenes/product-page.js';
 import { setupNavMenu } from './scenes/nav-menu.js';
 import { setupEvents } from './scenes/events.js';
+import { canRun3D as canRun3DOn, fewCores, lowMemory } from './scenes/device.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // iOS Safari shows and hides its toolbar while you scroll; that resize must not re-measure every trigger mid-scroll
@@ -39,16 +40,8 @@ document.addEventListener('fan:contextrestored', (e) => {
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function canRun3D() {
-  if (reducedMotion || location.search.includes('no3d')) return false;
-  if (navigator.deviceMemory && navigator.deviceMemory <= 2) return false;
-  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4 && !location.search.includes('force3d')) return false;
-  try {
-    return Boolean(document.createElement('canvas').getContext('webgl2'));
-  } catch {
-    return false;
-  }
-}
+// shared rule (src/scenes/device.js): iPhones and iPads get 3D, at low quality
+const canRun3D = () => canRun3DOn({ reducedMotion });
 
 const quality = (navigator.hardwareConcurrency ?? 4) >= 8 && matchMedia('(pointer: fine) and (min-width: 900px)').matches ? 'high' : 'low';
 
@@ -56,7 +49,7 @@ setupReveal({ reducedMotion });
 setupNavMenu();
 setupCatalogue();
 // Small GPUs and low-memory phones keep the product motion but skip the extra effects.
-setupShowroom({ reducedMotion, lite: quality === 'low' && ((navigator.deviceMemory ?? 4) <= 2 || (navigator.hardwareConcurrency ?? 4) <= 4) });
+setupShowroom({ reducedMotion, lite: quality === 'low' && (lowMemory() || fewCores()) });
 const can3D = canRun3D();
 setupShowcase({ reducedMotion, can3D, quality });
 setupProductPage({ can3D, quality });
