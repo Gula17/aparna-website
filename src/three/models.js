@@ -70,6 +70,7 @@ export const PRODUCT_MODELS = {
   'ceiling-fans-coral-48': 'ceiling-coral-48',
   'ceiling-fans-coras-48': 'ceiling-coras-48',
   'ceiling-fans-irus-48': 'ceiling-irus-48',
+  'ceiling-fans-aronita-48': 'ceiling-aronita-48',
   'ceiling-fans-heritage-48': 'ceiling-heritage-48',
   'ceiling-fans-pazero-48': 'ceiling-pazero-48',
   'ceiling-fans-mini-dlx-24': 'ceiling-mini-dlx-24',
@@ -215,6 +216,7 @@ export const PICTURED_COLOUR = {
   'ceiling-fans-luster-shine-golden-48': 'Brown',
   'ceiling-fans-luster-shine-silver-48': 'Silver/champagne',
   'ceiling-fans-nikon-48': 'Metallic Blue',
+  'ceiling-fans-aronita-48': 'Pearl White', // its price-list photo
   'ceiling-fans-heritage-48': 'Honey Gold',
   'ceiling-fans-pazero-48': 'Titanium Silver',
   'ceiling-fans-mini-dlx-24': 'Smoke Brown',

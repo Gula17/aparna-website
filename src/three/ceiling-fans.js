@@ -367,8 +367,11 @@ function trimParts(kind, x0, w, pitch, size = 1) {
       // a wide glossy sleeve round the blade root, flaring where it grows out of the hub's rim (studio photos)
       out.push([plate(toShape([[x0 - 0.05, -w * 0.82], [x0 - 0.02, -w * 0.7], [x0 + 0.075, -w * 0.58], [x0 + 0.075, w * 0.58], [x0 - 0.02, w * 0.7], [x0 - 0.05, w * 0.82]]), { thickness: 0.024, pitch, y: -0.008 }), 'accent']);
       break;
-    case 'petal': // Luster Shine: a big copper almond round the blade root
-      out.push([flat(frame(lens, x0 + 0.1, 0.13, w * 0.4, 0.016), yClip, 0.01), 'accent']);
+    case 'petal': // Luster Shine, Aronita: a big copper almond round the blade root
+      // a raised almond plate in the body colour, edged in glossy copper, right against the motor (Luster Shine,
+      // Aronita)
+      out.push([flat(solid(lens, x0 + 0.075, 0.125, w * 0.38), yClip + 0.004, 0.01), 'body'],
+        [flat(frame(lens, x0 + 0.075, 0.13, w * 0.4, 0.016), yClip, 0.01), 'accent']);
       break;
     default:
       break;
@@ -664,6 +667,9 @@ export const CEILING = {
   'irus-48': { ...SIGNATURE, tip: 'flare', chord: 0.17, colour: 'brown', trim: 'u', canopyRim: 'band', rim: true, drop: -0.1, shankTop: 0.17, finishes: { golden: { accent: 'copper' } } }, // studio photos: a broad copper band on the canopy, a short drop, a plain dish
   'luster-shine-golden-48': { size: 48, colour: 'glossy-brown', accent: 'copper', tip: 'leaf', chord: 0.2, trim: 'petal', rim: true, canopy: 'cone', ribs: false, gap: 0.03, motorScale: 1.2, finishes: { brown: { body: '#43231a', blade: '#4a271c', metal: 0.25, gloss: true } } },
   'luster-shine-silver-48': { size: 48, colour: 'champagne', accent: 'copper', tip: 'leaf', chord: 0.2, trim: 'petal', rim: true, canopy: 'cone', ribs: false, gap: 0.03, motorScale: 1.2 },
+  // Aronita (price-list photo, main p6): long slim leaf blades with a big copper almond loop round each root, a
+  // broad glossy copper rim round the motor's underside, cone canopy and a cone over the motor
+  'aronita-48': { size: 48, colour: 'pearl-white', accent: 'copper', tip: 'leaf', chord: 0.17, trim: 'petal', rim: true, canopy: 'cone', ribs: false, motorScale: 1.1 },
   'heritage-48': { size: 48, colour: 'honey-gold', accent: 'chrome', tip: 'swept', trim: 'loop', chord: 0.17, motor: 'deep' },
   'pazero-48': { size: 48, colour: 'titanium-silver', accent: 'rose', tip: 'swept', trim: 'loop', chord: 0.16, motor: 'deep' },
   // Silver Series, 24" and 36"
