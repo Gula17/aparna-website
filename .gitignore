@@ -12,8 +12,8 @@ screenshots/
 
 # Generated catalogue pages (npm run content)
 products/
-my-list/
 events/
+privacy-policy/
 
 # Local editor/assistant settings
 .claude/settings.local.json

@@ -2,8 +2,8 @@
 //   /products/                     all products, with search, filters and sorting
 //   /products/<category>/          one category
 //   /products/<category>/<model>/  one product
-//   /my-list/                      the visitor's saved list
 //   /events/, /events/<event>/     Aparna's events (src/content/events.json)
+//   /privacy-policy/               the privacy policy
 // Each shell only holds a marker; vite.config.js renders the page into it from the catalogue data.
 // The folders are generated (git-ignored): run `npm run content` after the product data changes.
 
@@ -34,14 +34,16 @@ const shell = (marker) => `<!doctype html>
 `;
 
 export async function writePageShells(root, catalogue, events = { events: [] }) {
-  const pages = [['products/index.html', 'catalogue'], ['my-list/index.html', 'list']];
+  const pages = [['products/index.html', 'catalogue']];
   for (const c of catalogue.categories) pages.push([`products/${c.slug}/index.html`, `category:${c.slug}`]);
   for (const p of catalogue.products) pages.push([`products/${p.categorySlug}/${p.slug}/index.html`, `product:${p.id}`]);
-  pages.push(['events/index.html', 'events']);
+  pages.push(['events/index.html', 'events'], ['privacy-policy/index.html', 'privacy']);
   for (const e of events.events) pages.push([`events/${e.id}/index.html`, `event:${e.id}`]);
 
   await fs.rm(path.join(root, 'products'), { recursive: true, force: true }); // drop pages for removed products
+  await fs.rm(path.join(root, 'my-list'), { recursive: true, force: true }); // the old My list page (removed 13 Nov 2026)
   await fs.rm(path.join(root, 'events'), { recursive: true, force: true });
+  await fs.rm(path.join(root, 'privacy-policy'), { recursive: true, force: true });
   for (const [file, marker] of pages) {
     await fs.mkdir(path.dirname(path.join(root, file)), { recursive: true });
     await fs.writeFile(path.join(root, file), shell(marker));

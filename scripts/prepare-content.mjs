@@ -1,7 +1,7 @@
 // Reads the Aparna build pack and prepares everything the site needs:
 //   1. src/content/range.generated.json  - category counts and BLDC models, straight from aparna-products.json
 //   2. public/media/*                    - optimised WebP/PNG copies of the images listed in src/content/images.json
-//   3. public/brand/*, public/downloads/* - logo files, favicons and the catalogue PDF
+//   3. public/brand/* - logo files and favicons (no catalogue PDF: the site offers no download)
 //
 // Run with `npm run content`. Products are never typed by hand: when Aparna sends a new JSON, drop it into the pack
 // and run this again.
@@ -135,14 +135,9 @@ async function copyBrandFiles() {
   await sharp(icon).resize(48).png().toFile(path.join(PUBLIC, 'favicon.png'));
   await sharp(icon).resize(180).png().toFile(path.join(PUBLIC, 'apple-touch-icon.png'));
 
-  // The catalogue download. Kept under one stable name so a newer catalogue can replace it.
-  const downloads = path.join(PUBLIC, 'downloads');
-  await fs.mkdir(downloads, { recursive: true });
-  const pdfSrc = path.join(PACK, '02_Catalogue_2026', 'Aparna-Catalogue-2026.pdf');
-  const pdfOut = path.join(downloads, 'aparna-catalogue.pdf');
-  const [a, b] = await Promise.all([fs.stat(pdfSrc), fs.stat(pdfOut).catch(() => null)]);
-  if (!b || a.size !== b.size) await fs.copyFile(pdfSrc, pdfOut);
-  return { catalogue: { file: '/downloads/aparna-catalogue.pdf', sizeMb: +(a.size / 1048576).toFixed(1) } };
+  // The site offers no catalogue PDF download (removed 13 Nov 2026): make sure an old copy never ships.
+  await fs.rm(path.join(PUBLIC, 'downloads'), { recursive: true, force: true });
+  return {};
 }
 
 const range = await buildRangeData();

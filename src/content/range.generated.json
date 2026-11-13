@@ -349,10 +349,5 @@
       ]
     }
   },
-  "downloads": {
-    "catalogue": {
-      "file": "/downloads/aparna-catalogue.pdf",
-      "sizeMb": 16
-    }
-  }
+  "downloads": {}
 }

@@ -3,13 +3,11 @@
 //   t     = src/content/en.json            (all copy)
 //   range = src/content/range.generated.json (product counts, BLDC models, images; from the pack's product data)
 
-import { esc, fmt, picture, pad } from './helpers.js';
+import { esc, fmt, picture, pad, rupees, linkEvents } from './helpers.js';
 import { renderMoment } from './moments.js';
 import { PRODUCT_MODELS } from '../three/models.js';
 import { siteHeader, siteFooter } from './layout.js';
 
-const FINISH_SWATCHES = ['white', 'grey', 'golden', 'wood'];
-const SPEED_LEVELS = [1, 2, 3, 4, 5];
 
 // ---------------------------------------------------------------- Scene 0: loader
 
@@ -44,31 +42,14 @@ const loader = (t, emblemSvg) => `
 
 // ---------------------------------------------------------------- Scene 1: hero + Scene 2: BLDC story
 
-const controls = (t) => `
-  <div class="fan-controls" data-needs-3d>
-    <fieldset class="regulator">
-      <legend>${esc(t.hero.regulator)}</legend>
-      <div class="regulator__dial" aria-hidden="true"><span class="regulator__knob"></span></div>
-      <div class="regulator__steps" role="radiogroup" aria-label="${esc(t.hero.regulatorLabel)}">
-        ${SPEED_LEVELS.map((n) => `
-          <label class="regulator__step" style="--n:${n}">
-            <input type="radio" name="speed" value="${n}" ${n === 2 ? 'checked' : ''}>
-            <span>${n}</span>
-          </label>`).join('')}
-      </div>
-    </fieldset>
-    <fieldset class="finishes">
-      <legend>${esc(t.hero.finish)}</legend>
-      <div class="finishes__list">
-        ${FINISH_SWATCHES.map((key) => `
-          <label class="finish">
-            <input type="radio" name="finish" value="${key}" ${key === 'wood' ? 'checked' : ''}>
-            <span class="finish__swatch finish__swatch--${key}" aria-hidden="true"></span>
-            <span class="finish__name">${esc(t.hero.finishes[key])}</span>
-          </label>`).join('')}
-      </div>
-    </fieldset>
-  </div>`;
+// The opened motor as a still, with the same four labels: shown instead of the scroll animation when there is no 3D
+// (reduced motion, no WebGL, no JavaScript). Rendered by scripts/render-motor-still.mjs.
+const MOTOR_PARTS = ['motor', 'board', 'bearing', 'housing'];
+const motorStill = (t) => `
+  <figure class="motor-still">
+    <img src="/stills/motor-open.webp" width="900" height="900" alt="${esc(t.bldc.parts.stillAlt)}" loading="lazy" decoding="async">
+    <figcaption><ul class="motor-still__labels">${MOTOR_PARTS.map((k) => `<li>${esc(t.bldc.parts[k])}</li>`).join('')}</ul></figcaption>
+  </figure>`;
 
 const fanJourney = (t, range) => {
   const steps = t.bldc.steps.map((s) => ({ ...s, title: fmt(s.title, { power: range.bldcSharedPower ?? '' }) }))
@@ -80,6 +61,9 @@ const fanJourney = (t, range) => {
       <div class="fan-stage__dark"></div>
       <img class="fan-stage__still" src="/media/fan-still.png" width="1200" height="900" alt="" fetchpriority="high" decoding="async">
       <canvas class="fan-stage__canvas" id="fan-canvas"></canvas>
+      <div class="motor-labels" data-motor-labels>
+        ${MOTOR_PARTS.map((k) => `<span class="motor-label" data-part="${k}"><i class="motor-label__dot"></i><i class="motor-label__line"></i><span class="motor-label__text">${esc(t.bldc.parts[k])}</span></span>`).join('')}
+      </div>
     </div>
 
     <div class="hero">
@@ -89,14 +73,12 @@ const fanJourney = (t, range) => {
         <p class="hero__sub">${esc(t.hero.subtitle)}</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#range">${esc(t.hero.ctaRange)}</a>
-          <a class="btn btn--ghost" href="${esc(t._catalogueFile)}" download>${esc(t.hero.ctaCatalogue)}</a>
         </div>
         <p class="hero__hint" data-needs-3d>
           <span class="hero__hint-mouse">${esc(t.hero.hint)}</span>
           <span class="hero__hint-touch">${esc(t.hero.hintTouch)}</span>
         </p>
       </div>
-      ${controls(t)}
     </div>
 
     <div class="bldc" id="bldc" aria-labelledby="bldc-title">
@@ -113,6 +95,7 @@ const fanJourney = (t, range) => {
               <h3 class="bldc-step__title">${esc(s.title)}</h3>
               <p class="bldc-step__body">${esc(s.body)}</p>
             </div>
+            ${s.key === 'motor' ? motorStill(t) : ''}
           </li>`).join('')}
       </ol>
     </div>
@@ -126,7 +109,12 @@ const modelSpecs = (t, m) => `
     ${m.power ? `<div><dt>${esc(t.bldc.power)}</dt><dd>${esc(m.power)}</dd></div>` : ''}
     ${m.warranty ? `<div><dt>${esc(t.bldc.warranty)}</dt><dd>${esc(m.warranty)}</dd></div>` : ''}
     ${m.colours.length ? `<div><dt>${esc(t.bldc.colours)}</dt><dd>${m.colours.map(esc).join(', ')}</dd></div>` : ''}
-  </dl>`;
+    ${m.mrp ? `<div class="model-card__mrp"><dt data-mrp-label data-single="${esc(t.product.mrp)}">${esc(m.mrp.varies ? t.product.mrpFrom : t.product.mrp)}</dt><dd data-mrp-value>${esc(rupees(m.mrp.value))}</dd></div>` : ''}
+  </dl>
+  ${m.mrp ? `<p class="model-card__tax">${esc(t.product.mrpTax)}</p>` : ''}`;
+
+// A finish's own MRP, where the price list prices the model by colour (the Aeroflow).
+const finishMrp = (m, colour) => m.mrp?.variants.find((v) => v.label.toLowerCase() === colour.toLowerCase())?.mrp ?? null;
 
 // Finish names in the data that the 3D model can show.
 const DATA_COLOUR_TO_FINISH = { White: 'white', Grey: 'grey', Golden: 'golden', 'Wood Craft': 'wood' };
@@ -158,7 +146,7 @@ const modelPreview = (t, range, m) => {
             <div class="finishes__list">
               ${finishes.map(([name, key]) => `
                 <label class="finish">
-                  <input type="radio" name="viewer-finish-${esc(m.id)}" value="${key}" ${key === 'wood' ? 'checked' : ''}>
+                  <input type="radio" name="viewer-finish-${esc(m.id)}" value="${key}" ${key === 'wood' ? 'checked' : ''}${finishMrp(m, name) ? ` data-mrp="${esc(rupees(finishMrp(m, name)))}"` : ''}>
                   <span class="finish__swatch finish__swatch--${key}" aria-hidden="true"></span>
                   <span class="finish__name">${esc(name)}</span>
                 </label>`).join('')}
@@ -181,7 +169,6 @@ const modelPreview = (t, range, m) => {
           <a class="btn btn--whatsapp" data-share href="https://wa.me/?text=${encodeURIComponent(fmt(t.preview.shareText, { name: m.name }))}"
              target="_blank" rel="noopener" data-share-text="${esc(fmt(t.preview.shareText, { name: m.name }))}">${esc(t.preview.share)}</a>
           <a class="btn btn--light" href="/products/ceiling-fans/${esc(m.id.replace(/^ceiling-fans-/, ''))}/">${esc(t.preview.fullDetails)}</a>
-          <a class="btn btn--ghost-light" href="${esc(range.downloads.catalogue.file)}" download>${esc(t.catalogue.cta)}</a>
         </div>
         <p class="fine-print">${esc(t.footer.tolerance)}</p>
       </div>
@@ -253,7 +240,7 @@ const rangeParade = (t, range) => {
             <div class="station__text">
               <p class="station__num" aria-label="${esc(fmt(t.range.progress, { n: i + 1, total }))}">${pad(i + 1)} <span>/ ${pad(total)}</span></p>
               <h3 class="station__name" id="station-${esc(s.id)}-title" data-reveal="words">${esc(s.name)}</h3>
-              <p class="station__line" data-reveal>${esc(s.line)}</p>
+              <p class="station__line" data-reveal>${linkEvents(esc(s.line))}</p>
               <p class="station__count">${stationCount(t, cat)}</p>
               ${cat ? `<a class="link-arrow" href="/products/${esc(cat.slug)}/" aria-label="${esc(fmt(t.range.seeAllLabel, { name: s.name }))}">${esc(t.range.seeAll)}</a>` : ''}
             </div>
@@ -308,22 +295,18 @@ const closing = (t, range) => `
     <div class="closing__card" data-reveal>
       <h2 class="closing__title">${esc(t.whereToBuy.title)}</h2>
       <p>${esc(t.whereToBuy.body)}</p>
-    </div>
-    <div class="closing__card closing__card--red" data-reveal>
-      <h2 class="closing__title">${esc(t.catalogue.title)}</h2>
-      <p>${esc(fmt(t.catalogue.body, { size: range.downloads.catalogue.sizeMb }))}</p>
-      <a class="btn btn--light" href="${esc(range.downloads.catalogue.file)}" download>${esc(t.catalogue.cta)}</a>
+      <a class="btn btn--primary closing__btn" href="/products/">${esc(t.hero.ctaRange)} <span aria-hidden="true">→</span></a>
     </div>
   </section>`;
 
 // ---------------------------------------------------------------- page
 
 export function renderHome({ t, range, emblemSvg, events = null }) {
-  const tt = { ...t, _catalogueFile: range.downloads.catalogue.file };
+  const tt = t;
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
   ${loader(tt, emblemSvg)}
-  ${siteHeader(tt, range.media, range.categories, { home: true, catalogueFile: tt._catalogueFile })}
+  ${siteHeader(tt, range.media, range.categories, { home: true })}
   <main id="main">
     ${fanJourney(tt, range)}
     ${bldcModels(tt, range)}

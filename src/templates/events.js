@@ -45,20 +45,22 @@ const breadcrumb = (t, trail) => `
 // The big title, one span per letter so it can rise in letter by letter.
 const letters = (text) => [...text].map((ch, i) => (ch === ' ' ? ' ' : `<span style="--i:${i}">${esc(ch)}</span>`)).join('');
 
+// The marigold ribbon: the event's marquee lines (events.json) with a ✦ after each. The set repeats four times,
+// each copy in its own block with the same trailing space, and the track slides by exactly one copy, so the loop
+// wraps with no jump and fills the widest screens.
 const marquee = (words) => {
-  const run = words.map((w) => `<span>${esc(w)}</span><span class="ev-marquee__star" aria-hidden="true">✦</span>`).join('');
-  return `<div class="ev-marquee" aria-hidden="true"><div class="ev-marquee__track">${run}${run}${run}</div></div>`;
+  const run = `<div class="ev-marquee__run">${words.map((w) => `<span>${esc(w)}</span><span class="ev-marquee__star">✦</span>`).join('')}</div>`;
+  return `<div class="ev-marquee" aria-hidden="true"><div class="ev-marquee__track">${run.repeat(4)}</div></div>`;
 };
 
 // ---------------------------------------------------------------- /events/
 
 export function renderEvents({ t, range, catalogue, events }) {
-  const catalogueFile = range.downloads.catalogue.file;
   const first = events.events[0];
   const drone = first?.drones?.at(-1);
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
-  ${siteHeader(t, range.media, catalogue.categories, { catalogueFile })}
+  ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="events ev">
     <section class="ev-hero ev-hero--index" aria-labelledby="events-title">
       ${drone ? loop(drone.video, drone.poster, 'ev-hero__media') : first?.cover ? `<div class="ev-hero__media">${image(first.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
@@ -72,7 +74,7 @@ export function renderEvents({ t, range, catalogue, events }) {
       </div>
       <a class="ev-scroll" href="#event-list">${esc(t.events.scroll)}</a>
     </section>
-    ${marquee(events.events.map((e) => `${e.name} · ${e.when}`).concat(first?.kicker ? [first.kicker] : []))}
+    ${first ? marquee(first.marquee) : ''}
     <ul class="ev-cards" id="event-list">
       ${events.events.map((e, i) => `
         <li class="ev-card" data-reveal>
@@ -99,7 +101,6 @@ export function renderEvents({ t, range, catalogue, events }) {
 
 export function renderEvent({ t, range, catalogue, events, id }) {
   const e = events.events.find((x) => x.id === id);
-  const catalogueFile = range.downloads.catalogue.file;
   const launched = e.launches.map((name) => catalogue.categories.find((c) => c.name === name)).filter(Boolean);
   const launchProducts = catalogue.products.filter((p) => e.launches.includes(p.category) && p.images[0]);
   const others = events.events.filter((x) => x.id !== e.id);
@@ -109,11 +110,10 @@ export function renderEvent({ t, range, catalogue, events, id }) {
   let n = 0; // numbers every photo once, in page order, for the viewer labels
   const open = (it, inner) => openable(t, it, n++, total, inner);
   const drone = e.drones?.[0];
-  const words = [e.kicker, e.name, e.when, ...e.galleries.map((g) => g.title)].filter(Boolean);
 
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
-  ${siteHeader(t, range.media, catalogue.categories, { catalogueFile })}
+  ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="events ev event">
     <section class="ev-hero" aria-labelledby="event-title">
       ${e.video ? loop(e.video, e.cover, 'ev-hero__media') : e.cover ? `<div class="ev-hero__media">${image(e.cover, { sizes: '100vw', className: 'ev-loop__poster', eager: true })}</div>` : ''}
@@ -125,15 +125,12 @@ export function renderEvent({ t, range, catalogue, events, id }) {
         <h1 class="ev-title" id="event-title" aria-label="${esc(e.name)}">${letters(e.name)}</h1>
         ${e.kicker ? `<p class="ev-kicker">${esc(e.kicker)}</p>` : ''}
         <p class="ev-lead">${esc(e.summary)}</p>
-        <div class="ev-actions">
-          ${e.afterMovie ? `<a class="btn btn--light" href="${esc(e.afterMovie)}" target="_blank" rel="noopener">${esc(t.events.afterMovie)}</a>` : ''}
-          ${e.video ? `<button class="btn btn--ghost-light" type="button" data-video-toggle aria-pressed="false" data-play="${esc(t.events.playLoop)}" data-pause="${esc(t.events.pauseLoop)}">${esc(t.events.playLoop)}</button>` : ''}
-        </div>
+        ${e.afterMovie ? `<div class="ev-actions"><a class="btn btn--light" href="${esc(e.afterMovie)}" target="_blank" rel="noopener">${esc(t.events.afterMovie)}</a></div>` : ''}
       </div>
       <a class="ev-scroll" href="#the-day">${esc(t.events.scroll)}</a>
     </section>
 
-    ${marquee(words)}
+    ${marquee(e.marquee)}
 
     ${story ? `
     <section class="ev-story" id="the-day" aria-labelledby="story-title" data-story>

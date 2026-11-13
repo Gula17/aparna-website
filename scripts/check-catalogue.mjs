@@ -3,9 +3,10 @@
 //
 //  1. every showable product in aparna-products.json has its own page, at its own URL, with its own name
 //  2. every image on a product page belongs to that product (no borrowed pictures)
-//  3. in the browser, on every product page: images load, the colour picker updates, "Save" adds that
-//     product (not another one) to My list
+//  3. in the browser, on every product page: images load, the colour picker updates, Share on WhatsApp
+//     is there, and there is no Save button or My list link (removed 13 Nov 2026)
 //  4. catalogue page: search, category filter and sorting work; every card links to its own page
+//  5. the header Products menu, the footer's social links, /my-list/ is a 404, /privacy-policy/ has noindex
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -67,6 +68,10 @@ try {
   const page = await browser.newPage();
   page.on('pageerror', (e) => fail(`Script error: ${e.message}`));
   await page.setViewport({ width: 1280, height: 860 });
+  page.setDefaultNavigationTimeout(90000); // /products/ waits for 243 cards' pictures
+  // name the page in any navigation error, so a timeout says where it happened
+  const goto = page.goto.bind(page);
+  page.goto = (to, opts) => goto(to, opts).catch((e) => { throw new Error(`${new URL(to).pathname}: ${e.message}`); });
 
   for (const p of catalogue.products) {
     await page.goto(`${url}${p.url}?no3d`, { waitUntil: 'load' });
@@ -85,17 +90,15 @@ try {
         last.click();
         colourOk = document.querySelector('[data-chosen]').textContent.includes(last.value);
       }
-      // Save: exactly this product goes into My list, with the chosen colour.
-      document.querySelector('.product__actions [data-save]').click();
-      const list = JSON.parse(localStorage.getItem('aparna-my-list') ?? '[]');
-      const count = document.querySelector('[data-list-count]').textContent;
-      return { broken, colourOk, list, count, chosen: colours.at(-1)?.value ?? null };
+      // No Save / My list (removed 13 Nov 2026); Share on WhatsApp stays.
+      const save = Boolean(document.querySelector('[data-save], [data-list-count], a[href="/my-list/"]'));
+      const share = document.querySelector('.product__actions [data-share]')?.href ?? '';
+      return { broken, colourOk, save, share };
     }, p.id);
     if (result.broken.length) fail(`${p.url}: images did not load: ${result.broken.join(', ')}`);
     if (!result.colourOk) fail(`${p.url}: colour picker did not update`);
-    if (result.list.length !== 1 || result.list[0].id !== p.id) fail(`${p.url}: Save stored ${JSON.stringify(result.list)}`);
-    if (result.chosen && result.list[0]?.colour !== result.chosen) fail(`${p.url}: saved colour ${result.list[0]?.colour}, chose ${result.chosen}`);
-    if (result.count !== '1') fail(`${p.url}: header count shows ${result.count}`);
+    if (result.save) fail(`${p.url}: still has a Save button or My list link`);
+    if (!result.share.startsWith('https://wa.me/')) fail(`${p.url}: Share on WhatsApp missing`);
     checkedPages++;
   }
 
@@ -128,11 +131,36 @@ try {
     if (cats.length !== c.count || cats.some((x) => x !== c.slug)) fail(`/products/${c.slug}/ shows ${cats.length} cards (expected ${c.count})`);
   }
 
-  // My list page shows what was saved.
-  await page.evaluate(() => localStorage.setItem('aparna-my-list', JSON.stringify([{ id: 'air-coolers-pearl-009', colour: null }])));
-  await page.goto(`${url}/my-list/`, { waitUntil: 'load' });
-  const listed = await page.$$eval('.list-item__name', (n) => n.map((x) => x.textContent));
-  if (listed.length !== 1 || !/pearl 009/i.test(listed[0])) fail(`My list page shows ${JSON.stringify(listed)}`);
+  // The old My list page is gone.
+  const gone = await page.goto(`${url}/my-list/`, { waitUntil: 'load' });
+  if (gone.status() !== 404) fail(`/my-list/ returns ${gone.status()}, expected 404`);
+
+  // Header Products menu: one tile per category with its live count, thumbnails only once opened.
+  await page.goto(`${url}/products/`, { waitUntil: 'load' });
+  const menu = await page.evaluate(async () => {
+    const before = [...document.querySelectorAll('.nav-tile img')].filter((i) => i.getAttribute('src')).length;
+    document.querySelector('.nav-menu summary').click();
+    await new Promise((r) => setTimeout(r, 600));
+    const imgs = [...document.querySelectorAll('.nav-tile img')];
+    await Promise.all(imgs.map((i) => i.decode().catch(() => null)));
+    return { before, tiles: [...document.querySelectorAll('.nav-tile')].map((a) => [new URL(a.href).pathname, a.querySelector('.nav-tile__count').textContent]), loaded: imgs.filter((i) => i.naturalWidth).length, explore: document.querySelector('.nav-menu__explore').textContent };
+  });
+  if (menu.before) fail(`Menu thumbnails load before the menu opens (${menu.before})`);
+  if (menu.tiles.length !== catalogue.categories.length) fail(`Menu shows ${menu.tiles.length} categories, expected ${catalogue.categories.length}`);
+  for (const c of catalogue.categories) if (!menu.tiles.some(([href, n]) => href === `/products/${c.slug}/` && n.startsWith(`${c.count} `))) fail(`Menu tile for ${c.name} is missing or has the wrong count`);
+  if (menu.loaded !== menu.tiles.length) fail(`Menu thumbnails loaded: ${menu.loaded} of ${menu.tiles.length}`);
+  if (!menu.explore.includes(`${catalogue.products.length} products`)) fail(`Menu strip says "${menu.explore.trim()}"`);
+
+  // Footer: the four official social links, opening in a new tab; the privacy policy page.
+  const t = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/en.json'), 'utf8'));
+  const social = await page.$eval('.site-footer__social a', (a) => a.map((x) => [x.dataset.social, x.getAttribute('href'), x.target, x.rel]));
+  const want = ['facebook', 'instagram', 'threads', 'youtube'];
+  if (social.map(([k]) => k).join() !== want.join()) fail(`Footer social links: ${social.map(([k]) => k).join()}`);
+  for (const [k, href, target, rel] of social) if (href !== t.social[k] || target !== '_blank' || !/noopener/.test(rel) || !/noreferrer/.test(rel)) fail(`Footer ${k} link: ${href} ${target} ${rel}`);
+  const privacy = await page.goto(`${url}/privacy-policy/`, { waitUntil: 'load' });
+  if (privacy.status() !== 200) fail(`/privacy-policy/ returns ${privacy.status()}`);
+  const robots = await page.$eval('meta[name="robots"]', (m) => m.content).catch(() => '');
+  if (!/noindex/.test(robots)) fail('/privacy-policy/ is missing noindex');
 } finally {
   await browser.close();
   await server.close();
@@ -140,7 +168,7 @@ try {
 
 const noImage = catalogue.products.filter((p) => !p.images.length);
 console.log(`Data: ${showable.length} showable products · website: ${catalogue.products.length} products, ${catalogue.categories.length} categories`);
-console.log(`Checked in the browser: ${checkedPages} product pages, the catalogue page, ${catalogue.categories.length} category pages, My list`);
+console.log(`Checked in the browser: ${checkedPages} product pages, the catalogue page, ${catalogue.categories.length} category pages, the Products menu, footer links, /my-list/ 404, /privacy-policy/`);
 console.log(`Products with no image yet (${noImage.length}): ${noImage.map((p) => p.name).join(', ')}`);
 console.log(`Images shared by several products (${shared.length}):`);
 for (const [file, names] of shared) console.log(`  ${path.basename(file).replace(/-480\.webp$/, '')}: ${names.join(', ')}`);

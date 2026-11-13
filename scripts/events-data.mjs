@@ -25,6 +25,8 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
   for (const e of source.events) {
     const outDir = path.join(publicDir, 'media', 'events', e.id);
     await fs.mkdir(outDir, { recursive: true });
+    // start from a clean set of pictures, so hidden or removed photos never linger in the build (loops are kept)
+    for (const f of await fs.readdir(outDir)) if (f.endsWith('.webp')) await fs.rm(path.join(outDir, f));
     const done = new Map();
     let n = 0; // numbers each picture once, in call order (photos are processed in parallel)
 
@@ -44,7 +46,10 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
       return entry;
     }
     async function folder(dir) {
-      const files = (await fs.readdir(resolve(dir))).filter((f) => PHOTO.test(f)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+      // e.hide: photos left out of the page (by folder/file name, or just file name); the originals stay in the pack
+      const hidden = new Set(e.hide ?? []);
+      const files = (await fs.readdir(resolve(dir))).filter((f) => PHOTO.test(f) && !hidden.has(f) && !hidden.has(`${path.basename(resolve(dir))}/${f}`))
+        .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
       return Promise.all(files.map((f) => photo(path.join(resolve(dir), f))));
     }
 
@@ -71,7 +76,7 @@ export async function buildEvents({ root, pack, publicDir, contentDir }) {
 
     events.push({
       id: e.id, url: `/events/${e.id}/`, name: e.name, when: e.when, date: e.date, kicker: e.kicker ?? '',
-      summary: e.summary, cover, video, drones, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [],
+      summary: e.summary, marquee: e.marquee?.length ? e.marquee : [e.kicker, `${e.name} · ${e.when}`].filter(Boolean), cover, video, drones, afterMovie: e.afterMovie ?? null, photos, galleries, launches: e.launches ?? [],
       count: photos.length + galleries.reduce((n, g) => n + g.items.length, 0),
     });
   }

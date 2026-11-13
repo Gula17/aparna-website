@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { makeWoodTexture } from './wood-texture.js';
 import { brandMarkCurved } from './brand-mark.js';
 import { neckScrew, CANOPY_GAP } from './fan-mount.js';
+import { createMotorInternals } from './bldc-motor.js';
 
 export const BLADE_COUNT = 3; // Brief §3.7: always exactly three blades.
 export const CANOPY_TOP = 0.6; // studio photo: a short drop, the canopy close above the motor
@@ -174,6 +175,17 @@ export function createAeroflow({ shadows = false } = {}) {
   for (const m of [shell, trim, cap]) flatGrain(m.geometry);
   rotor.add(shell, trim, accent, lip, cap, seam);
 
+  // the motor's insides (home page "01 BLDC" step): hidden in the closed housing until the split opens it
+  const internals = createMotorInternals();
+  stator.add(internals.group);
+  const bottomCover = [trim, accent, lip, cap]; // (the blade seam stays with the blades)
+  const coverY = bottomCover.map((m) => m.position.y);
+  // t: 0 closed .. 1 open; spread: how far apart (1 on desktop, tighter on phones)
+  function setExplode(t, spread = 1) {
+    internals.setSplit(t, spread);
+    bottomCover.forEach((m, i) => { m.position.y = coverY[i] + internals.bottomTravel * t * spread; });
+  }
+
   const bladeGeo = bladeGeometry();
   const blades = [];
   for (let i = 0; i < BLADE_COUNT; i++) {
@@ -228,7 +240,7 @@ export function createAeroflow({ shadows = false } = {}) {
   }
 
   setFinish('wood');
-  return { fan, rotor, stator, blades, blurDisc, hitArea, setFinish };
+  return { fan, rotor, stator, blades, blurDisc, hitArea, setFinish, setExplode, explodeAnchors: internals.anchors };
 }
 
 export function makeBlurTexture() {

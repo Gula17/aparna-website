@@ -110,7 +110,13 @@ async function startViewer(dialog, { can3D, quality }) {
   media.classList.add('has-viewer');
   if (first) {
     dialog.querySelectorAll('.finishes--viewer input').forEach((input) => {
-      input.addEventListener('change', () => viewer.setFinish(input.value));
+      input.addEventListener('change', () => {
+        viewer.setFinish(input.value);
+        // the MRP follows the chosen finish where the list prices it by colour
+        const value = dialog.querySelector('[data-mrp-value]');
+        const label = dialog.querySelector('[data-mrp-label]');
+        if (value && input.dataset.mrp) { value.textContent = input.dataset.mrp; if (label) label.textContent = label.dataset.single; }
+      });
     });
   }
 }

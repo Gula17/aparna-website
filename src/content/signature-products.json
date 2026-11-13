@@ -1,0 +1,14 @@
+{
+  "_read_me": "One signature product per category, chosen from the \"Ek naam, poori range\" station picks (the first pick of each station). The header Products menu shows its cutout as the category thumbnail; a category not listed here uses its first product with a cutout. Product ids must exist in catalogue.generated.json and have a cutout in cutouts.generated.json.",
+  "categories": {
+    "Ceiling Fans": "ceiling-fans-aeroflow-48",
+    "Table, Wall & Pedestal Fans": "table-wall-pedestal-fans-vento-12",
+    "High-Speed Fans": "high-speed-fans-maxx-oscillating-16",
+    "Ventilation & Fresh-Air Fans": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12",
+    "Air Coolers": "air-coolers-discovery-1201",
+    "Washing Machines": "washing-machines-apwm-9-0-pm",
+    "Kitchen Appliances": "kitchen-appliances-prime",
+    "Heating & Water": "heating-water-sun-heater-sunshine-14",
+    "Electric Irons": "electric-irons-bmw"
+  }
+}

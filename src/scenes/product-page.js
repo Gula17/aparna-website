@@ -6,7 +6,6 @@
 // photo where there is no 3D model. A photo is only marked with the colour it shows.
 
 import { addLens, mountViewer } from './products.js';
-import { setColour } from './my-list.js';
 
 function setupGallery(root) {
   const stage = root.querySelector('.gallery__stage');
@@ -73,7 +72,6 @@ function setupGallery(root) {
 export function setupProductPage({ can3D, quality }) {
   const page = document.querySelector('main.product');
   if (!page) return;
-  const id = page.dataset.product;
 
   // 360° viewer (first slide) and the parts view (second) where this product has a 3D model. Without 3D on
   // this device, drop those slides and their thumbnails, and keep the photos.
@@ -123,7 +121,6 @@ export function setupProductPage({ can3D, quality }) {
     if (mrp && input.dataset.mrp) mrp.textContent = input.dataset.mrp; // the price list prices some models by colour
     paint3D();
     gallery.showColour(input.value, { first });
-    if (!first) setColour(id, input.value); // if it's already in My list, remember the new colour
   }
   picker?.addEventListener('change', () => applyColour());
   applyColour({ first: true }); // the page opens on the starting colour's photos only
@@ -136,8 +133,3 @@ export function setupProductPage({ can3D, quality }) {
   const share = page.querySelector('[data-share]');
   if (share) share.href = `https://wa.me/?text=${encodeURIComponent(`${share.dataset.shareText} ${location.origin}${location.pathname}`)}`;
 }
-
-export const chosenColourFor = (id) => {
-  const page = document.querySelector(`main.product[data-product="${CSS.escape(id)}"]`);
-  return page?.querySelector('[data-colours] input:checked')?.value ?? null;
-};

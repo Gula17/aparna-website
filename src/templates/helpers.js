@@ -3,6 +3,12 @@
 export const esc = (value) =>
   String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+// An MRP in Indian digit grouping, e.g. ₹10,395 (catalogue pages and the home page's BLDC cards).
+export const rupees = (n) => `₹${Number(n).toLocaleString('en-IN')}`;
+
+// Turns a mention of Utsav '26 in an already-escaped line into a link to its event page.
+export const linkEvents = (html) => html.replace(/Utsav &#39;26/g, '<a class="event-link" href="/events/utsav-26/">Utsav &#39;26</a>');
+
 // Fills "{name}" style placeholders in a copy string.
 export const fmt = (text, vars = {}) => text.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? `{${k}}`);
 

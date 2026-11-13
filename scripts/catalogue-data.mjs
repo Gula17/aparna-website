@@ -172,11 +172,7 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     for (const [i, extra] of (crops[p.id]?.crops ?? []).entries()) {
       gallery.push(await images.write(`own-${p.id}-${i}`, extra.src, { crop: extra.crop, alt: `The Aparna ${p.name}`, kind: extra.kind ?? 'poster' }));
     }
-    const photos = [];
-    for (const [i, src] of (p.photos ?? []).entries()) {
-      if (NEVER_AS_PRODUCT_IMAGE.some((re) => re.test(src))) continue;
-      photos.push(await images.write(`photo-${idSlug(path.basename(src, path.extname(src)))}`, src, { alt: `${p.name}: photo ${i + 1}`, kind: 'photo' }));
-    }
+    // Event, exhibition and standee photos are not used as product pictures (they stay on the Events pages).
     if (p.poster && !crops[p.id]?.noPoster && !NEVER_AS_PRODUCT_IMAGE.some((re) => re.test(p.poster))) {
       gallery.push(await images.write(`poster-${idSlug(path.basename(p.poster, path.extname(p.poster)))}`, p.poster, { alt: `Aparna poster for the ${p.name}`, kind: 'poster' }));
     }
@@ -184,9 +180,13 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     if (crop?.page && crop?.crop) {
       gallery.push(await images.write(`crop-${p.id}`, `02_Catalogue_2026/pages/${crop.page}`, { crop: crop.crop, alt: `The ${p.name} in Aparna Catalogue 2026`, kind: 'catalogue' }));
     }
-    gallery.push(...photos); // event photos last: posters and catalogue pictures show the model more clearly
     // no picture anywhere else: the photo printed beside it in Aparna's price list (src/content/price-list-photos.json)
     const listPhoto = listPhotos.photos?.[p.id];
+    // still nothing, but it has a 3D model: a still of its own 3D model (scripts/render-model-stills.mjs)
+    const render = path.join(contentDir, 'model-renders', `${p.id}.png`);
+    if (!gallery.length && !listPhoto && (await fs.access(render).then(() => true, () => false))) {
+      gallery.push(await images.write(`render-${p.id}`, render, { alt: `The ${p.name}, as its 3D model`, kind: 'render' }));
+    }
     if (!gallery.length && listPhoto) gallery.push(await images.write(`pricelist-${p.id}`, path.resolve(contentDir, '..', '..', listPhoto.image), { alt: `The ${p.name}, as pictured in Aparna's price list`, kind: 'catalogue' }));
 
     products.push({

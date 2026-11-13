@@ -13,7 +13,7 @@ const POSES = {
     hero: { elevation: -0.42, azimuth: 0, zoom: 1, screenX: 0.5, screenY: 0.3, roll: 0, air: 1 },
     intro: { elevation: -0.7, azimuth: 0.2, zoom: 1, screenX: 0.5, screenY: 0.32, roll: 0, air: 0.5 },
     steps: [
-      { elevation: -1.3, azimuth: 0, zoom: 1.9, screenX: 0.5, screenY: 0.3, roll: 0, air: 0.3 }, // BLDC motor: right under the hub
+      { elevation: -0.42, azimuth: 0.35, zoom: 2.3, screenX: 0.42, screenY: 0.16, roll: 0, air: 0.2 }, // BLDC motor: three-quarter view from below, so the split along the shaft reads
       { elevation: -1.0, azimuth: 0.5, zoom: 1.15, screenX: 0.5, screenY: 0.3, roll: 0.12, air: 0.5 }, // 35 W
       { elevation: -0.55, azimuth: -0.35, zoom: 1, screenX: 0.5, screenY: 0.28, roll: -0.1, air: 1 }, // 3X less power
       { elevation: -1.35, azimuth: 0, zoom: 1.35, screenX: 0.5, screenY: 0.3, roll: 0, air: 0.4 }, // remote
@@ -26,7 +26,7 @@ const POSES = {
     hero: { elevation: -0.42, azimuth: 0, zoom: 1, screenX: 0.5, screenY: 0.3, roll: 0, air: 1 },
     intro: { elevation: -0.7, azimuth: 0.25, zoom: 1, screenX: 0.64, screenY: 0.42, roll: 0, air: 0.5 },
     steps: [
-      { elevation: -1.3, azimuth: 0, zoom: 1.45, screenX: 0.68, screenY: 0.5, roll: 0, air: 0.3 },
+      { elevation: -0.42, azimuth: 0.35, zoom: 2.7, screenX: 0.6, screenY: 0.2, roll: 0, air: 0.2 }, // BLDC motor: three-quarter view, the split reads
       { elevation: -1.0, azimuth: 0.6, zoom: 1.2, screenX: 0.66, screenY: 0.46, roll: 0.14, air: 0.5 },
       { elevation: -0.55, azimuth: -0.4, zoom: 1.05, screenX: 0.66, screenY: 0.4, roll: -0.12, air: 1 },
       { elevation: -1.35, azimuth: 0.2, zoom: 1.4, screenX: 0.68, screenY: 0.5, roll: 0, air: 0.4 },
@@ -47,6 +47,7 @@ export const getCurrentLevel = () => Number(document.querySelector('input[name="
 
 function wireControls(fan) {
   const dial = document.querySelector('.regulator__dial');
+  if (!dial) return; // the home page no longer shows the speed and finish controls
   document.querySelectorAll('input[name="speed"]').forEach((input) => {
     input.addEventListener('change', () => {
       fan.setLevel(Number(input.value));
@@ -65,6 +66,8 @@ function wireControls(fan) {
     input.addEventListener('change', () => fan.setFinish(input.value));
   });
 }
+
+let labelTicker = null;
 
 export function setupFanJourney({ fan, reducedMotion }) {
   const journey = document.querySelector('.fan-journey');
@@ -95,6 +98,15 @@ export function setupFanJourney({ fan, reducedMotion }) {
       '--dark': 1, ease: 'none',
       scrollTrigger: { trigger: intro, start: 'top bottom', end: 'top 55%', scrub },
     });
+    // The hero's dark headline and buttons leave as the room darkens, so they never sit dark-on-dark under the
+    // fan (on short windows the darkening starts while the hero is still on screen).
+    const heroCopy = document.querySelector('.hero');
+    if (heroCopy) {
+      gsap.fromTo(heroCopy, { autoAlpha: 1, y: 0 }, {
+        autoAlpha: 0, y: -40, ease: 'none', immediateRender: false,
+        scrollTrigger: { trigger: intro, start: 'top bottom', end: 'top 75%', scrub },
+      });
+    }
 
     // One tween per section, each from the previous pose to the next, over non-overlapping scroll ranges.
     const sequence = [poses.hero, poses.intro, ...poses.steps.slice(0, steps.length)];
@@ -113,6 +125,43 @@ export function setupFanJourney({ fan, reducedMotion }) {
         ...poses.exit, ease: 'power2.in', immediateRender: false,
         scrollTrigger: { trigger: lastStep, start: 'top 30%', end: 'bottom 30%', scrub },
       });
+    }
+
+    // "01 BLDC": the motor opens along its shaft as the step scrolls in, stays open while it is read, and closes
+    // again before the next step (or on the way back up). Scrubbed, so it can never stay half open.
+    const motorLabels = document.querySelector('[data-motor-labels]');
+    if (steps[0] && fan.explodeLabelsOnScreen) {
+      const split = { t: 0 };
+      const spread = ctx.conditions.desktop ? 1 : 0.85; // a slightly tighter split on phones
+      const labelEls = motorLabels ? [...motorLabels.querySelectorAll('[data-part]')] : [];
+      const show = () => {
+        fan.setExplode(split.t, spread);
+        if (!motorLabels) return;
+        const on = Math.min(1, Math.max(0, (split.t - 0.55) / 0.35));
+        motorLabels.style.opacity = on;
+        if (on <= 0) return;
+        const at = fan.explodeLabelsOnScreen(split.t, spread);
+        const w = motorLabels.clientWidth;
+        for (const el of labelEls) {
+          const p = at[el.dataset.part];
+          if (!p) continue;
+          // on phones the labels alternate sides, and any that would run off the screen flips to the other side
+          let left = !ctx.conditions.desktop && (el.dataset.part === 'motor' || el.dataset.part === 'board');
+          const textW = el.querySelector('.motor-label__text')?.offsetWidth ?? 120;
+          if (!left && p.x + textW + 40 > w) left = true;
+          if (left && p.x - textW - 40 < 0) left = false;
+          el.classList.toggle('is-left', left);
+          el.style.transform = `translate(${Math.round(p.x)}px, ${Math.round(p.y)}px)`;
+        }
+      };
+      gsap.timeline({ scrollTrigger: { trigger: steps[0], start: 'top 70%', end: 'bottom 30%', scrub, onLeave: () => { split.t = 0; show(); }, onLeaveBack: () => { split.t = 0; show(); } } })
+        .to(split, { t: 1, duration: 0.35, ease: 'power2.inOut', onUpdate: show })
+        .to(split, { t: 1, duration: 0.3, onUpdate: show })
+        .to(split, { t: 0, duration: 0.35, ease: 'power2.inOut', onUpdate: show });
+      // keep the labels on their parts while the fan keeps turning
+      if (labelTicker) gsap.ticker.remove(labelTicker); // one ticker, even after a desktop/phone switch
+      labelTicker = () => { if (split.t > 0.55) show(); };
+      gsap.ticker.add(labelTicker);
     }
 
     // The step cards rise in, and the title inside each one slides after its card.

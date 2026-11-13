@@ -17,7 +17,7 @@ import { SMALL_APPLIANCES } from './small-appliances.js';
 import { collectPowerParts, applyPower } from './power.js';
 
 // Real-time models, by the key in src/three/models.js.
-const MODELS = {
+export const MODELS = {
   aeroflow: createAeroflow, aerosleek: createAerosleek, ikon: createIkonBldc,
   sultan: FRONT.createSultan, hexa: FRONT.createHexa, nexa: FRONT.createNexa, fiona: FRONT.createFiona,
   vistara: FRONT.createVistara, glider: FRONT.createGlider, spider: FRONT.createSpider,
@@ -398,6 +398,23 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
       render();
     },
     // Where the hub sits on screen (CSS pixels within the canvas) and its radius, for the loader hand-off.
+    // The motor split for the "01 BLDC" step (Aeroflow only), and where its labels point on screen.
+    setExplode(t, spread = 1) {
+      if (!model.setExplode) return;
+      model.setExplode(t, spread);
+      if (!state.running) render();
+    },
+    explodeLabelsOnScreen(t, spread = 1) {
+      if (!model.explodeAnchors) return null;
+      frameCamera();
+      model.fan.updateMatrixWorld(true);
+      const out = {};
+      for (const [key, v] of Object.entries(model.explodeAnchors(t, spread))) {
+        const p = model.fan.localToWorld(v.clone()).project(camera);
+        out[key] = { x: (p.x * 0.5 + 0.5) * size.w, y: (-p.y * 0.5 + 0.5) * size.h };
+      }
+      return out;
+    },
     hubOnScreen() {
       frameCamera();
       const centre = new THREE.Vector3(0, -0.06, 0).project(camera);

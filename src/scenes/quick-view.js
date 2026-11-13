@@ -26,9 +26,6 @@ export function setupQuickView({ can3D, quality }) {
     $('name').textContent = d.title ?? '';
     $('meta').textContent = d.meta ?? '';
     $('link').href = d.url;
-    $('save').dataset.save = d.id;
-    $('save').setAttribute('aria-label', $('save').dataset.labelTemplate.replace('{name}', d.title ?? ''));
-    document.dispatchEvent(new CustomEvent('mylist:change')); // shows whether this one is saved
     media.replaceChildren();
     const use3D = can3D && d.model;
     $('hint').hidden = !use3D;

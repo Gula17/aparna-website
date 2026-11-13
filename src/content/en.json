@@ -11,11 +11,13 @@
     "home": "Aparna home",
     "range": "The range",
     "bldc": "BLDC fans",
-    "catalogue": "Catalogue",
     "products": "Products",
     "allProducts": "All products",
-    "myList": "My list",
-    "events": "Events"
+    "events": "Events",
+    "menuExplore": "Explore all {count} products",
+    "menuModels": "{count} models",
+    "menuClose": "Close",
+    "menuLabel": "Product categories"
   },
   "loader": {
     "label": "Loading Aparna",
@@ -42,7 +44,6 @@
     "title": "Powerful Breeze, Peaceful Life.",
     "subtitle": "Fans and home appliances. Aparna, since 1991.",
     "ctaRange": "Explore the range",
-    "ctaCatalogue": "Download the catalogue",
     "fanAlt": "The Aparna Aeroflow BLDC ceiling fan, turning slowly",
     "hint": "Hover or drag the fan to feel the breeze",
     "hintTouch": "Press and hold the fan to feel the breeze",
@@ -97,7 +98,14 @@
     "power": "Power",
     "warranty": "Warranty",
     "colours": "Colours",
-    "seeModel": "See {name}"
+    "seeModel": "See {name}",
+    "parts": {
+      "motor": "Brushless DC motor",
+      "board": "Inverter-technology electronics",
+      "bearing": "Double ball bearing",
+      "housing": "Anti-dust",
+      "stillAlt": "The Aeroflow's motor opened along its shaft, showing its parts"
+    }
   },
   "range": {
     "eyebrow": "Ek naam, poori range",
@@ -190,24 +198,20 @@
     "title": "Where to buy",
     "body": "Aparna is sold through its dealers across India. Ask for Aparna at your nearest electrical shop."
   },
-  "catalogue": {
-    "title": "Catalogue 2026",
-    "body": "Every model in one place. PDF, {size} MB.",
-    "cta": "Download the catalogue"
-  },
   "footer": {
     "categories": "The range",
     "follow": "Follow Aparna",
     "aparna": "Aparna",
-    "copyright": "© [Company name]",
+    "copyright": "© 2026 Aparna Home Appliances Pvt. Ltd.",
     "madeIn": "Made in India [to confirm]",
     "tolerance": "Specifications are subject to a ±10% tolerance.",
     "social": {
-      "instagram": "Instagram",
-      "facebook": "Facebook",
-      "youtube": "YouTube",
-      "linkedin": "LinkedIn"
-    }
+      "facebook": "Aparna on Facebook",
+      "instagram": "Aparna on Instagram",
+      "threads": "Aparna on Threads",
+      "youtube": "Aparna on YouTube"
+    },
+    "privacy": "Privacy Policy"
   },
   "noscript": "This page works without JavaScript. Turn it on to see the fan turn in 3D.",
   "products": {
@@ -235,9 +239,6 @@
     "result1": "1 product",
     "none": "No products match. Try removing a filter.",
     "viewDetails": "View details",
-    "save": "Save to my list",
-    "saved": "Saved",
-    "saveLabel": "Save {name} to my list",
     "newLaunch": "New launch",
     "newModel": "New",
     "comingSoon": "Details coming soon",
@@ -263,7 +264,6 @@
     "noSpecs": "Specifications for this model are coming soon.",
     "features": "Features",
     "description": "About this model",
-    "catalogueRef": "In Catalogue 2026 on pages {pages}",
     "related": "More from the same series",
     "relatedCategory": "More {category}",
     "gallery": "Product images",
@@ -284,18 +284,6 @@
     "mrpTax": "Incl. of all taxes",
     "mrpVersions": "MRP by version"
   },
-  "list": {
-    "title": "My list",
-    "lead": "Models you have saved. Show this list at your nearest electrical shop, or send it on WhatsApp.",
-    "empty": "Your list is empty. Tap the heart on any product to save it here.",
-    "browse": "Browse all products",
-    "share": "Share my list on WhatsApp",
-    "shareIntro": "My Aparna list:",
-    "remove": "Remove",
-    "removeLabel": "Remove {name} from my list",
-    "clear": "Clear my list",
-    "colour": "Colour"
-  },
   "categoryLines": {
     "Ceiling Fans": "BLDC, Signature, Silver and Ultra Gold Series, and a new premium range.",
     "Table, Wall & Pedestal Fans": "Cool comfort, wherever you stand.",
@@ -306,9 +294,7 @@
     "Washing Machines": "Semi-automatic washing machines, launched at Utsav '26.",
     "Kitchen Appliances": "Infrared cooktops and G-coil hot plates.",
     "Heating & Water": "Room heaters, instant water heaters, immersion rods and elements.",
-    "Electric Irons": "Tension-free ironing for wrinkle-free clothes.",
-    "Motors": "Cooler motors. Names and details coming soon.",
-    "Pumps": "Submersible cooler pumps. Names and details coming soon."
+    "Electric Irons": "Tension-free ironing for wrinkle-free clothes."
   },
   "showroom": {
     "eyebrow": "The Aparna showroom",
@@ -344,8 +330,6 @@
     "more": "More events coming soon.",
     "photos": "Photos from the day",
     "afterMovie": "Watch the After Movie",
-    "playLoop": "Play the glimpse",
-    "pauseLoop": "Pause the glimpse",
     "launched": "Launched at {name}",
     "openPhoto": "Open photo {n} of {total}",
     "prev": "Previous",
@@ -358,5 +342,75 @@
     "fromAbove": "From above",
     "newLaunch": "New launch",
     "afterMovieSoon": "After movie coming soon"
+  },
+  "social": {
+    "_note": "Aparna's official accounts (given by Aparna, 13 Nov 2026). The footer links to these; add no other platforms.",
+    "facebook": "https://www.facebook.com/share/1Dvdp5fQUj/",
+    "instagram": "https://www.instagram.com/aparna.india?obrf=MWpqNWpkeHhzMGNucQ==",
+    "threads": "https://www.threads.com/@aparna.india",
+    "youtube": "https://youtube.com/@aparnahomeappliances?si=Lae4tJ4tfwy6wax1"
+  },
+  "privacy": {
+    "_note": "Draft, to be reviewed by Aparna before launch (PLACEHOLDERS.md). Every technical statement was checked against the code on 13 Nov 2026: the only browser storage is the intro flag in src/scenes/loader.js; there are no cookies, forms, analytics or third-party scripts. Update this page if that changes.",
+    "title": "Privacy Policy",
+    "metaDescription": "How the Aparna website handles your privacy: no accounts, no forms, no tracking.",
+    "updated": "Last updated: [date]",
+    "lead": "Aparna Home Appliances Pvt. Ltd. owns this website, a showroom for our products. It does not ask for your personal details, and it does not track you.",
+    "sections": [
+      {
+        "heading": "What this website is",
+        "paras": [
+          "This website is a brand showcase and product catalogue: Aparna Home Appliances Pvt. Ltd. uses it to show our products, their specifications and MRP, and our events."
+        ],
+        "list": [
+          "There is no online shop and no checkout.",
+          "There are no user accounts or log-ins.",
+          "There are no contact forms, enquiry forms or newsletter sign-ups."
+        ]
+      },
+      {
+        "heading": "Information we collect",
+        "paras": [
+          "None. This website does not ask for, collect, sell or share your name, phone number, email address or home address."
+        ]
+      },
+      {
+        "heading": "No tracking",
+        "paras": [
+          "This website uses no analytics, no tracking cookies, no advertising pixels and no chat widgets. Its fonts, pictures and videos are served from the website itself, not from other companies’ servers."
+        ]
+      },
+      {
+        "heading": "What is stored on your device",
+        "paras": [
+          "One small note, kept by your own browser: a flag so the opening animation plays only the first time you visit during a browsing session. It holds no personal information and is cleared when you close the tab or window.",
+          "The website sets no cookies and keeps no list of the products you look at."
+        ]
+      },
+      {
+        "heading": "Links to other websites and apps",
+        "paras": [
+          "“Share on WhatsApp” opens WhatsApp with a link to the product. Our Facebook, Instagram, Threads and YouTube buttons open those platforms. Each of them is run by another company under its own privacy policy, which applies once you use it."
+        ]
+      },
+      {
+        "heading": "Hosting and server logs",
+        "paras": [
+          "Like most websites, the company that hosts this website may keep standard technical records for a short time, such as your IP address, the time of your visit and your browser type. These are used only to keep the website secure and working reliably."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "paras": [
+          "If the way this website works changes, we will update this page and the date above."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paras": [
+          "[Contact details to come]"
+        ]
+      }
+    ]
   }
 }

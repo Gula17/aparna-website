@@ -1,0 +1,154 @@
+{
+  "categories": {
+    "ceiling-fans": {
+      "id": "ceiling-fans-aeroflow-48",
+      "variants": [
+        {
+          "file": "/media/menu/ceiling-fans-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/ceiling-fans-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "table-wall-and-pedestal-fans": {
+      "id": "table-wall-pedestal-fans-vento-12",
+      "variants": [
+        {
+          "file": "/media/menu/table-wall-and-pedestal-fans-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/table-wall-and-pedestal-fans-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "all-purpose-and-cabin-fans": {
+      "id": "all-purpose-cabin-fans-goair-ac-dc-12",
+      "variants": [
+        {
+          "file": "/media/menu/all-purpose-and-cabin-fans-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/all-purpose-and-cabin-fans-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "high-speed-fans": {
+      "id": "high-speed-fans-maxx-oscillating-16",
+      "variants": [
+        {
+          "file": "/media/menu/high-speed-fans-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/high-speed-fans-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "ventilation-and-fresh-air-fans": {
+      "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12",
+      "variants": [
+        {
+          "file": "/media/menu/ventilation-and-fresh-air-fans-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/ventilation-and-fresh-air-fans-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "air-coolers": {
+      "id": "air-coolers-discovery-1201",
+      "variants": [
+        {
+          "file": "/media/menu/air-coolers-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/air-coolers-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "washing-machines": {
+      "id": "washing-machines-apwm-9-0-pm",
+      "variants": [
+        {
+          "file": "/media/menu/washing-machines-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/washing-machines-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "kitchen-appliances": {
+      "id": "kitchen-appliances-prime",
+      "variants": [
+        {
+          "file": "/media/menu/kitchen-appliances-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/kitchen-appliances-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "heating-and-water": {
+      "id": "heating-water-sun-heater-sunshine-14",
+      "variants": [
+        {
+          "file": "/media/menu/heating-and-water-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/heating-and-water-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    },
+    "electric-irons": {
+      "id": "electric-irons-bmw",
+      "variants": [
+        {
+          "file": "/media/menu/electric-irons-96.webp",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "file": "/media/menu/electric-irons-192.webp",
+          "width": 192,
+          "height": 192
+        }
+      ]
+    }
+  }
+}

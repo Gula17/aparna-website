@@ -2,7 +2,15 @@
    A festive night: charcoal stage, cream type, marigold (the Utsav colour, brief) for the accents. */
 
 .ev { background: var(--stage-dark); color: var(--cream-ink); overflow-x: clip; }
-.ev-eyebrow { font: 600 0.8125rem/1.2 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; color: var(--marigold); }
+/* the small label above each title: a crisp brand-red pill, legible over any frame of the hero video (ivory on
+   Aparna deep red is well above WCAG AA) */
+.ev-eyebrow {
+  justify-self: start; width: fit-content; padding: 7px 14px; border-radius: 9999px;
+  background: var(--aparna-red-deep); color: #fffdf9;
+  font: 600 0.75rem/1.2 var(--font-body); letter-spacing: 0.16em; text-transform: uppercase;
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.6);
+}
+.ev-fan__head .ev-eyebrow { justify-self: center; }
 .ev-h2 { font: 600 clamp(2.4rem, 7vw, 5.5rem)/0.9 var(--font-display); text-transform: uppercase; text-wrap: balance; }
 .ev-crumbs { padding: 0 0 18px; color: var(--cream-soft); }
 .ev-crumbs a:hover { color: var(--marigold); }
@@ -34,15 +42,17 @@
   position: absolute; z-index: 1; right: var(--gutter); bottom: 28px; display: grid; justify-items: center; gap: 8px;
   font: 600 0.75rem/1 var(--font-body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-soft); text-decoration: none;
 }
+@media (max-width: 639px) { .ev-scroll { display: none; } } /* phones: the hero text runs full width, so the cue would sit on it */
 .ev-scroll::after { content: ''; width: 2px; height: 46px; border-radius: 2px; background: linear-gradient(var(--marigold), transparent); animation: ev-drop 1.6s ease-in-out infinite; transform-origin: top; }
 @keyframes ev-drop { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
 
 /* ---------- marquee band */
 .ev-marquee { overflow: hidden; padding: 16px 0; background: var(--marigold); color: var(--stage-dark); rotate: -1.2deg; margin: -18px -2% 0; position: relative; z-index: 2; box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6); }
-.ev-marquee__track { display: flex; width: max-content; gap: 28px; align-items: center; animation: ev-marquee 38s linear infinite; }
+.ev-marquee__track { display: flex; width: max-content; align-items: center; animation: ev-marquee 38s linear infinite; }
+.ev-marquee__run { display: flex; flex: none; align-items: center; gap: 28px; padding-right: 28px; } /* the same space after every copy keeps the loop exact */
 .ev-marquee__track span { font: 600 clamp(1.4rem, 3vw, 2.2rem)/1 var(--font-display); text-transform: uppercase; white-space: nowrap; }
 .ev-marquee__track .ev-marquee__star { font-size: 1.1rem; color: var(--aparna-red-deep); }
-@keyframes ev-marquee { to { transform: translateX(-33.333%); } }
+@keyframes ev-marquee { to { transform: translateX(-25%); } } /* one copy of four */
 
 /* ---------- the day, in order: a horizontal story (pinned and scrubbed on wide screens) */
 .ev-story { padding: clamp(80px, 12vw, 150px) 0 60px; }

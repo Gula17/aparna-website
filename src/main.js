@@ -12,7 +12,7 @@ import './styles/base.css';
 import './styles/loader.css';
 import './styles/hero.css';
 import './styles/range.css';
-import './styles/catalogue.css'; // shared header menu, My list count, swatches
+import './styles/catalogue.css'; // shared header menu, swatches
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,7 +21,7 @@ import { setupFanJourney, getHeroPose, getCurrentLevel } from './scenes/fan-jour
 import { setupRange } from './scenes/range.js';
 import { setupProducts } from './scenes/products.js';
 import { setupReveal, revealHero } from './scenes/reveal.js';
-import { setupSaveButtons } from './scenes/my-list.js';
+import { setupNavMenu } from './scenes/nav-menu.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,7 +63,7 @@ async function start() {
 
   // These don't need the fan, so they are ready while it loads.
   setupReveal({ reducedMotion });
-  setupSaveButtons();
+  setupNavMenu();
   setupProducts({ reducedMotion, can3D: use3D, quality });
 
   const playIntro = html.classList.contains('intro');

@@ -2,7 +2,7 @@
 // the day's story pinned and scrubbed sideways on wide screens, a photo wall that drifts as you scroll, the
 // range prints fanning out, a preview loop on the event cards, and a full-size photo viewer.
 // Loops never play by themselves on Data Saver, with reduced motion or on narrow screens (they are 12-21 MB):
-// those visitors see the poster, and the hero's Play button.
+// those visitors see the poster.
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -19,17 +19,9 @@ export function setupEvents({ reducedMotion }) {
   // ---- muted loops: play while on screen
   const loops = [...root.querySelectorAll('[data-loop]')];
   const play = (v) => v.play().then(() => v.classList.add('is-playing')).catch(() => {});
-  const toggle = root.querySelector('[data-video-toggle]');
-  const heroVideo = root.querySelector('.ev-hero [data-loop]');
-  const label = (on) => { if (toggle) { toggle.textContent = on ? toggle.dataset.pause : toggle.dataset.play; toggle.setAttribute('aria-pressed', String(on)); } };
-  heroVideo?.addEventListener('playing', () => label(true));
-  heroVideo?.addEventListener('pause', () => label(false));
-  toggle?.addEventListener('click', () => {
-    if (heroVideo.paused) { heroVideo.dataset.user = 'on'; play(heroVideo); } else { heroVideo.dataset.user = 'off'; heroVideo.pause(); }
-  });
   const io = new IntersectionObserver((entries) => {
     for (const { target: v, isIntersecting } of entries) {
-      if (isIntersecting && (autoplay || v.dataset.user === 'on') && v.dataset.user !== 'off') play(v);
+      if (isIntersecting && autoplay) play(v); // reduced motion, Data Saver, phones: the poster stays
       else if (!isIntersecting && !v.paused) v.pause();
     }
   }, { threshold: 0.25 });
@@ -82,10 +74,7 @@ export function setupEvents({ reducedMotion }) {
       ScrollTrigger.create({ trigger: fan, start: 'top 70%', once: true, onEnter: () => fan.classList.remove('is-gathered') });
     }
 
-    // ---- fades for marked blocks
-    for (const el of root.querySelectorAll('[data-reveal]')) {
-      gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
-    }
+    // ([data-reveal] blocks fade in once through src/scenes/reveal.js, the site-wide reveal: one owner only)
   }
 
   // ---- full-size photo viewer: every photo on the page in one sequence

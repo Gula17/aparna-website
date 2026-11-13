@@ -179,7 +179,7 @@ export const PRODUCT_MODELS = {
   'electric-irons-grand': 'appl-electric-irons-grand',
   'electric-irons-plancha': 'appl-electric-irons-plancha',
   'electric-irons-regular': 'appl-electric-irons-regular',
-  // irons, cooler motors and pumps built from their studio photos: src/three/small-appliances.js
+  // irons built from their studio photos: src/three/small-appliances.js (motors and pumps are not shown)
   'electric-irons-bold': 'appl-electric-irons-bold',
   'electric-irons-new-blue': 'appl-electric-irons-new-blue',
   'electric-irons-new-white-grey': 'appl-electric-irons-new-white-grey',
@@ -187,8 +187,6 @@ export const PRODUCT_MODELS = {
   'electric-irons-new-white-pink': 'appl-electric-irons-new-white-pink',
   'electric-irons-new-black': 'appl-electric-irons-new-black',
   'electric-irons-new-heavy-black': 'appl-electric-irons-new-heavy-black',
-  ...Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8].map((n) => [`motors-cooler-motor-${n}`, `appl-motors-cooler-motor-${n}`])),
-  ...Object.fromEntries([1, 2, 3, 4, 5, 6].map((n) => [`pumps-cooler-pump-${n}`, `appl-pumps-cooler-pump-${n}`])),
 };
 
 // Colour names in the product data -> the finish a 3D model shows for them (the colour picker repaints it).

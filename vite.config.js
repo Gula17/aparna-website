@@ -7,12 +7,19 @@ const root = import.meta.dirname;
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 
 // Loads a template module: through Vite in dev (so edits show up without a restart), directly in a build.
+// The header's Products menu: each category with its small cutout thumbnail (npm run menu)
+const withMenuThumbs = (categories) => {
+  const file = path.join(root, 'src/content/menu.generated.json');
+  const menu = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).categories : {};
+  return categories.map((c) => ({ ...c, thumb: menu[c.slug]?.variants ?? null }));
+};
+
 const load = (ctx, file) => (ctx.server ? ctx.server.ssrLoadModule(file) : import(pathToFileURL(path.join(root, file)).href));
 
 // Renders every page from the copy + product data into its HTML, so each page is complete before any
 // JavaScript runs (works with JS off, and search engines see real content).
 //   index.html             <!--app-->              the home page
-//   products/**, my-list/, events/**  <!--page:kind:key-->  catalogue and event pages (shells: npm run content)
+//   products/**, events/**, privacy-policy/  <!--page:kind:key-->  catalogue and event pages (shells: npm run content)
 function renderPages() {
   return {
     name: 'aparna-render-pages',
@@ -26,7 +33,10 @@ function renderPages() {
         const { renderHome } = await load(ctx, '/src/templates/home.js');
         // the same categories and counts as the catalogue pages (it adds Motors, Pumps and coming-soon products)
         const cat = fs.existsSync(path.join(root, 'src/content/catalogue.generated.json')) ? readJson('src/content/catalogue.generated.json').categories : null;
-        const homeRange = cat ? { ...range, categories: cat.map((c) => ({ ...range.categories.find((r) => r.name === c.name), ...c })) } : range;
+        const catProducts = fs.existsSync(path.join(root, 'src/content/catalogue.generated.json')) ? readJson('src/content/catalogue.generated.json').products : [];
+        const homeRange = cat ? { ...range, categories: withMenuThumbs(cat).map((c) => ({ ...range.categories.find((r) => r.name === c.name), ...c })) } : range;
+        // the BLDC cards carry their MRP, read from the catalogue data (src/content/mrp.json)
+        homeRange.bldc = range.bldc.map((m) => ({ ...m, mrp: catProducts.find((p) => p.id === m.id)?.mrp ?? null }));
         return html
           .replace('<!--app-->', renderHome({ t, range: homeRange, emblemSvg, events: fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : null }))
           .replaceAll('%TITLE%', t.meta.title)
@@ -37,6 +47,7 @@ function renderPages() {
       const marker = html.match(/<!--page:([^>]+)-->/)?.[1];
       if (!marker) return html;
       const catalogue = readJson('src/content/catalogue.generated.json');
+      catalogue.categories = withMenuThumbs(catalogue.categories);
       const colours = readJson('src/content/colours.json');
       // Product cutouts (npm run cutouts). Optional: without them every product shows its normal photo.
       const cutouts = fs.existsSync(path.join(root, 'src/content/cutouts.generated.json')) ? readJson('src/content/cutouts.generated.json').products : {};
@@ -46,17 +57,19 @@ function renderPages() {
       }
       const pages = await load(ctx, '/src/templates/catalogue.js');
       const eventPages = await load(ctx, '/src/templates/events.js');
+      const privacyPage = await load(ctx, '/src/templates/privacy.js');
       const events = fs.existsSync(path.join(root, 'src/content/events.generated.json')) ? readJson('src/content/events.generated.json') : { events: [] };
       const [kind, key] = marker.split(':');
       const body = {
         catalogue: () => pages.renderCatalogue({ t, range, catalogue, colours, cutouts }),
         category: () => pages.renderCatalogue({ t, range, catalogue, colours, cutouts, categorySlug: key }),
         product: () => pages.renderProduct({ t, range, catalogue, colours, cutouts, id: key }),
-        list: () => pages.renderList({ t, range, catalogue, cutouts }),
         events: () => eventPages.renderEvents({ t, range, catalogue, events }),
         event: () => eventPages.renderEvent({ t, range, catalogue, events, id: key }),
+        privacy: () => privacyPage.renderPrivacy({ t, range, catalogue }),
       }[kind]();
-      const meta = kind === 'events' || kind === 'event' ? eventPages.eventsMeta({ t, events, marker }) : pages.pageMeta({ t, catalogue, marker });
+      const meta = kind === 'privacy' ? privacyPage.privacyMeta({ t })
+        : kind === 'events' || kind === 'event' ? eventPages.eventsMeta({ t, events, marker }) : pages.pageMeta({ t, catalogue, marker });
       const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
       return html
         .replace(`<!--page:${marker}-->`, body)
@@ -87,13 +100,14 @@ function pageInputs() {
     }
   };
   walk(path.join(root, 'products'));
-  walk(path.join(root, 'my-list'));
   walk(path.join(root, 'events'));
+  walk(path.join(root, 'privacy-policy'));
   return inputs;
 }
 
 export default defineConfig({
   plugins: [renderPages()],
+  appType: 'mpa', // an address with no page is a 404 in dev and preview too (as on Netlify), never the home page
   build: {
     target: 'es2020',
     chunkSizeWarningLimit: 700, // three.js chunk; budget is 600 KB gzipped (brief §9), it ships ~130 KB

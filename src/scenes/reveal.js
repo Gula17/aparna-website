@@ -30,12 +30,29 @@ const play = (el, delay = 0) => {
   return animate(el, { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] }, { duration: 0.7, delay, ease: EASE_OUT });
 };
 
+// Shows an element in its final state at once (used if its reveal never got to play).
+const show = (el) => {
+  if (el.dataset.reveal === 'words') splitWords(el).forEach((w) => { w.style.transform = 'translateY(0%)'; });
+  else { el.style.opacity = '1'; el.style.transform = 'none'; }
+};
+
+// The only reveal for [data-reveal] (no other script animates these): hidden just before it can play, played once
+// on entering the view, never reversed. If it hasn't played 1.5 s after coming near the view, it is shown
+// anyway, so nothing can stay invisible. Reduced motion or no JavaScript: everything is simply visible.
 export function setupReveal({ reducedMotion }) {
   if (reducedMotion) return;
+  const near = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (!isIntersecting) continue;
+      near.unobserve(target);
+      setTimeout(() => { if (!target.dataset.revealed) { target.dataset.revealed = '1'; show(target); } }, 1500);
+    }
+  }, { rootMargin: '120px 0px' });
   document.querySelectorAll('[data-reveal]').forEach((el) => {
     if (el.closest('.hero')) return; // the hero is revealed when the loader hands over (revealHero)
     hide(el);
-    inView(el, () => { play(el); }, { amount: 0.3 }); // plays once
+    inView(el, () => { if (el.dataset.revealed) return; el.dataset.revealed = '1'; play(el); }, { amount: 0.15 }); // plays once
+    near.observe(el);
   });
 }
 

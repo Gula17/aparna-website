@@ -1,4 +1,4 @@
-// Entry point for the catalogue pages: /products/, the category pages, every product page, /my-list/ and the
+// Entry point for the catalogue pages: /products/, the category pages, every product page and the
 // events pages (/events/).
 // Lighter than the home page: no hero scene. three.js only loads on a product page that has a 360° viewer.
 
@@ -19,8 +19,8 @@ import { setupCatalogue } from './scenes/catalogue.js';
 import { setupShowroom } from './scenes/showroom.js';
 import { setupShowcase } from './scenes/showcase.js';
 import { setupQuickView } from './scenes/quick-view.js';
-import { setupProductPage, chosenColourFor } from './scenes/product-page.js';
-import { setupSaveButtons, setupListPage } from './scenes/my-list.js';
+import { setupProductPage } from './scenes/product-page.js';
+import { setupNavMenu } from './scenes/nav-menu.js';
 import { setupEvents } from './scenes/events.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -39,7 +39,7 @@ function canRun3D() {
 const quality = (navigator.hardwareConcurrency ?? 4) >= 8 && matchMedia('(pointer: fine) and (min-width: 900px)').matches ? 'high' : 'low';
 
 setupReveal({ reducedMotion });
-setupSaveButtons({ chosenColour: chosenColourFor });
+setupNavMenu();
 setupCatalogue();
 // Small GPUs and low-memory phones keep the product motion but skip the extra effects.
 setupShowroom({ reducedMotion, lite: quality === 'low' && ((navigator.deviceMemory ?? 4) <= 2 || (navigator.hardwareConcurrency ?? 4) <= 4) });
@@ -47,5 +47,4 @@ const can3D = canRun3D();
 setupShowcase({ reducedMotion, can3D, quality });
 setupProductPage({ can3D, quality });
 setupQuickView({ can3D, quality });
-setupListPage();
 setupEvents({ reducedMotion });

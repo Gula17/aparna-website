@@ -1,11 +1,10 @@
 // Catalogue pages (milestone M2), rendered at build time from src/content/catalogue.generated.json:
 //   renderCatalogue  /products/ and /products/<category>/   cards + search, filters, sorting
 //   renderProduct    /products/<category>/<model>/           one product: gallery, colours, specs, related
-//   renderList       /my-list/                               the visitor's saved list
-// No prices, no cart, no buying (brief §3): the calls to action are save, share, catalogue, ask your shop.
+// MRP only, no cart, no buying (brief §3): the calls to action are share on WhatsApp and ask your shop.
 
-import { esc, fmt } from './helpers.js';
-import { siteHeader, siteFooter, heartIcon } from './layout.js';
+import { esc, fmt, rupees, linkEvents } from './helpers.js';
+import { siteHeader, siteFooter } from './layout.js';
 import { PRODUCT_MODELS, FINISH_KEYS, PICTURED_COLOUR, POSTER_FINISHES } from '../three/models.js';
 
 const DATA_COLOUR_TO_FINISH = FINISH_KEYS; // colour name -> 3D finish (src/three/models.js)
@@ -39,8 +38,6 @@ const MOTION_BY_CATEGORY = {
   'electric-irons': 'iron',
   'kitchen-appliances': 'cook',
   'heating-and-water': 'heat',
-  motors: 'cooler', // cooler motors and pumps: a slow turntable, like the coolers they go in
-  pumps: 'cooler',
 };
 export const motionOf = (p) => MOTION_BY_CATEGORY[p.categorySlug] ?? 'oscillate'; // table, wall, pedestal, high-speed, cabin
 
@@ -111,13 +108,6 @@ const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--
 
 const sizeText = (p) => (p.sizeInch ? (p.sizeMm ? `${p.sizeInch}" · ${p.sizeMm} mm` : `${p.sizeInch}"`) : '');
 
-const saveButton = (t, p, extra = '') => `
-  <button class="save-btn ${extra}" type="button" data-save="${esc(p.id)}" aria-pressed="false" aria-label="${esc(fmt(t.products.saveLabel, { name: p.name }))}">
-    ${heartIcon}<span class="save-btn__text">${esc(t.products.save)}</span>
-  </button>`;
-
-// MRP in Indian digit grouping, e.g. ₹10,395
-const rupees = (n) => `₹${Number(n).toLocaleString('en-IN')}`;
 const mrpLine = (t, p) => (p.mrp ? `${p.mrp.varies ? t.product.mrpFrom : t.product.mrp} ${rupees(p.mrp.value)}` : '');
 
 function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) {
@@ -148,7 +138,6 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
         </span>
       </a>
       <ul class="badges product-card__badges">${statusBadge(t, p)}${p.badges.filter((b) => b !== 'New launch').slice(0, 2).map((b) => `<li class="badge badge--soft">${esc(b)}</li>`).join('')}</ul>
-      ${saveButton(t, p, 'save-btn--icon')}
       <button class="quick-btn" type="button" data-quick aria-label="${esc(fmt(t.showroom.quickLabel, { name: p.name }))}">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         <span>${esc(t.showroom.quick)}</span>
@@ -206,7 +195,6 @@ const quickViewDialog = (t) => `
         <p class="fine-print" data-quick-hint>${esc(t.preview.dragHint)}</p>
         <div class="preview__actions">
           <a class="btn btn--light" href="/products/" data-quick-link>${esc(t.preview.fullDetails)}</a>
-          <button class="save-btn btn btn--ghost-light" type="button" data-save="" data-quick-save data-label-template="${esc(t.products.saveLabel)}" aria-pressed="false">${heartIcon}<span class="save-btn__text">${esc(t.products.save)}</span></button>
         </div>
         <p class="preview__where">${esc(t.products.where)}</p>
       </div>
@@ -276,7 +264,6 @@ function showcase(t, catalogue, cutouts) {
         ${numberTiles(keyNumbers(t, p).slice(0, 3), 'feature__numbers')}
         <div class="feature__actions">
           <a class="btn btn--light" href="${esc(p.url)}">${esc(t.products.viewDetails)}</a>
-          ${saveButton(t, p, 'btn btn--ghost-light')}
         </div>
       </div>
     </article>`;
@@ -296,7 +283,7 @@ function showroom(t, catalogue, cutouts, category, title, lead) {
       <div class="showroom__intro">
         <p class="showroom__eyebrow" data-reveal>${esc(s.eyebrow)}</p>
         <h1 class="showroom__title" id="page-title" data-reveal="words">${esc(title)}</h1>
-        <p class="showroom__lead" data-reveal>${esc(lead)}</p>
+        <p class="showroom__lead" data-reveal>${linkEvents(esc(lead))}</p>
         <a class="showroom__browse" href="#browse" data-reveal>${esc(fmt(s.browseAll, { count: catalogue.products.length }))} <span aria-hidden="true">↓</span></a>
       </div>
       <h2 class="sr-only">${esc(s.byCategory)}</h2>
@@ -324,7 +311,7 @@ function showroom(t, catalogue, cutouts, category, title, lead) {
       <div class="showroom__intro">
         <p class="showroom__eyebrow" data-reveal>${esc(s.eyebrow)}</p>
         <h1 class="showroom__title" id="page-title" data-reveal="words">${esc(title)}</h1>
-        <p class="showroom__lead" data-reveal>${esc(lead)}</p>
+        <p class="showroom__lead" data-reveal>${linkEvents(esc(lead))}</p>
         <p class="showroom__stat" data-reveal><strong>${category.count}</strong> ${esc(category.count === 1 ? s.model : s.modelsWord)}</p>
       </div>
       <a class="spotlight" href="${esc(hero.url)}" data-stage-card data-spotlight data-3d-visual>
@@ -344,7 +331,6 @@ export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, ca
     .sort((a, b) => a.sort.localeCompare(b.sort, undefined, { numeric: true }));
   const title = category ? category.name : t.products.title;
   const lead = category ? t.categoryLines[category.name] ?? '' : fmt(t.products.lead, { count: catalogue.products.length, categories: catalogue.categories.length });
-  const catalogueFile = range.downloads.catalogue.file;
 
   const facets = [
     category ? '' : facet(t, 'category', t.products.category, catalogue.categories.map((c) => [c.slug, c.count]), (slug) => esc(catalogue.categories.find((c) => c.slug === slug).name)),
@@ -357,7 +343,7 @@ export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, ca
 
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
-  ${siteHeader(t, range.media, catalogue.categories, { catalogueFile })}
+  ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="catalogue">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol><li><a href="/">${esc(t.product.home)}</a></li>${category ? `<li><a href="/products/">${esc(t.product.products)}</a></li><li aria-current="page">${esc(category.name)}</li>` : `<li aria-current="page">${esc(t.product.products)}</li>`}</ol>
@@ -447,7 +433,6 @@ function productMrp(t, p, pickColours) {
 export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }) {
   const p = catalogue.products.find((x) => x.id === id);
   const cut = cutouts[p.id];
-  const catalogueFile = range.downloads.catalogue.file;
   const modelKey = PRODUCT_MODELS[p.id];
   // the 3D finish for a colour: a poster finish of this model ("Gold tone" for Golden), else the named finish
   const finishOf = (c) => {
@@ -540,7 +525,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
 
   return `
   <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
-  ${siteHeader(t, range.media, catalogue.categories, { catalogueFile })}
+  ${siteHeader(t, range.media, catalogue.categories)}
   <main id="main" class="product" data-product="${esc(p.id)}">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol>
@@ -604,9 +589,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         </fieldset>` : ''}
 
         <div class="product__actions">
-          ${saveButton(t, p, 'btn btn--light')}
           <a class="btn btn--whatsapp" data-share data-share-text="${esc(shareText)}" href="https://wa.me/?text=${encodeURIComponent(shareText)}" target="_blank" rel="noopener">${esc(t.preview.share)}</a>
-          <a class="btn btn--ghost-light" href="${esc(catalogueFile)}" download>${esc(t.catalogue.cta)}</a>
         </div>
         <p class="product__where">${esc(t.products.where)}</p>
       </section>
@@ -630,7 +613,6 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
           ${p.specs.map((s) => `<div><dt>${esc(s.label)}</dt><dd>${esc(s.value)}</dd></div>`).join('')}
         </dl>
         ${p.specs.length ? `<p class="fine-print">${esc(t.footer.tolerance)}</p>` : `<p class="fine-print">${esc(t.product.noSpecs)}</p>`}
-        ${p.catalogue ? `<p class="fine-print">${esc(fmt(t.product.catalogueRef, { pages: p.catalogue.pages }))}</p>` : ''}
       </section>
 
       ${p.features.length ? `
@@ -651,42 +633,10 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`;
 }
 
-// ---------------------------------------------------------------- my list
-
-export function renderList({ t, range, catalogue, cutouts = {} }) {
-  // A small index so the page can draw the saved items without loading every product page.
-  const index = Object.fromEntries(catalogue.products.map((p) => [p.id, {
-    name: p.name, url: p.url, category: p.category, meta: [p.type, sizeText(p)].filter(Boolean).join(' · '),
-    image: cutouts[p.id]?.variants[0].file ?? p.images[0]?.variants[0].file ?? null,
-  }]));
-  return `
-  <a class="skip-link" href="#main">${esc(t.skipLink)}</a>
-  ${siteHeader(t, range.media, catalogue.categories, { catalogueFile: range.downloads.catalogue.file })}
-  <main id="main" class="my-list">
-    <header class="catalogue__head">
-      <h1 class="section-title">${esc(t.list.title)}</h1>
-      <p class="catalogue__lead">${esc(t.list.lead)}</p>
-    </header>
-    <ul class="my-list__items" data-list-items data-remove="${esc(t.list.remove)}" data-remove-label="${esc(t.list.removeLabel)}" data-colour="${esc(t.list.colour)}"></ul>
-    <div class="my-list__empty" data-list-empty>
-      <p>${esc(t.list.empty)}</p>
-      <a class="btn btn--primary" href="/products/">${esc(t.list.browse)}</a>
-    </div>
-    <div class="my-list__actions" data-list-actions hidden>
-      <a class="btn btn--whatsapp" data-list-share data-intro="${esc(t.list.shareIntro)}" href="https://wa.me/" target="_blank" rel="noopener">${esc(t.list.share)}</a>
-      <button class="btn btn--ghost" type="button" data-list-clear>${esc(t.list.clear)}</button>
-    </div>
-    <p class="results__where">${esc(t.products.where)}</p>
-  </main>
-  ${siteFooter(t, range.media, catalogue.categories)}
-  <script type="application/json" id="product-index">${JSON.stringify(index).replace(/</g, '\\u003c')}</script>`;
-}
-
 // Page titles and descriptions for the <head>.
 export function pageMeta({ t, catalogue, marker }) {
   const [kind, key] = marker.split(':');
   if (kind === 'catalogue') return { title: `All products | Aparna`, description: fmt(t.products.lead, { count: catalogue.products.length, categories: catalogue.categories.length }) };
-  if (kind === 'list') return { title: `My list | Aparna`, description: t.list.lead };
   if (kind === 'category') {
     const c = catalogue.categories.find((x) => x.slug === key);
     return { title: `${c.name} | Aparna`, description: `${c.count} Aparna ${c.name.toLowerCase()}. ${t.categoryLines[c.name] ?? ''}` };

@@ -155,7 +155,7 @@ html:not(.js) .bldc, .no-3d .bldc { background: var(--charcoal); padding-top: 64
 
 .bldc-step { min-height: 88svh; display: flex; align-items: flex-end; padding-bottom: 10svh; }
 @media (min-width: 900px) { .bldc-step { align-items: center; padding-bottom: 0; } }
-html:not(.js) .bldc-step, .no-3d .bldc-step { min-height: 0; padding: 8px 0; }
+html:not(.js) .bldc-step, .no-3d .bldc-step { min-height: 0; padding: 8px 0; flex-direction: column; align-items: flex-start; }
 html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom: 24px; }
 
 .bldc-step__card {
@@ -296,3 +296,32 @@ html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom:
 .lens.is-zoomed { cursor: zoom-out; }
 .lens.is-zoomed .lens__img { scale: 2.1; }
 @media (hover: none) { [data-needs-hover] { display: none; } }
+
+/* ---------- "01 BLDC": labels on the opened motor (src/scenes/fan-journey.js places them on their parts) */
+.motor-labels { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; }
+.motor-label { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 0; will-change: transform; }
+.motor-label__dot { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--ultra-gold); box-shadow: 0 0 0 4px rgba(241, 200, 144, 0.22); flex: none; }
+.motor-label__line { width: 46px; height: 1px; background: linear-gradient(90deg, var(--ultra-gold), rgba(241, 200, 144, 0.35)); flex: none; margin-top: -4.5px; }
+.motor-label__text {
+  margin-top: -4.5px; padding: 6px 12px; border-radius: 999px; white-space: nowrap;
+  font: 600 0.875rem/1.1 var(--font-body); color: var(--cream-ink);
+  background: rgba(28, 25, 23, 0.78); border: 1px solid rgba(241, 200, 144, 0.3);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.motor-label.is-left { flex-direction: row-reverse; translate: -100% 0; }
+.motor-label.is-left .motor-label__dot { margin: -4.5px -4.5px 0 0; }
+@media (max-width: 899px) {
+  .motor-label__line { width: 22px; }
+  /* narrow screens: long names wrap onto two lines so each label fits on its side of the motor */
+  .motor-label__text { font-size: 0.75rem; padding: 5px 10px; white-space: normal; max-width: 8.5rem; border-radius: 12px; line-height: 1.2; }
+}
+/* the still of the opened motor: only where the scroll animation can't run (no 3D, reduced motion, no JavaScript) */
+.motor-still { display: none; }
+html:not(.js) .motor-still, .no-3d .motor-still { display: grid; gap: 12px; width: min(100%, 420px); margin-top: 12px; }
+.motor-still img { width: 100%; height: auto; border-radius: var(--radius); background: var(--charcoal); }
+.motor-still__labels { display: flex; flex-wrap: wrap; gap: 8px; }
+.motor-still__labels li { padding: 5px 12px; border-radius: 999px; font: 600 0.8125rem/1.2 var(--font-body); color: var(--cream-ink); border: 1px solid rgba(241, 200, 144, 0.35); }
+
+/* the MRP as the last spec row on the BLDC cards (and their quick views), with its tax note */
+.model-card__mrp dd { font-variant-numeric: tabular-nums; }
+.model-card__tax { margin-top: 4px; font-size: 0.75rem; color: var(--cream-soft); text-align: right; }
