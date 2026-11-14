@@ -29,23 +29,30 @@ function mergedMesh(geos, material) {
   return mesh;
 }
 
-// One guard (front or back): radial wires and rings on a shallow dome, facing +z (front) or -z (back).
+// One guard (front or back): radial wires and rings on a dome, facing +z (front) or -z (back). The front and back
+// guards meet at one shared rim, as on a real fan, where a single rim ring (the front guard's) clamps them together:
+//   rimZ:   where the rim sits along the axis (shared by both guards); height: how far the middle of the dome stands
+//           out from the rim; steep: the dome's shape, (1 - (r/R)^2)^(1/steep) — 1 is a plain dome, more keeps the
+//           face fuller and curves it down sharply at the edge, so the turning blades fit inside (fitGuards)
 //   twist:  how far (radians) each wire turns as it goes out, from twistFrom (fraction of the radius) to the rim;
 //           the back guard turns the other way, so the two read as the criss-cross mesh of the photos
 //   thick:  wire thickness (plastic grilles are thicker); band: a flat plastic rim band this deep instead of a wire rim
+//   rim:    the rim ring's thickness (0: none, the back guard, whose rim is the front guard's)
 //   cross:  'net' splits each wire at twistFrom into two that turn opposite ways (a diamond net), 'loop' into two
 //           that bow apart and meet again at the rim (eye-shaped loops)
 //   outer:  [from, count]: the wires from 'from' (fraction of the radius) out are this many, spaced wider (Tesla)
-function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wires = 90, rings = [0.85], inner = 0.13, twist = 0, twistFrom = 0.45, thick = 1, rim = 1, band = 0, cross = 0, outer = null, outerThick = 1 } = {}) {
+function guard(material, rimMaterial, { side = 1, rimZ = 0.03, height = 0.18, steep = 1, wires = 90, rings = [0.85], inner = 0.13, twist = 0, twistFrom = 0.45, thick = 1, rim = 1, band = 0, cross = 0, outer = null, outerThick = 1 } = {}) {
   const g = new THREE.Group();
-  const z = (r) => side * (offset + depth * (1 - (r / R) ** 2)); // deepest in the middle
+  const z = (r) => rimZ + side * height * domeShape(r, steep);
   const tOf = (r) => Math.min(1, Math.max(0, (r / R - twistFrom) / (1 - twistFrom)));
   const turn = (r) => { const t = tOf(r); return cross === 'loop' ? twist * Math.sin(Math.PI * t) : twist * t * t; };
   const geos = [];
+  // points along a wire bunch up towards the rim, where the dome curves down sharply
   const wire = (a, from, to, n, dir, w = 1) => {
     const pts = [];
+    n += 4;
     for (let k = 0; k <= n; k++) {
-      const r = from + ((to - from) * k) / n;
+      const r = from + (to - from) * (1 - (1 - k / n) ** 1.7);
       const b = a + dir * turn(r);
       pts.push(new THREE.Vector3(Math.cos(b) * r, Math.sin(b) * r, z(r)));
     }
@@ -63,15 +70,60 @@ function guard(material, rimMaterial, { side = 1, depth = 0.1, offset = 0.06, wi
   for (const f of rings) geos.push(new THREE.TorusGeometry(R * f, 0.0026 * thick, 6, 96).translate(0, 0, z(R * f)));
   g.add(mergedMesh(geos, material));
   if (band) {
+    // a plastic band round the joint, over both guards' edges: one band, as pictured
     const b = [
-      new THREE.CylinderGeometry(R + 0.006, R + 0.006, band, 96, 1, true).rotateX(Math.PI / 2).translate(0, 0, z(R) - (side * band) / 2),
-      new THREE.TorusGeometry(R + 0.002, 0.008, 8, 96).translate(0, 0, z(R)),
+      new THREE.CylinderGeometry(R + 0.006, R + 0.006, band, 96, 1, true).rotateX(Math.PI / 2).translate(0, 0, rimZ),
+      new THREE.TorusGeometry(R + 0.002, 0.008, 8, 96).translate(0, 0, rimZ + band / 2),
+      new THREE.TorusGeometry(R + 0.002, 0.008, 8, 96).translate(0, 0, rimZ - band / 2),
     ];
     g.add(mergedMesh(b, rimMaterial));
-  } else {
-    g.add(new THREE.Mesh(new THREE.TorusGeometry(R, 0.0075 * rim, 8, 128).translate(0, 0, z(R)), rimMaterial));
+  } else if (rim) {
+    g.add(new THREE.Mesh(new THREE.TorusGeometry(R, 0.0075 * rim, 8, 128).translate(0, 0, rimZ), rimMaterial));
   }
   return g;
+}
+
+// The guards' dome: 1 in the middle, 0 at the rim.
+const domeShape = (r, steep) => Math.max(0, 1 - (r / R) ** 2) ** (1 / steep);
+
+// Fits a fan's two guards to its own blades. The blades turn about the axis, so they sweep a solid of revolution:
+// for each distance from the axis, the furthest forward and back any point of a blade reaches (the blade geometry
+// is in the rotor's frame, where the axis is y, and the blades sit at y = bladeY). The rim goes where the blades'
+// outer ends turn, so the cage closes round them; each dome keeps its height (how far its middle stands out, as
+// before) and gets just steep enough an edge to clear the blades everywhere, plus a little room. If no shape
+// clears them, that guard is made deeper.
+const CLEAR = 0.014; // room between a blade and a guard wire
+function fitGuards(bladeGeo, bladeY, { front = 0.21, back = -0.12 } = {}) {
+  const BINS = 40;
+  const hi = new Array(BINS).fill(-Infinity), lo = new Array(BINS).fill(Infinity);
+  const pos = bladeGeo.getAttribute('position');
+  let tip = 0;
+  for (let i = 0; i < pos.count; i++) {
+    const r = Math.hypot(pos.getX(i), pos.getZ(i)), a = pos.getY(i) + bladeY;
+    const b = Math.min(BINS - 1, Math.floor((r / R) * BINS));
+    hi[b] = Math.max(hi[b], a); lo[b] = Math.min(lo[b], a);
+    tip = Math.max(tip, r);
+  }
+  // the rim: midway between how far forward and back the blades reach near their tips
+  const outerBins = hi.map((h, b) => ((b + 0.5) / BINS) * R > tip * 0.85 && h > -Infinity ? b : -1).filter((b) => b >= 0);
+  const rimZ = outerBins.reduce((s, b) => s + (hi[b] + lo[b]) / 2, 0) / outerBins.length;
+  // every bin out to the rim: a guard must clear the blades over the whole width of the bin
+  const need = (side) => hi.map((h, b) => {
+    if (h === -Infinity) return -Infinity; // no blade reaches this far out
+    const span = [b - 1, b, b + 1].filter((k) => k >= 0 && k < BINS && hi[k] > -Infinity);
+    return Math.max(...span.map((k) => (side > 0 ? hi[k] - rimZ : rimZ - lo[k]))) + CLEAR;
+  });
+  const fit = (side, height) => {
+    const n = need(side);
+    for (let h = height; h < height + 0.2; h += 0.005) {
+      for (let steep = 1; steep <= 9; steep += 0.1) {
+        // check each bin at its outer edge, where the dome is lowest
+        if (n.every((v, b) => v === -Infinity || h * domeShape(Math.min(R, ((b + 1) / BINS) * R), steep) >= v)) return { height: h, steep };
+      }
+    }
+    return { height: height + 0.2, steep: 9 };
+  };
+  return { rimZ, front: fit(1, front - rimZ), back: fit(-1, rimZ - back) };
 }
 
 // Blade outlines, as width and sweep along the blade, or as its two edges (lead, trail) and a round tip (cap);
@@ -107,9 +159,12 @@ const BLADE_SHAPES = {
 function bladeGeometry({ shape, tip, root, pitch }) {
   const s = BLADE_SHAPES[shape].lead ? edgeOutline(BLADE_SHAPES[shape], tip, root) : sweptOutline(BLADE_SHAPES[shape], shape, tip, root);
   const geo = new THREE.ExtrudeGeometry(s, { depth: 0.01, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.004, bevelSegments: 2, curveSegments: 3 }); // a spline's divisions are per point: 3 is smooth
-  // a strongly swept blade can reach sideways out past the rim: shrink it to fit inside the guard
-  const far = Math.max(...s.getPoints(4).map((p) => p.length()));
-  if (far > R - 0.01) geo.scale((R - 0.025) / far, (R - 0.025) / far, 1);
+  // a strongly swept or round-tipped blade can reach out to the rim: shrink it to fit inside the guard, with room for
+  // the guards to curve in to the rim round it (measured on the finished blade, curves and edges included)
+  const pos = geo.getAttribute('position');
+  let far = 0;
+  for (let i = 0; i < pos.count; i++) far = Math.max(far, Math.hypot(pos.getX(i), pos.getY(i)));
+  if (far > R - 0.03) geo.scale((R - 0.03) / far, (R - 0.03) / far, 1);
   geo.translate(0, 0, -0.005);
   geo.rotateX(-Math.PI / 2);
   geo.applyMatrix4(new THREE.Matrix4().makeRotationX(-pitch));
@@ -531,11 +586,16 @@ function createFrontFan(name, cfg) {
   motorBack.rotation.x = -Math.PI / 2;
   motorBack.position.z = -0.27;
   const g = { wires: 90, rings: [0.35, 0.62, 0.86], ...cfg.guard };
+  // the blades first: the guards are fitted round them
+  const hr = cfg.hub.radius;
+  const bladeGeo = bladeGeometry({ shape: cfg.blades.shape, tip: cfg.blades.tip ?? 0.45, root: hr * 0.8, pitch: cfg.blades.pitch ?? 0.38 });
+  const BLADE_Y = 0.03; // the blades' plane, in front of the motor
+  const fit = fitGuards(bladeGeo, BLADE_Y);
   head.add(
-    // front and back guards far enough apart that the pitched blades sit fully between them
-    guard(m.wire, m.rim, { side: 1, depth: 0.09, offset: 0.12, ...g }),
-    // the back guard: plainer, and straight behind a criss-cross front
-    guard(m.wire, m.rim, { side: -1, depth: 0.06, offset: 0.06, wires: Math.round(g.wires * (g.backWires ?? (g.cross ? 0.5 : 0.7))), rings: g.backRings ?? [0.45, 0.75], inner: 0.15, twist: g.cross ? 0 : -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: g.rim, band: 0 }),
+    // the front and back guards meet at one rim round the blades; the front guard's rim ring clamps them together
+    guard(m.wire, m.rim, { side: 1, rimZ: fit.rimZ, ...fit.front, ...g }),
+    // the back guard: plainer, and straight behind a criss-cross front; no rim of its own
+    guard(m.wire, m.rim, { side: -1, rimZ: fit.rimZ, ...fit.back, wires: Math.round(g.wires * (g.backWires ?? (g.cross ? 0.5 : 0.7))), rings: g.backRings ?? [0.45, 0.75], inner: 0.15, twist: g.cross ? 0 : -(g.twist ?? 0), twistFrom: g.twistFrom, thick: g.thick, rim: 0, band: 0 }),
     motor, motorBack,
   );
   stator.add(head, STANDS[cfg.stand](m, { ...cfg, ...cfg.standOptions }));
@@ -547,14 +607,12 @@ function createFrontFan(name, cfg) {
   const rotor = new THREE.Group();
   rotor.name = 'rotor';
   axis.add(rotor);
-  const hr = cfg.hub.radius;
   rotor.add(...hubParts(m, cfg.hub));
-  const bladeGeo = bladeGeometry({ shape: cfg.blades.shape, tip: cfg.blades.tip ?? 0.45, root: hr * 0.8, pitch: cfg.blades.pitch ?? 0.38 });
   const blades = [];
   for (let i = 0; i < cfg.blades.count; i++) {
     const pivot = new THREE.Group();
     const blade = new THREE.Mesh(bladeGeo, m.blade);
-    blade.position.y = 0.03;
+    blade.position.y = BLADE_Y;
     pivot.add(blade);
     pivot.userData.restAngle = (i * Math.PI * 2) / cfg.blades.count + (cfg.blades.phase ?? 0);
     pivot.rotation.y = pivot.userData.restAngle;
@@ -574,6 +632,7 @@ function createFrontFan(name, cfg) {
   fan.add(stator, axis, hitArea);
   return {
     fan, rotor, stator, blades, blurDisc, hitArea,
+    guardFit: fit, // where the guards' shared rim sits and how their domes were fitted round the blades
     setFinish() {}, // one finish each
     // seen from just above eye level, the whole fan in view
     viewerPose: { elevation: 0.1, azimuth: 0.45, screenX: 0.5, screenY: 0.5, fill: 0.9, zoom: cfg.zoom },
