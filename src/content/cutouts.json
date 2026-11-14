@@ -1,5 +1,5 @@
 {
-  "_read_me": "Checked by eye. reject: the automatic cutout was wrong (see-through blades, missing parts, leftover printed names), so the product keeps its normal photo. erase: printed extras (logo tile, energy-label badge, caption) cleared from the cutout, as [left, top, width, height] fractions of the cutout. Run npm run cutouts after a change.",
+  "_read_me": "Checked by eye. reject: the automatic cutout was wrong (see-through blades, missing parts, leftover printed names; and white or ivory parts on a white or pale background, which the background removal erases with the background: Plancha Beetle, Aronita, Rider, Rider Pro, Ultima 1401/1402, checked 14 Nov 2026; GoAir's white blades came out partly see-through but are kept, as its turning blades are made from the cutout), so the product keeps its normal photo. erase: printed extras (logo tile, energy-label badge, caption) cleared from the cutout, as [left, top, width, height] fractions of the cutout. Run npm run cutouts after a change.",
   "reject": [
     "ceiling-fans-coras-48",
     "ceiling-fans-irus-48",
@@ -44,7 +44,14 @@
     "ceiling-fans-virat-36",
     "ventilation-fresh-air-fans-ventilation-fan-6",
     "ventilation-fresh-air-fans-ventilation-fan-8",
-    "ventilation-fresh-air-fans-ventilation-fan-10"
+    "ventilation-fresh-air-fans-ventilation-fan-10",
+    "electric-irons-plancha-beetle",
+    "ceiling-fans-aronita-48",
+    "ceiling-fans-rider-48",
+    "ceiling-fans-rider-pro-48",
+    "ceiling-fans-iconic-48",
+    "air-coolers-ultima-1401",
+    "air-coolers-ultima-1402"
   ],
   "erase": {
     "ceiling-fans-aeroflow-48": [

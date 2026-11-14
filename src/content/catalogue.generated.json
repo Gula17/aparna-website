@@ -16029,23 +16029,18 @@
         {
           "variants": [
             {
-              "file": "/media/products/pricelist-electric-irons-passion-480.webp",
+              "file": "/media/products/studio-128-480.webp",
               "width": 480,
-              "height": 399
+              "height": 341
             },
             {
-              "file": "/media/products/pricelist-electric-irons-passion-960.webp",
+              "file": "/media/products/studio-128-960.webp",
               "width": 960,
-              "height": 797
-            },
-            {
-              "file": "/media/products/pricelist-electric-irons-passion-1440.webp",
-              "width": 1440,
-              "height": 1196
+              "height": 681
             }
           ],
-          "alt": "The Passion, as pictured in Aparna's price list",
-          "kind": "catalogue"
+          "alt": "The Aparna Passion",
+          "kind": "studio"
         }
       ],
       "sort": "9.1.195",
@@ -16391,23 +16386,18 @@
         {
           "variants": [
             {
-              "file": "/media/products/pricelist-electric-irons-verna-480.webp",
+              "file": "/media/products/studio-127-480.webp",
               "width": 480,
-              "height": 343
+              "height": 339
             },
             {
-              "file": "/media/products/pricelist-electric-irons-verna-960.webp",
+              "file": "/media/products/studio-127-960.webp",
               "width": 960,
-              "height": 686
-            },
-            {
-              "file": "/media/products/pricelist-electric-irons-verna-1440.webp",
-              "width": 1440,
-              "height": 1029
+              "height": 677
             }
           ],
-          "alt": "The Verna, as pictured in Aparna's price list",
-          "kind": "catalogue"
+          "alt": "The Aparna Verna",
+          "kind": "studio"
         }
       ],
       "sort": "9.1.200",
@@ -16914,86 +16904,6 @@
       "mrp": null
     },
     {
-      "id": "electric-irons-new-white-grey",
-      "slug": "new-white-grey",
-      "url": "/products/electric-irons/new-white-grey/",
-      "name": "Dry iron, white and grey",
-      "modelNumber": null,
-      "category": "Electric Irons",
-      "categorySlug": "electric-irons",
-      "series": "Coming soon",
-      "type": "Dry iron",
-      "sizeInch": null,
-      "sizeMm": null,
-      "colours": [],
-      "specs": [],
-      "features": [],
-      "badges": [],
-      "status": "soon",
-      "description": "Aparna dry iron. Its name and full details are coming soon.",
-      "catalogue": null,
-      "images": [
-        {
-          "variants": [
-            {
-              "file": "/media/products/studio-127-480.webp",
-              "width": 480,
-              "height": 339
-            },
-            {
-              "file": "/media/products/studio-127-960.webp",
-              "width": 960,
-              "height": 677
-            }
-          ],
-          "alt": "The Aparna Dry iron, white and grey",
-          "kind": "studio"
-        }
-      ],
-      "sort": "9.9.012",
-      "mrp": null
-    },
-    {
-      "id": "electric-irons-new-white-blue",
-      "slug": "new-white-blue",
-      "url": "/products/electric-irons/new-white-blue/",
-      "name": "Dry iron, white and blue",
-      "modelNumber": null,
-      "category": "Electric Irons",
-      "categorySlug": "electric-irons",
-      "series": "Coming soon",
-      "type": "Dry iron",
-      "sizeInch": null,
-      "sizeMm": null,
-      "colours": [],
-      "specs": [],
-      "features": [],
-      "badges": [],
-      "status": "soon",
-      "description": "Aparna dry iron. Its name and full details are coming soon.",
-      "catalogue": null,
-      "images": [
-        {
-          "variants": [
-            {
-              "file": "/media/products/studio-128-480.webp",
-              "width": 480,
-              "height": 341
-            },
-            {
-              "file": "/media/products/studio-128-960.webp",
-              "width": 960,
-              "height": 681
-            }
-          ],
-          "alt": "The Aparna Dry iron, white and blue",
-          "kind": "studio"
-        }
-      ],
-      "sort": "9.9.013",
-      "mrp": null
-    },
-    {
       "id": "electric-irons-new-white-pink",
       "slug": "new-white-pink",
       "url": "/products/electric-irons/new-white-pink/",
@@ -17030,7 +16940,7 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.014",
+      "sort": "9.9.012",
       "mrp": null
     },
     {
@@ -17070,7 +16980,7 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.015",
+      "sort": "9.9.013",
       "mrp": null
     },
     {
@@ -17110,7 +17020,7 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.016",
+      "sort": "9.9.014",
       "mrp": {
         "value": 980,
         "variants": [],
@@ -17154,7 +17064,7 @@
           "kind": "studio"
         }
       ],
-      "sort": "9.9.017",
+      "sort": "9.9.015",
       "mrp": null
     },
     {
@@ -18985,7 +18895,7 @@
     {
       "name": "Electric Irons",
       "slug": "electric-irons",
-      "count": 18
+      "count": 16
     }
   ],
   "missing": []

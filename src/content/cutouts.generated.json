@@ -125,26 +125,6 @@
         }
       ]
     },
-    "ceiling-fans-aronita-48": {
-      "alt": "The Aparna Aronita",
-      "variants": [
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-480.webp",
-          "width": 480,
-          "height": 452
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-960.webp",
-          "width": 960,
-          "height": 905
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-aronita-48-1440.webp",
-          "width": 960,
-          "height": 905
-        }
-      ]
-    },
     "ceiling-fans-nexus-48": {
       "alt": "The Aparna Nexus",
       "variants": [
@@ -365,26 +345,6 @@
         }
       ]
     },
-    "ceiling-fans-iconic-48": {
-      "alt": "The Aparna Iconic",
-      "variants": [
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-480.webp",
-          "width": 480,
-          "height": 412
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-960.webp",
-          "width": 960,
-          "height": 825
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-iconic-48-1440.webp",
-          "width": 1198,
-          "height": 1029
-        }
-      ]
-    },
     "ceiling-fans-ikon-48": {
       "alt": "The Aparna Ikon",
       "variants": [
@@ -512,26 +472,6 @@
           "file": "/media/cutouts/studio-22-960.webp",
           "width": 960,
           "height": 534
-        }
-      ]
-    },
-    "ceiling-fans-rider-48": {
-      "alt": "The Aparna Rider",
-      "variants": [
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-480.webp",
-          "width": 372,
-          "height": 480
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-960.webp",
-          "width": 744,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-48-1440.webp",
-          "width": 765,
-          "height": 987
         }
       ]
     },
@@ -927,26 +867,6 @@
           "file": "/media/cutouts/studio-61-960.webp",
           "width": 960,
           "height": 634
-        }
-      ]
-    },
-    "ceiling-fans-rider-pro-48": {
-      "alt": "The Aparna Rider Pro",
-      "variants": [
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-480.webp",
-          "width": 387,
-          "height": 480
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-960.webp",
-          "width": 774,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-ceiling-fans-rider-pro-48-1440.webp",
-          "width": 804,
-          "height": 997
         }
       ]
     },
@@ -1891,46 +1811,6 @@
       ],
       "erased": "[[0.58,0.45,0.42,0.4]]"
     },
-    "air-coolers-ultima-1401": {
-      "alt": "The Aparna Ultima 1401",
-      "variants": [
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1401-0-480.webp",
-          "width": 442,
-          "height": 480
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1401-0-960.webp",
-          "width": 884,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1401-0-1440.webp",
-          "width": 1111,
-          "height": 1206
-        }
-      ]
-    },
-    "air-coolers-ultima-1402": {
-      "alt": "The Aparna Ultima 1402",
-      "variants": [
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1402-0-480.webp",
-          "width": 443,
-          "height": 480
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1402-0-960.webp",
-          "width": 886,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-ultima-1402-0-1440.webp",
-          "width": 1089,
-          "height": 1180
-        }
-      ]
-    },
     "air-coolers-ultima-1601": {
       "alt": "The Aparna Ultima 1601",
       "variants": [
@@ -2719,19 +2599,14 @@
       "alt": "The Aparna Passion",
       "variants": [
         {
-          "file": "/media/cutouts/pricelist-electric-irons-passion-480.webp",
+          "file": "/media/cutouts/studio-128-480.webp",
           "width": 480,
-          "height": 320
+          "height": 341
         },
         {
-          "file": "/media/cutouts/pricelist-electric-irons-passion-960.webp",
+          "file": "/media/cutouts/studio-128-960.webp",
           "width": 960,
-          "height": 640
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-passion-1440.webp",
-          "width": 1229,
-          "height": 819
+          "height": 681
         }
       ]
     },
@@ -2747,26 +2622,6 @@
           "file": "/media/cutouts/studio-134-960.webp",
           "width": 906,
           "height": 698
-        }
-      ]
-    },
-    "electric-irons-plancha-beetle": {
-      "alt": "The Aparna Plancha Beetle",
-      "variants": [
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-480.webp",
-          "width": 480,
-          "height": 245
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-960.webp",
-          "width": 960,
-          "height": 491
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-plancha-beetle-1440.webp",
-          "width": 1211,
-          "height": 619
         }
       ]
     },
@@ -2809,19 +2664,14 @@
       "alt": "The Aparna Verna",
       "variants": [
         {
-          "file": "/media/cutouts/pricelist-electric-irons-verna-480.webp",
+          "file": "/media/cutouts/studio-127-480.webp",
           "width": 480,
-          "height": 321
+          "height": 339
         },
         {
-          "file": "/media/cutouts/pricelist-electric-irons-verna-960.webp",
+          "file": "/media/cutouts/studio-127-960.webp",
           "width": 960,
-          "height": 641
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-verna-1440.webp",
-          "width": 1067,
-          "height": 713
+          "height": 677
         }
       ]
     },
@@ -3002,36 +2852,6 @@
           "file": "/media/cutouts/studio-125-960.webp",
           "width": 935,
           "height": 616
-        }
-      ]
-    },
-    "electric-irons-new-white-grey": {
-      "alt": "The Aparna Dry iron, white and grey",
-      "variants": [
-        {
-          "file": "/media/cutouts/studio-127-480.webp",
-          "width": 480,
-          "height": 339
-        },
-        {
-          "file": "/media/cutouts/studio-127-960.webp",
-          "width": 960,
-          "height": 677
-        }
-      ]
-    },
-    "electric-irons-new-white-blue": {
-      "alt": "The Aparna Dry iron, white and blue",
-      "variants": [
-        {
-          "file": "/media/cutouts/studio-128-480.webp",
-          "width": 480,
-          "height": 341
-        },
-        {
-          "file": "/media/cutouts/studio-128-960.webp",
-          "width": 960,
-          "height": 681
         }
       ]
     },

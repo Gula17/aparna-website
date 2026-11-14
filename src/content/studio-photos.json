@@ -654,6 +654,16 @@
         "shows": "Black"
       }
     ],
+    "electric-irons-passion": [
+      {
+        "file": "128.png"
+      }
+    ],
+    "electric-irons-verna": [
+      {
+        "file": "127.png"
+      }
+    ],
     "electric-irons-bmw": [
       {
         "file": "129.png",
@@ -936,26 +946,6 @@
       "description": "Lightweight dry iron (blue handle)"
     },
     {
-      "id": "electric-irons-new-white-grey",
-      "name": "Dry iron, white and grey",
-      "category": "Electric Irons",
-      "type": "Dry iron",
-      "files": [
-        "127.png"
-      ],
-      "description": "Dry iron (white and grey)"
-    },
-    {
-      "id": "electric-irons-new-white-blue",
-      "name": "Dry iron, white and blue",
-      "category": "Electric Irons",
-      "type": "Dry iron",
-      "files": [
-        "128.png"
-      ],
-      "description": "Dry iron (white and blue)"
-    },
-    {
       "id": "electric-irons-new-white-pink",
       "name": "Dry iron, white and pink",
       "category": "Electric Irons",
@@ -1081,8 +1071,8 @@
     "112.png": "Rectangular infrared cooktop, black glass with teal swirl, touch keys (Stir fry/Barbecue/Milk-Tea/Curry/Timer/On-Off), knob, handles both sides. Not Prime/Prince/Presto. Probably Boss or Crystal (Pride looks different, see 111). No name on the product: ask Aparna.",
     "117.png": "Quartz/halogen rod heater, beige frame with red control panel. Not any heater on page 56 (Silky 2000W there is a chrome reflector heater with blue legs). Sigma is the only room heater with no picture; this heater was on display at Utsav'26 (real photo Heating and irons/AVNI4508). Guess only: ask Aparna to confirm it is Sigma, otherwise treat as a new room heater.",
     "125.png": "Lightweight dry iron, chrome body, blue closed-loop handle, black dial. Not Regular/BMW/Grand/Plancha. Body resembles 'Popular' on page 57 (not in the product master). Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
-    "127.png": "Modern plastic-body dry iron, white with grey handle. No match on page 57. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
-    "128.png": "Modern plastic-body dry iron, white with sky-blue handle stripe, red light. Layout resembles 'Jet' on page 57 (green), but Jet is not in the product master. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
+    "127.png": "Matched to VERNA (14 Nov 2026): Aparna's price list (AAPRNA_PRICE _IST_28_10_2026.pdf, main p18) prints this iron, white with the grey handle, in the row labelled VERNA. Ask Aparna to confirm.",
+    "128.png": "Matched to PASSION (14 Nov 2026): Aparna's price list (AAPRNA_PRICE _IST_28_10_2026.pdf, main p18) prints this iron, white with the sky-blue handle stripe, round dial and red light, in the row labelled PASSION. Ask Aparna to confirm.",
     "130.png": "Dry iron, white with pink/magenta lower body, dial in the pink area. Resembles 'Platina' on page 57 (white/red), which is not in the product master. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
     "131.png": "Modern plastic-body dry iron, all black/dark grey, red light. No match on page 57. Probably one of the master irons with no picture yet (Curv, Eon, Majestic, Passion, Verna): ask Aparna which.",
     "133.png": "Matches BOLD (side switch) on page 57: same body as Grand but yellow, orange window in the handle. 'Bold' is printed in Catalogue 2026 but is NOT in the product master. Use it as a yellow colour of Grand only if Aparna says Bold = Grand.",

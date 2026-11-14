@@ -182,8 +182,8 @@ export const PRODUCT_MODELS = {
   // irons built from their studio photos: src/three/small-appliances.js (motors and pumps are not shown)
   'electric-irons-bold': 'appl-electric-irons-bold',
   'electric-irons-new-blue': 'appl-electric-irons-new-blue',
-  'electric-irons-new-white-grey': 'appl-electric-irons-new-white-grey',
-  'electric-irons-new-white-blue': 'appl-electric-irons-new-white-blue',
+  'electric-irons-verna': 'appl-electric-irons-verna', // photo 127
+  'electric-irons-passion': 'appl-electric-irons-passion', // photo 128
   'electric-irons-new-white-pink': 'appl-electric-irons-new-white-pink',
   'electric-irons-new-black': 'appl-electric-irons-new-black',
   'electric-irons-new-heavy-black': 'appl-electric-irons-new-heavy-black',
