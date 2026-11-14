@@ -42,14 +42,27 @@ const loader = (t, emblemSvg) => `
 
 // ---------------------------------------------------------------- Scene 1: hero + Scene 2: BLDC story
 
-// The opened motor as a still, with the same four labels: shown instead of the scroll animation when there is no 3D
-// (reduced motion, no WebGL, no JavaScript). Rendered by scripts/render-motor-still.mjs.
+// The motor parts each step names, in the order its labels appear (src/scenes/fan-journey.js opens the motor for
+// these steps only): "01 BLDC" the motor and its electronics, "05" the two bearings and the sealed bottom cover.
+const MOTOR_STEPS = {
+  motor: { parts: ['motor', 'board'], still: '/stills/motor-open.webp', alt: 'stillAlt' },
+  bearing: { parts: ['bearing', 'housing'], still: '/stills/motor-bearings.webp', alt: 'stillAltBearing' },
+};
 const MOTOR_PARTS = ['motor', 'board', 'bearing', 'housing'];
-const motorStill = (t) => `
+// The opened motor as a still, captioned with that step's parts: shown instead of the scroll animation when there
+// is no 3D (reduced motion, no WebGL, lost WebGL, no JavaScript). Rendered by scripts/render-motor-still.mjs.
+const motorStill = (t, m) => `
   <figure class="motor-still">
-    <img src="/stills/motor-open.webp" width="900" height="900" alt="${esc(t.bldc.parts.stillAlt)}" loading="lazy" decoding="async">
-    <figcaption><ul class="motor-still__labels">${MOTOR_PARTS.map((k) => `<li>${esc(t.bldc.parts[k])}</li>`).join('')}</ul></figcaption>
+    <img src="${m.still}" width="900" height="900" alt="${esc(t.bldc.parts[m.alt])}" loading="lazy" decoding="async">
+    <figcaption><ul class="motor-still__labels">${m.parts.map((k) => `<li>${esc(t.bldc.parts[k])}</li>`).join('')}</ul></figcaption>
   </figure>`;
+// A step title that never breaks badly: a hyphenated word stays whole ("Anti-dust", never "Anti- / dust"), and a
+// title of phrases joined by " · " breaks between the phrases, the dot staying with the first one.
+const stepTitle = (title) => esc(title)
+  .split(' · ')
+  .map((phrase) => phrase.replace(/(\S+-\S+)/g, '<span class="nowrap">$1</span>'))
+  .map((phrase, i, all) => (all.length > 1 ? `<span class="bldc-step__phrase">${phrase}${i < all.length - 1 ? '&nbsp;·' : ''}</span>` : phrase))
+  .join(' ');
 
 const fanJourney = (t, range) => {
   const steps = t.bldc.steps.map((s) => ({ ...s, title: fmt(s.title, { power: range.bldcSharedPower ?? '' }) }))
@@ -63,6 +76,7 @@ const fanJourney = (t, range) => {
       <canvas class="fan-stage__canvas" id="fan-canvas"></canvas>
       <div class="motor-labels" data-motor-labels>
         ${MOTOR_PARTS.map((k) => `<span class="motor-label" data-part="${k}"><i class="motor-label__dot"></i><i class="motor-label__line"></i><span class="motor-label__text">${esc(t.bldc.parts[k])}</span></span>`).join('')}
+        <i class="motor-label__dot motor-label__twin" data-twin="bearing"></i>
       </div>
     </div>
 
@@ -89,13 +103,14 @@ const fanJourney = (t, range) => {
       </header>
       <ol class="bldc__steps">
         ${steps.map((s, i) => `
-          <li class="bldc-step" data-step="${i}">
+          <li class="bldc-step" data-step="${i}" data-key="${esc(s.key)}">
             <div class="bldc-step__card">
               <span class="bldc-step__num">${pad(i + 1)}</span>
-              <h3 class="bldc-step__title">${esc(s.title)}</h3>
+              <h3 class="bldc-step__title">${stepTitle(s.title)}</h3>
               <p class="bldc-step__body">${esc(s.body)}</p>
+              ${MOTOR_STEPS[s.key] ? `<p class="sr-only">${esc(fmt(t.bldc.partsShown, { a: t.bldc.parts[MOTOR_STEPS[s.key].parts[0]], b: t.bldc.parts[MOTOR_STEPS[s.key].parts[1]] }))}</p>` : ''}
             </div>
-            ${s.key === 'motor' ? motorStill(t) : ''}
+            ${MOTOR_STEPS[s.key] ? motorStill(t, MOTOR_STEPS[s.key]) : ''}
           </li>`).join('')}
       </ol>
     </div>

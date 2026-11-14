@@ -175,15 +175,24 @@ export function createAeroflow({ shadows = false } = {}) {
   for (const m of [shell, trim, cap]) flatGrain(m.geometry);
   rotor.add(shell, trim, accent, lip, cap, seam);
 
-  // the motor's insides (home page "01 BLDC" step): hidden in the closed housing until the split opens it
+  // the motor's insides (home page "01" and "05" steps): hidden in the closed housing until the split opens it
   const internals = createMotorInternals();
   stator.add(internals.group);
   const bottomCover = [trim, accent, lip, cap]; // (the blade seam stays with the blades)
   const coverY = bottomCover.map((m) => m.position.y);
-  // t: 0 closed .. 1 open; spread: how far apart (1 on desktop, tighter on phones)
-  function setExplode(t, spread = 1) {
-    internals.setSplit(t, spread);
-    bottomCover.forEach((m, i) => { m.position.y = coverY[i] + internals.bottomTravel * t * spread; });
+  // t: 0 closed .. 1 open; spread: how far apart (1 on desktop, tighter on phones); layout: 0 ("01") .. 1 ("05")
+  function setExplode(t, spread = 1, layout = 0) {
+    internals.setSplit(t, spread, layout);
+    const dy = internals.coverY(t, spread, layout);
+    bottomCover.forEach((m, i) => { m.position.y = coverY[i] + dy; });
+  }
+  // the part the story names glows: { motor, board, bearing, housing } 0..1; dim 0..1 darkens the other insides.
+  // "housing" is the bottom cover that seals the motor (Anti-dust): an emissive glow, which setFinish never resets.
+  const coverGlow = new THREE.Color('#ffb85c');
+  function setFocus(focus = {}, dim = 0) {
+    internals.setFocus(focus, dim);
+    const f = focus.housing ?? 0;
+    for (const m of [materials.trim, materials.accent, materials.cap]) m.emissive.copy(coverGlow).multiplyScalar(0.14 * f);
   }
 
   const bladeGeo = bladeGeometry();
@@ -240,7 +249,7 @@ export function createAeroflow({ shadows = false } = {}) {
   }
 
   setFinish('wood');
-  return { fan, rotor, stator, blades, blurDisc, hitArea, setFinish, setExplode, explodeAnchors: internals.anchors };
+  return { fan, rotor, stator, blades, blurDisc, hitArea, setFinish, setExplode, setFocus, explodeAnchors: internals.anchors };
 }
 
 export function makeBlurTexture() {

@@ -75,6 +75,207 @@ function wireControls(fan) {
 
 let labelTicker = null;
 
+// ---------------------------------------------------------------- the motor story (steps "01" and "05")
+
+// The steps that open the motor (by their key in en.json bldc.steps), the parts each names in order (the keys of
+// en.json bldc.parts, as in src/templates/home.js) and the motor's layout: 0 opens evenly, 1 leaves wide gaps
+// round the two bearings so their balls show (src/three/bldc-motor.js).
+const MOTOR_STEPS = {
+  motor: { parts: ['motor', 'board'], layout: 0 },
+  bearing: { parts: ['bearing', 'housing'], layout: 1 },
+};
+
+// Where the camera looks while a step's motor is open: `open` frames the whole opened stack (null: the step's own
+// camera pose, unchanged), then a close look for each part: one look, or two that the camera travels between while
+// that part is named. lookY: the point on the shaft it aims at (fan units, at
+// full spread) · frame: units across the screen's narrower side · x, y: where that point sits on screen (phones
+// work out y from the card, see bandY) · el, az: added to the step's camera angles (more negative el looks further
+// up from below). The angles keep a clear line of sight: the board from a shallow angle, so the bottom cover
+// below it doesn't hide it; the bearings from well below, so the balls show between their races.
+// layout 1, full spread (bldc-motor.js): halfway between the two bearings (the camera holds both, the rotor between
+// them), and the bottom cover
+const BEARINGS = (-0.105 + -0.445) / 2, COVER = -0.674;
+const MOTOR_LOOKS = {
+  desktop: {
+    motor: {
+      open: null,
+      motor: [{ lookY: -0.21, frame: 0.66, x: 0.62, y: 0.46, el: 0, az: 0 }],
+      board: [{ lookY: -0.42, frame: 0.6, x: 0.62, y: 0.46, el: 0.22, az: 0 }],
+    },
+    bearing: {
+      open: { lookY: -0.36, frame: 1.0, x: 0.66, y: 0.48, el: -0.1, az: 0 },
+      bearing: [{ lookY: BEARINGS, frame: 0.46, x: 0.62, y: 0.48, el: -0.5, az: 0.2 }],
+      housing: [{ lookY: COVER, frame: 0.62, x: 0.62, y: 0.44, el: -0.55, az: 0 }],
+    },
+  },
+  mobile: {
+    motor: {
+      open: { lookY: -0.24, frame: 0.95, x: 0.34, y: 0.3, el: 0, az: 0 },
+      motor: [{ lookY: -0.2, frame: 0.7, x: 0.32, y: 0.3, el: 0, az: 0 }],
+      board: [{ lookY: -0.42, frame: 0.62, x: 0.32, y: 0.3, el: 0.22, az: 0 }],
+    },
+    bearing: {
+      open: { lookY: -0.36, frame: 0.95, x: 0.34, y: 0.3, el: -0.1, az: 0 },
+      bearing: [{ lookY: BEARINGS, frame: 0.4, x: 0.34, y: 0.3, el: -0.5, az: 0.2 }],
+      housing: [{ lookY: COVER, frame: 0.62, x: 0.34, y: 0.3, el: -0.55, az: 0 }],
+    },
+  },
+};
+
+const clamp01 = (x) => Math.min(1, Math.max(0, x));
+const smooth = (x) => { const v = clamp01(x); return v * v * (3 - 2 * v); };
+const LOOK_KEYS = ['lookY', 'frame', 'x', 'y', 'el', 'az'];
+const mixLook = (a, b, k) => Object.fromEntries(LOOK_KEYS.map((key) => [key, a[key] + (b[key] - a[key]) * k]));
+
+// One moment of a motor step, from its scroll progress p (0..1): a pure function, so scrolling either way always
+// lands on the same picture and the motor can never stay half open.
+//   0-0.2 opens · 0.2-0.47 the first part (label, glow, close look) · 0.47-0.74 the second · 0.74-0.8 its label
+//   goes · 0.8-1 closes. One label at a time: the first fades out before the second fades in.
+// Returns the split, each part's glow and label, and the camera: { look, detail } (detail 0 = the step's own pose).
+function motorMoment(p, looks, parts) {
+  const open = smooth(p / 0.2);
+  const close = smooth((p - 0.8) / 0.2);
+  const first = smooth((p - 0.2) / 0.08);
+  const second = smooth((p - 0.47) / 0.08);
+  const done = smooth((p - 0.74) / 0.06);
+  const focus = [first * (1 - second), second * (1 - done)];
+  const labels = [first * (1 - smooth((p - 0.45) / 0.04)), smooth((p - 0.51) / 0.04) * (1 - done)];
+  // the camera: closed -> open stack -> part 1 (travelling between its looks) -> part 2 -> open stack -> closed
+  const [a0, a1 = a0] = looks[parts[0]];
+  const [b0, b1 = b0] = looks[parts[1]];
+  const o = looks.open;
+  const along = (x, y, from, to) => mixLook(x, y, smooth((p - from) / (to - from)));
+  let look, detail = 1;
+  if (p < 0.2) { look = o ?? a0; detail = o ? open : 0; }
+  else if (p < 0.28) { look = o ? mixLook(o, a0, first) : a0; detail = o ? 1 : first; }
+  else if (p < 0.47) look = along(a0, a1, 0.28, 0.45);
+  else if (p < 0.55) look = mixLook(a1, b0, second);
+  else if (p < 0.74) look = along(b0, b1, 0.55, 0.72);
+  else if (p < 0.8) { look = o ? mixLook(b1, o, done) : b1; detail = o ? 1 : 1 - done; }
+  else { look = o ?? b1; detail = o ? 1 - close : 0; }
+  return { t: open * (1 - close), focus, labels, dim: Math.max(...focus), look, detail };
+}
+
+function setupMotorStory({ fan, steps, cardOf, scrub, desktop }) {
+  const box = document.querySelector('[data-motor-labels]');
+  const labelEl = Object.fromEntries([...(box?.querySelectorAll('.motor-label') ?? [])].map((el) => [el.dataset.part, el]));
+  const twin = box?.querySelector('[data-twin="bearing"]');
+  const intro = document.querySelector('.bldc__intro');
+  const spread = desktop ? 1 : 0.85; // a slightly tighter split on phones
+  const looks = MOTOR_LOOKS[desktop ? 'desktop' : 'mobile'];
+  const motorSteps = steps.filter((s) => MOTOR_STEPS[s.dataset.key]).map((step) => ({ step, key: step.dataset.key, p: 0 }));
+  if (!motorSteps.length) return;
+
+  // Phones: the intro heading fades as the 01 card arrives, so a label never sits on it.
+  if (!desktop && intro && motorSteps[0].key === 'motor') {
+    gsap.fromTo(intro, { autoAlpha: 1 }, { autoAlpha: 0, ease: 'none', immediateRender: false,
+      scrollTrigger: { trigger: cardOf(motorSteps[0].step), start: 'top bottom', end: 'top 80%', scrub } });
+  }
+
+  const hits = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+  const hide = (el) => { if (el) { el.style.opacity = 0; el.style.visibility = 'hidden'; } };
+
+  // Phones: the step's card scrolls up through the whole screen while its motor is open, so the motor keeps to the
+  // free band above the card, and glides into the band below once the card has passed the middle.
+  function bandY(card, stage) {
+    const r = card.getBoundingClientRect();
+    const top = r.top - stage.top, bottom = r.bottom - stage.top, H = stage.height;
+    const above = Math.max(0, top), below = Math.max(0, H - bottom);
+    const w = smooth(0.5 + (above - below) / (0.35 * H)); // 1: the band above is the bigger one
+    return ((above / 2) * w + ((bottom + H) / 2) * (1 - w)) / H;
+  }
+
+  function apply() {
+    const m = motorSteps.find((s) => s.p > 0 && s.p < 1);
+    const cfg = m && MOTOR_STEPS[m.key];
+    const st = m ? motorMoment(m.p, looks[m.key], cfg.parts) : null;
+    fan.setExplode(st ? st.t : 0, spread, cfg ? cfg.layout : 0);
+    fan.setFocus(st ? { [cfg.parts[0]]: st.focus[0], [cfg.parts[1]]: st.focus[1] } : {}, st ? st.dim : 0);
+    const stage = box?.getBoundingClientRect();
+
+    // the camera's close look
+    const pose = fan.pose;
+    pose.detail = st ? st.detail : 0;
+    if (st && st.detail > 0) {
+      const y = desktop || !stage ? st.look.y : bandY(cardOf(m.step), stage);
+      Object.assign(pose, { lookY: st.look.lookY * spread, frame: st.look.frame, detailX: st.look.x, detailY: y, elevAdd: st.look.el, azAdd: st.look.az });
+    }
+
+    // the labels: only this step's, one at a time, each on its own part, faded in as the story names it
+    if (!box) return;
+    for (const [part, el] of Object.entries(labelEl)) if (!cfg || !cfg.parts.includes(part)) hide(el);
+    hide(twin);
+    if (!st || Math.max(...st.labels) <= 0.01 || st.t < 0.6) {
+      if (cfg) cfg.parts.forEach((part) => hide(labelEl[part]));
+      box.style.opacity = 0;
+      return;
+    }
+    box.style.opacity = 1;
+    const at = fan.explodeLabelsOnScreen(st.t, spread, cfg.layout);
+    const W = box.clientWidth, H = box.clientHeight;
+    const inside = (q) => q.x > 6 && q.x < W - 6 && q.y > 6 && q.y < H - 6;
+    // text to keep clear of: the step's own card on every screen, and on phones the intro heading while it shows
+    const avoid = [cardOf(m.step), ...(!desktop && intro && Number(getComputedStyle(intro).opacity) > 0.05 ? intro.children : [])]
+      .map((el) => el.getBoundingClientRect()).filter((r) => r.height)
+      .map((r) => ({ left: r.left - stage.left, right: r.right - stage.left, top: r.top - stage.top, bottom: r.bottom - stage.top }));
+    cfg.parts.forEach((part, i) => {
+      const el = labelEl[part];
+      const opacity = st.labels[i];
+      if (!el || opacity <= 0.01) { hide(el); return; }
+      // "Double ball bearing": the line goes to the lower bearing, which hangs in open space (a line to the upper one
+      // would cross the stator), and a second dot marks the upper bearing
+      const p = at.labels[part];
+      const other = part === 'bearing' ? at.labels.bearing2 : null;
+      const text = el.querySelector('.motor-label__text');
+      const tw = text.offsetWidth, th = text.offsetHeight;
+      let placed = null;
+      for (const side of ['right', 'left']) {
+        const dot = side === 'right' ? { x: p.x, y: p.y } : { x: p.lx, y: p.ly };
+        if (!inside(dot)) continue;
+        // the line runs out past every part at the label's height, so the text never sits on the motor
+        const row = at.outline.filter((q) => Math.abs(q.y - dot.y) < th / 2 + 6);
+        const edge = side === 'right' ? Math.max(dot.x, ...row.map((q) => q.x)) : Math.min(dot.x, ...row.map((q) => q.x));
+        const line = Math.max(desktop ? 46 : 22, Math.abs(edge - dot.x) + 14);
+        const x0 = side === 'right' ? dot.x + line : dot.x - line - tw;
+        const label = { left: Math.min(dot.x, x0), right: Math.max(dot.x, x0 + tw), top: dot.y - th / 2, bottom: dot.y + th / 2 };
+        const onScreen = label.left >= 6 && label.right <= W - 6 && label.top >= 6 && label.bottom <= H - 6;
+        if (onScreen && !avoid.some((r) => hits(label, r))) { placed = { side, dot, line }; break; }
+      }
+      if (!placed) { hide(el); return; } // nowhere clear of the text this moment: no label (never one on words)
+      el.classList.toggle('is-left', placed.side === 'left');
+      el.style.setProperty('--line', `${Math.round(placed.line)}px`);
+      el.style.transform = `translate(${Math.round(placed.dot.x)}px, ${Math.round(placed.dot.y)}px)`;
+      el.style.opacity = opacity;
+      el.style.visibility = 'visible';
+      if (other && twin) {
+        const q = placed.side === 'right' ? { x: other.x, y: other.y } : { x: other.lx, y: other.ly };
+        if (inside(q) && !avoid.some((r) => hits({ left: q.x - 6, right: q.x + 6, top: q.y - 6, bottom: q.y + 6 }, r))) {
+          twin.style.transform = `translate(${Math.round(q.x)}px, ${Math.round(q.y)}px)`;
+          twin.style.opacity = opacity;
+          twin.style.visibility = 'visible';
+        }
+      }
+    });
+  }
+
+  // Each motor step: its progress follows the scroll (scrubbed). Desktop: over the whole step. Phones: only while
+  // its CARD is on screen, from when it rises in at the bottom until it nears the top.
+  for (const m of motorSteps) {
+    const range = desktop
+      ? { trigger: m.step, start: 'top 70%', end: 'bottom 30%' }
+      : { trigger: cardOf(m.step), start: 'top 85%', end: 'top 10%' };
+    gsap.fromTo(m, { p: 0 }, {
+      p: 1, ease: 'none', immediateRender: false, onUpdate: apply,
+      scrollTrigger: { ...range, scrub, onLeave: () => { m.p = 1; apply(); }, onLeaveBack: () => { m.p = 0; apply(); } },
+    });
+  }
+  // keep the labels on their parts (and the motor clear of the card) while the camera drifts and the fan turns
+  if (labelTicker) gsap.ticker.remove(labelTicker); // one ticker, even after a desktop/phone switch
+  labelTicker = () => { if (motorSteps.some((s) => s.p > 0 && s.p < 1)) apply(); };
+  gsap.ticker.add(labelTicker);
+  apply();
+}
+
 export function setupFanJourney({ fan, reducedMotion }) {
   const journey = document.querySelector('.fan-journey');
   const stage = document.querySelector('.fan-stage');
@@ -138,60 +339,10 @@ export function setupFanJourney({ fan, reducedMotion }) {
       });
     }
 
-    // "01 BLDC": the motor opens along its shaft as the step scrolls in, stays open while it is read, and closes
-    // again before the next step (or on the way back up). Scrubbed, so it can never stay half open.
-    const motorLabels = document.querySelector('[data-motor-labels]');
-    if (steps[0] && fan.explodeLabelsOnScreen) {
-      const split = { t: 0 };
-      const spread = ctx.conditions.desktop ? 1 : 0.85; // a slightly tighter split on phones
-      const labelEls = motorLabels ? [...motorLabels.querySelectorAll('[data-part]')] : [];
-      const introBox = document.querySelector('.bldc__intro');
-      // phones: a label is hidden while it would touch any text (the 01 card, the intro heading and lines), so a
-      // label can never sit on words; on small screens that can mean fewer labels
-      const avoid = ctx.conditions.desktop ? [] : [cardOf(steps[0]), ...document.querySelectorAll('.bldc__intro > *')];
-      const hits = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
-      const show = () => {
-        fan.setExplode(split.t, spread);
-        if (!motorLabels) return;
-        const on = Math.min(1, Math.max(0, (split.t - 0.55) / 0.35));
-        motorLabels.style.opacity = on;
-        if (on <= 0) return;
-        const at = fan.explodeLabelsOnScreen(split.t, spread);
-        const w = motorLabels.clientWidth;
-        for (const el of labelEls) {
-          const p = at[el.dataset.part];
-          if (!p) continue;
-          // on phones the labels alternate sides, and any that would run off the screen flips to the other side
-          let left = !ctx.conditions.desktop && (el.dataset.part === 'motor' || el.dataset.part === 'board');
-          const textW = el.querySelector('.motor-label__text')?.offsetWidth ?? 120;
-          if (!left && p.x + textW + 40 > w) left = true;
-          if (left && p.x - textW - 40 < 0) left = false;
-          el.classList.toggle('is-left', left);
-          el.style.transform = `translate(${Math.round(p.x)}px, ${Math.round(p.y)}px)`;
-          if (avoid.length) {
-            const box = el.querySelector('.motor-label__text').getBoundingClientRect();
-            el.style.visibility = avoid.some((o) => { if (introBox && introBox.contains(o) && Number(getComputedStyle(introBox).opacity) < 0.05) return false; const r = o.getBoundingClientRect(); return r.height && hits(box, r); }) ? 'hidden' : '';
-          }
-        }
-      };
-      // Desktop: over the whole step. Phones: only while the 01 CARD is on screen (the intro heading has gone by
-      // then), closed again by the time the 02 card reaches the screen.
-      if (!ctx.conditions.desktop && introBox) {
-        gsap.fromTo(introBox, { autoAlpha: 1 }, { autoAlpha: 0, ease: 'none', immediateRender: false,
-          scrollTrigger: { trigger: cardOf(steps[0]), start: 'top bottom', end: 'top 80%', scrub } });
-      }
-      const range = ctx.conditions.desktop
-        ? { trigger: steps[0], start: 'top 70%', end: 'bottom 30%' }
-        : { trigger: cardOf(steps[0]), start: 'top 78%', endTrigger: steps[1] ? cardOf(steps[1]) : steps[0], end: steps[1] ? 'top bottom' : 'bottom top' };
-      gsap.timeline({ scrollTrigger: { ...range, scrub, onLeave: () => { split.t = 0; show(); }, onLeaveBack: () => { split.t = 0; show(); } } })
-        .to(split, { t: 1, duration: 0.35, ease: 'power2.inOut', onUpdate: show })
-        .to(split, { t: 1, duration: 0.3, onUpdate: show })
-        .to(split, { t: 0, duration: 0.35, ease: 'power2.inOut', onUpdate: show });
-      // keep the labels on their parts while the fan keeps turning
-      if (labelTicker) gsap.ticker.remove(labelTicker); // one ticker, even after a desktop/phone switch
-      labelTicker = () => { if (split.t > 0.55) show(); };
-      gsap.ticker.add(labelTicker);
-    }
+    // The motor story: "01 BLDC" and "05 Double ball bearing · Anti-dust" open the Aeroflow's motor along its shaft
+    // and name its parts one after the other, each label on its own part while that part glows and the camera
+    // moves in on it (see motorMoment below). Every other step shows the closed fan.
+    if (fan.explodeLabelsOnScreen) setupMotorStory({ fan, steps, cardOf, scrub, desktop: ctx.conditions.desktop });
 
     // The step cards rise in, and the title inside each one slides after its card.
     steps.forEach((step) => {

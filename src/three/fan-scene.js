@@ -167,6 +167,10 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     screenY: 0.3,
     roll: 0, // tilts the whole fan sideways
     air: viewer ? 0 : 1, // airflow line opacity
+    // a close look at one part of the opened motor (home page BLDC story), blended in by detail (0 = off): the
+    // camera aims at the point lookY on the shaft, frames `frame` units across the screen's narrower side, puts
+    // that point at detailX/detailY on screen, and adds elevAdd/azAdd to the angles
+    detail: 0, lookY: 0, frame: 1, detailX: 0.5, detailY: 0.5, elevAdd: 0, azAdd: 0,
   };
   const state = {
     power: switchable ? 0 : 1, powerAmt: switchable ? 0 : 1, level: 2, omega: 0, boost: 0, boostUntil: 0, holding: false, intro: 1, visible: true, running: false,
@@ -185,6 +189,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     camera.aspect = size.w / size.h;
   }
 
+  const focusPoint = new THREE.Vector3();
   function frameCamera() {
     const aspect = size.w / size.h;
     const vHalf = THREE.MathUtils.degToRad(camera.fov / 2);
@@ -194,12 +199,17 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
     const fill = pose.fill ?? (aspect < 0.8 ? 0.86 : aspect < 1.3 ? 0.62 : 0.5);
     const byWidth = 1.05 / (Math.tan(hHalf) * fill);
     const byHeight = 1.05 / (Math.tan(vHalf) * 0.62);
-    const distance = Math.max(byWidth, byHeight * 0.55) / pose.zoom;
-    const el = pose.elevation + state.parallax.y * 0.07;
-    const az = pose.azimuth + state.parallax.x * 0.16;
-    camera.position.set(Math.sin(az) * Math.cos(el) * distance, Math.sin(el) * distance, Math.cos(az) * Math.cos(el) * distance);
-    camera.lookAt(0, 0, 0);
-    camera.setViewOffset(size.w, size.h, (0.5 - pose.screenX) * size.w, (0.5 - pose.screenY) * size.h, size.w, size.h);
+    const k = pose.detail;
+    const lerp = (a, b) => a + (b - a) * k;
+    const close = pose.frame / (2 * Math.tan(Math.min(vHalf, hHalf)));
+    const distance = lerp(Math.max(byWidth, byHeight * 0.55) / pose.zoom, close);
+    const el = pose.elevation + pose.elevAdd * k + state.parallax.y * 0.07;
+    const az = pose.azimuth + pose.azAdd * k + state.parallax.x * 0.16;
+    // the point the camera turns around: the hub, or a point down the shaft for a close look at a part
+    const target = k > 0 ? model.fan.localToWorld(focusPoint.set(0, pose.lookY * k, 0)) : focusPoint.set(0, 0, 0);
+    camera.position.set(target.x + Math.sin(az) * Math.cos(el) * distance, target.y + Math.sin(el) * distance, target.z + Math.cos(az) * Math.cos(el) * distance);
+    camera.lookAt(target);
+    camera.setViewOffset(size.w, size.h, (0.5 - lerp(pose.screenX, pose.detailX)) * size.w, (0.5 - lerp(pose.screenY, pose.detailY)) * size.h, size.w, size.h);
     camera.updateProjectionMatrix();
   }
 
@@ -415,20 +425,48 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
       render();
     },
     // Where the hub sits on screen (CSS pixels within the canvas) and its radius, for the loader hand-off.
-    // The motor split for the "01 BLDC" step (Aeroflow only), and where its labels point on screen.
-    setExplode(t, spread = 1) {
+    // The motor split for the BLDC story's "01" and "05" steps (Aeroflow only), the part being named, and where
+    // its labels point on screen.
+    setExplode(t, spread = 1, layout = 0) {
       if (!model.setExplode) return;
-      model.setExplode(t, spread);
+      model.setExplode(t, spread, layout);
       if (!state.running) render();
     },
-    explodeLabelsOnScreen(t, spread = 1) {
+    setFocus(focus, dim) {
+      if (!model.setFocus) return;
+      model.setFocus(focus, dim);
+      if (!state.running) render();
+    },
+    // For each label: the point on its part's edge that faces right on screen (x, y) and the one that faces left
+    // (lx, ly), so a label's dot sits on the part's visible rim whichever side its text goes. outline: points round
+    // the top and bottom rims of every part of the opened stack, on screen, so a label's line can run out past every
+    // part at its own height (a part's box would be too wide: a big ring seen from below is an oval, narrow near its
+    // top and bottom).
+    explodeLabelsOnScreen(t, spread = 1, layout = 0) {
       if (!model.explodeAnchors) return null;
       frameCamera();
       model.fan.updateMatrixWorld(true);
-      const out = {};
-      for (const [key, v] of Object.entries(model.explodeAnchors(t, spread))) {
-        const p = model.fan.localToWorld(v.clone()).project(camera);
-        out[key] = { x: (p.x * 0.5 + 0.5) * size.w, y: (-p.y * 0.5 + 0.5) * size.h };
+      // the screen's "right", as a direction across the shaft in the fan's own coordinates
+      const fanQ = model.fan.getWorldQuaternion(new THREE.Quaternion()).invert();
+      const dir = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion).applyQuaternion(fanQ).setY(0);
+      if (dir.lengthSq() < 1e-6) dir.set(1, 0, 0);
+      dir.normalize();
+      const toScreen = (x, y, z) => {
+        const p = model.fan.localToWorld(new THREE.Vector3(x, y, z)).project(camera);
+        return { x: (p.x * 0.5 + 0.5) * size.w, y: (-p.y * 0.5 + 0.5) * size.h };
+      };
+      const { labels, stack } = model.explodeAnchors(t, spread, layout);
+      const out = { labels: {}, outline: [] };
+      for (const [key, { y, r }] of Object.entries(labels)) {
+        const a = toScreen(dir.x * r * 0.92, y, dir.z * r * 0.92);
+        const b = toScreen(-dir.x * r * 0.92, y, -dir.z * r * 0.92);
+        out.labels[key] = { x: a.x, y: a.y, lx: b.x, ly: b.y };
+      }
+      for (const { y, r, h } of stack) {
+        for (let i = 0; i < 24; i++) {
+          const a = (i / 24) * Math.PI * 2;
+          for (const dy of [-h / 2, h / 2]) out.outline.push(toScreen(Math.cos(a) * r, y + dy, Math.sin(a) * r));
+        }
       }
       return out;
     },

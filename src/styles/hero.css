@@ -167,6 +167,9 @@ html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom:
 }
 .bldc-step__num { font: 600 0.875rem/1 var(--font-display); color: var(--ultra-gold); letter-spacing: 0.1em; }
 .bldc-step__title { font: 600 clamp(1.75rem, 4.4vw, 2.75rem)/1 var(--font-display); text-transform: uppercase; }
+/* titles break between their phrases ("Double ball bearing ·" / "Anti-dust"), never inside a hyphenated word */
+.bldc-step__title .nowrap { white-space: nowrap; }
+.bldc-step__phrase { display: inline-block; }
 .bldc-step__body { color: var(--cream-soft); }
 
 /* ---------- the three BLDC models */
@@ -301,11 +304,14 @@ html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom:
 .lens.is-zoomed .lens__img { scale: 2.1; }
 @media (hover: none) { [data-needs-hover] { display: none; } }
 
-/* ---------- "01 BLDC": labels on the opened motor (src/scenes/fan-journey.js places them on their parts) */
+/* ---------- "01" and "05": labels on the opened motor (src/scenes/fan-journey.js places them on their parts and
+   fades each in when the story names it; the line runs out past the other parts, its length set there) */
 .motor-labels { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; }
-.motor-label { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 0; will-change: transform; }
+.motor-label { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 0; will-change: transform, opacity; opacity: 0; visibility: hidden; }
+/* the second dot of "Double ball bearing", on the upper bearing */
+.motor-label__twin { position: absolute; left: 0; top: 0; opacity: 0; visibility: hidden; will-change: transform, opacity; }
 .motor-label__dot { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--ultra-gold); box-shadow: 0 0 0 4px rgba(241, 200, 144, 0.22); flex: none; }
-.motor-label__line { width: 46px; height: 1px; background: linear-gradient(90deg, var(--ultra-gold), rgba(241, 200, 144, 0.35)); flex: none; margin-top: -4.5px; }
+.motor-label__line { width: var(--line, 46px); height: 1px; background: linear-gradient(90deg, var(--ultra-gold), rgba(241, 200, 144, 0.35)); flex: none; margin-top: -4.5px; }
 .motor-label__text {
   margin-top: -4.5px; padding: 6px 12px; border-radius: 999px; white-space: nowrap;
   font: 600 0.875rem/1.1 var(--font-body); color: var(--cream-ink);
@@ -314,8 +320,9 @@ html:not(.js) .bldc__intro, .no-3d .bldc__intro { min-height: 0; padding-bottom:
 }
 .motor-label.is-left { flex-direction: row-reverse; translate: -100% 0; }
 .motor-label.is-left .motor-label__dot { margin: -4.5px -4.5px 0 0; }
+.motor-label.is-left .motor-label__line { background: linear-gradient(270deg, var(--ultra-gold), rgba(241, 200, 144, 0.35)); }
 @media (max-width: 899px) {
-  .motor-label__line { width: 22px; }
+  .motor-label__line { width: var(--line, 22px); }
   /* narrow screens: long names wrap onto two lines so each label fits on its side of the motor */
   .motor-label__text { font-size: 0.75rem; padding: 5px 10px; white-space: normal; max-width: 8.5rem; border-radius: 12px; line-height: 1.2; }
 }

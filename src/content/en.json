@@ -99,12 +99,14 @@
     "warranty": "Warranty",
     "colours": "Colours",
     "seeModel": "See {name}",
+    "partsShown": "Shown on the opened motor: {a} and {b}.",
     "parts": {
       "motor": "Brushless DC motor",
       "board": "Inverter-technology electronics",
       "bearing": "Double ball bearing",
       "housing": "Anti-dust",
-      "stillAlt": "The Aeroflow's motor opened along its shaft, showing its parts"
+      "stillAlt": "The Aeroflow's motor opened along its shaft, showing its brushless DC motor and its inverter-technology electronics",
+      "stillAltBearing": "The Aeroflow's motor opened along its shaft, showing its two ball bearings and the bottom cover that seals it against dust"
     }
   },
   "range": {
