@@ -20,6 +20,7 @@
 .ev-hero__media, .ev-hero__shade, .ev-petals { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ev-hero__media { z-index: -2; }
 .ev-loop__poster, .ev-loop__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ev-loop__fill { display: none; } /* phones only, see the end of this file */
 .ev-loop__video { opacity: 0; transition: opacity 1s; }
 .ev-loop__video.is-playing { opacity: 1; }
 .ev-hero__media .ev-loop__poster, .ev-hero__media .ev-loop__video { transform: scale(1.06); animation: ev-drift 18s ease-in-out infinite alternate; }
@@ -63,7 +64,8 @@
 .ev-story__track { display: flex; gap: clamp(14px, 2vw, 28px); width: max-content; padding: 0 var(--gutter); scroll-snap-type: x mandatory; }
 .ev-story__item { position: relative; width: min(74vw, 400px); scroll-snap-align: start; }
 .ev-story__item:nth-child(even) { translate: 0 34px; }
-.ev-story__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8); }
+.ev-story__img { display: block; width: 100%; border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8); }
+@media (min-width: 900px) { .ev-story__img { aspect-ratio: 4 / 5; object-fit: cover; } }
 .ev-story.is-pinned .ev-story__viewport { overflow: visible; }
 /* wide screens: while pinned the section is one screen tall, content centred, cards sized to fit (events.js) */
 .ev-story.is-pinned { box-sizing: border-box; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 28px 0; overflow: hidden; }
@@ -83,10 +85,11 @@
 .ev-wall__grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
 .ev-wall__item { min-width: 0; will-change: transform; }
 .ev-wall__item--0, .ev-wall__item--5 { grid-column: span 2; }
-.ev-wall__img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.8s var(--ease-out), filter 0.8s; }
-.ev-wall__item--0 .ev-wall__img, .ev-wall__item--5 .ev-wall__img { aspect-ratio: 16 / 9; }
+.ev-wall__grid { align-items: start; } /* narrow screens: each photo at its own shape, tiles never stretched */
+.ev-wall__img { display: block; width: 100%; transition: transform 0.8s var(--ease-out), filter 0.8s; }
 @media (min-width: 900px) {
-  .ev-wall__grid { grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .ev-wall__grid { grid-template-columns: repeat(6, 1fr); gap: 18px; align-items: stretch; }
+  .ev-wall__img { height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .ev-wall__item { grid-column: span 2; }
   .ev-wall__item--0 { grid-column: span 4; grid-row: span 2; }
   .ev-wall__item--3 { grid-column: span 3; }
@@ -103,8 +106,10 @@
 .ev-launch { padding: 30px var(--gutter) 90px; }
 .ev-launch__inner { display: grid; gap: 30px; align-items: center; padding: clamp(24px, 5vw, 60px); border-radius: 28px; background: linear-gradient(135deg, #2c2420, #1a1614 60%); border: 1px solid rgba(255, 159, 28, 0.25); }
 .ev-launch__media { border-radius: 18px; overflow: hidden; }
-.ev-launch__img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.ev-launch__img--natural { aspect-ratio: auto; height: auto; } /* the event photo at its own shape: the whole line-up, nothing cut off */
+.ev-launch__img { display: block; width: 100%; }
+/* wide screens crop a product picture to 4:3; the event's own launch photo (--natural) always shows at its own
+   shape: the whole line-up, nothing cut off */
+@media (min-width: 900px) { .ev-launch__img:not(.ev-launch__img--natural) { aspect-ratio: 4 / 3; object-fit: cover; } }
 .ev-launch__text { display: grid; gap: 14px; justify-items: start; }
 .ev-launch__list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 @media (min-width: 900px) { .ev-launch__inner { grid-template-columns: 1.1fr 1fr; } }
@@ -127,14 +132,27 @@
 .ev-fan__card:hover { z-index: 5; }
 .ev-fan:not(.is-gathered) .ev-fan__card:hover { transform: translateX(calc(var(--k) * var(--spread))) translateY(-24px) rotate(0deg) scale(1.06); }
 .ev-fan__card .ev-open { padding: 8px 8px 26px; border-radius: 6px; background: #fbf4e8; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.85); }
-.ev-fan__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+.ev-fan__img { display: block; width: 100%; border-radius: 3px; }
+@media (min-width: 900px) { .ev-fan__img { aspect-ratio: 4 / 5; object-fit: cover; } }
+/* narrow screens: the fan would pile the prints on top of each other, hiding all but the last, so they lie in a
+   grid instead, every print whole, each tipped a little like prints laid out on a table; they straighten from a
+   neat pile as the section comes into view */
+@media (max-width: 899px) {
+  .ev-fan__deck { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 22px 16px; height: auto; align-items: start; }
+  .ev-fan__card { position: relative; bottom: auto; width: auto; transform: rotate(calc(var(--tip, 1) * 1.6deg)); transform-origin: 50% 50%; }
+  .ev-fan__card:nth-child(even) { --tip: -1; }
+  .ev-fan__card:nth-child(3n) { --tip: 0.5; }
+  .ev-fan.is-gathered .ev-fan__card { transform: translateY(18px) rotate(0deg); }
+  .ev-fan:not(.is-gathered) .ev-fan__card:hover { transform: rotate(calc(var(--tip, 1) * 1.6deg)); }
+}
 
 /* ---------- decor strip */
 .ev-decor { padding: 20px 0 90px; }
 .ev-decor__head { display: grid; gap: 10px; padding: 0 var(--gutter); margin-bottom: 28px; }
 .ev-decor__strip { display: flex; gap: 16px; overflow-x: auto; padding: 0 var(--gutter) 12px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
 .ev-decor__item { flex: 0 0 min(66vw, 340px); scroll-snap-align: start; }
-.ev-decor__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.ev-decor__img { display: block; width: 100%; }
+@media (min-width: 900px) { .ev-decor__img { aspect-ratio: 4 / 5; object-fit: cover; } }
 
 /* ---------- the close */
 .ev-end { display: grid; justify-items: center; gap: 16px; padding: clamp(70px, 10vw, 130px) var(--gutter) 110px; text-align: center; background: radial-gradient(60% 70% at 50% 100%, rgba(255, 159, 28, 0.22), transparent 70%); }
@@ -158,8 +176,10 @@
 .ev-cards { display: grid; gap: 28px; padding: 90px var(--gutter) 40px; }
 .ev-card__link { display: grid; overflow: hidden; border-radius: 28px; background: #1f1a18; color: var(--cream-ink); text-decoration: none; border: 1px solid rgba(255, 159, 28, 0.2); transition: transform 0.5s var(--ease-out), border-color 0.5s; }
 .ev-card__link:hover { transform: translateY(-6px); border-color: var(--marigold); }
-.ev-card__media { position: relative; overflow: hidden; aspect-ratio: 16 / 10; }
-.ev-card__img, .ev-card__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.ev-card__media { position: relative; overflow: hidden; }
+.ev-card__img { display: block; width: 100%; transition: transform 1.2s var(--ease-out); } /* narrow screens: the cover whole, at its own shape */
+.ev-card__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+@media (min-width: 900px) { .ev-card__img { position: absolute; inset: 0; height: 100%; object-fit: cover; } }
 .ev-card__link:hover .ev-card__img { transform: scale(1.06); }
 .ev-card__body { display: grid; gap: 10px; align-content: center; padding: clamp(24px, 4vw, 48px); }
 .ev-card__when { font: 600 0.8125rem/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; color: var(--marigold); }
@@ -184,6 +204,29 @@
 .photo-viewer__step--prev { left: 12px; }
 .photo-viewer__step--next { right: 12px; }
 .photo-viewer__close:hover, .photo-viewer__step:hover { background: rgba(255, 255, 255, 0.24); }
+
+/* ---------- phones, upright or held sideways: every loop whole, nothing over it
+   A tall phone screen would crop a 16:9 loop to a narrow middle strip, so here the loop (the hero, the drone band)
+   sits whole at its own shape: as wide as the screen, never taller than the screen is high (phones held
+   sideways). The words follow it on the stage instead of sitting over it, so the footage's own titles and
+   captions stay readable and nothing has to darken it. The poster obeys the same rules, so nothing moves when
+   the video starts. The blurred, darkened copy of the poster (ev-loop__fill) fills any space around the frame:
+   beside the 3:2 poster, beside the frame on a short sideways screen. No zoom, no drift. Wide screens keep the
+   full-screen hero. The loops are 16:9 (scripts/events-data.mjs): 56.25vw is their height at full width. */
+@media (max-width: 699px), (orientation: landscape) and (max-height: 500px) {
+  .ev-hero, .ev-hero--index { display: block; min-height: 0; }
+  .ev-hero__shade, .ev-drone__shade { display: none; }
+  .ev-hero__media, .ev-drone__media { position: relative; inset: auto; z-index: 0; width: 100%; height: auto; }
+  .ev-loop { height: min(56.25vw, calc(100vh - 124px)); height: min(56.25vw, calc(100svh - 124px)); overflow: hidden; background: #0c0a09; }
+  .ev-loop__fill { display: block; position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: cover; filter: blur(22px) brightness(0.42); }
+  .ev-hero__media .ev-loop__poster, .ev-hero__media .ev-loop__video,
+  .ev-drone__media .ev-loop__poster, .ev-drone__media .ev-loop__video { object-fit: contain; transform: none; animation: none; }
+  /* an event with a cover photo but no loop: the photo whole, at its own shape */
+  .ev-hero__media:not(.ev-loop) .ev-loop__poster { position: static; height: auto; }
+  .ev-hero__text { padding: 22px var(--gutter) 46px; }
+  .ev-drone { display: flex; flex-direction: column; gap: 18px; min-height: 0; margin: 60px 0; }
+  .ev-drone__text { order: -1; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ev-title span, .ev-end__title span, .ev-hero__media .ev-loop__poster, .ev-hero__media .ev-loop__video,

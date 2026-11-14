@@ -23,13 +23,18 @@ const openable = (t, it, i, total, inner) => `
 // Data Saver, with reduced motion or without JavaScript.
 // A muted loop. iOS Safari plays it inline only when it is muted and playsinline (webkit-playsinline for older
 // iOS); src/scenes/events.js starts it when it is on screen, never with reduced motion or Data Saver, so it has
-// no autoplay attribute and downloads nothing until then (preload="none"). Phones get the 720p H.264 copy; the
-// poster frame shows until it plays.
+// no autoplay attribute and downloads nothing until then (preload="none"). Phones, upright or held sideways, get
+// the 720p H.264 copy; the poster frame shows until it plays.
+// On phones the loop shows whole at its own shape (events.css); ev-loop__fill, a blurred and darkened copy of the
+// same poster file (same srcset and sizes, so it comes from the cache: nothing more downloads), fills any space
+// around the frame. Wide screens hide it (it is still the poster's own file there, so it costs nothing).
+const fill = (img) => `<img class="ev-loop__fill" src="${esc(img.variants[0].file)}" srcset="${srcset(img)}" sizes="100vw" alt="" aria-hidden="true" loading="lazy" decoding="async">`;
 const loop = (video, poster, className, { autoplay = false } = {}) => `
-  <div class="${className}">
+  <div class="${className} ev-loop">
+    ${poster ? fill(poster) : ''}
     ${poster ? image(poster, { sizes: '100vw', className: 'ev-loop__poster' }) : ''}
     <video class="ev-loop__video" data-loop ${autoplay ? 'autoplay ' : ''}muted loop playsinline webkit-playsinline disablepictureinpicture preload="${autoplay ? 'metadata' : 'none'}" aria-hidden="true"
-      ${poster ? `poster="${esc(poster.variants.at(-1).file)}"` : ''}>${video.small ? `<source src="${esc(video.small)}" type="video/mp4" media="(max-width: 700px)">` : ''}<source src="${esc(video.src ?? video)}" type="video/mp4"></video>
+      ${poster ? `poster="${esc(poster.variants.at(-1).file)}"` : ''}>${video.small ? `<source src="${esc(video.small)}" type="video/mp4" media="(max-width: 700px), (orientation: landscape) and (max-height: 500px)">` : ''}<source src="${esc(video.src ?? video)}" type="video/mp4"></video>
   </div>`;
 
 const viewer = (t) => `

@@ -92,8 +92,9 @@ export function setupEvents({ reducedMotion }) {
     if (document.readyState === 'complete') ScrollTrigger.refresh();
     else addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
 
-    // ---- photo wall: each photo drifts at its own speed
-    for (const item of root.querySelectorAll('.ev-wall__item[data-speed]')) {
+    // ---- photo wall: each photo drifts at its own speed (wide screens; in the narrow two-column wall the drift
+    // slid photos over their neighbours' edges)
+    if (wide) for (const item of root.querySelectorAll('.ev-wall__item[data-speed]')) {
       const speed = Number(item.dataset.speed);
       gsap.fromTo(item, { y: () => innerHeight * speed }, { y: () => -innerHeight * speed, ease: 'none', scrollTrigger: { trigger: item, start: 'top bottom', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
     }
