@@ -1665,7 +1665,7 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1201-0-1440.webp",
-          "width": 882,
+          "width": 881,
           "height": 1440
         }
       ]
@@ -1700,13 +1700,13 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-960.webp",
-          "width": 546,
+          "width": 545,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-1440.webp",
-          "width": 785,
-          "height": 1379
+          "width": 784,
+          "height": 1380
         }
       ]
     },
@@ -1795,18 +1795,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-480.webp",
-          "width": 297,
+          "width": 311,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-960.webp",
-          "width": 594,
+          "width": 622,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-1440.webp",
           "width": 743,
-          "height": 1200
+          "height": 1147
         }
       ],
       "erased": "[[0.58,0.45,0.42,0.4]]"
@@ -1821,7 +1821,7 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1601-0-960.webp",
-          "width": 507,
+          "width": 508,
           "height": 960
         },
         {

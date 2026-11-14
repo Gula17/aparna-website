@@ -70,7 +70,8 @@ for (const file of text) {
 }
 for (const m of missingMedia) problems.push(`missing file ${m} (run npm run content / cutouts again)`);
 
-// Every ₹ figure in a product page's own details is one of that product's MRPs from the price lists.
+// Every ₹ figure in a product page's own details is one of that product's MRPs from the price lists (or, for a
+// model made in several sizes, the MRP of one of its other sizes, named in its "Also in …" line).
 const mrpData = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/mrp.json'), 'utf8').catch(() => '{"prices":{},"variants":{}}'));
 const catalogueData = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/catalogue.generated.json'), 'utf8'));
 for (const p of catalogueData.products) {
@@ -78,7 +79,8 @@ for (const p of catalogueData.products) {
   if (!body) continue;
   const start = body.indexOf('product__info');
   const own = start < 0 ? '' : body.slice(start, body.indexOf('</section>', start));
-  const allowed = new Set([mrpData.prices[p.id]?.mrp, ...(mrpData.variants[p.id] ?? []).map((v) => v.mrp)].filter(Boolean));
+  const mrpsOf = (id) => [mrpData.prices[id]?.mrp, ...(mrpData.variants[id] ?? []).map((v) => v.mrp)];
+  const allowed = new Set([...mrpsOf(p.id), ...(p.family?.sizes ?? []).flatMap((s) => mrpsOf(s.id))].filter(Boolean));
   for (const m of own.matchAll(/₹([\d,]+)/g)) {
     if (!allowed.has(Number(m[1].replace(/,/g, '')))) problems.push(`${p.url}: ₹${m[1]} is not an MRP of ${p.id}`);
   }

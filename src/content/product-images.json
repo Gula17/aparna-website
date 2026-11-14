@@ -3,9 +3,9 @@
     "ceiling-fans-coral-48": {
         "page": "page-09.jpg",
         "crop": [
-            125,
+            105,
             235,
-            580,
+            600,
             390
         ],
         "label": "CORAL Ceiling Fan 1200mm 48\"",
@@ -534,7 +534,7 @@
         "crop": [
             18,
             60,
-            620,
+            670,
             290
         ],
         "label": "UNICORN",
@@ -685,7 +685,7 @@
             125,
             492,
             310,
-            312
+            344
         ],
         "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
         "confidence": "high",
@@ -709,7 +709,7 @@
             125,
             492,
             310,
-            312
+            344
         ],
         "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
         "confidence": "high",
@@ -721,7 +721,7 @@
             125,
             492,
             310,
-            312
+            344
         ],
         "label": "Pearl ELECTRIC IMMERSION WATER HEATER, WATTAGE: 1000W/1500W/2000W",
         "confidence": "high",
@@ -744,7 +744,7 @@
         "crop": [
             432,
             85,
-            348,
+            370,
             377
         ],
         "label": "SENORITA",
@@ -766,10 +766,10 @@
     "ceiling-fans-festiva-48": {
         "page": "page-16.jpg",
         "crop": [
-            500,
+            440,
             480,
-            278,
-            198
+            338,
+            218
         ],
         "label": "FESTIVA",
         "confidence": "medium",
@@ -937,7 +937,7 @@
         "crop": [
             488,
             425,
-            130,
+            138,
             150
         ],
         "label": "ALINEO : 400/800W",
@@ -1289,10 +1289,10 @@
     "high-speed-fans-hexa-20": {
         "page": "page-46.jpg",
         "crop": [
-            135,
+            129,
             238,
-            242,
-            508
+            248,
+            524
         ],
         "label": "HEXA 20\" FARRATTA FAN",
         "confidence": "high"
@@ -1303,7 +1303,7 @@
             416,
             238,
             270,
-            505
+            518
         ],
         "label": "NEXA 20\" FARRATTA FAN",
         "confidence": "high"
@@ -1582,7 +1582,7 @@
                     294,
                     189,
                     419,
-                    626
+                    645
                 ],
                 "kind": "poster",
                 "label": "DISCOVERY 1201",
@@ -1598,7 +1598,7 @@
                     735,
                     189,
                     466,
-                    640
+                    657
                 ],
                 "kind": "poster",
                 "label": "DISCOVERY 1202",
@@ -1614,7 +1614,7 @@
                     167,
                     256,
                     572,
-                    588
+                    602
                 ],
                 "kind": "poster",
                 "label": "DISCOVERY 1203 DLX",
@@ -1631,7 +1631,7 @@
                     739,
                     233,
                     498,
-                    611
+                    626
                 ],
                 "kind": "poster",
                 "label": "DISCOVERY 1204 DLX",
@@ -1648,7 +1648,7 @@
                     204,
                     218,
                     378,
-                    626
+                    635
                 ],
                 "kind": "poster",
                 "label": "PEARL 009",
@@ -1664,7 +1664,7 @@
                     684,
                     218,
                     466,
-                    626
+                    638
                 ],
                 "kind": "poster",
                 "label": "PEARL 1201",
@@ -1680,7 +1680,7 @@
                     131,
                     218,
                     407,
-                    626
+                    635
                 ],
                 "kind": "poster",
                 "label": "PEARL 1202",
@@ -1696,7 +1696,7 @@
                     626,
                     260,
                     662,
-                    583
+                    596
                 ],
                 "kind": "poster",
                 "label": "PEARL 1203 DLX",
@@ -1713,7 +1713,7 @@
                     448,
                     243,
                     677,
-                    971
+                    1000
                 ],
                 "kind": "poster",
                 "label": "ULTIMA 1401",
@@ -1729,7 +1729,7 @@
                     1169,
                     221,
                     662,
-                    993
+                    1020
                 ],
                 "kind": "poster",
                 "label": "ULTIMA 1402",
@@ -1745,7 +1745,7 @@
                     462,
                     242,
                     615,
-                    989
+                    1008
                 ],
                 "kind": "poster",
                 "label": "ULTIMA 1601",
@@ -1761,7 +1761,7 @@
                     1110,
                     220,
                     648,
-                    1011
+                    1030
                 ],
                 "kind": "poster",
                 "label": "ULTIMA 1801",

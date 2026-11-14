@@ -384,24 +384,6 @@
   .js .filters { transition: none; }
 }
 
-/* ---------- turning blades (scripts/make-rotors.mjs)
-   Three layers from the fan's own photo: still parts, the blade area, the still hub on top. The blade layer is
-   wrapped as matrix(L) rotate() matrix(L⁻¹), so it turns in the fan's own plane (a circle face-on, an ellipse
-   for a ceiling fan seen from below). The brief caps blades at 1.4 turns a second, so they never strobe. */
-.stage__product--rotor .stage__motion { container-type: size; display: grid; place-items: center; }
-.rotor-fit { position: relative; display: block; width: min(100cqw, calc(100cqh * var(--ar))); aspect-ratio: var(--ar); }
-.rotor-fit > img, .rotor, .rotor__spin, .rotor__boost { position: absolute; inset: 0; display: block; }
-.rotor-layer { width: 100%; height: 100%; }
-.rotor-layer--base { filter: drop-shadow(0 12px 14px rgba(30, 20, 15, 0.2)); }
-.rotor__spin { animation: blades var(--turn, 1.1s) linear infinite; animation-play-state: paused; will-change: transform; }
-.rotor__boost { animation: blades 2.4s linear infinite; animation-play-state: paused; }
-.is-live .rotor__spin { animation-play-state: running; }
-[data-stage-card]:hover .rotor__boost, [data-stage-card]:focus-within .rotor__boost { animation-play-state: running; } /* faster on hover */
-@keyframes blades { to { transform: rotate(-1turn); } }
-@media (prefers-reduced-motion: reduce) { .rotor__spin, .rotor__boost { animation: none; } }
-/* the light sweep is masked by the original photo, so on turning blades it would draw "ghost" blades (brief §8) */
-.stage__product--rotor .stage__sheen { display: none !important; }
-
 /* ---------- quick view button on the cards (src/scenes/quick-view.js) */
 .product-card__inner { container-type: inline-size; }
 .quick-btn {

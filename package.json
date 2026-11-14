@@ -8,11 +8,10 @@
     "content": "node scripts/prepare-content.mjs",
     "cutouts": "node scripts/make-cutouts.mjs",
     "dev": "vite",
-    "build": "npm run content && npm run cutouts && npm run menu && npm run rotors && vite build && node scripts/check-build.mjs",
+    "build": "npm run content && npm run cutouts && npm run menu && vite build && node scripts/check-build.mjs",
     "preview": "vite preview",
     "still": "node scripts/render-fan-still.mjs",
     "shots": "node scripts/screenshots.mjs",
-    "rotors": "node scripts/make-rotors.mjs",
     "motor-still": "node scripts/render-motor-still.mjs",
     "model-stills": "node scripts/render-model-stills.mjs",
     "menu": "node scripts/make-menu-thumbs.mjs"

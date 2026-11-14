@@ -8,7 +8,8 @@ const MATCHERS = {
   category: (card, values) => values.includes(card.dataset.category),
   series: (card, values) => values.includes(card.dataset.series),
   type: (card, values) => values.includes(card.dataset.type),
-  size: (card, values) => values.includes(card.dataset.size),
+  // a model made in several sizes is one card (data-sizes): it matches when any of its sizes does
+  size: (card, values) => (card.dataset.sizes ?? card.dataset.size).split('|').some((v) => values.includes(v)),
   colour: (card, values) => card.dataset.colours.split('|').some((c) => values.includes(c)),
 };
 const SORTS = {
@@ -16,7 +17,7 @@ const SORTS = {
   name: (a, b) => a.dataset.name.localeCompare(b.dataset.name),
   'name-desc': (a, b) => b.dataset.name.localeCompare(a.dataset.name),
   size: (a, b) => (Number(a.dataset.size) || 999) - (Number(b.dataset.size) || 999),
-  'size-desc': (a, b) => (Number(b.dataset.size) || 0) - (Number(a.dataset.size) || 0),
+  'size-desc': (a, b) => (Number(b.dataset.sizeMax ?? b.dataset.size) || 0) - (Number(a.dataset.sizeMax ?? a.dataset.size) || 0),
   new: (a, b) => Number(Boolean(b.dataset.new)) - Number(Boolean(a.dataset.new)) || SORTS.featured(a, b),
 };
 
@@ -50,6 +51,16 @@ export function setupCatalogue() {
     history.replaceState(null, '', `${location.pathname}${query ? `?${query}` : ''}`);
   }
 
+  // A size family's card opens its smallest size's page, or, while the size filter is on, the size it matched
+  // (the quick view follows: it reads data-url).
+  function pointToSize(card, sizes) {
+    const urls = new Map(card.dataset.sizeUrls.split('|').map((x) => x.split(' ')));
+    card.dataset.leadUrl ??= card.dataset.url;
+    const url = urls.get([...urls.keys()].find((size) => sizes.includes(size))) ?? card.dataset.leadUrl;
+    card.dataset.url = url;
+    card.querySelector('.product-card__link').href = url;
+  }
+
   // ---- filtering
   function apply() {
     const words = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -63,6 +74,7 @@ export function setupCatalogue() {
         && (!newOnly || card.dataset.new);
       card.hidden = !ok;
       if (ok) shown++;
+      if (card.dataset.sizeUrls) pointToSize(card, chosen.size);
     }
     [...cards].sort(SORTS[sort.value]).forEach((card) => grid.append(card));
 

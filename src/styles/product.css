@@ -28,7 +28,10 @@
 .gallery__slide[hidden], .gallery__thumb[hidden], .gallery__nav[hidden] { display: none; }
 .gallery__slide { scroll-snap-align: start; display: grid; grid-template-rows: minmax(0, 1fr) auto; aspect-ratio: 1; min-width: 0; }
 .gallery__slide figcaption { padding: 0 16px 12px; font-size: 0.8125rem; color: var(--cream-soft); }
-.gallery__frame { display: grid; place-items: center; overflow: hidden; padding: 8%; min-height: 0; }
+/* one fixed-size cell: the picture's max-height: 100% then means the frame's height, so a tall picture (a pedestal or
+   table fan from the catalogue) shrinks to fit whole. With an auto row the percentage could not resolve, and the
+   frame cut tall pictures off at the bottom. */
+.gallery__frame { display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; overflow: hidden; padding: 8%; min-height: 0; }
 .gallery__frame img { width: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; background: var(--white); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); }
 .gallery__showcase { min-height: 0; height: 100%; }
 .gallery__stagebox { height: 100%; aspect-ratio: auto; }
@@ -192,3 +195,19 @@
 .product__mrp-versions summary { cursor: pointer; font-weight: 600; color: var(--cream-ink); }
 .product__mrp-versions ul { display: grid; gap: 4px; margin-top: 8px; max-width: 360px; }
 .product__mrp-versions li { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border-bottom: 1px solid rgba(246, 238, 228, 0.12); font-variant-numeric: tabular-nums; }
+
+/* a model made in several sizes: a switch to each size's page, the current one filled; the other sizes and their
+   MRP in words under the price */
+.size-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0 2px; }
+.size-switch__label { margin-right: 4px; font: 600 0.8125rem/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ultra-gold); }
+.size-switch__option {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid rgba(246, 238, 228, 0.35); color: var(--cream-ink); text-decoration: none;
+  font: 600 1rem/1 var(--font-body); font-variant-numeric: tabular-nums; transition: background-color 0.2s, border-color 0.2s;
+}
+.size-switch__mm { font-weight: 400; color: var(--cream-soft); }
+.size-switch__option:hover { border-color: var(--ultra-gold); }
+.size-switch__option[aria-current='page'] { background: var(--cream-ink); border-color: var(--cream-ink); color: var(--ink); }
+.size-switch__option[aria-current='page'] .size-switch__mm { color: var(--ink-soft); }
+.size-switch__option:focus-visible { outline: 3px solid var(--ultra-gold); outline-offset: 3px; }
+.product__also-in { color: var(--cream-soft); font-variant-numeric: tabular-nums; }

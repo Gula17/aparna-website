@@ -65,6 +65,35 @@ function describe(p) {
   return `The ${p.name} is ${article} ${size}${type} in Aparna's ${range}.`;
 }
 
+// Size versions: one model made in more than one size, found as products in the same category with the same name,
+// each a different size (a new size joins its family by itself). Different names (Ultima 1401 / 1402, wattage
+// versions) are never merged. The catalogue shows a family as one card; every size keeps its own page, data and
+// MRP. Each member gets `family`: all its sizes, smallest first (id, url, size, MRP), whether it is the one the
+// card shows (lead: the smallest), and the card's size-neutral description.
+function sizeFamilies(products) {
+  const groups = new Map();
+  for (const p of products) {
+    if (!p.sizeInch) continue;
+    const key = `${p.categorySlug}|${p.name.toLowerCase()}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(p);
+  }
+  const families = [...groups.values()].filter((list) => list.length > 1 && new Set(list.map((p) => p.sizeInch)).size === list.length);
+  for (const list of families) {
+    list.sort((a, b) => a.sizeInch - b.sizeInch);
+    const sizes = list.map((p) => ({ id: p.id, url: p.url, sizeInch: p.sizeInch, sizeMm: p.sizeMm, mrp: p.mrp?.value ?? null, mrpVaries: Boolean(p.mrp?.varies) }));
+    const lead = list[0];
+    const series = lead.series.replace(/\s*\(.*\)\s*$/, '');
+    const type = /^[A-Z]{2}/.test(lead.type) ? lead.type : lead.type.charAt(0).toLowerCase() + lead.type.slice(1);
+    const range = /series|range/i.test(series) ? series : `${series} range`;
+    const inches = sizes.map((s) => `${s.sizeInch}"`);
+    const sizeWords = `${inches.slice(0, -1).join(', ')} and ${inches.at(-1)}`;
+    const description = `The ${lead.name} is ${/^[aeiou]/i.test(type) ? 'an' : 'a'} ${type} in Aparna's ${range}, in ${sizeWords} sizes.`;
+    for (const [i, p] of list.entries()) p.family = { sizes, lead: i === 0, description };
+  }
+  return families;
+}
+
 function sortKey(p, index) {
   const featured = FEATURED_GROUPS.findIndex((re) => re.test(p.group));
   const isNew = p.status === 'launch' ? 0 : 1;
@@ -253,14 +282,20 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     });
   }
 
+  for (const p of products) p.mrp = mrpOf(p.id);
+  const families = sizeFamilies(products);
+
+  // Counts: a model made in several sizes is one card in the catalogue, so it counts once (each size still has
+  // its own page)
   const known = new Set(data.categories.map((c) => c.name));
   const extraCategories = [...new Set(products.map((p) => p.category).filter((c) => !known.has(c)))];
+  const onCard = (p) => !p.family || p.family.lead;
   const categories = [...data.categories.map((c) => c.name), ...extraCategories]
-    .map((name) => ({ name, slug: slugify(name), count: products.filter((p) => p.category === name).length }))
+    .map((name) => ({ name, slug: slugify(name), count: products.filter((p) => p.category === name && onCard(p)).length }))
     .filter((c) => c.count > 0);
 
   // Every product id in the data's showable list must be in the catalogue.
   const missing = data.products.filter((p) => SHOWABLE.has(p.status) && !products.some((x) => x.id === p.id));
-  for (const p of products) p.mrp = mrpOf(p.id);
-  return { products, categories, missing: missing.map((p) => p.id) };
+  console.log(`Size families: ${families.map((f) => `${f[0].name} (${f.map((p) => `${p.sizeInch}"`).join(', ')})`).join('; ') || 'none'}`);
+  return { products, categories, cardCount: products.filter(onCard).length, missing: missing.map((p) => p.id) };
 }

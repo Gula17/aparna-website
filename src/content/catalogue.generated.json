@@ -720,17 +720,17 @@
             {
               "file": "/media/products/crop-ceiling-fans-coral-48-480.webp",
               "width": 480,
-              "height": 323
+              "height": 312
             },
             {
               "file": "/media/products/crop-ceiling-fans-coral-48-960.webp",
               "width": 960,
-              "height": 646
+              "height": 624
             },
             {
               "file": "/media/products/crop-ceiling-fans-coral-48-1440.webp",
               "width": 1440,
-              "height": 968
+              "height": 936
             }
           ],
           "alt": "The Coral in Aparna Catalogue 2026",
@@ -2666,17 +2666,17 @@
             {
               "file": "/media/products/crop-ceiling-fans-festiva-48-480.webp",
               "width": 480,
-              "height": 342
+              "height": 310
             },
             {
               "file": "/media/products/crop-ceiling-fans-festiva-48-960.webp",
               "width": 960,
-              "height": 684
+              "height": 619
             },
             {
               "file": "/media/products/crop-ceiling-fans-festiva-48-1440.webp",
               "width": 1440,
-              "height": 1026
+              "height": 929
             }
           ],
           "alt": "The Festiva in Aparna Catalogue 2026",
@@ -3932,17 +3932,17 @@
             {
               "file": "/media/products/crop-ceiling-fans-senorita-48-480.webp",
               "width": 480,
-              "height": 520
+              "height": 489
             },
             {
               "file": "/media/products/crop-ceiling-fans-senorita-48-960.webp",
               "width": 960,
-              "height": 1040
+              "height": 978
             },
             {
               "file": "/media/products/crop-ceiling-fans-senorita-48-1440.webp",
-              "width": 1392,
-              "height": 1508
+              "width": 1440,
+              "height": 1467
             }
           ],
           "alt": "The Senorita in Aparna Catalogue 2026",
@@ -4406,17 +4406,17 @@
             {
               "file": "/media/products/crop-ceiling-fans-unicorn-48-480.webp",
               "width": 480,
-              "height": 225
+              "height": 208
             },
             {
               "file": "/media/products/crop-ceiling-fans-unicorn-48-960.webp",
               "width": 960,
-              "height": 449
+              "height": 416
             },
             {
               "file": "/media/products/crop-ceiling-fans-unicorn-48-1440.webp",
               "width": 1440,
-              "height": 674
+              "height": 623
             }
           ],
           "alt": "The Unicorn in Aparna Catalogue 2026",
@@ -9273,6 +9273,28 @@
         "value": 3000,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "all-purpose-cabin-fans-goair-ac-dc-12",
+            "url": "/products/all-purpose-and-cabin-fans/goair-ac-dc-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 3000,
+            "mrpVaries": false
+          },
+          {
+            "id": "all-purpose-cabin-fans-goair-ac-dc-16",
+            "url": "/products/all-purpose-and-cabin-fans/goair-ac-dc-16/",
+            "sizeInch": 16,
+            "sizeMm": 400,
+            "mrp": 3140,
+            "mrpVaries": false
+          }
+        ],
+        "lead": true,
+        "description": "The GoAir AC-DC is an AC-DC table fan in Aparna's AC-DC table fans range, in 12\" and 16\" sizes."
       }
     },
     {
@@ -9351,6 +9373,28 @@
         "value": 3140,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "all-purpose-cabin-fans-goair-ac-dc-12",
+            "url": "/products/all-purpose-and-cabin-fans/goair-ac-dc-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 3000,
+            "mrpVaries": false
+          },
+          {
+            "id": "all-purpose-cabin-fans-goair-ac-dc-16",
+            "url": "/products/all-purpose-and-cabin-fans/goair-ac-dc-16/",
+            "sizeInch": 16,
+            "sizeMm": 400,
+            "mrp": 3140,
+            "mrpVaries": false
+          }
+        ],
+        "lead": false,
+        "description": "The GoAir AC-DC is an AC-DC table fan in Aparna's AC-DC table fans range, in 12\" and 16\" sizes."
       }
     },
     {
@@ -9861,6 +9905,28 @@
         "value": 2330,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "high-speed-fans-bullet-oscillating-12",
+            "url": "/products/high-speed-fans/bullet-oscillating-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 2330,
+            "mrpVaries": false
+          },
+          {
+            "id": "high-speed-fans-bullet-oscillating-16",
+            "url": "/products/high-speed-fans/bullet-oscillating-16/",
+            "sizeInch": 16,
+            "sizeMm": 400,
+            "mrp": 2780,
+            "mrpVaries": false
+          }
+        ],
+        "lead": true,
+        "description": "The Bullet (oscillating) is a bullet fan in Aparna's Bullet fans range, in 12\" and 16\" sizes."
       }
     },
     {
@@ -10075,6 +10141,28 @@
         "value": 2780,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "high-speed-fans-bullet-oscillating-12",
+            "url": "/products/high-speed-fans/bullet-oscillating-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 2330,
+            "mrpVaries": false
+          },
+          {
+            "id": "high-speed-fans-bullet-oscillating-16",
+            "url": "/products/high-speed-fans/bullet-oscillating-16/",
+            "sizeInch": 16,
+            "sizeMm": 400,
+            "mrp": 2780,
+            "mrpVaries": false
+          }
+        ],
+        "lead": false,
+        "description": "The Bullet (oscillating) is a bullet fan in Aparna's Bullet fans range, in 12\" and 16\" sizes."
       }
     },
     {
@@ -10396,18 +10484,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-hexa-20-480.webp",
-              "width": 343,
+              "width": 341,
               "height": 720
             },
             {
               "file": "/media/products/crop-high-speed-fans-hexa-20-960.webp",
-              "width": 686,
-              "height": 1440
+              "width": 682,
+              "height": 1441
             },
             {
               "file": "/media/products/crop-high-speed-fans-hexa-20-1440.webp",
-              "width": 968,
-              "height": 2032
+              "width": 992,
+              "height": 2096
             }
           ],
           "alt": "The Hexa in Aparna Catalogue 2026",
@@ -10542,18 +10630,18 @@
           "variants": [
             {
               "file": "/media/products/crop-high-speed-fans-nexa-20-480.webp",
-              "width": 385,
-              "height": 720
+              "width": 375,
+              "height": 719
             },
             {
               "file": "/media/products/crop-high-speed-fans-nexa-20-960.webp",
-              "width": 770,
-              "height": 1440
+              "width": 751,
+              "height": 1441
             },
             {
               "file": "/media/products/crop-high-speed-fans-nexa-20-1440.webp",
               "width": 1080,
-              "height": 2020
+              "height": 2072
             }
           ],
           "alt": "The Nexa in Aparna Catalogue 2026",
@@ -10776,6 +10864,28 @@
           }
         ],
         "varies": true
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9",
+            "url": "/products/ventilation-and-fresh-air-fans/fresh-air-fan-high-speed-9/",
+            "sizeInch": 9,
+            "sizeMm": 225,
+            "mrp": 1650,
+            "mrpVaries": true
+          },
+          {
+            "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12",
+            "url": "/products/ventilation-and-fresh-air-fans/fresh-air-fan-high-speed-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 1790,
+            "mrpVaries": true
+          }
+        ],
+        "lead": true,
+        "description": "The Fresh Air Fan (high speed) is a fresh-air fan in Aparna's Fresh-air fans range, in 9\" and 12\" sizes."
       }
     },
     {
@@ -10872,6 +10982,28 @@
           }
         ],
         "varies": true
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9",
+            "url": "/products/ventilation-and-fresh-air-fans/fresh-air-fan-high-speed-9/",
+            "sizeInch": 9,
+            "sizeMm": 225,
+            "mrp": 1650,
+            "mrpVaries": true
+          },
+          {
+            "id": "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12",
+            "url": "/products/ventilation-and-fresh-air-fans/fresh-air-fan-high-speed-12/",
+            "sizeInch": 12,
+            "sizeMm": 300,
+            "mrp": 1790,
+            "mrpVaries": true
+          }
+        ],
+        "lead": false,
+        "description": "The Fresh Air Fan (high speed) is a fresh-air fan in Aparna's Fresh-air fans range, in 9\" and 12\" sizes."
       }
     },
     {
@@ -10952,6 +11084,36 @@
         "value": 1550,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-6",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-6/",
+            "sizeInch": 6,
+            "sizeMm": 150,
+            "mrp": 1550,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-8",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-8/",
+            "sizeInch": 8,
+            "sizeMm": 200,
+            "mrp": 1650,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-10",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-10/",
+            "sizeInch": 10,
+            "sizeMm": 250,
+            "mrp": 1750,
+            "mrpVaries": false
+          }
+        ],
+        "lead": true,
+        "description": "The Ventilation Fan is a ventilation fan in Aparna's Ventilation fans range, in 6\", 8\" and 10\" sizes."
       }
     },
     {
@@ -11032,6 +11194,36 @@
         "value": 1650,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-6",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-6/",
+            "sizeInch": 6,
+            "sizeMm": 150,
+            "mrp": 1550,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-8",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-8/",
+            "sizeInch": 8,
+            "sizeMm": 200,
+            "mrp": 1650,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-10",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-10/",
+            "sizeInch": 10,
+            "sizeMm": 250,
+            "mrp": 1750,
+            "mrpVaries": false
+          }
+        ],
+        "lead": false,
+        "description": "The Ventilation Fan is a ventilation fan in Aparna's Ventilation fans range, in 6\", 8\" and 10\" sizes."
       }
     },
     {
@@ -11112,6 +11304,36 @@
         "value": 1750,
         "variants": [],
         "varies": false
+      },
+      "family": {
+        "sizes": [
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-6",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-6/",
+            "sizeInch": 6,
+            "sizeMm": 150,
+            "mrp": 1550,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-8",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-8/",
+            "sizeInch": 8,
+            "sizeMm": 200,
+            "mrp": 1650,
+            "mrpVaries": false
+          },
+          {
+            "id": "ventilation-fresh-air-fans-ventilation-fan-10",
+            "url": "/products/ventilation-and-fresh-air-fans/ventilation-fan-10/",
+            "sizeInch": 10,
+            "sizeMm": 250,
+            "mrp": 1750,
+            "mrpVaries": false
+          }
+        ],
+        "lead": false,
+        "description": "The Ventilation Fan is a ventilation fan in Aparna's Ventilation fans range, in 6\", 8\" and 10\" sizes."
       }
     },
     {
@@ -11180,18 +11402,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-discovery-1201-0-480.webp",
-              "width": 480,
-              "height": 717
+              "width": 468,
+              "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1201-0-960.webp",
-              "width": 960,
-              "height": 1434
+              "width": 935,
+              "height": 1439
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1201-0-1440.webp",
-              "width": 1440,
-              "height": 2151
+              "width": 1403,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Discovery 1201",
@@ -11266,17 +11488,17 @@
             {
               "file": "/media/products/own-air-coolers-discovery-1202-0-480.webp",
               "width": 480,
-              "height": 659
+              "height": 677
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1202-0-960.webp",
               "width": 960,
-              "height": 1318
+              "height": 1353
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1202-0-1440.webp",
               "width": 1440,
-              "height": 1978
+              "height": 2030
             }
           ],
           "alt": "The Aparna Discovery 1202",
@@ -11351,17 +11573,17 @@
             {
               "file": "/media/products/own-air-coolers-discovery-1203-dlx-0-480.webp",
               "width": 480,
-              "height": 493
+              "height": 505
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1203-dlx-0-960.webp",
               "width": 960,
-              "height": 987
+              "height": 1010
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1203-dlx-0-1440.webp",
               "width": 1440,
-              "height": 1480
+              "height": 1516
             }
           ],
           "alt": "The Aparna Discovery 1203 DLX",
@@ -11436,17 +11658,17 @@
             {
               "file": "/media/products/own-air-coolers-discovery-1204-dlx-0-480.webp",
               "width": 480,
-              "height": 589
+              "height": 603
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1204-dlx-0-960.webp",
               "width": 960,
-              "height": 1178
+              "height": 1207
             },
             {
               "file": "/media/products/own-air-coolers-discovery-1204-dlx-0-1440.webp",
               "width": 1440,
-              "height": 1767
+              "height": 1810
             }
           ],
           "alt": "The Aparna Discovery 1204 DLX",
@@ -11520,17 +11742,17 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-pearl-009-0-480.webp",
-              "width": 435,
-              "height": 720
+              "width": 429,
+              "height": 721
             },
             {
               "file": "/media/products/own-air-coolers-pearl-009-0-960.webp",
-              "width": 870,
-              "height": 1441
+              "width": 857,
+              "height": 1440
             },
             {
               "file": "/media/products/own-air-coolers-pearl-009-0-1440.webp",
-              "width": 1304,
+              "width": 1286,
               "height": 2160
             }
           ],
@@ -11606,17 +11828,17 @@
             {
               "file": "/media/products/own-air-coolers-pearl-1201-0-480.webp",
               "width": 480,
-              "height": 645
+              "height": 657
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1201-0-960.webp",
               "width": 960,
-              "height": 1290
+              "height": 1314
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1201-0-1440.webp",
               "width": 1440,
-              "height": 1934
+              "height": 1972
             }
           ],
           "alt": "The Aparna Pearl 1201",
@@ -11690,17 +11912,17 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-pearl-1202-0-480.webp",
-              "width": 468,
-              "height": 720
+              "width": 461,
+              "height": 719
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1202-0-960.webp",
-              "width": 936,
+              "width": 923,
               "height": 1440
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1202-0-1440.webp",
-              "width": 1404,
+              "width": 1384,
               "height": 2159
             }
           ],
@@ -11776,17 +11998,17 @@
             {
               "file": "/media/products/own-air-coolers-pearl-1203-dlx-0-480.webp",
               "width": 480,
-              "height": 423
+              "height": 432
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1203-dlx-0-960.webp",
               "width": 960,
-              "height": 845
+              "height": 864
             },
             {
               "file": "/media/products/own-air-coolers-pearl-1203-dlx-0-1440.webp",
               "width": 1440,
-              "height": 1268
+              "height": 1296
             }
           ],
           "alt": "The Aparna Pearl 1203 DLX",
@@ -11861,17 +12083,17 @@
             {
               "file": "/media/products/own-air-coolers-ultima-1401-0-480.webp",
               "width": 480,
-              "height": 688
+              "height": 709
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1401-0-960.webp",
               "width": 960,
-              "height": 1377
+              "height": 1418
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1401-0-1440.webp",
               "width": 1440,
-              "height": 2065
+              "height": 2127
             }
           ],
           "alt": "The Aparna Ultima 1401",
@@ -11945,17 +12167,17 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-ultima-1402-0-480.webp",
-              "width": 480,
+              "width": 467,
               "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1402-0-960.webp",
-              "width": 960,
-              "height": 1440
+              "width": 935,
+              "height": 1441
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1402-0-1440.webp",
-              "width": 1440,
+              "width": 1402,
               "height": 2160
             }
           ],
@@ -12031,17 +12253,17 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-ultima-1601-0-480.webp",
-              "width": 448,
+              "width": 439,
               "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1601-0-960.webp",
-              "width": 895,
-              "height": 1439
+              "width": 879,
+              "height": 1441
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1601-0-1440.webp",
-              "width": 1343,
+              "width": 1318,
               "height": 2160
             }
           ],
@@ -12117,18 +12339,18 @@
           "variants": [
             {
               "file": "/media/products/own-air-coolers-ultima-1801-0-480.webp",
-              "width": 461,
-              "height": 719
+              "width": 453,
+              "height": 720
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1801-0-960.webp",
-              "width": 923,
+              "width": 906,
               "height": 1440
             },
             {
               "file": "/media/products/own-air-coolers-ultima-1801-0-1440.webp",
-              "width": 1384,
-              "height": 2159
+              "width": 1359,
+              "height": 2160
             }
           ],
           "alt": "The Aparna Ultima 1801",
@@ -14378,17 +14600,17 @@
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1000-w-480.webp",
               "width": 480,
-              "height": 483
+              "height": 533
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1000-w-960.webp",
               "width": 960,
-              "height": 966
+              "height": 1065
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1000-w-1440.webp",
               "width": 1440,
-              "height": 1449
+              "height": 1598
             }
           ],
           "alt": "The Pearl immersion rod 1000 W in Aparna Catalogue 2026",
@@ -14476,17 +14698,17 @@
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-480.webp",
               "width": 480,
-              "height": 483
+              "height": 533
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-960.webp",
               "width": 960,
-              "height": 966
+              "height": 1065
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-1500-w-1440.webp",
               "width": 1440,
-              "height": 1449
+              "height": 1598
             }
           ],
           "alt": "The Pearl immersion rod 1500 W in Aparna Catalogue 2026",
@@ -14574,17 +14796,17 @@
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-480.webp",
               "width": 480,
-              "height": 483
+              "height": 533
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-960.webp",
               "width": 960,
-              "height": 966
+              "height": 1065
             },
             {
               "file": "/media/products/crop-heating-water-pearl-immersion-rod-2000-w-1440.webp",
               "width": 1440,
-              "height": 1449
+              "height": 1598
             }
           ],
           "alt": "The Pearl immersion rod 2000 W in Aparna Catalogue 2026",
@@ -15128,17 +15350,17 @@
             {
               "file": "/media/products/crop-heating-water-alineo-480.webp",
               "width": 480,
-              "height": 554
+              "height": 522
             },
             {
               "file": "/media/products/crop-heating-water-alineo-960.webp",
               "width": 960,
-              "height": 1108
+              "height": 1043
             },
             {
               "file": "/media/products/crop-heating-water-alineo-1440.webp",
               "width": 1440,
-              "height": 1662
+              "height": 1565
             }
           ],
           "alt": "The Alineo in Aparna Catalogue 2026",
@@ -18860,17 +19082,17 @@
     {
       "name": "All-Purpose & Cabin Fans",
       "slug": "all-purpose-and-cabin-fans",
-      "count": 10
+      "count": 9
     },
     {
       "name": "High-Speed Fans",
       "slug": "high-speed-fans",
-      "count": 13
+      "count": 12
     },
     {
       "name": "Ventilation & Fresh-Air Fans",
       "slug": "ventilation-and-fresh-air-fans",
-      "count": 6
+      "count": 3
     },
     {
       "name": "Air Coolers",
@@ -18898,5 +19120,6 @@
       "count": 16
     }
   ],
+  "cardCount": 236,
   "missing": []
 }

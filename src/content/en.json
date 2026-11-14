@@ -226,6 +226,7 @@
     "series": "Series",
     "type": "Type",
     "size": "Size",
+    "and": "and",
     "colour": "Colour",
     "show": "Show",
     "newOnly": "New launches and new models",
@@ -284,7 +285,9 @@
     "mrp": "MRP",
     "mrpFrom": "MRP from",
     "mrpTax": "Incl. of all taxes",
-    "mrpVersions": "MRP by version"
+    "mrpVersions": "MRP by version",
+    "alsoIn": "Also in {sizes}.",
+    "alsoInSize": "{size}, {mrp}"
   },
   "categoryLines": {
     "Ceiling Fans": "BLDC, Signature, Silver and Ultra Gold Series, and a new premium range.",

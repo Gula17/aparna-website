@@ -56,10 +56,6 @@ function renderPages() {
       const colours = readJson('src/content/colours.json');
       // Product cutouts (npm run cutouts). Optional: without them every product shows its normal photo.
       const cutouts = fs.existsSync(path.join(root, 'src/content/cutouts.generated.json')) ? readJson('src/content/cutouts.generated.json').products : {};
-      // Fans with turning blades (npm run rotors): their cutout is drawn as still and turning layers.
-      if (fs.existsSync(path.join(root, 'src/content/rotors.generated.json'))) {
-        for (const [id, rotor] of Object.entries(readJson('src/content/rotors.generated.json').products)) if (cutouts[id]) cutouts[id] = { ...cutouts[id], rotor };
-      }
       const pages = await load(ctx, '/src/templates/catalogue.js');
       const eventPages = await load(ctx, '/src/templates/events.js');
       const privacyPage = await load(ctx, '/src/templates/privacy.js');

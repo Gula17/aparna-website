@@ -46,27 +46,7 @@ const FX_PARTS = { ceiling: 3, oscillate: 4, exhaust: 4, cooler: 6, heat: 4, coo
 function stage(t, p, cut, { sizes, eager = false, extraClass = '' } = {}) {
   const motion = motionOf(p);
   let visual;
-  if (cut?.rotor) {
-    // Turning blades (scripts/make-rotors.mjs): the still parts, the blade area that turns in the fan's own
-    // perspective plane, then the still hub on top. All three come from the product's own photo.
-    const r = cut.rotor;
-    const srcset = (v) => `src="${esc(v.at(-1).file)}" srcset="${esc(v.map((x) => `${x.file} ${x.width}w`).join(', '))}" sizes="${esc(sizes)}" width="${v.at(-1).width}" height="${v.at(-1).height}"`;
-    const load = eager ? 'fetchpriority="high"' : 'loading="lazy"';
-    visual = `
-      <span class="stage__product stage__product--cutout stage__product--rotor" style="--mask:url('${esc(cut.variants[0].file)}')">
-        <span class="stage__motion">
-          <span class="rotor-fit" style="--ar:${r.width} / ${r.height}">
-            <img class="rotor-layer rotor-layer--base" ${srcset(r.base)} alt="${esc(cut.alt)}" ${load} decoding="async">
-            ${r.rotors.map((x) => {
-              const origin = `transform-origin:${x.origin[0]}% ${x.origin[1]}%`;
-              return `<span class="rotor" style="${origin};transform:matrix(${x.L.join(',')},0,0)"><span class="rotor__spin" style="${origin};--turn:${x.turn}s"><span class="rotor__boost" style="${origin}"><img class="rotor-layer" ${srcset(x.image)} alt="" ${load} decoding="async" style="${origin};transform:matrix(${x.Li.join(',')},0,0)"></span></span></span>`;
-            }).join('')}
-            <img class="rotor-layer" ${srcset(r.top)} alt="" ${load} decoding="async">
-            <span class="stage__sheen" aria-hidden="true"></span>
-          </span>
-        </span>
-      </span>`;
-  } else if (cut) {
+  if (cut) {
     const largest = cut.variants.at(-1);
     visual = `
       <span class="stage__product stage__product--cutout" style="--mask:url('${esc(cut.variants[0].file)}')">
@@ -110,14 +90,32 @@ const sizeText = (p) => (p.sizeInch ? (p.sizeMm ? `${p.sizeInch}" · ${p.sizeMm}
 
 const mrpLine = (t, p) => (p.mrp ? `${p.mrp.varies ? t.product.mrpFrom : t.product.mrp} ${rupees(p.mrp.value)}` : '');
 
+// A model made in several sizes (p.family, scripts/catalogue-data.mjs) is one card: it names its sizes
+// ("12" and 16"") and its lowest MRP, and opens the smallest size's page (the size filter switches the link to the
+// size it matched, src/scenes/catalogue.js). Every size keeps its own page.
+// the catalogue's cards: one per product, or one per size family (its smallest size)
+const onCard = (p) => !p.family || p.family.lead;
+const cardCount = (catalogue) => catalogue.cardCount ?? catalogue.products.filter(onCard).length;
+const listWords = (t, items) => (items.length > 1 ? `${items.slice(0, -1).join(', ')} ${t.products.and} ${items.at(-1)}` : items[0] ?? '');
+const familySizes = (t, p) => listWords(t, p.family.sizes.map((s) => `${s.sizeInch}"`));
+function familyMrpLine(t, p) {
+  const prices = p.family.sizes.map((s) => s.mrp).filter((v) => v !== null);
+  if (!prices.length) return '';
+  const from = new Set(prices).size > 1 || p.family.sizes.some((s) => s.mrpVaries);
+  return `${from ? t.product.mrpFrom : t.product.mrp} ${rupees(Math.min(...prices))}`;
+}
+
 function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) {
   const shownColours = p.colours.slice(0, 5);
+  const fam = p.family;
+  const size = fam ? familySizes(t, p) : sizeText(p);
   return `
   <li class="product-card" data-id="${esc(p.id)}" data-category="${esc(p.categorySlug)}" data-series="${esc(p.series)}"
       data-type="${esc(p.type)}" data-size="${p.sizeInch ?? ''}" data-colours="${esc(p.colours.join('|'))}" data-new="${p.status === 'new' || p.status === 'launch' ? '1' : ''}"
-      data-name="${esc(p.name.toLowerCase())}" data-search="${esc(`${p.name} ${p.series} ${p.type} ${p.category} ${p.colours.join(' ')}`.toLowerCase())}" data-sort="${esc(p.sort)}"
+      ${fam ? `data-sizes="${fam.sizes.map((s) => s.sizeInch).join('|')}" data-size-max="${fam.sizes.at(-1).sizeInch}" data-size-urls="${esc(fam.sizes.map((s) => `${s.sizeInch} ${s.url}`).join('|'))}"` : ''}
+      data-name="${esc(p.name.toLowerCase())}" data-search="${esc(`${p.name} ${p.series} ${p.type} ${p.category} ${p.colours.join(' ')}${fam ? ` ${fam.sizes.map((s) => `${s.sizeInch}"`).join(' ')}` : ''}`.toLowerCase())}" data-sort="${esc(p.sort)}"
       data-url="${esc(p.url)}" data-title="${esc(p.name)}" data-series-label="${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}"
-      data-meta="${esc([p.type, sizeText(p)].filter(Boolean).join(' · '))}" data-model="${esc(PRODUCT_MODELS[p.id] ?? '')}"
+      data-meta="${esc([p.type, size].filter(Boolean).join(' · '))}" data-model="${esc(PRODUCT_MODELS[p.id] ?? '')}"
       data-img="${esc(cutouts[p.id]?.variants.at(-1).file ?? p.images[0]?.variants.at(-1).file ?? '')}"
       style="--i:${index % 7}">
     <div class="product-card__inner" data-stage-card>
@@ -126,9 +124,9 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
         <span class="product-card__body">
           <span class="product-card__series">${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}</span>
           <span class="product-card__name">${esc(p.name)}</span>
-          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</span>
-          ${p.mrp ? `<span class="product-card__mrp">${esc(mrpLine(t, p))}</span>` : ''}
-          <span class="product-card__desc">${esc(p.description)}</span>
+          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, size].filter(Boolean).join(' · '))}</span>
+          ${fam ? (familyMrpLine(t, p) ? `<span class="product-card__mrp">${esc(familyMrpLine(t, p))}</span>` : '') : p.mrp ? `<span class="product-card__mrp">${esc(mrpLine(t, p))}</span>` : ''}
+          <span class="product-card__desc">${esc(fam ? fam.description : p.description)}</span>
           <span class="product-card__foot">
             ${shownColours.length ? `<span class="product-card__colours" title="${esc(p.colours.join(', '))}">
               ${shownColours.map((c) => swatch(colours, c)).join('')}${p.colours.length > 5 ? `<span class="product-card__more">+${p.colours.length - 5}</span>` : ''}
@@ -151,7 +149,8 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
 function facetValues(products, key) {
   const counts = new Map();
   for (const p of products) {
-    const values = key === 'colours' ? p.colours : [p[key]];
+    // (a size family's card offers each of its sizes)
+    const values = key === 'colours' ? p.colours : key === 'sizeInch' && p.family ? p.family.sizes.map((s) => s.sizeInch) : [p[key]];
     for (const v of values) if (v !== null && v !== undefined && v !== '') counts.set(v, (counts.get(v) ?? 0) + 1);
   }
   const entries = [...counts.entries()];
@@ -284,7 +283,7 @@ function showroom(t, catalogue, cutouts, category, title, lead) {
         <p class="showroom__eyebrow" data-reveal>${esc(s.eyebrow)}</p>
         <h1 class="showroom__title" id="page-title" data-reveal="words">${esc(title)}</h1>
         <p class="showroom__lead" data-reveal>${linkEvents(esc(lead))}</p>
-        <a class="showroom__browse" href="#browse" data-reveal>${esc(fmt(s.browseAll, { count: catalogue.products.length }))} <span aria-hidden="true">↓</span></a>
+        <a class="showroom__browse" href="#browse" data-reveal>${esc(fmt(s.browseAll, { count: cardCount(catalogue) }))} <span aria-hidden="true">↓</span></a>
       </div>
       <h2 class="sr-only">${esc(s.byCategory)}</h2>
       <ul class="showroom__stations" data-stations>
@@ -328,9 +327,10 @@ function showroom(t, catalogue, cutouts, category, title, lead) {
 export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, categorySlug = null }) {
   const category = categorySlug ? catalogue.categories.find((c) => c.slug === categorySlug) : null;
   const products = [...(category ? catalogue.products.filter((p) => p.categorySlug === categorySlug) : catalogue.products)]
+    .filter(onCard)
     .sort((a, b) => a.sort.localeCompare(b.sort, undefined, { numeric: true }));
   const title = category ? category.name : t.products.title;
-  const lead = category ? t.categoryLines[category.name] ?? '' : fmt(t.products.lead, { count: catalogue.products.length, categories: catalogue.categories.length });
+  const lead = category ? t.categoryLines[category.name] ?? '' : fmt(t.products.lead, { count: cardCount(catalogue), categories: catalogue.categories.length });
 
   const facets = [
     category ? '' : facet(t, 'category', t.products.category, catalogue.categories.map((c) => [c.slug, c.count]), (slug) => esc(catalogue.categories.find((c) => c.slug === slug).name)),
@@ -354,7 +354,7 @@ export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, ca
     ${category ? '' : showcase(t, catalogue, cutouts)}
 
     <nav class="category-chips" id="browse" aria-label="${esc(t.products.category)}">
-      <a href="/products/" ${category ? '' : 'aria-current="page"'}>${esc(t.nav.allProducts)} <span>${catalogue.products.length}</span></a>
+      <a href="/products/" ${category ? '' : 'aria-current="page"'}>${esc(t.nav.allProducts)} <span>${cardCount(catalogue)}</span></a>
       ${catalogue.categories.map((c) => `<a href="/products/${esc(c.slug)}/" ${c.slug === categorySlug ? 'aria-current="page"' : ''}>${esc(c.name)} <span>${c.count}</span></a>`).join('')}
     </nav>
 
@@ -410,8 +410,10 @@ export function renderCatalogue({ t, range, catalogue, colours, cutouts = {}, ca
 // ---------------------------------------------------------------- product page
 
 function related(catalogue, p) {
-  const sameSeries = catalogue.products.filter((x) => x.id !== p.id && x.series === p.series);
-  const sameCategory = catalogue.products.filter((x) => x.id !== p.id && x.category === p.category && x.series !== p.series);
+  // (not this model's other sizes: they are in its size switch; another model in several sizes shows once)
+  const others = catalogue.products.filter((x) => x.id !== p.id && onCard(x) && !p.family?.sizes.some((s) => s.id === x.id));
+  const sameSeries = others.filter((x) => x.series === p.series);
+  const sameCategory = others.filter((x) => x.category === p.category && x.series !== p.series);
   return { list: [...sameSeries, ...sameCategory].slice(0, 4), bySeries: sameSeries.length > 0 };
 }
 
@@ -428,6 +430,21 @@ function productMrp(t, p, pickColours) {
             <span class="product__mrp-tax">${esc(t.product.mrpTax)}</span></p>
           ${others.length ? `<details class="product__mrp-versions"><summary>${esc(t.product.mrpVersions)}</summary><ul>${others.map((v) => `<li><span>${esc(v.label)}</span><span>${esc(rupees(v.mrp))}</span></li>`).join('')}</ul></details>` : ''}
         </div>`;
+}
+
+// A model made in several sizes: a switch to each size's own page (each size keeps its URL, data and MRP, so links
+// and shares keep working), the current size marked; and the other sizes named with their MRP near the price.
+const sizeSwitch = (t, p) => `
+        <div class="size-switch" role="group" aria-labelledby="size-switch-label">
+          <span class="size-switch__label" id="size-switch-label">${esc(t.product.size)}</span>
+          ${p.family.sizes.map((s) => `<a class="size-switch__option" href="${esc(s.url)}"${s.id === p.id ? ' aria-current="page"' : ''}>${s.sizeInch}"<span class="size-switch__mm">${s.sizeMm ? ` · ${s.sizeMm} mm` : ''}</span></a>`).join('')}
+        </div>`;
+function alsoIn(t, p) {
+  const others = p.family.sizes.filter((s) => s.id !== p.id).map((s) => {
+    const size = s.sizeMm ? `${s.sizeInch}" (${s.sizeMm} mm)` : `${s.sizeInch}"`;
+    return s.mrp === null ? size : fmt(t.product.alsoInSize, { size, mrp: `${s.mrpVaries ? t.product.mrpFrom : t.product.mrp} ${rupees(s.mrp)}` });
+  });
+  return `<p class="product__also-in">${esc(fmt(t.product.alsoIn, { sizes: others.join('; ') }))}</p>`;
 }
 
 export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }) {
@@ -558,7 +575,9 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         <p class="product__series">${esc(p.series)}</p>
         <h1 class="product__name" id="product-title">${esc(p.name)}</h1>
         <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
+        ${p.family ? sizeSwitch(t, p) : ''}
         ${p.mrp ? productMrp(t, p, pickColours) : ''}
+        ${p.family ? alsoIn(t, p) : ''}
         <p class="product__desc">${esc(p.description)}</p>
         ${p.status !== 'current' ? `<p class="product__soon">${esc(p.status === 'soon' ? t.product.nameSoon : t.product.detailsSoon)}</p>` : ''}
 
@@ -636,7 +655,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
 // Page titles and descriptions for the <head>.
 export function pageMeta({ t, catalogue, marker }) {
   const [kind, key] = marker.split(':');
-  if (kind === 'catalogue') return { title: `All products | Aparna`, description: fmt(t.products.lead, { count: catalogue.products.length, categories: catalogue.categories.length }) };
+  if (kind === 'catalogue') return { title: `All products | Aparna`, description: fmt(t.products.lead, { count: cardCount(catalogue), categories: catalogue.categories.length }) };
   if (kind === 'category') {
     const c = catalogue.categories.find((x) => x.slug === key);
     return { title: `${c.name} | Aparna`, description: `${c.count} Aparna ${c.name.toLowerCase()}. ${t.categoryLines[c.name] ?? ''}` };

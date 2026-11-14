@@ -23,7 +23,6 @@ const fail = (msg) => problems.push(msg);
 const data = JSON.parse(await fs.readFile(path.join(PACK, '03_Product_Data', 'aparna-products.json'), 'utf8'));
 const catalogue = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/catalogue.generated.json'), 'utf8'));
 const cutouts = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/cutouts.generated.json'), 'utf8').catch(() => '{"products":{}}')).products;
-const rotors = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/rotors.generated.json'), 'utf8').catch(() => '{"products":{}}')).products;
 const showable = data.products.filter((p) => ['current', 'new', 'launch'].includes(p.status));
 const byId = new Map(catalogue.products.map((p) => [p.id, p]));
 
@@ -47,11 +46,8 @@ for (const p of catalogue.products) {
   if (!html.includes(`data-product="${p.id}"`)) fail(`${p.url}: page is not for ${p.id}`);
   // Gallery images must be this product's own.
   const gallery = html.match(/<section class="gallery"[\s\S]*?<\/section>/)?.[0] ?? '';
-  // (a product's cutout is its own first image with the background removed: scripts/make-cutouts.mjs;
-  // turning-blade layers are cut from that cutout: scripts/make-rotors.mjs)
-  const r = rotors[p.id];
-  const layers = r ? [r.base, r.top, ...r.rotors.map((x) => x.image)].map((variants) => ({ variants })) : [];
-  const own = new Set([...p.images, ...(cutouts[p.id] ? [cutouts[p.id]] : []), ...layers].flatMap((img) => img.variants.map((v) => v.file)));
+  // (a product's cutout is its own first image with the background removed: scripts/make-cutouts.mjs)
+  const own = new Set([...p.images, ...(cutouts[p.id] ? [cutouts[p.id]] : [])].flatMap((img) => img.variants.map((v) => v.file)));
   for (const [, src] of gallery.matchAll(/src="([^"]+\.webp)"/g)) if (!own.has(src)) fail(`${p.url}: shows an image that isn't its own: ${src}`);
 }
 
@@ -110,7 +106,9 @@ try {
   // Catalogue page: search, filter, sort, links.
   await page.goto(`${url}/products/`, { waitUntil: 'load' });
   const total = await page.$$eval('.product-card', (c) => c.length);
-  if (total !== catalogue.products.length) fail(`/products/ shows ${total} cards, expected ${catalogue.products.length}`);
+  // one card per product, or one per model made in several sizes (catalogue.cardCount)
+  const cards = catalogue.cardCount ?? catalogue.products.length;
+  if (total !== cards) fail(`/products/ shows ${total} cards, expected ${cards}`);
   const hrefs = await page.$$eval('.product-card__link', (a) => a.map((x) => new URL(x.href).pathname));
   const wrongLinks = hrefs.filter((h) => !urls.has(h));
   if (wrongLinks.length) fail(`Cards linking to unknown pages: ${wrongLinks.slice(0, 5).join(', ')}`);
@@ -154,7 +152,7 @@ try {
   if (menu.tiles.length !== catalogue.categories.length) fail(`Menu shows ${menu.tiles.length} categories, expected ${catalogue.categories.length}`);
   for (const c of catalogue.categories) if (!menu.tiles.some(([href, n]) => href === `/products/${c.slug}/` && n.startsWith(`${c.count} `))) fail(`Menu tile for ${c.name} is missing or has the wrong count`);
   if (menu.loaded !== menu.tiles.length) fail(`Menu thumbnails loaded: ${menu.loaded} of ${menu.tiles.length}`);
-  if (!menu.explore.includes(`${catalogue.products.length} products`)) fail(`Menu strip says "${menu.explore.trim()}"`);
+  if (!menu.explore.includes(`${catalogue.cardCount ?? catalogue.products.length} products`)) fail(`Menu strip says "${menu.explore.trim()}"`);
 
   // Footer: the four official social links, opening in a new tab; the privacy policy page.
   const t = JSON.parse(await fs.readFile(path.join(ROOT, 'src/content/en.json'), 'utf8'));
