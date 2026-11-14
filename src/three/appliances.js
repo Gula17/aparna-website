@@ -12,6 +12,7 @@
 // the visible side.
 
 import * as THREE from 'three';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { lathe, makeBlurTexture } from './aeroflow-model.js';
 import { brandMark, brandMarkCurved } from './brand-mark.js';
 
@@ -527,51 +528,138 @@ function quartzHeater(name) {
 }
 
 function sunHeater(name) {
-  // 14" sun heater (studio photo 124): an ivory drum with a glowing orange bowl behind a ring-and-spoke guard
-  // and a round centre badge, held in a crescent yoke on an oval foot
+  // Sun Heater Sunshine 14" (studio photo 124; the catalogue shows the same heater in yellow, cold). A radiant
+  // heater, built the way one works: a coil element on a ceramic core at the centre of a deep polished reflector
+  // bowl, which throws the heat forward (so the drum is closed at the back); a dense radial wire guard over the
+  // front with a round centre badge; the drum hung on two side pivots in a broad U-shaped yoke, so it can be
+  // aimed; a waisted neck with a brown band, and an oval foot with the control knob on its front.
+  // Proportions measured on photo 124: badge a third of the drum across, yoke wider than the drum with its tips a
+  // little above the drum's middle, foot about four fifths of the drum wide. The back, which no photo shows, is a
+  // plain closed dome (assumed).
   const g = new THREE.Group();
-  const chrome = mat({ color: '#d9d4c6', metalness: 0.8, roughness: 0.3 });
   const ivory = mat({ color: '#ece2cb', roughness: 0.4, clearcoat: 0.5 });
-  const cy = 0.24;
-  const drum = new THREE.Mesh(lathe([[0, -0.12], [0.22, -0.11], [0.36, -0.06], [0.42, 0.02], [0.43, 0.06]]), ivory);
-  drum.rotation.x = Math.PI / 2;
-  drum.position.y = cy;
-  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.39, 48), mat({ color: '#c9b08a', metalness: 0.6, roughness: 0.3 }));
-  glow.userData.power = { kind: 'heat', emissive: '#ff6a14', intensity: 1.9, color: '#ffb35a' };
-  glow.position.set(0, cy, -0.04);
-  g.add(drum, glow);
-  for (let i = 1; i <= 6; i++) { // guard rings
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.1 + i * 0.053, 0.004, 5, 64), chrome);
-    ring.position.set(0, cy, 0.06);
-    g.add(ring);
+  const wireMat = mat({ color: '#f0ebe0', roughness: 0.35, metalness: 0.2 });
+  const R = 0.43; // the drum's radius
+  const cy = 0.15; // the drum's centre
+  const RIM_Z = 0.05; // the front rim; the guard domes a little forward of it
+  const DEPTH = 0.28; // the drum's depth, rim to the back of the dome (about a third of its width)
+
+  // ---- the drum: a closed back dome and the rolled front rim, with a thin seam where they meet
+  const back = new THREE.Mesh(lathe([[0, RIM_Z - DEPTH], [0.16, RIM_Z - DEPTH + 0.01], [0.3, RIM_Z - DEPTH + 0.05], [0.39, RIM_Z - 0.11], [R, RIM_Z - 0.03], [R + 0.005, RIM_Z]]), ivory);
+  back.rotation.x = Math.PI / 2;
+  back.position.y = cy;
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(R, 0.018, 10, 96), ivory);
+  rim.position.set(0, cy, RIM_Z);
+  const seam = new THREE.Mesh(new THREE.TorusGeometry(R + 0.003, 0.0025, 6, 96), mat({ color: '#b9ac90', roughness: 0.5 }));
+  seam.position.set(0, cy, RIM_Z - 0.03);
+  g.add(back, rim, seam);
+
+  // ---- the reflector: a deep polished bowl filling the drum (cold bright metal; with Start on it glows warm)
+  const BOWL_Z = RIM_Z - DEPTH + 0.05; // its deepest point, just in front of the back
+  const bowl = new THREE.Mesh(lathe([[0.04, BOWL_Z], [0.12, BOWL_Z + 0.012], [0.24, BOWL_Z + 0.05], [0.34, BOWL_Z + 0.11], [0.405, BOWL_Z + 0.17], [0.418, RIM_Z - 0.01]], 96),
+    mat({ color: '#d8c9a6', metalness: 0.85, roughness: 0.32 }));
+  bowl.rotation.x = Math.PI / 2;
+  bowl.position.y = cy;
+  bowl.userData.power = { kind: 'heat', emissive: '#ff6a14', intensity: 1.1, color: '#ffb35a' };
+  g.add(bowl);
+
+  // ---- the heating element at the bowl's centre: a ceramic core wound with a coil, from the bowl's floor to just
+  // behind the badge; the badge's lower boss is the element's end cap. Glows brightest when on.
+  const ELEMENT_FRONT = RIM_Z + 0.01;
+  const core = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, ELEMENT_FRONT - BOWL_Z, 20), mat({ color: '#efe8dc', roughness: 0.7 }));
+  core.rotation.x = Math.PI / 2;
+  core.position.set(0, cy, (ELEMENT_FRONT + BOWL_Z) / 2);
+  const turns = 14, coilPts = [];
+  for (let i = 0; i <= turns * 16; i++) {
+    const t = i / (turns * 16), a = t * turns * Math.PI * 2;
+    coilPts.push(new THREE.Vector3(Math.cos(a) * 0.036, Math.sin(a) * 0.036, BOWL_Z + 0.02 + t * (ELEMENT_FRONT - BOWL_Z - 0.04)));
   }
-  for (let i = 0; i < 24; i++) { // and spokes
-    const a = (i / 24) * Math.PI * 2;
-    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 0.32, 4), chrome);
-    wire.position.set(Math.cos(a) * 0.26, cy + Math.sin(a) * 0.26, 0.06);
-    wire.rotation.z = a - Math.PI / 2;
-    g.add(wire);
+  const coil = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(coilPts), turns * 16, 0.0055, 5), mat({ color: '#8a6a52', metalness: 0.6, roughness: 0.4 }));
+  coil.position.y = cy;
+  coil.userData.power = { ...HOT_COIL, intensity: 2.6 };
+  g.add(core, coil);
+
+  // ---- the guard: fine radial wires from the badge out to the rim, slightly domed, with rings near the rim and
+  // round the badge (photo 124: about 72 wires). All one mesh.
+  const BADGE_R = 0.146;
+  const guardZ = (r) => RIM_Z + 0.012 + 0.03 * (1 - (r / R) ** 2);
+  const wires = [];
+  for (let i = 0; i < 72; i++) {
+    const a = (i / 72) * Math.PI * 2;
+    const pts = [];
+    for (let k = 0; k <= 6; k++) { const r = BADGE_R - 0.01 + ((R - BADGE_R + 0.008) * k) / 6; pts.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, guardZ(r))); }
+    wires.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 6, 0.0032, 4));
   }
-  const badge = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 40), ivory);
+  for (const r of [BADGE_R + 0.004, 0.395, 0.418]) wires.push(new THREE.TorusGeometry(r, 0.0036, 5, 96).translate(0, 0, guardZ(r)));
+  const guard = new THREE.Mesh(mergeGeometries(wires), wireMat);
+  guard.position.y = cy;
+  g.add(guard);
+
+  // ---- the round centre badge on the guard, with the Aparna logo, and the element's end cap just below it
+  const BADGE_Z = guardZ(BADGE_R) + 0.012;
+  const badge = new THREE.Mesh(new THREE.CylinderGeometry(BADGE_R, BADGE_R, 0.03, 64), ivory);
   badge.rotation.x = Math.PI / 2;
-  badge.position.set(0, cy, 0.08);
-  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.43, 0.02, 10, 64), ivory);
-  rim.position.set(0, cy, 0.06);
-  // the yoke: a broad crescent under the drum, its tips reaching up past the drum's middle
-  const yoke = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.045, 12, 64, Math.PI + 0.9), ivory);
-  yoke.rotation.z = Math.PI - 0.45;
-  yoke.scale.z = 1.8;
-  yoke.position.set(0, cy, -0.04);
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.14, 24), ivory);
-  neck.position.set(0, cy - 0.58, -0.04);
-  const band = new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.012, 8, 32), mat({ color: '#7b5a44', roughness: 0.4 }));
+  badge.position.set(0, cy, BADGE_Z);
+  const boss = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.052, 0.026, 32), ivory);
+  boss.rotation.x = Math.PI / 2;
+  boss.position.set(0, cy - BADGE_R + 0.02, BADGE_Z - 0.006);
+  g.add(badge, boss);
+  g.add(logo('red', 0.17, 0, cy + 0.01, BADGE_Z + 0.0155)); // on the badge's face, as in the photo
+
+  // ---- the yoke: a broad flat crescent round the lower half of the drum, wider than the drum, its tips a little
+  // above the drum's middle (where the pivots are); it thickens at the bottom and runs into the neck
+  const YOKE_IN = R + 0.022; // its inner edge, just clear of the drum's rim
+  const TIP = 0.2; // the tips' angle above the horizontal
+  const yokeShape = new THREE.Shape();
+  const steps = 48;
+  const outer = (th) => YOKE_IN + 0.055 + 0.07 * Math.max(0, -Math.sin(th)) ** 4; // wider towards the bottom
+  for (let i = 0; i <= steps; i++) { // outer edge, from the right tip round the bottom to the left tip
+    const th = TIP - ((Math.PI + 2 * TIP) * i) / steps;
+    const p = [Math.cos(th) * outer(th), Math.sin(th) * outer(th)];
+    if (i === 0) yokeShape.moveTo(...p); else yokeShape.lineTo(...p);
+  }
+  for (let i = steps; i >= 0; i--) { // inner edge, back again
+    const th = TIP - ((Math.PI + 2 * TIP) * i) / steps;
+    yokeShape.lineTo(Math.cos(th) * YOKE_IN, Math.sin(th) * YOKE_IN);
+  }
+  const YOKE_DEPTH = 0.07;
+  const yokeGeo = new THREE.ExtrudeGeometry(yokeShape, { depth: YOKE_DEPTH, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 3, curveSegments: 4 });
+  yokeGeo.translate(0, 0, -YOKE_DEPTH / 2);
+  const PIVOT_Z = RIM_Z - DEPTH * 0.42; // the drum's balance point, front to back
+  const yoke = new THREE.Mesh(yokeGeo, ivory);
+  yoke.position.set(0, cy, PIVOT_Z);
+  g.add(yoke);
+  // the two pivots: a short boss from each side of the drum through the yoke's tip, capped outside
+  for (const side of [-1, 1]) {
+    const a = TIP * 0.55;
+    const x = side * Math.cos(a), y = cy + Math.sin(a) * (YOKE_IN + 0.03);
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.16, 20), ivory); // from inside the drum's side out through the yoke
+    pin.rotation.z = Math.PI / 2;
+    pin.position.set(x * 0.45, y, PIVOT_Z);
+    const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.034, 0.034, 0.012, 24), ivory);
+    cap.rotation.z = Math.PI / 2;
+    cap.position.set(x * (YOKE_IN + 0.072), y, PIVOT_Z);
+    g.add(pin, cap);
+  }
+
+  // ---- the neck: a waisted column from the yoke's bottom down to the foot, with its brown band near the foot
+  const NECK_TOP = cy - YOKE_IN - 0.1, FOOT_TOP = cy - 0.72;
+  const neck = new THREE.Mesh(lathe([[0.1, NECK_TOP + 0.03], [0.085, NECK_TOP - 0.02], [0.068, (NECK_TOP + FOOT_TOP) / 2], [0.078, FOOT_TOP + 0.03], [0.095, FOOT_TOP]], 40), ivory);
+  neck.position.z = PIVOT_Z;
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.08, 0.011, 8, 40), mat({ color: '#7b5a44', roughness: 0.4 }));
   band.rotation.x = Math.PI / 2;
-  band.position.set(0, cy - 0.6, -0.04);
-  const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.36, 0.08, 48), ivory);
-  foot.scale.z = 0.62;
-  foot.position.set(0, cy - 0.69, -0.04);
-  g.add(badge, rim, yoke, neck, band, foot);
-  g.add(logo('red', 0.125, 0, cy, 0.1015)); // on the round centre badge, as in the photo
+  band.position.set(0, FOOT_TOP + 0.025, PIVOT_Z);
+  g.add(neck, band);
+
+  // ---- the oval foot, its edge rounded, with the round control knob on the front of its top
+  const FOOT_H = 0.075;
+  const foot = new THREE.Mesh(lathe([[0, FOOT_TOP], [0.3, FOOT_TOP], [0.33, FOOT_TOP - 0.015], [0.345, FOOT_TOP - FOOT_H * 0.6], [0.335, FOOT_TOP - FOOT_H], [0, FOOT_TOP - FOOT_H]], 64), ivory);
+  foot.scale.z = 0.58;
+  foot.position.z = PIVOT_Z;
+  const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.04, 0.026, 32), mat({ color: '#e6dcc4', roughness: 0.35, clearcoat: 0.6 }));
+  knob.position.set(0, FOOT_TOP + 0.012, PIVOT_Z + 0.3 * 0.58 * 0.68);
+  g.add(foot, knob);
+
   return shell(name, g, { pose: { elevation: 0.12, zoom: 1.05 } });
 }
 

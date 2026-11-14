@@ -16,6 +16,7 @@
 
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { makeBlurTexture } from './aeroflow-model.js';
 import { brandMark, brandMarkCurved } from './brand-mark.js';
 
@@ -409,11 +410,44 @@ function cabinFan() {
   const g = new THREE.Group();
   const white = mat(plastic('#f1f1ee', { roughness: 0.35 }));
   const shade = mat(plastic('#e4e4e0', { roughness: 0.45 }));
-  // the drum: a thick-walled cup, open at the front, its lip rolled; lathed round y then turned to face +z
-  const profile = [[0.16, -0.42], [0.6, -0.42], [0.76, -0.36], [0.8, -0.24], [0.8, 0.12], [0.795, 0.18], [0.77, 0.215], [0.73, 0.215], [0.71, 0.19], [0.705, 0.12], [0.705, -0.3], [0.2, -0.32]];
+  // the drum (photo 79): a slim band about a quarter of its diameter deep, open front and back, its front lip
+  // rolled; lathed round y then turned to face +z (the band's cross-section, a closed outline)
+  const BAND_BACK = -0.17;
+  const profile = [[0.705, BAND_BACK], [0.78, BAND_BACK], [0.8, BAND_BACK + 0.04], [0.8, 0.12], [0.795, 0.18], [0.77, 0.215], [0.73, 0.215], [0.71, 0.19], [0.705, 0.12], [0.705, BAND_BACK]];
   const drum = new THREE.Mesh(new THREE.LatheGeometry(profile.map(([r, y]) => new THREE.Vector2(r, y)), 96), white);
   drum.geometry.rotateX(Math.PI / 2);
   g.add(drum);
+  // the open back (photo 79 shows it through the side): a shallow dome of radial slats (the jaali) from the band's
+  // back edge in to the motor, tied by two rings; air is drawn in through it. All one mesh.
+  const MOTOR_R = 0.2, SLAT_OUT = 0.76;
+  const domeZ = (r) => BAND_BACK - 0.12 * (1 - ((r - MOTOR_R) / (SLAT_OUT - MOTOR_R)) ** 2);
+  const grille = [];
+  const slats = 40;
+  const stops = [MOTOR_R, 0.38, 0.56, SLAT_OUT];
+  for (let i = 0; i < slats; i++) {
+    const a = (i / slats) * Math.PI * 2;
+    for (let k = 0; k < stops.length - 1; k++) {
+      const [r1, r2] = [stops[k], stops[k + 1]];
+      const [z1, z2] = [domeZ(r1), domeZ(r2)];
+      const len = Math.hypot(r2 - r1, z2 - z1) + 0.012; // a little overlap, so each slat reads as one piece
+      const seg = new THREE.BoxGeometry(len, 0.013, 0.045); // thin across, deep along the air's path
+      seg.rotateY(-Math.atan2(z2 - z1, r2 - r1));
+      seg.translate((r1 + r2) / 2, 0, (z1 + z2) / 2);
+      seg.rotateZ(a);
+      grille.push(seg);
+    }
+  }
+  for (const r of [0.44, 0.64]) grille.push(new THREE.TorusGeometry(r, 0.011, 6, 72).translate(0, 0, domeZ(r)));
+  g.add(new THREE.Mesh(mergeGeometries(grille), white));
+  // the motor, held at the centre of the back grille; the blades' hub sits on its shaft
+  const motor = cyl(MOTOR_R, MOTOR_R, 0.26, shade, 40);
+  motor.rotation.x = Math.PI / 2;
+  motor.position.z = -0.19;
+  const motorCap = new THREE.Mesh(new THREE.SphereGeometry(MOTOR_R, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2), shade);
+  motorCap.rotation.x = -Math.PI / 2;
+  motorCap.scale.y = 0.35;
+  motorCap.position.z = -0.32;
+  g.add(motor, motorCap);
   // the swirl vanes of the front grille, from the badge out to the lip
   for (let i = 0; i < 24; i++) {
     const pts = [];
@@ -438,10 +472,10 @@ function cabinFan() {
   const mark = brandMark({ colour: 'red', width: 0.2 });
   mark.position.z = 0.194;
   g.add(badge, face, mark);
-  // the stand: a short neck from under the drum to a round foot
-  const neck = rbox(0.16, 0.16, 0.14, 0.05, white, 0, -0.84, -0.14);
+  // the stand: a short neck from under the drum (centred under the slimmer band) to a round foot
+  const neck = rbox(0.16, 0.16, 0.14, 0.05, white, 0, -0.84, 0.02);
   const foot = cyl(0.2, 0.23, 0.06, white, 48);
-  foot.position.set(0, -0.93, -0.14);
+  foot.position.set(0, -0.93, 0.02);
   g.add(neck, foot);
   // the fan inside: five white blades on a hub, turning about the drum's axis
   const axis = new THREE.Group();
