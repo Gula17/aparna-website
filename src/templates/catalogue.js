@@ -80,6 +80,7 @@ function spotlightFor(catalogue, cutouts, slug) {
   return items.find((p) => cutouts[p.id]) ?? items.find((p) => p.images[0]) ?? items[0];
 }
 
+const swatchHex = (value = '') => (value.match(/#[0-9a-f]{6}(?=\s+5\d%)/i) ?? value.match(/#[0-9a-f]{6}/i))?.[0] ?? '';
 const swatch = (colours, name) => `<span class="swatch" style="--swatch:${esc(colours[name] ?? '#ccc')}" aria-hidden="true"></span>`;
 
 const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--new">${esc(t.products.newLaunch)}</li>`
@@ -486,7 +487,8 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   }
   if (cut) {
     slides.push(`
-      <figure class="gallery__slide gallery__slide--stage" data-slide data-colour="${esc(studioCut ? p.images[0].colour ?? '' : '')}">
+      <figure class="gallery__slide gallery__slide--stage" data-slide data-colour="${esc(studioCut ? p.images[0].colour ?? '' : '')}" data-pictured="${esc(pickColours[startColour] ?? '')}">
+        <span class="colour-preview" data-colour-preview data-template="${esc(t.product.colourPreview)}" hidden></span>
         <div class="gallery__showcase" data-stage-card>${stage(t, p, cut, { sizes: '(min-width: 900px) 50vw, 94vw', eager: !modelKey, extraClass: 'gallery__stagebox' })}</div>
       </figure>`);
     thumbs.push({ html: `<img src="${esc(cut.variants[0].file)}" alt="" width="${cut.variants[0].width}" height="${cut.variants[0].height}" loading="lazy">` });
@@ -577,10 +579,11 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
           <div class="colour-picker__list">
             ${pickColours.map((c, i) => `
               <label class="colour-option">
-                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}"${colourMrp(p, c) ? ` data-mrp="${esc(rupees(colourMrp(p, c)))}"` : ''}>
+                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}" data-hex="${esc(swatchHex(colours[c]))}" data-photo="${photoColours.includes(c) ? '1' : ''}"${colourMrp(p, c) ? ` data-mrp="${esc(rupees(colourMrp(p, c)))}"` : ''}>
                 ${swatch(colours, c)}<span class="colour-option__name">${esc(c)}</span>
               </label>`).join('')}
           </div>
+          <p class="colour-picker__soon" data-colour-soon data-template="${esc(t.product.colourPhotoSoon)}" hidden></p>
           <p class="fine-print">${esc(modelKey || pickColours.every((c) => photoColours.includes(c)) ? t.product.colourNote.replace(/ Photos.*/, '') : t.product.colourNote)}</p>
         </fieldset>` : ''}
 

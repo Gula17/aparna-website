@@ -211,17 +211,12 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-480.webp",
           "width": 480,
-          "height": 284
+          "height": 274
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-960.webp",
           "width": 960,
-          "height": 568
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-diplomat-36-1440.webp",
-          "width": 1297,
-          "height": 768
+          "height": 547
         }
       ]
     },
@@ -365,18 +360,18 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-480.webp",
-          "width": 333,
+          "width": 283,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-960.webp",
-          "width": 666,
-          "height": 960
+          "width": 402,
+          "height": 683
         },
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-ikon-pro-48-1440.webp",
-          "width": 706,
-          "height": 1018
+          "width": 402,
+          "height": 683
         }
       ]
     },
@@ -386,17 +381,12 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-luster-48-480.webp",
           "width": 480,
-          "height": 285
+          "height": 400
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-luster-48-960.webp",
           "width": 960,
-          "height": 571
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-luster-48-1440.webp",
-          "width": 1440,
-          "height": 856
+          "height": 801
         }
       ]
     },
@@ -555,18 +545,18 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-480.webp",
-          "width": 350,
+          "width": 358,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-960.webp",
-          "width": 699,
-          "height": 960
+          "width": 592,
+          "height": 793
         },
         {
           "file": "/media/cutouts/pricelist-ceiling-fans-supreme-48-1440.webp",
-          "width": 793,
-          "height": 1089
+          "width": 592,
+          "height": 793
         }
       ]
     },
@@ -636,17 +626,12 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-tejas-24-480.webp",
           "width": 480,
-          "height": 332
+          "height": 336
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-tejas-24-960.webp",
-          "width": 960,
-          "height": 664
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-tejas-24-1440.webp",
-          "width": 1103,
-          "height": 763
+          "width": 766,
+          "height": 536
         }
       ]
     },
@@ -656,17 +641,12 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-saphire-36-480.webp",
           "width": 480,
-          "height": 320
+          "height": 322
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-saphire-36-960.webp",
           "width": 960,
-          "height": 640
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-saphire-36-1440.webp",
-          "width": 1286,
-          "height": 857
+          "height": 644
         }
       ]
     },
@@ -951,17 +931,12 @@
         {
           "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-480.webp",
           "width": 480,
-          "height": 371
+          "height": 296
         },
         {
           "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-960.webp",
           "width": 960,
-          "height": 741
-        },
-        {
-          "file": "/media/cutouts/crop-ceiling-fans-venus-deco-48-1440.webp",
-          "width": 1401,
-          "height": 1082
+          "height": 593
         }
       ]
     },
@@ -1080,13 +1055,8 @@
         },
         {
           "file": "/media/cutouts/own-table-wall-pedestal-fans-spectra-16-0-960.webp",
-          "width": 714,
+          "width": 715,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-table-wall-pedestal-fans-spectra-16-0-1440.webp",
-          "width": 1072,
-          "height": 1440
         }
       ]
     },
@@ -1305,13 +1275,13 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-jawa-osc-12-480.webp",
-          "width": 360,
+          "width": 359,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-jawa-osc-12-960.webp",
-          "width": 615,
-          "height": 819
+          "width": 648,
+          "height": 866
         }
       ]
     },
@@ -1350,18 +1320,13 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-480.webp",
-          "width": 354,
+          "width": 358,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-960.webp",
-          "width": 708,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-all-purpose-cabin-fans-regal-12-1440.webp",
-          "width": 788,
-          "height": 1069
+          "width": 448,
+          "height": 600
         }
       ]
     },
@@ -1415,18 +1380,13 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-16-480.webp",
-          "width": 182,
+          "width": 183,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-16-960.webp",
-          "width": 364,
+          "width": 365,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-bullet-oscillating-16-1440.webp",
-          "width": 546,
-          "height": 1440
         }
       ]
     },
@@ -1530,13 +1490,8 @@
         },
         {
           "file": "/media/cutouts/crop-high-speed-fans-nexa-20-960.webp",
-          "width": 436,
+          "width": 437,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/crop-high-speed-fans-nexa-20-1440.webp",
-          "width": 654,
-          "height": 1440
         }
       ]
     },
@@ -1575,18 +1530,13 @@
       "variants": [
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-480.webp",
-          "width": 438,
+          "width": 437,
           "height": 480
         },
         {
           "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-960.webp",
-          "width": 841,
-          "height": 922
-        },
-        {
-          "file": "/media/cutouts/crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9-1440.webp",
-          "width": 841,
-          "height": 922
+          "width": 844,
+          "height": 926
         }
       ]
     },
@@ -1662,11 +1612,6 @@
           "file": "/media/cutouts/own-air-coolers-discovery-1201-0-960.webp",
           "width": 588,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-discovery-1201-0-1440.webp",
-          "width": 881,
-          "height": 1440
         }
       ]
     },
@@ -1675,18 +1620,13 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1202-0-480.webp",
-          "width": 300,
+          "width": 301,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1202-0-960.webp",
-          "width": 601,
+          "width": 602,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-discovery-1202-0-1440.webp",
-          "width": 901,
-          "height": 1440
         }
       ]
     },
@@ -1700,13 +1640,13 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-960.webp",
-          "width": 545,
+          "width": 546,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1203-dlx-0-1440.webp",
-          "width": 784,
-          "height": 1380
+          "width": 625,
+          "height": 1098
         }
       ]
     },
@@ -1720,13 +1660,8 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-discovery-1204-dlx-0-960.webp",
-          "width": 457,
+          "width": 456,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-discovery-1204-dlx-0-1440.webp",
-          "width": 685,
-          "height": 1440
         }
       ]
     },
@@ -1735,18 +1670,13 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-009-0-480.webp",
-          "width": 217,
+          "width": 218,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-009-0-960.webp",
           "width": 435,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-pearl-009-0-1440.webp",
-          "width": 652,
-          "height": 1440
         }
       ]
     },
@@ -1755,18 +1685,13 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1201-0-480.webp",
-          "width": 300,
+          "width": 301,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1201-0-960.webp",
-          "width": 601,
+          "width": 602,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-pearl-1201-0-1440.webp",
-          "width": 901,
-          "height": 1440
         }
       ]
     },
@@ -1782,11 +1707,6 @@
           "file": "/media/cutouts/own-air-coolers-pearl-1202-0-960.webp",
           "width": 532,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/own-air-coolers-pearl-1202-0-1440.webp",
-          "width": 797,
-          "height": 1440
         }
       ]
     },
@@ -1795,18 +1715,18 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-480.webp",
-          "width": 311,
+          "width": 295,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-960.webp",
-          "width": 622,
+          "width": 589,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-pearl-1203-dlx-0-1440.webp",
-          "width": 743,
-          "height": 1147
+          "width": 684,
+          "height": 1114
         }
       ],
       "erased": "[[0.58,0.45,0.42,0.4]]"
@@ -1826,7 +1746,7 @@
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-1601-0-1440.webp",
-          "width": 761,
+          "width": 763,
           "height": 1440
         }
       ]
@@ -1856,17 +1776,17 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2201-0-480.webp",
-          "width": 313,
+          "width": 312,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2201-0-960.webp",
-          "width": 626,
+          "width": 625,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2201-0-1440.webp",
-          "width": 938,
+          "width": 937,
           "height": 1440
         }
       ]
@@ -1876,17 +1796,17 @@
       "variants": [
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2601-0-480.webp",
-          "width": 316,
+          "width": 303,
           "height": 480
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2601-0-960.webp",
-          "width": 632,
+          "width": 606,
           "height": 960
         },
         {
           "file": "/media/cutouts/own-air-coolers-ultima-2601-0-1440.webp",
-          "width": 947,
+          "width": 909,
           "height": 1440
         }
       ]
@@ -2169,17 +2089,17 @@
         {
           "file": "/media/cutouts/pricelist-kitchen-appliances-boss-480.webp",
           "width": 480,
-          "height": 354
+          "height": 355
         },
         {
           "file": "/media/cutouts/pricelist-kitchen-appliances-boss-960.webp",
           "width": 960,
-          "height": 707
+          "height": 709
         },
         {
           "file": "/media/cutouts/pricelist-kitchen-appliances-boss-1440.webp",
-          "width": 1329,
-          "height": 979
+          "width": 1331,
+          "height": 983
         }
       ]
     },
@@ -2194,12 +2114,12 @@
         {
           "file": "/media/cutouts/pricelist-kitchen-appliances-crystal-960.webp",
           "width": 960,
-          "height": 396
+          "height": 397
         },
         {
           "file": "/media/cutouts/pricelist-kitchen-appliances-crystal-1440.webp",
-          "width": 1328,
-          "height": 548
+          "width": 1329,
+          "height": 549
         }
       ]
     },
@@ -2330,17 +2250,12 @@
         {
           "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-480.webp",
           "width": 480,
-          "height": 446
+          "height": 450
         },
         {
           "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-960.webp",
           "width": 960,
-          "height": 892
-        },
-        {
-          "file": "/media/cutouts/pricelist-heating-water-geyser-element-tricone-9-1440.webp",
-          "width": 1252,
-          "height": 1163
+          "height": 899
         }
       ]
     },
@@ -2551,12 +2466,7 @@
         {
           "file": "/media/cutouts/pricelist-electric-irons-curv-960.webp",
           "width": 960,
-          "height": 795
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-curv-1440.webp",
-          "width": 1288,
-          "height": 1067
+          "height": 797
         }
       ]
     },
@@ -2581,17 +2491,12 @@
         {
           "file": "/media/cutouts/pricelist-electric-irons-majestic-480.webp",
           "width": 480,
-          "height": 298
+          "height": 294
         },
         {
           "file": "/media/cutouts/pricelist-electric-irons-majestic-960.webp",
           "width": 960,
-          "height": 596
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-majestic-1440.webp",
-          "width": 1267,
-          "height": 786
+          "height": 588
         }
       ]
     },
@@ -2631,17 +2536,12 @@
         {
           "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-480.webp",
           "width": 480,
-          "height": 307
+          "height": 308
         },
         {
           "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-960.webp",
           "width": 960,
-          "height": 614
-        },
-        {
-          "file": "/media/cutouts/pricelist-electric-irons-plancha-turbo-1440.webp",
-          "width": 1281,
-          "height": 819
+          "height": 615
         }
       ]
     },
@@ -2920,18 +2820,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-aerix-9-480.webp",
-          "width": 294,
+          "width": 295,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-aerix-9-960.webp",
-          "width": 589,
-          "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-aerix-9-1440.webp",
-          "width": 883,
-          "height": 1440
+          "width": 556,
+          "height": 906
         }
       ]
     },
@@ -2940,18 +2835,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-480.webp",
-          "width": 283,
+          "width": 282,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-960.webp",
-          "width": 566,
+          "width": 565,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-nexus-tower-12-1440.webp",
-          "width": 848,
-          "height": 1440
         }
       ]
     },
@@ -2960,18 +2850,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-480.webp",
-          "width": 269,
+          "width": 271,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-960.webp",
-          "width": 539,
+          "width": 541,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-sonata-tower-gm-12-1440.webp",
-          "width": 808,
-          "height": 1440
         }
       ]
     },
@@ -2980,18 +2865,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-heritage-16-480.webp",
-          "width": 252,
+          "width": 253,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-heritage-16-960.webp",
-          "width": 503,
+          "width": 505,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-heritage-16-1440.webp",
-          "width": 755,
-          "height": 1440
         }
       ]
     },
@@ -3005,13 +2885,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-glister-tower-16-960.webp",
-          "width": 506,
+          "width": 505,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-glister-tower-16-1440.webp",
-          "width": 760,
-          "height": 1440
         }
       ]
     },
@@ -3020,18 +2895,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-480.webp",
-          "width": 285,
+          "width": 286,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-960.webp",
-          "width": 569,
+          "width": 571,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-cruiser-16-1440.webp",
-          "width": 854,
-          "height": 1440
         }
       ]
     },
@@ -3047,11 +2917,6 @@
           "file": "/media/cutouts/pricelist-air-coolers-glado-14-960.webp",
           "width": 520,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-glado-14-1440.webp",
-          "width": 780,
-          "height": 1440
         }
       ]
     },
@@ -3067,11 +2932,6 @@
           "file": "/media/cutouts/pricelist-air-coolers-victoria-16-960.webp",
           "width": 558,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-victoria-16-1440.webp",
-          "width": 837,
-          "height": 1440
         }
       ]
     },
@@ -3080,18 +2940,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-astra-20-480.webp",
-          "width": 292,
+          "width": 294,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-astra-20-960.webp",
-          "width": 585,
+          "width": 588,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-astra-20-1440.webp",
-          "width": 877,
-          "height": 1440
         }
       ]
     },
@@ -3105,13 +2960,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-magnum-20-960.webp",
-          "width": 561,
+          "width": 560,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-magnum-20-1440.webp",
-          "width": 841,
-          "height": 1440
         }
       ]
     },
@@ -3125,13 +2975,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-ultra-max-22-960.webp",
-          "width": 602,
+          "width": 601,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-ultra-max-22-1440.webp",
-          "width": 903,
-          "height": 1440
         }
       ]
     },
@@ -3140,18 +2985,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-indigo-22-480.webp",
-          "width": 311,
+          "width": 309,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-indigo-22-960.webp",
-          "width": 623,
+          "width": 617,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-indigo-22-1440.webp",
-          "width": 934,
-          "height": 1440
         }
       ]
     },
@@ -3165,13 +3005,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-200l-26-960.webp",
-          "width": 631,
+          "width": 632,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-200l-26-1440.webp",
-          "width": 947,
-          "height": 1440
         }
       ]
     },
@@ -3185,13 +3020,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-blister-16-960.webp",
-          "width": 555,
+          "width": 554,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-blister-16-1440.webp",
-          "width": 832,
-          "height": 1440
         }
       ]
     },
@@ -3205,13 +3035,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-glacier-16-960.webp",
-          "width": 480,
+          "width": 481,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-glacier-16-1440.webp",
-          "width": 720,
-          "height": 1440
         }
       ]
     },
@@ -3225,13 +3050,8 @@
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-black-commando-18-960.webp",
-          "width": 533,
+          "width": 534,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-black-commando-18-1440.webp",
-          "width": 800,
-          "height": 1440
         }
       ]
     },
@@ -3247,11 +3067,6 @@
           "file": "/media/cutouts/pricelist-air-coolers-cyclone-19-960.webp",
           "width": 570,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-cyclone-19-1440.webp",
-          "width": 855,
-          "height": 1440
         }
       ]
     },
@@ -3267,11 +3082,6 @@
           "file": "/media/cutouts/pricelist-air-coolers-vellar-12-960.webp",
           "width": 431,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-vellar-12-1440.webp",
-          "width": 647,
-          "height": 1440
         }
       ]
     },
@@ -3280,18 +3090,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-curvv-12-480.webp",
-          "width": 294,
+          "width": 295,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-curvv-12-960.webp",
           "width": 589,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-curvv-12-1440.webp",
-          "width": 883,
-          "height": 1440
         }
       ]
     },
@@ -3300,18 +3105,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-air-coolers-tower-480.webp",
-          "width": 177,
+          "width": 176,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-air-coolers-tower-960.webp",
-          "width": 353,
+          "width": 352,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-air-coolers-tower-1440.webp",
-          "width": 530,
-          "height": 1440
         }
       ]
     },
@@ -3320,18 +3120,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-480.webp",
-          "width": 267,
+          "width": 268,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-960.webp",
-          "width": 534,
+          "width": 535,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-0-pm-1440.webp",
-          "width": 801,
-          "height": 1440
         }
       ]
     },
@@ -3340,18 +3135,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-480.webp",
-          "width": 375,
+          "width": 376,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-960.webp",
-          "width": 749,
+          "width": 751,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-pm-1440.webp",
-          "width": 1124,
-          "height": 1440
         }
       ]
     },
@@ -3360,18 +3150,13 @@
       "variants": [
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-480.webp",
-          "width": 364,
+          "width": 366,
           "height": 480
         },
         {
           "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-960.webp",
-          "width": 728,
+          "width": 731,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-washing-machines-apwm-7-5-gm-1440.webp",
-          "width": 1093,
-          "height": 1440
         }
       ]
     },
@@ -3387,11 +3172,6 @@
           "file": "/media/cutouts/pricelist-washing-machines-apwm-9-5-gm-960.webp",
           "width": 782,
           "height": 960
-        },
-        {
-          "file": "/media/cutouts/pricelist-washing-machines-apwm-9-5-gm-1440.webp",
-          "width": 1173,
-          "height": 1440
         }
       ]
     }

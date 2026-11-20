@@ -14,7 +14,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { aiUpscale } from './ai-upscale.mjs';
 
 const SHOWABLE = new Set(['current', 'new', 'launch']);
 
@@ -129,23 +128,15 @@ class ImageWriter {
       opaque = data[3] > 200; // a few came on a white background instead of a transparent one
       master = await sharp(master).trim({ threshold: 10 }).png().toBuffer();
     }
-    const { width: mw, height: mh } = await sharp(master).metadata();
-    // Small catalogue crops are upscaled 4x with AI (scripts/ai-upscale.mjs: the product's own photo, sharpened,
-    // nothing new drawn), so they stay crisp up to full-HD size. Without the upscaler: Lanczos, at most 2x.
-    // Studio photos are sharp already and are never enlarged.
-    let upscaled = !studio && Math.max(mw, mh) < 1100 ? await aiUpscale(master) : null;
-    if (upscaled) {
-      // the smallest catalogue crops (under ~360 px) are still short of full-HD after one pass: a second pass
-      const once = await sharp(upscaled).metadata();
-      if (Math.max(once.width, once.height) < 1440) upscaled = (await aiUpscale(upscaled)) ?? upscaled;
-      master = upscaled;
-    }
-    const limit = upscaled ? Infinity : studio ? 1 : 2; // how far a picture may be enlarged
+    // No AI enlarging (since 20 Nov 2026): it redrew small logos and printed text wrongly (a garbled Aparna logo on
+    // New Josh's canopy). Catalogue and poster crops are enlarged plainly (Lanczos), at most 2x, so every logo and
+    // word stays exactly as printed; studio photos are sharp already and are never enlarged.
+    const limit = studio ? 1 : 2; // how far a picture may be enlarged
     const variants = [];
     // sizes: 480, 960 and (when there are the pixels for it) a 1440 version for full-HD and high-DPI screens
     for (const [width, maxH] of [[480, 720], [960, 1440], [1440, 2160]]) {
       const meta = await sharp(master).metadata();
-      const scale = Math.min(width / meta.width, maxH / meta.height, upscaled ? 1 : limit);
+      const scale = Math.min(width / meta.width, maxH / meta.height, limit);
       const tw = Math.round(meta.width * scale);
       if (width === 1440 && tw <= (variants.at(-1)?.width ?? 0) * 1.15) break; // no real gain over the 960 one
       let out = sharp(master).resize({ width: tw, kernel: 'lanczos3' });

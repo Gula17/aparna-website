@@ -263,6 +263,8 @@
     "colours": "Colours",
     "selectedColour": "Selected: {colour}",
     "colourNote": "Screen colours are approximate. Photos of each colour are coming soon.",
+    "colourPreview": "Colour preview: {colour} (photo recoloured on screen)",
+    "colourPhotoSoon": "The picture shows another colour. A photo of {colour} is coming soon.",
     "specs": "Specifications",
     "noSpecs": "Specifications for this model are coming soon.",
     "features": "Features",
