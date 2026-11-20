@@ -14,6 +14,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { aiUpscale } from './ai-upscale.mjs';
 
 const SHOWABLE = new Set(['current', 'new', 'launch']);
 
@@ -102,9 +103,10 @@ function sortKey(p, index) {
 // ---------------------------------------------------------------- images
 
 class ImageWriter {
-  constructor(pack, publicDir) {
+  constructor(pack, publicDir, boxes = {}) {
     this.pack = pack;
     this.publicDir = publicDir;
+    this.boxes = boxes; // src/content/product-boxes.json: the product's own area inside a catalogue or price-list crop
     this.done = new Map(); // key -> media entry
   }
 
@@ -119,6 +121,15 @@ class ImageWriter {
     if (crop) img = img.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] });
     let master = await img.png().toBuffer();
     if (SIDEWAYS.test(src)) master = await sharp(master).rotate(270).png().toBuffer();
+    // catalogue-page and price-list crops: just the product, without the printed text round it (the page shows
+    // the name, sweep and colours as real text); boxes only ever trim (scripts/find-product-boxes.mjs)
+    const box = this.boxes[key];
+    if (box) {
+      const m = await sharp(master).metadata();
+      const left = Math.floor(box[0] * m.width), top = Math.floor(box[1] * m.height);
+      const width = Math.min(m.width - left, Math.ceil(box[2] * m.width)), height = Math.min(m.height - top, Math.ceil(box[3] * m.height));
+      if (width > 8 && height > 8) master = await sharp(master).extract({ left, top, width, height }).png().toBuffer();
+    }
     let opaque = false;
     if (studio) {
       // every studio photo has a thin dark frame line round its edge: cut it off, then drop the empty margin
@@ -128,10 +139,15 @@ class ImageWriter {
       opaque = data[3] > 200; // a few came on a white background instead of a transparent one
       master = await sharp(master).trim({ threshold: 10 }).png().toBuffer();
     }
-    // No AI enlarging (since 20 Nov 2026): it redrew small logos and printed text wrongly (a garbled Aparna logo on
-    // New Josh's canopy). Catalogue and poster crops are enlarged plainly (Lanczos), at most 2x, so every logo and
-    // word stays exactly as printed; studio photos are sharp already and are never enlarged.
-    const limit = studio ? 1 : 2; // how far a picture may be enlarged
+    // AI upscaling (Real-ESRGAN, scripts/ai-upscale.mjs) is OFF unless APARNA_AI_UPSCALE=1. Tested on 20 Nov 2026:
+    // even one 4x pass invents letter shapes in the small Aparna logos every product carries (New Josh's canopy,
+    // a hot plate's badge, a pedestal fan's hub), which breaks the rule of no invented detail. Small crops are shown
+    // at their real size instead (at most 1.5x, smaller in their frame). Studio photos are never enlarged.
+    const { width: mw, height: mh } = await sharp(master).metadata();
+    const upscaled = process.env.APARNA_AI_UPSCALE === '1' && !studio && Math.max(mw, mh) < 1100 ? await aiUpscale(master) : null;
+    if (upscaled) master = upscaled;
+    // never shown bigger than about 1.5x its real (or upscaled) size; a small source is shown smaller in its frame
+    const limit = studio || upscaled ? 1 : 1.5;
     const variants = [];
     // sizes: 480, 960 and (when there are the pixels for it) a 1440 version for full-HD and high-DPI screens
     for (const [width, maxH] of [[480, 720], [960, 1440], [1440, 2160]]) {
@@ -142,10 +158,10 @@ class ImageWriter {
       let out = sharp(master).resize({ width: tw, kernel: 'lanczos3' });
       if (scale > 1) out = out.sharpen({ sigma: 0.8, m1: 0.6, m2: 1.6 });
       const file = `media/products/${key}-${width}.webp`;
-      const info = await out.webp({ quality: width === 1440 ? 78 : 76 }).toFile(path.join(this.publicDir, file));
+      const info = await out.webp({ quality: width === 480 ? 82 : 84 }).toFile(path.join(this.publicDir, file));
       variants.push({ file: `/${file}`, width: info.width, height: info.height });
     }
-    const entry = { variants, ...(opaque ? { opaque: true } : {}) };
+    const entry = { variants, ...(opaque ? { opaque: true } : {}), ...(upscaled ? { upscaled: true } : {}) };
     this.done.set(key, entry);
     return { ...entry, ...extra };
   }
@@ -170,7 +186,8 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
   };
   const studioDir = path.resolve(contentDir, '..', '..', studio.source ?? '');
   await fs.mkdir(path.join(publicDir, 'media', 'products'), { recursive: true });
-  const images = new ImageWriter(pack, publicDir);
+  const boxes = JSON.parse(await fs.readFile(path.join(contentDir, 'product-boxes.json'), 'utf8').catch(() => '{}'));
+  const images = new ImageWriter(pack, publicDir, boxes);
   const studioImage = (file, name, colour, role) => images.write(`studio-${idSlug(path.basename(file, '.png'))}`, path.join(studioDir, file), {
     alt: role === 'range' ? `The Aparna ${name} in its colours` : `The Aparna ${name}${colour ? ` in ${colour}` : ''}`, kind: 'studio', colour,
   });

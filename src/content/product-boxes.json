@@ -1,0 +1,447 @@
+{
+ "_read_me": "Where the product sits inside each catalogue-page and price-list crop: [left, top, width, height] as fractions of the crop (null: show the crop whole). Made by scripts/find-product-boxes.mjs (npm run boxes), checked by eye; catalogue-data.mjs crops to it so the printed text around the product is left out. Checked by eye on 20 Nov 2026: ceiling fans are left whole (the background model often loses their long blades, so a box would cut them), except six 24\" fans whose boxes were checked; the kettle element is left whole too (its box cut the base).",
+ "crop-ceiling-fans-coral-48": null,
+ "crop-ceiling-fans-rosa-48": null,
+ "crop-ceiling-fans-croma-pro-48": null,
+ "crop-ceiling-fans-aspire-48": null,
+ "crop-ceiling-fans-lotus-deco-48": null,
+ "crop-ceiling-fans-smart-deco-48": null,
+ "crop-ceiling-fans-fortune-pro-48": null,
+ "crop-ceiling-fans-runner-48": null,
+ "crop-ceiling-fans-orina-48": null,
+ "crop-ceiling-fans-aroma-deco-48": null,
+ "crop-high-speed-fans-bullet-oscillating-12": [
+  0,
+  0,
+  1,
+  0.733
+ ],
+ "crop-high-speed-fans-bullet-16": [
+  0,
+  0,
+  1,
+  0.9336
+ ],
+ "crop-high-speed-fans-bullet-oscillating-16": [
+  0,
+  0,
+  1,
+  0.9302
+ ],
+ "crop-ceiling-fans-ikon-48": null,
+ "crop-ceiling-fans-prince-48": null,
+ "crop-ceiling-fans-sparsh-48": null,
+ "crop-ceiling-fans-sonet-deco-48": null,
+ "crop-ceiling-fans-crystal-pro-48": null,
+ "crop-ceiling-fans-rolex-48": null,
+ "crop-ceiling-fans-sayonara-48": null,
+ "crop-ceiling-fans-orchid-deco-48": null,
+ "crop-ceiling-fans-porsche-48": null,
+ "crop-ceiling-fans-lumero-48": null,
+ "crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-9": [
+  0,
+  0.1086,
+  0.7003,
+  0.6991
+ ],
+ "crop-ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": [
+  0,
+  0,
+  0.5503,
+  0.8352
+ ],
+ "crop-kitchen-appliances-jhn-1250": [
+  0,
+  0.0142,
+  1,
+  0.6112
+ ],
+ "crop-kitchen-appliances-hudsun": [
+  0.0016,
+  0.0028,
+  0.9968,
+  0.6213
+ ],
+ "crop-kitchen-appliances-ultima": null,
+ "crop-kitchen-appliances-comfort": [
+  0.0196,
+  0.0485,
+  0.9804,
+  0.5769
+ ],
+ "crop-kitchen-appliances-nelson": [
+  0.012,
+  0,
+  0.8833,
+  0.6603
+ ],
+ "crop-kitchen-appliances-ss-2000": [
+  0.0236,
+  0,
+  0.9529,
+  0.6662
+ ],
+ "crop-kitchen-appliances-calvin": [
+  0,
+  0.0034,
+  1,
+  0.6504
+ ],
+ "crop-kitchen-appliances-bng": [
+  0.2319,
+  0.0148,
+  0.7681,
+  0.6504
+ ],
+ "crop-kitchen-appliances-regent": [
+  0.0631,
+  0.0638,
+  0.9331,
+  0.5792
+ ],
+ "crop-kitchen-appliances-excel": [
+  0.2053,
+  0.0196,
+  0.7947,
+  0.622
+ ],
+ "crop-kitchen-appliances-simson": [
+  0.022,
+  0,
+  0.9393,
+  1
+ ],
+ "crop-kitchen-appliances-ss-jumbo": [
+  0,
+  0.014,
+  0.9976,
+  0.6587
+ ],
+ "crop-kitchen-appliances-crescent": [
+  0,
+  0.0158,
+  1,
+  0.6129
+ ],
+ "crop-kitchen-appliances-phantom": [
+  0.2415,
+  0.0373,
+  0.7585,
+  0.588
+ ],
+ "crop-kitchen-appliances-smart": [
+  0,
+  0.033,
+  1,
+  0.5926
+ ],
+ "crop-kitchen-appliances-magnum": [
+  0.0277,
+  0.0516,
+  0.9634,
+  0.5858
+ ],
+ "crop-kitchen-appliances-rustam": [
+  0,
+  0.0231,
+  0.7537,
+  0.9769
+ ],
+ "crop-kitchen-appliances-jhn-2000": [
+  0,
+  0.0142,
+  1,
+  0.6112
+ ],
+ "crop-ceiling-fans-croma-48": null,
+ "crop-ceiling-fans-apsara-48": null,
+ "crop-ceiling-fans-florence-48": null,
+ "crop-ceiling-fans-unicorn-48": null,
+ "crop-ceiling-fans-stunner-48": null,
+ "crop-ceiling-fans-electra-48": null,
+ "crop-ceiling-fans-glaze-48": null,
+ "crop-all-purpose-cabin-fans-piano-black-12": [
+  0.0648,
+  0.0839,
+  0.9352,
+  0.7962
+ ],
+ "crop-all-purpose-cabin-fans-piano-white-12": [
+  0,
+  0,
+  1,
+  0.8607
+ ],
+ "crop-all-purpose-cabin-fans-safari-9": [
+  0.4392,
+  0.1386,
+  0.5608,
+  0.8614
+ ],
+ "crop-all-purpose-cabin-fans-regal-12": [
+  0.3944,
+  0.0277,
+  0.6046,
+  0.9723
+ ],
+ "crop-kitchen-appliances-prime": null,
+ "crop-kitchen-appliances-prince": [
+  0,
+  0,
+  0.682,
+  1
+ ],
+ "crop-kitchen-appliances-presto": null,
+ "crop-heating-water-croma2": [
+  0.0641,
+  0,
+  0.6756,
+  0.7716
+ ],
+ "crop-heating-water-croma": [
+  0.0017,
+  0,
+  0.9983,
+  0.7128
+ ],
+ "crop-heating-water-pearl-immersion-rod-1000-w": [
+  0,
+  0,
+  0.7941,
+  0.9437
+ ],
+ "crop-heating-water-kettle-element": null,
+ "crop-heating-water-pearl-immersion-rod-1500-w": [
+  0,
+  0,
+  0.7941,
+  0.9437
+ ],
+ "crop-heating-water-pearl-immersion-rod-2000-w": [
+  0,
+  0,
+  0.7941,
+  0.9437
+ ],
+ "crop-ceiling-fans-flora-48": null,
+ "crop-ceiling-fans-senorita-48": null,
+ "crop-ceiling-fans-areta-48": null,
+ "crop-ceiling-fans-festiva-48": null,
+ "crop-ceiling-fans-phantom-48": null,
+ "crop-ceiling-fans-luster-48": null,
+ "crop-ceiling-fans-virat-36": null,
+ "crop-ceiling-fans-saphire-36": null,
+ "crop-ceiling-fans-nova-dlx-36": null,
+ "crop-ceiling-fans-little-star-24": [
+  0,
+  0,
+  0.9816,
+  0.6554
+ ],
+ "crop-ceiling-fans-tejas-24": null,
+ "crop-ceiling-fans-mini-copper-24": [
+  0.0275,
+  0,
+  0.9499,
+  0.6319
+ ],
+ "crop-ceiling-fans-new-josh-copper-24": [
+  0,
+  0,
+  0.8582,
+  0.6265
+ ],
+ "crop-heating-water-silky": [
+  0,
+  0,
+  0.932,
+  0.6635
+ ],
+ "crop-heating-water-pearl": [
+  0.0127,
+  0.0414,
+  0.9704,
+  0.6713
+ ],
+ "crop-heating-water-pox": [
+  0.1112,
+  0,
+  0.8081,
+  0.8434
+ ],
+ "crop-heating-water-rozer": [
+  0.153,
+  0,
+  0.7667,
+  0.7668
+ ],
+ "crop-heating-water-roxx": [
+  0.0586,
+  0,
+  0.8888,
+  0.756
+ ],
+ "crop-heating-water-alineo": [
+  0,
+  0,
+  1,
+  0.6662
+ ],
+ "crop-heating-water-alexa": [
+  0,
+  0.2244,
+  1,
+  0.4962
+ ],
+ "crop-heating-water-sun-heater-sunshine-14": [
+  0,
+  0,
+  1,
+  0.6938
+ ],
+ "crop-electric-irons-regular": [
+  0.1297,
+  0,
+  0.8275,
+  0.8849
+ ],
+ "crop-electric-irons-bmw": [
+  0.0023,
+  0,
+  0.9667,
+  0.8691
+ ],
+ "crop-electric-irons-grand": [
+  0.0229,
+  0.01,
+  0.9771,
+  0.8514
+ ],
+ "crop-electric-irons-plancha": null,
+ "crop-ceiling-fans-mini-dlx-24": null,
+ "crop-ceiling-fans-mini-smart-24": [
+  0,
+  0,
+  0.8513,
+  0.6932
+ ],
+ "crop-ceiling-fans-mini-star-24": [
+  0.0282,
+  0,
+  0.8721,
+  0.6476
+ ],
+ "crop-ceiling-fans-new-josh-24": [
+  0,
+  0,
+  0.7931,
+  0.6182
+ ],
+ "crop-ceiling-fans-diplomat-36": null,
+ "crop-ceiling-fans-major-36": null,
+ "crop-ceiling-fans-orbit-36": null,
+ "crop-all-purpose-cabin-fans-goair-ac-dc-12": [
+  0,
+  0,
+  1,
+  0.8926
+ ],
+ "crop-all-purpose-cabin-fans-goair-ac-dc-16": [
+  0.1891,
+  0,
+  0.8109,
+  0.9689
+ ],
+ "crop-all-purpose-cabin-fans-cabin-fan-12": [
+  0,
+  0,
+  1,
+  0.7558
+ ],
+ "crop-all-purpose-cabin-fans-jawa-osc-12": [
+  0,
+  0.1911,
+  1,
+  0.643
+ ],
+ "crop-ventilation-fresh-air-fans-ventilation-fan-6": null,
+ "crop-ventilation-fresh-air-fans-ventilation-fan-8": null,
+ "crop-ventilation-fresh-air-fans-ventilation-fan-10": null,
+ "crop-ceiling-fans-rafale-48": null,
+ "crop-ceiling-fans-kiara-48": null,
+ "crop-ceiling-fans-viraz-48": null,
+ "crop-ceiling-fans-raftaar-48": null,
+ "crop-ceiling-fans-viraj-deco-48": null,
+ "crop-ceiling-fans-venus-deco-48": null,
+ "crop-ceiling-fans-vista-deco-48": null,
+ "crop-ceiling-fans-platinium-48": null,
+ "crop-high-speed-fans-ornet-12": [
+  0,
+  0,
+  0.8508,
+  1
+ ],
+ "crop-high-speed-fans-shine-16": [
+  0,
+  0.1391,
+  0.8896,
+  0.7512
+ ],
+ "crop-high-speed-fans-hexa-20": null,
+ "crop-high-speed-fans-nexa-20": [
+  0,
+  0,
+  0.9021,
+  1
+ ],
+ "crop-high-speed-fans-sultan-20": [
+  0,
+  0,
+  1,
+  0.9009
+ ],
+ "crop-high-speed-fans-indus-high-speed-20": [
+  0,
+  0,
+  1,
+  0.9099
+ ],
+ "crop-high-speed-fans-champion-22": [
+  0,
+  0,
+  0.9059,
+  0.9226
+ ],
+ "pricelist-ceiling-fans-ikon-pro-48": null,
+ "pricelist-ceiling-fans-iconic-48": null,
+ "pricelist-ceiling-fans-rider-48": null,
+ "pricelist-ceiling-fans-supreme-48": null,
+ "pricelist-ceiling-fans-aronita-48": null,
+ "pricelist-ceiling-fans-nexus-48": null,
+ "pricelist-ceiling-fans-nokia-48": null,
+ "pricelist-ceiling-fans-rider-pro-48": null,
+ "pricelist-kitchen-appliances-boss": null,
+ "pricelist-kitchen-appliances-crystal": [
+  0,
+  0.0354,
+  1,
+  0.8573
+ ],
+ "pricelist-electric-irons-verna": null,
+ "pricelist-electric-irons-passion": [
+  0.0106,
+  0.1639,
+  0.9894,
+  0.7957
+ ],
+ "pricelist-electric-irons-majestic": [
+  0.0112,
+  0,
+  0.9886,
+  0.949
+ ],
+ "pricelist-electric-irons-curv": null,
+ "pricelist-electric-irons-plancha-beetle": null,
+ "pricelist-electric-irons-plancha-turbo": null,
+ "pricelist-heating-water-geyser-element-tricone-9": null
+}

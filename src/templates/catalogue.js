@@ -11,9 +11,10 @@ const DATA_COLOUR_TO_FINISH = FINISH_KEYS; // colour name -> 3D finish (src/thre
 
 // ---------------------------------------------------------------- small pieces
 
-function productImage(img, { className = '', sizes = '320px', eager = false } = {}) {
+// cap: never drawn wider than its largest file (a small source sits smaller in its frame instead of being stretched)
+function productImage(img, { className = '', sizes = '320px', eager = false, cap = false } = {}) {
   const largest = img.variants.at(-1);
-  return `<img class="${className}" src="${esc(largest.file)}" srcset="${esc(img.variants.map((v) => `${v.file} ${v.width}w`).join(', '))}"
+  return `<img class="${className}"${cap ? ` style="max-width:min(100%, ${largest.width}px)"` : ''} src="${esc(largest.file)}" srcset="${esc(img.variants.map((v) => `${v.file} ${v.width}w`).join(', '))}"
     sizes="${esc(sizes)}" width="${largest.width}" height="${largest.height}" alt="${esc(img.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
 
@@ -498,7 +499,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
     if (i === 0 && studioCut) return;
     slides.push(`
       <figure class="gallery__slide" data-slide data-colour="${esc(img.colour ?? '')}">
-        <div class="gallery__frame lens" data-lens>${productImage(img, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 94vw', eager: i === 0 && !modelKey && !cut })}</div>
+        <div class="gallery__frame lens" data-lens>${productImage(img, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 94vw', eager: i === 0 && !modelKey && !cut, cap: true })}</div>
         <figcaption>${esc(img.colour ? `${t.product.kind[img.kind]} · ${img.colour}` : t.product.kind[img.kind])}</figcaption>
       </figure>`);
     thumbs.push({ html: productImage(img, { sizes: '80px' }) });
