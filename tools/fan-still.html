@@ -24,6 +24,7 @@
         if (params.has(key)) fan.pose[key] = Number(params.get(key));
       }
       fan.setFinish(params.get('finish') || 'wood');
+      await fan.ready; // the wood picture
       fan.render();
       document.body.dataset.ready = '1';
     </script>

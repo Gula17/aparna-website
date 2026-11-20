@@ -28,6 +28,7 @@ try {
       const { createAeroflow } = await import('/src/three/aeroflow-model.js');
       const { RoomEnvironment } = await import('/node_modules/three/examples/jsm/environments/RoomEnvironment.js').catch(() => ({}));
       const fan = createAeroflow();
+      await fan.ready; // the wood picture
       fan.setFinish('wood');
       fan.setExplode(1, 1, layout);
       fan.setFocus(focus, 0.5);
