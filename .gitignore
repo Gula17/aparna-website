@@ -6,6 +6,7 @@ public/brand/
 public/downloads/
 public/favicon.png
 public/apple-touch-icon.png
+public/sitemap.xml
 # The client's build pack stays out of the repo
 Aparna Website Build Pack (Nov 2026)/
 screenshots/
