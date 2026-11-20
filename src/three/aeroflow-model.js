@@ -64,24 +64,37 @@ export function lathe(points, segments = 64) {
   return new THREE.LatheGeometry(curve.getPoints(48), segments);
 }
 
-// One blade's outline, traced from studio photo 02 (the Wood Craft fan seen from below, its camera tilt undone and
-// its blades averaged): [radius (blade tip = 1), edge A, edge B], the edges in degrees from the blade's axis, B on
-// the side the blade curves towards. Near the hub (radius under 0.2) the blades widen until they meet their
-// neighbours (+-60 degrees), so the three form one piece round the hub; beyond, the blade curves gently towards B
-// and ends in a slanted, rounded square tip. (Seen from below, B is clockwise of A.)
+// One blade's outline: [radius (blade tip = 1), edge A, edge B], the edges in degrees from the blade's axis, B on
+// the side the blade curves towards (seen from below, B is clockwise of A). Drawn as a moulded blade from the trace
+// of studio photo 02 (the Wood Craft fan seen from below, its camera tilt undone, its blades averaged): each long
+// edge is one smooth curve fitted to the trace, with no ripples; the tip is a straight slanted cut through the
+// photo's tip corners, its corners slightly rounded; near the hub each edge curves into the next blade's along a
+// circular arc (a moulded fillet), deepest at radius 0.19 where the photo shows the blades meeting, so the three form
+// one piece. Within 0.008 of the trace (mean 0.0025) between radius 0.35
+// and 0.95. Made by the local script .cache/aeroflow-match/clean-outline.cjs.
 const OUTLINE = [
-  // (the joins round the hub, radius 0.14-0.32, smoothed: the photo's hub ring breaks the trace there. From 0.3 to 0.95
-  // a smooth curve through the trace, within 1.4 degrees of it: a glare on one blade's root in photo 02 read as
-  // background and made a false narrowing there, which photo 01 doesn't show.)
-  [0.12, -60, 60], [0.14, -60, 58], [0.16, -60, 53], [0.18, -59, 49], [0.19, -50, 47.2], [0.2, -42, 45.5],
-  [0.21, -37, 43.3], [0.22, -33.5, 41], [0.24, -29.5, 36], [0.26, -27, 31.5], [0.28, -25, 28.3], [0.3, -23, 26.2],
-  [0.32, -19.76, 25.06], [0.34, -17.97, 24.36], [0.36, -16.42, 23.71], [0.38, -15.08, 23.1], [0.4, -13.92, 22.53], [0.42, -12.92, 21.99],
-  [0.44, -12.05, 21.48], [0.46, -11.29, 20.99], [0.48, -10.61, 20.54], [0.5, -9.99, 20.1], [0.52, -9.43, 19.67], [0.54, -8.9, 19.27],
-  [0.56, -8.39, 18.87], [0.58, -7.88, 18.48], [0.6, -7.38, 18.11], [0.62, -6.87, 17.73], [0.64, -6.34, 17.37], [0.66, -5.8, 17],
-  [0.68, -5.24, 16.64], [0.7, -4.66, 16.28], [0.72, -4.06, 15.91], [0.74, -3.46, 15.55], [0.76, -2.84, 15.19], [0.78, -2.24, 14.82],
-  [0.8, -1.65, 14.46], [0.82, -1.08, 14.09], [0.84, -0.56, 13.73], [0.86, -0.09, 13.37], [0.88, 0.3, 13.01], [0.9, 0.59, 12.65],
-  [0.92, 0.8, 12.3], [0.94, 1.1, 11.95], [0.95, 1.4, 11.8], [0.96, 1.7, 11.4], [0.97, 2, 11], [0.975, 2.1, 10.5],
-  [0.98, 2.1, 9.8], [0.985, 2.4, 8.9], [0.99, 2.8, 8.2], [0.995, 3.5, 7.2], [1, 4.8, 5.9],
+  [0.12, -60, 60], [0.13, -60, 60], [0.14, -60, 60], [0.15, -60, 60], [0.16, -60, 60], [0.17, -60, 60],
+  [0.18, -60, 60], [0.1825, -60, 60], [0.185, -60, 60], [0.1875, -60, 60], [0.19, -60, 60], [0.1925, -52.06, 59.88],
+  [0.195, -47.62, 55.48], [0.1975, -44.92, 52.76], [0.2, -42.78, 50.68], [0.2025, -41.02, 48.88], [0.205, -39.46, 47.36], [0.2075, -38.1, 45.98],
+  [0.21, -36.84, 44.76], [0.2125, -35.74, 43.6], [0.215, -34.68, 42.58], [0.2175, -33.72, 41.62], [0.22, -32.82, 40.7], [0.2225, -31.98, 39.88],
+  [0.225, -31.2, 39.08], [0.2275, -30.46, 38.34], [0.23, -29.74, 37.64], [0.2325, -29.08, 36.98], [0.235, -28.46, 36.34], [0.2375, -27.86, 35.74],
+  [0.24, -27.28, 35.18], [0.2425, -26.76, 34.64], [0.245, -26.24, 34.12], [0.2475, -25.72, 33.62], [0.25, -25.26, 33.16], [0.2525, -24.82, 32.7],
+  [0.255, -24.38, 32.26], [0.2575, -23.96, 31.86], [0.26, -23.56, 31.46], [0.27, -22.14, 30.02], [0.28, -20.92, 28.8], [0.29, -19.86, 27.76],
+  [0.3, -18.96, 26.86], [0.31, -18.2, 26.1], [0.32, -17.54, 25.44], [0.33, -16.98, 24.88], [0.34, -16.48, 24.4], [0.35, -16.02, 24],
+  [0.36, -15.58, 23.68], [0.37, -15.16, 23.38], [0.38, -14.74, 23.12], [0.39, -14.32, 22.84], [0.4, -13.92, 22.58], [0.41, -13.54, 22.32],
+  [0.42, -13.16, 22.08], [0.43, -12.78, 21.84], [0.44, -12.42, 21.6], [0.45, -12.06, 21.36], [0.46, -11.72, 21.14], [0.47, -11.38, 20.9],
+  [0.48, -11.04, 20.68], [0.49, -10.7, 20.46], [0.5, -10.38, 20.24], [0.51, -10.06, 20.04], [0.52, -9.74, 19.82], [0.53, -9.44, 19.62],
+  [0.54, -9.12, 19.42], [0.55, -8.82, 19.2], [0.56, -8.52, 19], [0.57, -8.22, 18.8], [0.58, -7.92, 18.6], [0.59, -7.64, 18.42],
+  [0.6, -7.34, 18.22], [0.61, -7.06, 18.02], [0.62, -6.78, 17.84], [0.63, -6.5, 17.64], [0.64, -6.22, 17.46], [0.65, -5.94, 17.26],
+  [0.66, -5.68, 17.08], [0.67, -5.4, 16.9], [0.68, -5.14, 16.7], [0.69, -4.86, 16.52], [0.7, -4.6, 16.34], [0.71, -4.34, 16.16],
+  [0.72, -4.08, 15.98], [0.73, -3.82, 15.8], [0.74, -3.56, 15.62], [0.75, -3.32, 15.44], [0.76, -3.06, 15.26], [0.77, -2.8, 15.08],
+  [0.78, -2.56, 14.9], [0.79, -2.3, 14.74], [0.8, -2.06, 14.56], [0.81, -1.82, 14.38], [0.82, -1.56, 14.2], [0.83, -1.32, 14.04],
+  [0.84, -1.08, 13.86], [0.85, -0.84, 13.68], [0.86, -0.6, 13.52], [0.87, -0.36, 13.34], [0.88, -0.14, 13.16], [0.89, 0.1, 13],
+  [0.9, 0.34, 12.82], [0.91, 0.58, 12.66], [0.92, 0.8, 12.48], [0.93, 1.04, 12.32], [0.94, 1.26, 12.14], [0.95, 1.48, 11.98],
+  [0.9525, 1.54, 11.92], [0.955, 1.6, 11.88], [0.9575, 1.66, 11.84], [0.96, 1.72, 11.8], [0.9625, 1.78, 11.76], [0.965, 1.82, 11.72],
+  [0.9675, 1.88, 11.68], [0.97, 1.94, 11.64], [0.9725, 2, 11.58], [0.975, 2.06, 11.54], [0.9775, 2.1, 11.5], [0.98, 2.16, 11.46],
+  [0.9825, 2.22, 11.42], [0.985, 2.28, 11.38], [0.9875, 2.34, 10.98], [0.99, 2.38, 10.32], [0.9925, 2.44, 9.62], [0.995, 2.68, 8.88],
+  [0.9975, 3.78, 7.96],
 ];
 const outlineAt = (f) => {
   let i = 1;
@@ -92,21 +105,22 @@ const outlineAt = (f) => {
   return [l0 + (l1 - l0) * k, t0 + (t1 - t0) * k];
 };
 
-// Its shape across and along, fitted to photos 01 and 02 together (their outlines, matched with the camera of
-// each photo): thickness at the root and the tip; blade angle at the root and the tip (radians, edge B raised;
-// the root is flat where the blades join); how far the blade rises towards its tip (the photos show the tips a
-// little higher than the root); its arch across the chord; the root's height on the motor (the hub's rings stand
-// below it, as pictured); and how far in from edges A and B their rounding reaches.
-export const BLADE = { thickRoot: 0.03, thickTip: 0.011, pitchRoot: 0.135, pitchTip: 0.148, rise: 0.098, camber: 0.008, y: -0.042, edgeA: 0.07, edgeB: 0.035 };
+// Its shape across and along: thickness at the root and the tip; blade angle at the root and the tip (radians,
+// edge B raised; the root is flat where the blades join); how far the blade rises towards its tip (0: the blades
+// stand straight out, level, as on the real fan; a rise fitted to photo 01 made them look bent upwards); its arch
+// across the chord; the root's height on the motor (the hub's rings stand below it, as pictured); and how far in
+// from edges A and B their rounding reaches.
+export const BLADE = { thickRoot: 0.03, thickTip: 0.011, pitchRoot: 0.14, pitchTip: 0.14, rise: 0, camber: 0.008, y: -0.042, edgeA: 0.07, edgeB: 0.035 };
 
 export function bladeGeometry(spec = {}) {
   const p = { ...BLADE, ...spec };
   const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
   const edge = (s, w) => { const x = Math.min(1, Math.max(0, s / w)); return Math.sqrt(1 - (1 - x) ** 2); }; // a rounded edge
   const stations = [];
-  for (let f = 0.12; f < 0.949; f += 0.01) stations.push(f);
-  for (let f = 0.95; f < 0.999; f += 0.0025) stations.push(f);
-  stations.push(1);
+  for (let f = 0.12; f < 0.949; f += f >= 0.175 && f < 0.26 ? 0.0025 : 0.01) stations.push(f); // finer where the joins curve
+  const tip = OUTLINE.at(-1)[0]; // the outline's last row: the blade ends there
+  for (let f = 0.95; f < tip - 0.001; f += 0.0025) stations.push(f);
+  stations.push(tip);
   const n = 32; // points across the chord, closer together at the edges
   const pos = [];
   const uv = [];
