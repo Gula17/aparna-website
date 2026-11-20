@@ -62,7 +62,7 @@ function setupGallery(root) {
     });
     const few = visible().length < 2;
     root.querySelectorAll('[data-prev], [data-next]').forEach((b) => { b.hidden = few; });
-    const view360 = slides.findIndex((s) => !s.hidden && s.classList.contains('gallery__slide--3d') && !s.classList.contains('gallery__slide--parts'));
+    const view360 = slides.findIndex((s) => !s.hidden && s.classList.contains('gallery__slide--3d'));
     const own = slides.findIndex((s) => !s.hidden && s.dataset.colour === colour);
     go(view360 >= 0 ? view360 : own >= 0 ? own : slides.indexOf(visible()[0]), { instant: first });
   }
@@ -73,45 +73,29 @@ export function setupProductPage({ can3D, quality }) {
   const page = document.querySelector('main.product');
   if (!page) return;
 
-  // 360° viewer (first slide) and the parts view (second) where this product has a 3D model. Without 3D on
-  // this device, drop those slides and their thumbnails, and keep the photos.
-  const host = page.querySelector('[data-viewer]:not([data-exploded])');
-  const partsHost = page.querySelector('[data-viewer][data-exploded]');
+  // 360° viewer (first slide) where this product has a 3D model. Without 3D on this device, drop that slide and
+  // its thumbnail, and keep the photos.
+  const host = page.querySelector('[data-viewer]');
   let viewer = null;
   if (host && !can3D) {
     const removed = page.querySelectorAll('.gallery__thumb--3d').length;
-    [host, partsHost].forEach((h) => h?.closest('[data-slide]').remove());
+    host.closest('[data-slide]').remove();
     page.querySelectorAll('.gallery__thumb--3d').forEach((t) => t.remove());
     page.querySelectorAll('[data-thumb]').forEach((t) => { t.dataset.thumb = String(Number(t.dataset.thumb) - removed); });
     if (page.querySelectorAll('[data-slide]').length < 2) page.querySelectorAll('[data-prev], [data-next], .gallery__thumbs').forEach((el) => el.remove());
   }
   const gallery = setupGallery(page.querySelector('[data-gallery]'));
   if (host && can3D) mountViewer(host, { quality, controls: true }).then((v) => { viewer = v; paint3D(); });
-  // the parts view starts when its slide is swiped (or clicked) into view
-  if (partsHost && can3D) {
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      io.disconnect();
-      mountViewer(partsHost, { quality }).then((v) => {
-        const input = page.querySelector('[data-colours] input:checked');
-        if (v && input?.dataset.finish) v.setFinish(input.dataset.finish);
-        partsViewer = v;
-      });
-    }, { root: page.querySelector('.gallery__stage'), threshold: 0.5 });
-    io.observe(partsHost);
-  }
-  let partsViewer = null;
 
   // Colour picker.
   const picker = page.querySelector('[data-colours]');
   const chosenLabel = picker?.querySelector('[data-chosen]');
   const template = chosenLabel?.textContent.replace(/:.*/, ': {colour}') ?? '';
-  // Paints the 3D views in the chosen finish. Called again once a viewer has loaded.
+  // Paints the 3D view in the chosen finish. Called again once a viewer has loaded.
   function paint3D() {
     const input = picker?.querySelector('input:checked');
     if (!input?.dataset.finish) return;
     viewer?.setFinish(input.dataset.finish);
-    partsViewer?.setFinish(input.dataset.finish);
   }
   function applyColour({ first = false } = {}) {
     const input = picker?.querySelector('input:checked');
@@ -127,7 +111,7 @@ export function setupProductPage({ can3D, quality }) {
 
   // Finishes seen on the poster but not yet named in the data (Air Max): they only repaint the 3D model.
   const posterFinishes = page.querySelector('[data-poster-finishes]');
-  posterFinishes?.addEventListener('change', (e) => { viewer?.setFinish(e.target.value); partsViewer?.setFinish(e.target.value); });
+  posterFinishes?.addEventListener('change', (e) => viewer?.setFinish(e.target.value));
 
   // WhatsApp: share this page's link.
   const share = page.querySelector('[data-share]');

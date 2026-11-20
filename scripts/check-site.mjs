@@ -55,7 +55,7 @@ if (process.argv.includes('--browser')) {
       // (a tab that isn't in front may never draw a frame, so don't wait for one longer than half a second)
       const state = await page.evaluate(() => new Promise((resolve) => { let sent = false; const read = () => { if (sent) return; sent = true; resolve((() => {
         const img = [...document.querySelectorAll('.gallery img')].some((i) => i.complete && i.naturalWidth > 0);
-        const canvas = document.querySelector('.gallery__slide--3d:not(.gallery__slide--parts) canvas');
+        const canvas = document.querySelector('.gallery__slide--3d canvas');
         let drawn = null;
         if (canvas) {
           // something other than the plain background is drawn (sample a grid of pixels)
@@ -72,7 +72,7 @@ if (process.argv.includes('--browser')) {
       if (!state.img && !state.canvas) problems.push(`${p.id}: nothing shows in the gallery`);
       if (has3D && state.canvas && state.drawn === false) {
         // reading a WebGL canvas can come back empty: judge by a screenshot of the view instead
-        const box = await page.evaluate(() => { const r = document.querySelector('.gallery__slide--3d:not(.gallery__slide--parts) canvas').getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; });
+        const box = await page.evaluate(() => { const r = document.querySelector('.gallery__slide--3d canvas').getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; });
         await page.bringToFront();
         await new Promise((r) => setTimeout(r, 1500)); // let it draw now that it is in front
         const shot = await page.screenshot({ clip: box });

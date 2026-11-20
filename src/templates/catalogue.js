@@ -483,16 +483,6 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         </div>
       </figure>`);
     thumbs.push({ cls: 'gallery__thumb--3d', html: '360°' });
-    // the parts view: the same model from the side, its parts easing a little apart and back together
-    slides.push(`
-      <figure class="gallery__slide gallery__slide--3d gallery__slide--parts" data-slide>
-        <div class="viewer" data-viewer="${esc(modelKey)}" data-exploded tabindex="0" role="img" aria-label="${esc(fmt(t.showroom.partsLabel, { name: p.name }))}">
-          <canvas class="viewer__canvas"></canvas>
-          <span class="viewer__badge" aria-hidden="true">${esc(t.showroom.partsBadge)}</span>
-          <p class="viewer__hint" aria-hidden="true">${esc(t.showroom.partsHint)}</p>
-        </div>
-      </figure>`);
-    thumbs.push({ cls: 'gallery__thumb--3d gallery__thumb--parts', html: esc(t.showroom.partsThumb) });
   }
   if (cut) {
     slides.push(`

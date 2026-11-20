@@ -29,7 +29,7 @@ try {
     await page.goto(`${url}${p.url}?force3d`, { waitUntil: 'networkidle0', timeout: 90000 });
     // Wait out the drop-in entrance (1.3 s) and the first frames of the 3D view.
     await new Promise((r) => setTimeout(r, 3500));
-    const el = await page.$('.gallery__slide--3d:not(.gallery__slide--parts) .viewer');
+    const el = await page.$('.gallery__slide--3d .viewer');
     // The test browser renders in software, so a heavy model can take several seconds to compile its first
     // frame: retry until the middle of the view has something in it (not just the plain background).
     let shot = null;
