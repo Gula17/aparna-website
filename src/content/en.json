@@ -321,7 +321,7 @@
     "posterFinishes": "Finishes on the poster",
     "posterFinishesNote": "Both finishes as shown on the poster. The colour names are still being confirmed by Aparna.",
     "quick": "Quick view",
-    "quickLabel": "Quick view: {name} in 3D"
+    "quickLabel": "Quick view: {name}"
   },
   "events": {
     "eyebrow": "Aparna together",

@@ -1,6 +1,12 @@
-// Which products have a real-time 3D model (and so get the 360° viewer in their quick view).
-// Keys are product ids from aparna-products.json. Add an entry here when a new model is built.
-export const PRODUCT_MODELS = {
+// Which products show a real-time 3D view on the site. Until launch only the Aeroflow does (the home page fan,
+// its product page and quick view): every other product shows its photos, as if it had no model. To switch a
+// product's 3D back on, add its id here; nothing else needs changing (its builder is kept in
+// src/three/model-builders.js and loads on demand).
+export const LIVE_3D = ['ceiling-fans-aeroflow-48'];
+
+// Every product with a real-time 3D model built (product id -> model key). Keys are product ids from
+// aparna-products.json. Add an entry here when a new model is built.
+export const ALL_PRODUCT_MODELS = {
   'ceiling-fans-aeroflow-48': 'aeroflow',
   'ceiling-fans-aerosleek-48': 'aerosleek', // src/three/bldc-models.js
   'ceiling-fans-ikon-bldc-48': 'ikon',
@@ -188,6 +194,9 @@ export const PRODUCT_MODELS = {
   'electric-irons-new-black': 'appl-electric-irons-new-black',
   'electric-irons-new-heavy-black': 'appl-electric-irons-new-heavy-black',
 };
+
+// The models the site shows: ALL_PRODUCT_MODELS limited to LIVE_3D. Templates use this to decide where 3D appears.
+export const PRODUCT_MODELS = Object.fromEntries(Object.entries(ALL_PRODUCT_MODELS).filter(([id]) => LIVE_3D.includes(id)));
 
 // Colour names in the product data -> the finish a 3D model shows for them (the colour picker repaints it).
 export const FINISH_KEYS = {

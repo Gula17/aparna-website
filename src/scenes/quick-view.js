@@ -1,8 +1,8 @@
 // Quick view on every product card: a pop-up with the product in real-time 3D (drag to turn it, blades
-// turning), or its photo where there is no 3D model or this device runs without 3D. One shared dialog per page;
+// turning) where it has a live model (LIVE_3D, src/three/models.js), or else its photo with a close-up lens. One shared dialog per page;
 // each open builds a fresh 3D view and closing frees it (browsers allow only a few 3D views at once).
 
-import { mountViewer } from './products.js';
+import { addLens, mountViewer } from './products.js';
 
 export function setupQuickView({ can3D, quality }) {
   const dialog = document.querySelector('[data-quick-dialog]');
@@ -59,8 +59,14 @@ export function setupQuickView({ can3D, quality }) {
     const img = new Image();
     img.src = d.img;
     img.alt = d.title ?? '';
-    img.className = 'quick__img';
-    return img;
+    img.className = 'quick__img lens__img';
+    // the close-up lens: hover (or tap) to look closer
+    const lens = document.createElement('div');
+    lens.className = 'lens quick__lens';
+    lens.dataset.lens = '';
+    lens.append(img);
+    addLens(lens);
+    return lens;
   }
 
   dialog.addEventListener('close', () => {

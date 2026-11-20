@@ -6,7 +6,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { startDevServer, launchBrowser } from './browser.mjs';
-import { PRODUCT_MODELS, PICTURED_COLOUR, FINISH_KEYS } from '../src/three/models.js';
+import { ALL_PRODUCT_MODELS as PRODUCT_MODELS, PICTURED_COLOUR, FINISH_KEYS } from '../src/three/models.js'; // every built model, live or not
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'src', 'content', 'model-renders');
@@ -25,7 +25,7 @@ try {
   const shots = await page.evaluate(async (todo) => {
     const src = await (await fetch('/src/three/aeroflow-model.js')).text();
     const THREE = await import(src.match(/from\s+"([^"]*three[^"]*)"/)[1]);
-    const { MODELS } = await import('/src/three/fan-scene.js');
+    const { MODELS } = await import('/src/three/model-builders.js');
     const models = todo.map((t) => { const m = MODELS[t.model](); if (t.finish) m.setFinish(t.finish); return m; });
     await new Promise((r) => setTimeout(r, 2000)); // logo textures
     return models.map((m) => {

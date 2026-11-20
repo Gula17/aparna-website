@@ -53,7 +53,10 @@ export async function mountViewer(host, { quality, controls = false }) {
   if (viewers.has(host)) return viewers.get(host);
   const ready = (async () => {
     const { createFanScene } = await import('../three/fan-scene.js'); // already cached if the hero has 3D
-    const viewer = createFanScene(host.querySelector('canvas'), { viewer: true, quality, observe: host, model: host.dataset.viewer });
+    // any model but the Aeroflow comes from its own chunk, fetched only when such a product shows 3D (LIVE_3D)
+    const key = host.dataset.viewer;
+    const create = key && key !== 'aeroflow' ? (await import('../three/model-builders.js')).MODELS[key] : undefined;
+    const viewer = createFanScene(host.querySelector('canvas'), { viewer: true, quality, observe: host, create });
     Object.assign(viewer.pose, { elevation: -0.45, azimuth: 0.6, zoom: 1, screenX: 0.5, screenY: 0.56, fill: 0.8 }, viewer.viewerPose ?? {});
     viewer.setLevel(2);
     if (viewer.powerKind) {

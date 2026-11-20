@@ -3,11 +3,13 @@
 //   - no hidden ("confirm") or discontinued product on any page, no unverified specs
 //   - preview stays noindex
 //   - every /media/ file a page refers to is in the build
+//   - 3D views ([data-viewer]) only for the products in LIVE_3D (src/three/models.js), and on each of their pages
 // It also prints the gzipped size of each JS file against the §9 budget.
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { LIVE_3D, PRODUCT_MODELS } from '../src/three/models.js';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -86,6 +88,21 @@ for (const p of catalogueData.products) {
   }
 }
 
+// Only the products in LIVE_3D show a 3D view: no page has a viewer for any other model, and each live product's
+// own page has its viewer.
+const liveKeys = new Set(Object.values(PRODUCT_MODELS));
+for (const file of htmlFiles) {
+  const body = await fs.readFile(file, 'utf8');
+  for (const m of body.matchAll(/data-viewer="([^"]*)"/g)) if (!liveKeys.has(m[1])) problems.push(`${path.relative(DIST, file)}: 3D view of "${m[1]}", which is not in LIVE_3D`);
+}
+for (const p of catalogueData.products) {
+  const body = await fs.readFile(path.join(DIST, p.url, 'index.html'), 'utf8').catch(() => null);
+  if (!body) continue;
+  const has = /data-viewer="/.test(body);
+  if (LIVE_3D.includes(p.id) && !has) problems.push(`${p.url}: in LIVE_3D but its page has no 3D view`);
+  if (!LIVE_3D.includes(p.id) && has) problems.push(`${p.url}: has a 3D view but is not in LIVE_3D`);
+}
+
 console.log('\nJS (gzipped)   budget: initial < 200 KB, 3D chunk < 600 KB');
 for (const file of all.filter((f) => f.endsWith('.js'))) {
   const gz = zlib.gzipSync(await fs.readFile(file)).length;
@@ -96,4 +113,4 @@ if (problems.length) {
   console.error(`\nBuild check FAILED:\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log('\nBuild check passed: MRP only (no offer or dealer prices), no hidden products, noindex on every page, no missing pictures.');
+console.log(`\nBuild check passed: MRP only (no offer or dealer prices), no hidden products, noindex on every page, no missing pictures, 3D views only for LIVE_3D (${LIVE_3D.join(', ')}).`);

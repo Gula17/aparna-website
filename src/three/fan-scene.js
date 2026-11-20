@@ -8,49 +8,7 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { createAeroflow } from './aeroflow-model.js';
-import { createAerosleek, createIkonBldc } from './bldc-models.js';
-import * as FRONT from './front-fans.js';
-import { COOLERS } from './coolers.js';
-import { CEILING_MODELS } from './ceiling-fans.js';
-import { APPLIANCES } from './appliances.js';
-import { SMALL_APPLIANCES } from './small-appliances.js';
 import { collectPowerParts, applyPower } from './power.js';
-
-// Real-time models, by the key in src/three/models.js.
-export const MODELS = {
-  aeroflow: createAeroflow, aerosleek: createAerosleek, ikon: createIkonBldc,
-  sultan: FRONT.createSultan, hexa: FRONT.createHexa, nexa: FRONT.createNexa, fiona: FRONT.createFiona,
-  vistara: FRONT.createVistara, glider: FRONT.createGlider, spider: FRONT.createSpider,
-  vento: FRONT.createVento, spectra: FRONT.createSpectra, wendy: FRONT.createWendy,
-  'tornado': FRONT.createTornado,
-  'jazz': FRONT.createJazz,
-  'velora': FRONT.createVelora,
-  'vectra': FRONT.createVectra,
-  'blazo': FRONT.createBlazo,
-  'blitz': FRONT.createBlitz,
-  'goair-12': FRONT.createGoair12,
-  'goair-16': FRONT.createGoair16,
-  'jawa': FRONT.createJawa,
-  'regal': FRONT.createRegal,
-  'safari': FRONT.createSafari,
-  'piano-black': FRONT.createPianoBlack,
-  'piano-white': FRONT.createPianoWhite,
-  'stallion': FRONT.createStallion,
-  'bullet-12': FRONT.createBullet12,
-  'bullet-16': FRONT.createBullet16,
-  'bullet-osc-16': FRONT.createBulletOsc16,
-  'ornet': FRONT.createOrnet,
-  'shine': FRONT.createShine,
-  'champion': FRONT.createChampion,
-  'indus': FRONT.createIndus,
-  ...Object.fromEntries(Object.entries(APPLIANCES).map(([id, create]) => [`appl-${id}`, create])),
-  // irons, the Cabin Fan, cooler motors and pumps (same 'appl-' keys)
-  ...Object.fromEntries(Object.entries(SMALL_APPLIANCES).map(([id, create]) => [`appl-${id}`, create])),
-  ...Object.fromEntries(Object.entries(CEILING_MODELS).map(([key, create]) => [`ceiling-${key}`, create])),
-  ...Object.fromEntries(Object.entries(COOLERS).map(([key, create]) => [`cooler-${key}`, create])),
-  'fresh-air-9': FRONT.createFreshAir9, 'fresh-air-12': FRONT.createFreshAir12, ventilation: FRONT.createVentilation,
-  ...FRONT.FRONT_MODELS, // every front-facing fan, including the ones built from the studio photos
-};
 
 // Regulator steps 1-5, in turns per second. Kept well below the speed where blades start to strobe,
 // so three blades can always be counted (brief §8).
@@ -71,9 +29,9 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
  * @param {boolean} [options.still]    render once, keep the drawing buffer (for screenshots)
  * @param {'high'|'low'} [options.quality]  'high' adds soft shadows; 'low' is for phones and small GPUs
  * @param {boolean} [options.viewer]   360° product viewer: drag to turn, slow auto-turn, no airflow
- * @param {string}  [options.model]    which fan: 'aeroflow' (default), 'aerosleek' or 'ikon'
+ * @param {Function} [options.create] the model's builder (default the Aeroflow; others from src/three/model-builders.js)
  */
-export function createFanScene(canvas, { observe = canvas, still = false, quality = 'low', viewer = false, model: modelKey = 'aeroflow' } = {}) {
+export function createFanScene(canvas, { observe = canvas, still = false, quality = 'low', viewer = false, create = createAeroflow } = {}) {
   const high = quality === 'high';
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: still });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, high ? 2 : 1.5));
@@ -109,7 +67,7 @@ export function createFanScene(canvas, { observe = canvas, still = false, qualit
   }
 
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
-  const model = (MODELS[modelKey] ?? createAeroflow)({ shadows: high });
+  const model = create({ shadows: high });
   scene.add(model.fan);
 
   // ---- Start / Stop (360° view only): blades turn and elements glow while it is on. Everything else (the hero)
