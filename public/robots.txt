@@ -1,3 +1,5 @@
-# Preview build: keep out of search until launch is approved.
+# Aparna Home Appliances: open to search engines.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://aparnahome.com/sitemap.xml

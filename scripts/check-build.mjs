@@ -1,7 +1,8 @@
 // Runs after every build and fails it if any hard rule from the brief (§3, §12) is broken:
 //   - no money words anywhere in the built HTML/JS/CSS
 //   - no hidden ("confirm") or discontinued product on any page, no unverified specs
-//   - preview stays noindex
+//   - live site: open to search (no noindex, robots.txt allows all, sitemap present), except the privacy policy
+//     draft and the forwarding pages of moved addresses
 //   - every /media/ file a page refers to is in the build
 //   - 3D views ([data-viewer]) only for the products in LIVE_3D (src/three/models.js), and on each of their pages
 // It also prints the gzipped size of each JS file against the §9 budget.
@@ -34,6 +35,7 @@ const problems = [];
 const all = await files(DIST);
 const text = all.filter((f) => /\.(html|js|css|json|txt|svg)$/.test(f));
 const htmlFiles = text.filter((f) => f.endsWith('.html'));
+const present_has = (name) => all.some((f) => path.relative(DIST, f).replace(/\\/g, '/') === name);
 
 for (const file of text) {
   const body = await fs.readFile(file, 'utf8');
@@ -60,8 +62,17 @@ for (const file of htmlFiles) {
     const re = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
     if (re.test(page)) problems.push(`${path.relative(DIST, file)}: hidden or discontinued item "${name}" is on the page`);
   }
-  if (!/name="robots" content="noindex/.test(html)) problems.push(`${path.relative(DIST, file)}: missing noindex`);
+  const rel = path.relative(DIST, file).replace(/\\/g, '/');
+  const hidden = /name="robots" content="[^"]*noindex/.test(html);
+  const mayHide = rel === 'privacy-policy/index.html' || /http-equiv="refresh"/.test(html); // the draft policy; forwarding pages
+  if (hidden && !mayHide) problems.push(`${rel}: hidden from search (noindex) on the live site`);
+  if (rel === 'privacy-policy/index.html' && !hidden) problems.push(`${rel}: the draft privacy policy should stay out of search (noindex)`);
 }
+const robotsTxt = await fs.readFile(path.join(DIST, 'robots.txt'), 'utf8').catch(() => '');
+if (/^Disallow:\s*\/\s*$/m.test(robotsTxt)) problems.push('robots.txt blocks the whole site');
+if (!/^Sitemap:/m.test(robotsTxt)) problems.push('robots.txt does not name the sitemap');
+if (!present_has('sitemap.xml')) problems.push('sitemap.xml is missing');
+if (/X-Robots-Tag/.test(await fs.readFile(path.join(DIST, 'vercel.json'), 'utf8').catch(() => ''))) problems.push('vercel.json still sends a noindex header');
 
 // Every picture a page asks for must be in the build (OneDrive has deleted freshly written files before).
 const present = new Set(all.map((f) => `/${path.relative(DIST, f).replace(/\\/g, '/')}`));
@@ -113,4 +124,4 @@ if (problems.length) {
   console.error(`\nBuild check FAILED:\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log(`\nBuild check passed: MRP only (no offer or dealer prices), no hidden products, noindex on every page, no missing pictures, 3D views only for LIVE_3D (${LIVE_3D.join(', ')}).`);
+console.log(`\nBuild check passed: MRP only (no offer or dealer prices), no hidden products, open to search (privacy draft excepted), no missing pictures, 3D views only for LIVE_3D (${LIVE_3D.join(', ')}).`);
