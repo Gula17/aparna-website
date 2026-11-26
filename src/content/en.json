@@ -14,6 +14,7 @@
     "products": "Products",
     "allProducts": "All products",
     "events": "Events",
+    "blog": "Blog",
     "menuExplore": "Explore all {count} products",
     "menuModels": "{count} models",
     "menuClose": "Close",
