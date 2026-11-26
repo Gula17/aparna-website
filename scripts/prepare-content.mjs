@@ -79,7 +79,7 @@ async function writeImage(srcPath, outBase, { crop, widths = MEDIA_WIDTHS, forma
     const file = `${outBase}-${width}.${format}`;
     const info = format === 'png'
       ? await img.png({ compressionLevel: 9, palette: true }).toFile(path.join(PUBLIC, file))
-      : await img.webp({ quality: 72 }).toFile(path.join(PUBLIC, file));
+      : await img.webp({ quality: 82 }).toFile(path.join(PUBLIC, file)); // product photos: sharp enough for 3x phones
     results.push({ file: `/${file.replace(/\\/g, '/')}`, width: info.width, height: info.height });
   }
   return results;

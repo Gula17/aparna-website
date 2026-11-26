@@ -6,6 +6,7 @@
 // photo where there is no 3D model. A photo is only marked with the colour it shows.
 
 import { addLens, mountViewer } from './products.js';
+import { setupColourPreview } from './colour-preview.js';
 
 function setupGallery(root) {
   const stage = root.querySelector('.gallery__stage');
@@ -97,6 +98,7 @@ export function setupProductPage({ can3D, quality }) {
     if (!input?.dataset.finish) return;
     viewer?.setFinish(input.dataset.finish);
   }
+  const previewColour = setupColourPreview(page);
   function applyColour({ first = false } = {}) {
     const input = picker?.querySelector('input:checked');
     if (!input) return;
@@ -105,6 +107,7 @@ export function setupProductPage({ can3D, quality }) {
     if (mrp && input.dataset.mrp) mrp.textContent = input.dataset.mrp; // the price list prices some models by colour
     paint3D();
     gallery.showColour(input.value, { first });
+    previewColour(input); // no photo of this colour: the product's own photo recoloured on screen, labelled
   }
   picker?.addEventListener('change', () => applyColour());
   applyColour({ first: true }); // the page opens on the starting colour's photos only

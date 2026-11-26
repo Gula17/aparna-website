@@ -2,4 +2,18 @@
 User-agent: *
 Allow: /
 
+# AI search and answer engines are welcome (ChatGPT, Perplexity, Google AI, Claude, Apple).
+# A bot named here follows only this group, not "*": keep any future Disallow lines in both. (managed by scripts/blog)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://aparnahome.com/sitemap.xml

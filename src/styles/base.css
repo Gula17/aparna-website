@@ -145,6 +145,10 @@ fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
 .site-nav .site-nav__events { gap: 7px; }
 .site-nav__events::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--marigold); box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.25); }
 @media (max-width: 400px) { .site-nav a.site-nav__events, .nav-menu summary { padding: 0 9px; } }
+/* Blog (the /blog/ pages live in the static site repo, made by its scripts/add-post.mjs): a fourth link that still
+   fits on 360 px phones; below 350 px it is in the footer only */
+@media (max-width: 400px) { .site-nav { gap: 2px; } .site-nav > a, .nav-menu summary { font-size: 0.875rem; } .site-nav a.site-nav__blog { padding: 0 9px; } }
+@media (max-width: 350px) { .site-nav a.site-nav__blog { display: none; } }
 
 /* ---------- Utsav '26 glimpse on the home page (marigold is for Utsav only, brief) */
 

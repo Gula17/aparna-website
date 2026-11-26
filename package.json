@@ -14,7 +14,8 @@
     "shots": "node scripts/screenshots.mjs",
     "motor-still": "node scripts/render-motor-still.mjs",
     "model-stills": "node scripts/render-model-stills.mjs",
-    "menu": "node scripts/make-menu-thumbs.mjs"
+    "menu": "node scripts/make-menu-thumbs.mjs",
+    "boxes": "node scripts/find-product-boxes.mjs"
   },
   "dependencies": {
     "@fontsource/mukta": "^5.1.1",

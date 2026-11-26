@@ -51,6 +51,7 @@ export const siteHeader = (t, media, categories, { home = false } = {}) => {
       </details>
       <a class="site-nav__bldc" href="${home ? '#bldc' : '/#bldc'}">${esc(t.nav.bldc)}</a>
       <a class="site-nav__events" href="/events/">${esc(t.nav.events)}</a>
+      <a class="site-nav__blog" href="/blog/">${esc(t.nav.blog)}</a>
     </nav>
   </header>`;
 };
@@ -70,7 +71,7 @@ export const siteFooter = (t, media, categories) => `
     </nav>
     <nav class="site-footer__nav" aria-label="${esc(t.footer.aparna)}">
       <h2 class="site-footer__heading">${esc(t.footer.aparna)}</h2>
-      <ul><li><a href="/events/">${esc(t.nav.events)}</a></li></ul>
+      <ul><li><a href="/events/">${esc(t.nav.events)}</a></li><li><a href="/blog/">${esc(t.nav.blog)}</a></li></ul>
     </nav>
     <div class="site-footer__social">
       <h2 class="site-footer__heading">${esc(t.footer.follow)}</h2>
