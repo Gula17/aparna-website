@@ -89,6 +89,11 @@ const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--
     : p.status === 'soon' ? `<li class="badge badge--soft">${esc(t.products.comingSoon)}</li>` : '');
 
 const sizeText = (p) => (p.sizeInch ? (p.sizeMm ? `${p.sizeInch}" · ${p.sizeMm} mm` : `${p.sizeInch}"`) : '');
+// Model code under a name and on cards: only the codes ("A 1450 / A 1451 / A 1452"); the specification table shows
+// the full text with which colour or version each code is ("A 1450 (White, Golden) · A 1451 (Grey) · …").
+// A code never breaks across lines ("A 267", "271 A"): its own spaces become non-breaking.
+const keepCode = (m) => String(m).replace(/\b([A-Z]{1,4}) (?=\d)/g, '$1 ').replace(/(\d) (?=[A-Z]\b)/g, '$1 ');
+const shortModel = (m) => keepCode(String(m).replace(/\s+\((?:[^()]|\([^()]*\))*\)/g, '').split(/\s*·\s*/).join(' / '));
 
 const mrpLine = (t, p) => (p.mrp ? `${p.mrp.varies ? t.product.mrpFrom : t.product.mrp} ${rupees(p.mrp.value)}` : '');
 
@@ -126,7 +131,7 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
         <span class="product-card__body">
           <span class="product-card__series">${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}</span>
           <span class="product-card__name">${esc(p.name)}</span>
-          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, size].filter(Boolean).join(' · '))}</span>
+          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${shortModel(p.modelNumber)}` : '', p.type, size].filter(Boolean).join(' · '))}</span>
           ${fam ? (familyMrpLine(t, p) ? `<span class="product-card__mrp">${esc(familyMrpLine(t, p))}</span>` : '') : p.mrp ? `<span class="product-card__mrp">${esc(mrpLine(t, p))}</span>` : ''}
           <span class="product-card__desc">${esc(fam ? fam.description : p.description)}</span>
           <span class="product-card__foot">
@@ -567,7 +572,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         <ul class="badges">${statusBadge(t, p)}${p.badges.filter((b) => b !== 'New launch').map((b) => `<li class="badge badge--soft">${esc(b)}</li>`).join('')}</ul>
         <p class="product__series">${esc(p.series)}</p>
         <h1 class="product__name" id="product-title">${esc(p.name)}</h1>
-        <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
+        <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${shortModel(p.modelNumber)}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
         ${p.family ? sizeSwitch(t, p) : ''}
         ${p.mrp ? productMrp(t, p, pickColours) : ''}
         ${p.family ? alsoIn(t, p) : ''}
@@ -618,7 +623,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
       <section class="product__block" aria-labelledby="specs-title">
         <h2 class="product__h2" id="specs-title" data-reveal="words">${esc(t.product.specs)}</h2>
         <dl class="spec-table">
-          <div><dt>${esc(t.product.model)}</dt><dd>${esc(p.modelNumber ?? t.product.toConfirm)}</dd></div>
+          <div><dt>${esc(t.product.model)}</dt><dd>${p.modelNumber ? p.modelNumber.split(/\s*·\s*/).map((m) => esc(keepCode(m))).join('<br>') : esc(t.product.toConfirm)}</dd></div>
           <div><dt>${esc(t.product.category)}</dt><dd>${esc(p.category)}</dd></div>
           <div><dt>${esc(t.product.series)}</dt><dd>${esc(p.series)}</dd></div>
           <div><dt>${esc(t.product.type)}</dt><dd>${esc(p.type)}</dd></div>

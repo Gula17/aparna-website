@@ -258,7 +258,7 @@
     "category": "Category",
     "type": "Type",
     "size": "Size",
-    "model": "Model number",
+    "model": "Model code",
     "toConfirm": "To be confirmed",
     "colours": "Colours",
     "selectedColour": "Selected: {colour}",

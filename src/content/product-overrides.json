@@ -1,3 +1,433 @@
 {
-  "_read_me": "Per-product additions that are not in aparna-products.json yet. Keyed by product id. Supported fields: description, modelNumber."
+  "_read_me": "Per-product additions that are not in aparna-products.json yet. Keyed by product id. Supported fields: description, modelNumber.",
+  "_model_numbers": "modelNumber = the 'Code' printed beside each model in Aparna's price lists (AAPRNA_PRICE _IST_28_10_2026.pdf, w.e.f. 1 Sep 2026; washing machines: their model name). Shown as 'Model code'. Not filled where the list prints the same code for two different models (Ikon Pro/Prince A 302, Nikon/Iconic A 303 A, Supreme/Festiva A 309 B, Jawa/Maxx A 255, Oreo/Bullet 12\" 501A): ask Aparna. Added 26 Nov 2026.",
+  "ceiling-fans-aeroflow-48": {
+    "modelNumber": "A 1450 (White, Golden) · A 1451 (Grey) · A 1452 (Wood Craft)"
+  },
+  "ceiling-fans-aerosleek-48": {
+    "modelNumber": "A 701"
+  },
+  "ceiling-fans-ikon-bldc-48": {
+    "modelNumber": "A 702"
+  },
+  "ceiling-fans-air-max-48": {
+    "modelNumber": "A 604"
+  },
+  "ceiling-fans-art-pro-48": {
+    "modelNumber": "A 605"
+  },
+  "ceiling-fans-coral-48": {
+    "modelNumber": "A 601"
+  },
+  "ceiling-fans-coras-48": {
+    "modelNumber": "A 602"
+  },
+  "ceiling-fans-irus-48": {
+    "modelNumber": "A 603"
+  },
+  "ceiling-fans-aronita-48": {
+    "modelNumber": "A 309 F"
+  },
+  "ceiling-fans-heritage-48": {
+    "modelNumber": "A 309 J"
+  },
+  "ceiling-fans-nexus-48": {
+    "modelNumber": "A 309 G"
+  },
+  "ceiling-fans-pazero-48": {
+    "modelNumber": "A 309 H"
+  },
+  "ceiling-fans-mini-dlx-24": {
+    "modelNumber": "A 315"
+  },
+  "ceiling-fans-mini-smart-24": {
+    "modelNumber": "A 316"
+  },
+  "ceiling-fans-mini-star-24": {
+    "modelNumber": "A 314"
+  },
+  "ceiling-fans-new-josh-24": {
+    "modelNumber": "A 317"
+  },
+  "ceiling-fans-diplomat-36": {
+    "modelNumber": "A 312"
+  },
+  "ceiling-fans-major-36": {
+    "modelNumber": "A 310"
+  },
+  "ceiling-fans-orbit-36": {
+    "modelNumber": "A 311"
+  },
+  "ceiling-fans-apsara-48": {
+    "modelNumber": "A 306"
+  },
+  "ceiling-fans-areta-48": {
+    "modelNumber": "A 309"
+  },
+  "ceiling-fans-croma-48": {
+    "modelNumber": "A 306 A"
+  },
+  "ceiling-fans-crystal-pro-48": {
+    "modelNumber": "A 304 B"
+  },
+  "ceiling-fans-electra-48": {
+    "modelNumber": "A 307"
+  },
+  "ceiling-fans-flora-48": {
+    "modelNumber": "A 308 A"
+  },
+  "ceiling-fans-glaze-48": {
+    "modelNumber": "A 308"
+  },
+  "ceiling-fans-ikon-48": {
+    "modelNumber": "A 301"
+  },
+  "ceiling-fans-luster-shine-golden-48": {
+    "modelNumber": "A 309 L"
+  },
+  "ceiling-fans-luster-shine-silver-48": {
+    "modelNumber": "A 309 L"
+  },
+  "ceiling-fans-phantom-48": {
+    "modelNumber": "A 309 C"
+  },
+  "ceiling-fans-rider-48": {
+    "modelNumber": "A 306 B"
+  },
+  "ceiling-fans-rosa-48": {
+    "modelNumber": "A 399"
+  },
+  "ceiling-fans-senorita-48": {
+    "modelNumber": "A 309 A"
+  },
+  "ceiling-fans-sonet-deco-48": {
+    "modelNumber": "A 304"
+  },
+  "ceiling-fans-sparsh-48": {
+    "modelNumber": "A 303"
+  },
+  "ceiling-fans-stunner-48": {
+    "modelNumber": "A 307 A"
+  },
+  "ceiling-fans-unicorn-48": {
+    "modelNumber": "A 307 B"
+  },
+  "ceiling-fans-little-star-24": {
+    "modelNumber": "A 334"
+  },
+  "ceiling-fans-mini-copper-24": {
+    "modelNumber": "A 335"
+  },
+  "ceiling-fans-new-josh-copper-24": {
+    "modelNumber": "A 337"
+  },
+  "ceiling-fans-tejas-24": {
+    "modelNumber": "A 336"
+  },
+  "ceiling-fans-nova-dlx-36": {
+    "modelNumber": "A 331 B"
+  },
+  "ceiling-fans-saphire-36": {
+    "modelNumber": "A 331"
+  },
+  "ceiling-fans-virat-36": {
+    "modelNumber": "A 330"
+  },
+  "ceiling-fans-aroma-deco-48": {
+    "modelNumber": "A 328"
+  },
+  "ceiling-fans-croma-pro-48": {
+    "modelNumber": "A 323 B"
+  },
+  "ceiling-fans-fortune-pro-48": {
+    "modelNumber": "A 327"
+  },
+  "ceiling-fans-kiara-48": {
+    "modelNumber": "A 319"
+  },
+  "ceiling-fans-lumero-48": {
+    "modelNumber": "A 445"
+  },
+  "ceiling-fans-nokia-48": {
+    "modelNumber": "A 320"
+  },
+  "ceiling-fans-orchid-deco-48": {
+    "modelNumber": "A 329"
+  },
+  "ceiling-fans-orina-48": {
+    "modelNumber": "A 327 A"
+  },
+  "ceiling-fans-platinium-48": {
+    "modelNumber": "A 323 A"
+  },
+  "ceiling-fans-porsche-48": {
+    "modelNumber": "A 400 B"
+  },
+  "ceiling-fans-rafale-48": {
+    "modelNumber": "A 318"
+  },
+  "ceiling-fans-raftaar-48": {
+    "modelNumber": "A 321"
+  },
+  "ceiling-fans-rider-pro-48": {
+    "modelNumber": "A 327 C"
+  },
+  "ceiling-fans-rolex-48": {
+    "modelNumber": "A 444"
+  },
+  "ceiling-fans-runner-48": {
+    "modelNumber": "A 327 B"
+  },
+  "ceiling-fans-sayonara-48": {
+    "modelNumber": "A 329 B"
+  },
+  "ceiling-fans-smart-deco-48": {
+    "modelNumber": "A 326"
+  },
+  "ceiling-fans-vista-deco-48": {
+    "modelNumber": "A 323"
+  },
+  "table-wall-pedestal-fans-vento-12": {
+    "modelNumber": "A 514"
+  },
+  "table-wall-pedestal-fans-glider-16": {
+    "modelNumber": "A 501"
+  },
+  "table-wall-pedestal-fans-spider-16": {
+    "modelNumber": "A 512"
+  },
+  "table-wall-pedestal-fans-tornado-16": {
+    "modelNumber": "A 513"
+  },
+  "table-wall-pedestal-fans-wendy-12": {
+    "modelNumber": "A 509"
+  },
+  "table-wall-pedestal-fans-fiona-16": {
+    "modelNumber": "A 517"
+  },
+  "table-wall-pedestal-fans-spectra-16": {
+    "modelNumber": "A 518"
+  },
+  "table-wall-pedestal-fans-vectra-16": {
+    "modelNumber": "A 515"
+  },
+  "table-wall-pedestal-fans-vistara-16": {
+    "modelNumber": "A 516"
+  },
+  "table-wall-pedestal-fans-jazz-12": {
+    "modelNumber": "A 1104"
+  },
+  "table-wall-pedestal-fans-blazo-16": {
+    "modelNumber": "A 1101"
+  },
+  "table-wall-pedestal-fans-blitz-16": {
+    "modelNumber": "A 1102"
+  },
+  "table-wall-pedestal-fans-iconic-16": {
+    "modelNumber": "A 1105"
+  },
+  "table-wall-pedestal-fans-stallion-16": {
+    "modelNumber": "A 1106"
+  },
+  "table-wall-pedestal-fans-velora-16": {
+    "modelNumber": "A 1103"
+  },
+  "all-purpose-cabin-fans-goair-ac-dc-12": {
+    "modelNumber": "A 262"
+  },
+  "all-purpose-cabin-fans-goair-ac-dc-16": {
+    "modelNumber": "A 408"
+  },
+  "all-purpose-cabin-fans-safari-9": {
+    "modelNumber": "A 252"
+  },
+  "all-purpose-cabin-fans-cabin-fan-12": {
+    "modelNumber": "A 260 B"
+  },
+  "all-purpose-cabin-fans-piano-black-12": {
+    "modelNumber": "A 250 B"
+  },
+  "all-purpose-cabin-fans-piano-white-12": {
+    "modelNumber": "A 250 C"
+  },
+  "all-purpose-cabin-fans-regal-12": {
+    "modelNumber": "A 254"
+  },
+  "high-speed-fans-ornet-12": {
+    "modelNumber": "A 222"
+  },
+  "high-speed-fans-bullet-16": {
+    "modelNumber": "A 342"
+  },
+  "high-speed-fans-bullet-oscillating-16": {
+    "modelNumber": "A 343"
+  },
+  "high-speed-fans-bullet-oscillating-metal-blade-16": {
+    "modelNumber": "A 344"
+  },
+  "high-speed-fans-shine-16": {
+    "modelNumber": "A 333"
+  },
+  "high-speed-fans-champion-22": {
+    "modelNumber": "A 261"
+  },
+  "high-speed-fans-hexa-20": {
+    "modelNumber": "A 256"
+  },
+  "high-speed-fans-indus-high-speed-20": {
+    "modelNumber": "A 259"
+  },
+  "high-speed-fans-nexa-20": {
+    "modelNumber": "A 257"
+  },
+  "high-speed-fans-sultan-20": {
+    "modelNumber": "A 258"
+  },
+  "high-speed-fans-windstar-22": {
+    "modelNumber": "A 260"
+  },
+  "ventilation-fresh-air-fans-fresh-air-fan-high-speed-9": {
+    "modelNumber": "A 263 (Silver Series) · A 264 (Silver Series, RF) · A 267 (Ultra Gold Series, 100% copper) · A 268 (Ultra Gold Series, copper, RF)"
+  },
+  "ventilation-fresh-air-fans-fresh-air-fan-high-speed-12": {
+    "modelNumber": "A 265 (Silver Series) · A 266 (Silver Series, RF) · A 269 (Ultra Gold Series, 100% copper) · A 270 (Ultra Gold Series, copper, RF)"
+  },
+  "ventilation-fresh-air-fans-ventilation-fan-6": {
+    "modelNumber": "A 261 A"
+  },
+  "ventilation-fresh-air-fans-ventilation-fan-8": {
+    "modelNumber": "A 261 B"
+  },
+  "ventilation-fresh-air-fans-ventilation-fan-10": {
+    "modelNumber": "A 261 C"
+  },
+  "kitchen-appliances-crescent": {
+    "modelNumber": "A 503"
+  },
+  "kitchen-appliances-magnum": {
+    "modelNumber": "A 506"
+  },
+  "kitchen-appliances-phantom": {
+    "modelNumber": "A 504"
+  },
+  "kitchen-appliances-rustam": {
+    "modelNumber": "A 507"
+  },
+  "kitchen-appliances-ss-jumbo": {
+    "modelNumber": "A 502"
+  },
+  "kitchen-appliances-simson": {
+    "modelNumber": "A 501"
+  },
+  "kitchen-appliances-smart": {
+    "modelNumber": "A 505"
+  },
+  "kitchen-appliances-boss": {
+    "modelNumber": "A 508"
+  },
+  "kitchen-appliances-crystal": {
+    "modelNumber": "A 510"
+  },
+  "kitchen-appliances-presto": {
+    "modelNumber": "A 511"
+  },
+  "kitchen-appliances-prime": {
+    "modelNumber": "A 509"
+  },
+  "kitchen-appliances-prince": {
+    "modelNumber": "A 512"
+  },
+  "heating-water-pearl-immersion-rod-1000-w": {
+    "modelNumber": "A 91 (standard) · A 91(S) (water proof)"
+  },
+  "heating-water-pearl-immersion-rod-1500-w": {
+    "modelNumber": "A 92 (standard) · A 92(S) (water proof)"
+  },
+  "heating-water-pearl-immersion-rod-2000-w": {
+    "modelNumber": "A 93 (standard) · A 93(S) (water proof)"
+  },
+  "heating-water-geyser-element-tricone-9": {
+    "modelNumber": "A 97"
+  },
+  "heating-water-kettle-element": {
+    "modelNumber": "A 94"
+  },
+  "heating-water-kettle-element-half-round": {
+    "modelNumber": "A 96"
+  },
+  "heating-water-kettle-midget-element": {
+    "modelNumber": "A 95"
+  },
+  "heating-water-alineo": {
+    "modelNumber": "275"
+  },
+  "heating-water-pearl": {
+    "modelNumber": "271"
+  },
+  "heating-water-pox": {
+    "modelNumber": "272"
+  },
+  "heating-water-roxx": {
+    "modelNumber": "274"
+  },
+  "heating-water-rozer": {
+    "modelNumber": "273"
+  },
+  "heating-water-sigma": {
+    "modelNumber": "271 A"
+  },
+  "heating-water-silky": {
+    "modelNumber": "276"
+  },
+  "heating-water-sun-heater-sunshine-14": {
+    "modelNumber": "278"
+  },
+  "electric-irons-bmw": {
+    "modelNumber": "A 125"
+  },
+  "electric-irons-curv": {
+    "modelNumber": "A 126"
+  },
+  "electric-irons-eon": {
+    "modelNumber": "A 121"
+  },
+  "electric-irons-grand": {
+    "modelNumber": "A 127"
+  },
+  "electric-irons-majestic": {
+    "modelNumber": "A 124"
+  },
+  "electric-irons-passion": {
+    "modelNumber": "A 123"
+  },
+  "electric-irons-plancha": {
+    "modelNumber": "A 130"
+  },
+  "electric-irons-plancha-beetle": {
+    "modelNumber": "A 128"
+  },
+  "electric-irons-plancha-turbo": {
+    "modelNumber": "A 129"
+  },
+  "electric-irons-regular": {
+    "modelNumber": "A 121"
+  },
+  "electric-irons-verna": {
+    "modelNumber": "A 122"
+  },
+  "electric-irons-bold": {
+    "modelNumber": "A 127"
+  },
+  "washing-machines-apwm-9-0-pm": {
+    "modelNumber": "APWM 9.0 PM"
+  },
+  "washing-machines-apwm-7-5-pm": {
+    "modelNumber": "APWM 7.5 PM"
+  },
+  "washing-machines-apwm-7-5-gm": {
+    "modelNumber": "APWM 7.5 GM"
+  },
+  "washing-machines-apwm-9-5-gm": {
+    "modelNumber": "APWM 9.5 GM"
+  }
 }
