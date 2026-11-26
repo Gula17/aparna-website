@@ -1,5 +1,5 @@
 {
-  "_read_me": "Checked by eye. reject: the automatic cutout was wrong (see-through blades, missing parts, leftover printed names; and white or ivory parts on a white or pale background, which the background removal erases with the background: Plancha Beetle, Aronita, Rider, Rider Pro, Ultima 1401/1402, checked 14 Nov 2026; GoAir's white blades came out partly see-through but are kept, as its turning blades are made from the cutout), so the product keeps its normal photo. erase: printed extras (logo tile, energy-label badge, caption) cleared from the cutout, as [left, top, width, height] fractions of the cutout. Run npm run cutouts after a change.",
+  "_read_me": "Checked by eye. reject: the automatic cutout was wrong (see-through blades, missing parts, leftover printed names; and white or ivory parts on a white or pale background, which the background removal erases with the background: Plancha Beetle, Aronita, Rider, Rider Pro, Ultima 1401/1402, checked 14 Nov 2026; GoAir's white blades came out partly see-through but are kept, as its turning blades are made from the cutout), so the product keeps its normal photo. erase: printed extras (logo tile, energy-label badge, caption) cleared from the cutout, as [left, top, width, height] fractions of the cutout. Run npm run cutouts after a change. Ikon Pro, Luster and Supreme (20 Nov 2026): the cutout lost most of the blades.",
   "reject": [
     "ceiling-fans-coras-48",
     "ceiling-fans-irus-48",
@@ -51,36 +51,89 @@
     "ceiling-fans-rider-pro-48",
     "ceiling-fans-iconic-48",
     "air-coolers-ultima-1401",
-    "air-coolers-ultima-1402"
+    "air-coolers-ultima-1402",
+    "ceiling-fans-ikon-pro-48",
+    "ceiling-fans-luster-48",
+    "ceiling-fans-supreme-48"
   ],
   "erase": {
     "ceiling-fans-aeroflow-48": [
-      [0, 0, 0.2, 0.3]
+      [
+        0,
+        0,
+        0.2,
+        0.3
+      ]
     ],
     "ceiling-fans-aerosleek-48": [
-      [0.84, 0.82, 0.16, 0.18]
+      [
+        0.84,
+        0.82,
+        0.16,
+        0.18
+      ]
     ],
     "ceiling-fans-ikon-bldc-48": [
-      [0, 0, 0.21, 0.3],
-      [0.72, 0.77, 0.28, 0.23]
+      [
+        0,
+        0,
+        0.21,
+        0.3
+      ],
+      [
+        0.72,
+        0.77,
+        0.28,
+        0.23
+      ]
     ],
     "ceiling-fans-air-max-48": [
-      [0.16, 0.8, 0.18, 0.2]
+      [
+        0.16,
+        0.8,
+        0.18,
+        0.2
+      ]
     ],
     "air-coolers-pearl-1203-dlx": [
-      [0.58, 0.45, 0.42, 0.4]
+      [
+        0.58,
+        0.45,
+        0.42,
+        0.4
+      ]
     ],
     "kitchen-appliances-comfort": [
-      [0, 0.82, 1, 0.18]
+      [
+        0,
+        0.82,
+        1,
+        0.18
+      ]
     ],
     "kitchen-appliances-ss-2000": [
-      [0, 0.82, 1, 0.18]
+      [
+        0,
+        0.82,
+        1,
+        0.18
+      ]
     ],
     "kitchen-appliances-prime": [
-      [0.75, 0, 0.25, 0.7]
+      [
+        0.75,
+        0,
+        0.25,
+        0.7
+      ]
     ],
     "heating-water-kettle-element": [
-      [0, 0.84, 1, 0.16]
+      [
+        0,
+        0.84,
+        1,
+        0.16
+      ]
     ]
   }
 }

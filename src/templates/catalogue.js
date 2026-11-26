@@ -11,9 +11,10 @@ const DATA_COLOUR_TO_FINISH = FINISH_KEYS; // colour name -> 3D finish (src/thre
 
 // ---------------------------------------------------------------- small pieces
 
-function productImage(img, { className = '', sizes = '320px', eager = false } = {}) {
+// cap: never drawn wider than its largest file (a small source sits smaller in its frame instead of being stretched)
+function productImage(img, { className = '', sizes = '320px', eager = false, cap = false } = {}) {
   const largest = img.variants.at(-1);
-  return `<img class="${className}" src="${esc(largest.file)}" srcset="${esc(img.variants.map((v) => `${v.file} ${v.width}w`).join(', '))}"
+  return `<img class="${className}"${cap ? ` style="max-width:min(100%, ${largest.width}px)"` : ''} src="${esc(largest.file)}" srcset="${esc(img.variants.map((v) => `${v.file} ${v.width}w`).join(', '))}"
     sizes="${esc(sizes)}" width="${largest.width}" height="${largest.height}" alt="${esc(img.alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
 
@@ -80,6 +81,7 @@ function spotlightFor(catalogue, cutouts, slug) {
   return items.find((p) => cutouts[p.id]) ?? items.find((p) => p.images[0]) ?? items[0];
 }
 
+const swatchHex = (value = '') => (value.match(/#[0-9a-f]{6}(?=\s+5\d%)/i) ?? value.match(/#[0-9a-f]{6}/i))?.[0] ?? '';
 const swatch = (colours, name) => `<span class="swatch" style="--swatch:${esc(colours[name] ?? '#ccc')}" aria-hidden="true"></span>`;
 
 const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--new">${esc(t.products.newLaunch)}</li>`
@@ -87,6 +89,11 @@ const statusBadge = (t, p) => (p.status === 'launch' ? `<li class="badge badge--
     : p.status === 'soon' ? `<li class="badge badge--soft">${esc(t.products.comingSoon)}</li>` : '');
 
 const sizeText = (p) => (p.sizeInch ? (p.sizeMm ? `${p.sizeInch}" · ${p.sizeMm} mm` : `${p.sizeInch}"`) : '');
+// Model code under a name and on cards: only the codes ("A 1450 / A 1451 / A 1452"); the specification table shows
+// the full text with which colour or version each code is ("A 1450 (White, Golden) · A 1451 (Grey) · …").
+// A code never breaks across lines ("A 267", "271 A"): its own spaces become non-breaking.
+const keepCode = (m) => String(m).replace(/\b([A-Z]{1,4}) (?=\d)/g, '$1 ').replace(/(\d) (?=[A-Z]\b)/g, '$1 ');
+const shortModel = (m) => keepCode(String(m).replace(/\s+\((?:[^()]|\([^()]*\))*\)/g, '').split(/\s*·\s*/).join(' / '));
 
 const mrpLine = (t, p) => (p.mrp ? `${p.mrp.varies ? t.product.mrpFrom : t.product.mrp} ${rupees(p.mrp.value)}` : '');
 
@@ -124,7 +131,7 @@ function productCard(t, colours, cutouts, p, { eager = false, index = 0 } = {}) 
         <span class="product-card__body">
           <span class="product-card__series">${esc(p.series.replace(/\s*\(.*\)\s*$/, ''))}</span>
           <span class="product-card__name">${esc(p.name)}</span>
-          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, size].filter(Boolean).join(' · '))}</span>
+          <span class="product-card__meta">${esc([p.modelNumber ? `${t.product.model} ${shortModel(p.modelNumber)}` : '', p.type, size].filter(Boolean).join(' · '))}</span>
           ${fam ? (familyMrpLine(t, p) ? `<span class="product-card__mrp">${esc(familyMrpLine(t, p))}</span>` : '') : p.mrp ? `<span class="product-card__mrp">${esc(mrpLine(t, p))}</span>` : ''}
           <span class="product-card__desc">${esc(fam ? fam.description : p.description)}</span>
           <span class="product-card__foot">
@@ -486,7 +493,8 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
   }
   if (cut) {
     slides.push(`
-      <figure class="gallery__slide gallery__slide--stage" data-slide data-colour="${esc(studioCut ? p.images[0].colour ?? '' : '')}">
+      <figure class="gallery__slide gallery__slide--stage" data-slide data-colour="${esc(studioCut ? p.images[0].colour ?? '' : '')}" data-pictured="${esc(pickColours[startColour] ?? '')}">
+        <span class="colour-preview" data-colour-preview data-template="${esc(t.product.colourPreview)}" hidden></span>
         <div class="gallery__showcase" data-stage-card>${stage(t, p, cut, { sizes: '(min-width: 900px) 50vw, 94vw', eager: !modelKey, extraClass: 'gallery__stagebox' })}</div>
       </figure>`);
     thumbs.push({ html: `<img src="${esc(cut.variants[0].file)}" alt="" width="${cut.variants[0].width}" height="${cut.variants[0].height}" loading="lazy">` });
@@ -496,7 +504,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
     if (i === 0 && studioCut) return;
     slides.push(`
       <figure class="gallery__slide" data-slide data-colour="${esc(img.colour ?? '')}">
-        <div class="gallery__frame lens" data-lens>${productImage(img, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 94vw', eager: i === 0 && !modelKey && !cut })}</div>
+        <div class="gallery__frame lens" data-lens>${productImage(img, { className: 'lens__img', sizes: '(min-width: 900px) 50vw, 94vw', eager: i === 0 && !modelKey && !cut, cap: true })}</div>
         <figcaption>${esc(img.colour ? `${t.product.kind[img.kind]} · ${img.colour}` : t.product.kind[img.kind])}</figcaption>
       </figure>`);
     thumbs.push({ html: productImage(img, { sizes: '80px' }) });
@@ -564,7 +572,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
         <ul class="badges">${statusBadge(t, p)}${p.badges.filter((b) => b !== 'New launch').map((b) => `<li class="badge badge--soft">${esc(b)}</li>`).join('')}</ul>
         <p class="product__series">${esc(p.series)}</p>
         <h1 class="product__name" id="product-title">${esc(p.name)}</h1>
-        <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${p.modelNumber}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
+        <p class="product__meta">${esc([p.modelNumber ? `${t.product.model} ${shortModel(p.modelNumber)}` : '', p.type, sizeText(p)].filter(Boolean).join(' · '))}</p>
         ${p.family ? sizeSwitch(t, p) : ''}
         ${p.mrp ? productMrp(t, p, pickColours) : ''}
         ${p.family ? alsoIn(t, p) : ''}
@@ -577,10 +585,11 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
           <div class="colour-picker__list">
             ${pickColours.map((c, i) => `
               <label class="colour-option">
-                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}"${colourMrp(p, c) ? ` data-mrp="${esc(rupees(colourMrp(p, c)))}"` : ''}>
+                <input type="radio" name="colour" value="${esc(c)}" ${i === startColour ? 'checked' : ''} data-finish="${esc(finishOf(c))}" data-hex="${esc(swatchHex(colours[c]))}" data-photo="${photoColours.includes(c) ? '1' : ''}"${colourMrp(p, c) ? ` data-mrp="${esc(rupees(colourMrp(p, c)))}"` : ''}>
                 ${swatch(colours, c)}<span class="colour-option__name">${esc(c)}</span>
               </label>`).join('')}
           </div>
+          <p class="colour-picker__soon" data-colour-soon data-template="${esc(t.product.colourPhotoSoon)}" hidden></p>
           <p class="fine-print">${esc(modelKey || pickColours.every((c) => photoColours.includes(c)) ? t.product.colourNote.replace(/ Photos.*/, '') : t.product.colourNote)}</p>
         </fieldset>` : ''}
 
@@ -614,7 +623,7 @@ export function renderProduct({ t, range, catalogue, colours, cutouts = {}, id }
       <section class="product__block" aria-labelledby="specs-title">
         <h2 class="product__h2" id="specs-title" data-reveal="words">${esc(t.product.specs)}</h2>
         <dl class="spec-table">
-          <div><dt>${esc(t.product.model)}</dt><dd>${esc(p.modelNumber ?? t.product.toConfirm)}</dd></div>
+          <div><dt>${esc(t.product.model)}</dt><dd>${p.modelNumber ? p.modelNumber.split(/\s*·\s*/).map((m) => esc(keepCode(m))).join('<br>') : esc(t.product.toConfirm)}</dd></div>
           <div><dt>${esc(t.product.category)}</dt><dd>${esc(p.category)}</dd></div>
           <div><dt>${esc(t.product.series)}</dt><dd>${esc(p.series)}</dd></div>
           <div><dt>${esc(t.product.type)}</dt><dd>${esc(p.type)}</dd></div>
