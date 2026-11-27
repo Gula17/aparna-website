@@ -1,5 +1,5 @@
 {
-  "_read_me": "Per-product additions that are not in aparna-products.json yet. Keyed by product id. Supported fields: description, modelNumber.",
+  "_read_me": "Per-product additions that are not in aparna-products.json yet. Keyed by product id. Supported fields: description, modelNumber, series, status, features (added), specs (added rows [{key, value}]; never replaces a spec the data has). Applies to every product, including coming-soon ones.",
   "_model_numbers": "modelNumber = the 'Code' printed beside each model in Aparna's price lists (AAPRNA_PRICE _IST_28_10_2026.pdf, w.e.f. 1 Sep 2026; washing machines: their model name). Shown as 'Model code'. Not filled where the list prints the same code for two different models (Ikon Pro/Prince A 302, Nikon/Iconic A 303 A, Supreme/Festiva A 309 B, Jawa/Maxx A 255, Oreo/Bullet 12\" 501A): ask Aparna. Added 26 Nov 2026.",
   "ceiling-fans-aeroflow-48": {
     "modelNumber": "A 1450 (White, Golden) · A 1451 (Grey) · A 1452 (Wood Craft)"
@@ -47,7 +47,13 @@
     "modelNumber": "A 314"
   },
   "ceiling-fans-new-josh-24": {
-    "modelNumber": "A 317"
+    "modelNumber": "A 317",
+    "specs": [
+      {
+        "key": "warranty",
+        "value": "2 years"
+      }
+    ]
   },
   "ceiling-fans-diplomat-36": {
     "modelNumber": "A 312"
@@ -353,7 +359,13 @@
     "modelNumber": "A 94"
   },
   "heating-water-kettle-element-half-round": {
-    "modelNumber": "A 96"
+    "modelNumber": "A 96",
+    "specs": [
+      {
+        "key": "power",
+        "value": "2000 W"
+      }
+    ]
   },
   "heating-water-kettle-midget-element": {
     "modelNumber": "A 95"
@@ -416,7 +428,13 @@
     "modelNumber": "A 122"
   },
   "electric-irons-bold": {
-    "modelNumber": "A 127"
+    "modelNumber": "A 127",
+    "series": "Dry irons",
+    "status": "current",
+    "features": [
+      "Side switch"
+    ],
+    "description": "The Bold is a dry iron in Aparna's Dry irons range."
   },
   "washing-machines-apwm-9-0-pm": {
     "modelNumber": "APWM 9.0 PM"
@@ -429,5 +447,12 @@
   },
   "washing-machines-apwm-9-5-gm": {
     "modelNumber": "APWM 9.5 GM"
+  },
+  "_catalogue_check": "27 Nov 2026, each with a printed source (proof pictures: Aparna website build/Proof (catalogue)/): New Josh warranty = the 24 MONTHS WARRANTY icon on its catalogue page (Catalogue 2026 PDF p10 / printed 19 and p15 / printed 29); Croma / Croma2 model = \"Model : CROMA\" / \"Model : CROMA2\" (catalogue PDF p31 / printed 60; the price list prints *** as their code); half-round kettle element power = \"2000W HALFROUND KETTLE ELEMENT A96\" (price list PDF p19 / printed 37); Bold = \"BOLD (side Switch)\" in the electric iron range (catalogue PDF p29 / printed 57) and \"BOLD/GRAND SIDE SWITCH A127\" in the price list, so it is a current dry iron, not coming soon.",
+  "heating-water-croma": {
+    "modelNumber": "CROMA"
+  },
+  "heating-water-croma2": {
+    "modelNumber": "CROMA2"
   }
 }
