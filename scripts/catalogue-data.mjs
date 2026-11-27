@@ -290,6 +290,24 @@ export async function buildCatalogue({ pack, publicDir, contentDir }) {
     });
   }
 
+  // Per-product additions with a printed source (src/content/product-overrides.json): a missing spec row, a
+  // model code, series, features, or a coming-soon product that Aparna's catalogue and price list show as current.
+  // Never replaces a spec the data already has.
+  for (const p of products) {
+    const o = overrides[p.id];
+    if (!o) continue;
+    if (o.modelNumber) p.modelNumber = o.modelNumber;
+    if (o.description) p.description = o.description;
+    if (o.series) p.series = o.series;
+    if (o.status) p.status = o.status;
+    for (const f of o.features ?? []) if (!p.features.includes(f)) p.features.push(f);
+    for (const s of o.specs ?? []) {
+      if (p.specs.some((x) => x.key === s.key)) continue;
+      p.specs.push({ key: s.key, label: SPEC_LABELS[s.key]?.label ?? s.key, value: s.value });
+    }
+    p.specs.sort((a, b) => Object.keys(SPEC_LABELS).indexOf(a.key) - Object.keys(SPEC_LABELS).indexOf(b.key));
+  }
+
   for (const p of products) p.mrp = mrpOf(p.id);
   const families = sizeFamilies(products);
 

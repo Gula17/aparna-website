@@ -1608,7 +1608,13 @@
         "Glossy Brown",
         "Metallic Blue"
       ],
-      "specs": [],
+      "specs": [
+        {
+          "key": "warranty",
+          "label": "Warranty",
+          "value": "2 years"
+        }
+      ],
       "features": [
         "Double ball bearing",
         "Dynamically balanced blades",
@@ -14189,7 +14195,7 @@
       "slug": "croma",
       "url": "/products/heating-and-water/croma/",
       "name": "Croma",
-      "modelNumber": null,
+      "modelNumber": "CROMA",
       "category": "Heating & Water",
       "categorySlug": "heating-and-water",
       "series": "Instant water heaters",
@@ -14264,7 +14270,7 @@
       "slug": "croma2",
       "url": "/products/heating-and-water/croma2/",
       "name": "Croma2",
-      "modelNumber": null,
+      "modelNumber": "CROMA2",
       "category": "Heating & Water",
       "categorySlug": "heating-and-water",
       "series": "Instant water heaters",
@@ -14468,7 +14474,13 @@
       "sizeInch": null,
       "sizeMm": null,
       "colours": [],
-      "specs": [],
+      "specs": [
+        {
+          "key": "power",
+          "label": "Power",
+          "value": "2000 W"
+        }
+      ],
       "features": [],
       "badges": [],
       "status": "current",
@@ -16465,19 +16477,21 @@
       "slug": "bold",
       "url": "/products/electric-irons/bold/",
       "name": "Bold",
-      "modelNumber": null,
+      "modelNumber": "A 127",
       "category": "Electric Irons",
       "categorySlug": "electric-irons",
-      "series": "Coming soon",
+      "series": "Dry irons",
       "type": "Dry iron",
       "sizeInch": null,
       "sizeMm": null,
       "colours": [],
       "specs": [],
-      "features": [],
+      "features": [
+        "Side switch"
+      ],
       "badges": [],
-      "status": "soon",
-      "description": "Aparna dry iron. Its name and full details are coming soon.",
+      "status": "current",
+      "description": "The Bold is a dry iron in Aparna's Dry irons range.",
       "catalogue": null,
       "images": [
         {
@@ -17980,7 +17994,7 @@
       "slug": "apwm-9-0-pm",
       "url": "/products/washing-machines/apwm-9-0-pm/",
       "name": "APWM 9.0 PM",
-      "modelNumber": null,
+      "modelNumber": "APWM 9.0 PM",
       "category": "Washing Machines",
       "categorySlug": "washing-machines",
       "series": "Washing Machines",
@@ -18046,7 +18060,7 @@
       "slug": "apwm-7-5-pm",
       "url": "/products/washing-machines/apwm-7-5-pm/",
       "name": "APWM 7.5 PM",
-      "modelNumber": null,
+      "modelNumber": "APWM 7.5 PM",
       "category": "Washing Machines",
       "categorySlug": "washing-machines",
       "series": "Washing Machines",
@@ -18097,7 +18111,7 @@
       "slug": "apwm-7-5-gm",
       "url": "/products/washing-machines/apwm-7-5-gm/",
       "name": "APWM 7.5 GM",
-      "modelNumber": null,
+      "modelNumber": "APWM 7.5 GM",
       "category": "Washing Machines",
       "categorySlug": "washing-machines",
       "series": "Washing Machines",
@@ -18147,7 +18161,7 @@
       "slug": "apwm-9-5-gm",
       "url": "/products/washing-machines/apwm-9-5-gm/",
       "name": "APWM 9.5 GM",
-      "modelNumber": null,
+      "modelNumber": "APWM 9.5 GM",
       "category": "Washing Machines",
       "categorySlug": "washing-machines",
       "series": "Washing Machines",
